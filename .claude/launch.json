@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "mamut-dev",
+      "runtimeExecutable": "corepack",
+      "runtimeArgs": ["pnpm@11.5.1", "dev"],
+      "port": 3000
+    }
+  ]
+}
