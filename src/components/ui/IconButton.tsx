@@ -12,8 +12,9 @@ const variants: Record<IconButtonVariant, string> = {
     'border border-line-contrast bg-transparent text-content hover:border-brand hover:bg-brand hover:text-brand-contrast',
   outlineOnMedia:
     'border border-on-media bg-transparent text-on-media hover:border-brand hover:bg-brand',
-  /** Botão branco sobre foto (canto do card de roteiro). */
-  solidOnMedia: 'bg-white text-gray-1100 hover:bg-brand hover:text-brand-contrast',
+  /** Botão branco sobre foto (canto do card de roteiro). O branco e o quase
+   *  preto não espelham: são a cor da peça sobre a mídia, nos dois temas. */
+  solidOnMedia: 'bg-on-media text-media-backdrop hover:bg-brand hover:text-brand-contrast',
   /** Sobre superfície levantada — usado em toggles e controles de header. */
   subtle:
     'bg-surface-raised text-content-secondary ring-1 ring-inset ring-line-strong hover:bg-surface-sunken hover:text-content',

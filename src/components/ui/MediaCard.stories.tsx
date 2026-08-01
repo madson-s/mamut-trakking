@@ -34,6 +34,7 @@ const meta = {
       options: ['none', 'chip', 'card', 'cardLg', 'panel', 'panelLg', 'pill'],
     },
     backdrop: { control: 'inline-radio', options: ['sunken', 'media', 'none'] },
+    elevation: { control: 'inline-radio', options: ['none', 'chip', 'card', 'float', 'popover'] },
     contentLayer: { control: 'inline-radio', options: ['flow', 'fill'] },
   },
 } satisfies Meta<typeof MediaCard>;

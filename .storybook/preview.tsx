@@ -24,7 +24,23 @@ const preview: Preview = {
       expanded: true,
     },
     options: {
-      storySort: { order: ['Theme', 'UI', 'Home'] },
+      storySort: {
+        order: [
+          'Theme',
+          [
+            'Foundations',
+            'Colors',
+            'Typography',
+            'Space & grid',
+            'Shape & elevation',
+            'Motion',
+            'Brand',
+            'Voice & copy',
+          ],
+          'UI',
+          'Home',
+        ],
+      },
     },
     a11y: { test: 'todo' },
   },

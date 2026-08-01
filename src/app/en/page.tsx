@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { Hero } from '@/components/ui/Hero';
-import { SectionBlock } from '@/components/content/SectionBlock';
-import { AdventureGrid } from '@/components/ui/AdventureGrid';
-import { AdventureCard } from '@/components/ui/AdventureCard';
+import {
+  AdventureCard,
+  AdventureGrid,
+  Button,
+  Section,
+  SectionHeading,
+} from '@/components/ui';
 
 // Home EN — content written directly here.
 export const metadata: Metadata = {
@@ -14,14 +17,26 @@ const IMG = 'https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jp
 export default function HomePage() {
   return (
     <>
-      <Hero
-        kicker="Chapada Diamantina · Bahia"
-        title="Treks and adventures in Chapada Diamantina"
-        subtitle="A specialist operator for hikes, traverses and guided tours, with local guides and low-impact tourism."
-        cta={{ label: 'See adventures', href: '/en/adventures' }}
-      />
+      <Section padding="tall" containerClassName="flex flex-col items-center">
+        <SectionHeading
+          as="h1"
+          size="hero"
+          align="center"
+          eyebrow="Chapada Diamantina · Bahia"
+          title="Treks and adventures in Chapada Diamantina"
+          lead="A specialist operator for hikes, traverses and guided tours, with local guides and low-impact tourism."
+          maxWidth="max-w-[900px]"
+          actions={<Button href="/en/adventures" arrow>See adventures</Button>}
+        />
+      </Section>
 
-      <SectionBlock title="Featured itineraries" className="pb-24">
+      <Section
+        surface="muted"
+        bordered
+        padding="compact"
+        containerClassName="flex flex-col gap-12"
+      >
+        <SectionHeading title="Featured itineraries" />
         <AdventureGrid columns={4}>
           <AdventureCard
             locale="en"
@@ -68,7 +83,7 @@ export default function HomePage() {
             fromLabel="From"
           />
         </AdventureGrid>
-      </SectionBlock>
+      </Section>
     </>
   );
 }

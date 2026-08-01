@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import { Container } from '@/components/layout/Container';
-import { AdventureGrid } from '@/components/ui/AdventureGrid';
-import { AdventureCard } from '@/components/ui/AdventureCard';
+import { AdventureCard, AdventureGrid, Section, SectionHeading } from '@/components/ui';
 
 // Hub de aventuras (es) — cards escritos diretamente aqui.
 const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
@@ -17,13 +15,14 @@ export const metadata: Metadata = {
 
 export default function AdventuresHubPage() {
   return (
-    <Container className="py-16">
-      <header className="max-w-2xl">
-        <h1 className="font-display text-4xl sm:text-5xl">Aventuras</h1>
-        <p className="mt-4 text-lg text-mamut-stone">Elige entre trekkings, excursiones de un día, paquetes y la travesía del Valle del Pati.</p>
-      </header>
-      <div className="mt-12">
-        <AdventureGrid>
+    <Section padding="compact" containerClassName="flex flex-col gap-12">
+      <SectionHeading
+        as="h1"
+        title="Aventuras"
+        lead="Elige entre trekkings, excursiones de un día, paquetes y la travesía del Valle del Pati."
+        maxWidth="max-w-2xl"
+      />
+      <AdventureGrid>
         <AdventureCard
           locale="es"
           href={"/es/aventuras/cascada-del-palmital"}
@@ -156,8 +155,7 @@ export default function AdventuresHubPage() {
           price={3800}
           fromLabel={"Desde"}
         />
-        </AdventureGrid>
-      </div>
-    </Container>
+      </AdventureGrid>
+    </Section>
   );
 }

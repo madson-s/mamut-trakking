@@ -23,6 +23,7 @@ import {
   Input,
   moveItem,
   PlusIcon,
+  SegmentedControl,
   Text,
   Textarea,
   useDragSort,
@@ -31,13 +32,19 @@ import {
 } from '@/components/ui';
 import { motion } from '@/design/tokens';
 import { cn } from '@/lib/cn';
-import { Theme } from '@/components/ui/theme';
 import {
+  CONTENT,
   defaultVoucherData,
-  type VoucherData,
-  type ServiceRow,
+  hydrateVoucherDraft,
+  switchVoucherLocale,
+  VOUCHER_LOCALES,
+  type Participant,
   type PaymentRow,
+  type ServiceRow,
+  type VoucherData,
+  type VoucherLocale,
 } from '@/lib/voucher';
+import { VOUCHER_LOCALE_NAMES, WHATSAPP_MESSAGE } from '@/lib/voucher-content';
 
 // Preview carregado só no cliente (usa APIs de browser do @react-pdf/renderer).
 const VoucherPreview = dynamic(() => import('./VoucherPreview'), {
@@ -52,7 +59,9 @@ const VoucherPreview = dynamic(() => import('./VoucherPreview'), {
 });
 
 const STORAGE_KEY = 'mamut-voucher-draft';
-const PREVIEW_DEBOUNCE_MS = 500;
+// Regerar o PDF é a operação cara da tela, então o preview só se atualiza
+// depois de 1s sem digitação. O rascunho continua salvo a cada tecla.
+const PREVIEW_DEBOUNCE_MS = 1_000;
 
 /**
  * Rascunho salvo neste navegador. Só é chamado no cliente — o estúdio é
@@ -62,12 +71,18 @@ const PREVIEW_DEBOUNCE_MS = 500;
 function loadDraft(): VoucherData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return { ...defaultVoucherData, ...JSON.parse(raw) };
+    if (raw) return hydrateVoucherDraft(JSON.parse(raw));
   } catch {
     /* rascunho corrompido ou storage indisponível */
   }
-  return defaultVoucherData;
+  return defaultVoucherData();
 }
+
+const LOCALE_OPTIONS = VOUCHER_LOCALES.map((locale) => ({
+  value: locale,
+  label: VOUCHER_LOCALE_NAMES[locale].short,
+  title: VOUCHER_LOCALE_NAMES[locale].name,
+}));
 
 /** Campo de texto rotulado — atalho para `Field` + `Input`. */
 function TextField({
@@ -257,6 +272,26 @@ export default function VoucherStudio() {
   const set = <K extends keyof VoucherData>(key: K, value: VoucherData[K]) =>
     setData((d) => ({ ...d, [key]: value }));
 
+  const localeContent = CONTENT[data.locale];
+
+  // ---- participantes ----
+  const updateParticipant = (i: number, patch: Partial<Participant>) =>
+    setData((d) => ({
+      ...d,
+      participants: d.participants.map((p, idx) => (idx === i ? { ...p, ...patch } : p)),
+    }));
+  const addParticipant = () =>
+    setData((d) => ({ ...d, participants: [...d.participants, { name: '', age: '', email: '' }] }));
+  const removeParticipant = (i: number) =>
+    setData((d) => ({
+      ...d,
+      // Sempre sobra uma linha: o voucher precisa de pelo menos um cliente.
+      participants:
+        d.participants.length > 1
+          ? d.participants.filter((_, idx) => idx !== i)
+          : [{ name: '', age: '', email: '' }],
+    }));
+
   // ---- listas ----
   const updateService = (i: number, patch: Partial<ServiceRow>) =>
     setData((d) => ({
@@ -327,12 +362,25 @@ export default function VoucherStudio() {
     setData((d) => ({ ...d, checklist: d.checklist.filter((_, idx) => idx !== i) }));
 
   const resetAll = () => {
-    if (confirm('Restaurar todos os campos para o modelo padrão? O rascunho atual será perdido.')) {
-      setData(defaultVoucherData);
+    const language = VOUCHER_LOCALE_NAMES[data.locale].name;
+    if (
+      confirm(
+        `Restaurar todos os campos para o modelo em ${language}? O rascunho atual será perdido.`,
+      )
+    ) {
+      setData(defaultVoucherData(data.locale));
     }
   };
 
-  const fileName = (d: VoucherData) => `voucher-${d.voucherNumber || 'mamut'}.pdf`;
+  /**
+   * Trocar o idioma reescreve rótulos e texto legal na hora e traduz as listas
+   * que ainda estão iguais ao modelo — o que você digitou fica intacto
+   * (ver `switchVoucherLocale`).
+   */
+  const setLocale = (locale: VoucherLocale) =>
+    setData((d) => switchVoucherLocale(d, locale));
+
+  const fileName = (d: VoucherData) => `voucher-${d.voucherNumber || 'mamut'}-${d.locale}.pdf`;
 
   const buildPdfBlob = async (d: VoucherData): Promise<Blob> => {
     const [{ pdf }, { buildVoucherDocument }] = await Promise.all([
@@ -363,12 +411,14 @@ export default function VoucherStudio() {
   };
 
   const openWhatsApp = () => {
-    // Abre o chat no número do formulário com a mensagem pronta. wa.me só leva
-    // TEXTO — o link não anexa arquivo; o PDF sai pelo botão "Baixar PDF".
+    // Abre o chat no número do formulário com a mensagem pronta, no idioma do
+    // voucher. wa.me só leva TEXTO — o link não anexa arquivo; o PDF sai pelo
+    // botão "Baixar PDF".
     const digits = data.phone.replace(/\D/g, ''); // só dígitos, com DDI
-    const nome = data.participantName ? ` ${data.participantName}` : '';
-    const numero = data.voucherNumber ? ` (nº ${data.voucherNumber})` : '';
-    const msg = `Olá${nome}! Segue o seu voucher da Mamut Trekking${numero}. Qualquer dúvida, estamos à disposição.`;
+    const msg = WHATSAPP_MESSAGE[data.locale]({
+      name: data.participants[0]?.name.trim() ?? '',
+      voucherNumber: data.voucherNumber.trim(),
+    });
     const url = `https://wa.me/${digits}?text=${encodeURIComponent(msg)}`;
     // window.open precisa acontecer dentro do gesto do clique (evita bloqueio de pop-up)
     window.open(url, '_blank', 'noopener,noreferrer');
@@ -376,14 +426,16 @@ export default function VoucherStudio() {
 
   return (
     <div className="min-h-svh bg-surface">
+      {/* Sugestões dos campos de status, no idioma do voucher. */}
       <datalist id="status-service">
-        <option value="BOOKED" />
-        <option value="NOT BOOKED" />
+        {localeContent.serviceStatus.map((option) => (
+          <option key={option} value={option} />
+        ))}
       </datalist>
       <datalist id="status-payment">
-        <option value="DONE" />
-        <option value="PENDING" />
-        <option value="BOOKED" />
+        {localeContent.paymentStatus.map((option) => (
+          <option key={option} value={option} />
+        ))}
       </datalist>
 
       {/* Barra superior */}
@@ -399,7 +451,17 @@ export default function VoucherStudio() {
             </Text>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <Theme variant="switch" size="sm" />
+            <div className="flex items-center gap-2">
+              <Text as="span" size="xs" tone="muted" className="hidden xl:inline">
+                Idioma do voucher
+              </Text>
+              <SegmentedControl
+                label="Idioma do voucher"
+                options={LOCALE_OPTIONS}
+                value={data.locale}
+                onChange={setLocale}
+              />
+            </div>
             <Button variant="ghost" size="sm" onClick={resetAll}>
               Restaurar modelo
             </Button>
@@ -429,7 +491,7 @@ export default function VoucherStudio() {
       >
         {/* -------- Formulário -------- */}
         <div className="flex flex-col gap-4">
-          <Panel title="Voucher & Participante">
+          <Panel title="Voucher & Reserva">
             <div className="grid grid-cols-2 gap-3">
               <TextField
                 label="Nº do voucher"
@@ -437,27 +499,18 @@ export default function VoucherStudio() {
                 onChange={(v) => set('voucherNumber', v)}
               />
               <TextField
-                label="Nome do participante"
-                value={data.participantName}
-                onChange={(v) => set('participantName', v)}
+                label="Data de pagamento (vazio = destacado)"
+                value={data.paymentDate}
+                onChange={(v) => set('paymentDate', v)}
+                placeholder="dd/mm/aaaa"
               />
+              <TextField label="Telefone" value={data.phone} onChange={(v) => set('phone', v)} />
               <TextField
-                label="Acompanhantes (+ N PEOPLE)"
+                label="Acompanhantes não listados (+ N)"
                 value={data.extraPeople}
                 onChange={(v) => set('extraPeople', v)}
                 placeholder="0"
               />
-              <TextField
-                label="E-mail (vazio = MISSING)"
-                value={data.email}
-                onChange={(v) => set('email', v)}
-              />
-              <TextField
-                label="Payment Date (vazio = MISSING)"
-                value={data.paymentDate}
-                onChange={(v) => set('paymentDate', v)}
-              />
-              <TextField label="Telefone" value={data.phone} onChange={(v) => set('phone', v)} />
               <TextField
                 label="Check-in"
                 value={data.checkIn}
@@ -471,6 +524,43 @@ export default function VoucherStudio() {
                 placeholder="dd/mm/aaaa"
               />
             </div>
+          </Panel>
+
+          <Panel
+            title="Clientes"
+            action={<AddButton onClick={addParticipant}>Participante</AddButton>}
+          >
+            <Text size="xs" tone="muted">
+              Nome, idade e e-mail de cada participante — abrem o voucher numa tabela, uma linha por
+              pessoa. Idade em branco sai como travessão.
+            </Text>
+            {data.participants.map((participant, i) => (
+              <Row
+                key={i}
+                label={`Participante ${i + 1}`}
+                onRemove={() => removeParticipant(i)}
+              >
+                <div className="grid grid-cols-[minmax(0,1fr)_72px] gap-2">
+                  <TextField
+                    label="Nome"
+                    value={participant.name}
+                    onChange={(v) => updateParticipant(i, { name: v })}
+                  />
+                  <TextField
+                    label="Idade"
+                    value={participant.age}
+                    onChange={(v) => updateParticipant(i, { age: v })}
+                    placeholder="28"
+                  />
+                </div>
+                <TextField
+                  label="E-mail"
+                  value={participant.email}
+                  onChange={(v) => updateParticipant(i, { email: v })}
+                  placeholder="nome@email.com"
+                />
+              </Row>
+            ))}
           </Panel>
 
           <Panel title="Serviços" action={<AddButton onClick={addService}>Adicionar</AddButton>}>

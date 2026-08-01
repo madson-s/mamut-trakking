@@ -11,7 +11,10 @@ const meta = {
       description: {
         component:
           'Renders a `<button>`, a `<Link>` (internal route) or an `<a target="_blank">` ' +
-          '(absolute URL) depending on the props. Use `outlineOnMedia` over photo or video.',
+          '(absolute URL) depending on the props. Use `outlineOnMedia` over photo or video. ' +
+          'The filled CTA **darkens** on hover and never lightens; the outline one fills green ' +
+          'and flips its label white. `focus-visible` mirrors hover and adds the brand ring, and ' +
+          '`sm`/`md` are both 40px tall — the minimum interactive target.',
       },
     },
   },

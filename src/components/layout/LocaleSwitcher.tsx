@@ -1,3 +1,5 @@
+import { cn } from '@/lib/cn';
+import { focus, motion } from '@/design/tokens';
 import { LOCALES, type Locale } from '@/lib/site';
 
 // Códigos de idioma (chrome de UI, não conteúdo). Troca para a Home do idioma
@@ -7,17 +9,24 @@ const LABELS: Record<Locale, string> = { pt: 'PT', en: 'EN', es: 'ES' };
 
 export function LocaleSwitcher({ locale }: { locale: Locale }) {
   return (
-    <div className="flex items-center gap-1 text-xs font-medium">
+    <div
+      role="group"
+      aria-label="Selecionar idioma"
+      className="flex items-center gap-1 font-body text-xs font-medium"
+    >
       {LOCALES.map((loc) => (
         <a
           key={loc}
           href={`/${loc}`}
           aria-current={loc === locale ? 'true' : undefined}
-          className={
+          className={cn(
+            'rounded-control px-2 py-1 transition-colors',
+            motion.fast,
+            focus.onSurface,
             loc === locale
-              ? 'rounded px-2 py-1 bg-mamut-moss text-mamut-sand'
-              : 'rounded px-2 py-1 text-mamut-stone transition hover:text-mamut-ink'
-          }
+              ? 'bg-brand text-brand-contrast'
+              : 'text-content-muted hover:text-content',
+          )}
         >
           {LABELS[loc]}
         </a>

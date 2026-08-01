@@ -1,6 +1,9 @@
+import Image from 'next/image';
 import Link from 'next/link';
+import { cn } from '@/lib/cn';
+import { focus, motion } from '@/design/tokens';
+import { Button, Container, Text } from '@/components/ui';
 import { SITE } from '@/lib/site';
-import { ArrowRightIcon } from '@/components/ui/icons';
 import { LanguageSwitcher } from './LanguageSwitcher';
 
 const NAV = [
@@ -11,22 +14,44 @@ const NAV = [
   { label: 'Contato', href: '/pt/contato' },
 ];
 
+// Header de 80px do Figma. O gutter é mais estreito que o padrão (16 no mobile)
+// para caber logo + idioma + CTA, então o Container entra sem padding próprio.
 export function HomeHeader() {
   return (
     <header className="relative z-20 w-full">
-      <div className="mx-auto flex h-20 w-full max-w-[1216px] items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6">
-        <Link href="/pt" className="shrink-0" aria-label={SITE.name}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/svg/mamut-logo-branco.svg" alt={SITE.name} className="theme-logo h-7 w-auto sm:h-8" />
+      <Container
+        padded={false}
+        className="flex h-20 items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6"
+      >
+        <Link href="/pt" aria-label={SITE.name} className={cn('shrink-0', focus.onSurface)}>
+          {/* Marca acima da dobra: `eager` (o `preload` fica reservado ao LCP, a foto do hero). */}
+          <Image
+            src="/svg/mamut-logo-branco.svg"
+            alt={SITE.name}
+            width={458}
+            height={264}
+            unoptimized
+            loading="eager"
+            className="theme-logo h-7 w-auto sm:h-8"
+          />
         </Link>
 
-        <nav className="hidden items-center gap-2 font-body text-sm font-light text-gray-950 lg:flex">
+        <nav className="hidden items-center gap-2 lg:flex">
           {NAV.map((item, i) => (
             <span key={item.href} className="flex items-center gap-2">
-              {i > 0 && <span className="text-gray-500">·</span>}
-              <Link href={item.href} className="transition-colors hover:text-primary-700">
-                {item.label}
-              </Link>
+              {i > 0 && (
+                <Text as="span" size="sm" weight="light" tone="muted" aria-hidden>
+                  ·
+                </Text>
+              )}
+              <Text as="span" size="sm" weight="light">
+                <Link
+                  href={item.href}
+                  className={cn('transition-colors hover:text-brand-strong', motion.fast)}
+                >
+                  {item.label}
+                </Link>
+              </Text>
             </span>
           ))}
         </nav>
@@ -34,17 +59,13 @@ export function HomeHeader() {
         <div className="flex shrink-0 items-center gap-2.5">
           <LanguageSwitcher />
 
-          <a
-            href={SITE.whatsappUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-10 items-center gap-1.5 rounded-full bg-primary-500 pl-3.5 pr-3 font-body text-xs font-medium text-white transition-[background-color,scale] duration-150 ease-out hover:bg-primary-filled-hover active:scale-[0.96] sm:pl-5 sm:pr-[18px] sm:text-sm"
-          >
+          {/* O Figma usa 12px no mobile; aqui fica no `sm` do design system
+              (14px) para não brigar com a variante do Button por `className`. */}
+          <Button href={SITE.whatsappUrl} size="sm" arrow>
             <span className="hidden sm:inline">Falar no </span>WhatsApp
-            <ArrowRightIcon className="h-3.5 w-3.5" />
-          </a>
+          </Button>
         </div>
-      </div>
+      </Container>
     </header>
   );
 }

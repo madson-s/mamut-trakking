@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { CaretDownIcon } from '@/components/ui/icons';
 
 const DESTINATIONS = [
@@ -36,11 +37,12 @@ export function HeroDestinations() {
           className="group relative shrink-0 pb-3 focus-visible:outline-none"
         >
           <span className="relative block h-[124px] w-[122px] overflow-hidden rounded-[28px] shadow-[0_0_0_1px_rgba(255,255,255,0.10)]">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={src}
               alt={alt}
-              className="h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-[1.12] group-focus-visible:scale-[1.12]"
+              fill
+              sizes="122px"
+              className="object-cover transition-transform duration-300 ease-out group-hover:scale-[1.12] group-focus-visible:scale-[1.12]"
             />
 
             <span

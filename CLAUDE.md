@@ -23,9 +23,19 @@
 >   `primary-500` direto, senão o espelho claro/escuro quebra.
 > - Primitivos em `src/components/ui` (barrel `@/components/ui`): `Section`,
 >   `SectionHeading`, `Container`, `Heading`, `Text`/`Emphasis`, `Button`,
->   `IconButton`, `Badge`, `Card`, `MediaCard`, `Stat`, `Divider` e, para
->   formulários, `Field`, `Input`, `Textarea`, `Checkbox`.
+>   `IconButton`, `Badge`, `Card`, `MediaCard`, `Stat`, `Divider`, `Prose`,
+>   `Placeholder`, `JsonLd`, os de roteiro (`AdventureCard`, `AdventureGrid`,
+>   `AdventureDetail`) e, para formulários, `Field`, `Input`, `Textarea`,
+>   `Checkbox`, `SegmentedControl`.
 >   Título: `as` define a tag, `size` define a escala (uma `h1` por página).
+> - **Toda página em `src/app` compõe a partir do barrel** — nenhuma escreve
+>   `<h1 className="font-display …">` na mão. Os 36 detalhes de roteiro passam
+>   conteúdo para `AdventureDetail`; os 3 hubs e as homes en/es montam
+>   `Section` + `SectionHeading` + `AdventureGrid`/`AdventureCard`.
+> - Não existe mais camada legada: `Pill`, `layout/Container`,
+>   `layout/GridContainer`, `ui/Hero`, `ui/MetaList` e `content/SectionBlock`
+>   foram removidos, e a paleta `--mamut-*` só sobrevive como token documentado
+>   em `Theme/Colors` (nenhum componente a usa).
 > - Saídas que não leem CSS (hoje o PDF do voucher, via `@react-pdf/renderer`)
 >   usam `src/design/print.ts` — espelho literal dos tokens no modo claro.
 >   Mudou um primitivo no `globals.css`? Atualize o espelho.
@@ -36,19 +46,51 @@
 > - **Storybook 10** (`pnpm storybook`, build `pnpm build-storybook`): stories
 >   ficam ao lado do componente (`*.stories.tsx`). A camada do Storybook —
 >   títulos, nomes de story e descrições dos docs — é **em inglês**; o copy de
->   demonstração usa o texto real do site (português). `Theme/Foundations`
->   documenta cores, tipografia, raios, elevação e movimento; o seletor da
->   toolbar troca `data-theme` (a home nasce em dark).
-> - Componentes legados das páginas en/es vivem em `src/components/content`
->   (ex.: `SectionBlock`) e saem quando esses idiomas forem refeitos.
+>   demonstração usa o texto real do site (português). O seletor da toolbar
+>   troca `data-theme` (a home nasce em dark).
+> - A seção **`Theme/*`** é a referência do design system e vive em
+>   `src/design/`: `Foundations` (as três camadas de token + a armadilha do
+>   passo cru), `Colors`, `Typography`, `Space & grid`, `Shape & elevation`,
+>   `Motion`, `Brand` (logos, o set de 16 ícones, caret, line art, fotografia) e
+>   `Voice & copy` (regras de texto). `src/design/specimens.tsx` guarda a
+>   mobília dessas páginas (swatch, tabela de spec, do/don't, `ThemePair`) e é
+>   **só do Storybook** — nenhuma página importa de lá.
+> - Os aliases semânticos são declarados em `:root` **e** em `[data-theme]`, por
+>   isso um bloco com `data-theme` próprio recalcula tudo contra os primitivos
+>   dele (é o que faz o painel claro dentro da página escura, e o `ThemePair`
+>   das stories, funcionarem). `var()` dentro de custom property resolve no
+>   elemento onde é declarada — sem o segundo seletor, a subárvore não viraria.
+> - **Imagem sempre por `next/image`.** Next 16 depreciou `priority` em favor de
+>   `preload` (é o que `MediaCard image.preload` usa, reservado ao LCP) e já
+>   trata `.svg` como `unoptimized` — ainda assim passe a prop, como a doc
+>   recomenda. `<Image>` não cobre `<source media>`: onde há art direction
+>   (fundo do hero e card do manifesto) o `<picture>` fica e as duas molduras
+>   vêm de `getImageProps`, então nenhuma imagem escapa do otimizador.
+> - Faltando variante, **adicione uma prop** — foi assim que entraram
+>   `SectionHeading spacing="loose"` (respiro 32→48 das seções centradas) e
+>   `MediaCard elevation` (sombra do card ativo do carrossel). `Card` de
+>   propósito não recebe `ref`/`style`: quem anima envolve o card num wrapper de
+>   layout (ver `ScrollFeedbackStack`).
 >
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e
 > `Disallow` no `robots.ts`): gerador de voucher em PDF. `src/lib/voucher.ts`
-> guarda o modelo de dados + o texto legal fixo das páginas 2–4;
-> `VoucherDocument` monta o PDF (`@react-pdf/renderer`); `VoucherStudio` é o
-> formulário com preview ao vivo e auto-save no localStorage. É **client-only**
+> guarda o modelo de dados (clientes com nome/idade/e-mail, serviços,
+> pagamentos, checklist) e `src/lib/voucher-content.ts` o conteúdo por idioma —
+> rótulos, texto legal e listas-modelo em **pt/en/es**. `VoucherDocument` monta o
+> PDF (`@react-pdf/renderer`); `VoucherStudio` é o formulário com preview ao
+> vivo, reordenação por arraste e auto-save no localStorage. É **client-only**
 > (`VoucherStudioLoader` usa `dynamic(..., { ssr: false })`), o que permite ler o
 > rascunho no primeiro render sem effect nem hydration mismatch.
+> - Fidelidade aos modelos da operadora: o documento traz **os dois** blocos
+>   legais — idioma do cliente primeiro, complementar depois (`LEGAL_ORDER`) — e
+>   o cabeçalho/rodapé é sempre do idioma do documento, mesmo nas páginas do
+>   idioma complementar.
+> - `switchVoucherLocale` troca o idioma sem perder trabalho: traduz só as linhas
+>   que ainda são iguais ao modelo anterior e preserva o que foi digitado.
+> - ⚠️ O texto legal em **ES** é tradução feita no repo, sem voucher-modelo de
+>   referência — precisa de revisão da operadora antes de emitir.
+> - Os PDFs de referência preenchidos ficam fora do git (`.gitignore`): contêm
+>   nome, e-mail e telefone de clientes reais.
 
 # Mamut Trekking — Guia de Início com Claude Code (VS Code)
 

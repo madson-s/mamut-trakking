@@ -13,7 +13,10 @@ const meta = {
       description: {
         component:
           'Content box on a theme surface (no background media). For a card with a photo ' +
-          'behind the content, use `MediaCard`.',
+          'behind the content, use `MediaCard`. Radius follows the surface: `card` (24) for ' +
+          'guide, itinerary and season cards, `cardLg` (28) for trail cards, `panelLg` (40) for ' +
+          'review cards. Cards are flat with a hairline — a shadow means it floats or is the ' +
+          'active one in a set (see `Theme/Shape & elevation`).',
       },
     },
   },

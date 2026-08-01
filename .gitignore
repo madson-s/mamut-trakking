@@ -20,6 +20,9 @@
 # production
 /build
 
+# storybook
+/storybook-static/
+
 # misc
 .DS_Store
 *.pem
@@ -43,3 +46,12 @@ next-env.d.ts
 # storybook
 /storybook-static
 debug-storybook.log
+
+# vouchers-modelo preenchidos: têm dados reais de clientes (nome, e-mail,
+# telefone) e o repositório é público. Ficam só na máquina.
+/Voucher*.pdf
+/VOUCHER*.pdf
+
+# export do design system (Figma): ~71MB de binários e fontes licenciadas.
+# Fonte de verdade do design, não do app — fica fora do repositório público.
+/Mamut Trekking Design System-vs02/

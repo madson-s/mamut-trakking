@@ -1,8 +1,14 @@
+import Image, { getImageProps } from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Heading';
 import { MediaCard } from '@/components/ui/MediaCard';
 import { Emphasis, Text } from '@/components/ui/Text';
 import { HeroDestinations } from './HeroDestinations';
+
+// Fundo do hero em duas molduras (art direction): a partir de 2xl entra a foto
+// sem crop, abaixo a recortada. Dimensões = as dos arquivos em `public/`.
+const BG_WIDE = { src: '/img/home_backgroud/home_backgroud_01_no_crop_1x.webp', width: 1562, height: 850 };
+const BG_CROP = { src: '/img/home_backgroud/home_backgroud_crop_01_1x.webp', width: 1392, height: 707 };
 
 /**
  * home_session-01 — HERO.
@@ -25,6 +31,19 @@ import { HeroDestinations } from './HeroDestinations';
  * `@/components/ui`. Só o posicionamento absoluto do Figma mora aqui.
  */
 export function Hero() {
+  /**
+   * `<Image>` não cobre `<source media>`, então as duas molduras passam pelo
+   * otimizador via `getImageProps` e o browser baixa só a que casa com o media
+   * query. É o LCP da página: `loading="eager"` + `fetchPriority="high"`
+   * (`preload` não vale aqui — o link no `<head>` sai do `<Image>`, não deste
+   * helper, e apontaria para uma moldura só).
+   */
+  const bgCommon = { alt: '', sizes: '100vw', loading: 'eager', fetchPriority: 'high' } as const;
+  const {
+    props: { srcSet: bgWideSrcSet },
+  } = getImageProps({ ...bgCommon, ...BG_WIDE });
+  const { props: bgCropProps } = getImageProps({ ...bgCommon, ...BG_CROP });
+
   return (
     <section className="w-full pt-2">
       {/* Card wrapper — margem lateral proporcional ao viewport */}
@@ -37,12 +56,12 @@ export function Hero() {
           contentLayer="fill"
           media={
             <picture className="contents">
-              <source
-                media="(min-width: 1536px)"
-                srcSet="/img/home_backgroud/home_backgroud_01_no_crop_1x.webp"
-              />
+              <source media="(min-width: 1536px)" srcSet={bgWideSrcSet} />
+              {/* `<img>` aqui é o fallback do `<picture>` — o srcSet otimizado
+                  vem de `getImageProps`. `alt` repetido porque o lint de a11y
+                  não lê o spread. */}
               <img
-                src="/img/home_backgroud/home_backgroud_crop_01_1x.webp"
+                {...bgCropProps}
                 alt=""
                 className="absolute inset-0 h-full w-full object-cover object-center 2xl:inset-auto 2xl:top-[-101px] 2xl:left-[clamp(-11px,calc(6.4706%-101.06px),0px)] 2xl:h-[850px] 2xl:w-[1562px] 2xl:max-w-none"
               />
@@ -69,10 +88,14 @@ export function Hero() {
                 VOCÊ SÓ PRECISA
                 <br />
                 APROVEITAR.
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                {/* SVG não passa pelo otimizador — `unoptimized` explícito, como
+                    a doc do Next recomenda quando se sabe que o src é `.svg`. */}
+                <Image
                   src="/svg/humans-assets-yellow.svg"
                   alt=""
+                  width={784}
+                  height={246}
+                  unoptimized
                   className="pointer-events-none absolute hidden lg:block"
                   style={{ left: '236px', top: '4px', width: '172px', height: '66px' }}
                 />
@@ -101,10 +124,12 @@ export function Hero() {
                 grid 1216; bottom:100 alinha a base com os CTAs. */}
             <div className="absolute right-0 bottom-[100px] hidden w-[414px] flex-col gap-6 lg:flex">
               <div className="flex items-center gap-3">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src="/svg/_icons/icon_03_montain.svg"
                   alt=""
+                  width={244}
+                  height={157}
+                  unoptimized
                   className="h-5 w-[31px] shrink-0 brightness-0 invert"
                 />
                 <Text

@@ -2,6 +2,11 @@
 //   import { Section, SectionHeading, Button, Badge } from '@/components/ui';
 // (os componentes de tema — ThemeProvider/Theme — ficam fora por serem 'use client')
 
+export { AdventureCard } from './AdventureCard';
+export { AdventureDetail } from './AdventureDetail';
+export type { AdventureDetailLabels } from './AdventureDetail';
+export { AdventureGrid } from './AdventureGrid';
+
 export { Badge } from './Badge';
 export type { BadgeProps, BadgeSize, BadgeVariant } from './Badge';
 
@@ -34,11 +39,20 @@ export type { IconButtonProps, IconButtonSize, IconButtonVariant } from './IconB
 export { MediaCard } from './MediaCard';
 export type { MediaCardProps } from './MediaCard';
 
+export { JsonLd } from './JsonLd';
+
+export { Placeholder } from './Placeholder';
+
+export { Prose } from './Prose';
+
 export { Section } from './Section';
 export type { SectionProps } from './Section';
 
 export { SectionHeading } from './SectionHeading';
 export type { SectionHeadingProps } from './SectionHeading';
+
+export { SegmentedControl } from './SegmentedControl';
+export type { SegmentedControlProps, SegmentedOption } from './SegmentedControl';
 
 export { Stat } from './Stat';
 export type { StatProps } from './Stat';

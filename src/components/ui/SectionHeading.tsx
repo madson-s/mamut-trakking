@@ -16,6 +16,11 @@ export type SectionHeadingProps = {
   align?: 'left' | 'center';
   /** `inline` põe título e ações na mesma linha (padrão do hub de roteiros). */
   layout?: 'stack' | 'inline';
+  /**
+   * Respiro entre eyebrow, título e lead. `loose` é o das seções centradas de
+   * respiro da home (manifesto, guias), onde o Figma abre 32 → 48px.
+   */
+  spacing?: 'default' | 'loose';
   size?: DisplaySize;
   tone?: Tone;
   as?: 'h1' | 'h2' | 'h3';
@@ -37,6 +42,7 @@ export function SectionHeading({
   actions,
   align = 'left',
   layout = 'stack',
+  spacing = 'default',
   size = 'section',
   tone = 'default',
   as = 'h2',
@@ -91,7 +97,8 @@ export function SectionHeading({
   return (
     <div
       className={cn(
-        'flex flex-col gap-6',
+        'flex flex-col',
+        spacing === 'loose' ? 'gap-8 sm:gap-12' : 'gap-6',
         centered && 'items-center text-center',
         maxWidth,
         className,

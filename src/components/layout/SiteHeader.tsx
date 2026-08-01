@@ -1,7 +1,10 @@
 import Link from 'next/link';
-import { Container } from './Container';
-import { LocaleSwitcher } from './LocaleSwitcher';
+import Image from 'next/image';
+import { cn } from '@/lib/cn';
+import { focus, motion } from '@/design/tokens';
+import { Container } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
+import { LocaleSwitcher } from './LocaleSwitcher';
 
 export type NavItem = { label: string; href: string };
 
@@ -17,18 +20,32 @@ export function SiteHeader({
   nav: NavItem[];
 }) {
   return (
-    <header className="border-b border-black/5">
-      <Container className="flex items-center justify-between gap-6 py-4">
-        <Link href={brandHref} className="font-display text-lg tracking-tight">
-          {SITE.name}
+    <header className="w-full border-b border-line">
+      <Container className="flex h-20 items-center justify-between gap-6">
+        <Link href={brandHref} aria-label={SITE.name} className={cn('shrink-0', focus.onSurface)}>
+          <Image
+            src="/svg/mamut-logo-branco.svg"
+            alt={SITE.name}
+            width={458}
+            height={264}
+            unoptimized
+            loading="eager"
+            className="theme-logo h-7 w-auto sm:h-8"
+          />
         </Link>
-        <nav className="hidden items-center gap-6 text-sm text-mamut-stone sm:flex">
+
+        <nav className="hidden items-center gap-6 font-body text-sm font-light text-content sm:flex">
           {nav.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-mamut-ink">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={cn('transition-colors hover:text-brand-strong', motion.fast)}
+            >
               {item.label}
             </Link>
           ))}
         </nav>
+
         <LocaleSwitcher locale={locale} />
       </Container>
     </header>

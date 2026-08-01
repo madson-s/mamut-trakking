@@ -1,8 +1,11 @@
 import type { Metadata } from 'next';
-import { Hero } from '@/components/ui/Hero';
-import { SectionBlock } from '@/components/content/SectionBlock';
-import { AdventureGrid } from '@/components/ui/AdventureGrid';
-import { AdventureCard } from '@/components/ui/AdventureCard';
+import {
+  AdventureCard,
+  AdventureGrid,
+  Button,
+  Section,
+  SectionHeading,
+} from '@/components/ui';
 
 // Home ES — contenido escrito directamente aquí.
 export const metadata: Metadata = {
@@ -14,14 +17,26 @@ const IMG = 'https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jp
 export default function HomePage() {
   return (
     <>
-      <Hero
-        kicker="Chapada Diamantina · Bahía"
-        title="Trekkings y aventuras en la Chapada Diamantina"
-        subtitle="Operadora especializada en senderos, travesías y excursiones guiadas, con guías locales y turismo de bajo impacto."
-        cta={{ label: 'Ver aventuras', href: '/es/aventuras' }}
-      />
+      <Section padding="tall" containerClassName="flex flex-col items-center">
+        <SectionHeading
+          as="h1"
+          size="hero"
+          align="center"
+          eyebrow="Chapada Diamantina · Bahía"
+          title="Trekkings y aventuras en la Chapada Diamantina"
+          lead="Operadora especializada en senderos, travesías y excursiones guiadas, con guías locales y turismo de bajo impacto."
+          maxWidth="max-w-[900px]"
+          actions={<Button href="/es/aventuras" arrow>Ver aventuras</Button>}
+        />
+      </Section>
 
-      <SectionBlock title="Rutas destacadas" className="pb-24">
+      <Section
+        surface="muted"
+        bordered
+        padding="compact"
+        containerClassName="flex flex-col gap-12"
+      >
+        <SectionHeading title="Rutas destacadas" />
         <AdventureGrid columns={4}>
           <AdventureCard
             locale="es"
@@ -68,7 +83,7 @@ export default function HomePage() {
             fromLabel="Desde"
           />
         </AdventureGrid>
-      </SectionBlock>
+      </Section>
     </>
   );
 }

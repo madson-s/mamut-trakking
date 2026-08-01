@@ -33,18 +33,18 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
         type="button"
         onClick={() => setTheme(isDark ? 'light' : 'dark')}
         aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
-        className={`group relative inline-flex size-10 shrink-0 items-center justify-center rounded-full bg-gray-100 text-gray-700 shadow-[0_1px_2px_rgba(0,0,0,0.08)] ring-1 ring-inset ring-gray-300 transition-[background-color,color,box-shadow,scale] duration-200 ease-out hover:bg-gray-200 hover:text-gray-950 active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 ${className}`}
+        className={`group relative inline-flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-content-secondary shadow-chip ring-1 ring-inset ring-line-strong transition-[background-color,color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised hover:text-content active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${className}`}
       >
         <span
-          className={`absolute flex size-[18px] items-center justify-center transition-[opacity,filter,scale] duration-300 ease-[cubic-bezier(.2,0,0,1)] ${
-            isDark ? 'scale-100 opacity-100 blur-0' : 'scale-[0.25] opacity-0 blur-[4px]'
+          className={`absolute flex size-[18px] items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
+            isDark ? 'scale-100 opacity-100 blur-0' : 'scale-[0.25] opacity-0 blur-xs'
           }`}
         >
           <MoonIcon className="size-[18px]" />
         </span>
         <span
-          className={`flex size-[18px] items-center justify-center transition-[opacity,filter,scale] duration-300 ease-[cubic-bezier(.2,0,0,1)] ${
-            isDark ? 'scale-[0.25] opacity-0 blur-[4px]' : 'scale-100 opacity-100 blur-0'
+          className={`flex size-[18px] items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
+            isDark ? 'scale-[0.25] opacity-0 blur-xs' : 'scale-100 opacity-100 blur-0'
           }`}
         >
           <SunIcon className="size-[18px]" />
@@ -61,7 +61,7 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
     <div
       role="group"
       aria-label="Selecionar tema"
-      className={`inline-flex shrink-0 items-center rounded-full bg-gray-100 p-1 shadow-[0_1px_2px_rgba(0,0,0,0.08)] ring-1 ring-inset ring-gray-300 ${className}`}
+      className={`inline-flex shrink-0 items-center rounded-pill bg-surface-muted p-1 shadow-chip ring-1 ring-inset ring-line-strong ${className}`}
     >
       {OPTIONS.map(({ value, label, Icon }) => {
         const isActive = preference === value;
@@ -73,7 +73,7 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
             onClick={() => setTheme(value)}
             aria-label={label}
             aria-pressed={isActive}
-            className={`inline-flex items-center justify-center rounded-full transition-[background-color,color,box-shadow,scale] duration-200 ease-out active:scale-[0.96] focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gray-600 ${classes.button} ${isActive ? 'bg-gray-300 text-gray-950 shadow-[0_1px_2px_rgba(0,0,0,0.18)] ring-1 ring-inset ring-gray-400' : 'text-gray-600 hover:bg-gray-200 hover:text-gray-950'}`}
+            className={`inline-flex items-center justify-center rounded-pill transition-[background-color,color,box-shadow,scale] duration-200 ease-out active:scale-[0.96] focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${classes.button} ${isActive ? 'bg-surface-sunken text-content shadow-chip ring-1 ring-inset ring-line-strong' : 'text-content-muted hover:bg-surface-raised hover:text-content'}`}
           >
             <Icon className={classes.icon} />
           </button>

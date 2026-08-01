@@ -15,6 +15,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Saída do `pnpm build-storybook`.
+    "storybook-static/**",
+    // Handoff do design system (HTML/JSX de referência, não é código do app).
+    "Mamut Trekking Design System*/**",
   ]),
   ...storybook.configs["flat/recommended"]
 ]);

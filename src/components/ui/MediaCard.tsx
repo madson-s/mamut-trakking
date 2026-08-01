@@ -2,9 +2,11 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { cn } from '@/lib/cn';
 import {
+  elevation as elevationMap,
   motion,
   overlay as overlayMap,
   radius as radiusMap,
+  type Elevation,
   type Overlay,
   type Radius,
 } from '@/design/tokens';
@@ -17,7 +19,8 @@ export type MediaCardProps = {
     src: string;
     alt?: string;
     sizes?: string;
-    priority?: boolean;
+    /** Só para a imagem que é o LCP da página (Next 16 trocou `priority` por isto). */
+    preload?: boolean;
     /** `object-position` — enquadra a foto sem recortar o arquivo. */
     position?: string;
   };
@@ -25,6 +28,8 @@ export type MediaCardProps = {
   media?: ReactNode;
   overlay?: Overlay;
   radius?: Radius;
+  /** Sombra do card. `float` marca o card ativo de um conjunto (carrossel). */
+  elevation?: Elevation;
   /**
    * Cor atrás da foto (aparece enquanto ela carrega e nas bordas).
    * `sunken` = cinza do tema; `media` = verde-quase-preto do hero.
@@ -56,6 +61,7 @@ export function MediaCard({
   media,
   overlay = 'bottom',
   radius = 'panel',
+  elevation = 'none',
   backdrop = 'sunken',
   zoomOnHover = false,
   as: Tag = 'div',
@@ -75,6 +81,7 @@ export function MediaCard({
         'group/media relative isolate overflow-hidden',
         backdrops[backdrop],
         radiusMap[radius],
+        elevationMap[elevation],
         className,
       )}
     >
@@ -85,7 +92,7 @@ export function MediaCard({
           src={image.src}
           alt={image.alt ?? ''}
           fill
-          priority={image.priority}
+          preload={image.preload}
           sizes={image.sizes ?? '100vw'}
           style={image.position ? { objectPosition: image.position } : undefined}
           className={cn(

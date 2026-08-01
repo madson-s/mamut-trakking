@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, type CSSProperties } from 'react';
-import { StarRating } from '@/components/ui/icons';
+import { Card, Placeholder, StarRating, Text } from '@/components/ui';
 
 const QUOTE =
   '"Nosso guia Átila tinha muito conhecimento da região, era atencioso e apaixonado pelo Pati. Sempre nos preparava para o que esperar de cada trecho — e ainda compartilhava histórias locais."';
@@ -103,27 +103,39 @@ function FeedbackCard({
     zIndex: 30 - index * 10,
   } as CSSProperties;
 
+  // O wrapper cuida do empilhamento (posição e transform vindos do rAF); o
+  // `Card` cuida da aparência. `Card` não recebe `ref`/`style` de propósito.
   return (
     <div
       ref={cardRef}
       style={stackStyle}
-      className="relative flex min-h-[272px] flex-col gap-4 rounded-[40px] border border-gray-400 bg-gray-100 px-8 py-6 shadow-[0_18px_48px_rgba(0,0,0,0.08)] lg:absolute lg:inset-x-0 lg:top-0 lg:translate-y-[var(--stack-y)] lg:will-change-transform"
+      className="lg:absolute lg:inset-x-0 lg:top-0 lg:translate-y-[var(--stack-y)] lg:will-change-transform"
     >
-      <div className="flex items-center gap-4">
-        {/* Avatar — foto não está no handoff */}
-        <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-[20px] border border-dashed border-warning-500/70 bg-warning-500/10 text-center font-body text-[9px] leading-tight text-warning-500">
-          ⚠ foto
+      <Card
+        radius="panelLg"
+        elevation="card"
+        surface="muted"
+        padding="none"
+        className="min-h-[272px] gap-4 px-8 py-6"
+      >
+        <div className="flex items-center gap-4">
+          {/* Avatar — foto não está no handoff */}
+          <Placeholder label="foto" className="size-16 shrink-0 rounded-chip" />
+          <div className="flex flex-col justify-center gap-0.5">
+            <Text size="xl" weight="semibold">
+              Paola Bertoncello
+            </Text>
+            <Text>Marau, RS — Casal</Text>
+          </div>
         </div>
-        <div className="flex flex-col justify-center gap-0.5 text-gray-950">
-          <p className="font-body text-xl font-semibold">Paola Bertoncello</p>
-          <p className="font-body text-base">Marau, RS — Casal</p>
+        <div className="flex items-center gap-2">
+          <StarRating />
+          <Text as="span" size="xl" weight="semibold">
+            5.0
+          </Text>
         </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <StarRating />
-        <span className="font-body text-xl font-semibold text-gray-950">5.0</span>
-      </div>
-      <p className="font-body text-base leading-relaxed text-gray-950">{QUOTE}</p>
+        <Text leading="relaxed">{QUOTE}</Text>
+      </Card>
     </div>
   );
 }

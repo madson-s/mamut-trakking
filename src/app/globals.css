@@ -10,7 +10,8 @@
    as variáveis abaixo e trocam sozinhas conforme o data-theme do <html>.
    ============================================================ */
 
-:root {
+:root,
+[data-theme="light"] {
   color-scheme: light;
 
   /* primary (verde-mata) */
@@ -35,12 +36,21 @@
   --error-50: #fef2f2;   --error-100: #fee2e2;   --error-500: #ef4444;   --error-600: #dc2626;   --error-700: #b91c1c;
   --info-50: #eff6ff;    --info-100: #dbeafe;    --info-500: #3b82f6;    --info-600: #2563eb;    --info-700: #1d4ed8;
 
-  /* ------------------------------------------------------------
-     Camada semântica — é ESTA que os componentes usam.
-     Aponta para os primitivos acima; como os primitivos espelham
-     no [data-theme="dark"], os tokens semânticos viram sozinhos e
-     não precisam ser redeclarados no bloco dark.
-     ------------------------------------------------------------ */
+  /* contorno óptico de 1px sobre fotografia (espelha no escuro) */
+  --image-outline: 0 0 0 1px rgb(0 0 0 / 0.1);
+}
+
+/* ------------------------------------------------------------
+   Camada semântica — é ESTA que os componentes usam.
+   Declarada em `:root` E em `[data-theme]`: `var()` dentro de uma
+   custom property resolve no elemento onde ela é declarada, então
+   sem o segundo seletor um bloco com tema próprio (painel claro
+   dentro de página escura, especímenes do Storybook) continuaria
+   com os aliases do <html>.
+   ------------------------------------------------------------ */
+
+:root,
+[data-theme] {
 
   /* superfícies */
   --surface: var(--gray-50);            /* fundo da página */
@@ -67,7 +77,10 @@
   --brand-strong: var(--primary-700);
   --brand-ink: var(--primary-950);
   --brand-contrast: #ffffff;            /* texto sobre --brand */
-  --accent: var(--secondary-500);
+  --accent: var(--secondary-500);       /* laranja-terra: apoio, nunca CTA */
+  /* amarelo ancestral — só line art e detalhes pequenos. Não espelha:
+     é a cor da própria arte, igual nos dois temas. */
+  --accent-line-art: #f7cd45;
 
   /* sobre foto/vídeo — NÃO espelha: é sempre claro sobre mídia escura.
      Três níveis: título (puro), parágrafo (off-white quente), apoio. */
@@ -95,6 +108,9 @@
   --gray-0: #ffffff;    --gray-50: #1c1c1c;  --gray-100: #1f1f1f; --gray-200: #303030; --gray-300: #444444;
   --gray-400: #5c5c5c;  --gray-500: #808080; --gray-600: #ababab; --gray-700: #d4d4d4; --gray-800: #e8e8e8;
   --gray-900: #f4f4f4;  --gray-950: #fafafa; --gray-1000: #f4f4f4; --gray-1100: #fafafa;
+
+  /* no escuro o filete da foto é branco a 10% */
+  --image-outline: 0 0 0 1px rgb(255 255 255 / 0.1);
 
   color-scheme: dark;
 }
@@ -146,6 +162,7 @@
   --color-brand-ink: var(--brand-ink);
   --color-brand-contrast: var(--brand-contrast);
   --color-accent: var(--accent);
+  --color-accent-line-art: var(--accent-line-art);
 
   --color-on-media: var(--on-media);
   --color-on-media-soft: var(--on-media-soft);
@@ -176,6 +193,8 @@
   --shadow-card: 0 18px 48px rgba(0, 0, 0, 0.08);
   --shadow-float: 0 18px 48px rgba(0, 0, 0, 0.18);
   --shadow-popover: 0 8px 24px rgba(0, 0, 0, 0.18);
+  /* filete óptico da fotografia — `shadow-image-outline` */
+  --shadow-image-outline: var(--image-outline);
 
   /* --- Movimento (ease-brand) --- */
   --ease-brand: cubic-bezier(0.2, 0, 0, 1);

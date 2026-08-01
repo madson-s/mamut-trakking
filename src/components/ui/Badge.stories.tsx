@@ -10,7 +10,9 @@ const meta = {
       description: {
         component:
           'Informational chip: duration, level, distance, seal, role label. ' +
-          'Use `outlineOnMedia` for chips sitting on a photo.',
+          'Use `outlineOnMedia` for chips sitting on a photo — that white is theme-invariant and ' +
+          'must not be swapped for `text-content`. Default radius is the pill; `radius="chip"` ' +
+          '(20px) is the stat chip of the reviews block.',
       },
     },
   },

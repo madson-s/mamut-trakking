@@ -1,7 +1,5 @@
 import type { Metadata } from 'next';
-import { Container } from '@/components/layout/Container';
-import { AdventureGrid } from '@/components/ui/AdventureGrid';
-import { AdventureCard } from '@/components/ui/AdventureCard';
+import { AdventureCard, AdventureGrid, Section, SectionHeading } from '@/components/ui';
 
 // Hub de aventuras (en) — cards escritos diretamente aqui.
 const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
@@ -17,13 +15,14 @@ export const metadata: Metadata = {
 
 export default function AdventuresHubPage() {
   return (
-    <Container className="py-16">
-      <header className="max-w-2xl">
-        <h1 className="font-display text-4xl sm:text-5xl">Adventures</h1>
-        <p className="mt-4 text-lg text-mamut-stone">Choose from treks, day tours, packages and the Pati Valley traverse.</p>
-      </header>
-      <div className="mt-12">
-        <AdventureGrid>
+    <Section padding="compact" containerClassName="flex flex-col gap-12">
+      <SectionHeading
+        as="h1"
+        title="Adventures"
+        lead="Choose from treks, day tours, packages and the Pati Valley traverse."
+        maxWidth="max-w-2xl"
+      />
+      <AdventureGrid>
         <AdventureCard
           locale="en"
           href={"/en/adventures/palmital-waterfall"}
@@ -156,8 +155,7 @@ export default function AdventuresHubPage() {
           price={3800}
           fromLabel={"From"}
         />
-        </AdventureGrid>
-      </div>
-    </Container>
+      </AdventureGrid>
+    </Section>
   );
 }
