@@ -8,8 +8,6 @@
 import { useEffect, useState, type ReactNode } from 'react';
 import dynamic from 'next/dynamic';
 import {
-  ArrowDownIcon,
-  ArrowUpIcon,
   Badge,
   Button,
   Card,
@@ -21,7 +19,6 @@ import {
   Heading,
   IconButton,
   Input,
-  moveItem,
   PlusIcon,
   SegmentedControl,
   Text,
@@ -135,8 +132,8 @@ function Panel({
 
 /**
  * Linha removível (serviço, pagamento). Passando `sort` + `index`, a linha vira
- * arrastável: alça à esquerda do rótulo, setas subir/descer como caminho por
- * teclado (arraste nativo não responde a tabulação).
+ * arrastável pela alça à esquerda do rótulo — arraste é o único caminho de
+ * reordenação.
  *
  * Durante o arraste, a linha que está sendo movida vira o **placeholder**:
  * mantém a altura, ganha contorno tracejado e some o conteúdo, marcando o vão
@@ -148,9 +145,6 @@ function Row<T>({
   sort,
   index,
   isPlaceholder = false,
-  onMove,
-  isFirst,
-  isLast,
   children,
 }: {
   label: string;
@@ -160,10 +154,6 @@ function Row<T>({
   /** Índice do item no array original. */
   index?: number;
   isPlaceholder?: boolean;
-  /** Move a linha uma posição. Omitido = lista sem reordenação. */
-  onMove?: (direction: -1 | 1) => void;
-  isFirst?: boolean;
-  isLast?: boolean;
   children: ReactNode;
 }) {
   const sortable = sort !== undefined && index !== undefined;
@@ -187,8 +177,6 @@ function Row<T>({
             {sortable && (
               <span
                 {...sort.getHandleProps(index)}
-                // Decorativa de propósito: quem navega por teclado usa as setas
-                // ao lado, que são botões de verdade e têm rótulo.
                 aria-hidden
                 title="Arraste para reordenar"
                 className={cn(
@@ -205,28 +193,6 @@ function Row<T>({
             </Text>
           </div>
           <div className="flex shrink-0 items-center gap-1">
-            {onMove && (
-              <>
-                <IconButton
-                  label={`Mover ${label} para cima`}
-                  variant="subtle"
-                  size="sm"
-                  disabled={isFirst}
-                  onClick={() => onMove(-1)}
-                >
-                  <ArrowUpIcon className="size-3.5" />
-                </IconButton>
-                <IconButton
-                  label={`Mover ${label} para baixo`}
-                  variant="subtle"
-                  size="sm"
-                  disabled={isLast}
-                  onClick={() => onMove(1)}
-                >
-                  <ArrowDownIcon className="size-3.5" />
-                </IconButton>
-              </>
-            )}
             <IconButton label={`Remover ${label}`} variant="subtle" size="sm" onClick={onRemove}>
               <XIcon className="size-3.5" />
             </IconButton>
@@ -302,16 +268,22 @@ export default function VoucherStudio() {
     setData((d) => ({
       ...d,
       services: [
+        // Status inicial no idioma do voucher — "NÃO RESERVADO" num voucher em
+        // PT, não o texto do modelo em inglês.
         ...d.services,
-        { date: '', time: '', description: '', total: '', status: 'NOT BOOKED' },
+        {
+          date: '',
+          time: '',
+          description: '',
+          total: '',
+          status: CONTENT[d.locale].serviceStatus[1],
+        },
       ],
     }));
   const removeService = (i: number) =>
     setData((d) => ({ ...d, services: d.services.filter((_, idx) => idx !== i) }));
-  // A ordem da lista é a ordem impressa na tabela do PDF.
-  // Setas movem uma posição; o arraste entrega a lista já reordenada.
-  const reorderService = (from: number, to: number) =>
-    setData((d) => ({ ...d, services: moveItem(d.services, from, to) }));
+  // A ordem da lista é a ordem impressa na tabela do PDF; o arraste entrega a
+  // lista já reordenada.
   const serviceSort = useDragSort({
     items: data.services,
     onReorder: (services) => set('services', services),
@@ -331,7 +303,7 @@ export default function VoucherStudio() {
           label: `${d.payments.length + 1}° Payment:`,
           date: '',
           price: '',
-          form: 'PENDING',
+          form: CONTENT[d.locale].paymentStatus[1],
           status: '',
         },
       ],
@@ -565,8 +537,7 @@ export default function VoucherStudio() {
 
           <Panel title="Serviços" action={<AddButton onClick={addService}>Adicionar</AddButton>}>
             <Text size="xs" tone="muted">
-              Arraste pela alça (ou use as setas) para mudar a ordem — é a mesma ordem da tabela no
-              PDF.
+              Arraste pela alça para mudar a ordem — é a mesma ordem da tabela no PDF.
             </Text>
             {/* `entries` vem na ordem de pré-visualização; `index` é a posição
                 real no array (usada pelos handlers), `position` é a que o
@@ -579,9 +550,6 @@ export default function VoucherStudio() {
                 sort={serviceSort}
                 index={i}
                 isPlaceholder={isPlaceholder}
-                onMove={(direction) => reorderService(i, i + direction)}
-                isFirst={position === 0}
-                isLast={position === data.services.length - 1}
               >
                 <div className="grid grid-cols-2 gap-2">
                   <TextField

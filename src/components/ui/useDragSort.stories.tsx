@@ -86,8 +86,9 @@ const meta = {
           '`entries` returns the preview order while dragging and flags the dragged item as ' +
           '`isPlaceholder`, so the list rearranges *before* the drop and the gap shows where the ' +
           'item will land. The real array only changes on drop, so dropping outside the list or ' +
-          'pressing Esc discards the preview. Dragging is not keyboard accessible — always pair ' +
-          'it with up/down buttons, as this demo does.',
+          'pressing Esc discards the preview. Dragging is not keyboard accessible, so pair it ' +
+          'with up/down buttons as this demo does whenever the list is on a public page. The ' +
+          'internal voucher tool deliberately ships drag-only, on request.',
       },
     },
   },
