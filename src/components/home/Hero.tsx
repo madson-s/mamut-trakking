@@ -5,39 +5,10 @@ import { MediaCard } from '@/components/ui/MediaCard';
 import { Emphasis, Text } from '@/components/ui/Text';
 import { HeroDestinations } from './HeroDestinations';
 
-// Fundo do hero em duas molduras (art direction): a partir de 2xl entra a foto
-// sem crop, abaixo a recortada. Dimensões = as dos arquivos em `public/`.
 const BG_WIDE = { src: '/img/home_backgroud/home_backgroud_01_no_crop_1x.webp', width: 1562, height: 850 };
 const BG_CROP = { src: '/img/home_backgroud/home_backgroud_crop_01_1x.webp', width: 1392, height: 707 };
 
-/**
- * home_session-01 — HERO.
- *
- * Fidelidade Figma (nodes 896:4150 desktop-1440 e 896:4620 desktop-1920):
- *   • Card do background: altura fixa 707. Largura = 100% do viewport menos
- *     margem lateral proporcional (1.667vw, com piso 24px). Isso dá 1392 @ 1440
- *     e 1856 @ 1920, exatamente como o Figma. Radius também escala.
- *   • Grid de conteúdo: **fixo em 1216** (12 col × 72 + 11 gap × 32),
- *     centralizado dentro do card. Quanto maior o viewport, maior o respiro
- *     entre o grid e a borda do card — não o grid.
- *   • Coluna esquerda 580 (bottom-aligned, bottom:100 do card).
- *   • Coluna direita 414, alinhada pela base com os CTAs (bottom:100).
- *   • Humanos-amarelos 155×60 absolutos dentro do H1.
- *
- * Abaixo de `lg`, todo o layout absoluto vira flex-col empilhado. A coluna
- * direita esconde (não cabe em telas estreitas).
- *
- * A caixa/véu/foto vêm do `MediaCard`; tipografia e CTAs, dos primitivos de
- * `@/components/ui`. Só o posicionamento absoluto do Figma mora aqui.
- */
 export function Hero() {
-  /**
-   * `<Image>` não cobre `<source media>`, então as duas molduras passam pelo
-   * otimizador via `getImageProps` e o browser baixa só a que casa com o media
-   * query. É o LCP da página: `loading="eager"` + `fetchPriority="high"`
-   * (`preload` não vale aqui — o link no `<head>` sai do `<Image>`, não deste
-   * helper, e apontaria para uma moldura só).
-   */
   const bgCommon = { alt: '', sizes: '100vw', loading: 'eager', fetchPriority: 'high' } as const;
   const {
     props: { srcSet: bgWideSrcSet },
@@ -45,51 +16,48 @@ export function Hero() {
   const { props: bgCropProps } = getImageProps({ ...bgCommon, ...BG_CROP });
 
   return (
-    <section className="w-full pt-2">
-      {/* Card wrapper — margem lateral proporcional ao viewport */}
-      <div className="w-full px-[max(24px,1.667vw)]">
+    <section className="-mt-20 w-full pt-0 sm:mt-0 sm:pt-2">
+      <div className="w-full px-0 sm:px-[max(24px,1.667vw)]">
         <MediaCard
           overlay="left"
-          radius="panel"
+          radius="none"
           backdrop="media"
-          className="mx-auto min-h-[560px] lg:h-[707px] 2xl:max-w-[1562px] 2xl:rounded-panel-lg"
+          className="mx-auto min-h-160 sm:min-h-140 sm:rounded-panel lg:h-176.75 2xl:max-w-390.5 2xl:rounded-panel-lg"
           contentLayer="fill"
           media={
             <picture className="contents">
               <source media="(min-width: 1536px)" srcSet={bgWideSrcSet} />
-              {/* `<img>` aqui é o fallback do `<picture>` — o srcSet otimizado
-                  vem de `getImageProps`. `alt` repetido porque o lint de a11y
-                  não lê o spread. */}
               <img
                 {...bgCropProps}
                 alt=""
-                className="absolute inset-0 h-full w-full object-cover object-center 2xl:inset-auto 2xl:top-[-101px] 2xl:left-[clamp(-11px,calc(6.4706%-101.06px),0px)] 2xl:h-[850px] 2xl:w-[1562px] 2xl:max-w-none"
+                className="absolute inset-0 h-full w-full object-cover object-center 2xl:inset-auto 2xl:-top-25.25 2xl:left-[clamp(-11px,calc(6.4706%-101.06px),0px)] 2xl:h-212.5 2xl:w-390.5 2xl:max-w-none"
               />
             </picture>
           }
         >
-          {/* Grid de conteúdo — 1216 fixo, centralizado no card.
-              Abaixo de lg: flex-col justify-end (empilhado no fundo).
-              A partir de lg: block com posicionamento absoluto. */}
-          <div className="relative mx-auto flex h-full max-w-[1216px] flex-col justify-end px-6 pb-8 lg:block lg:px-0 lg:pb-0">
-            {/* ---- LEFT (text-main) ---- */}
-            <div className="flex w-full flex-col gap-6 lg:absolute lg:bottom-[100px] lg:left-0 lg:w-[620px]">
-              <Text size="lg" weight="light" tone="onMediaSoft">
-                Guias nativos · Chapada Diamantina · Lençóis, Bahia
+          <div className="relative mx-auto flex h-full max-w-304 flex-col justify-end px-6 pb-8 lg:block lg:px-0 lg:pb-0">
+            <div className="flex w-full flex-col gap-5 lg:absolute lg:bottom-25 lg:left-10 lg:w-155 lg:gap-6">
+              <Text size="sm" weight="light" tone="onMediaSoft" className="sm:text-lg">
+                Guias nativos · Chapada Diamantina
+                <span className="hidden sm:inline"> · Lençóis, Bahia</span>
               </Text>
 
-              {/* H1 — 72px Mergo com humanos-amarelos absolutos entre MAMUT e GUIA. */}
               <Heading as="h1" size="hero" tone="onMedia" className="relative">
                 <span className="inline">MAMUT</span>
-                {/* Espaço reservado no fluxo para caber o asset absoluto (só no lg+) */}
+                <Image
+                  src="/svg/humans-assets-yellow.svg"
+                  alt=""
+                  width={784}
+                  height={246}
+                  unoptimized
+                  className="pointer-events-none mx-1.5 inline-block h-[0.7em] w-auto align-middle lg:hidden"
+                />
                 <span aria-hidden className="hidden lg:inline-block" style={{ width: '172px' }} />{' '}
                 <span className="inline">GUIA.</span>
                 <br />
                 VOCÊ SÓ PRECISA
                 <br />
                 APROVEITAR.
-                {/* SVG não passa pelo otimizador — `unoptimized` explícito, como
-                    a doc do Next recomenda quando se sabe que o src é `.svg`. */}
                 <Image
                   src="/svg/humans-assets-yellow.svg"
                   alt=""
@@ -101,28 +69,39 @@ export function Hero() {
                 />
               </Heading>
 
-              {/* Sub-bloco (455px no Figma) */}
-              <div className="flex max-w-[455px] flex-col gap-8">
-                <Text size="lg" weight="light" tone="onMediaSoft">
+              <div className="flex max-w-113.75 flex-col gap-6 lg:gap-8">
+                <Text size="sm" weight="light" tone="onMediaSoft" className="sm:text-lg">
                   Trekkings guiados por quem é filho da Chapada Diamantina.
-                  <br />
-                  Cada trilha é uma jornada de volta ao que você é.
+                  <br className="hidden sm:inline" /> Cada trilha é uma jornada de volta ao que você
+                  é.
                 </Text>
-                <div className="flex flex-wrap items-center gap-4">
-                  <Button href="/pt/aventuras" arrow>
+                <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
+                  <Button href="/pt/aventuras" arrow className="w-full sm:w-auto">
                     Escolha a sua trilha
                   </Button>
-                  <Button href="#" variant="outlineOnMedia">
+                  <Button href="#" variant="outlineOnMedia" className="w-full sm:w-auto">
                     Falar com guia
                   </Button>
                 </div>
               </div>
+
+              <div className="flex items-center justify-center gap-2.5 lg:hidden">
+                <Image
+                  src="/svg/_icons/icon_03_montain.svg"
+                  alt=""
+                  width={244}
+                  height={157}
+                  unoptimized
+                  className="h-4 w-6.25 shrink-0 brightness-0 invert"
+                />
+                <Text size="xs" weight="light" tone="onMediaMuted" leading="tight">
+                  Uma <Emphasis size="xs">jornada</Emphasis> de resgate das práticas{' '}
+                  <Emphasis size="xs">primitivas</Emphasis>
+                </Text>
+              </div>
             </div>
 
-            {/* ---- RIGHT (right-assets) ----
-                Absoluta a partir de lg. right:0 = alinha à borda direita do
-                grid 1216; bottom:100 alinha a base com os CTAs. */}
-            <div className="absolute right-0 bottom-[100px] hidden w-[414px] flex-col gap-6 lg:flex">
+            <div className="absolute right-10 bottom-25 hidden w-fit flex-col gap-6 lg:flex">
               <div className="flex items-center gap-3">
                 <Image
                   src="/svg/_icons/icon_03_montain.svg"
@@ -130,14 +109,14 @@ export function Hero() {
                   width={244}
                   height={157}
                   unoptimized
-                  className="h-5 w-[31px] shrink-0 brightness-0 invert"
+                  className="h-5 w-7.75 shrink-0 brightness-0 invert"
                 />
                 <Text
                   size="base"
                   weight="light"
                   tone="onMediaMuted"
                   leading="tight"
-                  className="w-[188px]"
+                  className="whitespace-nowrap"
                 >
                   Uma <Emphasis size="sm">jornada</Emphasis> de resgate das práticas{' '}
                   <Emphasis size="sm">primitivas</Emphasis>

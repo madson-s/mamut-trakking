@@ -2,30 +2,25 @@ import Image from 'next/image';
 import { Badge, Button, Container, Heading, Section, StarIcon, Stat } from '@/components/ui';
 import { ScrollFeedbackStack } from '@/components/home/ScrollFeedbackStack';
 
-/**
- * home_session-05 — avaliações verificadas (TripAdvisor).
- *
- * `container={false}` porque o line-art de fundo é irmão do container: ele se
- * posiciona pela faixa inteira, não pelo grid. O bloco de texto não usa
- * `SectionHeading` porque o que vem abaixo do título é uma fileira de chips de
- * número, não um parágrafo de apoio.
- */
 export function ReviewsSection() {
   return (
-    <Section surface="muted" bordered container={false} className="relative overflow-clip">
+    <Section surface="muted" bordered container={false} className="relative z-10 overflow-x-clip">
       <Image
         src="/svg/session-05_backgroud-people-01.svg"
         alt=""
         width={1052}
         height={522}
         unoptimized
-        className="pointer-events-none absolute bottom-0 left-1/2 hidden w-[1052px] max-w-none -translate-x-1/3 opacity-40 lg:block"
+        className="pointer-events-none absolute bottom-16 left-1/2 hidden w-263 max-w-none -translate-x-1/3 opacity-40 lg:block"
       />
 
-      <Container className="relative flex flex-col gap-16 lg:flex-row lg:items-start lg:justify-between">
-        <div className="flex max-w-[585px] flex-col gap-12">
-          <div className="flex flex-col gap-6">
-            <Badge size="lg" className="self-start">
+      <Container className="relative flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="flex max-w-146.25 flex-col gap-8 max-lg:contents lg:gap-12">
+          <div className="flex flex-col gap-5 max-lg:order-1 lg:gap-6">
+            <Badge
+              size="lg"
+              className="self-start max-lg:min-h-8 max-lg:px-3 max-lg:py-1 max-lg:text-sm"
+            >
               Avaliações verificadas · TripAdvisor
             </Badge>
 
@@ -35,13 +30,29 @@ export function ReviewsSection() {
               diz das aventuras.
             </Heading>
 
-            <div className="flex flex-wrap items-stretch gap-4">
+            <div className="flex flex-wrap items-center gap-2 lg:hidden">
+              <Badge variant="soft" size="sm">
+                140+ avaliações
+              </Badge>
+              <Badge
+                variant="soft"
+                size="sm"
+                icon={<StarIcon className="size-3.5 text-warning-500" />}
+              >
+                5.0 geral
+              </Badge>
+              <Badge variant="soft" size="sm">
+                #4 em Lençóis
+              </Badge>
+            </div>
+
+            <div className="hidden flex-wrap items-stretch gap-4 lg:flex">
               <Stat variant="chip" value="140 +" label="Avaliações" />
               <Stat
                 variant="chip"
                 value={
                   <span className="flex items-center gap-1">
-                    <StarIcon className="size-[17px] text-warning-500" />
+                    <StarIcon className="size-4.25 text-warning-500" />
                     5.0
                   </span>
                 }
@@ -55,17 +66,19 @@ export function ReviewsSection() {
             </div>
           </div>
 
-          <div className="flex flex-wrap items-center gap-4">
-            <Button href="/pt/aventuras" arrow>
+          <div className="flex flex-wrap items-center gap-4 max-lg:order-3 max-lg:flex-col max-lg:items-stretch max-lg:gap-3">
+            <Button href="/pt/aventuras" arrow className="max-lg:w-full">
               Escolha a sua trilha
             </Button>
-            <Button href="#" variant="outline">
+            <Button href="#" variant="outline" className="max-lg:w-full">
               Conheça o nosso TripAdvisor
             </Button>
           </div>
         </div>
 
-        <ScrollFeedbackStack />
+        <div className="max-lg:order-2 lg:contents">
+          <ScrollFeedbackStack />
+        </div>
       </Container>
     </Section>
   );

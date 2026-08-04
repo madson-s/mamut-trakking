@@ -11,10 +11,10 @@ export function EntrelinhasBand() {
     <Section
       padding="compact"
       container={false}
-      className="px-6"
+      className="hidden px-6 lg:block"
       aria-label="Um bando que reune o mundo inteiro"
     >
-      <div className="relative mx-auto aspect-[801/122] w-full max-w-[801px]">
+      <div className="relative mx-auto aspect-801/122 w-full max-w-200.25">
         <span
           className={`absolute left-0 top-[1.45%] z-10 flex h-[97.1%] w-[22.43%] items-center justify-center rounded-pill bg-surface-raised px-2 text-content ${LABEL}`}
         >

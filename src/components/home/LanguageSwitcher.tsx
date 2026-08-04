@@ -24,29 +24,30 @@ export function LanguageSwitcher() {
       <summary
         className={cn(
           'group/trigger flex h-10 w-10 cursor-pointer list-none items-center justify-center gap-1.5',
-          'rounded-pill bg-transparent text-content ring-1 ring-inset ring-line-strong',
+          'rounded-pill bg-surface-muted text-content shadow-chip ring-1 ring-line-strong ring-inset',
           'transition-[background-color,color,box-shadow,scale]',
           motion.fast,
           press,
           focus.onSurface,
           'hover:bg-brand hover:text-brand-contrast hover:ring-brand',
-          'sm:w-auto sm:justify-start sm:px-3',
+          'lg:w-auto lg:justify-start lg:bg-transparent lg:px-3 lg:shadow-none',
           '[&::-webkit-details-marker]:hidden',
         )}
       >
         <GlobeIcon className="size-3.5" />
-        <span className="hidden text-xs sm:inline">{currentLanguage.shortLabel}</span>
-        {/* O caret é a marca direcional da casa — gira ao abrir. */}
-        <CaretDownIcon
-          className={cn(
-            'hidden size-3 text-content-secondary transition-[color,transform] group-open:rotate-180 group-hover/trigger:text-brand-contrast sm:block',
-            motion.fast,
-          )}
-        />
+        <span className="hidden text-xs lg:inline">{currentLanguage.shortLabel}</span>
+        <span className="hidden lg:block">
+          <CaretDownIcon
+            className={cn(
+              'size-3 text-content-secondary transition-[color,transform] group-open:rotate-180 group-hover/trigger:text-brand-contrast',
+              motion.fast,
+            )}
+          />
+        </span>
         <span className="sr-only">Selecionar idioma</span>
       </summary>
 
-      <div className="absolute right-0 top-[calc(100%+8px)] z-50 flex w-40 flex-col gap-2 overflow-hidden rounded-control bg-surface p-1.5 shadow-popover ring-1 ring-inset ring-line">
+      <div className="absolute top-[calc(100%+8px)] right-0 z-50 flex w-40 flex-col gap-2 overflow-hidden rounded-control bg-surface p-1.5 shadow-popover ring-1 ring-line ring-inset">
         {LANGUAGES.map(({ code, shortLabel, label }) => {
           const isCurrent = code === currentCode;
 
@@ -84,9 +85,6 @@ export function LanguageSwitcher() {
   );
 }
 
-// Globo: glifo de UI (não é line art de marca). O set de 16 ícones da marca traz
-// um "internet", mas ele depende do wrapper de máscara que ainda não existe no
-// design system — ver a story Theme/Brand.
 function GlobeIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" aria-hidden className={className}>

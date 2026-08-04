@@ -87,7 +87,7 @@
   --on-media: #ffffff;
   --on-media-soft: #f8f5f0;
   --on-media-muted: #e2dfdc;
-  --media-tint: rgba(29, 29, 29, 0.68);
+  --media-tint: rgba(29, 29, 29, 0.4);
   /* fundo do card de mídia antes da foto carregar (verde-quase-preto) */
   --media-backdrop: #101716;
 }

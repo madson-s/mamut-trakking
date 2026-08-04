@@ -2,7 +2,6 @@ import type { HTMLAttributes, SVGProps } from 'react';
 
 const FIGMA_CARET_LEAF = '/svg/figma/caret-down/leaf.svg';
 
-/** CaretDown do Figma (572:812): caixa externa e folha mantidas separadamente. */
 export function CaretDownIcon({ className = '', ...props }: HTMLAttributes<HTMLSpanElement>) {
   return (
     <span
@@ -12,7 +11,7 @@ export function CaretDownIcon({ className = '', ...props }: HTMLAttributes<HTMLS
     >
       <span className="absolute inset-[37.5%_18.75%_31.25%_18.75%]">
         <span
-          className="absolute inset-[-7.27%_-3.64%] bg-current [mask-position:center] [mask-repeat:no-repeat] [mask-size:100%_100%]"
+          className="absolute inset-[-7.27%_-3.64%] bg-current mask-center mask-no-repeat mask-size-[100%_100%]"
           style={{
             WebkitMaskImage: `url(${FIGMA_CARET_LEAF})`,
             maskImage: `url(${FIGMA_CARET_LEAF})`,
@@ -23,8 +22,6 @@ export function CaretDownIcon({ className = '', ...props }: HTMLAttributes<HTMLS
   );
 }
 
-// Ícones de UI (genéricos). No Figma os botões usam um "CaretDown" rotacionado
-// −90° para apontar à direita — aqui é uma seta/chevron à direita.
 export function ArrowRightIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 16 16" fill="none" aria-hidden className={className} {...props}>
@@ -67,7 +64,6 @@ export function ArrowDownIcon({ className, ...props }: SVGProps<SVGSVGElement>) 
   );
 }
 
-/** Alça de arraste (dois trilhos de pontos). */
 export function GripIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden className={className} {...props}>
@@ -129,12 +125,27 @@ export function StarIcon({ className, ...props }: SVGProps<SVGSVGElement>) {
   );
 }
 
-// Fileira de 5 estrelas (rating).
-export function StarRating({ className }: { className?: string }) {
+export function StarRating({
+  className,
+  variant = 'star',
+}: {
+  className?: string;
+  variant?: 'star' | 'dot';
+}) {
+  if (variant === 'dot') {
+    return (
+      <span className={`inline-flex items-center gap-1.5 text-brand ${className ?? ''}`}>
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span key={i} className="size-3.5 rounded-full bg-current" />
+        ))}
+      </span>
+    );
+  }
+
   return (
-    <span className={`inline-flex items-center gap-[2px] text-warning-500 ${className ?? ''}`}>
+    <span className={`inline-flex items-center gap-0.5 text-warning-500 ${className ?? ''}`}>
       {Array.from({ length: 5 }).map((_, i) => (
-        <StarIcon key={i} className="h-[17px] w-[17px]" />
+        <StarIcon key={i} className="size-4.25" />
       ))}
     </span>
   );

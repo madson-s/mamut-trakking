@@ -16,10 +16,11 @@ import { SITE } from '@/lib/site';
 const COLUMNS = [
   {
     title: 'AVENTURAS',
+    onMobile: true,
     links: ['Roteiros', 'Datas disponíveis', 'Como se preparar', 'Dicas de trilha'],
   },
-  { title: 'SOBRE', links: ['Quem Somos', 'Manifesto', 'Guias Nativos'] },
-  { title: 'CONTATO', links: ['WhatsApp', 'TripAdvisor', 'Instagram'] },
+  { title: 'SOBRE', onMobile: true, links: ['Quem Somos', 'Manifesto', 'Guias Nativos'] },
+  { title: 'CONTATO', onMobile: false, links: ['WhatsApp', 'TripAdvisor', 'Instagram'] },
 ];
 
 const linkClasses = cn('transition-colors hover:text-content', motion.fast);
@@ -27,16 +28,24 @@ const linkClasses = cn('transition-colors hover:text-content', motion.fast);
 export function HomeFooter() {
   return (
     <footer className="w-full border-t border-line bg-surface-muted">
-      <Container className="flex flex-col gap-12 py-16">
-        <div className="flex flex-col justify-between gap-10 md:flex-row">
+      <Container className="flex flex-col gap-8 py-12 lg:gap-12 lg:py-16">
+        <div className="flex flex-col justify-between gap-8 md:flex-row lg:gap-10">
           <div className="flex max-w-xs flex-col gap-4">
             <Image
-              src="/svg/mamut-logo-branco.svg"
+              src="/svg/Mamut treeking-logo-branco.svg"
               alt={SITE.name}
+              width={1046}
+              height={264}
+              unoptimized
+              className="theme-logo h-9 w-auto self-start lg:hidden"
+            />
+            <Image
+              src="/svg/mamut-logo-branco.svg"
+              alt=""
               width={458}
               height={264}
               unoptimized
-              className="theme-logo h-11 w-auto self-start"
+              className="theme-logo hidden h-11 w-auto self-start lg:block"
             />
             <Text size="sm" tone="muted" leading="snug">
               Trekkings guiados por quem é
@@ -48,9 +57,16 @@ export function HomeFooter() {
             </Text>
           </div>
 
-          <div className="flex flex-wrap gap-12">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:flex lg:flex-wrap lg:gap-12">
             {COLUMNS.map((col) => (
-              <nav key={col.title} aria-label={col.title} className="flex flex-col gap-3.5">
+              <nav
+                key={col.title}
+                aria-label={col.title}
+                className={cn(
+                  'flex flex-col gap-2 lg:gap-3.5',
+                  !col.onMobile && 'max-lg:hidden',
+                )}
+              >
                 <Text as="span" size="xs" weight="semibold">
                   {col.title}
                 </Text>
@@ -68,14 +84,35 @@ export function HomeFooter() {
 
         <Divider />
 
-        <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
-          <Text size="xs" tone="secondary">
+        <div className="flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <Text size="xs" tone="secondary" className="max-lg:hidden">
             © 2025 {SITE.name}
           </Text>
-          <Text size="xs" tone="secondary" className="hidden md:block">
+          <Text size="xs" tone="secondary">
             Todos os direitos reservados · {SITE.name} ©
           </Text>
-          <div className="flex items-center gap-4">
+
+          <Button href={SITE.whatsappUrl} size="sm" arrow className="lg:hidden">
+            Falar no WhatsApp
+          </Button>
+
+          <div className="flex items-center gap-2 lg:hidden">
+            <a href="#" className={linkClasses}>
+              <Text as="span" size="xs" tone="secondary">
+                Instagram
+              </Text>
+            </a>
+            <Text as="span" size="xs" tone="muted" aria-hidden>
+              ·
+            </Text>
+            <a href="#" className={linkClasses}>
+              <Text as="span" size="xs" tone="secondary">
+                Facebook
+              </Text>
+            </a>
+          </div>
+
+          <div className="hidden items-center gap-4 lg:flex">
             <Theme variant="switch" size="sm" />
             <div className="flex items-center gap-2 text-content-secondary">
               <a href="#" aria-label="Instagram" className={linkClasses}>
@@ -85,7 +122,7 @@ export function HomeFooter() {
                 <FacebookIcon className="size-6" />
               </a>
             </div>
-            <Button href={SITE.whatsappUrl} size="sm" arrow className="w-[178px]">
+            <Button href={SITE.whatsappUrl} size="sm" arrow className="w-44.5">
               Falar no WhatsApp
             </Button>
           </div>

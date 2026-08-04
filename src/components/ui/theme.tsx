@@ -36,18 +36,18 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
         className={`group relative inline-flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-content-secondary shadow-chip ring-1 ring-inset ring-line-strong transition-[background-color,color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised hover:text-content active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${className}`}
       >
         <span
-          className={`absolute flex size-[18px] items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
-            isDark ? 'scale-100 opacity-100 blur-0' : 'scale-[0.25] opacity-0 blur-xs'
+          className={`absolute flex size-4.5 items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
+            isDark ? 'scale-100 opacity-100 blur-none' : 'scale-[0.25] opacity-0 blur-xs'
           }`}
         >
-          <MoonIcon className="size-[18px]" />
+          <MoonIcon className="size-4.5" />
         </span>
         <span
-          className={`flex size-[18px] items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
-            isDark ? 'scale-[0.25] opacity-0 blur-xs' : 'scale-100 opacity-100 blur-0'
+          className={`flex size-4.5 items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
+            isDark ? 'scale-[0.25] opacity-0 blur-xs' : 'scale-100 opacity-100 blur-none'
           }`}
         >
-          <SunIcon className="size-[18px]" />
+          <SunIcon className="size-4.5" />
         </span>
       </button>
     );

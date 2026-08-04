@@ -111,7 +111,7 @@ export const States: Story = {
           <Heading
             as="p"
             size="quote"
-            className="scale-[0.25] opacity-0 blur-xs transition-[opacity,filter,transform] duration-300 ease-brand group-hover:scale-100 group-hover:opacity-100 group-hover:blur-0"
+            className="scale-[0.25] opacity-0 blur-xs transition-[opacity,filter,transform] duration-300 ease-brand group-hover:scale-100 group-hover:opacity-100 group-hover:blur-none"
           >
             É dessa memória que nascemos.
           </Heading>

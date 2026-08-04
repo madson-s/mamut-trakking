@@ -208,7 +208,7 @@ export const sectionPadding: Record<SectionPadding, string> = {
   none: '',
   band: 'py-10',
   compact: 'py-16',
-  default: 'py-24',
+  default: 'py-12',
   tall: 'py-20 lg:py-[108px]',
 };
 

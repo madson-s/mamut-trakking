@@ -1,28 +1,28 @@
 import { Section, Stat } from '@/components/ui';
 
 const STATS = [
-  { value: '+500', label: 'aventureiros guiados' },
-  { value: 'Guias', label: 'brigadistas e nativos' },
-  { value: 'Cadastur', label: 'regularizado' },
-  { value: 'TripAdvisor', label: 'Certificado de Excelência' },
-  { value: 'Reserva', label: 'online garantida' },
+  { value: '+500', label: 'aventureiros guiados', cell: 'col-span-3' },
+  { value: 'Guias', label: 'brigadistas e nativos', cell: 'col-span-3' },
+  { value: 'Cadastur', label: 'regularizado', cell: 'col-span-2' },
+  {
+    value: 'TripAdvisor',
+    label: 'Certificado de Excelência',
+    cell: 'order-5 col-span-2 lg:order-none',
+  },
+  { value: 'Reserva', label: 'online garantida', cell: 'order-4 col-span-2 lg:order-none' },
 ];
 
-// sessão_autoridade — barra de números logo abaixo do hero.
-// Figma: 1440 × 108 full-bleed com conteúdo em pl:121 / pr:120 (~1216 grid).
-// A altura fixa de 108 no desktop mora no container (layout), não no `padding`
-// da Section — duas utilidades de padding na mesma classe brigariam.
 export function StatsBar() {
   return (
     <Section
       surface="muted"
       bordered
       padding="none"
-      className="mt-7"
-      containerClassName="grid grid-cols-1 place-items-center gap-7 py-10 text-center sm:grid-cols-2 lg:h-[108px] lg:grid-cols-5 lg:gap-4 lg:py-0"
+      className="mt-0 sm:mt-7"
+      containerClassName="grid grid-cols-6 items-start gap-x-4 gap-y-6 py-8 text-left sm:gap-x-8 lg:flex lg:h-27 lg:items-center lg:justify-center lg:gap-x-10 lg:py-0"
     >
       {STATS.map((stat) => (
-        <Stat key={stat.value} value={stat.value} label={stat.label} />
+        <Stat key={stat.value} value={stat.value} label={stat.label} align="left" className={stat.cell} />
       ))}
     </Section>
   );

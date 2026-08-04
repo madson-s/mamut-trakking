@@ -1,6 +1,7 @@
 'use client';
 
 import {
+  useCallback,
   useEffect,
   useRef,
   useState,
@@ -131,6 +132,7 @@ export function PathsSection() {
   const [canScrollPrevious, setCanScrollPrevious] = useState(false);
   const [canScrollNext, setCanScrollNext] = useState(true);
   const [carouselProgress, setCarouselProgress] = useState({ value: 0, visibleRatio: 1 });
+  const [dotIndex, setDotIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const suppressClickRef = useRef(false);
   const dragRef = useRef({
@@ -141,7 +143,17 @@ export function PathsSection() {
     startScrollLeft: 0,
   });
 
-  const updateScrollControls = () => {
+  const getCardStarts = useCallback(() => {
+    const carousel = carouselRef.current;
+    if (!carousel) return [];
+
+    const carouselLeft = carousel.getBoundingClientRect().left;
+    return Array.from(carousel.querySelectorAll<HTMLElement>('[data-carousel-card]')).map(
+      (card) => card.getBoundingClientRect().left - carouselLeft + carousel.scrollLeft,
+    );
+  }, []);
+
+  const updateScrollControls = useCallback(() => {
     const carousel = carouselRef.current;
     if (!carousel) return;
 
@@ -154,6 +166,24 @@ export function PathsSection() {
     setCanScrollPrevious(carousel.scrollLeft > 2);
     setCanScrollNext(carousel.scrollLeft < maxScrollLeft - 2);
     setCarouselProgress({ value: Math.max(0, Math.min(1, value)), visibleRatio });
+
+    const starts = getCardStarts();
+    if (starts.length === 0) return;
+
+    let nearest = 0;
+    for (let i = 1; i < starts.length; i += 1) {
+      if (Math.abs(starts[i] - carousel.scrollLeft) < Math.abs(starts[nearest] - carousel.scrollLeft)) {
+        nearest = i;
+      }
+    }
+    setDotIndex(nearest);
+  }, [getCardStarts]);
+
+  const scrollToDot = (index: number) => {
+    const carousel = carouselRef.current;
+    const starts = getCardStarts();
+    if (!carousel || index >= starts.length) return;
+    carousel.scrollTo({ left: starts[index], behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -170,22 +200,12 @@ export function PathsSection() {
       carousel.removeEventListener('scroll', updateScrollControls);
       resizeObserver.disconnect();
     };
-  }, []);
+  }, [updateScrollControls]);
 
   useEffect(() => {
     const timeoutId = window.setTimeout(updateScrollControls, 520);
     return () => window.clearTimeout(timeoutId);
-  }, [activeIndex]);
-
-  const getCardStarts = () => {
-    const carousel = carouselRef.current;
-    if (!carousel) return [];
-
-    const carouselLeft = carousel.getBoundingClientRect().left;
-    return Array.from(carousel.querySelectorAll<HTMLElement>('[data-carousel-card]')).map(
-      (card) => card.getBoundingClientRect().left - carouselLeft + carousel.scrollLeft,
-    );
-  };
+  }, [activeIndex, updateScrollControls]);
 
   const scrollCarousel = (direction: -1 | 1) => {
     const carousel = carouselRef.current;
@@ -264,21 +284,23 @@ export function PathsSection() {
       bordered
       padding="tall"
       labelledBy="paths-heading"
-      containerClassName="flex flex-col gap-12"
+      containerClassName="flex flex-col gap-6 lg:gap-12"
     >
-      <div className="flex min-h-[55px] flex-wrap items-center justify-between gap-6">
+      <div className="flex min-h-13.75 flex-wrap items-center justify-between gap-6">
         <SectionHeading
           layout="inline"
           titleId="paths-heading"
-          title="Escolha seu caminho"
+          title={<span className="max-sm:text-[36px]">Escolha seu caminho</span>}
           actions={
-            <Button href="/pt/aventuras" arrow>
-              Todos os roteiros
-            </Button>
+            <div className="hidden lg:block">
+              <Button href="/pt/aventuras" arrow>
+                Todos os roteiros
+              </Button>
+            </div>
           }
         />
 
-        <div className="flex items-center gap-3">
+        <div className="hidden items-center gap-3 lg:flex">
           <IconButton
             label="Mostrar roteiro anterior"
             variant="outline"
@@ -309,7 +331,7 @@ export function PathsSection() {
           onPointerCancel={finishDrag}
           onClickCapture={preventClickAfterDrag}
           onDragStart={(event) => event.preventDefault()}
-          className={`flex h-[437px] gap-3 overflow-x-auto overscroll-x-contain pb-2 select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden xl:pb-0 ${
+          className={`flex h-109.25 gap-3 overflow-x-auto overscroll-x-contain pb-2 select-none [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden xl:pb-0 ${
             isDragging
               ? 'cursor-grabbing snap-none'
               : 'cursor-grab snap-x snap-mandatory scroll-smooth'
@@ -329,13 +351,37 @@ export function PathsSection() {
           ))}
         </div>
 
+        <Text size="sm" weight="light" tone="muted" className="text-center lg:hidden">
+          Arraste para explorar os próximos roteiros →
+        </Text>
+
+        <div
+          role="tablist"
+          aria-label="Página do carrossel de roteiros"
+          className="flex items-center justify-center gap-2 lg:hidden"
+        >
+          {TRAILS.map((trail, index) => (
+            <button
+              key={`${trail.title}-dot-${index}`}
+              type="button"
+              role="tab"
+              aria-selected={dotIndex === index}
+              aria-label={`Ir para o roteiro ${index + 1}`}
+              onClick={() => scrollToDot(index)}
+              className={`h-1.5 rounded-pill transition-[width,background-color] duration-300 ease-out ${
+                dotIndex === index ? 'w-8 bg-brand' : 'w-4 bg-surface-sunken'
+              }`}
+            />
+          ))}
+        </div>
+
         <div
           role="progressbar"
           aria-label="Progresso do carrossel de roteiros"
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(carouselProgress.value * 100)}
-          className="relative mx-auto h-1 w-36 overflow-hidden rounded-pill bg-surface-sunken"
+          className="relative mx-auto hidden h-1 w-36 overflow-hidden rounded-pill bg-surface-sunken lg:block"
         >
           <span
             className="absolute inset-y-0 left-0 rounded-pill bg-brand transition-transform duration-150 ease-out"
@@ -345,18 +391,25 @@ export function PathsSection() {
             }}
           />
         </div>
+
+        <Button href="/pt/aventuras" arrow block className="mt-2 lg:hidden">
+          Todos os roteiros
+        </Button>
       </div>
 
       <Text
-        size="lg"
+        size="sm"
         weight="light"
         tone="secondary"
         pretty
-        className="text-center sm:text-xl"
+        className="mt-6 text-center sm:text-xl lg:mt-0"
       >
-        Do <Emphasis tone="default">caminhante</Emphasis> de fim de semana ao{' '}
-        <Emphasis tone="default">aventureiro de longa data</Emphasis> — aqui tem o ritmo certo para
-        você.
+        Do <Emphasis size="xs" tone="default" className="sm:text-lg">caminhante</Emphasis> de fim de
+        semana ao{' '}
+        <Emphasis size="xs" tone="default" className="sm:text-lg">
+          aventureiro de longa data
+        </Emphasis>{' '}
+        — aqui tem o ritmo certo para você.
       </Text>
     </Section>
   );
@@ -371,9 +424,6 @@ function TrailCard({
   isActive: boolean;
   onActivate: () => void;
 }) {
-  // O `<article>` externo cuida do carrossel (flex-basis, snap, handlers e os
-  // data-attributes que o arraste lê). O `MediaCard` cuida do card: foto, véu,
-  // radius e a sombra do estado ativo.
   return (
     <article
       onMouseEnter={onActivate}
@@ -381,8 +431,8 @@ function TrailCard({
       onClick={onActivate}
       data-carousel-card
       data-active={isActive}
-      className={`group/card h-full min-w-0 shrink-0 snap-center basis-[86vw] transition-[flex-basis] duration-500 ease-brand sm:basis-[406px] ${
-        isActive ? 'xl:basis-[406px]' : 'xl:basis-[258px]'
+      className={`group/card h-full min-w-0 shrink-0 snap-center basis-[86vw] transition-[flex-basis] duration-500 ease-brand sm:basis-101.5 ${
+        isActive ? 'xl:basis-101.5' : 'xl:basis-64.5'
       }`}
     >
       <MediaCard
@@ -400,12 +450,11 @@ function TrailCard({
         contentLayer="fill"
       >
         <div
-          className={`absolute left-6 top-6 z-10 flex max-w-[255px] flex-wrap items-center gap-2 transition-[opacity,filter,transform] duration-300 ${
+          className={`absolute top-6 left-6 z-10 flex max-w-63.75 flex-wrap items-center gap-2 transition-[opacity,filter,transform] duration-300 max-lg:translate-y-0 max-lg:pointer-events-auto max-lg:opacity-100 max-lg:blur-none ${
             isActive
-              ? 'translate-y-0 opacity-100 blur-0 delay-150'
+              ? 'translate-y-0 opacity-100 blur-none delay-150'
               : 'pointer-events-none -translate-y-1 opacity-0 blur-xs'
           }`}
-          aria-hidden={!isActive}
         >
           <Badge
             variant="outlineOnMedia"
@@ -416,7 +465,7 @@ function TrailCard({
                 width={14}
                 height={14}
                 unoptimized
-                className="size-3.5"
+                className="hidden size-3.5 lg:inline"
               />
             }
           >
@@ -435,20 +484,20 @@ function TrailCard({
           <CaretDownIcon className="size-6 -rotate-90" />
         </IconButton>
 
-        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col gap-5 p-7">
+        <div className="absolute inset-x-0 bottom-0 z-10 flex flex-col items-start gap-5 p-7 lg:items-stretch">
           <div className="flex flex-col gap-3">
             <Heading as="h3" size="card" tone="onMedia">
               {trail.title}
             </Heading>
             <div
-              className={`grid transition-[grid-template-rows,opacity,filter] duration-300 ${
+              className={`grid transition-[grid-template-rows,opacity,filter] duration-300 max-lg:grid-rows-[1fr] max-lg:opacity-100 max-lg:blur-none ${
                 isActive
-                  ? 'grid-rows-[1fr] opacity-100 blur-0 delay-150'
+                  ? 'grid-rows-[1fr] opacity-100 blur-none delay-150'
                   : 'grid-rows-[0fr] opacity-0 blur-xs'
               }`}
             >
               <div className="overflow-hidden">
-                <Text size="xs" weight="light" tone="onMedia" className="max-w-[320px]">
+                <Text size="xs" weight="light" tone="onMedia" className="max-w-80">
                   {trail.description}
                 </Text>
               </div>
@@ -459,9 +508,9 @@ function TrailCard({
             href={trail.href}
             variant={isActive ? 'primary' : 'outlineOnMedia'}
             size="lg"
-            block
-            justify="between"
+            justify="center"
             arrow
+            className="lg:w-full lg:justify-between"
           >
             Explorar a trilha
           </Button>

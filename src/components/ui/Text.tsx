@@ -20,19 +20,13 @@ export type TextProps = {
   size?: BodySize;
   weight?: BodyWeight;
   tone?: Tone;
-  /** Substitui a entrelinha default do tamanho. */
   leading?: Leading;
-  /** `display` troca para Mergo — usado em destaques dentro de texto corrido. */
   font?: 'body' | 'display';
   balance?: boolean;
   pretty?: boolean;
   className?: string;
 };
 
-/**
- * Texto de corpo. Cobre parágrafo, kicker (`size="lg" weight="light"`),
- * legenda (`size="xs"`) e rótulo (`size="sm" weight="semibold"`).
- */
 export function Text({
   children,
   as: Tag = 'p',
@@ -63,10 +57,6 @@ export function Text({
   );
 }
 
-/**
- * Destaque em Mergo dentro de um parágrafo — o padrão
- * "do <em>caminhante</em> de fim de semana" que aparece na home.
- */
 export function Emphasis({
   children,
   size = 'quote',
@@ -74,12 +64,12 @@ export function Emphasis({
   className,
 }: {
   children: ReactNode;
-  /** `sm` = 18px, `quote` = 24px (default do Figma), `card` = 30px. */
-  size?: 'sm' | 'quote' | 'card';
+  size?: 'xs' | 'sm' | 'quote' | 'card';
   tone?: Tone;
   className?: string;
 }) {
   const sizes = {
+    xs: 'text-sm',
     sm: 'text-lg',
     quote: 'text-display-xs',
     card: 'text-display-sm',
