@@ -226,3 +226,30 @@ body {
 [data-theme="light"] .theme-logo {
   filter: brightness(0) saturate(100%);
 }
+
+/* A página Sobre começa sob o header, sobre uma fotografia escura. O header
+   permanece on-media nos dois temas; as demais páginas continuam semânticas. */
+[data-theme="light"] body:has(.about-hero) .site-header {
+  --content: var(--on-media);
+  --content-secondary: var(--on-media-soft);
+  --content-muted: var(--on-media-muted);
+  --content-subtle: var(--on-media-muted);
+  --line: rgb(255 255 255 / 0.2);
+  --line-strong: rgb(255 255 255 / 0.32);
+  --line-contrast: var(--on-media);
+}
+
+[data-theme="light"] body:has(.about-hero) .site-header .theme-logo {
+  filter: none;
+}
+
+/* O export do Figma inclui o fundo escuro do frame. No tema claro a própria
+   superfície da seção assume esse papel, evitando um véu cinza sobre o layout. */
+[data-theme="light"] .about-story-backdrop {
+  display: none;
+}
+
+/* As marcas do card de recrutamento são brancas no arquivo original. */
+[data-theme="light"] .about-theme-art {
+  filter: brightness(0) saturate(100%);
+}

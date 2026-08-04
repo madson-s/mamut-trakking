@@ -210,8 +210,8 @@ export function GuidesSection() {
         ))}
       </div>
 
-      <Button href="/pt/quem-somos" arrow block className="lg:w-auto">
-        Conheça quem guia o bando
+      <Button href="/pt/sobre#guias" arrow block className="lg:w-auto">
+        Conheça os guias
       </Button>
     </Section>
   );

@@ -10,7 +10,7 @@ import { MobileMenu, type MobileNavItem } from './MobileMenu';
 
 const NAV: MobileNavItem[] = [
   { label: 'Aventuras', href: '/pt/aventuras' },
-  { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/quem-somos' },
+  { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
   { label: 'Manifesto', href: '/pt/manifesto' },
   { label: 'Dicas', mobileLabel: 'Dicas de trilha', href: '/pt/dicas' },
   { label: 'Contato', href: '/pt/contato' },
@@ -18,7 +18,7 @@ const NAV: MobileNavItem[] = [
 
 export function HomeHeader() {
   return (
-    <header className="relative z-20 w-full">
+    <header className="site-header relative z-20 w-full">
       <Container
         padded={false}
         className="flex h-20 items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6"
