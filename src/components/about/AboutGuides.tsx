@@ -101,8 +101,10 @@ function GuideCard({ guide }: { guide: Guide }) {
             'pointer-events-none absolute -bottom-px -left-[1.5%] h-[42.25%] w-[103%] translate-y-3 opacity-0 blur-xs',
             'transition-[opacity,filter,transform] ease-brand',
             motion.slow,
-            'group-hover/guide:translate-y-0 group-hover/guide:opacity-100 group-hover/guide:blur-0',
-            'group-focus-visible/guide:translate-y-0 group-focus-visible/guide:opacity-100 group-focus-visible/guide:blur-0',
+            // `blur-none`, não `blur-0`: no Tailwind 4 só o primeiro existe — o
+            // segundo não gera regra e o traço ficava embaçado no hover.
+            'group-hover/guide:translate-y-0 group-hover/guide:opacity-100 group-hover/guide:blur-none',
+            'group-focus-visible/guide:translate-y-0 group-focus-visible/guide:opacity-100 group-focus-visible/guide:blur-none',
             'motion-reduce:translate-y-0 motion-reduce:transition-none',
           )}
         />
