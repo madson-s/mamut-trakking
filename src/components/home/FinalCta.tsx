@@ -17,7 +17,7 @@ export function FinalCta() {
           </>
         }
         lead={
-          <Text size="sm" tone="muted" pretty className="max-w-131.5 sm:text-xl">
+          <Text size="sm" tone="muted" pretty className="max-w-131.5 sm:text-lg">
             Fale com a gente pelo WhatsApp. Descubra qual o seu roteiro ideal para conhecer a
             Chapada Diamantina e como se preparar.
           </Text>

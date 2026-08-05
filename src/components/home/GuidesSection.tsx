@@ -96,7 +96,8 @@ export function GuidesSection() {
   };
 
   return (
-    <Section containerClassName="flex flex-col items-center gap-8 lg:gap-16">
+    <Section containerClassName="flex flex-col items-center gap-8 lg:gap-6">
+      <div className="flex w-full flex-col items-center gap-8 lg:gap-16">
       <Heading size="hero" className="text-center max-sm:text-[clamp(28px,8.4vw,36px)]">
         Nascidos aqui.
         <br />
@@ -121,7 +122,7 @@ export function GuidesSection() {
         className={cn(
           'flex w-full snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth pb-2',
           '[-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden',
-          'lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-visible lg:pb-0',
+          'lg:grid lg:grid-cols-4 lg:gap-10 lg:overflow-visible lg:pb-0',
         )}
       >
         {GUIDES.map((guide, i) => (
@@ -187,6 +188,7 @@ export function GuidesSection() {
             </div>
           </article>
         ))}
+      </div>
       </div>
 
       <div

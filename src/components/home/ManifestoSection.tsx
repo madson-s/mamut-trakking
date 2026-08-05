@@ -13,7 +13,7 @@ export function ManifestoSection() {
   const { props: cardTallProps } = getImageProps({ ...cardCommon, ...CARD_TALL });
 
   return (
-    <Section containerClassName="flex flex-col items-center gap-12">
+    <Section containerClassName="flex flex-col items-center gap-12 lg:gap-10.5">
       <div className="flex max-w-2xl flex-col items-center gap-8 text-center sm:gap-12">
         <Text size="sm" weight="light" className="sm:text-xl">
           Inspirados pelos nossos antepassados nômades

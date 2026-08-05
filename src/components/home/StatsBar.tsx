@@ -19,7 +19,7 @@ export function StatsBar() {
       bordered
       padding="none"
       className="mt-0 sm:mt-7"
-      containerClassName="grid grid-cols-6 items-start gap-x-4 gap-y-6 py-8 text-left sm:gap-x-8 lg:flex lg:h-27 lg:items-center lg:justify-center lg:gap-x-10 lg:py-0"
+      containerClassName="grid grid-cols-6 items-start gap-x-4 gap-y-6 py-8 text-left sm:gap-x-8 lg:flex lg:h-27 lg:items-center lg:justify-between lg:gap-x-10 lg:py-0"
     >
       {STATS.map((stat) => (
         <Stat key={stat.value} value={stat.value} label={stat.label} align="left" className={stat.cell} />

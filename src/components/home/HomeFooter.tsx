@@ -10,7 +10,6 @@ import {
   InstagramIcon,
   Text,
 } from '@/components/ui';
-import { Theme } from '@/components/ui/theme';
 import { SITE } from '@/lib/site';
 
 const COLUMNS = [
@@ -50,7 +49,7 @@ export function HomeFooter() {
   return (
     <footer className="w-full border-t border-line bg-surface-muted">
       <Container className="flex flex-col gap-8 py-12 lg:gap-12 lg:py-16">
-        <div className="flex flex-col justify-between gap-8 md:flex-row lg:gap-10">
+        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:gap-10">
           <div className="flex max-w-xs flex-col gap-4">
             <Image
               src="/svg/Mamut treeking-logo-branco.svg"
@@ -58,15 +57,7 @@ export function HomeFooter() {
               width={1046}
               height={264}
               unoptimized
-              className="theme-logo h-9 w-auto self-start lg:hidden"
-            />
-            <Image
-              src="/svg/mamut-logo-branco.svg"
-              alt=""
-              width={458}
-              height={264}
-              unoptimized
-              className="theme-logo hidden h-11 w-auto self-start lg:block"
+              className="theme-logo h-9 w-auto self-start lg:h-11"
             />
             <Text size="sm" tone="muted" leading="snug">
               Trekkings guiados por quem é
@@ -78,13 +69,13 @@ export function HomeFooter() {
             </Text>
           </div>
 
-          <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:flex lg:flex-wrap lg:gap-12">
+          <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:flex lg:gap-10">
             {COLUMNS.map((col) => (
               <nav
                 key={col.title}
                 aria-label={col.title}
                 className={cn(
-                  'flex flex-col gap-2 lg:gap-3.5',
+                  'flex flex-col gap-2 lg:w-27 lg:gap-3.5',
                   !col.onMobile && 'max-lg:hidden',
                 )}
               >
@@ -133,8 +124,7 @@ export function HomeFooter() {
             </a>
           </div>
 
-          <div className="hidden items-center gap-4 lg:flex">
-            <Theme variant="switch" size="sm" />
+          <div className="hidden items-center gap-3 lg:flex">
             <div className="flex items-center gap-2 text-content-secondary">
               <a href="#" aria-label="Instagram" className={linkClasses}>
                 <InstagramIcon className="size-6" />
@@ -143,7 +133,7 @@ export function HomeFooter() {
                 <FacebookIcon className="size-6" />
               </a>
             </div>
-            <Button href={SITE.whatsappUrl} size="sm" arrow className="w-44.5">
+            <Button href={SITE.whatsappUrl} size="sm" arrow className="w-40.25">
               Falar no WhatsApp
             </Button>
           </div>

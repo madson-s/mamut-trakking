@@ -1,27 +1,24 @@
 import Image from 'next/image';
 import { ArrowRightIcon, Section } from '@/components/ui';
 
-// home_entrelinhas — faixa decorativa "Um bando que reune o mundo inteiro!".
-// Toda a geometria é proporcional (aspect-ratio + % do Figma), então os pedaços
-// continuam sendo spans posicionados; só a cor vem do tema.
 const LABEL = 'text-center font-display text-[clamp(11px,3vw,24px)]';
 
 export function EntrelinhasBand() {
   return (
     <Section
-      padding="compact"
+      padding="none"
       container={false}
-      className="hidden px-6 lg:block"
+      className="hidden h-15.25 px-6 lg:block"
       aria-label="Um bando que reune o mundo inteiro"
     >
-      <div className="relative mx-auto aspect-801/122 w-full max-w-200.25">
+      <div className="relative mx-auto aspect-801/122 w-full max-w-200.25 -translate-y-1/2">
         <span
-          className={`absolute left-0 top-[1.45%] z-10 flex h-[97.1%] w-[22.43%] items-center justify-center rounded-pill bg-surface-raised px-2 text-content ${LABEL}`}
+          className={`absolute top-[1.45%] left-0 z-10 flex h-[97.1%] w-[22.43%] items-center justify-center rounded-pill bg-surface-raised px-2 text-content ${LABEL}`}
         >
           Um bando
         </span>
 
-        <span className="absolute left-[20.47%] top-0 z-20 flex h-full w-[22.43%] items-center justify-center">
+        <span className="absolute top-0 left-[20.47%] z-20 flex h-full w-[22.43%] items-center justify-center">
           <Image
             src="/img/entre_session_foto_01_1_5x.webp"
             alt=""
@@ -32,11 +29,11 @@ export function EntrelinhasBand() {
           <span className={`relative z-10 px-1 text-on-media ${LABEL}`}>que reune</span>
         </span>
 
-        <span className="absolute left-[40.2%] top-[1.45%] z-30 flex h-[97.1%] w-[25.64%] items-center justify-center rounded-pill bg-brand text-brand-contrast">
+        <span className="absolute top-[1.45%] left-[40.2%] z-30 flex h-[97.1%] w-[25.64%] items-center justify-center rounded-pill bg-brand text-brand-contrast">
           <ArrowRightIcon className="size-[clamp(24px,6vw,56px)]" />
         </span>
 
-        <span className="absolute right-0 top-0 z-40 flex h-full w-[37.47%] items-center justify-center">
+        <span className="absolute top-0 right-0 z-40 flex h-full w-[37.47%] items-center justify-center">
           <Image
             src="/img/entre_session_foto_02_1_5x.webp"
             alt=""

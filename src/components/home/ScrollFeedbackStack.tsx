@@ -6,7 +6,7 @@ import { Card, Placeholder, StarRating, Text } from '@/components/ui';
 const QUOTE =
   '"Nosso guia Átila tinha muito conhecimento da região, era atencioso e apaixonado pelo Pati. Sempre nos preparava para o que esperar de cada trecho — e ainda compartilhava histórias locais."';
 
-const OFFSETS = [0, 304, 608];
+const OFFSETS = [0, 296, 592];
 
 export function ScrollFeedbackStack() {
   const rootRef = useRef<HTMLDivElement>(null);
