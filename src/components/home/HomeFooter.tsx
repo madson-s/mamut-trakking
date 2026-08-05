@@ -17,10 +17,31 @@ const COLUMNS = [
   {
     title: 'AVENTURAS',
     onMobile: true,
-    links: ['Roteiros', 'Datas disponíveis', 'Como se preparar', 'Dicas de trilha'],
+    links: [
+      { label: 'Roteiros', href: '/pt/aventuras' },
+      { label: 'Datas disponíveis', href: '/pt/aventuras' },
+      { label: 'Como se preparar', href: '/pt/dicas' },
+      { label: 'Dicas de trilha', href: '/pt/dicas' },
+    ],
   },
-  { title: 'SOBRE', onMobile: true, links: ['Quem Somos', 'Manifesto', 'Guias Nativos'] },
-  { title: 'CONTATO', onMobile: false, links: ['WhatsApp', 'TripAdvisor', 'Instagram'] },
+  {
+    title: 'SOBRE',
+    onMobile: true,
+    links: [
+      { label: 'Quem Somos', href: '/pt/sobre' },
+      { label: 'Manifesto', href: '/pt/sobre#manifesto' },
+      { label: 'Guias Nativos', href: '/pt/sobre#guias' },
+    ],
+  },
+  {
+    title: 'CONTATO',
+    onMobile: false,
+    links: [
+      { label: 'WhatsApp', href: SITE.whatsappUrl },
+      { label: 'TripAdvisor', href: 'https://www.tripadvisor.com.br/' },
+      { label: 'Instagram', href: 'https://www.instagram.com/' },
+    ],
+  },
 ];
 
 const linkClasses = cn('transition-colors hover:text-content', motion.fast);
@@ -70,10 +91,10 @@ export function HomeFooter() {
                 <Text as="span" size="xs" weight="semibold">
                   {col.title}
                 </Text>
-                {col.links.map((label) => (
-                  <Text key={label} as="span" size="sm" tone="secondary">
-                    <Link href="#" className={linkClasses}>
-                      {label}
+                {col.links.map((link) => (
+                  <Text key={link.label} as="span" size="sm" tone="secondary">
+                    <Link href={link.href} className={linkClasses}>
+                      {link.label}
                     </Link>
                   </Text>
                 ))}

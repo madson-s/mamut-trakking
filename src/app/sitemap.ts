@@ -19,6 +19,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     });
   }
 
+  // Página institucional já redesenhada em português. EN/ES permanecem fora
+  // até receberem conteúdo equivalente, conforme a arquitetura atual do repo.
+  entries.push({ url: `${BASE}/pt/sobre` });
+
   // Cada roteiro, em cada idioma.
   for (const locale of LOCALES) {
     for (const adv of ADVENTURE_ROUTES) {
