@@ -27,7 +27,7 @@ export default function AboutPage() {
       <AboutHero />
       <StatsBar />
       <AboutStory />
-      <EntrelinhasBand />
+      <EntrelinhasBand overlap />
       <AboutGuides />
       <AboutReviews />
       <AboutCta />

@@ -20,7 +20,7 @@ export default function HomePage() {
       <StatsBar />
       <ManifestoSection />
       <PathsSection />
-      <EntrelinhasBand />
+      <EntrelinhasBand overlap />
       <GuidesSection />
       <ReviewsSection />
       <FinalCta />

@@ -11,7 +11,7 @@ import {
 
 const AUTHORITY = [
   {
-    icon: '/svg/_icons/icon_06_people.svg',
+    icon: '/svg/_icons/icon_09_location.svg',
     title: 'Guias 100% locais',
     text: 'Nascidos e criados em Lençóis e no entorno da Chapada.',
   },
@@ -36,9 +36,9 @@ export function AboutStory() {
   return (
     <Section
       id="manifesto"
-      padding="tall"
+      padding="none"
       container={false}
-      className="relative overflow-hidden"
+      className="relative overflow-hidden border-b border-line py-16 lg:pt-12 lg:pb-[108px]"
       labelledBy="about-story-title"
     >
       <Image
@@ -47,7 +47,7 @@ export function AboutStory() {
         width={1440}
         height={804}
         unoptimized
-        className="about-story-backdrop pointer-events-none absolute inset-x-0 top-0 h-auto w-full opacity-45"
+        className="about-story-backdrop pointer-events-none absolute inset-0 h-full w-full object-cover object-bottom opacity-45"
       />
 
       <Container className="relative flex flex-col items-center gap-16">
@@ -57,7 +57,7 @@ export function AboutStory() {
           size="hero"
           maxWidth="max-w-[820px]"
           title={
-            <>
+            <span className="max-lg:text-[clamp(26px,7.6vw,34px)]">
               Não somos uma agência
               <br />
               de turismo. <span className="text-brand-strong">Somos o bando</span>
@@ -72,7 +72,7 @@ export function AboutStory() {
                 className="inline-block h-[0.66em] w-[1.7em] rounded-[0.2em] object-cover align-middle shadow-image-outline"
               />{' '}
               <span className="text-brand-strong">sua tribo.</span>
-            </>
+            </span>
           }
         />
 
@@ -143,13 +143,11 @@ export function AboutStory() {
           surface="muted"
           radius="panelLg"
           padding="none"
-          className="grid w-full gap-0 overflow-hidden md:grid-cols-2 lg:grid-cols-4"
+          bordered={false}
+          className="grid w-full grid-cols-1 gap-10 overflow-hidden p-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:border lg:border-line-strong lg:p-8.25"
         >
           {AUTHORITY.map((item) => (
-            <div
-              key={item.title}
-              className="flex min-h-[166px] flex-col gap-3 px-8 py-8 not-last:border-b not-last:border-line md:nth-[2]:border-b-0 md:not-last:border-r lg:border-b-0"
-            >
+            <div key={item.title} className="flex flex-col gap-3">
               <span className="flex size-10 items-center justify-center rounded-full bg-brand">
                 <Image
                   src={item.icon}

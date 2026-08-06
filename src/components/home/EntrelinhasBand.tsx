@@ -1,17 +1,23 @@
 import Image from 'next/image';
 import { ArrowRightIcon, Section } from '@/components/ui';
+import { cn } from '@/lib/cn';
 
 const LABEL = 'text-center font-display text-[clamp(11px,3vw,24px)]';
 
-export function EntrelinhasBand() {
+export function EntrelinhasBand({ overlap = false }: { overlap?: boolean }) {
   return (
     <Section
-      padding="none"
+      padding={overlap ? 'none' : 'compact'}
       container={false}
-      className="hidden h-15.25 px-6 lg:block"
+      className={overlap ? 'hidden h-15.25 px-6 lg:block' : 'hidden px-6 lg:block'}
       aria-label="Um bando que reune o mundo inteiro"
     >
-      <div className="relative mx-auto aspect-801/122 w-full max-w-200.25 -translate-y-1/2">
+      <div
+        className={cn(
+          'relative mx-auto aspect-801/122 w-full max-w-200.25',
+          overlap && '-translate-y-1/2',
+        )}
+      >
         <span
           className={`absolute top-[1.45%] left-0 z-10 flex h-[97.1%] w-[22.43%] items-center justify-center rounded-pill bg-surface-raised px-2 text-content ${LABEL}`}
         >
