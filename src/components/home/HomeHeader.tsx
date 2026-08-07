@@ -65,14 +65,15 @@ export function HomeHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2.5">
-          <Theme variant="compact" className="size-9 lg:hidden" />
+          <Theme variant="toggle" className="lg:hidden" />
           <LanguageSwitcher />
           <MobileMenu nav={NAV} />
 
-          <div className="hidden lg:block">
+          <div className="hidden items-center gap-2.5 lg:flex">
             <Button href={SITE.whatsappUrl} size="sm" arrow>
               Falar no WhatsApp
             </Button>
+            <Theme variant="toggle" />
           </div>
         </div>
       </Container>

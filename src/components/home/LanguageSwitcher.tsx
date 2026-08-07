@@ -23,7 +23,7 @@ export function LanguageSwitcher() {
     <details className="group relative shrink-0 font-body font-light text-content">
       <summary
         className={cn(
-          'group/trigger flex h-10 w-10 cursor-pointer list-none items-center justify-center gap-1.5',
+          'group/trigger flex h-10 w-10 cursor-pointer list-none items-center justify-center gap-2',
           'rounded-pill bg-surface-muted text-content shadow-chip ring-1 ring-line-strong ring-inset',
           'transition-[background-color,color,box-shadow,scale]',
           motion.fast,
@@ -47,7 +47,7 @@ export function LanguageSwitcher() {
         <span className="sr-only">Selecionar idioma</span>
       </summary>
 
-      <div className="absolute top-[calc(100%+8px)] right-0 z-50 flex w-40 flex-col gap-2 overflow-hidden rounded-control bg-surface p-1.5 shadow-popover ring-1 ring-line ring-inset">
+      <div className="absolute top-[calc(100%+8px)] right-0 z-50 flex w-40 flex-col gap-2 overflow-hidden rounded-control bg-surface p-2 shadow-popover ring-1 ring-line ring-inset">
         {LANGUAGES.map(({ code, shortLabel, label }) => {
           const isCurrent = code === currentCode;
 

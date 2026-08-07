@@ -282,7 +282,8 @@ export function PathsSection() {
     <Section
       surface="muted"
       bordered
-      padding="tall"
+      padding="none"
+      className="relative py-20 lg:py-24"
       labelledBy="paths-heading"
       containerClassName="flex flex-col gap-6 lg:gap-12"
     >

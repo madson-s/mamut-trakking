@@ -4,14 +4,20 @@ import { ScrollFeedbackStack } from '@/components/home/ScrollFeedbackStack';
 
 export function ReviewsSection() {
   return (
-    <Section surface="muted" bordered container={false} className="relative z-10 overflow-x-clip">
+    <Section
+      surface="muted"
+      bordered
+      container={false}
+      padding="none"
+      className="relative z-10 overflow-x-clip py-12 lg:py-24"
+    >
       <Image
         src="/svg/session-05_backgroud-people-01.svg"
         alt=""
         width={1052}
         height={522}
         unoptimized
-        className="pointer-events-none absolute bottom-16 left-1/2 hidden w-263 max-w-none -translate-x-1/3 opacity-40 lg:block"
+        className="pointer-events-none absolute -bottom-1 left-1/2 hidden w-263 max-w-none -translate-x-1/3 opacity-40 lg:block"
       />
 
       <Container className="relative flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">

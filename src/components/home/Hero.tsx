@@ -22,7 +22,7 @@ export function Hero() {
           overlay="left"
           radius="none"
           backdrop="media"
-          className="mx-auto min-h-160 sm:min-h-140 sm:rounded-panel lg:h-176.75 2xl:max-w-390.5 2xl:rounded-panel-lg"
+          className="mx-auto min-h-160 sm:min-h-140 sm:rounded-panel lg:h-176.75 2xl:rounded-panel-lg"
           contentLayer="fill"
           media={
             <picture className="contents">
@@ -30,13 +30,13 @@ export function Hero() {
               <img
                 {...bgCropProps}
                 alt=""
-                className="absolute inset-0 h-full w-full object-cover object-center 2xl:inset-auto 2xl:-top-25.25 2xl:left-[clamp(-11px,calc(6.4706%-101.06px),0px)] 2xl:h-212.5 2xl:w-390.5 2xl:max-w-none"
+                className="absolute inset-0 h-full w-full object-cover object-center"
               />
             </picture>
           }
         >
           <div className="relative mx-auto flex h-full max-w-304 flex-col justify-end px-6 pb-8 lg:block lg:px-0 lg:pb-0">
-            <div className="flex w-full flex-col gap-5 lg:absolute lg:bottom-25 lg:left-10 lg:w-155 lg:gap-6">
+            <div className="flex w-full flex-col gap-5 lg:absolute lg:bottom-25 lg:left-6 lg:w-155 lg:gap-6">
               <Text size="sm" weight="light" tone="onMediaSoft" className="sm:text-lg">
                 Guias nativos · Chapada Diamantina
                 <span className="hidden sm:inline"> · Lençóis, Bahia</span>
@@ -101,7 +101,7 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="absolute right-10 bottom-25 hidden w-fit flex-col gap-6 lg:flex">
+            <div className="absolute right-6 bottom-25 hidden w-fit flex-col gap-6 lg:flex">
               <div className="flex items-center gap-3">
                 <Image
                   src="/svg/_icons/icon_03_montain.svg"

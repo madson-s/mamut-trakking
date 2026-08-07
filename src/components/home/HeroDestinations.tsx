@@ -72,7 +72,7 @@ export function HeroDestinations() {
                 isActive && 'translate-y-0 opacity-100',
               )}
             >
-              <span className="flex min-w-0 flex-col gap-0.5 text-on-media">
+              <span className="flex min-w-0 flex-col gap-1 text-on-media">
                 <span className="truncate font-body text-xs font-semibold">{destination.title}</span>
                 <span className="truncate font-body text-[10px] font-light text-on-media-muted">
                   {destination.subtitle}

@@ -127,6 +127,7 @@ export function AboutGuides() {
           <GuideCard key={guide.name} guide={guide} />
         ))}
         <JoinTeamCard />
+        <div aria-hidden className="w-1 shrink-0 lg:hidden" />
       </div>
 
       <div
@@ -153,7 +154,7 @@ export function AboutGuides() {
   );
 }
 
-function GuideCard({ guide }: { guide: Guide }) {
+export function GuideCard({ guide }: { guide: Guide }) {
   return (
     <article
       data-guide-card
@@ -167,7 +168,7 @@ function GuideCard({ guide }: { guide: Guide }) {
         'focus-visible:ring-offset-4',
       )}
     >
-      <div className="relative aspect-377/402 w-full overflow-hidden rounded-panel-lg bg-surface-sunken shadow-image-outline max-lg:rounded-[16px]">
+      <div className="relative aspect-377/402 w-full overflow-hidden rounded-panel-lg bg-surface-sunken shadow-image-outline max-lg:rounded-2xl">
         <Image
           src={guide.photo}
           alt={guide.name}
@@ -224,7 +225,7 @@ function GuideCard({ guide }: { guide: Guide }) {
   );
 }
 
-function JoinTeamCard() {
+export function JoinTeamCard() {
   return (
     <div
       data-guide-card

@@ -5,7 +5,7 @@ import { useTheme } from './theme-provider';
 export type ThemeToggleSize = 'sm' | 'md' | 'lg';
 
 interface ThemeToggleProps {
-  variant?: 'switch' | 'compact';
+  variant?: 'switch' | 'compact' | 'toggle';
   size?: ThemeToggleSize;
   className?: string;
 }
@@ -49,6 +49,38 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
         >
           <SunIcon className="size-4.5" />
         </span>
+      </button>
+    );
+  }
+
+  if (variant === 'toggle') {
+    const isDark = theme === 'dark';
+
+    return (
+      <button
+        type="button"
+        role="switch"
+        aria-checked={isDark}
+        onClick={() => setTheme(isDark ? 'light' : 'dark')}
+        aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
+        className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-pill bg-surface-muted ring-1 ring-line-strong ring-inset transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none ${className}`}
+      >
+        <span
+          aria-hidden
+          className={`absolute left-1 size-5 rounded-full bg-content-subtle transition-transform duration-300 ease-brand ${
+            isDark ? 'translate-x-0' : 'translate-x-5'
+          }`}
+        />
+        <MoonIcon
+          className={`absolute right-1.5 size-3.5 text-content transition-opacity duration-200 ease-out ${
+            isDark ? 'opacity-100' : 'opacity-0'
+          }`}
+        />
+        <SunIcon
+          className={`absolute left-1.5 size-3.5 text-content transition-opacity duration-200 ease-out ${
+            isDark ? 'opacity-0' : 'opacity-100'
+          }`}
+        />
       </button>
     );
   }

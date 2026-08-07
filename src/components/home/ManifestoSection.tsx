@@ -3,7 +3,7 @@ import { Button, Heading, MediaCard, Section, Text } from '@/components/ui';
 
 const CARD_WIDE = { src: '/img/session_02_saqure_text_crop.webp', width: 1217, height: 284 };
 const CARD_TALL = { src: '/img/session-02_saqure-text_no-crop.webp', width: 2000, height: 1600 };
-const WALKERS = { src: '/svg/humans-assets-yellow.svg', width: 784, height: 246 };
+const WALKERS = { src: '/svg/about/story-walkers.svg', width: 290, height: 114 };
 
 export function ManifestoSection() {
   const cardCommon = { alt: '', sizes: '100vw' } as const;
@@ -13,7 +13,11 @@ export function ManifestoSection() {
   const { props: cardTallProps } = getImageProps({ ...cardCommon, ...CARD_TALL });
 
   return (
-    <Section containerClassName="flex flex-col items-center gap-12 lg:gap-10.5">
+    <Section
+      padding="none"
+      className="pt-24 pb-16"
+      containerClassName="flex flex-col items-center gap-12"
+    >
       <div className="flex max-w-2xl flex-col items-center gap-8 text-center sm:gap-12">
         <Text size="sm" weight="light" className="sm:text-xl">
           Inspirados pelos nossos antepassados nômades
@@ -44,7 +48,7 @@ export function ManifestoSection() {
           backdrop="media"
           className="min-h-57.25 w-full sm:min-h-105 sm:rounded-panel-lg lg:h-71 lg:min-h-0"
           contentLayer="fill"
-          contentClassName="flex flex-col items-center justify-center px-3 py-6 text-center sm:px-12 sm:py-11 lg:items-start lg:justify-start lg:px-20 lg:py-[42px] lg:text-left"
+          contentClassName="flex flex-col items-center justify-center px-3 py-6 text-center sm:px-12 sm:py-11 lg:items-start lg:justify-start lg:px-20 lg:py-10 lg:text-left"
           media={
             <picture className="contents">
               <source media="(min-width: 640px)" srcSet={cardWideSrcSet} />
@@ -88,7 +92,7 @@ export function ManifestoSection() {
           {...WALKERS}
           alt=""
           unoptimized
-          className="pointer-events-none absolute right-6 bottom-0 hidden h-auto w-[min(70vw,300px)] max-w-none translate-y-[40%] sm:right-10 sm:w-105 lg:right-16 lg:block lg:w-121.25"
+          className="pointer-events-none absolute right-6 bottom-0 hidden h-auto w-[min(70vw,320px)] max-w-none translate-y-[38%] sm:right-10 sm:w-120 lg:right-16 lg:block lg:w-150"
         />
       </div>
     </Section>

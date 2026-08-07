@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect, useRef, type CSSProperties } from 'react';
 import Image from 'next/image';
 import {
   Badge,
@@ -8,13 +11,18 @@ import {
   Section,
   StarIcon,
   StarRating,
-  Stat,
   Text,
+  Stat,
 } from '@/components/ui';
 import { SITE } from '@/lib/site';
 
 const QUOTE =
   '“Nosso guia Átila tinha muito conhecimento da região, era atencioso e apaixonado pelo Pati. Sempre nos preparava para o que esperar de cada trecho — e ainda compartilhava histórias locais.”';
+
+const CLOSED_OFFSETS = [0, 18, 36, 54];
+const OPEN_OFFSETS = [0, 296, 592, 888];
+const STAGE_START = 0.2;
+const STAGE_LENGTH = 0.4;
 
 export function AboutReviews() {
   return (
@@ -115,52 +123,136 @@ export function AboutReviews() {
           </div>
         </div>
 
-        <div
-          className="flex flex-col gap-4 max-lg:order-2"
-          aria-label="Avaliações de viajantes"
-        >
-          {Array.from({ length: 4 }, (_, index) => (
-            <ReviewCard key={index} />
-          ))}
-        </div>
+        <ReviewStack />
       </Container>
     </Section>
   );
 }
-function ReviewCard() {
+
+function ReviewStack() {
+  const rootRef = useRef<HTMLDivElement>(null);
+  const cardRefs = useRef<Array<HTMLDivElement | null>>([]);
+
+  useEffect(() => {
+    let frameId = 0;
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    const render = () => {
+      frameId = 0;
+      const root = rootRef.current;
+      if (!root) return;
+
+      const isDesktop = window.innerWidth >= 1024;
+      const viewportHeight = window.innerHeight;
+      const start = viewportHeight * 0.85;
+      const end = viewportHeight * 0.1;
+      const top = root.getBoundingClientRect().top;
+      const progress = reducedMotion.matches
+        ? 1
+        : Math.min(Math.max((start - top) / (start - end), 0), 1);
+
+      cardRefs.current.forEach((card, index) => {
+        if (!card) return;
+        if (!isDesktop) {
+          card.style.removeProperty('transform');
+          return;
+        }
+
+        const stage = Math.min(
+          Math.max((progress - index * STAGE_START) / STAGE_LENGTH, 0),
+          1,
+        );
+        const eased = 1 - (1 - stage) ** 3;
+        const offset =
+          CLOSED_OFFSETS[index] + (OPEN_OFFSETS[index] - CLOSED_OFFSETS[index]) * eased;
+        card.style.transform = `translateY(${offset}px)`;
+      });
+    };
+
+    const schedule = () => {
+      if (!frameId) frameId = window.requestAnimationFrame(render);
+    };
+
+    render();
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    reducedMotion.addEventListener('change', schedule);
+
+    return () => {
+      if (frameId) window.cancelAnimationFrame(frameId);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      reducedMotion.removeEventListener('change', schedule);
+    };
+  }, []);
+
   return (
-    <Card
-      as="article"
-      surface="muted"
-      radius="panelLg"
-      elevation="card"
-      padding="none"
-      className="gap-4 px-6 py-5 max-lg:gap-3 max-lg:px-5.5 max-lg:py-4 sm:px-8 sm:py-6"
+    <div
+      ref={rootRef}
+      className="relative flex flex-col gap-4 max-lg:order-2 lg:block lg:h-290"
+      aria-label="Avaliações de viajantes"
     >
-      <div className="flex items-center gap-4 max-lg:gap-3">
-        <Image
-          src="/img/about/paola-bertoncello.png"
-          alt="Paola Bertoncello"
-          width={64}
-          height={64}
-          className="size-16 rounded-chip object-cover shadow-image-outline max-lg:size-11"
+      {Array.from({ length: 4 }, (_, index) => (
+        <ReviewCard
+          key={index}
+          index={index}
+          cardRef={(element) => {
+            cardRefs.current[index] = element;
+          }}
         />
-        <div className="flex flex-col gap-0.5">
-          <Text size="xl" weight="semibold" className="max-lg:text-base">
-            Paola Bertoncello
-          </Text>
-          <Text className="max-lg:text-xs">Marau, RS — Casal</Text>
+      ))}
+    </div>
+  );
+}
+
+function ReviewCard({
+  index,
+  cardRef,
+}: {
+  index: number;
+  cardRef: (element: HTMLDivElement | null) => void;
+}) {
+  const style = { zIndex: 30 - index * 10 } as CSSProperties;
+
+  return (
+    <div
+      ref={cardRef}
+      style={style}
+      className="relative mb-4 last:mb-0 lg:absolute lg:inset-x-0 lg:top-0 lg:mb-0 lg:will-change-transform"
+    >
+      <Card
+        as="article"
+        surface="muted"
+        radius="panelLg"
+        elevation="card"
+        padding="none"
+        className="min-h-68 gap-4 px-6 py-5 max-lg:gap-3 max-lg:px-5.5 max-lg:py-4 sm:px-8 sm:py-6"
+      >
+        <div className="flex items-center gap-4 max-lg:gap-3">
+          <Image
+            src="/img/about/paola-bertoncello.png"
+            alt="Paola Bertoncello"
+            width={64}
+            height={64}
+            className="size-16 rounded-chip object-cover shadow-image-outline max-lg:size-11"
+          />
+          <div className="flex flex-col gap-0.5">
+            <Text size="xl" weight="semibold" className="max-lg:text-base">
+              Paola Bertoncello
+            </Text>
+            <Text className="max-lg:text-xs">Marau, RS — Casal</Text>
+          </div>
         </div>
-      </div>
-      <div className="flex items-center gap-2">
-        <StarRating variant="dot" />
-        <Text as="span" size="xl" weight="semibold" className="max-lg:text-base">
-          5.0
+        <div className="flex items-center gap-2">
+          <StarRating variant="dot" />
+          <Text as="span" size="xl" weight="semibold" className="max-lg:text-base">
+            5.0
+          </Text>
+        </div>
+        <Text leading="relaxed" pretty className="max-lg:text-xs">
+          {QUOTE}
         </Text>
-      </div>
-      <Text leading="relaxed" pretty className="max-lg:text-xs">
-        {QUOTE}
-      </Text>
-    </Card>
+      </Card>
+    </div>
   );
 }

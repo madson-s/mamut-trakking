@@ -49,7 +49,7 @@ export function HomeFooter() {
   return (
     <footer className="w-full border-t border-line bg-surface-muted">
       <Container className="flex flex-col gap-8 py-12 lg:gap-12 lg:py-16">
-        <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:gap-10">
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
           <div className="flex max-w-xs flex-col gap-4">
             <Image
               src="/svg/Mamut treeking-logo-branco.svg"
@@ -75,7 +75,7 @@ export function HomeFooter() {
                 key={col.title}
                 aria-label={col.title}
                 className={cn(
-                  'flex flex-col gap-2 lg:w-27 lg:gap-3.5',
+                  'flex flex-col gap-2 lg:w-27 lg:gap-4',
                   !col.onMobile && 'max-lg:hidden',
                 )}
               >
