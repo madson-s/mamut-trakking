@@ -45,10 +45,10 @@ export function Hero() {
               <Heading as="h1" size="hero" tone="onMedia" className="relative">
                 <span className="inline">MAMUT</span>
                 <Image
-                  src="/svg/humans-assets-yellow.svg"
+                  src="/svg/about/story-walkers.svg"
                   alt=""
-                  width={784}
-                  height={246}
+                  width={290}
+                  height={114}
                   unoptimized
                   className="pointer-events-none mx-1.5 inline-block h-[0.7em] w-auto align-middle lg:hidden"
                 />
@@ -59,10 +59,10 @@ export function Hero() {
                 <br />
                 APROVEITAR.
                 <Image
-                  src="/svg/humans-assets-yellow.svg"
+                  src="/svg/about/story-walkers.svg"
                   alt=""
-                  width={784}
-                  height={246}
+                  width={290}
+                  height={114}
                   unoptimized
                   className="pointer-events-none absolute hidden lg:block"
                   style={{ left: '236px', top: '4px', width: '172px', height: '66px' }}

@@ -224,7 +224,6 @@ function ReviewCard({
         as="article"
         surface="muted"
         radius="panelLg"
-        elevation="card"
         padding="none"
         className="min-h-68 gap-4 px-6 py-5 max-lg:gap-3 max-lg:px-5.5 max-lg:py-4 sm:px-8 sm:py-6"
       >

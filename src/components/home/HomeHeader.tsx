@@ -31,7 +31,7 @@ export function HomeHeader() {
             height={264}
             unoptimized
             loading="eager"
-            className="theme-logo h-7 w-auto lg:hidden"
+            className="h-7 w-auto lg:hidden"
           />
           <Image
             src="/svg/mamut-logo-branco.svg"

@@ -15,7 +15,7 @@ export function ManifestoSection() {
   return (
     <Section
       padding="none"
-      className="pt-24 pb-16"
+      className="pt-24 pb-36 lg:pb-16"
       containerClassName="flex flex-col items-center gap-12"
     >
       <div className="flex max-w-2xl flex-col items-center gap-8 text-center sm:gap-12">
@@ -85,7 +85,7 @@ export function ManifestoSection() {
           {...WALKERS}
           alt=""
           unoptimized
-          className="pointer-events-none mx-auto mt-10 h-auto w-[min(80vw,340px)] max-w-none lg:hidden"
+          className="pointer-events-none absolute inset-x-0 top-full mx-auto mt-6.25 h-auto w-[min(80vw,340px)] max-w-none lg:hidden"
         />
 
         <Image

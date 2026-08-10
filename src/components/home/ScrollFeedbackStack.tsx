@@ -100,7 +100,6 @@ function FeedbackCard({
     >
       <Card
         radius="cardLg"
-        elevation="card"
         surface="raised"
         padding="none"
         className="min-h-68 gap-4 px-8 py-6 max-lg:min-h-49.25 max-lg:gap-3 max-lg:px-5.5 max-lg:py-4"

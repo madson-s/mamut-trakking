@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -63,39 +63,25 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
       </button>
 
       <div
-        aria-hidden={!open}
-        className={cn(
-          'fixed inset-0 z-50 bg-black/60 backdrop-blur-sm transition-opacity lg:hidden',
-          motion.slow,
-          open ? 'opacity-100' : 'pointer-events-none opacity-0',
-        )}
-        onClick={() => setOpen(false)}
-      />
-
-      <div
         role="dialog"
         aria-modal="true"
         aria-label="Menu"
         aria-hidden={!open}
         className={cn(
-          'fixed inset-x-4 top-4 z-50 flex max-h-[calc(100vh-2rem)] flex-col gap-8 overflow-y-auto',
-          'rounded-panel-lg bg-surface-raised p-6 shadow-popover',
-          'origin-top transition-[opacity,transform,filter]',
-          motion.slow,
-          open
-            ? 'translate-y-0 scale-100 opacity-100 blur-none'
-            : 'pointer-events-none -translate-y-2 scale-98 opacity-0 blur-xs',
+          'fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto bg-surface p-6',
+          'transition-[opacity,transform] duration-300 ease-brand',
+          open ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-2 opacity-0',
           'lg:hidden',
         )}
       >
         <div className="flex items-center justify-between">
           <Image
-            src="/svg/mamut-logo-branco.svg"
+            src="/svg/Mamut treeking-logo-branco.svg"
             alt={SITE.name}
-            width={458}
+            width={1046}
             height={264}
             unoptimized
-            className="theme-logo h-7 w-auto"
+            className="theme-logo h-8 w-auto"
           />
           <button
             type="button"
@@ -114,7 +100,7 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
           </button>
         </div>
 
-        <div className="flex flex-col gap-1">
+        <div className="mt-16.5 flex flex-col gap-1">
           <Text
             as="span"
             size="xs"
@@ -144,30 +130,30 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
                     {item.mobileLabel ?? item.label}
                   </Text>
                 </Link>
-                {i < nav.length - 1 && <Divider />}
+                <Divider />
               </div>
             ))}
           </nav>
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="mt-11.75 flex w-89.5 flex-col gap-7">
           <Text size="sm" tone="muted">
             Cada caminho começa com uma conversa.
           </Text>
-          <Button href={SITE.whatsappUrl} arrow>
+          <Button href={SITE.whatsappUrl} arrow className="h-11 w-47">
             Falar no WhatsApp
           </Button>
         </div>
 
-        <Divider />
+        <div className="mt-auto flex flex-col gap-5.75">
+          <Divider />
 
-        <div className="flex flex-col gap-3">
-          <div className="flex flex-wrap items-center gap-2">
+          <div className="flex flex-wrap items-baseline gap-2">
             <Text as="span" size="xs" tone="muted" className="tracking-wide uppercase">
               Idioma
             </Text>
             {LANGUAGES.map(({ code, shortLabel }, i) => (
-              <span key={code} className="flex items-center gap-2">
+              <Fragment key={code}>
                 {i > 0 && (
                   <Text as="span" size="xs" tone="muted" aria-hidden>
                     ·
@@ -183,7 +169,7 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
                     {shortLabel}
                   </Text>
                 </Link>
-              </span>
+              </Fragment>
             ))}
           </div>
 
