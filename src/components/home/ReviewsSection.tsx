@@ -9,10 +9,10 @@ export function ReviewsSection() {
       bordered
       container={false}
       padding="none"
-      className="relative z-10 overflow-x-clip max-lg:py-12 lg:py-10"
+      className="relative z-10 overflow-x-clip max-lg:pt-12 lg:pt-10"
     >
-      <Container className="relative flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-        <div className="flex max-w-146.25 flex-col gap-8 max-lg:contents lg:sticky lg:top-24 lg:gap-12">
+      <Container className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="relative flex max-w-146.25 flex-col gap-8 max-lg:contents lg:sticky lg:top-24 lg:gap-12 lg:pb-75">
           <div className="flex flex-col gap-5 max-lg:order-1 lg:gap-6">
             <Badge
               size="lg"
@@ -71,14 +71,17 @@ export function ReviewsSection() {
               Conheça o nosso TripAdvisor
             </Button>
           </div>
-          <Image
-            src="/svg/session-05_backgroud-people-01.svg"
-            alt=""
-            width={1052}
-            height={522}
-            unoptimized
-            className="pointer-events-none absolute hidden w-263 -bottom-12 max-w-304 opacity-40 lg:block"
-          />
+
+          <div className="w-screen absolute flex justify-center items-center bottom-0 left-0"> 
+            <Image
+              src="/svg/session-05_backgroud-people-01.svg"
+              alt=""
+              width={1052}
+              height={522}
+              unoptimized
+              className="pointer-events-none hidden bottom-0 max-w-304 opacity-40 lg:block"
+            />
+          </div>            
         </div>
 
         <div className="max-lg:order-2 lg:contents">
