@@ -72,14 +72,14 @@ export function ReviewsSection() {
             </Button>
           </div>
 
-          <div className="w-screen absolute flex justify-center items-center bottom-0 left-0"> 
+          <div className="w-full absolute flex justify-start bottom-0 left-70"> 
             <Image
               src="/svg/session-05_backgroud-people-01.svg"
               alt=""
               width={1052}
               height={522}
               unoptimized
-              className="pointer-events-none hidden bottom-0 max-w-304 opacity-40 lg:block"
+              className="pointer-events-none hidden bottom-0 max-w-304 origin-top-right opacity-40 lg:block"
             />
           </div>            
         </div>
