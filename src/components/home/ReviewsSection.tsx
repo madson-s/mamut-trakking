@@ -9,83 +9,87 @@ export function ReviewsSection() {
       bordered
       container={false}
       padding="none"
-      className="relative z-10 overflow-x-clip py-12 lg:py-24"
+      className="relative z-10 overflow-x-clip max-lg:py-12"
     >
-      <Image
-        src="/svg/session-05_backgroud-people-01.svg"
-        alt=""
-        width={1052}
-        height={522}
-        unoptimized
-        className="pointer-events-none absolute -bottom-1 left-1/2 hidden w-263 max-w-none -translate-x-1/3 opacity-40 lg:block"
-      />
+      <div data-pin-stage>
+        <div data-pin-box className="lg:sticky lg:top-0 lg:py-10">
+          <Image
+            src="/svg/session-05_backgroud-people-01.svg"
+            alt=""
+            width={1052}
+            height={522}
+            unoptimized
+            className="pointer-events-none absolute -bottom-1 left-1/2 hidden w-263 max-w-none -translate-x-1/3 opacity-40 lg:block"
+          />
 
-      <Container className="relative flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
-        <div className="flex max-w-146.25 flex-col gap-8 max-lg:contents lg:gap-12">
-          <div className="flex flex-col gap-5 max-lg:order-1 lg:gap-6">
-            <Badge
-              size="lg"
-              className="self-start max-lg:min-h-8 max-lg:px-3 max-lg:py-1 max-lg:text-sm"
-            >
-              Avaliações verificadas · TripAdvisor
-            </Badge>
+          <Container className="relative flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+            <div className="flex max-w-146.25 flex-col gap-8 max-lg:contents lg:gap-12">
+              <div className="flex flex-col gap-5 max-lg:order-1 lg:gap-6">
+                <Badge
+                  size="lg"
+                  className="self-start max-lg:min-h-8 max-lg:px-3 max-lg:py-1 max-lg:text-sm"
+                >
+                  Avaliações verificadas · TripAdvisor
+                </Badge>
 
-            <Heading size="hero">
-              O que nosso bando
-              <br />
-              diz das aventuras.
-            </Heading>
+                <Heading size="hero">
+                  O que nosso bando
+                  <br />
+                  diz das aventuras.
+                </Heading>
 
-            <div className="flex flex-wrap items-center gap-2 lg:hidden">
-              <Badge variant="soft" size="sm">
-                140+ avaliações
-              </Badge>
-              <Badge
-                variant="soft"
-                size="sm"
-                icon={<StarIcon className="size-3.5 text-warning-500" />}
-              >
-                5.0 geral
-              </Badge>
-              <Badge variant="soft" size="sm">
-                #4 em Lençóis
-              </Badge>
+                <div className="flex flex-wrap items-center gap-2 lg:hidden">
+                  <Badge variant="soft" size="sm">
+                    140+ avaliações
+                  </Badge>
+                  <Badge
+                    variant="soft"
+                    size="sm"
+                    icon={<StarIcon className="size-3.5 text-warning-500" />}
+                  >
+                    5.0 geral
+                  </Badge>
+                  <Badge variant="soft" size="sm">
+                    #4 em Lençóis
+                  </Badge>
+                </div>
+
+                <div className="hidden flex-wrap items-stretch gap-4 lg:flex">
+                  <Stat variant="chip" value="140 +" label="Avaliações" />
+                  <Stat
+                    variant="chip"
+                    value={
+                      <span className="flex items-center gap-1">
+                        <StarIcon className="size-4.25 text-warning-500" />
+                        5.0
+                      </span>
+                    }
+                    label="Média de nota geral"
+                  />
+                  <Stat
+                    variant="chip"
+                    value="#4 no Raking"
+                    label="de atividades ao ar livre em Lençois"
+                  />
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-4 max-lg:order-3 max-lg:flex-col max-lg:items-stretch max-lg:gap-3">
+                <Button href="/pt/aventuras" arrow className="max-lg:w-full">
+                  Escolha a sua trilha
+                </Button>
+                <Button href="#" variant="outline" className="max-lg:w-full">
+                  Conheça o nosso TripAdvisor
+                </Button>
+              </div>
             </div>
 
-            <div className="hidden flex-wrap items-stretch gap-4 lg:flex">
-              <Stat variant="chip" value="140 +" label="Avaliações" />
-              <Stat
-                variant="chip"
-                value={
-                  <span className="flex items-center gap-1">
-                    <StarIcon className="size-4.25 text-warning-500" />
-                    5.0
-                  </span>
-                }
-                label="Média de nota geral"
-              />
-              <Stat
-                variant="chip"
-                value="#4 no Raking"
-                label="de atividades ao ar livre em Lençois"
-              />
+            <div className="max-lg:order-2 lg:contents">
+              <ScrollFeedbackStack />
             </div>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-4 max-lg:order-3 max-lg:flex-col max-lg:items-stretch max-lg:gap-3">
-            <Button href="/pt/aventuras" arrow className="max-lg:w-full">
-              Escolha a sua trilha
-            </Button>
-            <Button href="#" variant="outline" className="max-lg:w-full">
-              Conheça o nosso TripAdvisor
-            </Button>
-          </div>
+          </Container>
         </div>
-
-        <div className="max-lg:order-2 lg:contents">
-          <ScrollFeedbackStack />
-        </div>
-      </Container>
+      </div>
     </Section>
   );
 }
