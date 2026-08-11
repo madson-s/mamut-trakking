@@ -1,34 +1,15 @@
-import Image from 'next/image';
-import { Card, StarRating, Text } from '@/components/ui';
+import { Card, Placeholder, StarRating, Text } from '@/components/ui';
 
 const STACK_TOP = 96;
 const PEEK = 32;
 
 const QUOTE =
-  '“Nosso guia Átila tinha muito conhecimento da região, era atencioso e apaixonado pelo Pati. Sempre nos preparava para o que esperar de cada trecho — e ainda compartilhava histórias locais.”';
+  '"Nosso guia Átila tinha muito conhecimento da região, era atencioso e apaixonado pelo Pati. Sempre nos preparava para o que esperar de cada trecho — e ainda compartilhava histórias locais."';
 
 const TESTIMONIALS = [
-  {
-    name: 'Paola Bertoncello',
-    title: 'Marau, RS — Casal',
-    rating: '5.0',
-    avatar: '/img/about/paola-bertoncello.png',
-    quote: QUOTE,
-  },
-  {
-    name: 'Paola Bertoncello',
-    title: 'Marau, RS — Casal',
-    rating: '5.0',
-    avatar: '/img/about/paola-bertoncello.png',
-    quote: QUOTE,
-  },
-  {
-    name: 'Paola Bertoncello',
-    title: 'Marau, RS — Casal',
-    rating: '5.0',
-    avatar: '/img/about/paola-bertoncello.png',
-    quote: QUOTE,
-  },
+  { name: 'Paola Bertoncello', title: 'Marau, RS — Casal', rating: '5.0', quote: QUOTE },
+  { name: 'Paola Bertoncello', title: 'Marau, RS — Casal', rating: '5.0', quote: QUOTE },
+  { name: 'Paola Bertoncello', title: 'Marau, RS — Casal', rating: '5.0', quote: QUOTE },
 ];
 
 export function ScrollFeedbackStack() {
@@ -41,21 +22,13 @@ export function ScrollFeedbackStack() {
           className="lg:sticky"
         >
           <Card
-            as="article"
             radius="cardLg"
             surface="raised"
-            elevation="card"
             padding="none"
             className="gap-4 px-8 py-6 max-lg:gap-3 max-lg:px-5.5 max-lg:py-4"
           >
             <div className="flex items-center gap-4 max-lg:gap-3">
-              <Image
-                src={testimonial.avatar}
-                alt={testimonial.name}
-                width={64}
-                height={64}
-                className="size-16 shrink-0 rounded-chip object-cover shadow-image-outline max-lg:size-11"
-              />
+              <Placeholder label="foto" className="size-16 shrink-0 rounded-chip max-lg:size-11" />
               <div className="flex flex-col justify-center gap-1">
                 <Text size="xl" weight="semibold" className="max-lg:text-base">
                   {testimonial.name}
