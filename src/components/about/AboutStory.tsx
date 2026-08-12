@@ -47,7 +47,7 @@ export function AboutStory() {
         width={1440}
         height={804}
         unoptimized
-        className="about-story-backdrop pointer-events-none absolute inset-0 h-full w-full object-cover object-bottom opacity-45"
+        className="about-story-backdrop pointer-events-none absolute inset-x-0 top-52 bottom-0 w-full object-cover object-bottom opacity-45 lg:top-115"
       />
 
       <Container className="relative flex flex-col items-center gap-16">
@@ -66,10 +66,10 @@ export function AboutStory() {
               <Image
                 src="/img/about/mamut-landscape.webp"
                 alt=""
-                width={1175}
-                height={665}
+                width={203}
+                height={114}
                 sizes="(min-width: 640px) 120px, 82px"
-                className="inline-block h-[0.66em] w-[1.7em] rounded-[0.2em] object-cover align-middle shadow-image-outline"
+                className="inline-block h-[0.8em] w-[1.42em] object-contain align-middle"
               />{' '}
               <span className="text-brand-strong">sua tribo.</span>
             </span>

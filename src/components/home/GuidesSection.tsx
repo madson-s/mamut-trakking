@@ -37,6 +37,12 @@ export function GuidesSection() {
     const starts = getCardStarts();
     if (starts.length === 0) return;
 
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    if (maxScroll - carousel.scrollLeft <= 1) {
+      setDotIndex(starts.length - 1);
+      return;
+    }
+
     let nearest = 0;
     for (let i = 1; i < starts.length; i += 1) {
       if (
@@ -67,7 +73,9 @@ export function GuidesSection() {
     const carousel = carouselRef.current;
     const starts = getCardStarts();
     if (!carousel || index >= starts.length) return;
-    carousel.scrollTo({ left: starts[index], behavior: 'smooth' });
+
+    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+    carousel.scrollTo({ left: Math.min(starts[index], maxScroll), behavior: 'smooth' });
   };
 
   return (

@@ -234,8 +234,11 @@ body {
   --content-secondary: var(--on-media-soft);
   --content-muted: var(--on-media-muted);
   --content-subtle: var(--on-media-muted);
-  --line: rgb(255 255 255 / 0.2);
-  --line-strong: rgb(255 255 255 / 0.32);
+}
+
+body:has(.about-hero) .site-header {
+  --line: rgb(255 255 255 / 0.24);
+  --line-strong: var(--on-media);
   --line-contrast: var(--on-media);
 }
 

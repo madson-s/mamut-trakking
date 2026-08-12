@@ -45,7 +45,10 @@ export function AboutHero() {
                     height={62}
                     sizes="(min-width: 640px) 62px, 42px"
                     className={cn(
-                      'relative size-11 rounded-full object-cover shadow-image-outline transition-[transform,box-shadow] duration-500 ease-brand hover:z-10 hover:scale-[1.18] hover:shadow-float motion-reduce:transition-none motion-reduce:hover:scale-100 sm:size-15.5',
+                      'relative size-11 rounded-full object-cover shadow-image-outline sm:size-15.5',
+                      'transition-[translate,scale,box-shadow] duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]',
+                      'hover:z-10 hover:-translate-y-1 hover:scale-[1.14] hover:shadow-float',
+                      'motion-reduce:transition-none motion-reduce:hover:translate-y-0 motion-reduce:hover:scale-100',
                       index >= 3 && 'max-lg:hidden',
                     )}
                     style={guide.position ? { objectPosition: guide.position } : undefined}
