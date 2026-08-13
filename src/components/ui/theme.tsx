@@ -55,6 +55,7 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
 
   if (variant === 'toggle') {
     const isDark = theme === 'dark';
+    const isLarge = size === 'lg';
 
     return (
       <button
@@ -63,21 +64,23 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
         aria-checked={isDark}
         onClick={() => setTheme(isDark ? 'light' : 'dark')}
         aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
-        className={`relative inline-flex h-7 w-12 shrink-0 items-center rounded-pill bg-surface-muted ring-1 ring-line-strong ring-inset transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none ${className}`}
+        className={`relative inline-flex shrink-0 items-center rounded-pill bg-surface-muted ring-1 ring-line-strong ring-inset transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none ${isLarge ? 'h-10 w-16' : 'h-7 w-12'} ${className}`}
       >
         <span
           aria-hidden
-          className={`absolute left-1 size-5 rounded-full bg-content-subtle transition-transform duration-300 ease-brand ${
-            isDark ? 'translate-x-0' : 'translate-x-5'
+          className={`absolute rounded-full bg-content-subtle transition-transform duration-300 ease-brand ${
+            isLarge ? 'left-1 size-8' : 'left-1 size-5'
+          } ${
+            isDark ? 'translate-x-0' : isLarge ? 'translate-x-6' : 'translate-x-5'
           }`}
         />
         <MoonIcon
-          className={`absolute right-1.5 size-3.5 text-content transition-opacity duration-200 ease-out ${
+          className={`absolute text-content transition-opacity duration-200 ease-out ${isLarge ? 'right-2.5 size-4' : 'right-1.5 size-3.5'} ${
             isDark ? 'opacity-100' : 'opacity-0'
           }`}
         />
         <SunIcon
-          className={`absolute left-1.5 size-3.5 text-content transition-opacity duration-200 ease-out ${
+          className={`absolute text-content transition-opacity duration-200 ease-out ${isLarge ? 'left-2.5 size-4' : 'left-1.5 size-3.5'} ${
             isDark ? 'opacity-0' : 'opacity-100'
           }`}
         />

@@ -31,7 +31,7 @@ export function HomeHeader() {
             height={264}
             unoptimized
             loading="eager"
-            className="h-7 w-auto lg:hidden"
+            className="theme-logo pati-wordmark-mobile h-7 w-auto lg:hidden"
           />
           <Image
             src="/svg/mamut-logo-branco.svg"
@@ -40,7 +40,16 @@ export function HomeHeader() {
             height={264}
             unoptimized
             loading="eager"
-            className="theme-logo hidden h-8 w-auto lg:block"
+            className="theme-logo pati-symbol hidden h-8 w-auto lg:block"
+          />
+          <Image
+            src="/svg/Mamut treeking-logo-branco.svg"
+            alt=""
+            width={1046}
+            height={264}
+            unoptimized
+            loading="eager"
+            className="theme-logo pati-wordmark-desktop hidden h-8 w-auto"
           />
         </Link>
 
@@ -65,7 +74,7 @@ export function HomeHeader() {
         </nav>
 
         <div className="flex shrink-0 items-center gap-2.5">
-          <Theme variant="toggle" className="lg:hidden" />
+          <Theme variant="toggle" size="lg" className="lg:hidden" />
           <LanguageSwitcher />
           <MobileMenu nav={NAV} />
 
@@ -73,7 +82,7 @@ export function HomeHeader() {
             <Button href={SITE.whatsappUrl} size="sm" arrow>
               Falar no WhatsApp
             </Button>
-            <Theme variant="toggle" />
+            <Theme variant="toggle" size="lg" />
           </div>
         </div>
       </Container>
