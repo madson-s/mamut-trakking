@@ -99,7 +99,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 
 export function PatiThreeDayExperience() {
   return (
-    <article className="pati-three-day-page overflow-hidden pb-[calc(104px+env(safe-area-inset-bottom))] lg:pb-0">
+    <article className="pati-three-day-page overflow-x-clip pb-[calc(104px+env(safe-area-inset-bottom))] lg:pb-0">
       <span hidden aria-hidden data-design-seed="b6829298" dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />
       <JsonLd data={{
         '@context': 'https://schema.org',
@@ -138,7 +138,7 @@ function Hero() {
               <InfoChip>Origem: Lençóis</InfoChip>
               <InfoChip>Em grupo</InfoChip>
             </div>
-            <Heading as="h1" size="hero" balance className="max-w-218.5 max-lg:text-display-lg lg:!text-display-xl">
+            <Heading as="h1" size="hero" balance className="max-w-218.5 max-lg:text-display-lg lg:text-display-xl!">
               Vale do Pati em <span className="text-brand-strong">3 Dias.</span>
             </Heading>
             <Heading as="p" size="card" balance className="max-w-180">
@@ -157,7 +157,7 @@ function Hero() {
         <div className="flex w-full flex-col">
           <dl className="grid w-full overflow-hidden rounded-panel-lg border border-line bg-surface-muted sm:grid-cols-2 lg:grid-cols-4">
             {STATS.slice(0, 4).map(([value, label, icon]) => (
-              <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line px-4 py-6 text-center max-sm:border-b sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0">
+              <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line px-4 py-6 text-center max-sm:border-b sm:odd:border-r lg:border-r lg:last:border-r-0">
                 <AssetIcon src={icon} className="size-5.5" />
                 <dt className="sr-only">{label}</dt>
                 <dd className="font-display text-xl">{value}</dd>
@@ -167,7 +167,7 @@ function Hero() {
           </dl>
           <dl className="grid w-full overflow-hidden rounded-panel-lg border border-line bg-surface-muted sm:grid-cols-2 lg:grid-cols-4">
             {STATS.slice(4, 8).map(([value, label, icon]) => (
-              <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line px-4 py-6 text-center max-sm:border-b sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0">
+              <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line px-4 py-6 text-center max-sm:border-b sm:odd:border-r lg:border-r lg:last:border-r-0">
                 <AssetIcon src={icon} className="size-5.5" />
                 <dt className="sr-only">{label}</dt>
                 <dd className="font-display text-xl">{value}</dd>
@@ -188,7 +188,7 @@ function Hero() {
               href={href}
               variant="outline"
               size="sm"
-              className="!min-h-11 !border-gray-500 !px-6 !py-3 !text-gray-500"
+              className="min-h-11! border-gray-500! px-6! py-3! text-gray-500!"
             >
               {label}
             </Button>
@@ -205,7 +205,7 @@ function InfoChip({ children, className }: { children: React.ReactNode; classNam
     <Badge
       variant="outline"
       size="sm"
-      className={cn('min-h-8.5 gap-2 bg-surface-muted !px-3.5 !py-1.75 !text-sm', className)}
+      className={cn('min-h-8.5 gap-2 bg-surface-muted px-3.5! py-1.75! text-sm!', className)}
     >
       {children}
     </Badge>
@@ -246,10 +246,10 @@ function BookingCard() {
 function Story() {
   return (
     <Section padding="tall" container={false} className="relative isolate overflow-hidden border-t border-line">
-      <Image src="/svg/screen_destinos_vale-do-pati-session-03_backgroud.svg" alt="" width={962} height={915} unoptimized className="pati-story-background pointer-events-none absolute top-0 left-1/2 z-0 h-auto w-[962px] max-w-none opacity-12" />
+      <Image src="/svg/screen_destinos_vale-do-pati-session-03_backgroud.svg" alt="" width={962} height={915} unoptimized className="pati-story-background pointer-events-none absolute top-0 left-1/2 z-0 h-auto w-240.5 max-w-none opacity-12" />
       <Container className="relative z-10 flex flex-col gap-16 lg:gap-20">
-      <div className="max-w-192">
-        <Heading as="h2" size="hero" balance className="max-lg:text-display-lg lg:!text-display-xl">O trek mais famoso<br />da Chapada Diamantina.</Heading>
+      <div className="max-w-3xl">
+        <Heading as="h2" size="hero" balance className="max-lg:text-display-lg lg:text-display-xl!">O trek mais famoso<br />da Chapada Diamantina.</Heading>
         <div className="mt-4 flex flex-col gap-4 text-lg font-light leading-relaxed text-content-secondary">
           <p>O Vale do Pati fica a mil metros de altitude e entrega uma diversidade de paisagens rara no Brasil: remanescentes de Mata Atlântica, campos rupestres e os Gerais do Rio Preto. Uma região que abrigou camponeses há dois séculos e ainda guarda, em 14 casas vivas, a memória de quem nunca saiu daqui.</p>
           <p>O terreno é real: sol, chuva, lama, subidas íngremes, travessia de rio. Não é passeio. É travessia — o Pati cobra de quem quer atravessá-lo. Nosso roteiro faz a volta completa pelos pontos mais emblemáticos do Vale.</p>
@@ -296,7 +296,7 @@ function RelatedTrail({ href, image, level, title }: { href: string; image: stri
   return (
     <article className="grid h-40 w-95.5 grid-cols-[140px_202px] items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted pr-5">
       <div className="relative h-40 w-35 shrink-0 overflow-hidden rounded-card-lg"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
-      <div className="flex h-30 min-w-0 flex-col items-start justify-center gap-2.5"><Badge variant="soft" size="sm"><span aria-hidden>{difficultyEmoji}</span> {level}</Badge><Heading as="h4" size="quote" className="!text-xl/[27px] whitespace-nowrap">{title}</Heading><Button href={href} size="sm" arrow className="min-h-11 w-full">Explorar essa versão</Button></div>
+      <div className="flex h-30 min-w-0 flex-col items-start justify-center gap-2.5"><Badge variant="soft" size="sm"><span aria-hidden>{difficultyEmoji}</span> {level}</Badge><Heading as="h4" size="quote" className="text-xl/[27px]! whitespace-nowrap">{title}</Heading><Button href={href} size="sm" arrow className="min-h-11 w-full">Explorar essa versão</Button></div>
     </article>
   );
 }
@@ -322,7 +322,7 @@ function Landmarks() {
         className="pati-landmarks-background pointer-events-none absolute right-0 bottom-0 z-0 hidden h-auto w-[72%] max-w-none opacity-75 lg:block"
       />
       <Container className="relative z-10">
-        <div className="flex max-w-[881px] flex-col gap-6">
+        <div className="flex max-w-220.25 flex-col gap-6">
           <Heading as="h2" size="section">Os pontos mais emblemáticos do Vale.</Heading>
           <div className="grid gap-5 sm:grid-cols-2 lg:flex lg:flex-wrap">
             {LANDMARKS.map(([title, label, icon, width]) => (
@@ -356,7 +356,7 @@ function Landmarks() {
 function Pricing() {
   return (
     <Section id="preco" padding="tall" container="prose" containerClassName="flex !max-w-[1009px] flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
-      <Heading id="pricing-heading" as="h2" size="section" className="!text-display-sm">Escolha o formato ideal para o seu grupo.</Heading>
+      <Heading id="pricing-heading" as="h2" size="section" className="text-display-sm!">Escolha o formato ideal para o seu grupo.</Heading>
       <div className="grid w-full gap-3 sm:hidden">
         {PRICES.map(([people, privatePrice, groupPrice]) => (
           <article key={people} className="rounded-card border border-line-strong bg-surface-muted p-5 text-left">
@@ -389,7 +389,7 @@ const TRUST = [
 
 function TrustAndReviews() {
   return (
-    <Section id="informacoes" padding="tall" container={false} className="relative isolate overflow-hidden border-y border-line">
+    <Section id="informacoes" padding="none" container={false} className="relative isolate overflow-x-clip border-y border-line max-lg:py-12 lg:pt-10">
       <Image
         src="/svg/screen_destinos_vale-do-pati-session-05_backgroud.svg"
         alt=""
@@ -398,8 +398,8 @@ function TrustAndReviews() {
         unoptimized
         className="pati-trust-background pointer-events-none absolute top-[17%] left-[20%] z-0 h-auto w-[80.6%] max-w-none opacity-20"
       />
-      <Container className="relative z-10 grid gap-14 lg:grid-cols-[minmax(0,620px)_490px] lg:justify-between lg:gap-16">
-        <div className="flex flex-col gap-12">
+      <Container className="relative z-10 flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-16">
+        <div className="relative flex max-w-146.25 flex-col gap-12 lg:sticky lg:top-24 lg:pb-16">
           <div className="flex flex-col items-start gap-6">
             <Badge variant="outline" size="sm">Avaliações verificadas · TripAdvisor</Badge>
             <Heading as="h2" size="hero" balance className="max-lg:text-display-lg">
@@ -433,7 +433,7 @@ function TrustAndReviews() {
           </div>
         </div>
 
-        <ScrollFeedbackStack avatarSrc="/img/about/paola-bertoncello.png" />
+        <ScrollFeedbackStack avatarSrc="/img/about/paola-bertoncello.png" trailing={false} />
       </Container>
     </Section>
   );

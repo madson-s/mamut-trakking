@@ -13,9 +13,18 @@ const TESTIMONIALS = [
   { name: 'Paola Bertoncello', title: 'Marau, RS — Casal', rating: '5.0', quote: QUOTE },
 ];
 
-export function ScrollFeedbackStack({ avatarSrc }: { avatarSrc?: string } = {}) {
+export function ScrollFeedbackStack({
+  avatarSrc,
+  trailing = true,
+}: {
+  avatarSrc?: string;
+  /** Respiro abaixo da pilha — é o curso em que os cards ficam presos. */
+  trailing?: boolean;
+} = {}) {
   return (
-    <div className="flex w-full max-w-122.5 flex-col gap-6 lg:gap-8 lg:pb-75">
+    <div
+      className={`flex w-full max-w-122.5 flex-col gap-6 lg:gap-8 ${trailing ? 'lg:pb-75' : 'lg:pb-16'}`}
+    >
       {TESTIMONIALS.map((testimonial, index) => (
         <div
           key={index}
