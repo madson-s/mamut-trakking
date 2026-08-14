@@ -11,12 +11,14 @@ import {
   Text,
 } from '@/components/ui';
 import { ScrollFeedbackStack } from '@/components/home/ScrollFeedbackStack';
+import { cn } from '@/lib/cn';
 import { SITE } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
 import { PatiBookingTrigger } from './PatiBookingTrigger';
 import { PatiHeroGallery } from './PatiHeroGallery';
 import { PatiMobileBooking } from './PatiMobileBooking';
-import { PatiTimelapse } from './PatiTimelapse';
+import { PatiItinerary } from './PatiItinerary';
+import { AssetIcon } from './AssetIcon';
 
 const STATS = [
   ['45 km', 'Distância a pé', '/svg/_icons/icon_03_montain.svg'],
@@ -32,6 +34,7 @@ const STATS = [
 const ITINERARY = [
   {
     day: 'Dia 1',
+    icon: '/svg/_icons/icon_09_location.svg',
     distance: '12 km',
     level: 'Moderado',
     lead: '6h saída',
@@ -40,6 +43,7 @@ const ITINERARY = [
   },
   {
     day: 'Dia 2',
+    icon: '/svg/_icons/icon_03_montain.svg',
     distance: '8 km',
     level: 'Alto',
     lead: '8h saída',
@@ -49,6 +53,7 @@ const ITINERARY = [
   },
   {
     day: 'Dia 3',
+    icon: '/svg/_icons/icon_08_send.svg',
     distance: '23 km',
     level: 'Moderado',
     lead: '8h despedida',
@@ -122,18 +127,18 @@ export function PatiThreeDayExperience() {
 function Hero() {
   return (
     <Section padding="none" container={false} className="relative isolate overflow-hidden pt-20 pb-20 lg:pb-24">
-      <Image src="/svg/screen_destinos_vale-do-pati-session-01_backgroud.svg" alt="" width={1920} height={880} unoptimized priority className="pati-hero-background pointer-events-none absolute top-36 left-1/2 z-0 h-auto w-[1920px] max-w-none -translate-x-1/2 opacity-30" />
+      <Image src="/svg/screen_destinos_vale-do-pati-session-01_backgroud.svg" alt="" width={1920} height={880} unoptimized priority className="pati-hero-background pointer-events-none absolute top-55.5 left-1/2 z-0 h-auto w-[1920px] max-w-none -translate-x-1/2 opacity-30" />
       <Container className="relative z-10">
         <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_316px] lg:items-end">
         <div className="flex min-w-0 flex-col gap-8">
           <header className="flex flex-col gap-4">
-            <div className="flex flex-wrap gap-2">
+            <div className="flex flex-wrap items-center gap-2.5">
               <InfoChip><span aria-hidden className="size-3 rounded-full bg-accent-line-art" />Moderado</InfoChip>
               <InfoChip>45 km</InfoChip>
               <InfoChip>Origem: Lençóis</InfoChip>
               <InfoChip>Em grupo</InfoChip>
             </div>
-            <Heading as="h1" size="hero" balance className="max-w-218.5 max-lg:text-display-lg">
+            <Heading as="h1" size="hero" balance className="max-w-218.5 max-lg:text-display-lg lg:!text-display-xl">
               Vale do Pati em <span className="text-brand-strong">3 Dias.</span>
             </Heading>
             <Heading as="p" size="card" balance className="max-w-180">
@@ -149,23 +154,45 @@ function Hero() {
         <Heading as="p" size="quote" balance className="text-center">
           Cachoeiras e casas de nativos a 1.000m de altitude. Guiado por quem nasceu aqui.
         </Heading>
-        <dl className="grid w-full overflow-hidden rounded-panel border border-line-strong bg-surface-muted sm:grid-cols-2 lg:grid-cols-4">
-          {STATS.map(([value, label, icon]) => (
-            <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line-strong p-5 text-center max-sm:border-b sm:[&:nth-child(odd)]:border-r lg:border-r lg:[&:nth-child(4n)]:border-r-0 lg:[&:nth-child(-n+4)]:border-b">
-              <AssetIcon src={icon} className="size-5.5" />
-              <dt className="sr-only">{label}</dt>
-              <dd className="font-display text-xl">{value}</dd>
-              <Text as="div" size="xs" weight="light" tone="secondary">{label}</Text>
-            </div>
-          ))}
-        </dl>
+        <div className="flex w-full flex-col">
+          <dl className="grid w-full overflow-hidden rounded-panel-lg border border-line bg-surface-muted sm:grid-cols-2 lg:grid-cols-4">
+            {STATS.slice(0, 4).map(([value, label, icon]) => (
+              <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line px-4 py-6 text-center max-sm:border-b sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0">
+                <AssetIcon src={icon} className="size-5.5" />
+                <dt className="sr-only">{label}</dt>
+                <dd className="font-display text-xl">{value}</dd>
+                <Text as="div" size="xs" weight="light" tone="secondary">{label}</Text>
+              </div>
+            ))}
+          </dl>
+          <dl className="grid w-full overflow-hidden rounded-panel-lg border border-line bg-surface-muted sm:grid-cols-2 lg:grid-cols-4">
+            {STATS.slice(4, 8).map(([value, label, icon]) => (
+              <div key={label} className="flex min-h-32 flex-col items-center justify-center gap-1.5 border-line px-4 py-6 text-center max-sm:border-b sm:[&:nth-child(odd)]:border-r lg:border-r lg:last:border-r-0">
+                <AssetIcon src={icon} className="size-5.5" />
+                <dt className="sr-only">{label}</dt>
+                <dd className="font-display text-xl">{value}</dd>
+                <Text as="div" size="xs" weight="light" tone="secondary">{label}</Text>
+              </div>
+            ))}
+          </dl>
+        </div>
         <nav aria-label="Atalhos desta aventura" className="flex flex-wrap justify-center gap-2">
           {[
             ['Itinerário', '#itinerario'],
             ['Preço', '#preco'],
             ['Incluso', '#informacoes'],
             ['Antes de reservar', '#duvidas'],
-          ].map(([label, href]) => <Button key={href} href={href} variant="outline" size="sm">{label}</Button>)}
+          ].map(([label, href]) => (
+            <Button
+              key={href}
+              href={href}
+              variant="outline"
+              size="sm"
+              className="!min-h-11 !border-gray-500 !px-6 !py-3 !text-gray-500"
+            >
+              {label}
+            </Button>
+          ))}
         </nav>
         </div>
       </Container>
@@ -173,42 +200,25 @@ function Hero() {
   );
 }
 
-function InfoChip({ children }: { children: React.ReactNode }) {
-  return <Badge variant="outline" size="sm" className="gap-2 bg-surface-muted">{children}</Badge>;
-}
-
-function AssetIcon({
-  src,
-  className = 'size-5',
-  colorClassName = 'bg-brand-strong',
-}: {
-  src: string;
-  className?: string;
-  colorClassName?: string;
-}) {
+function InfoChip({ children, className }: { children: React.ReactNode; className?: string }) {
   return (
-    <span
-      aria-hidden
-      className={`inline-block shrink-0 ${colorClassName} ${className}`}
-      style={{
-        maskImage: `url("${src}")`,
-        WebkitMaskImage: `url("${src}")`,
-        maskPosition: 'center',
-        WebkitMaskPosition: 'center',
-        maskRepeat: 'no-repeat',
-        WebkitMaskRepeat: 'no-repeat',
-        maskSize: 'contain',
-        WebkitMaskSize: 'contain',
-      }}
-    />
+    <Badge
+      variant="outline"
+      size="sm"
+      className={cn('min-h-8.5 gap-2 bg-surface-muted !px-3.5 !py-1.75 !text-sm', className)}
+    >
+      {children}
+    </Badge>
   );
 }
 
+
 function BookingCard() {
   return (
-    <aside id="pati-booking-card" className="relative rounded-panel-lg border border-line-strong bg-surface-muted p-6 sm:p-8 lg:p-10">
-      <Image src="/svg/humans-assets-yellow.svg" alt="" width={784} height={246} unoptimized className="pointer-events-none absolute left-1/2 -top-19 z-20 hidden h-auto w-61 -translate-x-1/2 object-contain lg:block" />
-      <div className="relative z-10 flex flex-col gap-6">
+    <div className="relative">
+      <Image src="/svg/about/story-walkers.svg" alt="" width={290} height={114} unoptimized className="pointer-events-none absolute left-1/2 -top-23 hidden h-26 w-65.75 -translate-x-1/2 object-contain lg:block" />
+      <aside id="pati-booking-card" className="relative rounded-panel-lg border border-line-strong bg-surface-muted p-6">
+      <div className="relative flex flex-col gap-6">
         <div className="flex flex-col gap-2 border-b border-line-strong pb-6">
           <Text size="sm" weight="light" tone="secondary">A partir de</Text>
           <div className="flex flex-wrap items-end gap-2">
@@ -228,7 +238,8 @@ function BookingCard() {
           <Text size="xs" weight="light" tone="subtle">Respondemos em até 2h<br />PT · EN · ES</Text>
         </div>
       </div>
-    </aside>
+      </aside>
+    </div>
   );
 }
 
@@ -238,8 +249,8 @@ function Story() {
       <Image src="/svg/screen_destinos_vale-do-pati-session-03_backgroud.svg" alt="" width={962} height={915} unoptimized className="pati-story-background pointer-events-none absolute top-0 left-1/2 z-0 h-auto w-[962px] max-w-none opacity-12" />
       <Container className="relative z-10 flex flex-col gap-16 lg:gap-20">
       <div className="max-w-192">
-        <Heading as="h2" size="hero" balance className="max-lg:text-display-lg">O trek mais famoso<br />da Chapada Diamantina.</Heading>
-        <div className="mt-4 flex max-w-[72ch] flex-col gap-4 text-sm font-light leading-relaxed text-content-secondary">
+        <Heading as="h2" size="hero" balance className="max-lg:text-display-lg lg:!text-display-xl">O trek mais famoso<br />da Chapada Diamantina.</Heading>
+        <div className="mt-4 flex flex-col gap-4 text-lg font-light leading-relaxed text-content-secondary">
           <p>O Vale do Pati fica a mil metros de altitude e entrega uma diversidade de paisagens rara no Brasil: remanescentes de Mata Atlântica, campos rupestres e os Gerais do Rio Preto. Uma região que abrigou camponeses há dois séculos e ainda guarda, em 14 casas vivas, a memória de quem nunca saiu daqui.</p>
           <p>O terreno é real: sol, chuva, lama, subidas íngremes, travessia de rio. Não é passeio. É travessia — o Pati cobra de quem quer atravessá-lo. Nosso roteiro faz a volta completa pelos pontos mais emblemáticos do Vale.</p>
         </div>
@@ -254,8 +265,8 @@ function Story() {
         </div>
       </div>
       <div className="flex flex-col gap-5">
-        <Heading as="h3" size="quote">O Vale também existe em 4 e 5 dias.</Heading>
-        <div className="grid gap-5 md:grid-cols-2">
+        <Heading as="h3" size="quote" tone="brand">O Vale também existe em 4 e 5 dias.</Heading>
+        <div className="flex flex-wrap gap-5">
           <RelatedTrail href="/pt/aventuras/vale-do-pati-4-dias" image="/img/vale-do-pati/vale-do-pati-14.webp" level="Moderado / Avançado" title="Vale do Pati · 4 Dias" />
           <RelatedTrail href="/pt/aventuras/vale-do-pati-5-dias" image="/img/vale-do-pati/vale-do-pati-20.webp" level="Avançado" title="Vale do Pati · 5 Dias" />
         </div>
@@ -283,9 +294,9 @@ function EditorialCard({ title, body }: { title: string; body: string }) {
 function RelatedTrail({ href, image, level, title }: { href: string; image: string; level: string; title: string }) {
   const difficultyEmoji = level.startsWith('Avançado') ? '🔴' : '🟡';
   return (
-    <article className="grid min-h-40 grid-cols-[140px_1fr] overflow-hidden rounded-card bg-surface-muted">
-      <div className="relative"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
-      <div className="flex min-w-0 flex-col items-start justify-center gap-2 p-5"><Badge variant="soft" size="sm"><span aria-hidden>{difficultyEmoji}</span> {level}</Badge><Heading as="h4" size="quote">{title}</Heading><Button href={href} variant="outline" size="sm" arrow>Explorar a trilha</Button></div>
+    <article className="grid h-40 w-95.5 grid-cols-[140px_202px] items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted pr-5">
+      <div className="relative h-40 w-35 shrink-0 overflow-hidden rounded-card-lg"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
+      <div className="flex h-30 min-w-0 flex-col items-start justify-center gap-2.5"><Badge variant="soft" size="sm"><span aria-hidden>{difficultyEmoji}</span> {level}</Badge><Heading as="h4" size="quote" className="!text-xl/[27px] whitespace-nowrap">{title}</Heading><Button href={href} size="sm" arrow className="min-h-11 w-full">Explorar essa versão</Button></div>
     </article>
   );
 }
@@ -294,21 +305,7 @@ function Itinerary() {
   return (
     <Section id="itinerario" padding="tall" containerClassName="flex flex-col gap-8" labelledBy="itinerary-heading">
       <Heading id="itinerary-heading" as="h2" size="section">O itinerário da travessia.</Heading>
-      <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-        <ol className="pati-itinerary-progress relative flex flex-col gap-6 before:absolute before:top-7 before:bottom-7 before:left-7 before:w-px before:bg-line-strong after:absolute after:top-7 after:bottom-7 after:left-7 after:w-px after:origin-top after:bg-brand">
-          {ITINERARY.map((item, index) => (
-            <li key={item.day} className="relative grid grid-cols-[56px_1fr] items-center gap-5 sm:gap-7">
-              <span data-day-index={index} className="pati-itinerary-marker z-10 flex size-14 items-center justify-center rounded-full border-[1.5px] border-brand-strong bg-surface"><AssetIcon src="/svg/_icons/icon_03_montain.svg" className="size-6" /></span>
-              <article data-day-index={index} className="pati-itinerary-card flex flex-col gap-3 rounded-card border border-line-strong bg-surface-muted p-5 sm:p-8">
-                <div className="flex flex-wrap items-center gap-2"><Heading as="h3" size="quote">{item.day}</Heading><Badge variant="outline" size="sm">{item.distance}</Badge><Badge variant="outline" size="sm">{item.level}</Badge>{'alert' in item ? <Badge variant="soft" size="sm">{item.alert}</Badge> : null}</div>
-                <Text size="sm" weight="light" tone="secondary" pretty><strong className="font-semibold text-content">{item.lead}</strong>{item.body}</Text>
-                {'note' in item ? <Text size="sm" weight="light" tone="secondary" className="border-l border-brand-strong pl-3">{item.note}</Text> : null}
-              </article>
-            </li>
-          ))}
-        </ol>
-        <PatiTimelapse />
-      </div>
+      <PatiItinerary items={ITINERARY} />
     </Section>
   );
 }
@@ -358,8 +355,8 @@ function Landmarks() {
 
 function Pricing() {
   return (
-    <Section id="preco" padding="tall" container="prose" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
-      <Heading id="pricing-heading" as="h2" size="section" balance>Escolha o formato ideal para o seu grupo.</Heading>
+    <Section id="preco" padding="tall" container="prose" containerClassName="flex !max-w-[1009px] flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
+      <Heading id="pricing-heading" as="h2" size="section" className="!text-display-sm">Escolha o formato ideal para o seu grupo.</Heading>
       <div className="grid w-full gap-3 sm:hidden">
         {PRICES.map(([people, privatePrice, groupPrice]) => (
           <article key={people} className="rounded-card border border-line-strong bg-surface-muted p-5 text-left">
@@ -372,13 +369,13 @@ function Pricing() {
         ))}
       </div>
       <div className="hidden w-full overflow-hidden rounded-card border border-line-strong bg-surface-muted sm:block">
-        <table className="w-full border-collapse text-left">
-          <thead><tr className="border-b border-line-strong text-xs font-semibold text-content-secondary"><th scope="col" className="px-6 py-4">Nº de pessoas</th><th scope="col" className="px-6 py-4">Pacote privado</th><th scope="col" className="px-6 py-4">Em grupo</th></tr></thead>
-          <tbody>{PRICES.map(([people, privatePrice, groupPrice]) => <tr key={people} className="border-b border-line last:border-b-0"><th scope="row" className="px-6 py-4 text-sm font-normal">{people}</th><td className="px-6 py-4 font-display text-display-xs">{privatePrice}</td><td className="px-6 py-4 font-display text-display-xs text-brand-strong">{groupPrice}</td></tr>)}</tbody>
+        <table className="w-full border-collapse text-center">
+          <thead><tr className="border-b border-line text-[11px] font-semibold tracking-[0.08em] text-content-secondary uppercase"><th aria-hidden className="w-[19%]" /><th scope="col" className="px-6 py-3">Nº de pessoas</th><th scope="col" className="px-6 py-3">Pacote privado</th><th scope="col" className="px-6 py-3">Em grupo</th><th aria-hidden className="w-[19%]" /></tr></thead>
+          <tbody>{PRICES.map(([people, privatePrice, groupPrice]) => <tr key={people} className="border-b border-line last:border-b-0"><td aria-hidden /><th scope="row" className="px-6 py-3 text-sm font-normal text-content-secondary">{people}</th><td className="px-6 py-3 font-display text-xl">{privatePrice}</td><td className="px-6 py-3 font-display text-xl font-semibold text-brand-strong">{groupPrice}</td><td aria-hidden /></tr>)}</tbody>
         </table>
       </div>
-      <Text size="sm" weight="light" tone="secondary" pretty>Dinheiro, transferência ou boleto. Cartão: +5%, em até 12x (PagSeguro). Reserva confirmada com 50% de sinal; restante no check-in. Transferência internacional ou grupo maior: consulte o atendimento.</Text>
-      <Button href={SITE.whatsappUrl} arrow>Consultar disponibilidade</Button>
+      <Text size="sm" weight="light" tone="secondary" pretty>Dinheiro, transferência ou boleto. <strong className="font-semibold text-content">Cartão: +5%, em até 12x (PagSeguro). Reserva confirmada com 50% de sinal:</strong> restante no check-in. Transferência internacional ou grupo maior: consulte o atendimento.</Text>
+      <Button href={SITE.whatsappUrl} arrow>Reservar pelo WhatsApp</Button>
     </Section>
   );
 }
