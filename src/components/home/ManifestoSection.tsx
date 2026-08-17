@@ -15,7 +15,7 @@ export function ManifestoSection() {
   return (
     <Section
       padding="none"
-      className="pt-24 pb-36 lg:pb-16"
+      className="scroll-reveal-skip pt-24 pb-36 lg:pb-16"
       containerClassName="flex flex-col items-center gap-12"
     >
       <div className="flex max-w-2xl flex-col items-center gap-8 text-center sm:gap-12">

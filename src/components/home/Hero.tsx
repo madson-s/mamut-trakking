@@ -1,20 +1,13 @@
-import Image, { getImageProps } from 'next/image';
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Heading';
 import { MediaCard } from '@/components/ui/MediaCard';
 import { Emphasis, Text } from '@/components/ui/Text';
 import { HeroDestinations } from './HeroDestinations';
 
-const BG_WIDE = { src: '/img/home_backgroud/home_backgroud_01_no_crop_1x.webp', width: 1562, height: 850 };
-const BG_CROP = { src: '/img/home_backgroud/home_backgroud_crop_01_1x.webp', width: 1392, height: 707 };
+const HERO_BACKGROUND = '/img/home_backgroud/home_hero_background_1_5x.webp';
 
 export function Hero() {
-  const bgCommon = { alt: '', sizes: '100vw', loading: 'eager', fetchPriority: 'high' } as const;
-  const {
-    props: { srcSet: bgWideSrcSet },
-  } = getImageProps({ ...bgCommon, ...BG_WIDE });
-  const { props: bgCropProps } = getImageProps({ ...bgCommon, ...BG_CROP });
-
   return (
     <section className="-mt-20 w-full pt-0 sm:mt-0 sm:pt-2">
       <div className="w-full px-0 sm:px-[max(24px,1.667vw)]">
@@ -25,14 +18,14 @@ export function Hero() {
           className="mx-auto min-h-160 sm:min-h-140 sm:rounded-panel lg:h-176.75 2xl:rounded-panel-lg"
           contentLayer="fill"
           media={
-            <picture className="contents">
-              <source media="(min-width: 1536px)" srcSet={bgWideSrcSet} />
-              <img
-                {...bgCropProps}
-                alt=""
-                className="absolute inset-0 h-full w-full object-cover object-center"
-              />
-            </picture>
+            <Image
+              src={HERO_BACKGROUND}
+              alt=""
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover object-center"
+            />
           }
         >
           <div className="relative mx-auto flex h-full max-w-304 flex-col justify-end px-6 pb-8 lg:block lg:px-0 lg:pb-0">

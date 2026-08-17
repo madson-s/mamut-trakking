@@ -2,23 +2,24 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { ArrowRightIcon } from '@/components/ui';
 import { cn } from '@/lib/cn';
 
 const DESTINATIONS = [
   {
-    src: '/img/home_square_right_morro_1_1_5x.webp',
-    alt: 'Vale do Pati ao pôr do sol',
+    src: '/img/adventures/home/vale-do-pati-3-dias.jpeg',
+    alt: 'Caminhantes percorrendo o Vale do Pati',
     title: 'Vale do Pati',
-    subtitle: '5 dias · travessia',
-    href: '/pt/aventuras/vale-do-pati-5-dias',
+    subtitle: '3 dias · travessia',
+    href: '/pt/aventuras/vale-do-pati-3-dias',
   },
   {
-    src: '/img/home_square_right_morro_2_1_5x.webp',
-    alt: 'Centro histórico de Lençóis',
-    title: 'Lençóis',
-    subtitle: '1 dia · city tour',
-    href: '/pt/aventuras/city-tour-lencois',
+    src: '/img/adventures/home/cachoeira-do-palmital.jpeg',
+    alt: 'Queda-d’água da Cachoeira do Palmital',
+    title: 'Cachoeira do Palmital',
+    subtitle: '2 dias · trekking',
+    href: '/pt/aventuras/cachoeira-do-palmital',
   },
   {
     src: '/img/home_square_right_morro_3_1_5x.webp',
@@ -38,7 +39,7 @@ export function HeroDestinations() {
         const isActive = activeIndex === i;
 
         return (
-          <a
+          <Link
             key={destination.href}
             href={destination.href}
             aria-label={`Conhecer ${destination.title}`}
@@ -83,7 +84,7 @@ export function HeroDestinations() {
                 <ArrowRightIcon className="size-2.5" />
               </span>
             </span>
-          </a>
+          </Link>
         );
       })}
     </div>

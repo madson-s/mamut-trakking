@@ -1,6 +1,12 @@
 import Image from 'next/image';
 import { Badge, Button, Container, Heading, Section, StarIcon, Stat } from '@/components/ui';
-import { ScrollFeedbackStack } from '@/components/home/ScrollFeedbackStack';
+import {
+  HOME_TESTIMONIALS,
+  ScrollFeedbackStack,
+} from '@/components/home/ScrollFeedbackStack';
+
+const TRIPADVISOR_URL =
+  'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html';
 
 export function ReviewsSection() {
   return (
@@ -29,7 +35,7 @@ export function ReviewsSection() {
 
             <div className="flex flex-wrap items-center gap-2 lg:hidden">
               <Badge variant="soft" size="sm">
-                140+ avaliações
+                145 avaliações
               </Badge>
               <Badge
                 variant="soft"
@@ -39,12 +45,12 @@ export function ReviewsSection() {
                 5.0 geral
               </Badge>
               <Badge variant="soft" size="sm">
-                #4 em Lençóis
+                #5 em Lençóis
               </Badge>
             </div>
 
             <div className="hidden flex-wrap items-stretch gap-4 lg:flex">
-              <Stat variant="chip" value="140 +" label="Avaliações" />
+              <Stat variant="chip" value="145" label="Avaliações" />
               <Stat
                 variant="chip"
                 value={
@@ -57,7 +63,7 @@ export function ReviewsSection() {
               />
               <Stat
                 variant="chip"
-                value="#4 no Raking"
+                value="#5 no ranking"
                 label="de atividades ao ar livre em Lençois"
               />
             </div>
@@ -67,7 +73,7 @@ export function ReviewsSection() {
             <Button href="/pt/aventuras" arrow className="max-lg:w-full">
               Escolha a sua trilha
             </Button>
-            <Button href="#" variant="outline" className="max-lg:w-full">
+            <Button href={TRIPADVISOR_URL} variant="outline" className="max-lg:w-full">
               Conheça o nosso TripAdvisor
             </Button>
           </div>
@@ -85,7 +91,7 @@ export function ReviewsSection() {
         </div>
 
         <div className="max-lg:order-2 lg:contents">
-          <ScrollFeedbackStack />
+          <ScrollFeedbackStack testimonials={HOME_TESTIMONIALS} />
         </div>
       </Container>
     </Section>

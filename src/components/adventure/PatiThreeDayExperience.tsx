@@ -10,10 +10,13 @@ import {
   Section,
   Text,
 } from '@/components/ui';
-import { ScrollFeedbackStack } from '@/components/home/ScrollFeedbackStack';
+import {
+  HOME_TESTIMONIALS,
+  ScrollFeedbackStack,
+} from '@/components/home/ScrollFeedbackStack';
 import { cn } from '@/lib/cn';
 import { SITE } from '@/lib/site';
-import { PatiFaqList } from './PatiFaqList';
+import { PatiFaqList, type PatiFaqItem } from './PatiFaqList';
 import { PatiBookingTrigger } from './PatiBookingTrigger';
 import { PatiHeroGallery } from './PatiHeroGallery';
 import { PatiMobileBooking } from './PatiMobileBooking';
@@ -79,14 +82,80 @@ const PRICES = [
   ['4 pessoas+', 'R$ 1.900', 'R$ 1.500'],
 ] as const;
 
+const TRIPADVISOR_URL =
+  'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html';
+
 const FAQS = [
-  ['Checklist — o que levar', 'Mochila confortável, calçado já amaciado, roupas leves, proteção para sol e chuva, lanterna, itens de higiene, garrafa de água e medicamentos de uso pessoal.'],
-  ['O que está incluso / não incluso', 'Inclui condução, transfers previstos no roteiro, hospedagem, refeições indicadas, seguro aventura e apoio operacional. Despesas pessoais, bebidas e o café da manhã do primeiro dia não estão inclusos.'],
-  ['Segurança detalhada e riscos', 'O roteiro acontece em ambiente natural remoto, com subidas íngremes, pedras, lama, travessias de rio e mudanças de clima. Siga sempre a orientação dos guias e informe condições de saúde antes da saída.'],
-  ['Formas de pagamento', 'Dinheiro, transferência ou boleto. Cartão tem acréscimo de 5% e pode ser parcelado em até 12x pelo PagSeguro. A reserva é confirmada com 50% de sinal.'],
-  ['Política de cancelamento', 'Condições de cancelamento e reagendamento variam conforme a antecedência e a operação contratada. Confirme os termos aplicáveis com o atendimento antes do pagamento do sinal.'],
-  ['Ficha técnica completa e documentos', 'A equipe envia a ficha da atividade, orientações operacionais e os documentos necessários durante a confirmação da reserva.'],
-] as const;
+  {
+    type: 'checklist',
+    title: 'Checklist — o que levar',
+    intro:
+      'Itens marcados com * são obrigatórios. A falta de qualquer obrigatório impossibilita a participação — conferimos na reserva e no check-in.',
+    requiredColumns: [
+      ['Água (1,5L/pessoa)', 'Roupas leves', 'Boné/chapéu', 'Mochila 35L+', 'Protetor solar', 'Higiene pessoal', 'Mochila de ataque'],
+      ['Tênis/bota de caminhada', 'Roupas de banho', 'Lanche/fruta extra', 'Capa de chuva (corpo + mochila)', 'Remédios pessoais', 'Documentos', 'Lanterna de cabeça'],
+    ],
+    recommendedColumns: [
+      ['Meias extras', 'Bastão'],
+      ['Toalha de secagem rápida', 'Power bank'],
+    ],
+    note: 'Não quer carregar peso? Há carregadores pessoais (custo adicional).',
+  },
+  {
+    type: 'included',
+    title: 'O que está incluso / não incluso',
+    included: ['Guia de Montanha APH e bilíngue', 'Rastreador SPOT X via satélite', 'Transfer Lençóis ↔ Guiné (160km ida/volta)', 'Hospedagem 2 noites', 'Seguro aventura', 'Alimentação completa', 'Kit de primeiros socorros', 'Guarda-volumes durante a atividade', 'Banho antes/após', 'Sala de espera'],
+    excluded: ['Qualquer item não listado', 'Transfer Salvador ↔ Lençóis (opcional)', 'Café do 1º dia', 'Bebidas extras', 'Equipamento pessoal', 'Evacuação médica', 'Carregadores/mulas (opcional)', 'Hotéis/refeições antes/após (opcional)', 'Gorjetas'],
+  },
+  {
+    type: 'safety',
+    title: 'Segurança detalhada e riscos',
+    lead: 'O mamute protege o bando. Sempre.',
+    body: 'Todos os guias são condutores locais com certificação APH (Atendimento Pré-Hospitalar) e CMC (Competências Mínimas de Condução) conforme ABNT; alguns com WAFA. Todos portam kit de primeiros socorros para áreas remotas. Em operação: radiocomunicadores VHF/UHF + comunicador satélite SPOT X com S.O.S.',
+    warning: 'Atividades em ambiente natural envolvem riscos inerentes — terreno irregular, animais peçonhentos, clima. O Vale do Pati é área remota: um resgate pode levar mais de 5 horas para iniciar. Evacuação médica NÃO está inclusa. Há estrutura limitada de remoção por mula (limite 110kg) — consulte o atendimento.',
+    footer: 'Seguir as orientações dos guias e portar os itens obrigatórios do checklist é condição para participar.',
+  },
+  {
+    type: 'payment',
+    title: 'Formas de pagamento',
+    paragraphs: [
+      'Sinal de 50% para confirmar a reserva, via transferência, depósito ou boleto. Os 50% restantes no check-in em dinheiro (ou depósito até 2 dias úteis antes).',
+      'Envie o comprovante com: data confirmada, nome completo e CPF de cada participante.',
+      'Cartão: +5%, em até 12x (PagSeguro). Internacional: consulte o atendimento.',
+    ],
+  },
+  {
+    type: 'cancellation',
+    title: 'Política de cancelamento',
+    intro: 'Cancelamento pelo passageiro segue a deliberação normativa nº 161/1985 da EMBRATUR:',
+    refunds: [
+      ['30+ dias antes', 'devolve 90%'],
+      ['21–29 dias', 'devolve 80%'],
+      ['7–20 dias', 'devolve 50%'],
+      ['Menos de 7 dias', 'sem devolução'],
+      ['Durante o pacote', 'sem reembolso'],
+    ],
+    paragraphs: [
+      'Antes de cancelar: você pode indicar um substituto ou deixar o valor em crédito. Taxa de reserva: 10% em caráter de multa se cancelar após a confirmação.',
+      'No-show: não comparecer implica perda total do valor. A Mamut pode alterar o roteiro quando o clima comprometer a segurança; a atividade acontece mesmo em dia de chuva, salvo força maior.',
+    ],
+  },
+  {
+    type: 'technical',
+    title: 'Ficha técnica completa e documentos',
+    facts: [
+      ['Categoria', 'Trekking com pernoite'],
+      ['Origem', 'Lençóis'],
+      ['Percurso de carro', '160 km'],
+      ['Idade mínima', '18 anos (menores c/ responsável)'],
+    ],
+    requirements: ['Condicionamento para subidas/descidas em terreno acidentado', 'Atravessar rios', 'Caminhar longas distâncias por vários dias', 'Informar restrições alimentares e necessidade de quarto privativo na reserva', 'Reservas confirmadas não têm reajuste'],
+    documents: [
+      ['Termo de Responsabilidade (PDF)', SITE.whatsappUrl],
+      ['Classificação de Nível das Atividades', SITE.whatsappUrl],
+    ],
+  },
+] satisfies readonly PatiFaqItem[];
 
 const DIRECTION_CONTRACT = `<!--
 THESIS: Uma travessia documental conduzida por quem pertence ao Vale; recusa o catálogo turístico genérico.
@@ -429,11 +498,11 @@ function TrustAndReviews() {
 
           <div className="flex flex-wrap gap-3">
             <Button href={SITE.whatsappUrl} arrow>Reservar pelo WhatsApp</Button>
-            <Button href="https://www.tripadvisor.com.br/" variant="outline">Conheça o nosso TripAdvisor</Button>
+            <Button href={TRIPADVISOR_URL} variant="outline">Conheça o nosso TripAdvisor</Button>
           </div>
         </div>
 
-        <ScrollFeedbackStack avatarSrc="/img/about/paola-bertoncello.png" trailing={false} />
+        <ScrollFeedbackStack testimonials={HOME_TESTIMONIALS} trailing={false} />
       </Container>
     </Section>
   );

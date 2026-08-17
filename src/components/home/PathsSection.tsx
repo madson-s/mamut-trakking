@@ -35,29 +35,7 @@ type Trail = {
 
 const TRAILS: Trail[] = [
   {
-    image: '/img/figma/paths/vale-pati-5.png',
-    imagePosition: '50% 50%',
-    duration: '5 Dias',
-    level: 'Médio',
-    distance: '78km',
-    title: 'Vale do Pati (05 dias)',
-    description:
-      'Localizado no coração do Parque Nacional da Chapada Diamantina (PNCD), rodeado por montanhas, cachoeiras e grutas.',
-    href: '/pt/aventuras/vale-do-pati-5-dias',
-  },
-  {
-    image: '/img/figma/paths/cachoeira-palmital.png',
-    imagePosition: '50% 50%',
-    duration: '2 Dias',
-    level: 'Médio',
-    distance: '22km',
-    title: 'Cachoeira do Palmital 02 Dias',
-    description:
-      'Uma travessia entre campos de altitude e paredões até as águas da Cachoeira do Palmital.',
-    href: '/pt/aventuras/cachoeira-do-palmital',
-  },
-  {
-    image: '/img/figma/paths/vale-pati-3.png',
+    image: '/img/adventures/home/vale-do-pati-3-dias.jpeg',
     imagePosition: '50% 50%',
     duration: '3 Dias',
     level: 'Médio',
@@ -68,8 +46,8 @@ const TRAILS: Trail[] = [
     href: '/pt/aventuras/vale-do-pati-3-dias',
   },
   {
-    image: '/img/figma/paths/cachoeira-palmital.png',
-    imagePosition: '66% 50%',
+    image: '/img/adventures/home/cachoeira-do-palmital.jpeg',
+    imagePosition: '50% 50%',
     duration: '2 Dias',
     level: 'Médio',
     distance: '22km',
@@ -79,7 +57,18 @@ const TRAILS: Trail[] = [
     href: '/pt/aventuras/cachoeira-do-palmital',
   },
   {
-    image: '/img/vale-do-pati/vale-do-pati-12.webp',
+    image: '/img/adventures/home/vale-do-pati-5-dias.jpeg',
+    imagePosition: '50% 50%',
+    duration: '5 Dias',
+    level: 'Médio',
+    distance: '78km',
+    title: 'Vale do Pati (05 dias)',
+    description:
+      'Localizado no coração do Parque Nacional da Chapada Diamantina (PNCD), rodeado por montanhas, cachoeiras e grutas.',
+    href: '/pt/aventuras/vale-do-pati-5-dias',
+  },
+  {
+    image: '/img/adventures/home/trilha-aguas-claras.jpg',
     imagePosition: '50% 50%',
     duration: '1 Dia',
     level: 'Leve',
@@ -90,7 +79,7 @@ const TRAILS: Trail[] = [
     href: '/pt/aventuras/trilha-aguas-claras',
   },
   {
-    image: '/img/home_square_right_morro_3_1_5x.webp',
+    image: '/img/adventures/home/mosquito-pai-inacio.jpeg',
     imagePosition: '50% 50%',
     duration: '1 Dia',
     level: 'Médio',
@@ -101,7 +90,7 @@ const TRAILS: Trail[] = [
     href: '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio',
   },
   {
-    image: '/img/vale-do-pati/vale-do-pati-01.webp',
+    image: '/img/adventures/home/cachoeira-do-mixila.jpeg',
     imagePosition: '50% 50%',
     duration: '2 Dias',
     level: 'Médio',
@@ -112,7 +101,7 @@ const TRAILS: Trail[] = [
     href: '/pt/aventuras/cachoeira-do-mixila',
   },
   {
-    image: '/img/vale-do-pati/vale-do-pati-06.webp',
+    image: '/img/adventures/home/vale-do-pati-4-dias.jpeg',
     imagePosition: '50% 50%',
     duration: '4 Dias',
     level: 'Desafiador',
@@ -219,6 +208,7 @@ export function PathsSection() {
 
   const startDrag = (event: ReactPointerEvent<HTMLDivElement>) => {
     if (event.pointerType !== 'mouse' || event.button !== 0) return;
+    if (event.target instanceof Element && event.target.closest('a, button')) return;
 
     const carousel = carouselRef.current;
     if (!carousel) return;
