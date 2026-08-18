@@ -91,6 +91,22 @@
 >   referência — precisa de revisão da operadora antes de emitir.
 > - Os PDFs de referência preenchidos ficam fora do git (`.gitignore`): contêm
 >   nome, e-mail e telefone de clientes reais.
+>
+> **Ferramenta interna `/reservas`** (mesmo padrão do `/voucher`: `noindex` no
+> layout e `Disallow` no `robots.ts`): lista os títulos da base **Reservas** do
+> Notion (dentro da página "📊 Sistema Operacional – Mamut Trekking").
+> `src/lib/notion.ts` fala com a API usando `NOTION_TOKEN` (no `.env`, fora do
+> git) e acha a base por nome via `/search` — a integração do token precisa
+> estar **conectada à página** no Notion (⋯ → Conexões), senão a tela mostra o
+> aviso orientando isso. `NOTION_RESERVAS_DB_ID` (opcional, no `.env`) fixa o
+> ID da base e dispensa a busca — use quando o `/search` ainda não indexou a
+> conexão ou quando há bases duplicadas (ex.: import por zip). Cada item da
+> lista abre `/reservas/[id]`: as propriedades da página vêm tabuladas em
+> grupos (Reserva / Passeio e grupo / Valores / Operação — ordem em
+> `FIELD_GROUPS` na página; campo desconhecido cai em "Outros campos") e
+> valores no formato "Nome (url)" do import viram links. Essas rotas são as
+> únicas dinâmicas do app (`export const dynamic = 'force-dynamic'`): renderizam
+> a cada request, então o deploy precisa de servidor (não é export estático).
 
 # Mamut Trekking — Guia de Início com Claude Code (VS Code)
 
