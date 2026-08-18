@@ -55,8 +55,16 @@ export function AboutHero() {
                   />
                 ))}
               </span>
-              <span aria-hidden className="text-content-muted lg:hidden">
-                …
+              <span
+                aria-hidden
+                className="inline-flex h-6 items-center gap-1.5 rounded-pill border border-white/20 bg-black/25 px-2.5 shadow-sm backdrop-blur-sm lg:hidden"
+              >
+                {Array.from({ length: 3 }, (_, index) => (
+                  <span
+                    key={index}
+                    className="about-hero-more-dot size-1.5 rounded-full bg-white/75 shadow-[0_0_0_1px_rgba(255,255,255,0.08)]"
+                  />
+                ))}
               </span>
               <span className="max-lg:hidden">aqui.</span>
             </span>
@@ -115,13 +123,13 @@ export function AboutHero() {
             unoptimized
             className="h-auto w-[46%]"
           />
-          <Image
-            src="/svg/about/mamut-yellow.svg"
-            alt=""
-            width={273}
-            height={157}
-            unoptimized
-            className="h-auto w-[43%]"
+          <span
+            aria-hidden
+            className="aspect-[273/157] w-[43%] bg-[#FBBF24]"
+            style={{
+              WebkitMask: "url('/svg/mamut-logo-branco.svg') center bottom / contain no-repeat",
+              mask: "url('/svg/mamut-logo-branco.svg') center bottom / contain no-repeat",
+            }}
           />
         </div>
       </Container>

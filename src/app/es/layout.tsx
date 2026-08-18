@@ -4,6 +4,7 @@ import { SiteHeader, type NavItem } from '@/components/layout/SiteHeader';
 import { SiteFooter } from '@/components/layout/SiteFooter';
 import { SITE } from '@/lib/site';
 import { fontBody, fontDisplay } from '@/lib/fonts';
+import { ScrollExperience } from '@/components/layout/ScrollExperience';
 
 // Root layout del idioma ES.
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function EsLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={`${fontBody.variable} ${fontDisplay.variable}`}>
       <body className="flex min-h-screen flex-col antialiased">
+        <ScrollExperience />
         <SiteHeader locale="es" brandHref="/es" nav={NAV} />
         <main className="flex-1">{children}</main>
         <SiteFooter
