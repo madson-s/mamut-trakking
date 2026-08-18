@@ -82,7 +82,7 @@ export function PatiFaqList({ faqs }: { faqs: readonly PatiFaqItem[] }) {
               aria-controls={panelId}
               onClick={() => toggle(index)}
               className={cn(
-                'flex min-h-15 w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-light transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand sm:min-h-18 sm:px-10 sm:text-lg',
+                'flex min-h-15 w-full cursor-pointer items-center justify-between gap-4 px-6 py-5 text-left text-base font-light transition-colors duration-200 ease-out focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand sm:min-h-18 sm:px-10 sm:text-lg',
                 !isOpen && 'hover:bg-surface-raised',
               )}
             >

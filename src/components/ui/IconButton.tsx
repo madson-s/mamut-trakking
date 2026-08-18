@@ -100,7 +100,7 @@ export function IconButton(props: IconButtonProps) {
       aria-label={label}
       className={cn(
         classes,
-        'disabled:cursor-not-allowed disabled:opacity-35 disabled:active:scale-100',
+        'cursor-pointer disabled:cursor-not-allowed disabled:opacity-35 disabled:active:scale-100',
       )}
       {...buttonProps}
     >
