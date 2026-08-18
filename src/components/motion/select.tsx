@@ -261,7 +261,7 @@ export function SelectTrigger({
           : undefined
       }
       className={cn(
-        "relative z-10 flex w-full items-center justify-between gap-2 rounded-control border border-line-strong bg-surface px-3 py-2 text-sm text-content outline-none transition-colors",
+        "relative z-10 flex w-full cursor-pointer items-center justify-between gap-2 rounded-control border border-line-strong bg-surface px-3 py-2 text-sm text-content outline-none transition-colors",
         "hover:border-line-contrast focus-visible:border-brand focus-visible:ring-2 focus-visible:ring-brand/30",
         "disabled:pointer-events-none disabled:opacity-50",
         className,
@@ -454,7 +454,7 @@ export function SelectItem({
         disabled={disabled}
         onClick={() => ctx.select(value)}
         className={cn(
-          "flex w-full items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-left text-sm outline-none transition-colors",
+          "flex w-full cursor-pointer items-center justify-between gap-2 rounded-lg px-2.5 py-1.5 text-left text-sm outline-none transition-colors",
           selected
             ? "bg-surface-raised text-content"
             : "text-content-secondary hover:bg-surface-raised hover:text-content focus-visible:bg-surface-raised",

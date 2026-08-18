@@ -33,7 +33,7 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
         type="button"
         onClick={() => setTheme(isDark ? 'light' : 'dark')}
         aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
-        className={`group relative inline-flex size-10 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-content-secondary shadow-chip ring-1 ring-inset ring-line-strong transition-[background-color,color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised hover:text-content active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${className}`}
+        className={`group relative inline-flex size-10 shrink-0 cursor-pointer items-center justify-center rounded-pill bg-surface-muted text-content-secondary shadow-chip ring-1 ring-inset ring-line-strong transition-[background-color,color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised hover:text-content active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${className}`}
       >
         <span
           className={`absolute flex size-4.5 items-center justify-center transition-[opacity,filter,scale] duration-300 ease-brand ${
@@ -64,7 +64,7 @@ export function Theme({ variant = 'switch', size = 'sm', className = '' }: Theme
         aria-checked={isDark}
         onClick={() => setTheme(isDark ? 'light' : 'dark')}
         aria-label={isDark ? 'Ativar tema claro' : 'Ativar tema escuro'}
-        className={`relative inline-flex shrink-0 items-center rounded-pill bg-surface-muted ring-1 ring-line-strong ring-inset transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none ${isLarge ? 'h-10 w-16' : 'h-7 w-12'} ${className}`}
+        className={`relative inline-flex shrink-0 cursor-pointer items-center rounded-pill bg-surface-muted ring-1 ring-line-strong ring-inset transition-[background-color,box-shadow,scale] duration-200 ease-out hover:bg-surface-raised active:scale-[0.96] focus-visible:ring-2 focus-visible:ring-brand focus-visible:outline-none ${isLarge ? 'h-10 w-16' : 'h-7 w-12'} ${className}`}
       >
         <span
           aria-hidden
