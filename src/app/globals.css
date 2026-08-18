@@ -301,7 +301,8 @@ body:has(.about-hero) .site-header {
 
 /* O export do Figma inclui o fundo escuro do frame. No tema claro a própria
    superfície da seção assume esse papel, evitando um véu cinza sobre o layout. */
-[data-theme="light"] .about-story-backdrop {
+[data-theme="light"] .about-story-backdrop,
+[data-theme="light"] .manifesto-creed-backdrop {
   display: none;
 }
 
