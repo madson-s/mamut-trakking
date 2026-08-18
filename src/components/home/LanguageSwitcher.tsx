@@ -1,10 +1,14 @@
 'use client';
 
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/cn';
 import { focus, motion, press } from '@/design/tokens';
-import { CaretDownIcon } from '@/components/ui';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+} from '@/components/motion/select';
 
 const LANGUAGES = [
   { code: 'pt', shortLabel: 'PT-BR', label: 'Português' },
@@ -12,6 +16,10 @@ const LANGUAGES = [
   { code: 'en', shortLabel: 'EN', label: 'English' },
 ] as const;
 
+// Mesmo visual do switcher original (globo em pílula; código + caret no lg),
+// mas a mecânica é o Select do beui — painel com spring + stagger em vez do
+// toggle seco do <details>. Troca de idioma segue sendo full reload: cada
+// idioma é uma raiz estática independente.
 export function LanguageSwitcher() {
   const pathname = usePathname();
   const currentCode =
@@ -20,10 +28,22 @@ export function LanguageSwitcher() {
   const currentLanguage = LANGUAGES.find(({ code }) => code === currentCode) ?? LANGUAGES[0];
 
   return (
-    <details className="group relative shrink-0 font-body font-light text-content">
-      <summary
+    <Select
+      value={currentCode}
+      onValueChange={(next) => {
+        if (next !== currentCode) window.location.assign(`/${next}`);
+      }}
+      className="shrink-0 font-body font-light text-content"
+    >
+      <SelectTrigger
+        gooey={false}
+        aria-label="Selecionar idioma"
+        chevronClassName={cn(
+          'hidden lg:block [&>svg]:size-3 text-content-secondary group-hover:text-brand-contrast transition-colors',
+          motion.fast,
+        )}
         className={cn(
-          'group/trigger flex h-10 w-10 cursor-pointer list-none items-center justify-center gap-2',
+          'group h-10 w-10 justify-center gap-2 border-0 p-0',
           'rounded-pill bg-surface-muted text-content shadow-chip ring-1 ring-line-strong ring-inset',
           'transition-[background-color,color,box-shadow,scale]',
           motion.fast,
@@ -31,38 +51,31 @@ export function LanguageSwitcher() {
           focus.onSurface,
           'hover:bg-brand hover:text-brand-contrast hover:ring-brand',
           'lg:w-auto lg:justify-start lg:bg-transparent lg:px-3 lg:shadow-none',
-          '[&::-webkit-details-marker]:hidden',
         )}
       >
         <GlobeIcon className="size-3.5" />
         <span className="hidden text-xs lg:inline">{currentLanguage.shortLabel}</span>
-        <span className="hidden lg:block">
-          <CaretDownIcon
-            className={cn(
-              'size-3 text-content-secondary transition-[color,transform] group-open:rotate-180 group-hover/trigger:text-brand-contrast',
-              motion.fast,
-            )}
-          />
-        </span>
-        <span className="sr-only">Selecionar idioma</span>
-      </summary>
+      </SelectTrigger>
 
-      <div className="absolute top-[calc(100%+8px)] right-0 z-50 flex w-40 flex-col gap-2 overflow-hidden rounded-control bg-surface p-2 shadow-popover ring-1 ring-line ring-inset">
+      <SelectContent
+        className="left-auto z-50 w-40 border-0 ring-1 ring-line ring-inset"
+        innerClassName="flex flex-col gap-2 p-2"
+      >
         {LANGUAGES.map(({ code, shortLabel, label }) => {
           const isCurrent = code === currentCode;
 
           return (
-            <Link
+            <SelectItem
               key={code}
-              href={`/${code}`}
-              aria-current={isCurrent ? 'page' : undefined}
+              value={code}
+              showCheck={false}
               className={cn(
-                'group/option flex min-h-10 items-center justify-between rounded-control border px-3 text-sm',
+                'group/option min-h-10 rounded-control border px-3 text-sm',
                 'transition-[background-color,border-color,color]',
                 motion.fast,
                 isCurrent
                   ? 'border-brand bg-transparent text-brand-strong'
-                  : 'border-transparent text-content-secondary hover:bg-brand hover:text-brand-contrast',
+                  : 'border-transparent text-content-secondary hover:bg-brand hover:text-brand-contrast focus-visible:bg-brand focus-visible:text-brand-contrast',
               )}
             >
               <span>{label}</span>
@@ -77,11 +90,11 @@ export function LanguageSwitcher() {
               >
                 {shortLabel}
               </span>
-            </Link>
+            </SelectItem>
           );
         })}
-      </div>
-    </details>
+      </SelectContent>
+    </Select>
   );
 }
 

@@ -15,7 +15,7 @@ const AI_BOTS = [
 ];
 
 // Ferramentas internas: fora do índice (o layout da rota também manda noindex).
-const PRIVATE_PATHS = ['/voucher'];
+const PRIVATE_PATHS = ['/voucher', '/reservas'];
 
 export default function robots(): MetadataRoute.Robots {
   return {

@@ -66,6 +66,25 @@
 >   recomenda. `<Image>` não cobre `<source media>`: onde há art direction
 >   (fundo do hero e card do manifesto) o `<picture>` fica e as duas molduras
 >   vêm de `getImageProps`, então nenhuma imagem escapa do otimizador.
+> - **Componentes de movimento (beui.dev)** vivem em `src/components/motion/`,
+>   vendorizados via shadcn CLI (`pnpm dlx shadcn add @beui/<nome>` — registry
+>   `@beui` configurado no `components.json`; **não** rodar `shadcn init`, ele
+>   reescreveria o `globals.css`). Após instalar, troque os tokens shadcn do
+>   arquivo gerado pelos semânticos daqui (`bg-background`→`bg-surface-muted`,
+>   `border-border`→`border-line-strong`, `shadow-2xl`→`shadow-popover`…).
+>   Junto vieram `src/lib/ease.ts` (springs/easings do beui) e
+>   `src/lib/utils.ts` (`cn` com tailwind-merge — só os componentes
+>   vendorizados usam; o site segue com `src/lib/cn.ts`). Em uso:
+>   `MorphingModal` no sheet de reserva do Pati (`PatiMobileBooking` —
+>   backdrop, scroll-lock e ESC por conta dele; focus trap fica no chamador) e
+>   `Select` nos dois switchers de idioma: `layout/LocaleSwitcher` (header das
+>   raízes **en/es**) e `home/LanguageSwitcher` (header pt — mantém o visual do
+>   globo; usa as props `gooey={false}` para não deformar a pílula,
+>   `innerClassName` e `showCheck={false}`). Deps `motion` + `lucide-react`.
+>   Armadilhas do `Select`: o painel é absoluto dentro do campo — **não** o
+>   coloque em contêiner com `overflow-hidden`, senão o dropdown é decapitado;
+>   e os rótulos dos itens só registram na hidratação, então passe
+>   `placeholder` com o rótulo do valor atual para o SSR não mostrar "Select".
 > - Faltando variante, **adicione uma prop** — foi assim que entraram
 >   `SectionHeading spacing="loose"` (respiro 32→48 das seções centradas) e
 >   `MediaCard elevation` (sombra do card ativo do carrossel). `Card` de
@@ -91,6 +110,22 @@
 >   referência — precisa de revisão da operadora antes de emitir.
 > - Os PDFs de referência preenchidos ficam fora do git (`.gitignore`): contêm
 >   nome, e-mail e telefone de clientes reais.
+>
+> **Ferramenta interna `/reservas`** (mesmo padrão do `/voucher`: `noindex` no
+> layout e `Disallow` no `robots.ts`): lista os títulos da base **Reservas** do
+> Notion (dentro da página "📊 Sistema Operacional – Mamut Trekking").
+> `src/lib/notion.ts` fala com a API usando `NOTION_TOKEN` (no `.env`, fora do
+> git) e acha a base por nome via `/search` — a integração do token precisa
+> estar **conectada à página** no Notion (⋯ → Conexões), senão a tela mostra o
+> aviso orientando isso. `NOTION_RESERVAS_DB_ID` (opcional, no `.env`) fixa o
+> ID da base e dispensa a busca — use quando o `/search` ainda não indexou a
+> conexão ou quando há bases duplicadas (ex.: import por zip). Cada item da
+> lista abre `/reservas/[id]`: as propriedades da página vêm tabuladas em
+> grupos (Reserva / Passeio e grupo / Valores / Operação — ordem em
+> `FIELD_GROUPS` na página; campo desconhecido cai em "Outros campos") e
+> valores no formato "Nome (url)" do import viram links. Essas rotas são as
+> únicas dinâmicas do app (`export const dynamic = 'force-dynamic'`): renderizam
+> a cada request, então o deploy precisa de servidor (não é export estático).
 
 # Mamut Trekking — Guia de Início com Claude Code (VS Code)
 
