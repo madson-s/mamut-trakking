@@ -11,6 +11,7 @@ import {
   Text,
   XIcon,
 } from '@/components/ui';
+import { MorphingModal } from '@/components/motion/morphing-modal';
 import { SITE } from '@/lib/site';
 import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
 
@@ -43,7 +44,7 @@ export function PatiMobileBooking() {
   const [language, setLanguage] = useState('Todos os idiomas');
   const [selectedDate, setSelectedDate] = useState(() => new Date(2026, 6, 30));
   const [visibleMonth, setVisibleMonth] = useState(() => new Date(2026, 6, 1));
-  const sheetRef = useRef<HTMLElement>(null);
+  const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const bookingCard = document.getElementById('pati-booking-card');
@@ -64,16 +65,14 @@ export function PatiMobileBooking() {
     return () => window.removeEventListener(PATI_BOOKING_OPEN_EVENT, openBooking);
   }, []);
 
+  // Scroll-lock e Escape ficam por conta do MorphingModal; aqui só o focus trap.
   useEffect(() => {
     if (!sheetView) return;
 
-    const previousOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
     const focusable = sheetRef.current?.querySelector<HTMLElement>('button, a[href]');
     focusable?.focus();
 
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setSheetView(null);
       if (event.key !== 'Tab' || !sheetRef.current) return;
 
       const elements = Array.from(
@@ -93,10 +92,7 @@ export function PatiMobileBooking() {
     };
 
     window.addEventListener('keydown', onKeyDown);
-    return () => {
-      document.body.style.overflow = previousOverflow;
-      window.removeEventListener('keydown', onKeyDown);
-    };
+    return () => window.removeEventListener('keydown', onKeyDown);
   }, [sheetView]);
 
   const estimatedPrice = GROUP_PRICES[Math.min(travellers, 4) - 1];
@@ -141,52 +137,45 @@ export function PatiMobileBooking() {
         </div>
       </div>
 
-      {sheetView && (
-        <div
-          className="fixed inset-0 z-50 flex items-end justify-center bg-black/55 p-0 backdrop-blur-[2px] lg:items-center lg:p-6"
-          role="presentation"
-          onMouseDown={(event) => {
-            if (event.target === event.currentTarget) closeSheet();
-          }}
-        >
-          <section
-            ref={sheetRef}
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="pati-booking-sheet-title"
-            className="max-h-[calc(100dvh-12px)] min-h-128.5 w-full max-w-98 overflow-y-auto rounded-t-[28px] border-x border-t border-line-strong bg-surface-muted px-5 pt-3 pb-[max(24px,env(safe-area-inset-bottom))] shadow-popover lg:max-h-[calc(100dvh-48px)] lg:max-w-130 lg:rounded-[28px] lg:border lg:px-8 lg:pt-5 lg:pb-8"
-          >
-            <div aria-hidden className="mx-auto mb-5 h-1 w-10 rounded-pill bg-content-muted" />
+      <MorphingModal
+        viewId={sheetView}
+        onClose={closeSheet}
+        placement="bottom"
+        labelledBy="pati-booking-sheet-title"
+        closeLabel="Fechar reserva"
+        className="max-w-98 lg:max-w-130"
+      >
+        <div ref={sheetRef}>
+          <div aria-hidden className="mx-auto mb-5 h-1 w-10 rounded-pill bg-content-muted lg:hidden" />
 
-            {sheetView === 'calendar' ? (
-              <CalendarView
-                monthDays={monthDays}
-                monthLabel={monthLabel}
-                selectedDate={selectedDate}
-                visibleMonth={visibleMonth}
-                onClose={() => setSheetView('booking')}
-                onChangeMonth={changeMonth}
-                onSelectDate={(day) => {
-                  setSelectedDate(new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), day));
-                  setSheetView('booking');
-                }}
-              />
-            ) : (
-              <BookingView
-                selectedDate={selectedDate}
-                travellers={travellers}
-                language={language}
-                estimatedPrice={estimatedPrice}
-                availabilityUrl={availabilityUrl}
-                onClose={closeSheet}
-                onOpenCalendar={() => setSheetView('calendar')}
-                onTravellersChange={setTravellers}
-                onLanguageChange={setLanguage}
-              />
-            )}
-          </section>
+          {sheetView === 'calendar' ? (
+            <CalendarView
+              monthDays={monthDays}
+              monthLabel={monthLabel}
+              selectedDate={selectedDate}
+              visibleMonth={visibleMonth}
+              onClose={() => setSheetView('booking')}
+              onChangeMonth={changeMonth}
+              onSelectDate={(day) => {
+                setSelectedDate(new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), day));
+                setSheetView('booking');
+              }}
+            />
+          ) : (
+            <BookingView
+              selectedDate={selectedDate}
+              travellers={travellers}
+              language={language}
+              estimatedPrice={estimatedPrice}
+              availabilityUrl={availabilityUrl}
+              onClose={closeSheet}
+              onOpenCalendar={() => setSheetView('calendar')}
+              onTravellersChange={setTravellers}
+              onLanguageChange={setLanguage}
+            />
+          )}
         </div>
-      )}
+      </MorphingModal>
     </>
   );
 }
