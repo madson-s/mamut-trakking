@@ -23,6 +23,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // até receberem conteúdo equivalente, conforme a arquitetura atual do repo.
   entries.push({ url: `${BASE}/pt/sobre` });
   entries.push({ url: `${BASE}/pt/manifesto` });
+  entries.push({ url: `${BASE}/pt/contato` });
 
   // Cada roteiro, em cada idioma.
   for (const locale of LOCALES) {
