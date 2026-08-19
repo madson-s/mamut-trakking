@@ -2,6 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import {
   Button,
   CaretDownIcon,
@@ -19,6 +20,20 @@ type SheetView = 'booking' | 'calendar';
 
 const WEEKDAYS = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'] as const;
 const LANGUAGES = ['PT BR', 'EN', 'ES'] as const;
+type Language = (typeof LANGUAGES)[number];
+// O idioma já vem marcado conforme a raiz em que a página está (/pt, /en, /es).
+const LANGUAGE_BY_LOCALE: Record<string, Language> = {
+  pt: 'PT BR',
+  en: 'EN',
+  es: 'ES',
+};
+
+function languageFromPath(pathname: string) {
+  const locale = Object.keys(LANGUAGE_BY_LOCALE).find(
+    (l) => pathname === `/${l}` || pathname.startsWith(`/${l}/`),
+  );
+  return LANGUAGE_BY_LOCALE[locale ?? 'pt'];
+}
 const GROUP_PRICES = [2100, 1900, 1700, 1500] as const;
 
 function getMonthDays(year: number, month: number) {
@@ -38,10 +53,11 @@ function formatDate(date: Date) {
 }
 
 export function PatiMobileBooking() {
+  const pathname = usePathname();
   const [dockVisible, setDockVisible] = useState(false);
   const [sheetView, setSheetView] = useState<SheetView | null>(null);
   const [travellers, setTravellers] = useState(2);
-  const [language, setLanguage] = useState('Todos os idiomas');
+  const [language, setLanguage] = useState(() => languageFromPath(pathname));
   const [selectedDate, setSelectedDate] = useState(() => new Date(2026, 6, 30));
   const [visibleMonth, setVisibleMonth] = useState(() => new Date(2026, 6, 1));
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -212,12 +228,12 @@ function BookingView({
 }: SharedSheetProps & {
   selectedDate: Date;
   travellers: number;
-  language: string;
+  language: Language;
   estimatedPrice: number;
   availabilityUrl: string;
   onOpenCalendar: () => void;
   onTravellersChange: (value: number) => void;
-  onLanguageChange: (value: string) => void;
+  onLanguageChange: (value: Language) => void;
 }) {
   return (
     <>
@@ -249,11 +265,7 @@ function BookingView({
 
         <div className="border-t border-line-strong px-4 py-3.5">
           <Text size="xs" tone="muted">Idioma</Text>
-          <div className="mt-1.5 flex items-center justify-between gap-2">
-            <Text size="sm" tone="secondary">{language}</Text>
-            <CaretDownIcon className="size-3.5" />
-          </div>
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="mt-2.5 flex flex-wrap gap-2">
             {LANGUAGES.map((item) => (
               <button
                 key={item}
@@ -275,7 +287,7 @@ function BookingView({
 
       <div className="mt-5 flex h-13 items-center justify-between rounded-card border border-line px-4.5">
         <Text size="sm" weight="light">Valor estimado</Text>
-        <Heading as="p" size="quote" className="tabular-nums">R$ {estimatedPrice.toLocaleString('pt-BR')} / pessoa</Heading>
+        <Heading as="p" size="quote" className="tabular-nums max-lg:text-[20px]">R$ {estimatedPrice.toLocaleString('pt-BR')} / pessoa</Heading>
       </div>
 
       <Button href={availabilityUrl} size="lg" block arrow className="mt-5 text-lg">

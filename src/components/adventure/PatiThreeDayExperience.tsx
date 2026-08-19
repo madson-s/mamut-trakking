@@ -363,8 +363,8 @@ function EditorialCard({ title, body }: { title: string; body: string }) {
 function RelatedTrail({ href, image, level, title }: { href: string; image: string; level: string; title: string }) {
   const difficultyEmoji = level.startsWith('Avançado') ? '🔴' : '🟡';
   return (
-    <article className="grid h-40 w-95.5 grid-cols-[140px_202px] items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted pr-5">
-      <div className="relative h-40 w-35 shrink-0 overflow-hidden rounded-card-lg"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
+    <article className="grid h-40 w-full grid-cols-1 items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted px-5 sm:w-95.5 sm:grid-cols-[140px_202px] sm:px-0 sm:pr-5">
+      <div className="relative hidden h-40 w-35 shrink-0 overflow-hidden rounded-card-lg sm:block"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
       <div className="flex h-30 min-w-0 flex-col items-start justify-center gap-2.5"><Badge variant="soft" size="sm"><span aria-hidden>{difficultyEmoji}</span> {level}</Badge><Heading as="h4" size="quote" className="text-xl/[27px]! whitespace-nowrap">{title}</Heading><Button href={href} size="sm" arrow className="min-h-11 w-full">Explorar essa versão</Button></div>
     </article>
   );
@@ -476,14 +476,14 @@ function TrustAndReviews() {
             </Heading>
           </div>
 
-          <div className="grid max-w-96 grid-cols-2 gap-5">
+          <div className="grid max-w-96 grid-cols-1 gap-5 sm:grid-cols-2">
             {TRUST.map(([title, body, icon]) => (
               <Card
                 key={title}
                 as="article"
                 surface="muted"
                 padding="none"
-                className="min-h-51 gap-3 p-6"
+                className="min-h-0 gap-3 p-6 sm:min-h-51"
               >
                 <span className="flex size-10 items-center justify-center rounded-full border border-brand">
                   <AssetIcon src={icon} className="size-5" />
