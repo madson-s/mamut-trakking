@@ -41,6 +41,9 @@ export type { MediaCardProps } from './MediaCard';
 
 export { JsonLd } from './JsonLd';
 
+export { PageHero } from './PageHero';
+export type { PageHeroProps, PageHeroSize } from './PageHero';
+
 export { Placeholder } from './Placeholder';
 
 export { Prose } from './Prose';

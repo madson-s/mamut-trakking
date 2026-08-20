@@ -280,22 +280,24 @@ body:has(.pati-three-day-page) .site-header .pati-wordmark-desktop {
 }
 
 
-/* A página Sobre começa sob o header, sobre uma fotografia escura. O header
-   permanece on-media nos dois temas; as demais páginas continuam semânticas. */
-[data-theme="light"] body:has(.about-hero) .site-header {
+/* Páginas cujo hero é full-bleed e passa POR BAIXO do header (marcadas com
+   .hero-under-header): o header flutua sobre a fotografia, então segue on-media
+   nos dois temas. Onde o hero começa abaixo do header — a home, por exemplo —
+   as cores continuam semânticas. */
+[data-theme="light"] body:has(.hero-under-header) .site-header {
   --content: var(--on-media);
   --content-secondary: var(--on-media-soft);
   --content-muted: var(--on-media-muted);
   --content-subtle: var(--on-media-muted);
 }
 
-body:has(.about-hero) .site-header {
+body:has(.hero-under-header) .site-header {
   --line: rgb(255 255 255 / 0.24);
   --line-strong: var(--on-media);
   --line-contrast: var(--on-media);
 }
 
-[data-theme="light"] body:has(.about-hero) .site-header .theme-logo {
+[data-theme="light"] body:has(.hero-under-header) .site-header .theme-logo {
   filter: none;
 }
 
@@ -311,33 +313,6 @@ body:has(.about-hero) .site-header {
   filter: brightness(0) saturate(100%);
 }
 
-@keyframes about-hero-more-wave {
-  0%,
-  60%,
-  100% {
-    opacity: 0.55;
-    transform: translateY(0);
-  }
-
-  30% {
-    opacity: 1;
-    transform: translateY(-3px);
-  }
-}
-
-.about-hero-more-dot {
-  animation: about-hero-more-wave 1.6s cubic-bezier(0.45, 0, 0.55, 1) infinite;
-  will-change: transform, opacity;
-}
-
-.about-hero-more-dot:nth-child(2) {
-  animation-delay: 140ms;
-}
-
-.about-hero-more-dot:nth-child(3) {
-  animation-delay: 280ms;
-}
-
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -348,11 +323,5 @@ body:has(.about-hero) .site-header {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  .about-hero-more-dot {
-    animation: none;
-    opacity: 0.75;
-    will-change: auto;
   }
 }
