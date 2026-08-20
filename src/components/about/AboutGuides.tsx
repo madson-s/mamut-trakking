@@ -170,7 +170,9 @@ export function GuideCard({ guide }: { guide: Guide }) {
       aria-label={`${guide.name}, ${guide.role}`}
       className={cn(
         'group/guide flex min-w-0 flex-col gap-3 rounded-panel-lg',
-        'shrink-0 basis-[74%] snap-start lg:shrink lg:basis-auto',
+        // No carrossel (abaixo de lg) o card para nos 403px, que é a foto no máximo
+        // do aspect-ratio 377/402 + 12px de padding e 1px de borda de cada lado.
+        'shrink-0 basis-[74%] snap-start max-lg:max-w-[403px] lg:shrink lg:basis-auto',
         'max-lg:rounded-[22px] max-lg:border max-lg:border-line max-lg:bg-surface-muted max-lg:p-3',
         focus.onSurface,
         'focus-visible:ring-offset-4',

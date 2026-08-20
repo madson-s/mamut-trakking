@@ -143,8 +143,7 @@ export function AboutStory() {
           surface="muted"
           radius="panelLg"
           padding="none"
-          bordered={false}
-          className="grid w-full grid-cols-1 gap-10 overflow-hidden p-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:border lg:border-line-strong lg:p-8.25"
+          className="grid w-full grid-cols-1 gap-10 overflow-hidden p-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:p-8.25"
         >
           {AUTHORITY.map((item) => (
             <div key={item.title} className="flex flex-col gap-3">
@@ -177,7 +176,7 @@ function StoryCard({ title, children }: { title: string; children: React.ReactNo
       surface="muted"
       radius="panelLg"
       padding="none"
-      className="min-h-[494px] gap-5 px-8 py-10 sm:px-12 sm:py-12 lg:px-14"
+      className="gap-5 px-8 py-10 sm:px-12 sm:py-12 lg:min-h-[494px] lg:px-14"
     >
       <Heading as="h3" size="card" tone="brand" balance>
         {title}
