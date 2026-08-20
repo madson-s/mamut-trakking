@@ -299,6 +299,24 @@ body:has(.about-hero) .site-header {
   filter: none;
 }
 
+/* A página de aventuras também começa sob o header, sobre fotografia escura. */
+[data-theme="light"] body:has(.adventures-hub-hero) .site-header {
+  --content: var(--on-media);
+  --content-secondary: var(--on-media-soft);
+  --content-muted: var(--on-media-muted);
+  --content-subtle: var(--on-media-muted);
+}
+
+body:has(.adventures-hub-hero) .site-header {
+  --line: rgb(255 255 255 / 0.24);
+  --line-strong: var(--on-media);
+  --line-contrast: var(--on-media);
+}
+
+[data-theme="light"] body:has(.adventures-hub-hero) .site-header .theme-logo {
+  filter: none;
+}
+
 /* O export do Figma inclui o fundo escuro do frame. No tema claro a própria
    superfície da seção assume esse papel, evitando um véu cinza sobre o layout. */
 [data-theme="light"] .about-story-backdrop,
