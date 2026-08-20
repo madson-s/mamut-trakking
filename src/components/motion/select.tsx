@@ -306,7 +306,7 @@ export interface SelectContentProps {
 
 export function SelectContent({ className, innerClassName, children }: SelectContentProps) {
   const ctx = useSelectContext("SelectContent");
-  const innerRef = useRef<HTMLDivElement>(null);
+  const innerRef = useRef<HTMLUListElement>(null);
   const [height, setHeight] = useState(0);
   const open = ctx.open;
   const { setPlacement } = ctx;
@@ -407,7 +407,9 @@ export function SelectContent({ className, innerClassName, children }: SelectCon
         className,
       )}
     >
-      <motion.div
+      {/* `ul` (e não `div`): os itens são `li`, e é o reset de lista do Tailwind
+          em `ul` que tira os marcadores — num `li` solto o disc reaparece. */}
+      <motion.ul
         ref={innerRef}
         variants={ctx.reduce ? undefined : LIST_VARIANTS}
         initial={false}
@@ -415,7 +417,7 @@ export function SelectContent({ className, innerClassName, children }: SelectCon
         className={cn("p-1", innerClassName)}
       >
         {children}
-      </motion.div>
+      </motion.ul>
     </motion.div>
   );
 }
