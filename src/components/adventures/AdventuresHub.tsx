@@ -75,6 +75,8 @@ const ADVENTURES: Adventure[] = [
 const HERO_BACKGROUND = '/img/adventures/adventures-hero-background-hq.webp';
 const HERO_INLINE_IMAGE = '/img/adventures/adventures-hero-pill.webp';
 const WALKERS = '/svg/about/story-walkers.svg';
+
+const PAGE_TAIL = 'pb-20 lg:pb-28';
 const MAX_BUDGET = 4550;
 const MIN_BUDGET = 50;
 const LOCATION_OPTIONS = ['all', 'Lençóis', 'Vale do Capão', 'Palmeiras', 'Ibicoara', 'Guiné'];
@@ -129,6 +131,15 @@ export function AdventuresHub() {
     }),
     [filteredAdventures],
   );
+
+  const lastGroup =
+    groups.packages.length > 0
+      ? 'packages'
+      : groups.dayTours.length > 0
+        ? 'dayTours'
+        : groups.trekking.length > 0
+          ? 'trekking'
+          : null;
 
   const activeFilters = [
     location !== 'all' ? { id: 'location', label: locationLabel(location), onRemove: () => setLocation('all') } : null,
@@ -328,7 +339,7 @@ export function AdventuresHub() {
         </Button>
       </div>
 
-      <section id="todas-as-aventuras" className="bg-surface-muted pb-20 pt-[60px] lg:pb-28" aria-labelledby="trekking-heading">
+      <section id="todas-as-aventuras" className={cn('bg-surface-muted pt-[60px]', lastGroup === 'trekking' && PAGE_TAIL)} aria-labelledby="trekking-heading">
         <AdventureSection
           id="trekking-heading"
           title="Trekking de 2 a 6 dias"
@@ -339,7 +350,7 @@ export function AdventuresHub() {
       </section>
 
       {groups.dayTours.length > 0 && (
-        <section className="bg-surface py-20 lg:py-28" aria-labelledby="day-tours-heading">
+        <section className={cn('bg-surface-muted pt-16', lastGroup === 'dayTours' && PAGE_TAIL)} aria-labelledby="day-tours-heading">
           <AdventureSection
             id="day-tours-heading"
             title="Passeios de 1 dia"
@@ -350,7 +361,7 @@ export function AdventuresHub() {
       )}
 
       {groups.packages.length > 0 && (
-        <section className="bg-surface-muted py-20 lg:py-28" aria-labelledby="packages-heading">
+        <section className={cn('bg-surface-muted pt-16', lastGroup === 'packages' && PAGE_TAIL)} aria-labelledby="packages-heading">
           <AdventureSection
             id="packages-heading"
             title="Pacotes especiais"
@@ -460,11 +471,11 @@ function AdventureSection({ id, title, description, adventures, walkers = false,
     <Container className="flex flex-col gap-12 lg:gap-16">
       <div className={cn('grid items-end gap-8', walkers && 'lg:grid-cols-[minmax(0,0.9fr)_minmax(360px,0.65fr)]')}>
         <div className="flex flex-col gap-4">
-          <Heading id={id} as="h2" size="hero" balance>{title}</Heading>
+          <Heading id={id} as="h2" size="section" balance>{title}</Heading>
           <Text size="lg" weight="light" tone="secondary" pretty className="max-w-2xl">{description}</Text>
         </div>
         {walkers && (
-          <Image src={WALKERS} alt="" width={290} height={114} unoptimized className="hidden h-auto w-full max-w-md justify-self-end lg:block" />
+          <Image src={WALKERS} alt="" width={290} height={114} unoptimized className="hidden h-[125px] w-auto justify-self-end lg:block" />
         )}
       </div>
 
@@ -509,7 +520,7 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
       </div>
 
       <div className="flex flex-1 flex-col gap-5 p-6">
-        <Heading as="h3" size="card" balance>{adventure.title}</Heading>
+        <Heading as="h3" size="card" balance className="min-h-[2lh]">{adventure.title}</Heading>
         <div className="flex flex-wrap gap-2">
           <Badge variant="outline" size="sm">
             <span aria-hidden>{difficultyEmoji}</span>
