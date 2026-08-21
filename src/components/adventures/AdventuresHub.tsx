@@ -8,10 +8,25 @@ import { ArrowRightIcon, Badge, Button, CaretDownIcon, Container, Heading, Text 
 import { focus, motion, press } from '@/design/tokens';
 import { cn } from '@/lib/cn';
 import { formatPrice } from '@/lib/site';
+import { AdventuresFiltersDrawer } from './AdventuresFiltersDrawer';
+import {
+  DEFAULT_FILTERS,
+  DIFFICULTY_OPTIONS,
+  DURATION_OPTIONS,
+  LOCATION_OPTIONS,
+  MAX_BUDGET,
+  MIN_BUDGET,
+  activeFilterList,
+  difficultyLabel,
+  durationLabel,
+  locationLabel,
+  matchesFilters,
+  type AdventureFilters,
+  type DifficultyFilter,
+  type DifficultyGroup,
+} from './filters';
 
 type AdventureCategory = 'trekking' | 'day-tour' | 'package';
-type DifficultyFilter = 'all' | 'Fácil' | 'Moderado' | 'Desafiador';
-type DifficultyGroup = Exclude<DifficultyFilter, 'all'>;
 type OpenFilter = 'location' | 'duration' | 'difficulty' | 'budget' | null;
 
 type Adventure = {
@@ -77,23 +92,18 @@ const HERO_INLINE_IMAGE = '/img/adventures/adventures-hero-pill.webp';
 const WALKERS = '/svg/about/story-walkers.svg';
 
 const PAGE_TAIL = 'pb-20 lg:pb-28';
-const MAX_BUDGET = 4550;
-const MIN_BUDGET = 50;
-const LOCATION_OPTIONS = ['all', 'Lençóis', 'Vale do Capão', 'Palmeiras', 'Ibicoara', 'Guiné'];
-const DURATION_OPTIONS = ['all', '1', '2', '3', '4', '5', '6'];
-const DIFFICULTY_OPTIONS: DifficultyFilter[] = ['all', 'Fácil', 'Moderado', 'Desafiador'];
-
-const locationLabel = (value: string) => (value === 'all' ? 'Todos os locais' : value);
-const durationLabel = (value: string) =>
-  value === 'all' ? 'Qualquer duração' : `${value} ${value === '1' ? 'dia' : 'dias'}`;
-const difficultyLabel = (value: DifficultyFilter) => (value === 'all' ? 'Todos os níveis' : value);
 
 export function AdventuresHub() {
-  const [location, setLocation] = useState('all');
-  const [duration, setDuration] = useState('all');
-  const [difficulty, setDifficulty] = useState<DifficultyFilter>('all');
-  const [budget, setBudget] = useState(MAX_BUDGET);
+  const [filters, setFilters] = useState<AdventureFilters>(DEFAULT_FILTERS);
+  const { location, duration, difficulty, budget } = filters;
+  const updateFilters = (next: Partial<AdventureFilters>) =>
+    setFilters((current) => ({ ...current, ...next }));
+  const setLocation = (value: string) => updateFilters({ location: value });
+  const setDuration = (value: string) => updateFilters({ duration: value });
+  const setDifficulty = (value: DifficultyFilter) => updateFilters({ difficulty: value });
+  const setBudget = (value: number) => updateFilters({ budget: value });
   const [openFilter, setOpenFilter] = useState<OpenFilter>(null);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const filtersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -112,15 +122,8 @@ export function AdventuresHub() {
   }, []);
 
   const filteredAdventures = useMemo(
-    () =>
-      ADVENTURES.filter(
-        (adventure) =>
-          (location === 'all' || adventure.location === location) &&
-          (duration === 'all' || adventure.duration === Number(duration)) &&
-          (difficulty === 'all' || adventure.difficultyGroup === difficulty) &&
-          adventure.price <= budget,
-      ),
-    [budget, difficulty, duration, location],
+    () => ADVENTURES.filter((adventure) => matchesFilters(adventure, filters)),
+    [filters],
   );
 
   const groups = useMemo(
@@ -141,29 +144,22 @@ export function AdventuresHub() {
           ? 'trekking'
           : null;
 
-  const activeFilters = [
-    location !== 'all' ? { id: 'location', label: locationLabel(location), onRemove: () => setLocation('all') } : null,
-    duration !== 'all' ? { id: 'duration', label: durationLabel(duration), onRemove: () => setDuration('all') } : null,
-    difficulty !== 'all' ? { id: 'difficulty', label: difficultyLabel(difficulty), onRemove: () => setDifficulty('all') } : null,
-    budget !== MAX_BUDGET ? { id: 'budget', label: `Até ${formatPrice(budget, 'pt')}`, onRemove: () => setBudget(MAX_BUDGET) } : null,
-  ].filter((filter): filter is NonNullable<typeof filter> => filter !== null);
+  const activeFilters = activeFilterList(filters, (value) => formatPrice(value, 'pt'));
 
   const clearFilters = () => {
-    setLocation('all');
-    setDuration('all');
-    setDifficulty('all');
-    setBudget(MAX_BUDGET);
+    setFilters(DEFAULT_FILTERS);
     setOpenFilter(null);
   };
 
   const scrollToResults = () => {
     setOpenFilter(null);
+    setDrawerOpen(false);
     document.getElementById('todas-as-aventuras')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <div className="bg-surface text-content">
-      <section className="adventures-hub-hero relative z-10 -mt-20 min-h-[700px] overflow-hidden pt-20 text-on-media lg:min-h-[496px] lg:overflow-visible">
+      <section className="adventures-hub-hero relative z-10 -mt-20 min-h-175 overflow-hidden pt-20 text-on-media lg:min-h-124 lg:overflow-visible">
         <Image
           src={HERO_BACKGROUND}
           alt="Morro do Pai Inácio na Chapada Diamantina"
@@ -174,8 +170,8 @@ export function AdventuresHub() {
           className="object-cover object-bottom"
         />
 
-        <Container className="absolute inset-x-0 top-[138px] text-center lg:top-[120px]">
-          <h1 className="mx-auto max-w-[760px] text-balance font-display text-[38px] leading-[1.08] tracking-[-0.025em] text-[#f4f4f4] sm:text-[44px] lg:text-[48px] lg:leading-[1.1]">
+        <Container className="absolute inset-x-0 top-34.5 text-center lg:top-30">
+          <h1 className="mx-auto max-w-190 text-balance font-display text-[38px] leading-[1.08] tracking-tight text-[#f4f4f4] sm:text-[44px] lg:text-[48px] lg:leading-[1.1]">
             <span className="block">Conheça as</span>
             <span className="flex items-center justify-center gap-3">
               aventuras na
@@ -187,10 +183,10 @@ export function AdventuresHub() {
           </h1>
         </Container>
 
-        <Container className="absolute inset-x-0 top-[303px] hidden lg:block">
+        <Container className="absolute inset-x-0 top-75.75 hidden lg:block">
           <div
             ref={filtersRef}
-            className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-[40px] border border-white/8 bg-[#1f1f1f] px-6 text-white shadow-popover"
+            className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-panel-lg border border-white/8 bg-[#1f1f1f] px-6 text-white shadow-popover"
           >
             <FilterPopover
               id="location"
@@ -277,18 +273,18 @@ export function AdventuresHub() {
               </div>
             </FilterPopover>
 
-            <Button onClick={scrollToResults} arrow size="lg" className="ml-3 min-w-[207px]">Escolha a sua trilha</Button>
+            <Button onClick={scrollToResults} arrow size="lg" className="ml-3 min-w-51.75">Escolha a sua trilha</Button>
           </div>
         </Container>
 
         {activeFilters.length > 0 ? (
-          <Container className="absolute inset-x-0 top-[402px] hidden lg:block">
+          <Container className="absolute inset-x-0 top-100.5 hidden lg:block">
             <div className="flex min-h-10 items-center justify-start gap-2">
               {activeFilters.map((filter) => (
                 <button
                   key={filter.id}
                   type="button"
-                  onClick={filter.onRemove}
+                  onClick={() => updateFilters(filter.reset)}
                   className={cn(
                     'inline-flex min-h-10 items-center gap-2 rounded-pill border border-white/70 px-4 font-body text-sm font-semibold text-white',
                     'transition-[background-color,border-color,transform] duration-200 ease-out hover:border-white hover:bg-white/8',
@@ -320,13 +316,13 @@ export function AdventuresHub() {
             type="button"
             onClick={scrollToResults}
             className={cn(
-              'absolute inset-x-0 top-[427px] mx-auto hidden w-fit items-center gap-2 font-body text-base font-light text-white/65 lg:flex',
+              'absolute inset-x-0 top-106.75 mx-auto hidden w-fit items-center gap-2 font-body text-base font-light text-white/65 lg:flex',
               'transition-colors hover:text-white',
               focus.onMedia,
             )}
           >
             Explore todas as aventuras
-            <span className="grid size-[22px] place-items-center rounded-full border border-current">
+            <span className="grid size-5.5 place-items-center rounded-full border border-current">
               <ArrowRightIcon aria-hidden className="size-3 rotate-90" />
             </span>
           </button>
@@ -334,12 +330,31 @@ export function AdventuresHub() {
       </section>
 
       <div className="px-6 py-5 lg:hidden">
-        <Button onClick={scrollToResults} icon={<SlidersHorizontal aria-hidden className="size-5" />} arrow block size="lg" justify="between">
+        <Button
+          onClick={() => setDrawerOpen(true)}
+          icon={<SlidersHorizontal aria-hidden className="size-5" />}
+          arrow
+          block
+          size="lg"
+          justify="between"
+          aria-haspopup="dialog"
+          aria-expanded={drawerOpen}
+        >
           Filtrar aventuras
         </Button>
       </div>
 
-      <section id="todas-as-aventuras" className={cn('bg-surface-muted pt-[60px]', lastGroup === 'trekking' && PAGE_TAIL)} aria-labelledby="trekking-heading">
+      <AdventuresFiltersDrawer
+        open={drawerOpen}
+        onClose={() => setDrawerOpen(false)}
+        filters={filters}
+        onChange={updateFilters}
+        onClear={clearFilters}
+        resultCount={filteredAdventures.length}
+        onApply={scrollToResults}
+      />
+
+      <section id="todas-as-aventuras" className={cn('bg-surface-muted pt-15', lastGroup === 'trekking' && PAGE_TAIL)} aria-labelledby="trekking-heading">
         <AdventureSection
           id="trekking-heading"
           title="Trekking de 2 a 6 dias"
@@ -439,6 +454,7 @@ function FilterChipGrid({ children }: { children: React.ReactNode }) {
   return <div className="flex flex-wrap gap-2">{children}</div>;
 }
 
+
 function FilterChip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
@@ -475,7 +491,7 @@ function AdventureSection({ id, title, description, adventures, walkers = false,
           <Text size="lg" weight="light" tone="secondary" pretty className="max-w-2xl">{description}</Text>
         </div>
         {walkers && (
-          <Image src={WALKERS} alt="" width={290} height={114} unoptimized className="hidden h-[125px] w-auto justify-self-end lg:block" />
+          <Image src={WALKERS} alt="" width={290} height={114} unoptimized className="hidden h-31.25 w-auto justify-self-end lg:block" />
         )}
       </div>
 
@@ -513,7 +529,7 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
           sizes="(min-width: 1024px) 390px, (min-width: 768px) 50vw, 100vw"
           className="object-cover shadow-image-outline transition-transform duration-700 ease-brand group-hover:scale-[1.04]"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/5" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/5" />
         <Badge variant="outlineOnMedia" size="sm" className="absolute left-5 top-5 z-10 bg-black/12 font-medium backdrop-blur-sm">
           {adventure.duration} {adventure.duration === 1 ? 'dia' : 'dias'}
         </Badge>
