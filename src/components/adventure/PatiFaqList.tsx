@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { CaretDownIcon, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
+import { scrollToBrand } from '@/lib/scroll';
 
 type FaqBase = { title: string };
 
@@ -55,10 +56,27 @@ export type PatiFaqItem =
   | CancellationFaq
   | TechnicalFaq;
 
+/* Respiro entre o topo do item e o topo da viewport ao abrir/fechar. */
+const SCROLL_OFFSET = 16;
+
 export function PatiFaqList({ faqs }: { faqs: readonly PatiFaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const itemRefs = useRef<(HTMLElement | null)[]>([]);
+  const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   const toggle = (index: number) => {
+    const item = itemRefs.current[index];
+
+    if (item) {
+      // O item aberto some no mesmo clique: se ele estava acima, a altura que
+      // ele perde tem de sair do alvo, senão o scroll para baixo demais.
+      const closing =
+        openIndex !== null && openIndex < index ? panelRefs.current[openIndex] : null;
+      const shift = closing?.getBoundingClientRect().height ?? 0;
+
+      scrollToBrand(item.getBoundingClientRect().top + window.scrollY - shift - SCROLL_OFFSET);
+    }
+
     setOpenIndex((current) => (current === index ? null : index));
   };
 
@@ -71,6 +89,9 @@ export function PatiFaqList({ faqs }: { faqs: readonly PatiFaqItem[] }) {
         return (
           <article
             key={faq.title}
+            ref={(node) => {
+              itemRefs.current[index] = node;
+            }}
             className={cn(
               'overflow-hidden rounded-card border bg-surface-muted transition-[border-color,box-shadow] duration-300 ease-brand',
               isOpen ? 'border-brand shadow-card' : 'border-line-strong',
@@ -97,6 +118,9 @@ export function PatiFaqList({ faqs }: { faqs: readonly PatiFaqItem[] }) {
 
             <div
               id={panelId}
+              ref={(node) => {
+                panelRefs.current[index] = node;
+              }}
               aria-hidden={!isOpen}
               className={cn(
                 'grid transition-[grid-template-rows,opacity] duration-350 ease-brand motion-reduce:transition-none',
