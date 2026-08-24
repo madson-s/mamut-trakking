@@ -19,8 +19,16 @@ export type SegmentedControlProps<T extends string> = {
   /** Nomeia o grupo para leitores de tela. */
   label: string;
   size?: 'sm' | 'md';
+  /**
+   * `segmented` é a pílula única, com os segmentos dentro de uma caixa.
+   * `chips` solta os botões: cada um mantém a própria borda e o escolhido
+   * assume o verde da marca.
+   */
+  variant?: SegmentedVariant;
   className?: string;
 };
+
+export type SegmentedVariant = 'segmented' | 'chips';
 
 const sizes = {
   sm: 'min-h-8 px-3 text-xs',
@@ -37,14 +45,20 @@ export function SegmentedControl<T extends string>({
   onChange,
   label,
   size = 'sm',
+  variant = 'segmented',
   className,
 }: SegmentedControlProps<T>) {
+  const chips = variant === 'chips';
+
   return (
     <div
       role="group"
       aria-label={label}
       className={cn(
-        'inline-flex shrink-0 items-center rounded-pill bg-surface-raised p-1 shadow-chip ring-1 ring-inset ring-line-strong',
+        'inline-flex items-center',
+        chips
+          ? 'flex-wrap gap-2'
+          : 'shrink-0 rounded-pill bg-surface-raised p-1 shadow-chip ring-1 ring-inset ring-line-strong',
         className,
       )}
     >
@@ -65,9 +79,14 @@ export function SegmentedControl<T extends string>({
               press,
               focus.onSurface,
               sizes[size],
+              chips && 'ring-1',
               isActive
-                ? 'bg-surface text-content shadow-chip ring-1 ring-inset ring-line-strong'
-                : 'text-content-secondary hover:text-content',
+                ? chips
+                  ? 'bg-brand text-brand-contrast ring-brand'
+                  : 'bg-surface text-content shadow-chip ring-1 ring-inset ring-line-strong'
+                : chips
+                  ? 'bg-transparent text-content ring-line-strong hover:bg-surface-raised'
+                  : 'text-content-secondary hover:text-content',
             )}
           >
             {option.label}

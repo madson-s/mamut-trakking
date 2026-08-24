@@ -9,7 +9,13 @@ const LOCALES = [
   { value: 'es', label: 'ES', title: 'Español' },
 ];
 
-function Demo({ size }: { size?: 'sm' | 'md' }) {
+function Demo({
+  size,
+  variant,
+}: {
+  size?: 'sm' | 'md';
+  variant?: 'segmented' | 'chips';
+}) {
   const [value, setValue] = useState('pt');
 
   return (
@@ -20,6 +26,7 @@ function Demo({ size }: { size?: 'sm' | 'md' }) {
         value={value}
         onChange={setValue}
         size={size}
+        variant={variant}
       />
       <Text size="xs" tone="muted">
         selected: {value}
@@ -38,7 +45,9 @@ const meta = {
         component:
           'Single-choice pill group — same language as the theme switcher. For 2–4 short ' +
           'options where the current value must stay visible; above that use a `select`. ' +
-          'Buttons carry `aria-pressed` and the group is named by `label`.',
+          'Buttons carry `aria-pressed` and the group is named by `label`. The `chips` ' +
+          'variant drops the enclosing box: every option keeps its own outline and the ' +
+          'selected one takes the brand green — the form language of the participant sheet.',
       },
     },
   },
@@ -56,4 +65,9 @@ export const Sizes: Story = {
       <Demo size="md" />
     </div>
   ),
+};
+
+export const Chips: Story = {
+  name: 'Chips variant',
+  render: () => <Demo variant="chips" size="md" />,
 };
