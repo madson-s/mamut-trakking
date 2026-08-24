@@ -4,26 +4,21 @@ import { cn } from '@/lib/cn';
 import { focus, motion } from '@/design/tokens';
 import { Button, Container, Text } from '@/components/ui';
 import { Theme } from '@/components/ui/theme';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
 import { LanguageSwitcher } from './LanguageSwitcher';
-import { MobileMenu, type MobileNavItem } from './MobileMenu';
+import { MobileMenu } from './MobileMenu';
+import { CHROME } from './chrome-content';
 
-const NAV: MobileNavItem[] = [
-  { label: 'Aventuras', href: '/pt/aventuras' },
-  { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
-  { label: 'Manifesto', href: '/pt/manifesto' },
-  { label: 'Dicas', mobileLabel: 'Dicas de trilha', href: '/pt/dicas' },
-  { label: 'Contato', href: '/pt/contato' },
-];
+export function HomeHeader({ locale = 'pt' }: { locale?: Locale }) {
+  const chrome = CHROME[locale];
 
-export function HomeHeader() {
   return (
     <header className="site-header relative z-20 w-full">
       <Container
         padded={false}
         className="flex h-20 items-center justify-between gap-3 px-4 sm:gap-6 sm:px-6"
       >
-        <Link href="/pt" aria-label={SITE.name} className={cn('shrink-0', focus.onSurface)}>
+        <Link href={chrome.home} aria-label={SITE.name} className={cn('shrink-0', focus.onSurface)}>
           <Image
             src="/svg/Mamut treeking-logo-branco.svg"
             alt={SITE.name}
@@ -54,7 +49,7 @@ export function HomeHeader() {
         </Link>
 
         <nav className="hidden items-center gap-2 lg:flex">
-          {NAV.map((item, i) => (
+          {chrome.nav.map((item, i) => (
             <span key={item.href} className="flex items-center gap-2">
               {i > 0 && (
                 <Text as="span" size="sm" weight="light" tone="muted" aria-hidden>
@@ -76,7 +71,7 @@ export function HomeHeader() {
         <div className="flex shrink-0 items-center gap-2.5">
           <Theme variant="toggle" size="lg" className="lg:hidden" />
           <LanguageSwitcher />
-          <MobileMenu nav={NAV} />
+          <MobileMenu nav={chrome.nav} content={chrome.menu} />
 
           <div className="hidden items-center gap-2.5 lg:flex">
             <Button href={SITE.whatsappUrl} size="sm" arrow>

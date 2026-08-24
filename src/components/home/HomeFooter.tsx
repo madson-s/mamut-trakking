@@ -10,42 +10,14 @@ import {
   InstagramIcon,
   Text,
 } from '@/components/ui';
-import { SITE } from '@/lib/site';
-
-const COLUMNS = [
-  {
-    title: 'AVENTURAS',
-    onMobile: true,
-    links: [
-      { label: 'Roteiros', href: '/pt/aventuras' },
-      { label: 'Datas disponíveis', href: '/pt/aventuras' },
-      { label: 'Como se preparar', href: '/pt/dicas' },
-      { label: 'Dicas de trilha', href: '/pt/dicas' },
-    ],
-  },
-  {
-    title: 'SOBRE',
-    onMobile: true,
-    links: [
-      { label: 'Quem Somos', href: '/pt/sobre' },
-      { label: 'Manifesto', href: '/pt/sobre#manifesto' },
-      { label: 'Guias Nativos', href: '/pt/sobre#guias' },
-    ],
-  },
-  {
-    title: 'CONTATO',
-    onMobile: false,
-    links: [
-      { label: 'WhatsApp', href: SITE.whatsappUrl },
-      { label: 'TripAdvisor', href: 'https://www.tripadvisor.com.br/' },
-      { label: 'Instagram', href: 'https://www.instagram.com/' },
-    ],
-  },
-];
+import { SITE, type Locale } from '@/lib/site';
+import { CHROME } from './chrome-content';
 
 const linkClasses = cn('transition-colors hover:text-content', motion.fast);
 
-export function HomeFooter() {
+export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
+  const { tagline, place, columns, rights, whatsapp } = CHROME[locale].footer;
+
   return (
     <footer className="w-full border-t border-line bg-surface-muted">
       <Container className="flex flex-col gap-8 py-12 lg:gap-12 lg:py-16">
@@ -60,17 +32,17 @@ export function HomeFooter() {
               className="theme-logo h-9 w-auto self-start lg:h-11"
             />
             <Text size="sm" tone="muted" leading="snug">
-              Trekkings guiados por quem é
+              {tagline[0]}
               <br />
-              filho da Chapada Diamantina.
+              {tagline[1]}
             </Text>
             <Text size="xs" weight="semibold" tone="secondary" className="tracking-wide">
-              LENÇÓIS · BAHIA · BRASIL
+              {place}
             </Text>
           </div>
 
           <div className="grid grid-cols-2 gap-x-8 gap-y-8 lg:flex lg:gap-10">
-            {COLUMNS.map((col) => (
+            {columns.map((col) => (
               <nav
                 key={col.title}
                 aria-label={col.title}
@@ -101,11 +73,11 @@ export function HomeFooter() {
             © 2025 {SITE.name}
           </Text>
           <Text size="xs" tone="secondary">
-            Todos os direitos reservados · {SITE.name} ©
+            {rights} · {SITE.name} ©
           </Text>
 
           <Button href={SITE.whatsappUrl} size="sm" arrow className="lg:hidden">
-            Falar no WhatsApp
+            {whatsapp}
           </Button>
 
           <div className="flex items-center gap-2 lg:hidden">
@@ -134,7 +106,7 @@ export function HomeFooter() {
               </a>
             </div>
             <Button href={SITE.whatsappUrl} size="sm" arrow className="w-40.25">
-              Falar no WhatsApp
+              {whatsapp}
             </Button>
           </div>
         </div>

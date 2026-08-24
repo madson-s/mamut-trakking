@@ -1,5 +1,6 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import {
   Select,
   SelectContent,
@@ -10,18 +11,21 @@ import {
 import { cn } from '@/lib/cn';
 import { focus } from '@/design/tokens';
 import { LOCALES, type Locale } from '@/lib/site';
+import { localizePath } from '@/lib/routes';
 
-// Códigos de idioma (chrome de UI, não conteúdo). Troca para a Home do idioma
-// escolhido — cada idioma é uma raiz estática independente, então a navegação
-// entre idiomas é sempre um full reload (nada de router client-side aqui).
+// Códigos de idioma (chrome de UI, não conteúdo). Leva para a MESMA página no
+// idioma escolhido (`localizePath`) — cada idioma é uma raiz estática
+// independente, então a navegação entre idiomas é sempre um full reload.
 const LABELS: Record<Locale, string> = { pt: 'PT', en: 'EN', es: 'ES' };
 
 export function LocaleSwitcher({ locale }: { locale: Locale }) {
+  const pathname = usePathname();
+
   return (
     <Select
       value={locale}
       onValueChange={(next) => {
-        if (next !== locale) window.location.assign(`/${next}`);
+        if (next !== locale) window.location.assign(localizePath(pathname, next as Locale));
       }}
       className="font-body text-xs font-medium"
     >

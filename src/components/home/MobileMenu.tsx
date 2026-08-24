@@ -7,9 +7,19 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/cn';
 import { focus, motion, press } from '@/design/tokens';
 import { Button, Divider, Text, XIcon } from '@/components/ui';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
+import { localizePath } from '@/lib/routes';
 
 export type MobileNavItem = { label: string; mobileLabel?: string; href: string };
+
+export type MobileMenuContent = {
+  open: string;
+  close: string;
+  heading: string;
+  invite: string;
+  whatsapp: string;
+  language: string;
+};
 
 const LANGUAGES = [
   { code: 'pt', shortLabel: 'PT-BR' },
@@ -17,7 +27,13 @@ const LANGUAGES = [
   { code: 'es', shortLabel: 'ES' },
 ] as const;
 
-export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
+export function MobileMenu({
+  nav,
+  content,
+}: {
+  nav: MobileNavItem[];
+  content: MobileMenuContent;
+}) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
   const currentCode =
@@ -59,13 +75,13 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
           'hover:bg-surface-raised hover:text-content',
         )}
       >
-        Menu
+        {content.open}
       </button>
 
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Menu"
+        aria-label={content.heading}
         aria-hidden={!open}
         className={cn(
           'fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto bg-surface p-6',
@@ -86,7 +102,7 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
           <button
             type="button"
             onClick={() => setOpen(false)}
-            aria-label="Fechar menu"
+            aria-label={content.close}
             className={cn(
               'flex size-9 items-center justify-center rounded-pill bg-surface-sunken text-content',
               'transition-[background-color,color,scale]',
@@ -108,7 +124,7 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
             tone="brand"
             className="tracking-[0.2em] uppercase"
           >
-            Menu
+            {content.heading}
           </Text>
 
           <nav className="flex flex-col">
@@ -138,10 +154,10 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
 
         <div className="mt-11.75 flex w-89.5 flex-col gap-7">
           <Text size="sm" tone="muted">
-            Cada caminho começa com uma conversa.
+            {content.invite}
           </Text>
           <Button href={SITE.whatsappUrl} arrow className="h-11 w-47">
-            Falar no WhatsApp
+            {content.whatsapp}
           </Button>
         </div>
 
@@ -150,7 +166,7 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
 
           <div className="flex flex-wrap items-baseline gap-2">
             <Text as="span" size="xs" tone="muted" className="tracking-wide uppercase">
-              Idioma
+              {content.language}
             </Text>
             {LANGUAGES.map(({ code, shortLabel }, i) => (
               <Fragment key={code}>
@@ -159,7 +175,7 @@ export function MobileMenu({ nav }: { nav: MobileNavItem[] }) {
                     ·
                   </Text>
                 )}
-                <Link href={`/${code}`} onClick={() => setOpen(false)}>
+                <Link href={localizePath(pathname, code as Locale)} onClick={() => setOpen(false)}>
                   <Text
                     as="span"
                     size="xs"
