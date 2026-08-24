@@ -50,7 +50,11 @@
    ------------------------------------------------------------ */
 
 :root,
-[data-theme] {
+[data-theme],
+/* O painel do menu mora dentro do .site-header, que sobre foto declara os
+   aliases em branco. Entrando aqui, ele recalcula tudo contra os primitivos
+   do tema — é superfície, não fotografia. */
+.site-header [role="dialog"] {
 
   /* superfícies */
   --surface: var(--gray-50);            /* fundo da página */
@@ -312,6 +316,22 @@ body:has(.pati-three-day-page) .site-header .pati-wordmark-desktop {
   [data-theme="light"] body:has(.home-hero) .site-header .theme-logo:not([role="dialog"] *) {
     filter: none;
   }
+}
+
+/* O header dessas páginas flutua sobre a fotografia do hero: texto e traços
+   ficam brancos nos dois temas, em qualquer largura. Vale para a barra — o
+   painel do menu se exclui sozinho, recalculando os aliases lá em cima.
+   A home fica de fora de propósito: o hero dela só passa sob o header abaixo
+   de sm, e daí para cima o header está sobre a superfície da página. */
+body:has(.hero-under-header) .site-header,
+body:has(.adventures-hub-hero) .site-header {
+  --content: var(--on-media);
+  --content-secondary: var(--on-media-soft);
+  --content-muted: var(--on-media-muted);
+  --content-subtle: var(--on-media-muted);
+  --line: rgb(255 255 255 / 0.24);
+  --line-strong: var(--on-media);
+  --line-contrast: var(--on-media);
 }
 
 /* O export do Figma inclui o fundo escuro do frame. No tema claro a própria

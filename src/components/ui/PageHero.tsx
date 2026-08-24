@@ -34,8 +34,8 @@ const frame: Record<PageHeroSize, { outer: string; inner: string }> = {
 
 /**
  * Hero das páginas institucionais: foto full-bleed que passa POR BAIXO do
- * header (daí o `-mt-20` e a classe `hero-under-header`, que faz o header
- * seguir on-media nos dois temas — ver `globals.css`).
+ * header (daí o `-mt-20` e a classe `hero-under-header`, que deixa a barra do
+ * header em branco sobre a foto nos dois temas — ver `globals.css`).
  */
 export function PageHero({
   image,
