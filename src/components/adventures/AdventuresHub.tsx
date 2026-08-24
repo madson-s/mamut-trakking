@@ -7,6 +7,7 @@ import { CalendarDays, Check, CircleDollarSign, MapPin, Mountain, SlidersHorizon
 import { ArrowRightIcon, Badge, Button, CaretDownIcon, Container, Heading, Text } from '@/components/ui';
 import { focus, motion, press } from '@/design/tokens';
 import { cn } from '@/lib/cn';
+import { scrollToBrand } from '@/lib/scroll';
 import { formatPrice } from '@/lib/site';
 import { AdventuresFiltersDrawer } from './AdventuresFiltersDrawer';
 import {
@@ -17,6 +18,7 @@ import {
   MAX_BUDGET,
   MIN_BUDGET,
   activeFilterList,
+  availableOptions,
   difficultyLabel,
   durationLabel,
   locationLabel,
@@ -126,6 +128,8 @@ export function AdventuresHub() {
     [filters],
   );
 
+  const available = useMemo(() => availableOptions(ADVENTURES, filters), [filters]);
+
   const groups = useMemo(
     () => ({
       trekking: filteredAdventures.filter((item) => item.category === 'trekking'),
@@ -154,12 +158,17 @@ export function AdventuresHub() {
   const scrollToResults = () => {
     setOpenFilter(null);
     setDrawerOpen(false);
-    document.getElementById('todas-as-aventuras')?.scrollIntoView({ behavior: 'smooth' });
+    const section = document.getElementById('todas-as-aventuras');
+    if (!section) return;
+
+    // Alvo calculado à mão: o scrollIntoView respeitaria o scroll-padding-top
+    // de 6rem do html e pararia 96px abaixo do topo da seção.
+    scrollToBrand(section.getBoundingClientRect().top + window.scrollY);
   };
 
   return (
     <div className="bg-surface text-content">
-      <section className="adventures-hub-hero relative z-10 -mt-20 min-h-175 overflow-hidden pt-20 text-on-media lg:min-h-124 lg:overflow-visible">
+      <section className="adventures-hub-hero relative z-10 -mt-20 overflow-hidden pt-20 pb-18 text-on-media lg:overflow-visible lg:pb-34">
         <Image
           src={HERO_BACKGROUND}
           alt="Morro do Pai Inácio na Chapada Diamantina"
@@ -167,23 +176,37 @@ export function AdventuresHub() {
           preload
           unoptimized
           sizes="100vw"
-          className="object-cover object-bottom"
+          className="-z-10 object-cover object-bottom"
         />
 
-        <Container className="absolute inset-x-0 top-34.5 text-center lg:top-30">
+        <Container className="mt-14.5 text-center lg:mt-10">
           <h1 className="mx-auto max-w-190 text-balance font-display text-[38px] leading-[1.08] tracking-tight text-[#f4f4f4] sm:text-[44px] lg:text-[48px] lg:leading-[1.1]">
             <span className="block">Conheça as</span>
             <span className="flex items-center justify-center gap-3">
               aventuras na
-              <span className="relative inline-block h-[0.98em] w-[3.06em] shrink-0 overflow-hidden rounded-pill">
-                <Image src={HERO_INLINE_IMAGE} alt="Morro do Pai Inácio" fill sizes="147px" className="object-cover" />
+              <span className="relative inline-block h-[38px] w-[76px] shrink-0 overflow-hidden rounded-pill sm:h-[44px] sm:w-[88px] lg:h-[48px] lg:w-[96px]">
+                <Image src={HERO_INLINE_IMAGE} alt="Morro do Pai Inácio" fill sizes="96px" className="object-cover" />
               </span>
             </span>
-            <span className="block text-brand-strong">Chapada Diamantina!</span>
+            <span className="block text-brand-on-media">Chapada Diamantina!</span>
           </h1>
+
+          <Button
+            onClick={() => setDrawerOpen(true)}
+            icon={<SlidersHorizontal aria-hidden className="size-5" />}
+            arrow
+            block
+            size="lg"
+            justify="between"
+            aria-haspopup="dialog"
+            aria-expanded={drawerOpen}
+            className="mt-24 lg:hidden"
+          >
+            Filtrar aventuras
+          </Button>
         </Container>
 
-        <Container className="absolute inset-x-0 top-75.75 hidden lg:block">
+        <Container className="mt-6 hidden lg:block">
           <div
             ref={filtersRef}
             className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-panel-lg border border-white/8 bg-[#1f1f1f] px-6 text-white shadow-popover"
@@ -199,7 +222,7 @@ export function AdventuresHub() {
             >
               <FilterChipGrid>
                 {LOCATION_OPTIONS.map((option) => (
-                  <FilterChip key={option} active={location === option} onClick={() => { setLocation(option); setOpenFilter(null); }}>
+                  <FilterChip key={option} active={location === option} disabled={!available.location.has(option)} onClick={() => { setLocation(option); setOpenFilter(null); }}>
                     {option === 'all' ? 'Todas' : option}
                   </FilterChip>
                 ))}
@@ -217,7 +240,7 @@ export function AdventuresHub() {
             >
               <FilterChipGrid>
                 {DURATION_OPTIONS.map((option) => (
-                  <FilterChip key={option} active={duration === option} onClick={() => { setDuration(option); setOpenFilter(null); }}>
+                  <FilterChip key={option} active={duration === option} disabled={!available.duration.has(option)} onClick={() => { setDuration(option); setOpenFilter(null); }}>
                     {option === 'all' ? 'Qualquer' : durationLabel(option)}
                   </FilterChip>
                 ))}
@@ -235,7 +258,7 @@ export function AdventuresHub() {
             >
               <FilterChipGrid>
                 {DIFFICULTY_OPTIONS.map((option) => (
-                  <FilterChip key={option} active={difficulty === option} onClick={() => { setDifficulty(option); setOpenFilter(null); }}>
+                  <FilterChip key={option} active={difficulty === option} disabled={!available.difficulty.has(option)} onClick={() => { setDifficulty(option); setOpenFilter(null); }}>
                     {option === 'all' ? 'Todos' : option}
                   </FilterChip>
                 ))}
@@ -278,7 +301,7 @@ export function AdventuresHub() {
         </Container>
 
         {activeFilters.length > 0 ? (
-          <Container className="absolute inset-x-0 top-100.5 hidden lg:block">
+          <Container className="mt-4 hidden lg:block">
             <div className="flex min-h-10 items-center justify-start gap-2">
               {activeFilters.map((filter) => (
                 <button
@@ -316,7 +339,7 @@ export function AdventuresHub() {
             type="button"
             onClick={scrollToResults}
             className={cn(
-              'absolute inset-x-0 top-106.75 mx-auto hidden w-fit items-center gap-2 font-body text-base font-light text-white/65 lg:flex',
+              'mx-auto mt-10 flex w-fit items-center gap-2 font-body text-base font-light text-white/65',
               'transition-colors hover:text-white',
               focus.onMedia,
             )}
@@ -329,25 +352,11 @@ export function AdventuresHub() {
         )}
       </section>
 
-      <div className="px-6 py-5 lg:hidden">
-        <Button
-          onClick={() => setDrawerOpen(true)}
-          icon={<SlidersHorizontal aria-hidden className="size-5" />}
-          arrow
-          block
-          size="lg"
-          justify="between"
-          aria-haspopup="dialog"
-          aria-expanded={drawerOpen}
-        >
-          Filtrar aventuras
-        </Button>
-      </div>
-
       <AdventuresFiltersDrawer
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
         filters={filters}
+        available={available}
         onChange={updateFilters}
         onClear={clearFilters}
         resultCount={filteredAdventures.length}
@@ -455,14 +464,16 @@ function FilterChipGrid({ children }: { children: React.ReactNode }) {
 }
 
 
-function FilterChip({ active, onClick, children }: { active: boolean; onClick: () => void; children: React.ReactNode }) {
+function FilterChip({ active, disabled = false, onClick, children }: { active: boolean; disabled?: boolean; onClick: () => void; children: React.ReactNode }) {
   return (
     <button
       type="button"
       onClick={onClick}
+      disabled={disabled}
       className={cn(
         'inline-flex min-h-11 items-center gap-2 rounded-pill px-4 font-body text-sm font-semibold ring-1 transition-[background-color,color,transform] duration-200 ease-out',
         active ? 'bg-brand text-white ring-brand' : 'bg-transparent text-white ring-white/20 hover:bg-white/8 hover:ring-white/35',
+        disabled && 'cursor-not-allowed opacity-35 hover:bg-transparent hover:ring-white/20 active:scale-100',
         press,
         focus.onMedia,
       )}
@@ -511,9 +522,9 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
     <Link
       href={adventure.href}
       className={cn(
-        'group relative flex min-h-132 flex-col overflow-hidden rounded-card-lg bg-surface-raised text-content shadow-card',
+        'group relative flex min-h-132 flex-col overflow-hidden rounded-card-lg border border-line bg-surface-raised text-content shadow-card',
         'transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-float',
-        featured && 'min-h-144 ring-1 ring-brand/20',
+        featured && 'min-h-144',
         motion.base,
         press,
         focus.onSurface,

@@ -24,8 +24,6 @@ export type { CheckboxProps } from './Checkbox';
 
 export { Divider } from './Divider';
 
-export { Drawer } from './Drawer';
-export type { DrawerProps } from './Drawer';
 
 export { Field } from './Field';
 export type { FieldProps } from './Field';

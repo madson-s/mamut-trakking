@@ -47,6 +47,39 @@ export function matchesFilters(adventure: FilterableAdventure, filters: Adventur
   );
 }
 
+export type AvailableOptions = {
+  location: ReadonlySet<string>;
+  duration: ReadonlySet<string>;
+  difficulty: ReadonlySet<DifficultyFilter>;
+};
+
+/**
+ * Opções que ainda devolvem resultado, por grupo. Cada opção é testada com os
+ * outros filtros ativos e o próprio grupo substituído — ignorar o grupo em
+ * avaliação é o que impede a opção escolhida de desabilitar todas as irmãs.
+ */
+export function availableOptions(
+  adventures: readonly FilterableAdventure[],
+  filters: AdventureFilters,
+): AvailableOptions {
+  const yields = (override: Partial<AdventureFilters>) =>
+    adventures.some((adventure) => matchesFilters(adventure, { ...filters, ...override }));
+
+  // A opção já escolhida nunca é desabilitada: o preço zera o resultado sem
+  // passar por aqui, e desabilitá-la esconderia o caminho de volta.
+  return {
+    location: new Set(
+      LOCATION_OPTIONS.filter((option) => option === filters.location || yields({ location: option })),
+    ),
+    duration: new Set(
+      DURATION_OPTIONS.filter((option) => option === filters.duration || yields({ duration: option })),
+    ),
+    difficulty: new Set(
+      DIFFICULTY_OPTIONS.filter((option) => option === filters.difficulty || yields({ difficulty: option })),
+    ),
+  };
+}
+
 /** Filtros ativos, prontos para virar chips removíveis. */
 export function activeFilterList(
   filters: AdventureFilters,

@@ -9,7 +9,7 @@ const HERO_BACKGROUND = '/img/home_backgroud/home_hero_background_1_5x.webp';
 
 export function Hero() {
   return (
-    <section className="-mt-20 w-full pt-0 sm:mt-0 sm:pt-2">
+    <section className="home-hero -mt-20 w-full pt-0 sm:mt-0 sm:pt-2">
       <div className="w-full px-0 sm:px-[max(24px,1.667vw)]">
         <MediaCard
           overlay="left"

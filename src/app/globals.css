@@ -82,6 +82,10 @@
      é a cor da própria arte, igual nos dois temas. */
   --accent-line-art: #f7cd45;
 
+  /* verde da marca sobre foto — NÃO espelha, por isso não sai de
+     --primary-700: é a cor do destaque sobre mídia, igual nos dois temas. */
+  --brand-on-media: #96c293;
+
   /* sobre foto/vídeo — NÃO espelha: é sempre claro sobre mídia escura.
      Três níveis: título (puro), parágrafo (off-white quente), apoio. */
   --on-media: #ffffff;
@@ -163,6 +167,8 @@
   --color-brand-contrast: var(--brand-contrast);
   --color-accent: var(--accent);
   --color-accent-line-art: var(--accent-line-art);
+
+  --color-brand-on-media: var(--brand-on-media);
 
   --color-on-media: var(--on-media);
   --color-on-media-soft: var(--on-media-soft);
@@ -297,26 +303,28 @@ body:has(.hero-under-header) .site-header {
   --line-contrast: var(--on-media);
 }
 
-[data-theme="light"] body:has(.hero-under-header) .site-header .theme-logo {
+/* Mesmo guard das demais: o painel do MobileMenu vive dentro do .site-header,
+   e ali o logo está sobre superfície do tema, não sobre a foto. */
+[data-theme="light"] body:has(.hero-under-header) .site-header .theme-logo:not([role="dialog"] *) {
   filter: none;
 }
 
-/* A página de aventuras também começa sob o header, sobre fotografia escura. */
-[data-theme="light"] body:has(.adventures-hub-hero) .site-header {
-  --content: var(--on-media);
-  --content-secondary: var(--on-media-soft);
-  --content-muted: var(--on-media-muted);
-  --content-subtle: var(--on-media-muted);
-}
-
-body:has(.adventures-hub-hero) .site-header {
-  --line: rgb(255 255 255 / 0.24);
-  --line-strong: var(--on-media);
-  --line-contrast: var(--on-media);
-}
-
-[data-theme="light"] body:has(.adventures-hub-hero) .site-header .theme-logo {
+/* O hero de aventuras passa sob o header, mas só o logo precisa vencer a foto:
+   o resto do header mantém as cores semânticas do tema, como na home.
+   O :not() exclui o painel do MobileMenu — ele vive dentro do .site-header e
+   é superfície clara do tema, não a foto, então ali o logo volta a escurecer
+   pela regra base. */
+[data-theme="light"] body:has(.adventures-hub-hero) .site-header .theme-logo:not([role="dialog"] *) {
   filter: none;
+}
+
+/* A home só passa sob o header abaixo de sm (o -mt-20 do hero, que o sm:mt-0
+   cancela). Daí a media query: de sm para cima o header volta a ficar sobre a
+   superfície do tema e o logo precisa escurecer. */
+@media (max-width: 39.999rem) {
+  [data-theme="light"] body:has(.home-hero) .site-header .theme-logo:not([role="dialog"] *) {
+    filter: none;
+  }
 }
 
 /* O export do Figma inclui o fundo escuro do frame. No tema claro a própria
