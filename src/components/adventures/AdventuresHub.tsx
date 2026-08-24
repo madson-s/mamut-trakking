@@ -522,7 +522,7 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
     <Link
       href={adventure.href}
       className={cn(
-        'group relative flex min-h-132 flex-col overflow-hidden rounded-card-lg border border-line bg-surface-raised text-content shadow-card',
+        'group relative flex min-h-132 flex-col overflow-hidden rounded-card-lg border border-line-strong bg-surface-raised text-content shadow-card',
         'transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-float',
         featured && 'min-h-144',
         motion.base,

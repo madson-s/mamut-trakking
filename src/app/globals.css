@@ -287,24 +287,11 @@ body:has(.pati-three-day-page) .site-header .pati-wordmark-desktop {
 
 
 /* Páginas cujo hero é full-bleed e passa POR BAIXO do header (marcadas com
-   .hero-under-header): o header flutua sobre a fotografia, então segue on-media
-   nos dois temas. Onde o hero começa abaixo do header — a home, por exemplo —
-   as cores continuam semânticas. */
-[data-theme="light"] body:has(.hero-under-header) .site-header {
-  --content: var(--on-media);
-  --content-secondary: var(--on-media-soft);
-  --content-muted: var(--on-media-muted);
-  --content-subtle: var(--on-media-muted);
-}
-
-body:has(.hero-under-header) .site-header {
-  --line: rgb(255 255 255 / 0.24);
-  --line-strong: var(--on-media);
-  --line-contrast: var(--on-media);
-}
-
-/* Mesmo guard das demais: o painel do MobileMenu vive dentro do .site-header,
-   e ali o logo está sobre superfície do tema, não sobre a foto. */
+   .hero-under-header): só o logo precisa vencer a fotografia. Os tokens de
+   conteúdo e de traço seguem semânticos, como na home — remapeá-los para
+   on-media atingia também o menu e o select de idioma, que vivem dentro do
+   .site-header, e deixava peça clara sobre superfície clara no tema claro.
+   O :not() exclui o painel do MobileMenu, que é superfície do tema e não foto. */
 [data-theme="light"] body:has(.hero-under-header) .site-header .theme-logo:not([role="dialog"] *) {
   filter: none;
 }
