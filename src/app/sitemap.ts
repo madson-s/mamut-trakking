@@ -24,6 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/pt/sobre` });
   entries.push({ url: `${BASE}/pt/manifesto` });
   entries.push({ url: `${BASE}/pt/contato` });
+  entries.push({ url: `${BASE}/pt/dicas` });
 
   // Cada roteiro, em cada idioma.
   for (const locale of LOCALES) {

@@ -7,15 +7,14 @@ import { fontBody, fontDisplay } from '@/lib/fonts';
 import type { Locale } from '@/lib/site';
 
 /**
- * Casca do formulário do participante em EN e ES — a mesma do /pt, com o header
- * e o footer da identidade nova.
+ * Casca da identidade nova (header, footer, tema) para páginas EN e ES.
  *
  * As raízes /en e /es ainda rodam no tema antigo (`SiteHeader`), e o header vem
- * do root layout de cada idioma. Por isso estas duas rotas vivem em route
- * groups próprios, com root layout próprio: é o mecanismo do App Router para
- * duas cascas diferentes no mesmo domínio.
+ * do root layout de cada idioma. Por isso as páginas já redesenhadas vivem em
+ * route groups próprios, com root layout próprio: é o mecanismo do App Router
+ * para duas cascas diferentes no mesmo domínio.
  */
-export function ParticipanteShell({
+export function LocaleShell({
   locale,
   children,
 }: {

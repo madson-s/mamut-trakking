@@ -5,13 +5,16 @@ import { PARTICIPANTE_CONTENT } from './participante-conteudo';
 
 // Sem hero: a página abre direto no formulário. Como nada passa por baixo do
 // header, ele fica sobre a superfície da página e segue as cores do tema.
+// O respiro de 80px do topo fica só no container (padding="none" na seção),
+// em vez de somar com o py-12 que o padding "default" traria.
 export function ParticipantePage({ locale }: { locale: Locale }) {
   const c = PARTICIPANTE_CONTENT[locale];
 
   return (
-    <Section padding="default" container={false} labelledBy="formulario-title">
-      <Container className="flex flex-col gap-12">
+    <Section padding="none" container={false} labelledBy="formulario-title" className="pb-12">
+      <Container className="flex flex-col gap-12 pt-20">
         <SectionHeading
+          as="h1"
           titleId="formulario-title"
           align="center"
           maxWidth="max-w-[820px]"

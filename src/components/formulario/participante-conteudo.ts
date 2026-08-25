@@ -71,7 +71,15 @@ export type ParticipanteContent = {
   perguntasMedicas: readonly PerguntaMedica[];
   termos: readonly string[];
   aceite: string;
-  acoes: { email: string; whatsapp: string; nota: string };
+  acoes: {
+    email: string;
+    whatsapp: string;
+    enviando: string;
+    sucesso: string;
+    erro: string;
+    erroFallback: string;
+    nota: string;
+  };
   documento: {
     titulo: string;
     pessoais: string;
@@ -183,9 +191,13 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
     ],
     aceite: 'Li e aceito os termos acima.',
     acoes: {
-      email: 'Enviar por e-mail',
+      email: 'Enviar ficha',
       whatsapp: 'Enviar pelo WhatsApp',
-      nota: 'Ao enviar, abrimos o seu app de e-mail ou o WhatsApp com o formulário já preenchido — nada é gravado neste site. É você quem dispara a mensagem.',
+      enviando: 'Enviando…',
+      sucesso: 'Ficha enviada. A gente confirma o recebimento pelo WhatsApp ou pelo e-mail que você informou.',
+      erro: 'Não foi possível enviar a ficha.',
+      erroFallback: 'Tente de novo em instantes ou use o botão do WhatsApp, que não depende do nosso servidor.',
+      nota: 'A ficha vai por e-mail para a nossa equipe. O botão do WhatsApp abre o app com o formulário já preenchido, caso prefira mandar por lá.',
     },
     documento: {
       titulo: 'FORMULÁRIO DO PARTICIPANTE — MAMUT TREKKING',
@@ -291,9 +303,13 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
     ],
     aceite: 'I have read and accept the terms above.',
     acoes: {
-      email: 'Send by email',
+      email: 'Send form',
       whatsapp: 'Send on WhatsApp',
-      nota: 'On submit we open your email app or WhatsApp with the form already filled in — nothing is stored on this site. You are the one who sends it.',
+      enviando: 'Sending…',
+      sucesso: 'Form sent. We will confirm we received it on WhatsApp or at the email address you provided.',
+      erro: 'We could not send the form.',
+      erroFallback: 'Try again in a moment, or use the WhatsApp button, which does not rely on our server.',
+      nota: 'The form is emailed to our team. The WhatsApp button opens the app with everything already filled in, if you prefer sending it there.',
     },
     documento: {
       titulo: 'PARTICIPANT FORM — MAMUT TREKKING',
@@ -399,9 +415,13 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
     ],
     aceite: 'Leí y acepto los términos anteriores.',
     acoes: {
-      email: 'Enviar por correo',
+      email: 'Enviar ficha',
       whatsapp: 'Enviar por WhatsApp',
-      nota: 'Al enviar, abrimos tu app de correo o WhatsApp con el formulario ya completado — nada se guarda en este sitio. Eres tú quien envía el mensaje.',
+      enviando: 'Enviando…',
+      sucesso: 'Ficha enviada. Confirmamos la recepción por WhatsApp o al correo que indicaste.',
+      erro: 'No fue posible enviar la ficha.',
+      erroFallback: 'Probá de nuevo en unos instantes o usá el botón de WhatsApp, que no depende de nuestro servidor.',
+      nota: 'La ficha se envía por correo a nuestro equipo. El botón de WhatsApp abre la app con el formulario ya completado, si preferís mandarlo por ahí.',
     },
     documento: {
       titulo: 'FORMULARIO DEL PARTICIPANTE — MAMUT TREKKING',

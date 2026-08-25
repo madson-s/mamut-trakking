@@ -14,24 +14,18 @@ import {
   Textarea,
 } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
+import { montarDocumento, type ParticipantePayload } from '@/lib/participante-envio';
 import { PARTICIPANTE_CONTENT, type Campo } from './participante-conteudo';
-
-const CAMPO_VAZIO = '—';
-
-function formatarData(iso: string) {
-  if (!iso) return CAMPO_VAZIO;
-  const [ano, mes, dia] = iso.split('-');
-  return `${dia}/${mes}/${ano}`;
-}
 
 type CampoId = keyof (typeof PARTICIPANTE_CONTENT)['pt']['campos'];
 type Dados = Record<CampoId, string>;
+type Envio = 'idle' | 'enviando' | 'enviado' | 'erro';
 
 /**
- * O site é estático (sem backend): como no formulário de contato, em vez de um
- * POST o formulário monta o documento e abre o canal escolhido — e-mail, que é
- * o que aguenta um texto deste tamanho, ou WhatsApp. A validação é a nativa do
- * browser, via `required`.
+ * Dois canais para o mesmo documento: o e-mail vai por POST para
+ * `/api/formulario-participante`, que envia pela Resend; o WhatsApp abre o app
+ * com a mensagem pronta, sem passar pelo servidor. A validação de campo é a
+ * nativa do browser, via `required`.
  */
 export function ParticipanteForm({ locale }: { locale: Locale }) {
   const c = PARTICIPANTE_CONTENT[locale];
@@ -48,60 +42,51 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
   const [nada, setNada] = useState(c.simNao.sim);
   const [gravidez, setGravidez] = useState(c.simNao.nao);
   const [aceite, setAceite] = useState(false);
+  const [envio, setEnvio] = useState<Envio>('idle');
+  const [erro, setErro] = useState('');
+  // Campo-isca: fica fora do fluxo visual e do tab; robô preenche, humano não.
+  const [website, setWebsite] = useState('');
 
   const set = (campo: CampoId) => (valor: string) =>
     setDados((atual) => ({ ...atual, [campo]: valor }));
 
-  const linha = (campo: CampoId, valor?: string) =>
-    `${c.campos[campo].label}: ${valor || dados[campo] || CAMPO_VAZIO}`;
+  const montarPayload = (): ParticipantePayload => ({
+    locale,
+    dados,
+    medicas,
+    sabeNadar: nada,
+    gravidez,
+    aceite,
+    website,
+  });
 
-  const montarDocumento = () =>
-    [
-      c.documento.titulo,
-      '',
-      `— ${c.documento.pessoais} —`,
-      linha('nome'),
-      linha('nascimento', formatarData(dados.nascimento)),
-      linha('documento'),
-      linha('idade'),
-      linha('nacionalidade'),
-      linha('profissao'),
-      linha('telefone'),
-      linha('email'),
-      linha('altura'),
-      linha('peso'),
-      linha('endereco'),
-      linha('cidade'),
-      '',
-      `— ${c.documento.passeio} —`,
-      linha('inicio', formatarData(dados.inicio)),
-      linha('pagamento'),
-      linha('hospedagem'),
-      '',
-      `— ${c.documento.medicas} —`,
-      `${c.sabeNadar} ${nada}`,
-      ...c.perguntasMedicas.map((p) => `${p.label} ${medicas[p.id] || CAMPO_VAZIO}`),
-      `${c.gravidez} ${gravidez}`,
-      '',
-      `— ${c.documento.emergencia} —`,
-      linha('emergenciaNome'),
-      linha('emergenciaTelefone'),
-      linha('emergenciaParentesco'),
-      '',
-      `— ${c.documento.termos} —`,
-      aceite ? c.documento.aceitos : c.documento.naoAceitos,
-    ].join('\n');
+  const abrirWhatsapp = () => {
+    const texto = montarDocumento(montarPayload());
+    window.open(`${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+  };
 
-  const enviar = (canal: 'email' | 'whatsapp') => {
-    const texto = montarDocumento();
-    if (canal === 'whatsapp') {
-      window.open(`${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
-      return;
+  const enviarEmail = async () => {
+    setEnvio('enviando');
+    setErro('');
+
+    try {
+      const resposta = await fetch('/api/formulario-participante', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(montarPayload()),
+      });
+      const corpo = await resposta.json().catch(() => null);
+
+      if (!resposta.ok || !corpo?.ok) {
+        setErro(corpo?.error ?? c.acoes.erro);
+        setEnvio('erro');
+        return;
+      }
+      setEnvio('enviado');
+    } catch {
+      setErro(c.acoes.erro);
+      setEnvio('erro');
     }
-    const assunto = encodeURIComponent(
-      `${c.documento.assunto} — ${dados.nome || c.documento.semNome}`,
-    );
-    window.location.href = `mailto:${SITE.email}?subject=${assunto}&body=${encodeURIComponent(texto)}`;
   };
 
   const simNao = [
@@ -134,10 +119,10 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
       className="gap-8 px-6 py-8 sm:px-10 sm:py-10"
     >
       <form
-        className="flex flex-col gap-8"
+        className="relative flex flex-col gap-8"
         onSubmit={(event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
-          enviar('email');
+          void enviarEmail();
         }}
       >
         <Bloco titulo={c.blocos.pessoais}>
@@ -261,9 +246,23 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
           />
         </Bloco>
 
+        {/* Isca: escondida da vista, do leitor de tela e do tab. */}
+        <div aria-hidden className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+          <label>
+            Website
+            <input
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+              value={website}
+              onChange={(e) => setWebsite(e.target.value)}
+            />
+          </label>
+        </div>
+
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button type="submit" arrow className="max-sm:w-full">
-            {c.acoes.email}
+          <Button type="submit" arrow disabled={envio === 'enviando'} className="max-sm:w-full">
+            {envio === 'enviando' ? c.acoes.enviando : c.acoes.email}
           </Button>
           {/* type="button": não submete o form — só valida e abre o WhatsApp. */}
           <Button
@@ -271,13 +270,32 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
             variant="outline"
             onClick={(event) => {
               if (!event.currentTarget.form?.reportValidity()) return;
-              enviar('whatsapp');
+              abrirWhatsapp();
             }}
             className="max-sm:w-full"
           >
             {c.acoes.whatsapp}
           </Button>
         </div>
+
+        {envio === 'enviado' ? (
+          <div
+            role="status"
+            className="rounded-control border-l-4 border-brand bg-surface-sunken px-5 py-4"
+          >
+            <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>
+              {c.acoes.sucesso}
+            </Text>
+          </div>
+        ) : null}
+
+        {envio === 'erro' ? (
+          <div role="alert" className="rounded-control border-l-4 border-error-500 bg-surface-sunken px-5 py-4">
+            <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>
+              {erro} {c.acoes.erroFallback}
+            </Text>
+          </div>
+        ) : null}
 
         <Text size="xs" tone="subtle">{c.acoes.nota}</Text>
       </form>

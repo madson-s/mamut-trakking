@@ -49,6 +49,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Aventuras', href: '/pt/aventuras' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
+      { label: 'Dicas', mobileLabel: 'Dicas de trilha', href: '/pt/dicas' },
       { label: 'Contato', href: '/pt/contato' },
     ],
     menu: {
@@ -69,6 +70,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           links: [
             { label: 'Roteiros', href: '/pt/aventuras' },
             { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-3-dias' },
+            { label: 'Como se preparar', href: '/pt/dicas' },
             { label: 'Ficha do participante', href: '/pt/formulario-participante' },
           ],
         },
@@ -102,6 +104,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Adventures', href: '/en/adventures' },
       { label: 'About us', mobileLabel: 'About us', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
+      { label: 'Tips', mobileLabel: 'Trail tips', href: '/en/tips' },
       { label: 'Contact', href: '/pt/contato' },
     ],
     menu: {
@@ -122,6 +125,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           links: [
             { label: 'All trips', href: '/en/adventures' },
             { label: 'Pati Valley', href: '/en/adventures/pati-valley-3-days' },
+            { label: 'How to prepare', href: '/en/tips' },
             { label: 'Participant form', href: '/en/participant-form' },
           ],
         },
@@ -155,6 +159,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Aventuras', href: '/es/aventuras' },
       { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/pt/sobre' },
       { label: 'Manifiesto', href: '/pt/manifesto' },
+      { label: 'Consejos', mobileLabel: 'Consejos de sendero', href: '/es/consejos' },
       { label: 'Contacto', href: '/pt/contato' },
     ],
     menu: {
@@ -175,6 +180,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           links: [
             { label: 'Todos los recorridos', href: '/es/aventuras' },
             { label: 'Valle del Pati', href: '/es/aventuras/valle-del-pati-3-dias' },
+            { label: 'Cómo prepararse', href: '/es/consejos' },
             { label: 'Ficha del participante', href: '/es/formulario-participante' },
           ],
         },
