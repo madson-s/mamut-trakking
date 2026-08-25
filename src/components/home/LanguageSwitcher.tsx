@@ -48,7 +48,7 @@ export function LanguageSwitcher() {
           motion.fast,
         )}
         className={cn(
-          'group h-10 w-10 justify-center gap-2 border-0 p-0',
+          'locale-switcher group h-10 w-10 justify-center gap-2 border-0 p-0',
           'rounded-pill bg-surface-muted text-content shadow-chip ring-1 ring-line-strong ring-inset',
           'transition-[background-color,color,box-shadow,scale]',
           motion.fast,

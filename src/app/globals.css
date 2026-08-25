@@ -51,9 +51,13 @@
 
 :root,
 [data-theme],
-/* O painel do menu mora dentro do .site-header, que sobre foto declara os
-   aliases em branco. Entrando aqui, ele recalcula tudo contra os primitivos
-   do tema — é superfície, não fotografia. */
+/* Dentro do .site-header, sobre foto, os aliases viram on-media. Estes dois
+   recalculam tudo contra os primitivos do tema, porque não estão sobre a
+   fotografia e sim sobre superfície própria: os controles (tema, idioma,
+   Menu) têm a pílula `bg-surface-muted` atrás, e o painel do menu é uma
+   superfície inteira. Sem isso, o knob do seletor de tema e os ícones saíam
+   quase brancos aqui e cinza no resto do site. */
+.site-header .site-header-controls,
 .site-header [role="dialog"] {
 
   /* superfícies */
@@ -318,20 +322,31 @@ body:has(.pati-three-day-page) .site-header .pati-wordmark-desktop {
   }
 }
 
-/* O header dessas páginas flutua sobre a fotografia do hero: texto e traços
+/* O header dessas páginas flutua sobre a fotografia do hero: TEXTO e ÍCONES
    ficam brancos nos dois temas, em qualquer largura. Vale para a barra — o
    painel do menu se exclui sozinho, recalculando os aliases lá em cima.
-   A home fica de fora de propósito: o hero dela só passa sob o header abaixo
-   de sm, e daí para cima o header está sobre a superfície da página. */
+
+   Os traços (--line*) ficam de fora: com eles em branco puro, os contornos dos
+   botões do header saltavam aqui e ficavam diferentes do resto do site, onde
+   --line-strong é um cinza do tema. A home fica de fora por inteiro — o hero
+   dela só passa sob o header abaixo de sm. */
 body:has(.hero-under-header) .site-header,
 body:has(.adventures-hub-hero) .site-header {
   --content: var(--on-media);
   --content-secondary: var(--on-media-soft);
   --content-muted: var(--on-media-muted);
   --content-subtle: var(--on-media-muted);
-  --line: rgb(255 255 255 / 0.24);
-  --line-strong: var(--on-media);
-  --line-contrast: var(--on-media);
+}
+
+/* No desktop o seletor de idioma fica transparente (lg:bg-transparent), o que
+   funciona sobre a superfície da página mas some sobre a fotografia do hero.
+   Nessas páginas ele recupera a pílula, igual à do seletor de tema ao lado. */
+@media (min-width: 64rem) {
+  body:has(.hero-under-header) .locale-switcher,
+  body:has(.adventures-hub-hero) .locale-switcher {
+    background-color: var(--surface-muted);
+    box-shadow: var(--shadow-chip);
+  }
 }
 
 /* O export do Figma inclui o fundo escuro do frame. No tema claro a própria
