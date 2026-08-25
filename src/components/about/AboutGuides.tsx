@@ -7,6 +7,10 @@ import { focus, motion } from '@/design/tokens';
 import { cn } from '@/lib/cn';
 import { SITE } from '@/lib/site';
 import { GUIDES, type Guide } from './about-data';
+import { ABOUT_CONTENT, type GuideText } from './about-content';
+import type { Locale } from '@/lib/site';
+
+type GuideCard = Guide & GuideText;
 
 const GUIDE_IMAGE_SIZES =
   '(min-width: 1280px) 377px, (min-width: 1024px) 31vw, (min-width: 640px) 50vw, 74vw';
@@ -17,7 +21,12 @@ const GUIDE_CROSSFADE = cn(
   'motion-reduce:transition-none motion-reduce:transform-none',
 );
 
-export function AboutGuides() {
+export function AboutGuides({ locale = 'pt' }: { locale?: Locale }) {
+  const c = ABOUT_CONTENT[locale].guides;
+  const guias: GuideCard[] = GUIDES.map((guide) => ({
+    ...guide,
+    ...ABOUT_CONTENT[locale].guiaTexto[guide.id],
+  }));
   const carouselRef = useRef<HTMLDivElement>(null);
   const [dotIndex, setDotIndex] = useState(0);
 
@@ -105,8 +114,8 @@ export function AboutGuides() {
         maxWidth="max-w-216"
         title={
           <span className="max-lg:text-[clamp(28px,8.4vw,36px)]">
-            <span className="lg:hidden">Conheça quem guia o nosso bando!</span>
-            <span className="max-lg:hidden">Quem guia o nosso bando.</span>
+            <span className="lg:hidden">{c.badge}</span>
+            <span className="max-lg:hidden">{c.titulo}</span>
           </span>
         }
         lead={
@@ -117,8 +126,7 @@ export function AboutGuides() {
             pretty
             className="max-w-216 lg:text-xl"
           >
-            Sete guias nativos, formados pela Chapada. Cada um com uma especialidade — juntos,
-            cobrem o Parque Nacional inteiro.
+            {c.lead}
           </Text>
         }
       />
@@ -131,16 +139,16 @@ export function AboutGuides() {
           'lg:grid lg:grid-cols-3 lg:gap-x-10.5 lg:gap-y-12 lg:overflow-visible lg:pb-0',
         )}
       >
-        {GUIDES.map((guide) => (
-          <GuideCard key={guide.name} guide={guide} />
+        {guias.map((guide) => (
+          <GuideCardView key={guide.name} guide={guide} />
         ))}
-        <JoinTeamCard />
+        <JoinTeamCard locale={locale} />
         <div aria-hidden className="w-1 shrink-0 lg:hidden" />
       </div>
 
       <div
         role="tablist"
-        aria-label="Página dos guias"
+        aria-label={c.pagina}
         className="flex items-center justify-center gap-2 lg:hidden"
       >
         {slides.map((slide, i) => (
@@ -162,7 +170,7 @@ export function AboutGuides() {
   );
 }
 
-export function GuideCard({ guide }: { guide: Guide }) {
+export function GuideCardView({ guide }: { guide: GuideCard }) {
   return (
     <article
       data-guide-card
@@ -235,7 +243,8 @@ export function GuideCard({ guide }: { guide: Guide }) {
   );
 }
 
-export function JoinTeamCard() {
+export function JoinTeamCard({ locale = 'pt' }: { locale?: Locale }) {
+  const cta = ABOUT_CONTENT[locale].guides;
   return (
     <div
       data-guide-card
@@ -272,18 +281,15 @@ export function JoinTeamCard() {
 
       <div className="mt-auto flex flex-col gap-6 max-lg:items-center">
         <Heading as="h3" size="section" balance className="max-lg:text-[clamp(26px,7.6vw,34px)]">
-          Quer caminhar
+          {cta.ctaTitulo.linha1}
           <br />
-          com a gente?
+          {cta.ctaTitulo.linha2}
         </Heading>
         <Text size="sm" weight="light" pretty>
-          <span className="lg:hidden">Escolhemos juntos o ritmo, o roteiro e a data.</span>
-          <span className="max-lg:hidden">
-            Fale com um guia nativo pelo WhatsApp. Escolhemos juntos o ritmo, o roteiro e a data.
-          </span>
+          {cta.ctaTexto}
         </Text>
           <Button href={SITE.whatsappUrl} block arrow>
-            Entrar para o bando
+            {cta.cta}
           </Button>
         </div>
       </Card>

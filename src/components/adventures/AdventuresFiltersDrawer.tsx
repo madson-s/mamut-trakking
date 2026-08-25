@@ -18,6 +18,8 @@ import {
   type AvailableOptions,
   type DifficultyFilter,
 } from './filters';
+import type { AdventuresContent } from './adventures-content';
+import type { Locale } from '@/lib/site';
 
 export type AdventuresFiltersDrawerProps = {
   open: boolean;
@@ -25,6 +27,9 @@ export type AdventuresFiltersDrawerProps = {
   filters: AdventureFilters;
   /** Opções que ainda devolvem resultado — as de fora vêm desabilitadas. */
   available: AvailableOptions;
+  /** Rótulos no idioma da página. */
+  content: AdventuresContent;
+  locale: Locale;
   onChange: (next: Partial<AdventureFilters>) => void;
   onClear: () => void;
   /** Quantidade de aventuras que os filtros atuais retornam. */
@@ -38,11 +43,21 @@ export function AdventuresFiltersDrawer({
   onClose,
   filters,
   available,
+  content,
+  locale,
   onChange,
   onClear,
   resultCount,
   onApply,
 }: AdventuresFiltersDrawerProps) {
+  const labels = {
+    todosLocais: content.filtros.todosLocais,
+    qualquerDuracao: content.filtros.qualquerDuracao,
+    todosNiveis: content.filtros.todosNiveis,
+    dia: content.filtros.dia,
+    dias: content.filtros.dias,
+    niveis: content.niveis,
+  };
   const sheetRef = useRef<HTMLDivElement>(null);
 
   // Scroll-lock e Escape ficam por conta do MorphingModal; aqui só o focus trap.
@@ -81,16 +96,16 @@ export function AdventuresFiltersDrawer({
       onClose={onClose}
       placement="bottom"
       labelledBy="adventures-filters-title"
-      closeLabel="Fechar filtros"
+      closeLabel={content.drawer.fechar}
       className="max-w-98 lg:max-w-130"
     >
       <div ref={sheetRef}>
         <div aria-hidden className="mx-auto mb-5 h-1 w-10 rounded-pill bg-content-muted lg:hidden" />
 
         <header className="mb-5 flex h-9 items-center justify-between">
-          <Heading id="adventures-filters-title" as="h2" size="quote">Filtrar</Heading>
+          <Heading id="adventures-filters-title" as="h2" size="quote">{content.drawer.titulo}</Heading>
           <IconButton
-            label="Fechar filtros"
+            label={content.drawer.fechar}
             variant="outline"
             size="sm"
             onClick={onClose}
@@ -101,7 +116,7 @@ export function AdventuresFiltersDrawer({
         </header>
 
         <div className="flex flex-col gap-7">
-          <FilterGroup label="Duração">
+          <FilterGroup label={content.drawer.duracao}>
             {DURATION_OPTIONS.map((option) => (
               <FilterChip
                 key={option}
@@ -109,12 +124,12 @@ export function AdventuresFiltersDrawer({
                 disabled={!available.duration.has(option)}
                 onClick={() => onChange({ duration: option })}
               >
-                {option === 'all' ? 'Qualquer' : durationLabel(option)}
+                {option === 'all' ? content.filtros.qualquer : durationLabel(option, labels)}
               </FilterChip>
             ))}
           </FilterGroup>
 
-          <FilterGroup label="Dificuldade">
+          <FilterGroup label={content.drawer.dificuldade}>
             {DIFFICULTY_OPTIONS.map((option) => (
               <FilterChip
                 key={option}
@@ -122,12 +137,12 @@ export function AdventuresFiltersDrawer({
                 disabled={!available.difficulty.has(option as DifficultyFilter)}
                 onClick={() => onChange({ difficulty: option as DifficultyFilter })}
               >
-                {option === 'all' ? 'Todos' : option}
+                {option === 'all' ? content.filtros.todos : content.niveis[option as Exclude<DifficultyFilter, 'all'>]}
               </FilterChip>
             ))}
           </FilterGroup>
 
-          <FilterGroup label="Origem">
+          <FilterGroup label={content.drawer.origem}>
             {LOCATION_OPTIONS.map((option) => (
               <FilterChip
                 key={option}
@@ -135,14 +150,14 @@ export function AdventuresFiltersDrawer({
                 disabled={!available.location.has(option)}
                 onClick={() => onChange({ location: option })}
               >
-                {option === 'all' ? 'Todas' : option}
+                {option === 'all' ? content.filtros.todas : option}
               </FilterChip>
             ))}
           </FilterGroup>
 
           <div className="flex flex-col gap-3">
             <p className="font-body text-[11px] font-semibold tracking-[0.14em] text-content-muted uppercase">
-              Preço · até <span className="text-content">{formatPrice(filters.budget, 'pt')}</span>
+              {content.drawer.preco} <span className="text-content">{formatPrice(filters.budget, locale)}</span>
             </p>
             <input
               className="adventures-range w-full cursor-pointer accent-brand"
@@ -152,15 +167,18 @@ export function AdventuresFiltersDrawer({
               step={50}
               value={filters.budget}
               onChange={(event) => onChange({ budget: Number(event.target.value) })}
-              aria-label="Investimento máximo"
+              aria-label={content.filtros.investimentoMax}
             />
           </div>
         </div>
 
         <Button onClick={onApply} block size="lg" disabled={resultCount === 0} className="mt-7">
           {resultCount === 0
-            ? 'Nenhuma aventura encontrada'
-            : `Ver ${resultCount} ${resultCount === 1 ? 'aventura' : 'aventuras'}`}
+            ? content.drawer.vazio
+            : (resultCount === 1 ? content.drawer.ver : content.drawer.verPlural).replace(
+                '{n}',
+                String(resultCount),
+              )}
         </Button>
         <button
           type="button"
@@ -171,7 +189,7 @@ export function AdventuresFiltersDrawer({
             focus.onSurface,
           )}
         >
-          Limpar filtros
+          {content.drawer.limpar}
         </button>
       </div>
     </MorphingModal>

@@ -8,7 +8,7 @@ import { ABOUT_CONTENT } from '@/components/about/about-content';
 import { EntrelinhasBand } from '@/components/home/EntrelinhasBand';
 import { StatsBar } from '@/components/home/StatsBar';
 
-const CONTENT = ABOUT_CONTENT.pt;
+const CONTENT = ABOUT_CONTENT.es;
 
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
@@ -25,16 +25,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SobrePage() {
+export default function QuienesSomosPage() {
   return (
     <>
-      <AboutHero locale="pt" />
-      <StatsBar locale="pt" />
-      <AboutStory locale="pt" />
-      <EntrelinhasBand overlap locale="pt" />
-      <AboutGuides locale="pt" />
-      <AboutReviews locale="pt" />
-      <AboutCta locale="pt" />
+      <AboutHero locale="es" />
+      <StatsBar locale="es" />
+      <AboutStory locale="es" />
+      <EntrelinhasBand overlap locale="es" />
+      <AboutGuides locale="es" />
+      <AboutReviews locale="es" />
+      <AboutCta locale="es" />
     </>
   );
 }

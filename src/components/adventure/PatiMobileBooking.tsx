@@ -13,12 +13,13 @@ import {
   XIcon,
 } from '@/components/ui';
 import { MorphingModal } from '@/components/motion/morphing-modal';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
+import { PATI3_CONTENT, type Pati3Content } from './pati-3-content';
+import { PATI3_FROM_PRICE } from './PatiThreeDayExperience';
 import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
 
 type SheetView = 'booking' | 'calendar';
 
-const WEEKDAYS = ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'] as const;
 const LANGUAGES = ['PT BR', 'EN', 'ES'] as const;
 type Language = (typeof LANGUAGES)[number];
 // O idioma já vem marcado conforme a raiz em que a página está (/pt, /en, /es).
@@ -34,7 +35,9 @@ function languageFromPath(pathname: string) {
   );
   return LANGUAGE_BY_LOCALE[locale ?? 'pt'];
 }
-const GROUP_PRICES = [2100, 1900, 1700, 1500] as const;
+// Preço de grupo por pessoa, fixo — a tabela de faixas saiu quando os preços
+// passaram a seguir mamut.agency (dois formatos, mínimo de 2 pessoas).
+const GROUP_PRICE = PATI3_FROM_PRICE;
 
 function getMonthDays(year: number, month: number) {
   const firstWeekday = new Date(year, month, 1).getDay();
@@ -45,14 +48,14 @@ function getMonthDays(year: number, month: number) {
   ];
 }
 
-function formatDate(date: Date) {
-  const weekdays = ['domingo', 'segunda', 'terça', 'quarta', 'quinta', 'sexta', 'sábado'];
+function formatDate(date: Date, diasSemana: readonly string[]) {
   const day = String(date.getDate()).padStart(2, '0');
   const month = String(date.getMonth() + 1).padStart(2, '0');
-  return `${weekdays[date.getDay()]}, ${day}/${month}`;
+  return `${diasSemana[date.getDay()]}, ${day}/${month}`;
 }
 
-export function PatiMobileBooking() {
+export function PatiMobileBooking({ locale = 'pt' }: { locale?: Locale }) {
+  const c = PATI3_CONTENT[locale].booking;
   const pathname = usePathname();
   const [dockVisible, setDockVisible] = useState(false);
   const [sheetView, setSheetView] = useState<SheetView | null>(null);
@@ -111,14 +114,16 @@ export function PatiMobileBooking() {
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [sheetView]);
 
-  const estimatedPrice = GROUP_PRICES[Math.min(travellers, 4) - 1];
+  const estimatedPrice = GROUP_PRICE;
   const monthDays = useMemo(
     () => getMonthDays(visibleMonth.getFullYear(), visibleMonth.getMonth()),
     [visibleMonth],
   );
-  const monthLabel = `${new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(visibleMonth)} ${visibleMonth.getFullYear()}`;
+  const monthLabel = `${new Intl.DateTimeFormat(c.intl, { month: 'long' }).format(visibleMonth)} ${visibleMonth.getFullYear()}`;
   const bookingMessage = encodeURIComponent(
-    `Olá! Quero verificar o Vale do Pati em 3 dias para ${formatDate(selectedDate)}, ${travellers} viajante${travellers > 1 ? 's' : ''}, idioma: ${language}.`,
+    `${c.mensagem.antes} ${formatDate(selectedDate, c.diasSemana)}, ${travellers} ${
+      travellers > 1 ? c.mensagem.viajantes : c.mensagem.viajante
+    }, ${c.mensagem.idioma}: ${language}.`,
   );
   const availabilityUrl = `${SITE.whatsappUrl}?text=${bookingMessage}`;
 
@@ -138,17 +143,17 @@ export function PatiMobileBooking() {
         }`}
       >
         <div className="min-w-0">
-          <Heading as="p" size="quote" className="tabular-nums">R$ 1.500</Heading>
+          <Heading as="p" size="quote" className="tabular-nums">R$ {GROUP_PRICE.toLocaleString('pt-BR')}</Heading>
           <Text tone="secondary" className="max-w-[141px] text-[11px] leading-[1.25]">
-            Escolha o formato ideal para o seu grupo
+            {c.dockApoio}
           </Text>
         </div>
         <div className="flex shrink-0 items-center gap-2">
-          <IconButton href={SITE.whatsappUrl} label="Falar pelo WhatsApp" size="lg" className="!size-11">
+          <IconButton href={SITE.whatsappUrl} label={c.whatsapp} size="lg" className="!size-11">
             <Image src="/svg/figma/pati-3/whatsapp.svg" alt="" width={20} height={20} className="size-5" />
           </IconButton>
           <Button onClick={() => setSheetView('booking')} className="min-h-12 px-5.5">
-            Reservar
+            {c.reservar}
           </Button>
         </div>
       </div>
@@ -158,7 +163,7 @@ export function PatiMobileBooking() {
         onClose={closeSheet}
         placement="bottom"
         labelledBy="pati-booking-sheet-title"
-        closeLabel="Fechar reserva"
+        closeLabel={c.fechar}
         className="max-w-98 lg:max-w-130"
       >
         <div ref={sheetRef}>
@@ -171,6 +176,7 @@ export function PatiMobileBooking() {
               selectedDate={selectedDate}
               visibleMonth={visibleMonth}
               onClose={() => setSheetView('booking')}
+              c={c}
               onChangeMonth={changeMonth}
               onSelectDate={(day) => {
                 setSelectedDate(new Date(visibleMonth.getFullYear(), visibleMonth.getMonth(), day));
@@ -188,6 +194,7 @@ export function PatiMobileBooking() {
               onOpenCalendar={() => setSheetView('calendar')}
               onTravellersChange={setTravellers}
               onLanguageChange={setLanguage}
+              c={c}
             />
           )}
         </div>
@@ -196,15 +203,18 @@ export function PatiMobileBooking() {
   );
 }
 
+type Booking = Pati3Content['booking'];
+
 type SharedSheetProps = {
   onClose: () => void;
+  c: Booking;
 };
 
 function SheetHeader({
   title,
   onClose,
-  closeLabel = 'Fechar reserva',
-}: SharedSheetProps & { title: string; closeLabel?: string }) {
+  closeLabel,
+}: Omit<SharedSheetProps, 'c'> & { title: string; closeLabel: string }) {
   return (
     <header className="mb-5 flex h-9 items-center justify-between">
       <Heading id="pati-booking-sheet-title" as="h2" size="quote">{title}</Heading>
@@ -222,6 +232,7 @@ function BookingView({
   estimatedPrice,
   availabilityUrl,
   onClose,
+  c,
   onOpenCalendar,
   onTravellersChange,
   onLanguageChange,
@@ -237,26 +248,26 @@ function BookingView({
 }) {
   return (
     <>
-      <SheetHeader title="Reserve sua trilha" onClose={onClose} />
+      <SheetHeader title={c.titulo} onClose={onClose} closeLabel={c.fechar} />
 
       <div className="overflow-hidden rounded-card border border-line-strong">
         <div className="grid h-17.5 grid-cols-2 divide-x divide-line-strong">
           <button type="button" onClick={onOpenCalendar} className="flex min-w-0 flex-col items-start gap-1.5 px-4 py-2.5 text-left transition-colors hover:bg-surface-raised focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-brand">
-            <Text size="xs" tone="muted">Data</Text>
+            <Text size="xs" tone="muted">{c.data}</Text>
             <span className="flex w-full items-center justify-between gap-2">
-              <Text size="sm" tone="secondary" className="truncate">{formatDate(selectedDate)}</Text>
+              <Text size="sm" tone="secondary" className="truncate">{formatDate(selectedDate, c.diasSemana)}</Text>
               <CaretDownIcon className="size-3.5 shrink-0" />
             </span>
           </button>
 
           <div className="flex flex-col items-start gap-1.5 px-4 py-2.5">
-            <Text size="xs" tone="muted">Viajantes</Text>
+            <Text size="xs" tone="muted">{c.viajantes}</Text>
             <div className="flex items-center gap-2.5">
-              <IconButton label="Remover viajante" variant="outline" size="sm" onClick={() => onTravellersChange(Math.max(1, travellers - 1))} disabled={travellers === 1} className="relative !size-[30px] after:absolute after:-inset-[7px] after:content-['']">
+              <IconButton label={c.remover} variant="outline" size="sm" onClick={() => onTravellersChange(Math.max(1, travellers - 1))} disabled={travellers === 1} className="relative !size-[30px] after:absolute after:-inset-[7px] after:content-['']">
                 <span aria-hidden className="h-px w-2 bg-current" />
               </IconButton>
               <Text className="tabular-nums">{travellers}</Text>
-              <IconButton label="Adicionar viajante" variant="outline" size="sm" onClick={() => onTravellersChange(Math.min(8, travellers + 1))} disabled={travellers === 8} className="relative !size-[30px] after:absolute after:-inset-[7px] after:content-['']">
+              <IconButton label={c.adicionar} variant="outline" size="sm" onClick={() => onTravellersChange(Math.min(8, travellers + 1))} disabled={travellers === 8} className="relative !size-[30px] after:absolute after:-inset-[7px] after:content-['']">
                 <PlusIcon className="size-3" />
               </IconButton>
             </div>
@@ -264,7 +275,7 @@ function BookingView({
         </div>
 
         <div className="border-t border-line-strong px-4 py-3.5">
-          <Text size="xs" tone="muted">Idioma</Text>
+          <Text size="xs" tone="muted">{c.idioma}</Text>
           <div className="mt-2.5 flex flex-wrap gap-2">
             {LANGUAGES.map((item) => (
               <button
@@ -286,15 +297,15 @@ function BookingView({
       </div>
 
       <div className="mt-5 flex h-13 items-center justify-between rounded-card border border-line px-4.5">
-        <Text size="sm" weight="light">Valor estimado</Text>
-        <Heading as="p" size="quote" className="tabular-nums max-lg:text-[20px]">R$ {estimatedPrice.toLocaleString('pt-BR')} / pessoa</Heading>
+        <Text size="sm" weight="light">{c.valor}</Text>
+        <Heading as="p" size="quote" className="tabular-nums max-lg:text-[20px]">R$ {estimatedPrice.toLocaleString('pt-BR')} {c.porPessoa}</Heading>
       </div>
 
       <Button href={availabilityUrl} size="lg" block arrow className="mt-5 text-lg">
-        Verificar disponibilidade
+        {c.verificar}
       </Button>
       <Text size="xs" tone="muted" className="mt-5 text-center">
-        Confirmamos tudo com você pelo WhatsApp — sem compromisso.
+        {c.nota}
       </Text>
     </>
   );
@@ -306,6 +317,7 @@ function CalendarView({
   selectedDate,
   visibleMonth,
   onClose,
+  c,
   onChangeMonth,
   onSelectDate,
 }: SharedSheetProps & {
@@ -318,19 +330,19 @@ function CalendarView({
 }) {
   return (
     <>
-      <SheetHeader title="Escolha a data" closeLabel="Voltar para a reserva" onClose={onClose} />
+      <SheetHeader title={c.calendario} closeLabel={c.voltar} onClose={onClose} />
       <div className="mb-4 flex h-11 items-center justify-between">
-        <IconButton label="Mês anterior" variant="outline" size="sm" onClick={() => onChangeMonth(-1)} className="relative !size-9 after:absolute after:-inset-1 after:content-['']">
+        <IconButton label={c.mesAnterior} variant="outline" size="sm" onClick={() => onChangeMonth(-1)} className="relative !size-9 after:absolute after:-inset-1 after:content-['']">
           <CaretDownIcon className="size-4 rotate-90" />
         </IconButton>
         <Text weight="semibold" className="capitalize">{monthLabel}</Text>
-        <IconButton label="Próximo mês" variant="outline" size="sm" onClick={() => onChangeMonth(1)} className="relative !size-9 after:absolute after:-inset-1 after:content-['']">
+        <IconButton label={c.proximoMes} variant="outline" size="sm" onClick={() => onChangeMonth(1)} className="relative !size-9 after:absolute after:-inset-1 after:content-['']">
           <CaretDownIcon className="size-4 -rotate-90" />
         </IconButton>
       </div>
 
       <div className="grid grid-cols-7 text-center">
-        {WEEKDAYS.map((weekday, index) => (
+        {c.semana.map((weekday, index) => (
           <Text key={`${weekday}-${index}`} size="xs" tone="muted" className="flex h-8 items-center justify-center">{weekday}</Text>
         ))}
         {monthDays.map((day, index) => {
@@ -347,7 +359,7 @@ function CalendarView({
             <button
               key={day}
               type="button"
-              aria-label={`Escolher dia ${day}`}
+              aria-label={`${c.escolherDia} ${day}`}
               aria-pressed={isSelected}
               onClick={() => onSelectDate(day)}
               className={`flex size-[50px] items-center justify-center rounded-pill text-sm tabular-nums transition-[background-color,border-color,color,transform] duration-200 ease-out active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${

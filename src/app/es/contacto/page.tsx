@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { ContatoPage } from '@/components/contato/ContatoPage';
 import { CONTATO_CONTENT } from '@/components/contato/contato-content';
 
-const CONTENT = CONTATO_CONTENT.pt;
+const CONTENT = CONTATO_CONTENT.es;
 
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
@@ -16,6 +16,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function ContatoRoute() {
-  return <ContatoPage locale="pt" />;
+export default function ContactoRoute() {
+  return <ContatoPage locale="es" />;
 }

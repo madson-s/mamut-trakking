@@ -8,8 +8,12 @@ import { ArrowRightIcon, Badge, Button, CaretDownIcon, Container, Heading, Text 
 import { focus, motion, press } from '@/design/tokens';
 import { cn } from '@/lib/cn';
 import { scrollToBrand } from '@/lib/scroll';
-import { formatPrice } from '@/lib/site';
+import { formatPrice, type Locale } from '@/lib/site';
 import { AdventuresFiltersDrawer } from './AdventuresFiltersDrawer';
+import { ADVENTURES } from './adventures-data';
+import { ADVENTURES_CONTENT, type AdventuresContent } from './adventures-content';
+import { ADVENTURE_ROUTES } from '@/lib/routes';
+import { ADVENTURE_SEGMENT } from '@/lib/site';
 import {
   DEFAULT_FILTERS,
   DIFFICULTY_OPTIONS,
@@ -25,69 +29,10 @@ import {
   matchesFilters,
   type AdventureFilters,
   type DifficultyFilter,
-  type DifficultyGroup,
 } from './filters';
 
-type AdventureCategory = 'trekking' | 'day-tour' | 'package';
 type OpenFilter = 'location' | 'duration' | 'difficulty' | 'budget' | null;
 
-type Adventure = {
-  category: AdventureCategory;
-  href: string;
-  image: string;
-  title: string;
-  duration: number;
-  difficulty: string;
-  difficultyGroup: DifficultyGroup;
-  distance: string;
-  location: string;
-  price: number;
-};
-
-const A = '/img/adventures/home/';
-const H = '/img/home_backgroud/';
-const V = '/img/vale-do-pati/';
-const CONTACT = '/pt/contato';
-
-const ADVENTURES: Adventure[] = [
-  ['trekking', '/pt/aventuras/cachoeira-do-palmital', `${A}cachoeira-do-palmital.jpeg`, 'Cachoeira do Palmital 2 Dias', 2, 'Moderado', 'Moderado', '22 km', 'Lençóis', 1350],
-  ['trekking', '/pt/aventuras/trilha-aguas-claras', `${A}trilha-aguas-claras.jpg`, 'Trilha Águas Claras 2 Dias', 2, 'Fácil', 'Fácil', '23 km', 'Lençóis', 1150],
-  ['trekking', '/pt/aventuras/vale-do-pati-5-dias', `${A}vale-do-pati-5-dias.jpeg`, 'Travessia Vale do Pati 5 Dias', 5, 'Moderado / Difícil', 'Desafiador', '70 km', 'Lençóis', 2750],
-  ['trekking', '/pt/aventuras/vale-do-pati-3-dias', `${A}vale-do-pati-3-dias.jpeg`, 'Vale do Pati 3 Dias', 3, 'Moderado', 'Moderado', '45 km', 'Lençóis', 1500],
-  ['trekking', '/pt/aventuras/vale-do-pati-4-dias', `${A}vale-do-pati-4-dias.jpeg`, 'Vale do Pati 4 Dias', 4, 'Moderado / Difícil', 'Desafiador', '62 km', 'Lençóis', 2250],
-  ['trekking', '/pt/aventuras/cachoeira-do-mixila', `${A}cachoeira-do-mixila.jpeg`, 'Cachoeira do Mixila 2 Dias', 2, 'Moderado / Difícil', 'Desafiador', '24 km', 'Lençóis', 1200],
-  ['trekking', CONTACT, `${H}home_backgroud_crop_04_1x.webp`, 'Cachoeira da Fumaça por Baixo', 3, 'Moderado / Difícil', 'Desafiador', '38 km', 'Vale do Capão', 1450],
-  ['trekking', CONTACT, `${H}home_backgroud_04_no_crop_1x.webp`, 'Cachoeira da Fumaça 360', 3, 'Moderado / Difícil', 'Desafiador', '38 km', 'Vale do Capão', 1450],
-  ['trekking', CONTACT, `${V}vale-do-pati-08.webp`, 'Cachoeira do Fundão + Vinte e Um', 3, 'Muito difícil', 'Desafiador', '24 km', 'Vale do Capão', 1750],
-  ['trekking', CONTACT, `${V}vale-do-pati-14.webp`, 'Vale do Pati 4 Dias via Capão', 4, 'Moderado / Difícil', 'Desafiador', '68 km', 'Palmeiras', 2450],
-  ['trekking', CONTACT, `${V}vale-do-pati-19.webp`, 'Vale do Pati 5 Dias via Capão', 5, 'Moderado / Difícil', 'Desafiador', '78 km', 'Palmeiras', 3300],
-  ['day-tour', '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio', `${A}mosquito-pai-inacio.jpeg`, 'Mosquito + Pai Inácio', 1, 'Fácil / Moderado', 'Fácil', '4 km', 'Lençóis', 450],
-  ['day-tour', '/pt/aventuras/city-tour-lencois', '/img/about/hero-lencois.webp', 'City Tour em Lençóis', 1, 'Fácil', 'Fácil', '1 km', 'Lençóis', 50],
-  ['day-tour', CONTACT, '/img/home_square_right_morro_1_1_5x.webp', 'Morro do Pai Inácio', 1, 'Fácil', 'Fácil', '2 km', 'Lençóis', 265],
-  ['day-tour', CONTACT, `${H}home_backgroud_crop_02_1x.webp`, 'Cachoeira do Sossego', 1, 'Moderado / Difícil', 'Desafiador', '15 km', 'Lençóis', 200],
-  ['day-tour', CONTACT, '/img/about/story-sunset.webp', 'Parque da Muritiba', 1, 'Fácil / Moderado', 'Fácil', '4 km', 'Lençóis', 160],
-  ['day-tour', CONTACT, '/img/home_square_right_morro_2_1_5x.webp', 'Fazenda Pratinha & Gruta Azul', 1, 'Fácil', 'Fácil', '100 m', 'Lençóis', 500],
-  ['day-tour', CONTACT, `${A}trilha-aguas-claras.jpg`, 'Águas Claras', 1, 'Fácil', 'Fácil', '18 km', 'Vale do Capão', 390],
-  ['day-tour', CONTACT, `${H}home_backgroud_crop_03_1x.webp`, 'Cachoeira da Fumaça', 1, 'Moderado / Difícil', 'Desafiador', '12 km', 'Vale do Capão', 320],
-  ['day-tour', CONTACT, `${A}cachoeira-do-mixila.jpeg`, 'Cachoeira da Fumacinha', 1, 'Moderado / Difícil', 'Desafiador', '18 km', 'Ibicoara', 550],
-  ['day-tour', CONTACT, '/img/entre_session_foto_02_1_5x.webp', 'Pantanal Marimbus', 1, 'Fácil', 'Fácil', '8 km', 'Lençóis', 465],
-  ['day-tour', CONTACT, `${A}cachoeira-do-palmital.jpeg`, 'Cachoeira do Buracão', 1, 'Fácil / Moderado', 'Moderado', '6 km', 'Ibicoara', 750],
-  ['day-tour', CONTACT, `${V}vale-do-pati-04.webp`, 'Mirante do Pati 1 Dia', 1, 'Fácil', 'Fácil', '9 km', 'Guiné', 475],
-  ['package', CONTACT, `${H}home_backgroud_03_no_crop_1x.webp`, 'Chapada Especial 3 Dias', 3, 'Moderado / Difícil', 'Desafiador', '7 km', 'Lençóis', 1500],
-  ['package', CONTACT, `${H}home_backgroud_01_no_crop_1x.webp`, 'Chapada Deslumbrante 4 Dias', 4, 'Moderado / Difícil', 'Desafiador', '15 km', 'Lençóis', 3350],
-  ['package', CONTACT, `${H}home_backgroud_02_no_crop_1x.webp`, 'Chapada Extraordinária 6 Dias', 6, 'Moderado / Difícil', 'Desafiador', '57 km', 'Lençóis', 4550],
-].map(([category, href, image, title, duration, difficulty, difficultyGroup, distance, location, price]) => ({
-  category: category as AdventureCategory,
-  href: href as string,
-  image: image as string,
-  title: title as string,
-  duration: duration as number,
-  difficulty: difficulty as string,
-  difficultyGroup: difficultyGroup as DifficultyGroup,
-  distance: distance as string,
-  location: location as string,
-  price: price as number,
-}));
 
 const HERO_BACKGROUND = '/img/adventures/adventures-hero-background-hq.webp';
 const HERO_INLINE_IMAGE = '/img/adventures/adventures-hero-pill.webp';
@@ -95,7 +40,35 @@ const WALKERS = '/svg/about/story-walkers.svg';
 
 const PAGE_TAIL = 'pb-20 lg:pb-28';
 
-export function AdventuresHub() {
+/** Junta a parte neutra da aventura com o texto e o link do idioma. */
+function aventurasDoIdioma(locale: Locale) {
+  const c = ADVENTURES_CONTENT[locale];
+  const seg = ADVENTURE_SEGMENT[locale];
+  const contato = '/pt/contato';
+
+  return ADVENTURES.map((base) => {
+    const rota = base.route && ADVENTURE_ROUTES.find((r) => r.id === base.route);
+    return {
+      ...base,
+      ...c.roteiros[base.id],
+      href: rota ? `/${locale}/${seg}/${rota[locale]}` : contato,
+    };
+  });
+}
+
+type Adventure = ReturnType<typeof aventurasDoIdioma>[number];
+
+export function AdventuresHub({ locale = 'pt' }: { locale?: Locale }) {
+  const c = ADVENTURES_CONTENT[locale];
+  const labels = {
+    todosLocais: c.filtros.todosLocais,
+    qualquerDuracao: c.filtros.qualquerDuracao,
+    todosNiveis: c.filtros.todosNiveis,
+    dia: c.filtros.dia,
+    dias: c.filtros.dias,
+    niveis: c.niveis,
+  };
+  const aventuras = aventurasDoIdioma(locale);
   const [filters, setFilters] = useState<AdventureFilters>(DEFAULT_FILTERS);
   const { location, duration, difficulty, budget } = filters;
   const updateFilters = (next: Partial<AdventureFilters>) =>
@@ -124,11 +97,11 @@ export function AdventuresHub() {
   }, []);
 
   const filteredAdventures = useMemo(
-    () => ADVENTURES.filter((adventure) => matchesFilters(adventure, filters)),
-    [filters],
+    () => aventuras.filter((adventure) => matchesFilters(adventure, filters)),
+    [aventuras, filters],
   );
 
-  const available = useMemo(() => availableOptions(ADVENTURES, filters), [filters]);
+  const available = useMemo(() => availableOptions(aventuras, filters), [aventuras, filters]);
 
   const groups = useMemo(
     () => ({
@@ -148,7 +121,7 @@ export function AdventuresHub() {
           ? 'trekking'
           : null;
 
-  const activeFilters = activeFilterList(filters, (value) => formatPrice(value, 'pt'));
+  const activeFilters = activeFilterList(filters, (value) => formatPrice(value, locale), labels, c.filtros.ate);
 
   const clearFilters = () => {
     setFilters(DEFAULT_FILTERS);
@@ -181,14 +154,14 @@ export function AdventuresHub() {
 
         <Container className="mt-14.5 text-center lg:mt-10">
           <h1 className="mx-auto max-w-190 text-balance font-display text-[38px] leading-[1.08] tracking-tight text-[#f4f4f4] sm:text-[44px] lg:text-[48px] lg:leading-[1.1]">
-            <span className="block">Conheça as</span>
+            <span className="block">{c.hero.linha1}</span>
             <span className="flex items-center justify-center gap-3">
-              aventuras na
+              {c.hero.linha2}
               <span className="relative inline-block h-[38px] w-[76px] shrink-0 overflow-hidden rounded-pill sm:h-[44px] sm:w-[88px] lg:h-[48px] lg:w-[96px]">
                 <Image src={HERO_INLINE_IMAGE} alt="Morro do Pai Inácio" fill sizes="96px" className="object-cover" />
               </span>
             </span>
-            <span className="block text-brand-on-media">Chapada Diamantina!</span>
+            <span className="block text-brand-on-media">{c.hero.linha3}</span>
           </h1>
 
           <Button
@@ -202,20 +175,20 @@ export function AdventuresHub() {
             aria-expanded={drawerOpen}
             className="mt-24 lg:hidden"
           >
-            Filtrar aventuras
+            {c.hero.filtrar}
           </Button>
         </Container>
 
         <Container className="mt-6 hidden lg:block">
           <div
             ref={filtersRef}
-            className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-panel-lg border border-white/8 bg-[#1f1f1f] px-6 text-white shadow-popover"
+            className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-panel-lg border border-line bg-surface-muted px-6 text-content shadow-popover"
           >
             <FilterPopover
               id="location"
-              label="Onde começa"
+              label={c.filtros.local}
               icon={<MapPin aria-hidden className="size-4" />}
-              value={locationLabel(location)}
+              value={locationLabel(location, labels)}
               active={location !== 'all'}
               isOpen={openFilter === 'location'}
               onToggle={() => setOpenFilter(openFilter === 'location' ? null : 'location')}
@@ -223,7 +196,7 @@ export function AdventuresHub() {
               <FilterChipGrid>
                 {LOCATION_OPTIONS.map((option) => (
                   <FilterChip key={option} active={location === option} disabled={!available.location.has(option)} onClick={() => { setLocation(option); setOpenFilter(null); }}>
-                    {option === 'all' ? 'Todas' : option}
+                    {option === 'all' ? c.filtros.todas : option}
                   </FilterChip>
                 ))}
               </FilterChipGrid>
@@ -231,9 +204,9 @@ export function AdventuresHub() {
 
             <FilterPopover
               id="duration"
-              label="Duração"
+              label={c.filtros.duracao}
               icon={<CalendarDays aria-hidden className="size-4" />}
-              value={durationLabel(duration)}
+              value={durationLabel(duration, labels)}
               active={duration !== 'all'}
               isOpen={openFilter === 'duration'}
               onToggle={() => setOpenFilter(openFilter === 'duration' ? null : 'duration')}
@@ -241,7 +214,7 @@ export function AdventuresHub() {
               <FilterChipGrid>
                 {DURATION_OPTIONS.map((option) => (
                   <FilterChip key={option} active={duration === option} disabled={!available.duration.has(option)} onClick={() => { setDuration(option); setOpenFilter(null); }}>
-                    {option === 'all' ? 'Qualquer' : durationLabel(option)}
+                    {option === 'all' ? c.filtros.qualquer : durationLabel(option, labels)}
                   </FilterChip>
                 ))}
               </FilterChipGrid>
@@ -249,9 +222,9 @@ export function AdventuresHub() {
 
             <FilterPopover
               id="difficulty"
-              label="Dificuldade"
+              label={c.filtros.dificuldade}
               icon={<Mountain aria-hidden className="size-4" />}
-              value={difficultyLabel(difficulty)}
+              value={difficultyLabel(difficulty, labels)}
               active={difficulty !== 'all'}
               isOpen={openFilter === 'difficulty'}
               onToggle={() => setOpenFilter(openFilter === 'difficulty' ? null : 'difficulty')}
@@ -259,7 +232,7 @@ export function AdventuresHub() {
               <FilterChipGrid>
                 {DIFFICULTY_OPTIONS.map((option) => (
                   <FilterChip key={option} active={difficulty === option} disabled={!available.difficulty.has(option)} onClick={() => { setDifficulty(option); setOpenFilter(null); }}>
-                    {option === 'all' ? 'Todos' : option}
+                    {option === 'all' ? c.filtros.todos : c.niveis[option]}
                   </FilterChip>
                 ))}
               </FilterChipGrid>
@@ -267,9 +240,9 @@ export function AdventuresHub() {
 
             <FilterPopover
               id="budget"
-              label="Investimento"
+              label={c.filtros.investimento}
               icon={<CircleDollarSign aria-hidden className="size-4" />}
-              value={budget === MAX_BUDGET ? 'Qualquer valor' : `Até ${formatPrice(budget, 'pt')}`}
+              value={budget === MAX_BUDGET ? c.filtros.qualquerValor : `${c.filtros.ate} ${formatPrice(budget, locale)}`}
               active={budget !== MAX_BUDGET}
               isOpen={openFilter === 'budget'}
               align="right"
@@ -277,8 +250,8 @@ export function AdventuresHub() {
             >
               <div className="flex flex-col gap-5">
                 <div className="flex items-end justify-between gap-4">
-                  <Text size="xs" tone="secondary" className="uppercase tracking-[0.14em]">Até</Text>
-                  <Text size="xl" weight="semibold" tone="onMedia" className="tabular-nums">{formatPrice(budget, 'pt')}</Text>
+                  <Text size="xs" tone="secondary" className="uppercase tracking-[0.14em]">{c.filtros.ate}</Text>
+                  <Text size="xl" weight="semibold" tone="onMedia" className="tabular-nums">{formatPrice(budget, locale)}</Text>
                 </div>
                 <input
                   className="adventures-range w-full cursor-pointer accent-brand"
@@ -288,15 +261,15 @@ export function AdventuresHub() {
                   step={50}
                   value={budget}
                   onChange={(event) => setBudget(Number(event.target.value))}
-                  aria-label="Investimento máximo"
+                  aria-label={c.filtros.investimentoMax}
                 />
-                <div className="flex justify-between font-body text-xs font-light text-white/55 tabular-nums">
-                  <span>R$ 50</span><span>R$ 4.550</span>
+                <div className="flex justify-between font-body text-xs font-light text-content-muted tabular-nums">
+                  <span>{formatPrice(MIN_BUDGET, locale)}</span><span>{formatPrice(MAX_BUDGET, locale)}</span>
                 </div>
               </div>
             </FilterPopover>
 
-            <Button onClick={scrollToResults} arrow size="lg" className="ml-3 min-w-51.75">Escolha a sua trilha</Button>
+            <Button onClick={scrollToResults} arrow size="lg" className="ml-3 min-w-51.75">{c.filtros.escolher}</Button>
           </div>
         </Container>
 
@@ -314,7 +287,7 @@ export function AdventuresHub() {
                     press,
                     focus.onMedia,
                   )}
-                  aria-label={`Remover filtro ${filter.label}`}
+                  aria-label={`${c.hero.removerFiltro} ${filter.label}`}
                 >
                   {filter.label}
                   <span aria-hidden className="text-white/65">×</span>
@@ -330,7 +303,7 @@ export function AdventuresHub() {
                   focus.onMedia,
                 )}
               >
-                Limpar
+                {c.hero.limpar}
               </button>
             </div>
           </Container>
@@ -344,7 +317,7 @@ export function AdventuresHub() {
               focus.onMedia,
             )}
           >
-            Explore todas as aventuras
+            {c.hero.explorar}
             <span className="grid size-5.5 place-items-center rounded-full border border-current">
               <ArrowRightIcon aria-hidden className="size-3 rotate-90" />
             </span>
@@ -357,6 +330,8 @@ export function AdventuresHub() {
         onClose={() => setDrawerOpen(false)}
         filters={filters}
         available={available}
+        content={c}
+        locale={locale}
         onChange={updateFilters}
         onClear={clearFilters}
         resultCount={filteredAdventures.length}
@@ -366,9 +341,11 @@ export function AdventuresHub() {
       <section id="todas-as-aventuras" className={cn('bg-surface-muted pt-15', lastGroup === 'trekking' && PAGE_TAIL)} aria-labelledby="trekking-heading">
         <AdventureSection
           id="trekking-heading"
-          title="Trekking de 2 a 6 dias"
-          description="Caminhos para viver a Chapada no seu ritmo, com guias nativos, segurança e a experiência de quem conhece cada trecho."
+          title={c.secoes.trekking.titulo}
+          description={c.secoes.trekking.descricao}
           adventures={groups.trekking}
+          content={c}
+          locale={locale}
           walkers
         />
       </section>
@@ -377,9 +354,11 @@ export function AdventuresHub() {
         <section className={cn('bg-surface-muted pt-16', lastGroup === 'dayTours' && PAGE_TAIL)} aria-labelledby="day-tours-heading">
           <AdventureSection
             id="day-tours-heading"
-            title="Passeios de 1 dia"
-            description="Banhos de cachoeira, mirantes e circuitos para quem quer viver muito sem precisar contar as noites."
+            title={c.secoes.dayTours.titulo}
+            description={c.secoes.dayTours.descricao}
             adventures={groups.dayTours}
+            content={c}
+            locale={locale}
           />
         </section>
       )}
@@ -388,9 +367,11 @@ export function AdventuresHub() {
         <section className={cn('bg-surface-muted pt-16', lastGroup === 'packages' && PAGE_TAIL)} aria-labelledby="packages-heading">
           <AdventureSection
             id="packages-heading"
-            title="Pacotes especiais"
-            description="Roteiros combinados para conhecer diferentes paisagens da Chapada com toda a operação organizada pelo bando Mamut."
+            title={c.secoes.pacotes.titulo}
+            description={c.secoes.pacotes.descricao}
             adventures={groups.packages}
+            content={c}
+            locale={locale}
             featured
           />
         </section>
@@ -400,9 +381,9 @@ export function AdventuresHub() {
         <section className="bg-surface-muted pb-24">
           <Container>
             <div className="rounded-panel bg-surface-raised px-6 py-16 text-center shadow-card">
-              <Heading as="h2" size="card" balance>Nenhuma aventura combina com esses filtros.</Heading>
+              <Heading as="h2" size="card" balance>{c.vazio.titulo}</Heading>
               <Text tone="secondary" pretty className="mx-auto mt-3 max-w-lg">
-                Tente ampliar a duração, o nível ou o investimento para descobrir outros caminhos.
+                {c.vazio.texto}
               </Text>
             </div>
           </Container>
@@ -424,31 +405,31 @@ function FilterPopover({ id, label, icon, value, active = false, isOpen, align =
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex h-14 items-center border-r border-white/12 px-5">
+    <div className="relative flex h-14 items-center border-r border-line px-5">
       <button
         type="button"
         onClick={onToggle}
         className={cn(
           'flex h-full w-full items-center gap-3 rounded-pill text-left transition-[background-color,box-shadow] duration-200 ease-out',
-          active && 'bg-white/6 px-3 shadow-[inset_0_0_0_1px_rgba(150,194,147,0.32)]',
-          focus.onMedia,
+          active && 'bg-surface-raised px-3 shadow-[inset_0_0_0_1px_var(--brand)]',
+          focus.onSurface,
         )}
         aria-expanded={isOpen}
         aria-controls={`${id}-popover`}
       >
         <span className="shrink-0 text-brand-strong">{icon}</span>
         <span className="flex min-w-0 flex-1 flex-col gap-0.5">
-          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.13em] text-[#a8c39a]">{label}</span>
-          <span className={cn('truncate font-body text-sm font-light', active ? 'text-white' : 'text-white/62')}>{value}</span>
+          <span className="font-body text-[11px] font-semibold uppercase tracking-[0.13em] text-brand-strong">{label}</span>
+          <span className={cn('truncate font-body text-sm font-light', active ? 'text-content' : 'text-content-secondary')}>{value}</span>
         </span>
-        <CaretDownIcon aria-hidden className={cn('size-4 shrink-0 text-white/65 transition-transform', motion.base, isOpen && 'rotate-180')} />
+        <CaretDownIcon aria-hidden className={cn('size-4 shrink-0 text-content-secondary transition-transform', motion.base, isOpen && 'rotate-180')} />
       </button>
 
       {isOpen && (
         <div
           id={`${id}-popover`}
           className={cn(
-            'absolute top-[calc(100%+12px)] z-40 w-[320px] rounded-card bg-[#1f1f1f] p-5 text-white shadow-popover ring-1 ring-white/10',
+            'absolute top-[calc(100%+12px)] z-40 w-[320px] rounded-card bg-surface-muted p-5 text-content shadow-popover ring-1 ring-line',
             align === 'right' ? 'right-0' : 'left-0',
           )}
         >
@@ -472,10 +453,10 @@ function FilterChip({ active, disabled = false, onClick, children }: { active: b
       disabled={disabled}
       className={cn(
         'inline-flex min-h-11 items-center gap-2 rounded-pill px-4 font-body text-sm font-semibold ring-1 transition-[background-color,color,transform] duration-200 ease-out',
-        active ? 'bg-brand text-white ring-brand' : 'bg-transparent text-white ring-white/20 hover:bg-white/8 hover:ring-white/35',
-        disabled && 'cursor-not-allowed opacity-35 hover:bg-transparent hover:ring-white/20 active:scale-100',
+        active ? 'bg-brand text-brand-contrast ring-brand' : 'bg-transparent text-content ring-line-strong hover:bg-surface-raised hover:ring-line-contrast',
+        disabled && 'cursor-not-allowed opacity-35 hover:bg-transparent hover:ring-line-strong active:scale-100',
         press,
-        focus.onMedia,
+        focus.onSurface,
       )}
     >
       {active && <Check aria-hidden className="size-3.5" />}
@@ -484,11 +465,13 @@ function FilterChip({ active, disabled = false, onClick, children }: { active: b
   );
 }
 
-function AdventureSection({ id, title, description, adventures, walkers = false, featured = false }: {
+function AdventureSection({ id, title, description, adventures, content, locale, walkers = false, featured = false }: {
   id: string;
   title: string;
   description: string;
   adventures: Adventure[];
+  content: AdventuresContent;
+  locale: Locale;
   walkers?: boolean;
   featured?: boolean;
 }) {
@@ -508,14 +491,30 @@ function AdventureSection({ id, title, description, adventures, walkers = false,
 
       <div aria-live="polite" className={cn('grid gap-5 md:grid-cols-2 lg:grid-cols-3', featured && 'lg:gap-6')}>
         {adventures.map((adventure) => (
-          <AdventureCard key={`${adventure.category}-${adventure.title}`} adventure={adventure} featured={featured} />
+          <AdventureCard
+            key={adventure.id}
+            adventure={adventure}
+            content={content}
+            locale={locale}
+            featured={featured}
+          />
         ))}
       </div>
     </Container>
   );
 }
 
-function AdventureCard({ adventure, featured = false }: { adventure: Adventure; featured?: boolean }) {
+function AdventureCard({
+  adventure,
+  content,
+  locale,
+  featured = false,
+}: {
+  adventure: Adventure;
+  content: AdventuresContent;
+  locale: Locale;
+  featured?: boolean;
+}) {
   const difficultyEmoji = adventure.difficultyGroup === 'Fácil' ? '🟢' : adventure.difficultyGroup === 'Moderado' ? '🟡' : '🔴';
 
   return (
@@ -529,7 +528,7 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
         press,
         focus.onSurface,
       )}
-      aria-label={`Conhecer ${adventure.title}`}
+      aria-label={`${content.card.conhecer} ${adventure.title}`}
     >
       <div className={cn('relative aspect-[1.28] overflow-hidden bg-media-backdrop', featured && 'aspect-[1.18]')}>
         <Image
@@ -542,7 +541,7 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/5" />
         <Badge variant="outlineOnMedia" size="sm" className="absolute left-5 top-5 z-10 bg-black/12 font-medium backdrop-blur-sm">
-          {adventure.duration} {adventure.duration === 1 ? 'dia' : 'dias'}
+          {adventure.duration} {adventure.duration === 1 ? content.card.dia : content.card.dias}
         </Badge>
       </div>
 
@@ -558,11 +557,11 @@ function AdventureCard({ adventure, featured = false }: { adventure: Adventure; 
         </div>
         <div className="mt-auto flex items-end justify-between gap-4 border-t border-line pt-5">
           <div>
-            <Text size="xs" weight="light" tone="secondary">A partir de</Text>
-            <Text size="xl" weight="semibold" className="tabular-nums">{formatPrice(adventure.price, 'pt')}</Text>
+            <Text size="xs" weight="light" tone="secondary">{content.card.apartirDe}</Text>
+            <Text size="xl" weight="semibold" className="tabular-nums">{formatPrice(adventure.price, locale)}</Text>
           </div>
           <span className="inline-flex min-h-10 shrink-0 items-center justify-center gap-2 rounded-pill bg-brand px-4 font-body text-sm font-semibold whitespace-nowrap text-brand-contrast transition-[background-color,transform] duration-300 ease-out group-hover:bg-brand-hover">
-            <span>Explorar a trilha</span>
+            <span>{content.card.explorar}</span>
             <ArrowRightIcon aria-hidden className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5" />
           </span>
         </div>

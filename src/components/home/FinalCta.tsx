@@ -1,6 +1,10 @@
 import { Button, Section, SectionHeading, Text } from '@/components/ui';
+import type { Locale } from '@/lib/site';
+import { HOME_CONTENT } from './home-content';
 
-export function FinalCta() {
+export function FinalCta({ locale = 'pt' }: { locale?: Locale }) {
+  const c = HOME_CONTENT[locale].finalCta;
+
   return (
     <Section
       padding="none"
@@ -11,20 +15,19 @@ export function FinalCta() {
         size="hero"
         title={
           <>
-            Sua trilha começa
+            {c.titulo[0]}
             <br />
-            com uma mensagem.
+            {c.titulo[1]}
           </>
         }
         lead={
           <Text size="sm" tone="muted" pretty className="max-w-131.5 sm:text-lg">
-            Fale com a gente pelo WhatsApp. Descubra qual o seu roteiro ideal para conhecer a
-            Chapada Diamantina e como se preparar.
+            {c.corpo}
           </Text>
         }
       />
-      <Button href="/pt/contato" arrow className="max-lg:w-full">
-        Entrar para o bando
+      <Button href={c.ctaHref} arrow className="max-lg:w-full">
+        {c.cta}
       </Button>
     </Section>
   );

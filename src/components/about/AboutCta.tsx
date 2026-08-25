@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import { Button, Heading, MediaCard, Section, Text } from '@/components/ui';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
+import { ABOUT_CONTENT } from './about-content';
 
-export function AboutCta() {
+export function AboutCta({ locale = 'pt' }: { locale?: Locale }) {
+  const c = ABOUT_CONTENT[locale].cta;
   return (
     <Section padding="tall" containerClassName="relative">
       <MediaCard
@@ -17,7 +19,7 @@ export function AboutCta() {
           <>
             <Image
               src="/img/about/cta-pai-inacio.webp"
-              alt="Trilha diante do Morro do Pai Inácio"
+              alt={c.fotoAlt}
               fill
               sizes="(min-width: 1280px) 1216px, 100vw"
               style={{ objectPosition: '50% 55%' }}
@@ -39,9 +41,9 @@ export function AboutCta() {
               balance
               className="max-lg:text-[clamp(28px,8.4vw,36px)]"
             >
-              Sua trilha começa
+              {c.titulo[0]}
               <br />
-              com uma mensagem.
+              {c.titulo[1]}
             </Heading>
             <Text
               size="sm"
@@ -50,12 +52,11 @@ export function AboutCta() {
               pretty
               className="max-w-131.5 lg:text-xl"
             >
-              Fale com a gente pelo WhatsApp. Descubra qual o seu roteiro ideal para conhecer a
-              Chapada Diamantina e como se preparar.
+              {c.corpo}
             </Text>
           </div>
           <Button href={SITE.whatsappUrl} arrow className="max-lg:w-full lg:self-start">
-            Entrar para o bando
+            {c.botao}
           </Button>
         </div>
 

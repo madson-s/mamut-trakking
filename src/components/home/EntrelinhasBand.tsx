@@ -1,16 +1,26 @@
 import Image from 'next/image';
 import { ArrowRightIcon, Section } from '@/components/ui';
 import { cn } from '@/lib/cn';
+import type { Locale } from '@/lib/site';
+import { HOME_CONTENT } from './home-content';
 
 const LABEL = 'text-center font-display text-[clamp(11px,3vw,24px)]';
 
-export function EntrelinhasBand({ overlap = false }: { overlap?: boolean }) {
+export function EntrelinhasBand({
+  overlap = false,
+  locale = 'pt',
+}: {
+  overlap?: boolean;
+  locale?: Locale;
+}) {
+  const c = HOME_CONTENT[locale].entrelinhas;
+
   return (
     <Section
       padding={overlap ? 'none' : 'compact'}
       container={false}
       className={overlap ? 'hidden h-15.25 px-6 lg:block' : 'hidden px-6 lg:block'}
-      aria-label="Um bando que reune o mundo inteiro"
+      aria-label={c.rotulo}
     >
       <div
         className={cn(
@@ -21,7 +31,7 @@ export function EntrelinhasBand({ overlap = false }: { overlap?: boolean }) {
         <span
           className={`absolute top-[1.45%] left-0 z-10 flex h-[97.1%] w-[22.43%] items-center justify-center rounded-pill bg-surface-raised px-2 text-content ${LABEL}`}
         >
-          Um bando
+          {c.bando}
         </span>
 
         <span className="absolute top-0 left-[20.47%] z-20 flex h-full w-[22.43%] items-center justify-center">
@@ -32,7 +42,7 @@ export function EntrelinhasBand({ overlap = false }: { overlap?: boolean }) {
             sizes="(min-width: 849px) 180px, 23vw"
             className="object-fill"
           />
-          <span className={`relative z-10 px-1 text-on-media ${LABEL}`}>que reune</span>
+          <span className={`relative z-10 px-1 text-on-media ${LABEL}`}>{c.reune}</span>
         </span>
 
         <span className="absolute top-[1.45%] left-[40.2%] z-30 flex h-[97.1%] w-[25.64%] items-center justify-center rounded-pill bg-brand text-brand-contrast">
@@ -47,7 +57,7 @@ export function EntrelinhasBand({ overlap = false }: { overlap?: boolean }) {
             sizes="(min-width: 849px) 300px, 38vw"
             className="object-fill"
           />
-          <span className={`relative z-10 px-2 text-on-media ${LABEL}`}>o mundo inteiro!</span>
+          <span className={`relative z-10 px-2 text-on-media ${LABEL}`}>{c.mundo}</span>
         </span>
       </div>
     </Section>

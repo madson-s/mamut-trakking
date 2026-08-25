@@ -3,7 +3,7 @@ import { AboutCta } from '@/components/about/AboutCta';
 import { ManifestoCreed } from '@/components/manifesto/ManifestoCreed';
 import { MANIFESTO_CONTENT } from '@/components/manifesto/manifesto-content';
 
-const CONTENT = MANIFESTO_CONTENT.pt;
+const CONTENT = MANIFESTO_CONTENT.en;
 
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
@@ -21,8 +21,8 @@ export const metadata: Metadata = {
 export default function ManifestoRoute() {
   return (
     <>
-      <ManifestoCreed locale="pt" />
-      <AboutCta locale="pt" />
+      <ManifestoCreed locale="en" />
+      <AboutCta locale="en" />
     </>
   );
 }

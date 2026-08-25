@@ -7,7 +7,7 @@ const PEEK = 32;
 const QUOTE =
   '"Nosso guia Átila tinha muito conhecimento da região, era atencioso e apaixonado pelo Pati. Sempre nos preparava para o que esperar de cada trecho — e ainda compartilhava histórias locais."';
 
-type Testimonial = {
+export type Testimonial = {
   name: string;
   title: string;
   rating: string;
@@ -22,6 +22,8 @@ const DEFAULT_TESTIMONIALS: Testimonial[] = [
   { name: 'Paola Bertoncello', title: 'Marau, RS — Casal', rating: '5.0', quote: QUOTE },
 ];
 
+/** Quem avaliou: nome, nota, foto e link do TripAdvisor não mudam com o
+ *  idioma. Só a citação traduz — ver `homeTestimonials`. */
 export const HOME_TESTIMONIALS: Testimonial[] = [
   {
     name: 'Paola Bertoncello',
@@ -130,4 +132,12 @@ export function ScrollFeedbackStack({
       <div aria-hidden className="hidden lg:block lg:h-64" />
     </div>
   );
+}
+
+/** Os mesmos depoimentos, com a citação no idioma pedido. */
+export function homeTestimonials(quotes: readonly string[]): Testimonial[] {
+  return HOME_TESTIMONIALS.map((depoimento, i) => ({
+    ...depoimento,
+    quote: quotes[i] ?? depoimento.quote,
+  }));
 }

@@ -1,89 +1,36 @@
 import type { Metadata } from 'next';
-import {
-  AdventureCard,
-  AdventureGrid,
-  Button,
-  Section,
-  SectionHeading,
-} from '@/components/ui';
+import { Hero } from '@/components/home/Hero';
+import { StatsBar } from '@/components/home/StatsBar';
+import { ManifestoSection } from '@/components/home/ManifestoSection';
+import { PathsSection } from '@/components/home/PathsSection';
+import { EntrelinhasBand } from '@/components/home/EntrelinhasBand';
+import { GuidesSection } from '@/components/home/GuidesSection';
+import { ReviewsSection } from '@/components/home/ReviewsSection';
+import { FinalCta } from '@/components/home/FinalCta';
+import { HOME_CONTENT } from '@/components/home/home-content';
 
-// Home EN — content written directly here.
+const CONTENT = HOME_CONTENT.en;
+
 export const metadata: Metadata = {
-  alternates: { canonical: '/en', languages: { pt: '/pt', en: '/en', es: '/es' } },
+  description: CONTENT.meta.description,
+  alternates: {
+    canonical: '/en',
+    languages: { pt: '/pt', en: '/en', es: '/es' },
+  },
 };
 
-const IMG = 'https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg';
-
-export default function HomePage() {
+// Mesma composição da home em português — o idioma só troca o texto.
+export default function EnHomePage() {
   return (
     <>
-      <Section padding="tall" containerClassName="flex flex-col items-center">
-        <SectionHeading
-          as="h1"
-          size="hero"
-          align="center"
-          eyebrow="Chapada Diamantina · Bahia"
-          title="Treks and adventures in Chapada Diamantina"
-          lead="A specialist operator for hikes, traverses and guided tours, with local guides and low-impact tourism."
-          maxWidth="max-w-[900px]"
-          actions={<Button href="/en/adventures" arrow>See adventures</Button>}
-        />
-      </Section>
-
-      <Section
-        surface="muted"
-        bordered
-        padding="compact"
-        containerClassName="flex flex-col gap-12"
-      >
-        <SectionHeading title="Featured itineraries" />
-        <AdventureGrid columns={4}>
-          <AdventureCard
-            locale="en"
-            href="/en/adventures/palmital-waterfall"
-            image={IMG}
-            title="Palmital Waterfall — 2 Days"
-            level="Moderate"
-            distance="22km"
-            summary="A two-day trek to Palmital Waterfall."
-            price={1350}
-            fromLabel="From"
-          />
-          <AdventureCard
-            locale="en"
-            href="/en/adventures/aguas-claras-trail"
-            image={IMG}
-            title="Águas Claras Trail"
-            level="Easy"
-            distance="12km"
-            summary="A day hike through the natural pools and waterfalls near Lençóis."
-            price={350}
-            fromLabel="From"
-          />
-          <AdventureCard
-            locale="en"
-            href="/en/adventures/mosquito-waterfall-pai-inacio"
-            image={IMG}
-            title="Mosquito Waterfall + Pai Inácio Peak"
-            level="Moderate"
-            distance="8km"
-            summary="A day tour combining Mosquito Waterfall and sunset at Pai Inácio Peak."
-            price={420}
-            fromLabel="From"
-          />
-          <AdventureCard
-            locale="en"
-            href="/en/adventures/mixila-waterfall"
-            image={IMG}
-            title="Mixila Waterfall"
-            level="Moderate"
-            distance="18km"
-            summary="A trek to Mixila Waterfall, one of the most pristine in the region."
-            price={1250}
-            fromLabel="From"
-          />
-        </AdventureGrid>
-      </Section>
+      <Hero locale="en" />
+      <StatsBar locale="en" />
+      <ManifestoSection locale="en" />
+      <PathsSection locale="en" />
+      <EntrelinhasBand overlap locale="en" />
+      <GuidesSection locale="en" />
+      <ReviewsSection locale="en" />
+      <FinalCta locale="en" />
     </>
   );
 }

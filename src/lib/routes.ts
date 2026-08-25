@@ -29,9 +29,9 @@ export const ADVENTURE_ROUTES: AdventureRoute[] = [
 const PAGE_ROUTES: Partial<Record<Locale, string>>[] = [
   { pt: 'formulario-participante', en: 'participant-form', es: 'formulario-participante' },
   { pt: 'dicas', en: 'tips', es: 'consejos' },
-  { pt: 'sobre' },
-  { pt: 'manifesto' },
-  { pt: 'contato' },
+  { pt: 'sobre', en: 'about', es: 'quienes-somos' },
+  { pt: 'manifesto', en: 'manifesto', es: 'manifiesto' },
+  { pt: 'contato', en: 'contact', es: 'contacto' },
 ];
 
 function isLocale(value: string | undefined): value is Locale {

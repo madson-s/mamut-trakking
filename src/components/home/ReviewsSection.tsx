@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import { Badge, Button, Container, Heading, Section, StarIcon, Stat } from '@/components/ui';
-import {
-  HOME_TESTIMONIALS,
-  ScrollFeedbackStack,
-} from '@/components/home/ScrollFeedbackStack';
+import { ScrollFeedbackStack, homeTestimonials } from '@/components/home/ScrollFeedbackStack';
+import type { Locale } from '@/lib/site';
+import { HOME_CONTENT } from './home-content';
 
 const TRIPADVISOR_URL =
   'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html';
 
-export function ReviewsSection() {
+export function ReviewsSection({ locale = 'pt' }: { locale?: Locale }) {
+  const c = HOME_CONTENT[locale].reviews;
+
   return (
     <Section
       surface="muted"
@@ -24,33 +25,33 @@ export function ReviewsSection() {
               size="lg"
               className="self-start max-lg:min-h-8 max-lg:px-3 max-lg:py-1 max-lg:text-sm"
             >
-              Avaliações verificadas · TripAdvisor
+              {c.badge}
             </Badge>
 
             <Heading size="hero">
-              O que nosso bando
+              {c.titulo.antes}
               <br />
-              diz das aventuras.
+              {c.titulo.destaque}
             </Heading>
 
             <div className="flex flex-wrap items-center gap-2 lg:hidden">
               <Badge variant="soft" size="sm">
-                145 avaliações
+                {c.avaliacoes}
               </Badge>
               <Badge
                 variant="soft"
                 size="sm"
                 icon={<StarIcon className="size-3.5 text-warning-500" />}
               >
-                5.0 geral
+                {c.mediaChip}
               </Badge>
               <Badge variant="soft" size="sm">
-                #5 em Lençóis
+                {c.rankingChip}
               </Badge>
             </div>
 
             <div className="hidden flex-wrap items-stretch gap-4 lg:flex">
-              <Stat variant="chip" value="145" label="Avaliações" />
+              <Stat variant="chip" value="145" label={c.avaliacoesLabel} />
               <Stat
                 variant="chip"
                 value={
@@ -59,22 +60,22 @@ export function ReviewsSection() {
                     5.0
                   </span>
                 }
-                label="Média de nota geral"
+                label={c.mediaLabel}
               />
               <Stat
                 variant="chip"
-                value="#5 no ranking"
-                label="de atividades ao ar livre em Lençois"
+                value={c.ranking}
+                label={c.rankingLabel}
               />
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-4 max-lg:order-3 max-lg:flex-col max-lg:items-stretch max-lg:gap-3">
-            <Button href="/pt/aventuras" arrow className="max-lg:w-full">
-              Escolha a sua trilha
+            <Button href={c.ctaTrilhaHref} arrow className="max-lg:w-full">
+              {c.ctaTrilha}
             </Button>
             <Button href={TRIPADVISOR_URL} variant="outline" className="max-lg:w-full">
-              Conheça o nosso TripAdvisor
+              {c.ctaTripadvisor}
             </Button>
           </div>
 
@@ -91,7 +92,7 @@ export function ReviewsSection() {
         </div>
 
         <div className="max-lg:order-2 lg:contents">
-          <ScrollFeedbackStack testimonials={HOME_TESTIMONIALS} />
+          <ScrollFeedbackStack testimonials={homeTestimonials(c.depoimentos)} />
         </div>
       </Container>
     </Section>

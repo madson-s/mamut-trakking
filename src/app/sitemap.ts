@@ -22,8 +22,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Página institucional já redesenhada em português. EN/ES permanecem fora
   // até receberem conteúdo equivalente, conforme a arquitetura atual do repo.
   entries.push({ url: `${BASE}/pt/sobre` });
+  entries.push({ url: `${BASE}/en/about` });
+  entries.push({ url: `${BASE}/es/quienes-somos` });
   entries.push({ url: `${BASE}/pt/manifesto` });
+  entries.push({ url: `${BASE}/en/manifesto` });
+  entries.push({ url: `${BASE}/es/manifiesto` });
   entries.push({ url: `${BASE}/pt/contato` });
+  entries.push({ url: `${BASE}/en/contact` });
+  entries.push({ url: `${BASE}/es/contacto` });
   entries.push({ url: `${BASE}/pt/dicas` });
 
   // Cada roteiro, em cada idioma.

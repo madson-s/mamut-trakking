@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { Button, Card, FacebookIcon, Heading, InstagramIcon, Text } from '@/components/ui';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
+import { CONTATO_CONTENT } from './contato-content';
 
 // Endereço e perfis são os mesmos publicados em mamut.agency/contato.
 const ADDRESS = 'Avenida 7 de Setembro, Centro, Lençóis, Bahia — 46960-000';
@@ -41,21 +42,22 @@ function ChannelCard({
   );
 }
 
-export function ContatoChannels() {
+export function ContatoChannels({ locale = 'pt' }: { locale?: Locale }) {
+  const c = CONTATO_CONTENT[locale].canais;
   return (
     <div className="flex flex-col gap-6">
-      <ChannelCard icon="/svg/figma/pati-3/whatsapp.svg" title="WhatsApp">
+      <ChannelCard icon="/svg/figma/pati-3/whatsapp.svg" title={c.whatsapp.titulo}>
         <Text size="sm" tone="muted" pretty>
-          O caminho mais rápido — respondemos em até 2h, em PT · EN · ES.
+          {c.whatsapp.texto}
         </Text>
         <Button href={SITE.whatsappUrl} size="sm" arrow className="mt-2 self-start">
-          Falar no WhatsApp
+          {c.whatsapp.cta}
         </Button>
       </ChannelCard>
 
-      <ChannelCard icon="/svg/_icons/icon_07_text.svg" title="E-mail">
+      <ChannelCard icon="/svg/_icons/icon_07_text.svg" title={c.email.titulo}>
         <Text size="sm" tone="muted" pretty>
-          Entre em contato via e-mail se preferir.
+          {c.email.texto}
         </Text>
         <a
           href={`mailto:${SITE.email}`}
@@ -65,7 +67,7 @@ export function ContatoChannels() {
         </a>
       </ChannelCard>
 
-      <ChannelCard icon="/svg/_icons/icon_09_location.svg" title="Encontre-nos pessoalmente em">
+      <ChannelCard icon="/svg/_icons/icon_09_location.svg" title={c.endereco.titulo}>
         <Text size="sm" tone="muted" pretty>
           {ADDRESS}
         </Text>
@@ -75,11 +77,11 @@ export function ContatoChannels() {
           rel="noreferrer"
           className="mt-1 self-start font-body text-base text-content underline underline-offset-4 transition-colors ease-brand hover:text-brand-strong"
         >
-          Abrir no mapa
+          {c.endereco.mapa}
         </a>
       </ChannelCard>
 
-      <ChannelCard icon="/svg/_icons/icon_16_internet.svg" title="Encontre-nos nas redes sociais">
+      <ChannelCard icon="/svg/_icons/icon_16_internet.svg" title={c.redes.titulo}>
         <div className="mt-1 flex flex-wrap gap-2">
           {SOCIAL.map((rede) => (
             <a
@@ -95,7 +97,7 @@ export function ContatoChannels() {
           ))}
         </div>
         <Text size="xs" tone="subtle" className="mt-3">
-          Cadastur/CNPJ: {SITE.cadastur}
+          {c.redes.cadastur} {SITE.cadastur}
         </Text>
       </ChannelCard>
     </div>

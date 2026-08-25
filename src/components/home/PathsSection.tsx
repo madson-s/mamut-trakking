@@ -21,101 +21,51 @@ import {
   Text,
 } from '@/components/ui';
 import { Emphasis } from '@/components/ui/Text';
+import { ADVENTURE_ROUTES } from '@/lib/routes';
+import { ADVENTURE_SEGMENT, type Locale } from '@/lib/site';
+import { HOME_CONTENT, type TrailId } from './home-content';
 
 type Trail = {
+  id: TrailId;
   image: string;
   imagePosition?: string;
-  duration: string;
-  level: string;
   distance: string;
-  title: string;
-  description: string;
-  href: string;
 };
 
+// Foto e distância não mudam com o idioma; duração, nível, título, descrição e
+// destino vêm de `HOME_CONTENT` e do manifesto de rotas, pelo id.
 const TRAILS: Trail[] = [
-  {
-    image: '/img/adventures/home/vale-do-pati-3-dias.jpeg',
-    imagePosition: '50% 50%',
-    duration: '3 Dias',
-    level: 'Médio',
-    distance: '46km',
-    title: 'Vale do Pati (03 dias)',
-    description:
-      'Uma imersão de três dias entre cânions, rios e comunidades no coração do Vale do Pati.',
-    href: '/pt/aventuras/vale-do-pati-3-dias',
-  },
-  {
-    image: '/img/adventures/home/cachoeira-do-palmital.jpeg',
-    imagePosition: '50% 50%',
-    duration: '2 Dias',
-    level: 'Médio',
-    distance: '22km',
-    title: 'Cachoeira do Palmital 02 Dias',
-    description:
-      'Uma travessia entre campos de altitude e paredões até as águas da Cachoeira do Palmital.',
-    href: '/pt/aventuras/cachoeira-do-palmital',
-  },
-  {
-    image: '/img/adventures/home/vale-do-pati-5-dias.jpeg',
-    imagePosition: '50% 50%',
-    duration: '5 Dias',
-    level: 'Médio',
-    distance: '78km',
-    title: 'Vale do Pati (05 dias)',
-    description:
-      'Localizado no coração do Parque Nacional da Chapada Diamantina (PNCD), rodeado por montanhas, cachoeiras e grutas.',
-    href: '/pt/aventuras/vale-do-pati-5-dias',
-  },
-  {
-    image: '/img/adventures/home/trilha-aguas-claras.jpg',
-    imagePosition: '50% 50%',
-    duration: '1 Dia',
-    level: 'Leve',
-    distance: '12km',
-    title: 'Trilha Águas Claras',
-    description:
-      'Um dia entre campos rupestres, piscinas naturais e os grandes paredões da Chapada Diamantina.',
-    href: '/pt/aventuras/trilha-aguas-claras',
-  },
-  {
-    image: '/img/adventures/home/mosquito-pai-inacio.jpeg',
-    imagePosition: '50% 50%',
-    duration: '1 Dia',
-    level: 'Médio',
-    distance: '8km',
-    title: 'Mosquito + Pai Inácio',
-    description:
-      'Cachoeira do Mosquito e pôr do sol no Morro do Pai Inácio em um roteiro completo de um dia.',
-    href: '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio',
-  },
-  {
-    image: '/img/adventures/home/cachoeira-do-mixila.jpeg',
-    imagePosition: '50% 50%',
-    duration: '2 Dias',
-    level: 'Médio',
-    distance: '18km',
-    title: 'Cachoeira do Mixila',
-    description:
-      'Uma travessia até uma das cachoeiras mais preservadas da região de Lençóis.',
-    href: '/pt/aventuras/cachoeira-do-mixila',
-  },
-  {
-    image: '/img/adventures/home/vale-do-pati-4-dias.jpeg',
-    imagePosition: '50% 50%',
-    duration: '4 Dias',
-    level: 'Desafiador',
-    distance: '45km',
-    title: 'Vale do Pati (04 dias)',
-    description:
-      'Quatro dias explorando mirantes, cachoeiras e casas de nativos no Vale do Pati.',
-    href: '/pt/aventuras/vale-do-pati-4-dias',
-  },
+  { id: 'vale-do-pati-3', image: '/img/adventures/home/vale-do-pati-3-dias.jpeg', imagePosition: '50% 50%', distance: '46km' },
+  { id: 'palmital', image: '/img/adventures/home/cachoeira-do-palmital.jpeg', imagePosition: '50% 50%', distance: '22km' },
+  { id: 'vale-do-pati-5', image: '/img/adventures/home/vale-do-pati-5-dias.jpeg', imagePosition: '50% 50%', distance: '78km' },
+  { id: 'aguas-claras', image: '/img/adventures/home/trilha-aguas-claras.jpg', imagePosition: '50% 50%', distance: '12km' },
+  { id: 'mosquito-pai-inacio', image: '/img/adventures/home/mosquito-pai-inacio.jpeg', imagePosition: '50% 50%', distance: '8km' },
+  { id: 'mixila', image: '/img/adventures/home/cachoeira-do-mixila.jpeg', imagePosition: '50% 50%', distance: '18km' },
+  { id: 'vale-do-pati-4', image: '/img/adventures/home/vale-do-pati-4-dias.jpeg', imagePosition: '50% 50%', distance: '45km' },
 ];
+
+/** Junta a parte fixa do card com o texto e o link do idioma. */
+function trilhasDoIdioma(locale: Locale) {
+  const seg = ADVENTURE_SEGMENT[locale];
+  const c = HOME_CONTENT[locale].paths.trilhas;
+
+  return TRAILS.map((trail) => {
+    const rota = ADVENTURE_ROUTES.find((r) => r.id === trail.id);
+    return {
+      ...trail,
+      ...c[trail.id],
+      href: rota ? `/${locale}/${seg}/${rota[locale]}` : `/${locale}/${seg}`,
+    };
+  });
+}
+
+type TrailWithCopy = ReturnType<typeof trilhasDoIdioma>[number];
 
 const ICON_ROOT = '/svg/figma/paths';
 
-export function PathsSection() {
+export function PathsSection({ locale = 'pt' }: { locale?: Locale }) {
+  const c = HOME_CONTENT[locale].paths;
+  const trilhas = trilhasDoIdioma(locale);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [canScrollPrevious, setCanScrollPrevious] = useState(false);
@@ -281,11 +231,11 @@ export function PathsSection() {
         <SectionHeading
           layout="inline"
           titleId="paths-heading"
-          title={<span className="max-sm:text-[36px]">Escolha seu caminho</span>}
+          title={<span className="max-sm:text-[36px]">{c.eyebrow}</span>}
           actions={
             <div className="hidden lg:block">
-              <Button href="/pt/aventuras" arrow>
-                Todos os roteiros
+              <Button href={c.todosHref} arrow>
+                {c.todos}
               </Button>
             </div>
           }
@@ -293,7 +243,7 @@ export function PathsSection() {
 
         <div className="hidden items-center gap-3 lg:flex">
           <IconButton
-            label="Mostrar roteiro anterior"
+            label={c.carrossel.anterior}
             variant="outline"
             onClick={() => scrollCarousel(-1)}
             disabled={!canScrollPrevious}
@@ -302,7 +252,7 @@ export function PathsSection() {
             <CaretDownIcon className="size-6 rotate-90 transition-transform duration-300 group-hover:-translate-x-0.5" />
           </IconButton>
           <IconButton
-            label="Mostrar próximo roteiro"
+            label={c.carrossel.proximo}
             onClick={() => scrollCarousel(1)}
             disabled={!canScrollNext}
             aria-controls="paths-carousel"
@@ -327,11 +277,12 @@ export function PathsSection() {
               ? 'cursor-grabbing snap-none'
               : 'cursor-grab snap-x snap-mandatory scroll-smooth'
           }`}
-          aria-label="Carrossel de roteiros"
+          aria-label={c.carrossel.rotulo}
           aria-live="polite"
         >
-          {TRAILS.map((trail, index) => (
+          {trilhas.map((trail, index) => (
             <TrailCard
+              explorarLabel={c.explorar}
               key={`${trail.title}-${index}`}
               trail={trail}
               isActive={activeIndex === index}
@@ -343,15 +294,15 @@ export function PathsSection() {
         </div>
 
         <Text size="sm" weight="light" tone="muted" className="text-center lg:hidden">
-          Arraste para explorar os próximos roteiros →
+          {c.arraste}
         </Text>
 
         <div
           role="tablist"
-          aria-label="Página do carrossel de roteiros"
+          aria-label={c.carrossel.pagina}
           className="flex items-center justify-center gap-2 lg:hidden"
         >
-          {TRAILS.map((trail, index) => (
+          {trilhas.map((trail, index) => (
             <button
               key={`${trail.title}-dot-${index}`}
               type="button"
@@ -368,7 +319,7 @@ export function PathsSection() {
 
         <div
           role="progressbar"
-          aria-label="Progresso do carrossel de roteiros"
+          aria-label={c.carrossel.progresso}
           aria-valuemin={0}
           aria-valuemax={100}
           aria-valuenow={Math.round(carouselProgress.value * 100)}
@@ -383,8 +334,8 @@ export function PathsSection() {
           />
         </div>
 
-        <Button href="/pt/aventuras" arrow block className="mt-2 lg:hidden">
-          Todos os roteiros
+        <Button href={c.todosHref} arrow block className="mt-2 lg:hidden">
+          {c.todos}
         </Button>
       </div>
 
@@ -410,10 +361,12 @@ function TrailCard({
   trail,
   isActive,
   onActivate,
+  explorarLabel,
 }: {
-  trail: Trail;
+  trail: TrailWithCopy;
   isActive: boolean;
   onActivate: () => void;
+  explorarLabel: string;
 }) {
   return (
     <article
@@ -503,7 +456,7 @@ function TrailCard({
             arrow
             className="lg:w-full lg:justify-between"
           >
-            Explorar a trilha
+            {explorarLabel}
           </Button>
         </div>
       </MediaCard>

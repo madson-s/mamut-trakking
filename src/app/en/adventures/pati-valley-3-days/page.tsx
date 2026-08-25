@@ -1,34 +1,31 @@
-import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import type { Metadata, Viewport } from 'next';
+import { PatiThreeDayExperience } from '@/components/adventure/PatiThreeDayExperience';
+import { PATI3_CONTENT } from '@/components/adventure/pati-3-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const IMG = '/img/vale-do-pati/vale-do-pati-04.webp';
+const CONTENT = PATI3_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "Pati Valley — 3 Days",
-  description: "The classic Pati Valley traverse in three days.",
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: "/en/adventures/pati-valley-3-days",
-    languages: { pt: "/pt/aventuras/vale-do-pati-3-dias", en: "/en/adventures/pati-valley-3-days", es: "/es/aventuras/valle-del-pati-3-dias" },
+    canonical: CONTENT.meta.canonical,
+    languages: {
+      pt: '/pt/aventuras/vale-do-pati-3-dias',
+      en: '/en/adventures/pati-valley-3-days',
+      es: '/es/aventuras/valle-del-pati-3-dias'
+    },
   },
-  openGraph: { title: "Pati Valley — 3 Days", description: "The classic Pati Valley traverse in three days.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.ogDescription,
+    images: [IMG],
+    type: 'article',
+  },
 };
 
-export default function Page() {
-  return (
-    <AdventureDetail
-      locale="en"
-      title={"Pati Valley — 3 Days"}
-      summary={"The classic Pati Valley traverse in three days."}
-      level={"Challenging"}
-      distance={"35km"}
-      origin={"Guiné / Vale do Capão"}
-      price={1950}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
-  );
+export const viewport: Viewport = { themeColor: '#1f1f1f' };
+
+export default function PatiValley3Route() {
+  return <PatiThreeDayExperience locale="en" />;
 }

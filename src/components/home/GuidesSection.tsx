@@ -5,18 +5,29 @@ import Image from 'next/image';
 import { Badge, Button, Heading, Section, Text } from '@/components/ui';
 import { focus, motion } from '@/design/tokens';
 import { cn } from '@/lib/cn';
+import type { Locale } from '@/lib/site';
+import { HOME_CONTENT } from './home-content';
+import { ABOUT_CONTENT } from '@/components/about/about-content';
 import { GUIDES } from '../about/about-data';
 
 const GUIDE_CARD_SIZES = '(min-width: 1024px) 280px, 216px';
 
 const HOME_GUIDES = GUIDES.slice(0, 4);
 
+/** Guia + função/bio no idioma pedido. */
+function guiasDoIdioma(locale: Locale) {
+  const texto = ABOUT_CONTENT[locale].guiaTexto;
+  return HOME_GUIDES.map((guide) => ({ ...guide, ...texto[guide.id] }));
+}
+
 const CROSSFADE = cn(
   'object-cover transition-[opacity,transform] duration-500 ease-brand',
   'group-hover/guide:scale-[1.025] group-focus-visible/guide:scale-[1.025]',
 );
 
-export function GuidesSection() {
+export function GuidesSection({ locale = 'pt' }: { locale?: Locale }) {
+  const c = HOME_CONTENT[locale].guides;
+  const guias = guiasDoIdioma(locale);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [dotIndex, setDotIndex] = useState(0);
 
@@ -86,10 +97,10 @@ export function GuidesSection() {
     >
       <div className="flex w-full flex-col items-center gap-8 lg:gap-16">
         <Heading size="hero" className="text-center max-sm:text-[clamp(28px,8.4vw,36px)]">
-          Nascidos aqui.
+          {c.titulo.linha1}
           <br />
           <span className="inline-flex flex-wrap items-center justify-center gap-x-2 lg:gap-x-4">
-            Formados pela
+            {c.titulo.linha2}
             <span className="hidden lg:inline">
               <Image
                 src="/img/home_square_right_morro_1_1_5x.webp"
@@ -100,7 +111,7 @@ export function GuidesSection() {
                 className="inline-block h-[1.333em] w-[2.033em] rounded-pill object-cover align-middle"
               />
             </span>
-            Chapada.
+            {c.titulo.linha3}
           </span>
         </Heading>
 
@@ -112,7 +123,7 @@ export function GuidesSection() {
             'lg:grid lg:grid-cols-4 lg:gap-6 lg:overflow-visible lg:pb-0',
           )}
         >
-          {HOME_GUIDES.map((guide) => (
+          {guias.map((guide) => (
             <article
               key={guide.name}
               data-guide-card
@@ -185,10 +196,10 @@ export function GuidesSection() {
 
       <div
         role="tablist"
-        aria-label="Página dos guias"
+        aria-label={c.pagina}
         className="flex items-center justify-center gap-2 lg:hidden"
       >
-        {HOME_GUIDES.map((guide, i) => (
+        {guias.map((guide, i) => (
           <button
             key={`${guide.name}-dot-${i}`}
             type="button"
@@ -204,8 +215,8 @@ export function GuidesSection() {
         ))}
       </div>
 
-      <Button href="/pt/sobre#guias" arrow block className="lg:w-auto">
-        Conheça quem guia o nosso bando
+      <Button href={c.ctaHref} arrow block className="lg:w-auto">
+        {c.cta}
       </Button>
     </Section>
   );

@@ -68,14 +68,14 @@ export function HomeHeader({ locale = 'pt' }: { locale?: Locale }) {
           ))}
         </nav>
 
-        <div className="flex shrink-0 items-center gap-2.5">
+        <div className="site-header-controls flex shrink-0 items-center gap-2.5">
           <Theme variant="toggle" size="lg" className="lg:hidden" />
           <LanguageSwitcher />
           <MobileMenu nav={chrome.nav} content={chrome.menu} />
 
           <div className="hidden items-center gap-2.5 lg:flex">
             <Button href={SITE.whatsappUrl} size="sm" arrow>
-              Falar no WhatsApp
+              {chrome.whatsapp}
             </Button>
             <Theme variant="toggle" size="lg" />
           </div>

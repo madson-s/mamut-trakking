@@ -5,44 +5,36 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon } from '@/components/ui';
 import { cn } from '@/lib/cn';
+import type { Locale } from '@/lib/site';
+import { HOME_CONTENT } from './home-content';
 
-const DESTINATIONS = [
-  {
-    src: '/img/adventures/home/vale-do-pati-3-dias.jpeg',
-    alt: 'Caminhantes percorrendo o Vale do Pati',
-    title: 'Vale do Pati',
-    subtitle: '3 dias · travessia',
-    href: '/pt/aventuras/vale-do-pati-3-dias',
-  },
-  {
-    src: '/img/adventures/home/cachoeira-do-palmital.jpeg',
-    alt: 'Queda-d’água da Cachoeira do Palmital',
-    title: 'Cachoeira do Palmital',
-    subtitle: '2 dias · trekking',
-    href: '/pt/aventuras/cachoeira-do-palmital',
-  },
-  {
-    src: '/img/home_square_right_morro_3_1_5x.webp',
-    alt: 'Morro do Pai Inácio',
-    title: 'Pai Inácio',
-    subtitle: '1 dia · trekking',
-    href: '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio',
-  },
+// As fotos são fixas; título, legenda e destino vêm do idioma.
+const FOTOS = [
+  { src: '/img/adventures/home/vale-do-pati-3-dias.jpeg', alt: 'Caminhantes percorrendo o Vale do Pati' },
+  { src: '/img/adventures/home/cachoeira-do-palmital.jpeg', alt: 'Queda-d’água da Cachoeira do Palmital' },
+  { src: '/img/home_square_right_morro_3_1_5x.webp', alt: 'Morro do Pai Inácio' },
 ] as const;
 
-export function HeroDestinations() {
+export function HeroDestinations({ locale = 'pt' }: { locale?: Locale }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
+  const hero = HOME_CONTENT[locale].hero;
+  const destinations = hero.destinos.map((destino, i) => ({
+    ...FOTOS[i],
+    title: destino.titulo,
+    subtitle: destino.subtitulo,
+    href: destino.href,
+  }));
 
   return (
     <div className="flex h-32.25 items-start gap-6">
-      {DESTINATIONS.map((destination, i) => {
+      {destinations.map((destination, i) => {
         const isActive = activeIndex === i;
 
         return (
           <Link
             key={destination.href}
             href={destination.href}
-            aria-label={`Conhecer ${destination.title}`}
+            aria-label={`${hero.verDestino} ${destination.title}`}
             onMouseEnter={() => setActiveIndex(i)}
             onMouseLeave={() => setActiveIndex((current) => (current === i ? null : current))}
             onFocus={() => setActiveIndex(i)}

@@ -1,11 +1,14 @@
 import Image, { getImageProps } from 'next/image';
 import { Button, Heading, MediaCard, Section, Text } from '@/components/ui';
+import type { Locale } from '@/lib/site';
+import { HOME_CONTENT } from './home-content';
 
 const CARD_WIDE = { src: '/img/session_02_saqure_text_crop.webp', width: 1217, height: 284 };
 const CARD_TALL = { src: '/img/session-02_saqure-text_no-crop.webp', width: 2000, height: 1600 };
 const WALKERS = { src: '/svg/about/story-walkers.svg', width: 290, height: 114 };
 
-export function ManifestoSection() {
+export function ManifestoSection({ locale = 'pt' }: { locale?: Locale }) {
+  const c = HOME_CONTENT[locale].manifesto;
   const cardCommon = { alt: '', sizes: '100vw' } as const;
   const {
     props: { srcSet: cardWideSrcSet },
@@ -20,12 +23,12 @@ export function ManifestoSection() {
     >
       <div className="flex max-w-2xl flex-col items-center gap-8 text-center sm:gap-12">
         <Text size="sm" weight="light" className="sm:text-xl">
-          Inspirados pelos nossos antepassados nômades
+          {c.eyebrow}
         </Text>
 
         <Heading size="hero" className="max-sm:text-[clamp(30px,9vw,36px)]">
           <span className="inline-flex flex-wrap items-center justify-center gap-x-2 sm:flex-nowrap sm:gap-x-4">
-            Somos o
+            {c.titulo.antes}
             <Image
               src="/img/mamut_logo_pren_morro-1.webp"
               alt=""
@@ -34,10 +37,10 @@ export function ManifestoSection() {
               sizes="(min-width: 1024px) 145px, (min-width: 640px) 116px, 92px"
               className="inline-block h-13 w-23 shrink-0 object-contain align-middle sm:h-16.5 sm:w-29 lg:h-20.5 lg:w-36.25"
             />
-            bando
+            {c.titulo.meio}
           </span>
           <br />
-          que guia a sua tribo.
+          {c.titulo.depois}
         </Heading>
       </div>
 
@@ -62,21 +65,20 @@ export function ManifestoSection() {
         >
           <div className="flex max-w-107 flex-col items-center gap-5 sm:gap-6 lg:items-start">
             <div className="flex flex-col gap-3">
-              <Text size="base" weight="light" tone="onMedia" leading="relaxed" pretty className="sm:text-xl">
-                Na imensidão dos mega continentes, os mamutes caminhavam em grandes grupos — marcando
-                sua existência para sempre.
+              <Text size="sm" weight="light" tone="onMedia" leading="relaxed" pretty className="sm:text-xl">
+                {c.corpo}
               </Text>
               <Heading
                 as="p"
                 size="quote"
                 tone="onMedia"
-                className="max-sm:text-[clamp(18px,6.1vw,24px)] max-sm:whitespace-nowrap"
+                className="max-sm:text-[clamp(16px,5.57vw,22px)] max-sm:whitespace-nowrap"
               >
-                É dessa memória que nascemos.
+                {c.memoria}
               </Heading>
             </div>
-            <Button href="/pt/manifesto" variant="outlineOnMedia" arrow>
-              Leia nosso manifesto
+            <Button href={c.ctaHref} variant="outlineOnMedia" arrow>
+              {c.cta}
             </Button>
           </div>
         </MediaCard>

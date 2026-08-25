@@ -30,13 +30,29 @@ export const DEFAULT_FILTERS: AdventureFilters = {
   budget: MAX_BUDGET,
 };
 
-export const locationLabel = (value: string) => (value === 'all' ? 'Todos os locais' : value);
+/**
+ * Rótulos por idioma. Os VALORES dos filtros seguem em português — são chaves
+ * de dado (`difficultyGroup`, nome da vila), não texto de interface.
+ */
+export type FilterLabels = {
+  todosLocais: string;
+  qualquerDuracao: string;
+  todosNiveis: string;
+  dia: string;
+  dias: string;
+  niveis: Record<Exclude<DifficultyFilter, 'all'>, string>;
+};
 
-export const durationLabel = (value: string) =>
-  value === 'all' ? 'Qualquer duração' : `${value} ${value === '1' ? 'dia' : 'dias'}`;
+export const locationLabel = (value: string, labels: FilterLabels) =>
+  value === 'all' ? labels.todosLocais : value;
 
-export const difficultyLabel = (value: DifficultyFilter) =>
-  value === 'all' ? 'Todos os níveis' : value;
+export const durationLabel = (value: string, labels: FilterLabels) =>
+  value === 'all'
+    ? labels.qualquerDuracao
+    : `${value} ${value === '1' ? labels.dia : labels.dias}`;
+
+export const difficultyLabel = (value: DifficultyFilter, labels: FilterLabels) =>
+  value === 'all' ? labels.todosNiveis : labels.niveis[value];
 
 export function matchesFilters(adventure: FilterableAdventure, filters: AdventureFilters) {
   return (
@@ -84,25 +100,27 @@ export function availableOptions(
 export function activeFilterList(
   filters: AdventureFilters,
   formatBudget: (value: number) => string,
+  labels: FilterLabels,
+  ateLabel: string,
 ) {
   return [
     filters.location !== 'all'
-      ? { id: 'location' as const, label: locationLabel(filters.location), reset: { location: 'all' } }
+      ? { id: 'location' as const, label: locationLabel(filters.location, labels), reset: { location: 'all' } }
       : null,
     filters.duration !== 'all'
-      ? { id: 'duration' as const, label: durationLabel(filters.duration), reset: { duration: 'all' } }
+      ? { id: 'duration' as const, label: durationLabel(filters.duration, labels), reset: { duration: 'all' } }
       : null,
     filters.difficulty !== 'all'
       ? {
           id: 'difficulty' as const,
-          label: difficultyLabel(filters.difficulty),
+          label: difficultyLabel(filters.difficulty, labels),
           reset: { difficulty: 'all' as DifficultyFilter },
         }
       : null,
     filters.budget !== MAX_BUDGET
       ? {
           id: 'budget' as const,
-          label: `Até ${formatBudget(filters.budget)}`,
+          label: `${ateLabel} ${formatBudget(filters.budget)}`,
           reset: { budget: MAX_BUDGET },
         }
       : null,

@@ -8,16 +8,16 @@ import {
   StarIcon,
   Stat,
 } from '@/components/ui';
-import {
-  HOME_TESTIMONIALS,
-  ScrollFeedbackStack,
-} from '@/components/home/ScrollFeedbackStack';
+import { ScrollFeedbackStack, homeTestimonials } from '@/components/home/ScrollFeedbackStack';
+import type { Locale } from '@/lib/site';
+import { ABOUT_CONTENT } from './about-content';
 import { SITE } from '@/lib/site';
 
 const TRIPADVISOR_URL =
   'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html';
 
-export function AboutReviews() {
+export function AboutReviews({ locale = 'pt' }: { locale?: Locale }) {
+  const c = ABOUT_CONTENT[locale].reviews;
   return (
     <Section
       surface="muted"
@@ -43,7 +43,7 @@ export function AboutReviews() {
                   size="lg"
                   className="self-start max-lg:min-h-8 max-lg:px-3 max-lg:py-1 max-lg:text-sm"
                 >
-                  Avaliações verificadas · TripAdvisor
+                  {c.badge}
                 </Badge>
                 <Heading
                   as="h2"
@@ -53,38 +53,38 @@ export function AboutReviews() {
                   className="max-lg:text-[clamp(28px,8.4vw,36px)]"
                 >
                   <span className="lg:hidden">
-                    O que nosso bando
+                    {c.titulo.mobile[0]}
                     <br />
-                    diz das aventuras.
+                    {c.titulo.mobile[1]}
                   </span>
                   <span className="max-lg:hidden">
-                    Cada review é uma
+                    {c.titulo.desktop[0]}
                     <br />
-                    trilha que já fizemos
+                    {c.titulo.desktop[1]}
                     <br />
-                    <span className="text-brand-strong">juntos.</span>
+                    <span className="text-brand-strong">{c.titulo.desktop[2]}</span>
                   </span>
                 </Heading>
 
                 <div className="flex flex-wrap items-center gap-2 lg:hidden">
                   <Badge variant="soft" size="sm">
-                    145 avaliações
+                    {c.avaliacoes}
                   </Badge>
                   <Badge
                     variant="soft"
                     size="sm"
                     icon={<StarIcon className="size-3.5 text-warning-500" />}
                   >
-                    5.0 geral
+                    {c.mediaChip}
                   </Badge>
                   <Badge variant="soft" size="sm">
-                    #5 em Lençóis
+                    {c.rankingChip}
                   </Badge>
                 </div>
               </div>
 
               <div className="hidden flex-wrap items-stretch gap-4 lg:flex">
-                <Stat variant="chip" value="145" label="Avaliações" />
+                <Stat variant="chip" value="145" label={c.avaliacoesLabel} />
                 <Stat
                   variant="chip"
                   value={
@@ -93,35 +93,35 @@ export function AboutReviews() {
                       5.0
                     </span>
                   }
-                  label="Média de nota geral"
+                  label="{c.mediaLabel}"
                 />
                 <Stat
                   variant="chip"
-                  value="#5 no ranking"
-                  label="de atividades ao ar livre em Lençóis"
+                  value={c.ranking}
+                  label="{c.rankingLabel}"
                 />
               </div>
 
               <div className="flex flex-wrap gap-3 max-lg:order-3 max-lg:flex-col max-lg:items-stretch">
                 <Button href="/pt/aventuras" arrow className="w-full lg:hidden">
-                  Escolha a sua trilha
+                  {c.ctaTrilha}
                 </Button>
                 <Button href={SITE.whatsappUrl} arrow className="max-lg:hidden">
-                  Reservar pelo WhatsApp
+                  {c.ctaWhatsapp}
                 </Button>
                 <Button
                   href={TRIPADVISOR_URL}
                   variant="outline"
                   className="max-lg:w-full"
                 >
-                  <span className="lg:hidden">Conheça nosso TripAdvisor</span>
-                  <span className="max-lg:hidden">Conheça o nosso TripAdvisor</span>
+                  <span className="lg:hidden">{c.ctaTripadvisor}</span>
+                  <span className="max-lg:hidden">{c.ctaTripadvisor}</span>
                 </Button>
               </div>
             </div>
 
             <div className="max-lg:order-2 lg:contents">
-              <ScrollFeedbackStack testimonials={HOME_TESTIMONIALS} />
+              <ScrollFeedbackStack testimonials={homeTestimonials(c.depoimentos)} />
             </div>
           </Container>
     </Section>

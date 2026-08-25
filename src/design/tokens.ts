@@ -95,11 +95,15 @@ export const tone: Record<Tone, string> = {
 /* ------------------------------------------------------------------ */
 
 /** Títulos (Mergo). Cada preset já carrega a escala responsiva do Figma. */
-export type DisplaySize = 'hero' | 'section' | 'card' | 'quote' | 'label';
+export type DisplaySize = 'hero' | 'heroWide' | 'section' | 'card' | 'quote' | 'label';
 
 export const displaySize: Record<DisplaySize, string> = {
   /** 40 → 60 → 72 · h1 do hero e h2 das seções de respiro */
   hero: 'text-display-md leading-[1.1] sm:text-display-xl lg:text-display-2xl',
+  /** Igual a `hero`, mas o último passo só entra em 1124px (lg + 100px). É a
+   *  escala do h1 da home: as linhas em EN e ES são mais longas que as em PT e
+   *  precisam de mais largura antes de chegar aos 72px. */
+  heroWide: 'text-display-md leading-[1.1] sm:text-display-xl min-[1124px]:text-display-2xl',
   /** 40 → 48 · h2 padrão de seção */
   section: 'text-display-md sm:text-display-lg',
   /** 30 · título de card */

@@ -3,11 +3,15 @@ import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Heading';
 import { MediaCard } from '@/components/ui/MediaCard';
 import { Emphasis, Text } from '@/components/ui/Text';
+import { SITE, type Locale } from '@/lib/site';
 import { HeroDestinations } from './HeroDestinations';
+import { HOME_CONTENT } from './home-content';
 
 const HERO_BACKGROUND = '/img/home_backgroud/home_hero_background_1_5x.webp';
 
-export function Hero() {
+export function Hero({ locale = 'pt' }: { locale?: Locale }) {
+  const c = HOME_CONTENT[locale].hero;
+
   return (
     <section className="home-hero -mt-20 w-full pt-0 sm:mt-0 sm:pt-2">
       <div className="w-full px-0 sm:px-[max(24px,1.667vw)]">
@@ -31,12 +35,12 @@ export function Hero() {
           <div className="relative mx-auto flex h-full max-w-304 flex-col justify-end px-6 pb-8 lg:block lg:px-0 lg:pb-0">
             <div className="flex w-full flex-col gap-5 lg:absolute lg:bottom-25 lg:left-6 lg:w-155 lg:gap-6">
               <Text size="sm" weight="light" tone="onMediaSoft" className="sm:text-lg">
-                Guias nativos · Chapada Diamantina
+                {c.eyebrow}
                 <span className="hidden sm:inline"> · Lençóis, Bahia</span>
               </Text>
 
-              <Heading as="h1" size="hero" tone="onMedia" className="relative">
-                <span className="inline">MAMUT</span>
+              <Heading as="h1" size="heroWide" tone="onMedia" className="relative">
+                <span className="inline">{c.titulo.mamut}</span>
                 <Image
                   src="/svg/about/story-walkers.svg"
                   alt=""
@@ -45,12 +49,15 @@ export function Hero() {
                   unoptimized
                   className="pointer-events-none mx-1.5 inline-block h-[0.7em] w-auto align-middle lg:hidden"
                 />
-                <span aria-hidden className="hidden lg:inline-block" style={{ width: '172px' }} />{' '}
-                <span className="inline">GUIA.</span>
+                {/* Vão reservado para a arte dos caminhantes, que é absoluta.
+                    Em `em` para acompanhar a escala do título — em px ela
+                    descolava do vão assim que a fonte mudava de passo. */}
+                <span aria-hidden className="hidden lg:inline-block" style={{ width: '2.389em' }} />{' '}
+                <span className="inline">{c.titulo.guia}</span>
                 <br />
-                VOCÊ SÓ PRECISA
+                {c.titulo.linha2}
                 <br />
-                APROVEITAR.
+                {c.titulo.linha3}
                 <Image
                   src="/svg/about/story-walkers.svg"
                   alt=""
@@ -58,22 +65,21 @@ export function Hero() {
                   height={114}
                   unoptimized
                   className="pointer-events-none absolute hidden lg:block"
-                  style={{ left: '236px', top: '4px', width: '172px', height: '66px' }}
+                  style={{ left: '3.278em', top: '0.056em', width: '2.389em', height: '0.917em' }}
                 />
               </Heading>
 
               <div className="flex max-w-113.75 flex-col gap-6 lg:gap-8">
                 <Text size="sm" weight="light" tone="onMediaSoft" className="sm:text-lg">
-                  Trekkings guiados por quem é filho da Chapada Diamantina.
-                  <br className="hidden sm:inline" /> Cada trilha é uma jornada de volta ao que você
-                  é.
+                  {c.lead[0]}
+                  <br className="hidden sm:inline" /> {c.lead[1]}
                 </Text>
                 <div className="flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-                  <Button href="/pt/aventuras" arrow className="w-full sm:w-auto">
-                    Escolha a sua trilha
+                  <Button href={c.ctaTrilhasHref} arrow className="w-full sm:w-auto">
+                    {c.ctaTrilhas}
                   </Button>
-                  <Button href="#" variant="outlineOnMedia" className="w-full sm:w-auto">
-                    Falar com guia
+                  <Button href={SITE.whatsappUrl} variant="outlineOnMedia" className="w-full sm:w-auto">
+                    {c.ctaGuia}
                   </Button>
                 </div>
               </div>
@@ -88,8 +94,8 @@ export function Hero() {
                   className="h-4 w-6.25 shrink-0 brightness-0 invert"
                 />
                 <Text size="xs" weight="light" tone="onMediaMuted" leading="tight">
-                  Uma <Emphasis size="xs">jornada</Emphasis> de resgate das práticas{' '}
-                  <Emphasis size="xs">primitivas</Emphasis>
+                  {c.selo.antes} <Emphasis size="xs">{c.selo.jornada}</Emphasis> {c.selo.meio}{' '}
+                  <Emphasis size="xs">{c.selo.primitivas}</Emphasis>
                 </Text>
               </div>
             </div>
@@ -111,12 +117,12 @@ export function Hero() {
                   leading="tight"
                   className="whitespace-nowrap"
                 >
-                  Uma <Emphasis size="sm">jornada</Emphasis> de resgate das práticas{' '}
-                  <Emphasis size="sm">primitivas</Emphasis>
+                  {c.selo.antes} <Emphasis size="sm">{c.selo.jornada}</Emphasis> {c.selo.meio}{' '}
+                  <Emphasis size="sm">{c.selo.primitivas}</Emphasis>
                 </Text>
               </div>
 
-              <HeroDestinations />
+              <HeroDestinations locale={locale} />
             </div>
           </div>
         </MediaCard>

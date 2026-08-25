@@ -1,24 +1,26 @@
 import Image from 'next/image';
 import { Button, Emphasis, PageHero, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
+import { ABOUT_CONTENT } from './about-content';
 import { GUIDES } from './about-data';
 
 const HERO_FACES = GUIDES.slice(0, 6);
 
-export function AboutHero() {
+export function AboutHero({ locale = 'pt' }: { locale?: Locale }) {
+  const c = ABOUT_CONTENT[locale].hero;
   return (
     <PageHero
       size="tall"
       image={{
         src: '/img/about/hero-lencois.webp',
-        alt: 'Centro histórico de Lençóis ao pôr do sol',
+        alt: c.fotoAlt,
         position: '50% 71%',
       }}
       title={
         <>
           <span className="flex flex-wrap items-center gap-x-3 gap-y-2 lg:justify-center">
-            <span>Nascidos</span>
+            <span>{c.titulo.antes}</span>
             <span className="flex -space-x-4 sm:-space-x-5" aria-hidden>
               {HERO_FACES.map((guide, index) => (
                 <Image
@@ -39,10 +41,10 @@ export function AboutHero() {
                 />
               ))}
             </span>
-            <span className="max-lg:hidden">aqui.</span>
+            <span className="max-lg:hidden">{c.titulo.aqui}</span>
           </span>
-          <span className="block lg:hidden">aqui formados pela Chapada.</span>
-          <span className="hidden lg:block">Formados pela Chapada.</span>
+          <span className="block lg:hidden">{c.titulo.mobile}</span>
+          <span className="hidden lg:block">{c.titulo.desktop}</span>
         </>
       }
       lead={
@@ -54,22 +56,20 @@ export function AboutHero() {
           className="max-w-148.75 lg:text-lg"
         >
           <span className="lg:hidden">
-            Trekkings guiados por quem é filho da Chapada Diamantina. Cada trilha é uma jornada de
-            volta ao que você é.
+            {c.leadMobile}
           </span>
           <span className="max-lg:hidden">
-            Trekkings guiados por quem é filho da Chapada Diamantina — cada trilha é uma jornada de
-            volta ao que você é.
+            {c.leadDesktop}
           </span>
         </Text>
       }
       actions={
         <>
           <Button href="#guias" arrow className="max-lg:w-full">
-            Conheça o bando
+            {c.ctaBando}
           </Button>
           <Button href={SITE.whatsappUrl} variant="outlineOnMedia" className="max-lg:w-full">
-            Falar com guia
+            {c.ctaGuia}
           </Button>
         </>
       }

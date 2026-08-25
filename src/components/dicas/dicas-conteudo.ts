@@ -318,7 +318,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
       texto: 'Get in touch — we answer with the right itinerary for your group.',
       whatsapp: 'Talk on WhatsApp',
       contato: 'Contact page',
-      contatoHref: '/pt/contato',
+      contatoHref: '/en/contact',
     },
   },
 
@@ -403,7 +403,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
       texto: 'Hablá con nosotros — respondemos con el recorrido justo para tu grupo.',
       whatsapp: 'Hablar por WhatsApp',
       contato: 'Página de contacto',
-      contatoHref: '/pt/contato',
+      contatoHref: '/es/contacto',
     },
   },
 };

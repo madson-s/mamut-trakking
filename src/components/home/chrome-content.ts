@@ -21,6 +21,8 @@ export type ChromeColumn = {
 
 export type ChromeContent = {
   home: string;
+  /** Botão de WhatsApp na barra do desktop. */
+  whatsapp: string;
   nav: MobileNavItem[];
   menu: {
     open: string;
@@ -45,6 +47,7 @@ const INSTAGRAM = 'https://www.instagram.com/';
 export const CHROME: Record<Locale, ChromeContent> = {
   pt: {
     home: '/pt',
+    whatsapp: 'Falar no WhatsApp',
     nav: [
       { label: 'Aventuras', href: '/pt/aventuras' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
@@ -100,12 +103,13 @@ export const CHROME: Record<Locale, ChromeContent> = {
 
   en: {
     home: '/en',
+    whatsapp: 'Talk on WhatsApp',
     nav: [
       { label: 'Adventures', href: '/en/adventures' },
-      { label: 'About us', mobileLabel: 'About us', href: '/pt/sobre' },
-      { label: 'Manifesto', href: '/pt/manifesto' },
+      { label: 'About us', mobileLabel: 'About us', href: '/en/about' },
+      { label: 'Manifesto', href: '/en/manifesto' },
       { label: 'Tips', mobileLabel: 'Trail tips', href: '/en/tips' },
-      { label: 'Contact', href: '/pt/contato' },
+      { label: 'Contact', href: '/en/contact' },
     ],
     menu: {
       open: 'Menu',
@@ -133,9 +137,9 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'ABOUT',
           onMobile: true,
           links: [
-            { label: 'About us', href: '/pt/sobre' },
-            { label: 'Manifesto', href: '/pt/manifesto' },
-            { label: 'Native guides', href: '/pt/sobre#guias' },
+            { label: 'About us', href: '/en/about' },
+            { label: 'Manifesto', href: '/en/manifesto' },
+            { label: 'Native guides', href: '/en/about#guias' },
           ],
         },
         {
@@ -155,12 +159,13 @@ export const CHROME: Record<Locale, ChromeContent> = {
 
   es: {
     home: '/es',
+    whatsapp: 'Hablar por WhatsApp',
     nav: [
       { label: 'Aventuras', href: '/es/aventuras' },
-      { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/pt/sobre' },
-      { label: 'Manifiesto', href: '/pt/manifesto' },
+      { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/es/quienes-somos' },
+      { label: 'Manifiesto', href: '/es/manifiesto' },
       { label: 'Consejos', mobileLabel: 'Consejos de sendero', href: '/es/consejos' },
-      { label: 'Contacto', href: '/pt/contato' },
+      { label: 'Contacto', href: '/es/contacto' },
     ],
     menu: {
       open: 'Menú',
@@ -188,9 +193,9 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'SOBRE',
           onMobile: true,
           links: [
-            { label: 'Quiénes Somos', href: '/pt/sobre' },
-            { label: 'Manifiesto', href: '/pt/manifesto' },
-            { label: 'Guías nativos', href: '/pt/sobre#guias' },
+            { label: 'Quiénes Somos', href: '/es/quienes-somos' },
+            { label: 'Manifiesto', href: '/es/manifiesto' },
+            { label: 'Guías nativos', href: '/es/quienes-somos#guias' },
           ],
         },
         {

@@ -12,20 +12,11 @@ import {
   Text,
   Textarea,
 } from '@/components/ui';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
+import { CONTATO_CONTENT } from './contato-content';
 
-// Mesmos campos do formulário publicado em mamut.agency/contato.
-const AVENTURAS = ['Trekking', 'Acampamento', 'Travessias', 'Trilhas Curtas', 'Lua de Mel'] as const;
-const CHEGADA = [
-  { value: 'Avião', label: 'Avião' },
-  { value: 'Ônibus', label: 'Ônibus' },
-  { value: 'Carro Particular', label: 'Carro' },
-] as const;
-
-type Chegada = (typeof CHEGADA)[number]['value'];
-
-function formatDate(iso: string) {
-  if (!iso) return 'a definir';
+function formatDate(iso: string, vazio: string) {
+  if (!iso) return vazio;
   const [ano, mes, dia] = iso.split('-');
   return `${dia}/${mes}/${ano}`;
 }
@@ -35,12 +26,13 @@ function formatDate(iso: string) {
  * mensagem e abre o canal escolhido — WhatsApp (o mesmo caminho do resto do
  * site) ou e-mail. A validação é a nativa do browser, via `required`.
  */
-export function ContatoForm() {
+export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
+  const c = CONTATO_CONTENT[locale].form;
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [telefone, setTelefone] = useState('');
   const [aventuras, setAventuras] = useState<string[]>([]);
-  const [chegada, setChegada] = useState<Chegada>('Avião');
+  const [chegada, setChegada] = useState(c.opcoesChegada[0].value);
   const [checkin, setCheckin] = useState('');
   const [checkout, setCheckout] = useState('');
   const [grupo, setGrupo] = useState('2');
@@ -52,20 +44,25 @@ export function ContatoForm() {
     );
   };
 
-  const montarMensagem = () =>
-    [
-      'Olá! Vim pelo site da Mamut.',
+  const montarMensagem = () => {
+    const l = c.linhas;
+    const chegadaLabel =
+      c.opcoesChegada.find((opcao) => opcao.value === chegada)?.label ?? chegada;
+
+    return [
+      c.saudacao,
       '',
-      `Nome: ${nome}`,
-      `E-mail: ${email}`,
-      `WhatsApp: ${telefone}`,
-      `Tipo de aventura: ${aventuras.length ? aventuras.join(', ') : 'ainda não sei'}`,
-      `Como pretendo chegar: ${chegada}`,
-      `Check-in: ${formatDate(checkin)} · Check-out: ${formatDate(checkout)}`,
-      `Tamanho do grupo: ${grupo} pessoa${grupo === '1' ? '' : 's'}`,
+      `${l.nome}: ${nome}`,
+      `${l.email}: ${email}`,
+      `${l.telefone}: ${telefone}`,
+      `${l.aventura}: ${aventuras.length ? aventuras.join(', ') : l.naoSei}`,
+      `${l.chegada}: ${chegadaLabel}`,
+      `${l.datas}: ${formatDate(checkin, l.aDefinir)} · Check-out: ${formatDate(checkout, l.aDefinir)}`,
+      `${l.grupo}: ${grupo} ${grupo === '1' ? l.pessoa : l.pessoas}`,
       '',
       mensagem,
     ].join('\n');
+  };
 
   const enviar = (canal: 'whatsapp' | 'email') => {
     const texto = montarMensagem();
@@ -73,7 +70,7 @@ export function ContatoForm() {
       window.open(`${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
       return;
     }
-    const assunto = encodeURIComponent(`Contato pelo site — ${nome || 'novo viajante'}`);
+    const assunto = encodeURIComponent(`${c.assunto} — ${nome || c.semNome}`);
     window.location.href = `mailto:${SITE.email}?subject=${assunto}&body=${encodeURIComponent(texto)}`;
   };
 
@@ -87,11 +84,10 @@ export function ContatoForm() {
     >
       <div className="flex flex-col gap-2">
         <Heading as="h2" size="card" balance>
-          Conte sobre a sua viagem.
+          {c.titulo}
         </Heading>
         <Text size="sm" tone="muted" pretty>
-          Preencha e escolha por onde prefere continuar a conversa — respondemos com o roteiro
-          ideal para o seu grupo.
+          {c.lead}
         </Text>
       </div>
 
@@ -103,39 +99,39 @@ export function ContatoForm() {
         }}
       >
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Nome">
+          <Field label={c.nome.label}>
             <Input
               required
               value={nome}
               onChange={(e) => setNome(e.target.value)}
-              placeholder="Como podemos te chamar"
+              placeholder={c.nome.placeholder}
               autoComplete="name"
             />
           </Field>
-          <Field label="E-mail">
+          <Field label={c.email.label}>
             <Input
               required
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="voce@email.com"
+              placeholder={c.email.placeholder}
               autoComplete="email"
             />
           </Field>
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Telefone (WhatsApp)">
+          <Field label={c.telefone.label}>
             <Input
               required
               type="tel"
               value={telefone}
               onChange={(e) => setTelefone(e.target.value)}
-              placeholder="+55 75 99999-9999"
+              placeholder={c.telefone.placeholder}
               autoComplete="tel"
             />
           </Field>
-          <Field label="Tamanho do grupo" hint="Quantidade de pessoas, incluindo você.">
+          <Field label={c.grupo.label} hint={c.grupo.hint}>
             <Input
               required
               type="number"
@@ -149,10 +145,10 @@ export function ContatoForm() {
 
         <fieldset className="flex flex-col gap-3">
           <legend className="mb-1 font-body text-sm text-content-secondary">
-            Tipo de aventura
+            {c.aventuras}
           </legend>
           <div className="flex flex-wrap gap-x-6 gap-y-3">
-            {AVENTURAS.map((item) => (
+            {c.opcoesAventura.map((item) => (
               <Checkbox
                 key={item}
                 label={item}
@@ -165,18 +161,20 @@ export function ContatoForm() {
 
         <div className="flex flex-col gap-3">
           <Text as="span" size="sm" tone="secondary">
-            Como pretende chegar
+            {c.chegada}
           </Text>
           <SegmentedControl
-            label="Como pretende chegar"
-            options={[...CHEGADA]}
+            label={c.chegada}
+            options={c.opcoesChegada}
             value={chegada}
             onChange={setChegada}
+            variant="chips"
+            size="md"
           />
         </div>
 
         <div className="grid gap-5 sm:grid-cols-2">
-          <Field label="Check-in" hint="Data de chegada.">
+          <Field label={c.checkin.label} hint={c.checkin.hint}>
             <Input
               required
               type="date"
@@ -184,24 +182,24 @@ export function ContatoForm() {
               onChange={(e) => setCheckin(e.target.value)}
             />
           </Field>
-          <Field label="Check-out" hint="Previsão de partida.">
+          <Field label={c.checkout.label} hint={c.checkout.hint}>
             <Input type="date" value={checkout} onChange={(e) => setCheckout(e.target.value)} />
           </Field>
         </div>
 
-        <Field label="Mensagem">
+        <Field label={c.mensagem.label}>
           <Textarea
             required
             rows={5}
             value={mensagem}
             onChange={(e) => setMensagem(e.target.value)}
-            placeholder="Descreva aqui todas suas expectativas sobre a Chapada Diamantina, além de detalhes que julgue importante."
+            placeholder={c.mensagem.placeholder}
           />
         </Field>
 
         <div className="flex flex-col gap-3 sm:flex-row">
           <Button type="submit" arrow className="max-sm:w-full">
-            Enviar pelo WhatsApp
+            {c.enviarWhatsapp}
           </Button>
           {/* type="button": não submete o form — só valida e abre o e-mail. */}
           <Button
@@ -213,12 +211,12 @@ export function ContatoForm() {
             }}
             className="max-sm:w-full"
           >
-            Enviar por e-mail
+            {c.enviarEmail}
           </Button>
         </div>
 
         <Text size="xs" tone="subtle">
-          Ao enviar, abrimos o WhatsApp ou o seu app de e-mail com a mensagem já preenchida.
+          {c.nota}
         </Text>
       </form>
     </Card>

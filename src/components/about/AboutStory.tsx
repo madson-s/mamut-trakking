@@ -8,31 +8,20 @@ import {
   SectionHeading,
   Text,
 } from '@/components/ui';
+import type { Locale } from '@/lib/site';
+import { ABOUT_CONTENT } from './about-content';
 
-const AUTHORITY = [
-  {
-    icon: '/svg/_icons/icon_09_location.svg',
-    title: 'Guias 100% locais',
-    text: 'Nascidos e criados em Lençóis e no entorno da Chapada.',
-  },
-  {
-    icon: '/svg/_icons/icon_04_care.svg',
-    title: 'CMC, APH e WFA',
-    text: 'Condutores certificados e brigadistas florestais.',
-  },
-  {
-    icon: '/svg/_icons/icon_03_montain.svg',
-    title: 'Flora, fauna e geologia',
-    text: 'Conhecimento vivo da Serra do Sincorá.',
-  },
-  {
-    icon: '/svg/_icons/icon_10_home.svg',
-    title: 'Cadastur regularizado',
-    text: 'CNPJ 43.500.583/0001-22 · Ministério do Turismo.',
-  },
+// Só os ícones ficam aqui; título e texto de cada selo vêm do idioma.
+const AUTHORITY_ICONS = [
+  '/svg/_icons/icon_09_location.svg',
+  '/svg/_icons/icon_04_care.svg',
+  '/svg/_icons/icon_03_montain.svg',
+  '/svg/_icons/icon_10_home.svg',
 ] as const;
 
-export function AboutStory() {
+export function AboutStory({ locale = 'pt' }: { locale?: Locale }) {
+  const c = ABOUT_CONTENT[locale].story;
+  const selos = c.selos.map((selo, i) => ({ ...selo, icon: AUTHORITY_ICONS[i] }));
   return (
     <Section
       id="manifesto"
@@ -58,11 +47,11 @@ export function AboutStory() {
           maxWidth="max-w-[820px]"
           title={
             <span className="max-lg:text-[clamp(26px,7.6vw,34px)]">
-              Não somos uma agência
+              {c.titulo.l1}
               <br />
-              de turismo. <span className="text-brand-strong">Somos o bando</span>
+              {c.titulo.l2} <span className="text-brand-strong">{c.titulo.l3}</span>
               <br />
-              <span className="text-brand-strong">que guia a</span>{' '}
+              <span className="text-brand-strong">{c.titulo.l4}</span>{' '}
               <Image
                 src="/img/about/mamut-landscape.webp"
                 alt=""
@@ -71,7 +60,7 @@ export function AboutStory() {
                 sizes="(min-width: 640px) 120px, 82px"
                 className="inline-block h-[0.8em] w-[1.42em] object-contain align-middle"
               />{' '}
-              <span className="text-brand-strong">sua tribo.</span>
+              <span className="text-brand-strong">{c.titulo.l5}</span>
             </span>
           }
         />
@@ -84,7 +73,7 @@ export function AboutStory() {
             backdrop="media"
             image={{
               src: '/img/about/story-sunset.webp',
-              alt: 'Chapada Diamantina ao pôr do sol',
+              alt: c.fotoAlt,
               sizes: '(min-width: 1024px) 426px, 100vw',
               position: '9% 50%',
             }}
@@ -116,27 +105,15 @@ export function AboutStory() {
             />
           </MediaCard>
 
-          <StoryCard title="É dessa memória que nascemos.">
-            <Text size="lg" weight="light" tone="secondary" leading="relaxed" pretty>
-              Na imensidão dos mega continentes, os mamutes caminhavam em grandes grupos —
-              marcando sua existência para sempre.
-            </Text>
-            <Text size="lg" weight="light" tone="secondary" leading="relaxed" pretty>
-              Na Chapada Diamantina, resgatamos essa conexão. Cada trilha é uma jornada de volta
-              às suas raízes: sentir o chão, ouvir o vento, pertencer a algo maior.
-            </Text>
-          </StoryCard>
-
-          <StoryCard title="Formados pela Serra do Sincorá.">
-            <Text size="lg" weight="light" tone="secondary" leading="relaxed" pretty>
-              Todos os nossos guias são locais — brigadistas florestais, condutores certificados
-              (CMC, APH, WFA) e conhecedores da flora, fauna e geologia da Serra do Sincorá.
-            </Text>
-            <Text size="lg" weight="light" tone="secondary" leading="relaxed" pretty>
-              É o que nos permite entrar nas travessias mais remotas do Parque Nacional sem abrir
-              mão do cuidado com quem caminha e com o território.
-            </Text>
-          </StoryCard>
+          {c.cards.map((card) => (
+            <StoryCard key={card.titulo} title={card.titulo}>
+              {card.paragrafos.map((paragrafo) => (
+                <Text key={paragrafo} size="lg" weight="light" tone="secondary" leading="relaxed" pretty>
+                  {paragrafo}
+                </Text>
+              ))}
+            </StoryCard>
+          ))}
         </div>
 
         <Card
@@ -145,8 +122,8 @@ export function AboutStory() {
           padding="none"
           className="grid w-full grid-cols-1 gap-10 overflow-hidden p-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-4 lg:p-8.25"
         >
-          {AUTHORITY.map((item) => (
-            <div key={item.title} className="flex flex-col gap-3">
+          {selos.map((item) => (
+            <div key={item.titulo} className="flex flex-col gap-3">
               <span className="flex size-10 items-center justify-center rounded-full bg-brand">
                 <Image
                   src={item.icon}
@@ -157,9 +134,9 @@ export function AboutStory() {
                   className="size-5 brightness-0 invert"
                 />
               </span>
-              <Text weight="semibold">{item.title}</Text>
+              <Text weight="semibold">{item.titulo}</Text>
               <Text size="sm" tone="muted" pretty>
-                {item.text}
+                {item.texto}
               </Text>
             </div>
           ))}
