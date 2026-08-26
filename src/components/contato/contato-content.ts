@@ -36,6 +36,8 @@ export type ContatoContent = {
     mensagem: { label: string; placeholder: string };
     enviarWhatsapp: string;
     enviarEmail: string;
+    verificando: string;
+    recaptchaErro: string;
     nota: string;
     saudacao: string;
     linhas: { nome: string; email: string; telefone: string; aventura: string; chegada: string; datas: string; grupo: string; pessoa: string; pessoas: string; naoSei: string; aDefinir: string };
@@ -90,6 +92,8 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       },
       enviarWhatsapp: 'Enviar pelo WhatsApp',
       enviarEmail: 'Enviar por e-mail',
+      verificando: 'Verificando…',
+      recaptchaErro: 'Não conseguimos confirmar que você não é um robô. Recarregue a página e tente de novo.',
       nota: 'Ao enviar, abrimos o WhatsApp ou o seu app de e-mail com a mensagem já preenchida.',
       saudacao: 'Olá! Vim pelo site da Mamut.',
       linhas: {
@@ -147,6 +151,8 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       },
       enviarWhatsapp: 'Send on WhatsApp',
       enviarEmail: 'Send by email',
+      verificando: 'Checking…',
+      recaptchaErro: 'We could not confirm you are not a robot. Reload the page and try again.',
       nota: 'On submit we open WhatsApp or your email app with the message already filled in.',
       saudacao: 'Hi! I came from the Mamut website.',
       linhas: {
@@ -204,6 +210,8 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       },
       enviarWhatsapp: 'Enviar por WhatsApp',
       enviarEmail: 'Enviar por correo',
+      verificando: 'Verificando…',
+      recaptchaErro: 'No pudimos confirmar que no sos un robot. Recargá la página y probá de nuevo.',
       nota: 'Al enviar, abrimos WhatsApp o tu app de correo con el mensaje ya completado.',
       saudacao: '¡Hola! Vine por el sitio de Mamut.',
       linhas: {

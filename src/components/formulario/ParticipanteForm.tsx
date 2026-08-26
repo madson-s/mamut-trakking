@@ -13,6 +13,8 @@ import {
   Text,
   Textarea,
 } from '@/components/ui';
+import { RecaptchaNota, RecaptchaScript, useRecaptcha } from '@/components/recaptcha/Recaptcha';
+import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
 import { SITE, type Locale } from '@/lib/site';
 import { montarDocumento, type ParticipantePayload } from '@/lib/participante-envio';
 import { PARTICIPANTE_CONTENT, type Campo } from './participante-conteudo';
@@ -44,13 +46,15 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
   const [aceite, setAceite] = useState(false);
   const [envio, setEnvio] = useState<Envio>('idle');
   const [erro, setErro] = useState('');
-  // Campo-isca: fica fora do fluxo visual e do tab; robô preenche, humano não.
+  const [verificando, setVerificando] = useState(false);
+  const { obterToken, validar } = useRecaptcha();
+
   const [website, setWebsite] = useState('');
 
   const set = (campo: CampoId) => (valor: string) =>
     setDados((atual) => ({ ...atual, [campo]: valor }));
 
-  const montarPayload = (): ParticipantePayload => ({
+  const montarPayload = (recaptchaToken?: string): ParticipantePayload => ({
     locale,
     dados,
     medicas,
@@ -58,22 +62,47 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
     gravidez,
     aceite,
     website,
+    recaptchaToken,
   });
 
-  const abrirWhatsapp = () => {
+  const abrirWhatsapp = async () => {
+    const aba = window.open('', '_blank');
+
+    setVerificando(true);
+    setErro('');
+
+    const liberado = await validar(RECAPTCHA_ACOES.participante);
+    setVerificando(false);
+
+    if (!liberado) {
+      aba?.close();
+      setErro(c.acoes.recaptcha);
+      setEnvio('erro');
+      return;
+    }
+
     const texto = montarDocumento(montarPayload());
-    window.open(`${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+    const destino = `${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`;
+
+    if (aba) {
+      aba.opener = null;
+      aba.location.href = destino;
+      return;
+    }
+    window.location.href = destino;
   };
 
   const enviarEmail = async () => {
     setEnvio('enviando');
     setErro('');
 
+    const token = await obterToken(RECAPTCHA_ACOES.participante);
+
     try {
       const resposta = await fetch('/api/formulario-participante', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(montarPayload()),
+        body: JSON.stringify(montarPayload(token)),
       });
       const corpo = await resposta.json().catch(() => null);
 
@@ -261,16 +290,22 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
         </div>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button type="submit" arrow disabled={envio === 'enviando'} className="max-sm:w-full">
+          <Button
+            type="submit"
+            arrow
+            disabled={envio === 'enviando' || verificando}
+            className="max-sm:w-full"
+          >
             {envio === 'enviando' ? c.acoes.enviando : c.acoes.email}
           </Button>
           {/* type="button": não submete o form — só valida e abre o WhatsApp. */}
           <Button
             type="button"
             variant="outline"
+            disabled={envio === 'enviando' || verificando}
             onClick={(event) => {
               if (!event.currentTarget.form?.reportValidity()) return;
-              abrirWhatsapp();
+              void abrirWhatsapp();
             }}
             className="max-sm:w-full"
           >
@@ -298,7 +333,11 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
         ) : null}
 
         <Text size="xs" tone="subtle">{c.acoes.nota}</Text>
+
+        <RecaptchaNota locale={locale} />
       </form>
+
+      <RecaptchaScript />
     </Card>
   );
 }

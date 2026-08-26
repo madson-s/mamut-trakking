@@ -111,6 +111,27 @@
 > - Os PDFs de referência preenchidos ficam fora do git (`.gitignore`): contêm
 >   nome, e-mail e telefone de clientes reais.
 >
+> **reCAPTCHA v3 nos formulários públicos** (contato e ficha do participante):
+> `src/lib/recaptcha.ts` guarda o que os dois lados usam (chave pública, nomes de
+> ação, nota legal em pt/en/es); `src/lib/recaptcha-server.ts` faz o
+> `siteverify`; `src/components/recaptcha/Recaptcha.tsx` traz `RecaptchaScript`
+> (carrega o script via `next/script`, `afterInteractive`), `useRecaptcha()`
+> (`obterToken` / `validar`) e `RecaptchaNota`. Env: `NEXT_PUBLIC_RECAPTCHA_SITE_KEY`,
+> `RECAPTCHA_SECRET_KEY` e, opcional, `RECAPTCHA_MIN_SCORE` (padrão `0.5`).
+> - **Sem as chaves, a verificação é ignorada** (log de aviso no servidor) — o
+>   site continua funcionando antes de o par de chaves existir.
+> - O badge flutuante do Google fica escondido (`.grecaptcha-badge` no
+>   `globals.css`); em troca, os dois formulários exibem a nota legal exigida —
+>   se um dia o badge voltar, tire a nota.
+> - Modo de falha assimétrico, de propósito: a rota
+>   `/api/formulario-participante` é **estrita** (token ausente ou score baixo
+>   recusa o e-mail), enquanto os canais que não passam pelo servidor
+>   (WhatsApp/mailto, via `/api/recaptcha`) **liberam** quando o script não
+>   carrega — senão um adblocker mataria o botão do WhatsApp, que é justamente o
+>   fallback prometido na mensagem de erro.
+> - `window.open('', '_blank')` é chamado antes do `await` da verificação e só
+>   depois recebe a URL: aberto após o await, o navegador trataria como popup.
+
 > **Ferramenta interna `/reservas`** (mesmo padrão do `/voucher`: `noindex` no
 > layout e `Disallow` no `robots.ts`): lista os títulos da base **Reservas** do
 > Notion (dentro da página "📊 Sistema Operacional – Mamut Trekking").

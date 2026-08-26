@@ -7,6 +7,8 @@ import {
   montarDocumento,
   type ParticipantePayload,
 } from '@/lib/participante-envio';
+import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
+import { verificarRecaptcha } from '@/lib/recaptcha-server';
 import { SITE } from '@/lib/site';
 
 // A rota roda a cada request: não há o que pré-renderizar num POST.
@@ -45,6 +47,12 @@ export async function POST(request: Request) {
   if (!payload.aceite) {
     return erro('É preciso aceitar os termos.', 400);
   }
+
+  const recaptcha = await verificarRecaptcha(
+    payload.recaptchaToken,
+    RECAPTCHA_ACOES.participante,
+  );
+  if (!recaptcha.ok) return erro(recaptcha.motivo, 400);
 
   // A checagem da chave vem depois da validação: assim um payload inválido
   // responde 400 com ou sem configuração, e a isca acima nunca chega a 500.

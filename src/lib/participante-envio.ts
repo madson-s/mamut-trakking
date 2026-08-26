@@ -18,6 +18,7 @@ export type ParticipantePayload = {
   aceite: boolean;
   /** Campo-isca: humano nunca preenche. Ver a rota de envio. */
   website?: string;
+  recaptchaToken?: string;
 };
 
 const CAMPO_VAZIO = '—';

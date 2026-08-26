@@ -12,6 +12,8 @@ import {
   Text,
   Textarea,
 } from '@/components/ui';
+import { RecaptchaNota, RecaptchaScript, useRecaptcha } from '@/components/recaptcha/Recaptcha';
+import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
 import { SITE, type Locale } from '@/lib/site';
 import { CONTATO_CONTENT } from './contato-content';
 
@@ -37,6 +39,9 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
   const [checkout, setCheckout] = useState('');
   const [grupo, setGrupo] = useState('2');
   const [mensagem, setMensagem] = useState('');
+  const [verificando, setVerificando] = useState(false);
+  const [erro, setErro] = useState('');
+  const { validar } = useRecaptcha();
 
   const toggleAventura = (item: string) => {
     setAventuras((atual) =>
@@ -64,14 +69,33 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
     ].join('\n');
   };
 
-  const enviar = (canal: 'whatsapp' | 'email') => {
+  const enviar = async (canal: 'whatsapp' | 'email') => {
+    const aba = canal === 'whatsapp' ? window.open('', '_blank') : null;
+
+    setErro('');
+    setVerificando(true);
+    try {
+      if (!(await validar(RECAPTCHA_ACOES.contato))) {
+        aba?.close();
+        setErro(c.recaptchaErro);
+        return;
+      }
+    } finally {
+      setVerificando(false);
+    }
+
     const texto = montarMensagem();
-    if (canal === 'whatsapp') {
-      window.open(`${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`, '_blank', 'noopener');
+    const destino =
+      canal === 'whatsapp'
+        ? `${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`
+        : `mailto:${SITE.email}?subject=${encodeURIComponent(`${c.assunto} — ${nome || c.semNome}`)}&body=${encodeURIComponent(texto)}`;
+
+    if (aba) {
+      aba.opener = null;
+      aba.location.href = destino;
       return;
     }
-    const assunto = encodeURIComponent(`${c.assunto} — ${nome || c.semNome}`);
-    window.location.href = `mailto:${SITE.email}?subject=${assunto}&body=${encodeURIComponent(texto)}`;
+    window.location.href = destino;
   };
 
   return (
@@ -95,7 +119,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
         className="flex flex-col gap-5"
         onSubmit={(event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
-          enviar('whatsapp');
+          void enviar('whatsapp');
         }}
       >
         <div className="grid gap-5 sm:grid-cols-2">
@@ -198,16 +222,17 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
         </Field>
 
         <div className="flex flex-col gap-3 sm:flex-row">
-          <Button type="submit" arrow className="max-sm:w-full">
-            {c.enviarWhatsapp}
+          <Button type="submit" arrow disabled={verificando} className="max-sm:w-full">
+            {verificando ? c.verificando : c.enviarWhatsapp}
           </Button>
           {/* type="button": não submete o form — só valida e abre o e-mail. */}
           <Button
             type="button"
             variant="outline"
+            disabled={verificando}
             onClick={(event) => {
               if (!event.currentTarget.form?.reportValidity()) return;
-              enviar('email');
+              void enviar('email');
             }}
             className="max-sm:w-full"
           >
@@ -215,10 +240,25 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           </Button>
         </div>
 
+        {erro ? (
+          <div
+            role="alert"
+            className="rounded-control border-l-4 border-error-500 bg-surface-sunken px-5 py-4"
+          >
+            <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>
+              {erro}
+            </Text>
+          </div>
+        ) : null}
+
         <Text size="xs" tone="subtle">
           {c.nota}
         </Text>
+
+        <RecaptchaNota locale={locale} />
       </form>
+
+      <RecaptchaScript />
     </Card>
   );
 }

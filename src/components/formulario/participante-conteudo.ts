@@ -78,6 +78,7 @@ export type ParticipanteContent = {
     sucesso: string;
     erro: string;
     erroFallback: string;
+    recaptcha: string;
     nota: string;
   };
   documento: {
@@ -197,6 +198,7 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       sucesso: 'Ficha enviada. A gente confirma o recebimento pelo WhatsApp ou pelo e-mail que você informou.',
       erro: 'Não foi possível enviar a ficha.',
       erroFallback: 'Tente de novo em instantes ou use o botão do WhatsApp, que não depende do nosso servidor.',
+      recaptcha: 'Não conseguimos confirmar que você não é um robô. Recarregue a página e tente de novo.',
       nota: 'A ficha vai por e-mail para a nossa equipe. O botão do WhatsApp abre o app com o formulário já preenchido, caso prefira mandar por lá.',
     },
     documento: {
@@ -309,6 +311,7 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       sucesso: 'Form sent. We will confirm we received it on WhatsApp or at the email address you provided.',
       erro: 'We could not send the form.',
       erroFallback: 'Try again in a moment, or use the WhatsApp button, which does not rely on our server.',
+      recaptcha: 'We could not confirm you are not a robot. Reload the page and try again.',
       nota: 'The form is emailed to our team. The WhatsApp button opens the app with everything already filled in, if you prefer sending it there.',
     },
     documento: {
@@ -421,6 +424,7 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       sucesso: 'Ficha enviada. Confirmamos la recepción por WhatsApp o al correo que indicaste.',
       erro: 'No fue posible enviar la ficha.',
       erroFallback: 'Probá de nuevo en unos instantes o usá el botón de WhatsApp, que no depende de nuestro servidor.',
+      recaptcha: 'No pudimos confirmar que no sos un robot. Recargá la página y probá de nuevo.',
       nota: 'La ficha se envía por correo a nuestro equipo. El botón de WhatsApp abre la app con el formulario ya completado, si preferís mandarlo por ahí.',
     },
     documento: {
