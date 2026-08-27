@@ -1,34 +1,22 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { AGUAS_CLARAS_ASSETS, AGUAS_CLARAS_CONTENT } from '@/components/adventure/aguas-claras-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const IMG = AGUAS_CLARAS_ASSETS.hero.src;
+const CONTENT = AGUAS_CLARAS_CONTENT.pt;
 
 export const metadata: Metadata = {
-  title: "Trilha Águas Claras",
-  description: "Passeio de um dia pelas piscinas naturais e cachoeiras próximas a Lençóis.",
-  alternates: {
-    canonical: "/pt/aventuras/trilha-aguas-claras",
-    languages: { pt: "/pt/aventuras/trilha-aguas-claras", en: "/en/adventures/aguas-claras-trail", es: "/es/aventuras/sendero-aguas-claras" },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/trilha-aguas-claras', en: '/en/adventures/aguas-claras-trail', es: '/es/aventuras/sendero-aguas-claras' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
   },
-  openGraph: { title: "Trilha Águas Claras", description: "Passeio de um dia pelas piscinas naturais e cachoeiras próximas a Lençóis.", images: [IMG], type: 'article' },
 };
 
-export default function Page() {
-  return (
-    <AdventureDetail
-      locale="pt"
-      title={"Trilha Águas Claras"}
-      summary={"Passeio de um dia pelas piscinas naturais e cachoeiras próximas a Lençóis."}
-      level={"Leve"}
-      distance={"12km"}
-      origin={"Lençóis"}
-      price={350}
-      image={IMG}
-      labels={{ level: "Nível", distance: "Distância", origin: "Saída", from: "A partir de" }}
-    >
-      <p>Conteúdo a migrar do site atual.</p>
-      <p>Conteúdo a migrar do site atual.</p>
-    </AdventureDetail>
-  );
+export default function AguasClarasPtRoute() {
+  return <DayTourExperience locale="pt" content={AGUAS_CLARAS_CONTENT} assets={AGUAS_CLARAS_ASSETS} />;
 }

@@ -25,7 +25,7 @@ export type AdventureBase = {
 
 export const ADVENTURES: AdventureBase[] = [
   { id: 'cachoeira-do-palmital-2-dias', category: 'trekking', route: 'palmital', image: '/img/adventures/palmital/hero.jpeg', duration: 2, difficultyGroup: 'Moderado', distance: '22 km', location: 'Lençóis', price: 1350 },
-  { id: 'trilha-aguas-claras-2-dias', category: 'trekking', route: 'aguas-claras', image: '/img/adventures/home/trilha-aguas-claras.jpg', duration: 2, difficultyGroup: 'Fácil', distance: '23 km', location: 'Lençóis', price: 1150 },
+  { id: 'trilha-aguas-claras-2-dias', category: 'trekking', route: 'aguas-claras', image: '/img/adventures/aguas-claras/hero.jpeg', duration: 2, difficultyGroup: 'Fácil', distance: '23 km', location: 'Lençóis', price: 1150 },
   { id: 'travessia-vale-do-pati-5-dias', category: 'trekking', route: 'vale-do-pati-5', image: '/img/adventures/home/vale-do-pati-5-dias.jpeg', duration: 5, difficultyGroup: 'Desafiador', distance: '70 km', location: 'Lençóis', price: 2750 },
   { id: 'vale-do-pati-3-dias', category: 'trekking', route: 'vale-do-pati-3', image: '/img/adventures/home/vale-do-pati-3-dias.jpeg', duration: 3, difficultyGroup: 'Moderado', distance: '43 km', location: 'Lençóis', price: 2100 },
   { id: 'vale-do-pati-4-dias', category: 'trekking', route: 'vale-do-pati-4', image: '/img/adventures/home/vale-do-pati-4-dias.jpeg', duration: 4, difficultyGroup: 'Moderado', distance: '62 km', location: 'Lençóis', price: 2250 },
