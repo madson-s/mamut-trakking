@@ -6,17 +6,23 @@ export function CaretDownIcon({ className = '', ...props }: HTMLAttributes<HTMLS
   return (
     <span
       aria-hidden="true"
-      className={`relative inline-block shrink-0 ${className}`}
+      className={`inline-block shrink-0 ${className}`}
       {...props}
     >
-      <span className="absolute inset-[37.5%_18.75%_31.25%_18.75%]">
-        <span
-          className="absolute inset-[-7.27%_-3.64%] bg-current mask-center mask-no-repeat mask-size-[100%_100%]"
-          style={{
-            WebkitMaskImage: `url(${FIGMA_CARET_LEAF})`,
-            maskImage: `url(${FIGMA_CARET_LEAF})`,
-          }}
-        />
+      {/* O contexto de posicionamento fica neste span interno, e não no de
+          fora: assim quem chama pode posicionar o ícone (`absolute` dentro de
+          um campo, por exemplo) sem disputar a propriedade `position` com a
+          classe base — que venceria pela ordem do CSS, não da string. */}
+      <span className="relative block size-full">
+        <span className="absolute inset-[37.5%_18.75%_31.25%_18.75%]">
+          <span
+            className="absolute inset-[-7.27%_-3.64%] bg-current mask-center mask-no-repeat mask-size-[100%_100%]"
+            style={{
+              WebkitMaskImage: `url(${FIGMA_CARET_LEAF})`,
+              maskImage: `url(${FIGMA_CARET_LEAF})`,
+            }}
+          />
+        </span>
       </span>
     </span>
   );
