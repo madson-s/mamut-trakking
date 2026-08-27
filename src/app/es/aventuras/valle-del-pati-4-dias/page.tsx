@@ -1,34 +1,28 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { PatiExperience } from '@/components/adventure/PatiThreeDayExperience';
+import { PATI4_ASSETS, PATI4_CONTENT } from '@/components/adventure/pati-4-content';
+import { PATI4_FAQS } from '@/components/adventure/pati-4-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const CONTENT = PATI4_CONTENT.es;
 
 export const metadata: Metadata = {
-  title: "Valle del Pati — 4 Días",
-  description: "Cuatro días explorando los miradores y casas de nativos del Valle del Pati.",
-  alternates: {
-    canonical: "/es/aventuras/valle-del-pati-4-dias",
-    languages: { pt: "/pt/aventuras/vale-do-pati-4-dias", en: "/en/adventures/pati-valley-4-days", es: "/es/aventuras/valle-del-pati-4-dias" },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/vale-do-pati-4-dias', en: '/en/adventures/pati-valley-4-days', es: '/es/aventuras/valle-del-pati-4-dias' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.ogDescription,
+    images: [PATI4_ASSETS.ogImage],
+    type: 'article',
   },
-  openGraph: { title: "Valle del Pati — 4 Días", description: "Cuatro días explorando los miradores y casas de nativos del Valle del Pati.", images: [IMG], type: 'article' },
 };
 
-export default function Page() {
+export default function Pati4EsRoute() {
   return (
-    <AdventureDetail
-      locale="es"
-      title={"Valle del Pati — 4 Días"}
-      summary={"Cuatro días explorando los miradores y casas de nativos del Valle del Pati."}
-      level={"Exigente"}
-      distance={"45km"}
-      origin={"Guiné / Vale do Capão"}
-      price={2450}
-      image={IMG}
-      labels={{ level: "Nivel", distance: "Distancia", origin: "Salida", from: "Desde" }}
-    >
-      <p>Contenido a migrar del sitio actual.</p>
-      <p>Contenido a migrar del sitio actual.</p>
-    </AdventureDetail>
+    <PatiExperience
+      content={CONTENT}
+      assets={PATI4_ASSETS}
+      faqs={PATI4_FAQS.es}
+    />
   );
 }

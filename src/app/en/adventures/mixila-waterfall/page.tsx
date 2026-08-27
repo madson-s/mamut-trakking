@@ -1,34 +1,22 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { MIXILA_ASSETS, MIXILA_CONTENT } from '@/components/adventure/mixila-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const IMG = MIXILA_ASSETS.hero.src;
+const CONTENT = MIXILA_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "Mixila Waterfall",
-  description: "A trek to Mixila Waterfall, one of the most pristine in the region.",
-  alternates: {
-    canonical: "/en/adventures/mixila-waterfall",
-    languages: { pt: "/pt/aventuras/cachoeira-do-mixila", en: "/en/adventures/mixila-waterfall", es: "/es/aventuras/cascada-del-mixila" },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mixila', en: '/en/adventures/mixila-waterfall', es: '/es/aventuras/cascada-del-mixila' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
   },
-  openGraph: { title: "Mixila Waterfall", description: "A trek to Mixila Waterfall, one of the most pristine in the region.", images: [IMG], type: 'article' },
 };
 
-export default function Page() {
-  return (
-    <AdventureDetail
-      locale="en"
-      title={"Mixila Waterfall"}
-      summary={"A trek to Mixila Waterfall, one of the most pristine in the region."}
-      level={"Moderate"}
-      distance={"18km"}
-      origin={"Lençóis"}
-      price={1250}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
-  );
+export default function MixilaEnRoute() {
+  return <DayTourExperience locale="en" content={MIXILA_CONTENT} assets={MIXILA_ASSETS} />;
 }

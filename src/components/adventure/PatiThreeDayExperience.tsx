@@ -19,15 +19,42 @@ import { SITE, type Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
 import { PATI3_CONTENT, type Pati3Content } from './pati-3-content';
 import { PATI3_FAQS } from './pati-3-faqs';
+import type { PatiFaqItem } from './PatiFaqList';
 import { PatiBookingTrigger } from './PatiBookingTrigger';
 import { PatiHeroGallery } from './PatiHeroGallery';
 import { PatiMobileBooking } from './PatiMobileBooking';
 import { PatiItinerary } from './PatiItinerary';
 import { AssetIcon } from './AssetIcon';
 
-// Ícones, números e imagens não mudam com o idioma; o texto vem de
-// `pati-3-content.ts` e `pati-3-faqs.ts`, na mesma ordem destes arrays.
-const STAT_VALUES = [
+/**
+ * Tudo que muda de uma travessia do Pati para outra e não depende do idioma.
+ *
+ * A página de 3 dias nasceu de um frame do Figma com estes valores embutidos;
+ * as de 4 e 5 dias reaproveitam a mesma composição com números, dias e marcos
+ * próprios. Os arrays são posicionais: o índice casa com o array equivalente
+ * de `PatiContent` (`stats`, `itinerary.dias`, `landmarks.itens`,
+ * `pricing.formatos`, `story.relacionados`).
+ */
+export type PatiAssets = {
+  /** `[valor, ícone]` — o rótulo vem de `PatiContent.stats`. */
+  stats: readonly (readonly [string, string])[];
+  /** Ícone e distância de cada dia do itinerário. */
+  itinerary: readonly { icon: string; distance: string }[];
+  /** `[ícone, classe de largura]` de cada marco do roteiro. */
+  landmarks: readonly (readonly [string, string])[];
+  /** Preço de cada formato; `highlight` marca o card em destaque. */
+  priceTiers: readonly { price: string; highlight: boolean }[];
+  /** Foto de cada trilha relacionada, na ordem de `story.relacionados`. */
+  relatedImages: readonly string[];
+  /** Menor preço da tabela — o que o hero e o JSON-LD anunciam. */
+  fromPrice: number;
+  /** Imagem do JSON-LD e do Open Graph. */
+  ogImage: string;
+  /** Destino do botão "ver todas as fotos" no itinerário. */
+  galleryHref: string;
+};
+
+const PATI3_ASSETS_STATS = [
   ['43 km', '/svg/_icons/icon_03_montain.svg'],
   ['3 dias / 2 noites', '/svg/_icons/icon_11_calendar.svg'],
   ['1.350m', '/svg/_icons/icon_09_location.svg'],
@@ -38,37 +65,40 @@ const STAT_VALUES = [
   ['Moderado', '/svg/_icons/icon_03_montain.svg'],
 ] as const;
 
-const ITINERARY_META = [
-  { icon: '/svg/_icons/icon_09_location.svg', distance: '12 km' },
-  { icon: '/svg/_icons/icon_03_montain.svg', distance: '8 km' },
-  { icon: '/svg/_icons/icon_08_send.svg', distance: '23 km' },
-] as const;
-
-const LANDMARK_META = [
-  ['/svg/figma/pati-3/landmark-water.svg', 'lg:w-[281px]'],
-  ['/svg/figma/pati-3/landmark-river.svg', 'lg:w-[188px]'],
-  ['/svg/figma/pati-3/landmark-view.svg', 'lg:w-[292px]'],
-  ['/svg/figma/pati-3/landmark-waterfall.svg', 'lg:w-[280px]'],
-  ['/svg/figma/pati-3/landmark-mountain.svg', 'lg:w-[280px]'],
-  ['/svg/figma/pati-3/landmark-cave.svg', 'lg:w-[280px]'],
-  ['/svg/figma/pati-3/landmark-waterfall.svg', 'lg:w-[280px]'],
-  ['/svg/figma/pati-3/landmark-descent.svg', 'lg:w-[188px]'],
-] as const;
-
 // Preços de mamut.agency/en/aventuras/pati-valley-3-days: dois formatos, por
 // pessoa, com mínimo de 2 pessoas. O destaque é o de grupo, o mais procurado.
 /** Menor preço da tabela — o que o hero e o JSON-LD anunciam. */
 export const PATI3_FROM_PRICE = 2100;
 
-const PRICE_TIERS = [
-  { price: 'R$ 2.300', highlight: false },
-  { price: 'R$ 2.100', highlight: true },
-] as const;
-
-const RELATED_IMAGES = [
-  '/img/vale-do-pati/vale-do-pati-14.webp',
-  '/img/vale-do-pati/vale-do-pati-20.webp',
-] as const;
+export const PATI3_ASSETS: PatiAssets = {
+  stats: PATI3_ASSETS_STATS,
+  itinerary: [
+    { icon: '/svg/_icons/icon_09_location.svg', distance: '12 km' },
+    { icon: '/svg/_icons/icon_03_montain.svg', distance: '8 km' },
+    { icon: '/svg/_icons/icon_08_send.svg', distance: '23 km' },
+  ],
+  landmarks: [
+    ['/svg/figma/pati-3/landmark-water.svg', 'lg:w-[281px]'],
+    ['/svg/figma/pati-3/landmark-river.svg', 'lg:w-[188px]'],
+    ['/svg/figma/pati-3/landmark-view.svg', 'lg:w-[292px]'],
+    ['/svg/figma/pati-3/landmark-waterfall.svg', 'lg:w-[280px]'],
+    ['/svg/figma/pati-3/landmark-mountain.svg', 'lg:w-[280px]'],
+    ['/svg/figma/pati-3/landmark-cave.svg', 'lg:w-[280px]'],
+    ['/svg/figma/pati-3/landmark-waterfall.svg', 'lg:w-[280px]'],
+    ['/svg/figma/pati-3/landmark-descent.svg', 'lg:w-[188px]'],
+  ],
+  priceTiers: [
+    { price: 'R$ 2.300', highlight: false },
+    { price: 'R$ 2.100', highlight: true },
+  ],
+  relatedImages: [
+    '/img/vale-do-pati/vale-do-pati-14.webp',
+    '/img/vale-do-pati/vale-do-pati-20.webp',
+  ],
+  fromPrice: PATI3_FROM_PRICE,
+  ogImage: '/img/vale-do-pati/vale-do-pati-04.webp',
+  galleryHref: '/pt/aventuras/vale-do-pati-3-dias/galeria',
+};
 
 const TRUST_ICONS = [
   '/svg/figma/pati-3/trust-guide.svg',
@@ -89,8 +119,26 @@ FORM: Frame Figma aprovado pelo usuário, decisão fixada acima do roll; seed b6
 FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
 -->`;
 
+/** A travessia de 3 dias — a composição original, com seu conteúdo e assets. */
 export function PatiThreeDayExperience({ locale = 'pt' }: { locale?: Locale }) {
-  const c = PATI3_CONTENT[locale];
+  return (
+    <PatiExperience
+      content={PATI3_CONTENT[locale]}
+      assets={PATI3_ASSETS}
+      faqs={PATI3_FAQS[locale]}
+    />
+  );
+}
+
+export function PatiExperience({
+  content: c,
+  assets: a,
+  faqs,
+}: {
+  content: Pati3Content;
+  assets: PatiAssets;
+  faqs: readonly PatiFaqItem[];
+}) {
   return (
     <article className="pati-three-day-page overflow-x-clip pb-[calc(104px+env(safe-area-inset-bottom))] lg:pb-0">
       <span hidden aria-hidden data-design-seed="b6829298" dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />
@@ -99,26 +147,26 @@ export function PatiThreeDayExperience({ locale = 'pt' }: { locale?: Locale }) {
         '@type': 'TouristTrip',
         name: `${c.hero.titulo.antes} ${c.hero.titulo.destaque}`,
         description: c.meta.ogDescription,
-        image: `${SITE.url}/img/vale-do-pati/vale-do-pati-04.webp`,
+        image: `${SITE.url}${a.ogImage}`,
         touristType: 'Trekking / ecoturismo',
         provider: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
-        offers: { '@type': 'Offer', price: PATI3_FROM_PRICE, priceCurrency: 'BRL', availability: 'https://schema.org/InStock' },
+        offers: { '@type': 'Offer', price: a.fromPrice, priceCurrency: 'BRL', availability: 'https://schema.org/InStock' },
       }} />
-      <Hero c={c} />
-      <Story c={c} />
-      <Itinerary c={c} />
-      <Landmarks c={c} />
-      <Pricing c={c} />
+      <Hero c={c} a={a} />
+      <Story c={c} a={a} />
+      <Itinerary c={c} a={a} />
+      <Landmarks c={c} a={a} />
+      <Pricing c={c} a={a} />
       <TrustAndReviews c={c} />
-      <Faq c={c} locale={locale} />
+      <Faq c={c} faqs={faqs} />
       <FinalCta c={c} />
-      <PatiMobileBooking locale={locale} />
+      <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} />
     </article>
   );
 }
 
-function Hero({ c }: { c: Pati3Content }) {
-  const stats = STAT_VALUES.map(([value, icon], i) => ({ value, icon, label: c.stats[i] }));
+function Hero({ c, a }: { c: Pati3Content; a: PatiAssets }) {
+  const stats = a.stats.map(([value, icon], i) => ({ value, icon, label: c.stats[i] }));
 
   return (
     <Section padding="none" container={false} className="relative isolate overflow-hidden pt-20 pb-20 lg:pb-24">
@@ -129,7 +177,7 @@ function Hero({ c }: { c: Pati3Content }) {
           <header className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2.5">
               <InfoChip><span aria-hidden className="size-3 rounded-full bg-accent-line-art" />{c.hero.nivel}</InfoChip>
-              <InfoChip>{STAT_VALUES[0][0]}</InfoChip>
+              <InfoChip>{a.stats[0][0]}</InfoChip>
               <InfoChip>{c.hero.origem}</InfoChip>
               <InfoChip>{c.hero.grupo}</InfoChip>
             </div>
@@ -220,7 +268,7 @@ function BookingCard({ c }: { c: Pati3Content }) {
   );
 }
 
-function Story({ c }: { c: Pati3Content }) {
+function Story({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
     <Section padding="tall" container={false} className="relative isolate overflow-hidden border-t border-line">
       <Image src="/svg/screen_destinos_vale-do-pati-session-03_backgroud.svg" alt="" width={962} height={915} unoptimized className="pati-story-background pointer-events-none absolute top-0 left-1/2 z-0 h-auto w-240.5 max-w-none opacity-12" />
@@ -228,8 +276,7 @@ function Story({ c }: { c: Pati3Content }) {
       <div className="max-w-3xl">
         <Heading as="h2" size="hero" balance className="max-lg:text-display-lg lg:text-display-xl!">{c.story.titulo[0]}<br />{c.story.titulo[1]}</Heading>
         <div className="mt-4 flex flex-col gap-4 text-lg font-light leading-relaxed text-content-secondary">
-          <p>O Vale do Pati fica a mil metros de altitude e entrega uma diversidade de paisagens rara no Brasil: remanescentes de Mata Atlântica, campos rupestres e os Gerais do Rio Preto. Uma região que abrigou camponeses há dois séculos e ainda guarda, em 14 casas vivas, a memória de quem nunca saiu daqui.</p>
-          <p>O terreno é real: sol, chuva, lama, subidas íngremes, travessia de rio. Não é passeio. É travessia — o Pati cobra de quem quer atravessá-lo. Nosso roteiro faz a volta completa pelos pontos mais emblemáticos do Vale.</p>
+          {c.story.paragrafos.map((paragrafo) => <p key={paragrafo}>{paragrafo}</p>)}
         </div>
       </div>
       <div className="flex flex-col gap-5">
@@ -250,7 +297,7 @@ function Story({ c }: { c: Pati3Content }) {
             <RelatedTrail
               key={trilha.href}
               href={trilha.href}
-              image={RELATED_IMAGES[i]}
+              image={a.relatedImages[i]}
               level={trilha.nivel}
               title={trilha.titulo}
               cta={c.story.explorar}
@@ -289,16 +336,16 @@ function RelatedTrail({ href, image, level, title, cta }: { href: string; image:
   );
 }
 
-function Itinerary({ c }: { c: Pati3Content }) {
+function Itinerary({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
     <Section id="itinerario" padding="tall" containerClassName="flex flex-col gap-8" labelledBy="itinerary-heading">
       <Heading id="itinerary-heading" as="h2" size="section">{c.itinerary.titulo}</Heading>
-      <PatiItinerary items={c.itinerary.dias.map((dia, i) => ({ ...dia, ...ITINERARY_META[i] }))} />
+      <PatiItinerary items={c.itinerary.dias.map((dia, i) => ({ ...dia, ...a.itinerary[i] }))} galleryHref={a.galleryHref} />
     </Section>
   );
 }
 
-function Landmarks({ c }: { c: Pati3Content }) {
+function Landmarks({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
     <Section padding="tall" container={false} className="relative isolate overflow-hidden">
       <Image
@@ -314,7 +361,7 @@ function Landmarks({ c }: { c: Pati3Content }) {
           <Heading as="h2" size="section">{c.landmarks.titulo}</Heading>
           <div className="grid gap-5 sm:grid-cols-2 lg:flex lg:flex-wrap">
             {c.landmarks.itens.map(({ titulo: title, apoio: label }, i) => {
-            const [icon, width] = LANDMARK_META[i];
+            const [icon, width] = a.landmarks[i];
             return (
               <Card
                 key={title}
@@ -344,13 +391,13 @@ function Landmarks({ c }: { c: Pati3Content }) {
   );
 }
 
-function Pricing({ c }: { c: Pati3Content }) {
+function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
     <Section id="preco" padding="tall" container="prose" containerClassName="flex !max-w-[1009px] flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
       <Heading id="pricing-heading" as="h2" size="section" className="text-display-sm!">{c.pricing.titulo}</Heading>
 
       <div className="grid w-full gap-5 sm:grid-cols-2">
-        {PRICE_TIERS.map((tier, i) => {
+        {a.priceTiers.map((tier, i) => {
           const formato = c.pricing.formatos[i];
           const destaque = tier.highlight;
 
@@ -439,11 +486,11 @@ function TrustAndReviews({ c }: { c: Pati3Content }) {
   );
 }
 
-function Faq({ c, locale }: { c: Pati3Content; locale: Locale }) {
+function Faq({ c, faqs }: { c: Pati3Content; faqs: readonly PatiFaqItem[] }) {
   return (
     <Section id="duvidas" padding="default" container="prose" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
       <header className="flex flex-col items-center gap-4 text-center"><Heading id="faq-heading" as="h2" size="section">{c.faqTitulo.titulo}</Heading><Text size="sm" weight="light" tone="secondary" pretty className="max-w-170">{c.faqTitulo.lead}</Text></header>
-      <PatiFaqList faqs={PATI3_FAQS[locale]} />
+      <PatiFaqList faqs={faqs} />
     </Section>
   );
 }

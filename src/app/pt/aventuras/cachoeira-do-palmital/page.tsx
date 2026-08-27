@@ -1,34 +1,22 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { PALMITAL_ASSETS, PALMITAL_CONTENT } from '@/components/adventure/palmital-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const IMG = PALMITAL_ASSETS.hero.src;
+const CONTENT = PALMITAL_CONTENT.pt;
 
 export const metadata: Metadata = {
-  title: "Cachoeira do Palmital 2 Dias",
-  description: "Dois dias de trilha até a Cachoeira do Palmital.",
-  alternates: {
-    canonical: "/pt/aventuras/cachoeira-do-palmital",
-    languages: { pt: "/pt/aventuras/cachoeira-do-palmital", en: "/en/adventures/palmital-waterfall", es: "/es/aventuras/cascada-del-palmital" },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-palmital', en: '/en/adventures/palmital-waterfall', es: '/es/aventuras/cascada-del-palmital' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
   },
-  openGraph: { title: "Cachoeira do Palmital 2 Dias", description: "Dois dias de trilha até a Cachoeira do Palmital.", images: [IMG], type: 'article' },
 };
 
-export default function Page() {
-  return (
-    <AdventureDetail
-      locale="pt"
-      title={"Cachoeira do Palmital 2 Dias"}
-      summary={"Dois dias de trilha até a Cachoeira do Palmital."}
-      level={"Moderado"}
-      distance={"22km"}
-      origin={"Lençóis"}
-      price={1350}
-      image={IMG}
-      labels={{ level: "Nível", distance: "Distância", origin: "Saída", from: "A partir de" }}
-    >
-      <p>Parágrafo 1.</p>
-      <p>Parágrafo 2.</p>
-    </AdventureDetail>
-  );
+export default function PalmitalPtRoute() {
+  return <DayTourExperience locale="pt" content={PALMITAL_CONTENT} assets={PALMITAL_ASSETS} />;
 }

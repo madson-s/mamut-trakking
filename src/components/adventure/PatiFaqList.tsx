@@ -48,13 +48,25 @@ type TechnicalFaq = FaqBase & {
   documents: readonly (readonly [string, string])[];
 };
 
+/**
+ * Tabela de "quando ir": cada linha é uma janela do ano e o que ela entrega.
+ * Ao contrário de `technical`, não tem rótulo de seção fixo em português — as
+ * páginas em EN e ES usam esta variante com o texto no idioma delas.
+ */
+type SeasonsFaq = FaqBase & {
+  type: 'seasons';
+  facts: readonly (readonly [string, string])[];
+  notes: readonly string[];
+};
+
 export type PatiFaqItem =
   | ChecklistFaq
   | IncludedFaq
   | SafetyFaq
   | PaymentFaq
   | CancellationFaq
-  | TechnicalFaq;
+  | TechnicalFaq
+  | SeasonsFaq;
 
 /* Respiro entre o topo do item e o topo da viewport ao abrir/fechar. */
 const SCROLL_OFFSET = 16;
@@ -181,6 +193,30 @@ function FaqContent({ faq }: { faq: PatiFaqItem }) {
             {paragraph}
           </Text>
         ))}
+      </div>
+    );
+  }
+
+  if (faq.type === 'seasons') {
+    return (
+      <div className="flex flex-col gap-6 px-6 pt-7 pb-8 sm:px-10 sm:pt-9 sm:pb-10 lg:px-12">
+        <dl className="overflow-hidden rounded-control border border-line">
+          {faq.facts.map(([label, value]) => (
+            <div key={label} className="grid grid-cols-[minmax(0,1fr)_auto] gap-5 border-b border-line px-4 py-2.5 last:border-b-0 sm:px-5">
+              <dt className="font-light text-content-secondary">{label}</dt>
+              <dd className="max-w-80 text-right font-semibold text-content">{value}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <ul className="flex flex-col gap-2.5 text-content-secondary">
+          {faq.notes.map((note) => (
+            <li key={note} className="flex gap-3 font-light">
+              <span aria-hidden className="text-content-muted">—</span>
+              <span>{note}</span>
+            </li>
+          ))}
+        </ul>
       </div>
     );
   }

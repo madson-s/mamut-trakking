@@ -26,7 +26,7 @@ const SLIDES = [
 
 const INTERVAL_MS = 4500;
 
-export function PatiItinerary({ items }: { items: readonly ItineraryItem[] }) {
+export function PatiItinerary({ items, galleryHref }: { items: readonly ItineraryItem[]; galleryHref: string }) {
   const [activeIndex, setActiveIndex] = useState(0);
   const activeDay = Math.min(activeIndex, items.length - 1);
 
@@ -141,7 +141,7 @@ export function PatiItinerary({ items }: { items: readonly ItineraryItem[] }) {
         </div>
 
         <Button
-          href="/pt/aventuras/vale-do-pati-3-dias/galeria"
+          href={galleryHref}
           block
           className="!min-h-14.75"
           icon={

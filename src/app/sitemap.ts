@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { LOCALES, ADVENTURE_SEGMENT, SITE, type Locale } from '@/lib/site';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
+import { DICAS_PAGES, dicasHref } from '@/components/dicas/dicas-rotas';
 
 const BASE = SITE.url;
 
@@ -30,7 +31,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/pt/contato` });
   entries.push({ url: `${BASE}/en/contact` });
   entries.push({ url: `${BASE}/es/contacto` });
-  entries.push({ url: `${BASE}/pt/dicas` });
+  // As quatro páginas da seção de dicas, em cada idioma. `/dicas` em si só
+  // redireciona, então fica de fora.
+  for (const locale of LOCALES) {
+    for (const page of DICAS_PAGES) {
+      entries.push({ url: `${BASE}${dicasHref(locale, page)}` });
+    }
+  }
 
   // Cada roteiro, em cada idioma.
   for (const locale of LOCALES) {

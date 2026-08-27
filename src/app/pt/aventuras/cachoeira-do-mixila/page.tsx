@@ -1,34 +1,22 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { MIXILA_ASSETS, MIXILA_CONTENT } from '@/components/adventure/mixila-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const IMG = MIXILA_ASSETS.hero.src;
+const CONTENT = MIXILA_CONTENT.pt;
 
 export const metadata: Metadata = {
-  title: "Cachoeira do Mixila",
-  description: "Trilha até a Cachoeira do Mixila, uma das mais preservadas da região.",
-  alternates: {
-    canonical: "/pt/aventuras/cachoeira-do-mixila",
-    languages: { pt: "/pt/aventuras/cachoeira-do-mixila", en: "/en/adventures/mixila-waterfall", es: "/es/aventuras/cascada-del-mixila" },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mixila', en: '/en/adventures/mixila-waterfall', es: '/es/aventuras/cascada-del-mixila' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
   },
-  openGraph: { title: "Cachoeira do Mixila", description: "Trilha até a Cachoeira do Mixila, uma das mais preservadas da região.", images: [IMG], type: 'article' },
 };
 
-export default function Page() {
-  return (
-    <AdventureDetail
-      locale="pt"
-      title={"Cachoeira do Mixila"}
-      summary={"Trilha até a Cachoeira do Mixila, uma das mais preservadas da região."}
-      level={"Moderado"}
-      distance={"18km"}
-      origin={"Lençóis"}
-      price={1250}
-      image={IMG}
-      labels={{ level: "Nível", distance: "Distância", origin: "Saída", from: "A partir de" }}
-    >
-      <p>Conteúdo a migrar do site atual.</p>
-      <p>Conteúdo a migrar do site atual.</p>
-    </AdventureDetail>
-  );
+export default function MixilaPtRoute() {
+  return <DayTourExperience locale="pt" content={MIXILA_CONTENT} assets={MIXILA_ASSETS} />;
 }

@@ -1,34 +1,28 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { PatiExperience } from '@/components/adventure/PatiThreeDayExperience';
+import { PATI4_ASSETS, PATI4_CONTENT } from '@/components/adventure/pati-4-content';
+import { PATI4_FAQS } from '@/components/adventure/pati-4-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const CONTENT = PATI4_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "Pati Valley — 4 Days",
-  description: "Four days exploring the viewpoints and local homes of Pati Valley.",
-  alternates: {
-    canonical: "/en/adventures/pati-valley-4-days",
-    languages: { pt: "/pt/aventuras/vale-do-pati-4-dias", en: "/en/adventures/pati-valley-4-days", es: "/es/aventuras/valle-del-pati-4-dias" },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/vale-do-pati-4-dias', en: '/en/adventures/pati-valley-4-days', es: '/es/aventuras/valle-del-pati-4-dias' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.ogDescription,
+    images: [PATI4_ASSETS.ogImage],
+    type: 'article',
   },
-  openGraph: { title: "Pati Valley — 4 Days", description: "Four days exploring the viewpoints and local homes of Pati Valley.", images: [IMG], type: 'article' },
 };
 
-export default function Page() {
+export default function Pati4EnRoute() {
   return (
-    <AdventureDetail
-      locale="en"
-      title={"Pati Valley — 4 Days"}
-      summary={"Four days exploring the viewpoints and local homes of Pati Valley."}
-      level={"Challenging"}
-      distance={"45km"}
-      origin={"Guiné / Vale do Capão"}
-      price={2450}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
+    <PatiExperience
+      content={CONTENT}
+      assets={PATI4_ASSETS}
+      faqs={PATI4_FAQS.en}
+    />
   );
 }

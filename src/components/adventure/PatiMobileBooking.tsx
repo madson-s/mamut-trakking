@@ -13,9 +13,8 @@ import {
   XIcon,
 } from '@/components/ui';
 import { MorphingModal } from '@/components/motion/morphing-modal';
-import { SITE, type Locale } from '@/lib/site';
-import { PATI3_CONTENT, type Pati3Content } from './pati-3-content';
-import { PATI3_FROM_PRICE } from './PatiThreeDayExperience';
+import { SITE } from '@/lib/site';
+import type { Pati3Content } from './pati-3-content';
 import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
 
 type SheetView = 'booking' | 'calendar';
@@ -37,7 +36,6 @@ function languageFromPath(pathname: string) {
 }
 // Preço de grupo por pessoa, fixo — a tabela de faixas saiu quando os preços
 // passaram a seguir mamut.agency (dois formatos, mínimo de 2 pessoas).
-const GROUP_PRICE = PATI3_FROM_PRICE;
 
 function getMonthDays(year: number, month: number) {
   const firstWeekday = new Date(year, month, 1).getDay();
@@ -54,8 +52,13 @@ function formatDate(date: Date, diasSemana: readonly string[]) {
   return `${diasSemana[date.getDay()]}, ${day}/${month}`;
 }
 
-export function PatiMobileBooking({ locale = 'pt' }: { locale?: Locale }) {
-  const c = PATI3_CONTENT[locale].booking;
+export function PatiMobileBooking({
+  content: c,
+  fromPrice: GROUP_PRICE,
+}: {
+  content: Pati3Content['booking'];
+  fromPrice: number;
+}) {
   const pathname = usePathname();
   const [dockVisible, setDockVisible] = useState(false);
   const [sheetView, setSheetView] = useState<SheetView | null>(null);
