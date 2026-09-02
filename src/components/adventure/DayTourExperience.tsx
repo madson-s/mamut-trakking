@@ -15,7 +15,8 @@ import { SITE, type Locale } from '@/lib/site';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import type { DayTourAssets, DayTourContent } from './day-tour';
-import { AdventureCard, aventurasDoIdioma } from '@/components/adventures/AdventureCard';
+import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
+import { RelatedTrail } from '@/components/adventures/RelatedTrail';
 import { ADVENTURES_CONTENT } from '@/components/adventures/adventures-content';
 
 /**
@@ -220,7 +221,7 @@ export function DayTourExperience({
         <Button href={SITE.whatsappUrl} arrow>{c.hero.reservar}</Button>
       </Section>
 
-      <Section padding="default" container="prose" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
+      <Section padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
         <Heading id="faq-heading" as="h2" size="section" className="text-center">{c.faqTitulo}</Heading>
         <PatiFaqList faqs={c.faqs} />
       </Section>
@@ -264,11 +265,15 @@ function Relacionados({
       </Heading>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
         {escolhidas.map((aventura) => (
-          <AdventureCard
+          <RelatedTrail
             key={aventura.id}
-            adventure={aventura}
-            content={ADVENTURES_CONTENT[locale]}
-            locale={locale}
+            href={aventura.href}
+            image={aventura.image}
+            level={aventura.difficulty}
+            title={aventura.title}
+            cta={ADVENTURES_CONTENT[locale].card.explorar}
+            difficultyGroup={aventura.difficultyGroup}
+            stretch
           />
         ))}
       </div>

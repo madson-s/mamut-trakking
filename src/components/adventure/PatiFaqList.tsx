@@ -211,7 +211,7 @@ function FaqContent({ faq }: { faq: PatiFaqItem }) {
           </ul>
         ) : null}
         {faq.disclaimer?.map((paragrafo) => (
-          <Text key={paragrafo} size="sm" weight="light" tone="muted" leading="relaxed" pretty>
+          <Text key={paragrafo} size="sm" weight="light" tone="secondary" leading="relaxed" pretty>
             {paragrafo}
           </Text>
         ))}

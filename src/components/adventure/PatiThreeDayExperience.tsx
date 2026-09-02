@@ -17,6 +17,7 @@ import {
 import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
+import { RelatedTrail } from '@/components/adventures/RelatedTrail';
 import { PATI3_CONTENT, type Pati3Content } from './pati-3-content';
 import { PATI3_FAQS } from './pati-3-faqs';
 import type { PatiFaqItem } from './PatiFaqList';
@@ -325,16 +326,6 @@ function EditorialCard({ title, body }: { title: string; body: string }) {
   return <article className="flex min-h-60 flex-col justify-center gap-2 rounded-card bg-surface-muted p-6"><Heading as="h4" size="quote">{title}</Heading><Text size="sm" weight="light" tone="secondary" pretty>{body}</Text></article>;
 }
 
-function RelatedTrail({ href, image, level, title, cta }: { href: string; image: string; level: string; title: string; cta: string }) {
-  // A versão de 5 dias é a mais dura; nos três idiomas ela é a segunda da lista.
-  const difficultyEmoji = /^(Avançado|Advanced|Avanzado)/.test(level) ? '🔴' : '🟡';
-  return (
-    <article className="grid h-40 w-full grid-cols-1 items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted px-5 sm:w-95.5 sm:grid-cols-[140px_202px] sm:px-0 sm:pr-5">
-      <div className="relative hidden h-40 w-35 shrink-0 overflow-hidden rounded-card-lg sm:block"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
-      <div className="flex h-30 min-w-0 flex-col items-start justify-center gap-2.5"><Badge variant="soft" size="sm"><span aria-hidden>{difficultyEmoji}</span> {level}</Badge><Heading as="h4" size="quote" className="text-xl/[27px]! whitespace-nowrap">{title}</Heading><Button href={href} size="sm" arrow className="min-h-11 w-full">{cta}</Button></div>
-    </article>
-  );
-}
 
 function Itinerary({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
@@ -393,7 +384,7 @@ function Landmarks({ c, a }: { c: Pati3Content; a: PatiAssets }) {
 
 function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
-    <Section id="preco" padding="tall" container="prose" containerClassName="flex !max-w-[1009px] flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
+    <Section id="preco" padding="tall" container="panel" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
       <Heading id="pricing-heading" as="h2" size="section" className="text-display-sm!">{c.pricing.titulo}</Heading>
 
       <div className="grid w-full gap-5 sm:grid-cols-2">
@@ -488,7 +479,7 @@ function TrustAndReviews({ c }: { c: Pati3Content }) {
 
 function Faq({ c, faqs }: { c: Pati3Content; faqs: readonly PatiFaqItem[] }) {
   return (
-    <Section id="duvidas" padding="default" container="prose" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
+    <Section id="duvidas" padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
       <header className="flex flex-col items-center gap-4 text-center"><Heading id="faq-heading" as="h2" size="section">{c.faqTitulo.titulo}</Heading><Text size="sm" weight="light" tone="secondary" pretty className="max-w-170">{c.faqTitulo.lead}</Text></header>
       <PatiFaqList faqs={faqs} />
     </Section>

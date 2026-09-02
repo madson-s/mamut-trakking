@@ -196,11 +196,15 @@ export const elevation: Record<Elevation, string> = {
 /* ------------------------------------------------------------------ */
 
 /** Larguras de conteúdo. `grid` é o grid de 12 colunas do Figma (1216). */
-export type ContainerSize = 'grid' | 'wide' | 'prose' | 'full';
+export type ContainerSize = 'grid' | 'wide' | 'panel' | 'prose' | 'full';
 
 export const containerSize: Record<ContainerSize, string> = {
   grid: 'max-w-[1216px]',
   wide: 'max-w-[1562px]',
+  // Entre `prose` e `grid`: largo o bastante para as duas colunas do checklist
+  // e a tabela de preços respirarem, sem esticar o parágrafo além do
+  // confortável de ler.
+  panel: 'max-w-[1009px]',
   prose: 'max-w-3xl',
   full: 'max-w-none',
 };
