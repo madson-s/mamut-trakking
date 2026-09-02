@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   description: 'A specialist operator for treks and adventures in Chapada Diamantina, Bahia.',
   openGraph: { siteName: SITE.name, locale: 'en_US', type: 'website' },
   robots: { index: true, follow: true },
+  appleWebApp: { title: 'Mamut' },
 };
 
 export default function EnLayout({ children }: { children: React.ReactNode }) {

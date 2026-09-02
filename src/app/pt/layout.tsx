@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description: 'Operadora especializada em trekkings e aventuras na Chapada Diamantina, Bahia.',
   openGraph: { siteName: SITE.name, locale: 'pt_BR', type: 'website' },
   robots: { index: true, follow: true },
+  appleWebApp: { title: 'Mamut' },
 };
 
 export default function PtLayout({ children }: { children: React.ReactNode }) {
