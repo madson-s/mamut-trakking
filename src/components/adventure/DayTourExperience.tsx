@@ -15,6 +15,8 @@ import { SITE, type Locale } from '@/lib/site';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import type { DayTourAssets, DayTourContent } from './day-tour';
+import { AdventureCard, aventurasDoIdioma } from '@/components/adventures/AdventureCard';
+import { ADVENTURES_CONTENT } from '@/components/adventures/adventures-content';
 
 /**
  * Página de passeio de um dia — hero, faixa de números, sobre + galeria,
@@ -146,6 +148,31 @@ export function DayTourExperience({
         </Container>
       </Section>
 
+      {c.estadia ? (
+        <Section padding="default" containerClassName="flex flex-col gap-8" labelledBy="estadia-heading">
+          <Heading id="estadia-heading" as="h2" size="section" className="text-center">{c.estadia.titulo}</Heading>
+          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            {c.estadia.itens.map((item) => (
+              <Card key={item.titulo} as="article" surface="muted" padding="none" className="gap-0 overflow-hidden border border-line-strong">
+                <div className="relative aspect-[1.4] overflow-hidden bg-media-backdrop">
+                  <Image
+                    src={item.img}
+                    alt={item.alt}
+                    fill
+                    sizes="(min-width: 1024px) 390px, (min-width: 640px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-col gap-2.5 p-6">
+                  <Heading as="h3" size="quote">{item.titulo}</Heading>
+                  <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>{item.corpo}</Text>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </Section>
+      ) : null}
+
       <Section padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
         <Heading id="itinerario-heading" as="h2" size="section">{c.itinerario.titulo}</Heading>
         {c.itinerario.corpo.map((paragrafo) => (
@@ -198,6 +225,8 @@ export function DayTourExperience({
         <PatiFaqList faqs={c.faqs} />
       </Section>
 
+      {c.relacionados ? <Relacionados locale={locale} relacionados={c.relacionados} /> : null}
+
       <Section padding="default" containerClassName="flex flex-col items-center gap-8 text-center">
         <Heading as="h2" size="hero" balance className="max-lg:text-[clamp(28px,8.4vw,36px)]">
           {c.cta.titulo[0]}
@@ -208,5 +237,41 @@ export function DayTourExperience({
         <Button href={SITE.whatsappUrl} arrow className="max-lg:w-full">{c.cta.botao}</Button>
       </Section>
     </article>
+  );
+}
+
+/** Os mesmos cartões do hub, filtrados pelos ids que a página declara. */
+function Relacionados({
+  locale,
+  relacionados,
+}: {
+  locale: Locale;
+  relacionados: NonNullable<DayTourContent['relacionados']>;
+}) {
+  const catalogo = aventurasDoIdioma(locale);
+  // `map` sobre os ids, e não `filter` sobre o catálogo: assim a ordem é a que
+  // a página pediu, e não a do arquivo de dados.
+  const escolhidas = relacionados.ids
+    .map((id) => catalogo.find((a) => a.id === id))
+    .filter((a) => a !== undefined);
+
+  if (escolhidas.length === 0) return null;
+
+  return (
+    <Section padding="default" containerClassName="flex flex-col gap-8" labelledBy="relacionados-heading">
+      <Heading id="relacionados-heading" as="h2" size="section" className="text-center">
+        {relacionados.titulo}
+      </Heading>
+      <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {escolhidas.map((aventura) => (
+          <AdventureCard
+            key={aventura.id}
+            adventure={aventura}
+            content={ADVENTURES_CONTENT[locale]}
+            locale={locale}
+          />
+        ))}
+      </div>
+    </Section>
   );
 }

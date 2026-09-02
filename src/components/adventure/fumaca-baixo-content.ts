@@ -19,7 +19,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
-import { WILD_TREK_CAMP, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
+import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
 
 export const FUMACA_BAIXO_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/fumaca-baixo/hero.jpeg', position: '50% 50%' },
@@ -64,9 +64,9 @@ export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {
         'Uma das trilhas mais tradicionais e desafiadoras da Chapada Diamantina. A Cachoeira da Fumaça, uma das maiores do Brasil, vista de baixo é um espetáculo reservado a quem chega até a base: um paredão de 400 metros onde a água não alcança o chão de forma uniforme — é o efeito que dá nome à cachoeira.',
         'A trilha passa por antigas lavras e tocas de garimpeiros abandonadas, num percurso que é tanto história quanto paisagem. No caminho também visitamos a Cachoeira do Palmital e a Cachoeira da Capivara.',
         'No terceiro dia subimos a Serra do Macaco até o mirante da Fumaça por cima — o mesmo lugar, visto do outro extremo. A trilha pode ficar consideravelmente mais perigosa conforme o tempo e a estação; siga sempre as instruções do guia.',
-        ...WILD_TREK_CAMP.pt,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.pt,
     itinerario: {
       titulo: 'Dia a dia.',
       aviso: 'O itinerário pode mudar por condição climática ou por qualquer fator de força maior que a equipe julgue relevante. Este trekking é dinâmico e admite várias entradas e saídas — consulte as opções com o atendimento.',
@@ -148,9 +148,9 @@ export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {
         "One of the most traditional and demanding trails in the Chapada Diamantina. Fumaça Waterfall, one of Brazil's largest, seen from below is a spectacle reserved for those who make it to the base: a 400-metre wall where the water never reaches the ground evenly — the effect the waterfall is named for.",
         "The trail passes old diggings and abandoned miners' shelters, a route that is as much history as landscape. Along the way we also visit Palmital Waterfall and Capivara Waterfall.",
         'On the third day we climb the Serra do Macaco to the Fumaça lookout from above — the same place, seen from the other end. The trail can become considerably more dangerous depending on the weather and the season; always follow the guide’s instructions.',
-        ...WILD_TREK_CAMP.en,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.en,
     itinerario: {
       titulo: 'Day by day.',
       aviso: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant. This trek is dynamic and allows several entry and exit points — ask us about the options.',
@@ -232,9 +232,9 @@ export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {
         'Uno de los senderos más tradicionales y desafiantes de la Chapada Diamantina. La Cascada da Fumaça, una de las mayores de Brasil, vista desde abajo es un espectáculo reservado a quien llega hasta la base: un paredón de 400 metros donde el agua no alcanza el suelo de forma uniforme — es el efecto que le da nombre a la cascada.',
         'El sendero pasa por antiguas labores y tocas de mineros abandonadas, en un recorrido que es tanto historia como paisaje. En el camino también visitamos la Cascada del Palmital y la Cascada del Capivara.',
         'El tercer día subimos la Serra do Macaco hasta el mirador de la Fumaça por arriba — el mismo lugar, visto desde el otro extremo. El sendero puede volverse considerablemente más peligroso según el tiempo y la estación; seguí siempre las instrucciones del guía.',
-        ...WILD_TREK_CAMP.es,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.es,
     itinerario: {
       titulo: 'Día a día.',
       aviso: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es dinámico y admite varias entradas y salidas — consultá las opciones con atención.',

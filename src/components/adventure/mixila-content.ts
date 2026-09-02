@@ -15,7 +15,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
-import { WILD_TREK_CAMP, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
+import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
 
 export const MIXILA_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/mixila/hero.jpeg', position: '50% 50%' },
@@ -59,9 +59,9 @@ export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {
       paragrafos: [
         'Um dos trekkings mais marcantes da Chapada Diamantina, com três cachoeiras: a do Poção, a do Capivari e a lendária Mixila. As trilhas são rústicas e antigas, dentro do Parque Nacional, com trechos acidentados e escorregadios.',
         'A caminhada explica o cotidiano e as técnicas do antigo garimpo de diamantes na região — inclusive dormindo nas antigas "tocas". É um roteiro de imersão natural e cultural em partes iguais, e bem quieto: rota alternativa para quem quer fugir dos atrativos lotados.',
-        ...WILD_TREK_CAMP.pt,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.pt,
     itinerario: {
       titulo: 'Dia a dia.',
       aviso: 'O itinerário pode mudar por condição climática ou por qualquer fator de força maior que a equipe julgue relevante. Este trekking é dinâmico e admite várias entradas e saídas — consulte as opções com o atendimento.',
@@ -135,9 +135,9 @@ export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {
       paragrafos: [
         'One of the most striking treks in the Chapada Diamantina, with three waterfalls: Poção, Capivari and the legendary Mixila. The trails are old and rough, inside the National Park, with uneven and slippery sections.',
         'The walk explains the daily life and the techniques of the old diamond mining in the region — including sleeping in the old "tocas", the miners’ shelters. It is a trip of natural and cultural immersion in equal measure, and a quiet one: an alternative route for anyone avoiding crowded sights.',
-        ...WILD_TREK_CAMP.en,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.en,
     itinerario: {
       titulo: 'Day by day.',
       aviso: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant. This trek is dynamic and allows several entry and exit points — ask us about the options.',
@@ -211,9 +211,9 @@ export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {
       paragrafos: [
         'Uno de los trekkings más marcantes de la Chapada Diamantina, con tres cascadas: la del Poção, la del Capivari y la legendaria Mixila. Los senderos son rústicos y antiguos, dentro del Parque Nacional, con tramos accidentados y resbaladizos.',
         'La caminata explica el cotidiano y las técnicas de la antigua minería de diamantes en la región — incluso durmiendo en las antiguas "tocas". Es un recorrido de inmersión natural y cultural en partes iguales, y bien tranquilo: ruta alternativa para quien quiere escapar de los atractivos llenos.',
-        ...WILD_TREK_CAMP.es,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.es,
     itinerario: {
       titulo: 'Día a día.',
       aviso: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es dinámico y admite varias entradas y salidas — consultá las opciones con atención.',

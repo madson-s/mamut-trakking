@@ -21,7 +21,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
-import { WILD_TREK_CAMP, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
+import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
 
 export const AGUAS_CLARAS_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/aguas-claras/hero.jpeg', position: '50% 55%' },
@@ -65,9 +65,9 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
         'É a atividade ideal para quem nunca acampou e quer começar por uma trilha leve, e também para quem vem com crianças ou pessoas idosas. O terreno é majoritariamente plano.',
         'A caminhada começa nos arredores do Morro do Pai Inácio e segue em direção ao Vale dos 3 Irmãos — dois cartões-postais da Chapada Diamantina no mesmo dia. São 9 km, cerca de 3 horas, até as piscinas cristalinas onde fica o acampamento.',
         'A região de nascentes do Águas Claras é uma área sensível: o cuidado com resíduos é redobrado aqui, e o acampamento fica a cerca de 60 metros do rio por esse motivo.',
-        ...WILD_TREK_CAMP.pt,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.pt,
     itinerario: {
       titulo: 'Dia a dia.',
       aviso: 'O itinerário pode mudar por condição climática ou por qualquer fator de força maior que a equipe julgue relevante. Este trekking é dinâmico e admite várias entradas e saídas — consulte as opções com o atendimento.',
@@ -142,9 +142,9 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
         'This is the right trip for anyone who has never camped and wants to start with an easy trail, and equally for anyone travelling with children or older companions. The ground is mostly flat.',
         'The walk starts near Pai Inácio Hill and heads towards the Vale dos 3 Irmãos — two of the Chapada Diamantina’s landmarks in the same day. It is 9 km, about 3 hours, to the clear pools where we camp.',
         'The Águas Claras headwaters are a sensitive area: care with waste is doubled here, and the campsite sits around 60 metres from the river for that reason.',
-        ...WILD_TREK_CAMP.en,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.en,
     itinerario: {
       titulo: 'Day by day.',
       aviso: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant. This trek is dynamic and allows several entry and exit points — ask us about the options.',
@@ -219,9 +219,9 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
         'Es la actividad ideal para quien nunca acampó y quiere empezar por un sendero suave, y también para quien viene con chicos o personas mayores. El terreno es mayormente plano.',
         'La caminata empieza en los alrededores del Morro do Pai Inácio y sigue hacia el Valle dos 3 Irmãos — dos postales de la Chapada Diamantina el mismo día. Son 9 km, cerca de 3 horas, hasta las piscinas cristalinas donde está el campamento.',
         'La región de nacientes del Águas Claras es un área sensible: el cuidado con los residuos es redoblado acá, y el campamento queda a unos 60 metros del río por ese motivo.',
-        ...WILD_TREK_CAMP.es,
       ],
     },
+    estadia: WILD_TREK_ESTADIA.es,
     itinerario: {
       titulo: 'Día a día.',
       aviso: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es dinámico y admite varias entradas y salidas — consultá las opciones con atención.',

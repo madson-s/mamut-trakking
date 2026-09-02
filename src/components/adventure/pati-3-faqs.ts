@@ -11,7 +11,6 @@
  */
 
 import type { Locale } from '@/lib/site';
-import { SITE } from '@/lib/site';
 import type { PatiFaqItem } from './PatiFaqList';
 
 export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
@@ -62,11 +61,19 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       ],
     },
     {
+      type: 'payment',
+      title: 'Política de repasse de passeios',
+      paragraphs: [
+        'Trabalhamos com uma rede de parceiros. Em caso de repasse do passeio para outra operadora, os valores praticados podem variar conforme a quantidade de participantes, o tipo de passeio e a estrutura necessária — podendo ser equivalentes ao valor de balcão, ou ajustados para mais ou para menos.',
+        'Ao contratar conosco, você concorda que, havendo repasse, a execução do serviço fica sob responsabilidade da operadora designada. Nossa função é intermediar e garantir o cumprimento do que foi contratado; não nos responsabilizamos por diferenças de preço identificadas depois da contratação.',
+      ],
+    },
+    {
       type: 'technical',
       title: 'Ficha técnica completa e documentos',
       facts: [['Categoria', 'Trekking com pernoite'], ['Origem', 'Lençóis'], ['Percurso de carro', '160 km'], ['Idade mínima', '18 anos (menores c/ responsável)']],
       requirements: ['Condicionamento para subidas/descidas em terreno acidentado', 'Atravessar rios', 'Caminhar longas distâncias por vários dias', 'Informar restrições alimentares e necessidade de quarto privativo na reserva', 'Reservas confirmadas não têm reajuste'],
-      documents: [['Termo de Responsabilidade (PDF)', SITE.whatsappUrl], ['Classificação de Nível das Atividades', SITE.whatsappUrl]],
+      documents: [['Termo de Responsabilidade (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'], ['Classificação de Nível das Atividades', '/pt/classificacao-de-nivel']],
     },
   ],
 
@@ -117,11 +124,19 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       ],
     },
     {
+      type: 'payment',
+      title: 'Tour transfer policy',
+      paragraphs: [
+        'We work with a network of partners. If a tour is passed on to another operator, the prices charged may vary with the number of participants, the type of tour and the logistics required — they may match our counter price, or be adjusted up or down.',
+        'By booking with us, you agree that where a tour is passed on, delivery of the service becomes the responsibility of the designated operator. Our role is to broker the booking and ensure that what was contracted is delivered; we are not liable for price differences identified after booking.',
+      ],
+    },
+    {
       type: 'technical',
       title: 'Full technical sheet and documents',
       facts: [['Category', 'Trekking with overnight stays'], ['Starts in', 'Lençóis'], ['Road section', '160 km'], ['Minimum age', '18 (minors with a legal guardian)']],
       requirements: ['Fitness for ascents and descents on rough terrain', 'Crossing rivers', 'Walking long distances over several days', 'Declaring dietary restrictions and the need for a private room at booking', 'Confirmed bookings are not subject to price adjustments'],
-      documents: [['Liability waiver (PDF)', SITE.whatsappUrl], ['Activity difficulty classification', SITE.whatsappUrl]],
+      documents: [['Liability waiver (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'], ['Activity difficulty classification', '/en/level-classification']],
     },
   ],
 
@@ -172,11 +187,19 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       ],
     },
     {
+      type: 'payment',
+      title: 'Política de traspaso de paseos',
+      paragraphs: [
+        'Trabajamos con una red de socios. En caso de traspaso del paseo a otra operadora, los valores practicados pueden variar según la cantidad de participantes, el tipo de paseo y la estructura necesaria — pudiendo ser equivalentes al valor de mostrador, o ajustados para más o para menos.',
+        'Al contratar con nosotros, aceptás que, habiendo traspaso, la ejecución del servicio queda bajo responsabilidad de la operadora designada. Nuestra función es intermediar y garantizar el cumplimiento de lo contratado; no nos responsabilizamos por diferencias de precio identificadas después de la contratación.',
+      ],
+    },
+    {
       type: 'technical',
       title: 'Ficha técnica completa y documentos',
       facts: [['Categoría', 'Trekking con pernocte'], ['Origen', 'Lençóis'], ['Tramo en auto', '160 km'], ['Edad mínima', '18 años (menores con responsable)']],
       requirements: ['Condición física para subidas y bajadas en terreno accidentado', 'Cruzar ríos', 'Caminar largas distancias durante varios días', 'Informar restricciones alimentarias y necesidad de habitación privada en la reserva', 'Las reservas confirmadas no sufren reajuste'],
-      documents: [['Término de Responsabilidad (PDF)', SITE.whatsappUrl], ['Clasificación de Nivel de las Actividades', SITE.whatsappUrl]],
+      documents: [['Término de Responsabilidad (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'], ['Clasificación de Nivel de las Actividades', '/es/clasificacion-de-nivel']],
     },
   ],
 };

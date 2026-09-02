@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useRef, useState } from 'react';
 import { CaretDownIcon, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
@@ -27,6 +28,17 @@ type SafetyFaq = FaqBase & {
   body: string;
   warning: string;
   footer: string;
+  /** Rótulo do bloco de riscos; sem ele saía em português no EN e no ES. */
+  riskLabel?: string;
+  /** Fotos do equipamento citado no rodapé (rastreador, rádio). */
+  gear?: readonly { img: string; alt: string; legenda: string }[];
+  /**
+   * Ressalva de responsabilidade da operadora: a atividade não é 100% segura,
+   * o resgate demora e o custo é do participante. É a informação que delimita
+   * responsabilidade em caso de acidente, então fica no fim do bloco e em tom
+   * de alerta, não diluída no corpo.
+   */
+  disclaimer?: readonly string[];
 };
 
 type PaymentFaq = FaqBase & {
@@ -46,6 +58,11 @@ type TechnicalFaq = FaqBase & {
   facts: readonly (readonly [string, string])[];
   requirements: readonly string[];
   documents: readonly (readonly [string, string])[];
+  /**
+   * Rótulos das duas listas. Sem eles o bloco saía "Requisitos" e "Documentos"
+   * em português nas páginas em EN e ES.
+   */
+  labels?: { requirements: string; documents: string };
 };
 
 /**
@@ -177,10 +194,27 @@ function FaqContent({ faq }: { faq: PatiFaqItem }) {
         <p className="text-xl font-semibold text-content sm:text-2xl">{faq.lead}</p>
         <Text weight="light" tone="secondary" leading="relaxed" pretty>{faq.body}</Text>
         <div className="flex flex-col gap-3">
-          <FaqLabel>Riscos e limitações — leia com atenção</FaqLabel>
+          <FaqLabel>{faq.riskLabel ?? 'Riscos e limitações — leia com atenção'}</FaqLabel>
           <FaqCallout>{faq.warning}</FaqCallout>
         </div>
         <Text weight="light" tone="secondary" leading="relaxed" pretty>{faq.footer}</Text>
+        {faq.gear ? (
+          <ul className="grid gap-4 sm:grid-cols-2">
+            {faq.gear.map((item) => (
+              <li key={item.legenda} className="flex flex-col gap-2.5">
+                <span className="relative block aspect-[1.5] overflow-hidden rounded-control bg-media-backdrop">
+                  <Image src={item.img} alt={item.alt} fill sizes="(min-width: 640px) 320px, 100vw" className="object-cover" />
+                </span>
+                <Text size="sm" weight="light" tone="muted">{item.legenda}</Text>
+              </li>
+            ))}
+          </ul>
+        ) : null}
+        {faq.disclaimer?.map((paragrafo) => (
+          <Text key={paragrafo} size="sm" weight="light" tone="muted" leading="relaxed" pretty>
+            {paragrafo}
+          </Text>
+        ))}
       </div>
     );
   }
@@ -253,8 +287,9 @@ function FaqContent({ faq }: { faq: PatiFaqItem }) {
         ))}
       </dl>
 
+      {faq.requirements.length > 0 ? (
       <div className="flex flex-col gap-3">
-        <FaqLabel>Requisitos</FaqLabel>
+        <FaqLabel>{faq.labels?.requirements ?? 'Requisitos'}</FaqLabel>
         <ul className="flex flex-col gap-2.5 text-content-secondary">
           {faq.requirements.map((requirement) => (
             <li key={requirement} className="flex gap-3 font-light">
@@ -264,9 +299,11 @@ function FaqContent({ faq }: { faq: PatiFaqItem }) {
           ))}
         </ul>
       </div>
+      ) : null}
 
+      {faq.documents.length > 0 ? (
       <div className="flex flex-col gap-3">
-        <FaqLabel>Documentos</FaqLabel>
+        <FaqLabel>{faq.labels?.documents ?? 'Documentos'}</FaqLabel>
         <div className="flex flex-col items-start gap-2.5">
           {faq.documents.map(([label, href]) => (
             <a
@@ -282,6 +319,7 @@ function FaqContent({ faq }: { faq: PatiFaqItem }) {
           ))}
         </div>
       </div>
+      ) : null}
     </div>
   );
 }

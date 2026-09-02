@@ -25,6 +25,15 @@ export type DayTourContent = {
   stats: string[];
   sobre: { titulo: string; paragrafos: string[] };
   /**
+   * "O que comemos" e "onde dormimos", com foto. Eram dois parágrafos soltos
+   * dentro do `sobre` — mas são a pergunta que mais aparece no atendimento de
+   * um trekking com pernoite, e a foto responde melhor que o texto.
+   */
+  estadia?: {
+    titulo: string;
+    itens: { img: string; alt: string; titulo: string; corpo: string }[];
+  };
+  /**
    * `corpo` é a narrativa corrida dos passeios de um dia. Trekkings de mais de
    * um dia usam `dias`: cada etapa tem distância e esforço próprios, e perder
    * essa estrutura numa lista de parágrafos apagaria justamente o que o
@@ -43,6 +52,13 @@ export type DayTourContent = {
   };
   faqTitulo: string;
   faqs: readonly PatiFaqItem[];
+  /**
+   * "Outras aventuras": ids do hub, na ordem em que devem aparecer. Só as
+   * páginas que declaram o campo ganham a seção — os cards vêm do mesmo
+   * `AdventureCard` do hub, então nível, distância e preço não podem divergir
+   * do que o catálogo mostra.
+   */
+  relacionados?: { titulo: string; ids: string[] };
   cta: { titulo: [string, string]; corpo: string; botao: string };
 };
 

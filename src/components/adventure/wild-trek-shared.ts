@@ -13,20 +13,82 @@
 import type { Locale } from '@/lib/site';
 import type { PatiFaqItem } from './PatiFaqList';
 
-/** Onde se dorme e o que se come — os dois parágrafos finais do "sobre". */
-export const WILD_TREK_CAMP: Record<Locale, string[]> = {
-  pt: [
-    'Dormimos em barraca ou na beira do rio, sobre isolante térmico e saco de dormir adequados à temperatura — tudo incluso. Dependendo do clima, dá para dormir fora da barraca, com o som do rio e o céu estrelado.',
-    'Café da manhã e jantar são preparados na base de acampamento pelo guia local (avise restrições alimentares na reserva). Durante as caminhadas o piquenique equivale ao almoço: refeições balanceadas entre vitaminas, proteínas, fibras e carboidratos.',
-  ],
-  en: [
-    'We sleep in tents or by the river, on sleeping mats and in sleeping bags rated for the temperature — all provided. Weather permitting, you can sleep outside the tent, with the sound of the river and a sky full of stars.',
-    'Breakfast and dinner are prepared at base camp by the local guide (tell us about dietary restrictions when booking). On the walks the picnic is lunch: meals balanced between vitamins, protein, fibre and carbohydrates.',
-  ],
-  es: [
-    'Dormimos en carpa o a la orilla del río, sobre aislante térmico y bolsa de dormir adecuados a la temperatura — todo incluido. Según el clima, se puede dormir afuera de la carpa, con el sonido del río y el cielo estrellado.',
-    'El desayuno y la cena los prepara el guía local en la base de campamento (avisá restricciones alimentarias en la reserva). Durante las caminatas el picnic equivale al almuerzo: comidas balanceadas entre vitaminas, proteínas, fibras y carbohidratos.',
-  ],
+/**
+ * "O que comemos" e "onde dormimos", com as fotos que a operadora publica.
+ *
+ * Substitui os dois parágrafos que antes iam soltos no `sobre` — mesmo texto,
+ * agora com a imagem ao lado, que é como a página de referência apresenta.
+ */
+export const WILD_TREK_ESTADIA: Record<Locale, { titulo: string; itens: { img: string; alt: string; titulo: string; corpo: string }[] }> = {
+  pt: {
+    titulo: 'Onde se dorme e o que se come.',
+    itens: [
+      {
+        img: '/img/adventures/comum/acampamento.jpg',
+        alt: 'Céu estrelado sobre a mata, visto do acampamento',
+        titulo: 'Onde dormimos',
+        corpo: 'Em barraca ou na beira do rio, sobre isolante térmico e saco de dormir adequados à temperatura — tudo incluso. Dependendo do clima, dá para dormir fora da barraca, com o som do rio e o céu estrelado.',
+      },
+      {
+        img: '/img/adventures/comum/refeicoes.jpeg',
+        alt: 'Panelas de arroz, feijão e massa servidas na base de acampamento à noite',
+        titulo: 'Café da manhã e jantar',
+        corpo: 'Preparados na base de acampamento pelo guia local, com cardápio variado. Avise restrições alimentares na reserva.',
+      },
+      {
+        img: '/img/adventures/comum/piquenique.jpeg',
+        alt: 'Piquenique estendido sobre uma canga, com frutas, pães e frios',
+        titulo: 'Piquenique',
+        corpo: 'Durante as caminhadas o piquenique equivale ao almoço: refeições balanceadas entre vitaminas, proteínas, fibras e carboidratos.',
+      },
+    ],
+  },
+  en: {
+    titulo: 'Where you sleep and what you eat.',
+    itens: [
+      {
+        img: '/img/adventures/comum/acampamento.jpg',
+        alt: 'A star-filled sky over the forest, seen from camp',
+        titulo: 'Where we sleep',
+        corpo: 'In tents or by the river, on sleeping mats and in sleeping bags rated for the temperature — all provided. Weather permitting, you can sleep outside the tent, with the sound of the river and a sky full of stars.',
+      },
+      {
+        img: '/img/adventures/comum/refeicoes.jpeg',
+        alt: 'Pots of rice, beans and pasta served at base camp after dark',
+        titulo: 'Breakfast and dinner',
+        corpo: 'Prepared at base camp by the local guide, with a menu that varies. Tell us about dietary restrictions when booking.',
+      },
+      {
+        img: '/img/adventures/comum/piquenique.jpeg',
+        alt: 'A picnic laid out on a cloth, with fruit, bread and cold cuts',
+        titulo: 'The picnic',
+        corpo: 'On the walks the picnic is lunch: meals balanced between vitamins, protein, fibre and carbohydrates.',
+      },
+    ],
+  },
+  es: {
+    titulo: 'Dónde se duerme y qué se come.',
+    itens: [
+      {
+        img: '/img/adventures/comum/acampamento.jpg',
+        alt: 'Cielo estrellado sobre el monte, visto desde el campamento',
+        titulo: 'Dónde dormimos',
+        corpo: 'En carpa o a la orilla del río, sobre aislante térmico y bolsa de dormir adecuados a la temperatura — todo incluido. Según el clima, se puede dormir afuera de la carpa, con el sonido del río y el cielo estrellado.',
+      },
+      {
+        img: '/img/adventures/comum/refeicoes.jpeg',
+        alt: 'Ollas de arroz, porotos y pasta servidas en la base de campamento de noche',
+        titulo: 'Desayuno y cena',
+        corpo: 'Los prepara el guía local en la base de campamento, con menú variado. Avisá restricciones alimentarias en la reserva.',
+      },
+      {
+        img: '/img/adventures/comum/piquenique.jpeg',
+        alt: 'Picnic tendido sobre una tela, con frutas, panes y fiambres',
+        titulo: 'El picnic',
+        corpo: 'Durante las caminatas el picnic equivale al almuerzo: comidas balanceadas entre vitaminas, proteínas, fibras y carbohidratos.',
+      },
+    ],
+  },
 };
 
 /**

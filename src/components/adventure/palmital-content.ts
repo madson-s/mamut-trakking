@@ -12,7 +12,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
-import { WILD_TREK_CAMP, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
+import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
 
 export const PALMITAL_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/palmital/hero.jpeg', position: '50% 55%' },
@@ -56,10 +56,10 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
       paragrafos: [
         'Uma das rotas mais tradicionais do garimpo na Chapada Diamantina, com duas cachoeiras: a do Palmital e a do Capivara. As trilhas são rústicas e antigas, dentro do Parque Nacional, com trechos acidentados e escorregadios.',
         'A caminhada explica o cotidiano e as técnicas do antigo garimpo de diamantes na região — inclusive dormindo nas antigas "tocas". É um roteiro de imersão natural e cultural em partes iguais.',
-        ...WILD_TREK_CAMP.pt,
         'É a alternativa certa para quem tem poucos dias na Chapada e quer um trekking selvagem, ou para quem está evitando multidões: este é bem quieto.',
       ],
     },
+    estadia: WILD_TREK_ESTADIA.pt,
     itinerario: {
       titulo: 'Dia a dia.',
       aviso: 'O itinerário pode mudar por condição climática ou por qualquer fator de força maior que a equipe julgue relevante. Este trekking é dinâmico e admite várias entradas e saídas — consulte as opções com o atendimento.',
@@ -96,14 +96,40 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
         type: 'included',
         title: 'O que está incluso / não incluso',
         included: ['Guia de montanha com treinamento APH', 'Camping: barraca, saco de dormir e isolante térmico', 'Alimentação durante o trekking', 'Rastreador SPOT X via satélite', 'Seguro aventura', 'Kit de primeiros socorros', 'Sala de espera, bagagem extra segura e banho antes/depois da trilha'],
-        excluded: ['Qualquer item não listado', 'Café da manhã do 1º dia', 'Hospedagem antes ou após o trekking', 'Equipamento pessoal', 'Evacuação médica'],
+        excluded: ['Qualquer item não listado', 'Café da manhã do 1º dia', 'Jantar do 2º dia', 'Transfer de Salvador (opcional)', 'Carregador pessoal ou mulas (opcional)', 'Bebidas extras', 'Equipamento pessoal', 'Evacuação médica', 'Hospedagem e refeições antes ou após o trekking', 'Gorjetas por serviços adicionais'],
       },
       safetyFaq(
         'pt',
         'As trilhas são rústicas, com trechos acidentados e escorregadios — este roteiro pede boa aptidão física. Dormir em barraca dentro do Parque Nacional significa não ter estrutura por perto: por isso a lanterna de cabeça e a capa de chuva entram como obrigatórias, não como recomendação.',
       ),
+      {
+        type: 'technical',
+        title: 'Ficha técnica e requisitos',
+        facts: [
+          ['Categoria', 'Trekking com pernoite em barraca'],
+          ['Distância a pé', '22 km'],
+          ['Percurso de carro', '1 km'],
+          ['Ganho de elevação', '460 m'],
+          ['Altitude máxima', '850 m'],
+          ['Atrativos', 'Palmital, Capivara e Toca da Onça'],
+          ['Locais para banho', '2'],
+          ['Saída / retorno', '6h00 / 19h00'],
+        ],
+        requirements: [
+          'Ter mais de 18 anos. Menores de idade só com o responsável legal.',
+          'Condicionamento para subidas e descidas íngremes em terreno acidentado, travessia de rios e riachos, escalaminhada e longas distâncias.',
+          'Informar restrições alimentares na reserva.',
+          'Os valores estão sujeitos a mudança — reservas já confirmadas não sofrem reajuste.',
+        ],
+        documents: [
+          ['Termo de Responsabilidade (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'],
+          ['Classificação de nível das atividades', '/pt/classificacao-de-nivel'],
+        ],
+        labels: { requirements: 'Requisitos', documents: 'Documentos' },
+      },
       ...DAY_TOUR_LEGAL.pt,
     ],
+    relacionados: { titulo: 'Outras aventuras.', ids: ['trilha-aguas-claras-2-dias', 'city-tour-em-lencois', 'fazenda-pratinha-gruta-azul'] },
     cta: {
       titulo: ['Pronto para dormir', 'na beira do rio?'],
       corpo: 'Conte quantas pessoas, as datas que está considerando e a gente monta a saída com você.',
@@ -133,10 +159,10 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
       paragrafos: [
         'One of the most traditional mining routes in the Chapada Diamantina, taking in two waterfalls: Palmital and Capivara. The trails are old and rough, inside the National Park, with uneven and slippery sections.',
         'The walk explains the daily life and the techniques of the old diamond mining in the region — including sleeping in the old "tocas", the miners’ shelters. It is a trip of natural and cultural immersion in equal measure.',
-        ...WILD_TREK_CAMP.en,
         'It is the right alternative for anyone with only a few days in the Chapada who wants a wild trek, or for anyone avoiding crowds: this one is genuinely quiet.',
       ],
     },
+    estadia: WILD_TREK_ESTADIA.en,
     itinerario: {
       titulo: 'Day by day.',
       aviso: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant. This trek is dynamic and allows several entry and exit points — ask us about the options.',
@@ -173,14 +199,40 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
         type: 'included',
         title: "What's included / not included",
         included: ['Mountain guide with first-aid training', 'Camping: tent, sleeping bag and sleeping mat', 'All meals during the trek', 'SPOT X satellite tracker', 'Adventure insurance', 'First-aid kit', 'Waiting room, secure luggage storage and a shower before/after the trail'],
-        excluded: ['Anything not listed', 'Breakfast on day 1', 'Accommodation before or after the trek', 'Personal gear', 'Medical evacuation'],
+        excluded: ['Anything not listed', 'Breakfast on day 1', 'Dinner on day 2', 'Transfer from Salvador (optional)', 'Personal porter or mules (optional)', 'Extra drinks', 'Personal gear', 'Medical evacuation', 'Accommodation and meals before or after the trek', 'Tips for additional services'],
       },
       safetyFaq(
         'en',
         'The trails are rough, with uneven and slippery sections — this route calls for decent fitness. Sleeping in a tent inside the National Park means no facilities nearby: that is why the head torch and rain gear are mandatory rather than merely recommended.',
       ),
+      {
+        type: 'technical',
+        title: 'Technical sheet and requirements',
+        facts: [
+          ['Category', 'Trek with a night under canvas'],
+          ['Distance on foot', '22 km'],
+          ['Drive', '1 km'],
+          ['Elevation gain', '460 m'],
+          ['Highest point', '850 m'],
+          ['Sights', 'Palmital, Capivara and Toca da Onça'],
+          ['Places to swim', '2'],
+          ['Departure / return', '6:00 am / 7:00 pm'],
+        ],
+        requirements: [
+          'You must be over 18. Minors only with their legal guardian.',
+          'Fitness for steep ascents and descents on rough ground, crossing rivers and streams, scrambling and long distances.',
+          'Tell us about dietary restrictions when booking.',
+          'Prices are subject to change — bookings already confirmed are not repriced.',
+        ],
+        documents: [
+          ['Liability waiver (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'],
+          ['Activity difficulty classification', '/en/level-classification'],
+        ],
+        labels: { requirements: 'Requirements', documents: 'Documents' },
+      },
       ...DAY_TOUR_LEGAL.en,
     ],
+    relacionados: { titulo: 'Other adventures.', ids: ['trilha-aguas-claras-2-dias', 'city-tour-em-lencois', 'fazenda-pratinha-gruta-azul'] },
     cta: {
       titulo: ['Ready to sleep', 'by the river?'],
       corpo: 'Tell us how many people and the dates you have in mind, and we will put the trip together with you.',
@@ -210,10 +262,10 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
       paragrafos: [
         'Una de las rutas más tradicionales de la minería en la Chapada Diamantina, con dos cascadas: la del Palmital y la del Capivara. Los senderos son rústicos y antiguos, dentro del Parque Nacional, con tramos accidentados y resbaladizos.',
         'La caminata explica el cotidiano y las técnicas de la antigua minería de diamantes en la región — incluso durmiendo en las antiguas "tocas". Es un recorrido de inmersión natural y cultural en partes iguales.',
-        ...WILD_TREK_CAMP.es,
         'Es la alternativa justa para quien tiene pocos días en la Chapada y quiere un trekking salvaje, o para quien está evitando multitudes: este es bien tranquilo.',
       ],
     },
+    estadia: WILD_TREK_ESTADIA.es,
     itinerario: {
       titulo: 'Día a día.',
       aviso: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es dinámico y admite varias entradas y salidas — consultá las opciones con atención.',
@@ -250,14 +302,40 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
         type: 'included',
         title: 'Qué está incluido / no incluido',
         included: ['Guía de montaña con formación en primeros auxilios', 'Camping: carpa, bolsa de dormir y aislante térmico', 'Alimentación durante el trekking', 'Rastreador SPOT X satelital', 'Seguro de aventura', 'Botiquín de primeros auxilios', 'Sala de espera, equipaje extra seguro y ducha antes/después del sendero'],
-        excluded: ['Cualquier ítem no listado', 'Desayuno del 1º día', 'Alojamiento antes o después del trekking', 'Equipo personal', 'Evacuación médica'],
+        excluded: ['Cualquier ítem no listado', 'Desayuno del 1º día', 'Cena del 2º día', 'Traslado desde Salvador (opcional)', 'Porteador personal o mulas (opcional)', 'Bebidas extra', 'Equipo personal', 'Evacuación médica', 'Alojamiento y comidas antes o después del trekking', 'Propinas por servicios adicionales'],
       },
       safetyFaq(
         'es',
         'Los senderos son rústicos, con tramos accidentados y resbaladizos — este recorrido pide buena aptitud física. Dormir en carpa dentro del Parque Nacional significa no tener estructura cerca: por eso la linterna frontal y el piloto de lluvia entran como obligatorios, no como recomendación.',
       ),
+      {
+        type: 'technical',
+        title: 'Ficha técnica y requisitos',
+        facts: [
+          ['Categoría', 'Trekking con noche en carpa'],
+          ['Distancia a pie', '22 km'],
+          ['Traslado en auto', '1 km'],
+          ['Ganancia de elevación', '460 m'],
+          ['Altitud máxima', '850 m'],
+          ['Atractivos', 'Palmital, Capivara y Toca da Onça'],
+          ['Lugares para bañarse', '2'],
+          ['Salida / regreso', '6:00 / 19:00'],
+        ],
+        requirements: [
+          'Tener más de 18 años. Menores de edad solo con el responsable legal.',
+          'Estado físico para subidas y bajadas empinadas en terreno accidentado, cruce de ríos y arroyos, trepada y largas distancias.',
+          'Informar restricciones alimentarias en la reserva.',
+          'Los valores están sujetos a cambios — las reservas ya confirmadas no sufren reajuste.',
+        ],
+        documents: [
+          ['Término de Responsabilidad (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'],
+          ['Clasificación de nivel de las actividades', '/es/clasificacion-de-nivel'],
+        ],
+        labels: { requirements: 'Requisitos', documents: 'Documentos' },
+      },
       ...DAY_TOUR_LEGAL.es,
     ],
+    relacionados: { titulo: 'Otras aventuras.', ids: ['trilha-aguas-claras-2-dias', 'city-tour-em-lencois', 'fazenda-pratinha-gruta-azul'] },
     cta: {
       titulo: ['¿Listo para dormir', 'a la orilla del río?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
