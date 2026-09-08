@@ -104,19 +104,19 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
       surface="muted"
       radius="panelLg"
       padding="none"
-      className="gap-6 px-6 py-8 sm:px-10 sm:py-10"
+      className="min-w-0 gap-8 p-6 sm:p-8 lg:p-10"
     >
       <div className="flex flex-col gap-2">
         <Heading as="h2" size="card" balance>
           {c.titulo}
         </Heading>
-        <Text size="sm" tone="muted" pretty>
+        <Text size="sm" tone="secondary" pretty>
           {c.lead}
         </Text>
       </div>
 
       <form
-        className="flex flex-col gap-5"
+        className="flex flex-col gap-6"
         onSubmit={(event: FormEvent<HTMLFormElement>) => {
           event.preventDefault();
           void enviar('whatsapp');
@@ -125,6 +125,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label={c.nome.label}>
             <Input
+              size="md"
               required
               value={nome}
               onChange={(e) => setNome(e.target.value)}
@@ -134,6 +135,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           </Field>
           <Field label={c.email.label}>
             <Input
+              size="md"
               required
               type="email"
               value={email}
@@ -147,6 +149,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label={c.telefone.label}>
             <Input
+              size="md"
               required
               type="tel"
               value={telefone}
@@ -157,6 +160,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           </Field>
           <Field label={c.grupo.label} hint={c.grupo.hint}>
             <Input
+              size="md"
               required
               type="number"
               min={1}
@@ -171,13 +175,14 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           <legend className="mb-1 font-body text-sm text-content-secondary">
             {c.aventuras}
           </legend>
-          <div className="flex flex-wrap gap-x-6 gap-y-3">
+          <div className="flex flex-wrap gap-2">
             {c.opcoesAventura.map((item) => (
               <Checkbox
                 key={item}
                 label={item}
                 checked={aventuras.includes(item)}
                 onChange={() => toggleAventura(item)}
+                className={`min-h-11 rounded-pill border px-4 py-2 transition-colors ${aventuras.includes(item) ? 'border-brand bg-brand/10 text-brand-strong' : 'border-line-strong hover:border-brand'}`}
               />
             ))}
           </div>
@@ -200,6 +205,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
         <div className="grid gap-5 sm:grid-cols-2">
           <Field label={c.checkin.label} hint={c.checkin.hint}>
             <Input
+              size="md"
               required
               type="date"
               value={checkin}
@@ -207,12 +213,13 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
             />
           </Field>
           <Field label={c.checkout.label} hint={c.checkout.hint}>
-            <Input type="date" value={checkout} onChange={(e) => setCheckout(e.target.value)} />
+            <Input size="md" type="date" value={checkout} onChange={(e) => setCheckout(e.target.value)} />
           </Field>
         </div>
 
         <Field label={c.mensagem.label}>
           <Textarea
+            size="md"
             required
             rows={5}
             value={mensagem}
@@ -221,7 +228,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           />
         </Field>
 
-        <div className="flex flex-col gap-3 sm:flex-row">
+        <div className="flex flex-col gap-3 border-t border-line pt-6 sm:flex-row sm:flex-wrap">
           <Button type="submit" arrow disabled={verificando} className="max-sm:w-full">
             {verificando ? c.verificando : c.enviarWhatsapp}
           </Button>
@@ -251,7 +258,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           </div>
         ) : null}
 
-        <Text size="xs" tone="subtle">
+        <Text size="xs" tone="secondary">
           {c.nota}
         </Text>
 

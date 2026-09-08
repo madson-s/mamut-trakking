@@ -18,6 +18,7 @@ import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 import { PATI_CAPAO_AVISO, PATI_CAPAO_SOBRE, patiCapaoFaqs } from './pati-capao-shared';
 
 export const PATI_4_CAPAO_ASSETS: DayTourAssets = {
+  detailLayout: 'legacy',
   hero: { src: '/img/adventures/pati-4-capao/hero.jpeg', position: '50% 55%' },
   galeria: [
     { src: '/img/adventures/pati-4-capao/1.jpeg', width: 2080, height: 1170 },

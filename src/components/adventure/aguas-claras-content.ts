@@ -24,6 +24,7 @@ import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
 
 export const AGUAS_CLARAS_ASSETS: DayTourAssets = {
+  detailLayout: 'journey',
   hero: { src: '/img/adventures/aguas-claras/hero.jpeg', position: '50% 55%' },
   galeria: [
     { src: '/img/adventures/aguas-claras/1.jpeg', width: 1536, height: 864 },

@@ -55,9 +55,17 @@ function formatDate(date: Date, diasSemana: readonly string[]) {
 export function PatiMobileBooking({
   content: c,
   fromPrice: GROUP_PRICE,
+  showDock = true,
+  openEvent = PATI_BOOKING_OPEN_EVENT,
+  messageIntro,
+  sheetId = 'pati-booking-sheet',
 }: {
   content: Pati3Content['booking'];
   fromPrice: number;
+  showDock?: boolean;
+  openEvent?: string;
+  messageIntro?: string;
+  sheetId?: string;
 }) {
   const pathname = usePathname();
   const [dockVisible, setDockVisible] = useState(false);
@@ -69,6 +77,8 @@ export function PatiMobileBooking({
   const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (!showDock) return;
+
     const bookingCard = document.getElementById('pati-booking-card');
     if (!bookingCard) return;
 
@@ -79,13 +89,13 @@ export function PatiMobileBooking({
     updateDockVisibility();
     window.addEventListener('scroll', updateDockVisibility, { passive: true });
     return () => window.removeEventListener('scroll', updateDockVisibility);
-  }, []);
+  }, [showDock]);
 
   useEffect(() => {
     const openBooking = () => setSheetView('booking');
-    window.addEventListener(PATI_BOOKING_OPEN_EVENT, openBooking);
-    return () => window.removeEventListener(PATI_BOOKING_OPEN_EVENT, openBooking);
-  }, []);
+    window.addEventListener(openEvent, openBooking);
+    return () => window.removeEventListener(openEvent, openBooking);
+  }, [openEvent]);
 
   // Scroll-lock e Escape ficam por conta do MorphingModal; aqui só o focus trap.
   useEffect(() => {
@@ -124,7 +134,7 @@ export function PatiMobileBooking({
   );
   const monthLabel = `${new Intl.DateTimeFormat(c.intl, { month: 'long' }).format(visibleMonth)} ${visibleMonth.getFullYear()}`;
   const bookingMessage = encodeURIComponent(
-    `${c.mensagem.antes} ${formatDate(selectedDate, c.diasSemana)}, ${travellers} ${
+    `${messageIntro ?? c.mensagem.antes} ${formatDate(selectedDate, c.diasSemana)}, ${travellers} ${
       travellers > 1 ? c.mensagem.viajantes : c.mensagem.viajante
     }, ${c.mensagem.idioma}: ${language}.`,
   );
@@ -137,35 +147,37 @@ export function PatiMobileBooking({
 
   return (
     <>
-      <div
-        aria-hidden={!dockVisible}
-        className={`fixed inset-x-0 bottom-0 z-40 mx-auto hidden w-full max-w-105 items-center justify-between gap-4 rounded-t-panel border-x border-t border-line bg-surface-muted px-7 pt-3.5 pb-[max(28px,env(safe-area-inset-bottom))] shadow-popover transition-[opacity,transform,visibility] duration-300 ease-brand max-lg:flex ${
-          dockVisible && !sheetView
-            ? 'visible translate-y-0 opacity-100'
-            : 'invisible translate-y-6 opacity-0'
-        }`}
-      >
-        <div className="min-w-0">
-          <Heading as="p" size="quote" className="tabular-nums">R$ {GROUP_PRICE.toLocaleString('pt-BR')}</Heading>
-          <Text tone="secondary" className="max-w-[141px] text-[11px] leading-[1.25]">
-            {c.dockApoio}
-          </Text>
+      {showDock ? (
+        <div
+          aria-hidden={!dockVisible}
+          className={`fixed inset-x-0 bottom-0 z-40 mx-auto hidden w-full max-w-105 items-center justify-between gap-4 rounded-t-panel border-x border-t border-line bg-surface-muted px-7 pt-3.5 pb-[max(28px,env(safe-area-inset-bottom))] shadow-popover transition-[opacity,transform,visibility] duration-300 ease-brand max-lg:flex ${
+            dockVisible && !sheetView
+              ? 'visible translate-y-0 opacity-100'
+              : 'invisible translate-y-6 opacity-0'
+          }`}
+        >
+          <div className="min-w-0">
+            <Heading as="p" size="quote" className="tabular-nums">R$ {GROUP_PRICE.toLocaleString('pt-BR')}</Heading>
+            <Text tone="secondary" className="max-w-[141px] text-[11px] leading-[1.25]">
+              {c.dockApoio}
+            </Text>
+          </div>
+          <div className="flex shrink-0 items-center gap-2">
+            <IconButton href={SITE.whatsappUrl} label={c.whatsapp} size="lg" className="!size-11">
+              <Image src="/svg/figma/pati-3/whatsapp.svg" alt="" width={20} height={20} className="size-5" />
+            </IconButton>
+            <Button onClick={() => setSheetView('booking')} className="min-h-12 px-5.5">
+              {c.reservar}
+            </Button>
+          </div>
         </div>
-        <div className="flex shrink-0 items-center gap-2">
-          <IconButton href={SITE.whatsappUrl} label={c.whatsapp} size="lg" className="!size-11">
-            <Image src="/svg/figma/pati-3/whatsapp.svg" alt="" width={20} height={20} className="size-5" />
-          </IconButton>
-          <Button onClick={() => setSheetView('booking')} className="min-h-12 px-5.5">
-            {c.reservar}
-          </Button>
-        </div>
-      </div>
+      ) : null}
 
       <MorphingModal
         viewId={sheetView}
         onClose={closeSheet}
         placement="bottom"
-        labelledBy="pati-booking-sheet-title"
+        labelledBy={`${sheetId}-title`}
         closeLabel={c.fechar}
         className="max-w-98 lg:max-w-130"
       >
@@ -178,6 +190,7 @@ export function PatiMobileBooking({
               monthLabel={monthLabel}
               selectedDate={selectedDate}
               visibleMonth={visibleMonth}
+              headingId={`${sheetId}-title`}
               onClose={() => setSheetView('booking')}
               c={c}
               onChangeMonth={changeMonth}
@@ -197,6 +210,7 @@ export function PatiMobileBooking({
               onOpenCalendar={() => setSheetView('calendar')}
               onTravellersChange={setTravellers}
               onLanguageChange={setLanguage}
+              headingId={`${sheetId}-title`}
               c={c}
             />
           )}
@@ -211,16 +225,18 @@ type Booking = Pati3Content['booking'];
 type SharedSheetProps = {
   onClose: () => void;
   c: Booking;
+  headingId: string;
 };
 
 function SheetHeader({
   title,
   onClose,
   closeLabel,
+  headingId,
 }: Omit<SharedSheetProps, 'c'> & { title: string; closeLabel: string }) {
   return (
     <header className="mb-5 flex h-9 items-center justify-between">
-      <Heading id="pati-booking-sheet-title" as="h2" size="quote">{title}</Heading>
+      <Heading id={headingId} as="h2" size="quote">{title}</Heading>
       <IconButton label={closeLabel} variant="outline" size="sm" onClick={onClose} className="relative !size-9 after:absolute after:-inset-1 after:content-['']">
         <XIcon className="size-4" />
       </IconButton>
@@ -236,6 +252,7 @@ function BookingView({
   availabilityUrl,
   onClose,
   c,
+  headingId,
   onOpenCalendar,
   onTravellersChange,
   onLanguageChange,
@@ -251,7 +268,7 @@ function BookingView({
 }) {
   return (
     <>
-      <SheetHeader title={c.titulo} onClose={onClose} closeLabel={c.fechar} />
+      <SheetHeader title={c.titulo} onClose={onClose} closeLabel={c.fechar} headingId={headingId} />
 
       <div className="overflow-hidden rounded-card border border-line-strong">
         <div className="grid h-17.5 grid-cols-2 divide-x divide-line-strong">
@@ -321,6 +338,7 @@ function CalendarView({
   visibleMonth,
   onClose,
   c,
+  headingId,
   onChangeMonth,
   onSelectDate,
 }: SharedSheetProps & {
@@ -333,7 +351,7 @@ function CalendarView({
 }) {
   return (
     <>
-      <SheetHeader title={c.calendario} closeLabel={c.voltar} onClose={onClose} />
+      <SheetHeader title={c.calendario} closeLabel={c.voltar} onClose={onClose} headingId={headingId} />
       <div className="mb-4 flex h-11 items-center justify-between">
         <IconButton label={c.mesAnterior} variant="outline" size="sm" onClick={() => onChangeMonth(-1)} className="relative !size-9 after:absolute after:-inset-1 after:content-['']">
           <CaretDownIcon className="size-4 rotate-90" />

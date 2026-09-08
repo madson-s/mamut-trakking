@@ -18,6 +18,7 @@ import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
 import { ADVENTURES_CONTENT } from '@/components/adventures/adventures-content';
+import { TrekJourney } from './TrekJourney';
 
 /**
  * Página de passeio de um dia — hero, faixa de números, sobre + galeria,
@@ -174,69 +175,77 @@ export function DayTourExperience({
         </Section>
       ) : null}
 
-      <Section padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
-        <Heading id="itinerario-heading" as="h2" size="section">{c.itinerario.titulo}</Heading>
-        {c.itinerario.corpo.map((paragrafo) => (
-          <Text key={paragrafo} size="base" weight="light" tone="secondary" leading="relaxed" pretty>
-            {paragrafo}
-          </Text>
-        ))}
-        {c.itinerario.dias?.map((dia) => (
-          <Card key={dia.rotulo} as="article" surface="muted" padding="none" className="gap-3 border border-line-strong p-6 sm:p-8">
-            <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
-              <Badge variant="solid" size="sm">{dia.rotulo}</Badge>
-              <Heading as="h3" size="quote">{dia.titulo}</Heading>
+      {assets.detailLayout !== 'legacy' ? (
+        <TrekJourney content={c} assets={assets} locale={locale}>
+          {c.relacionados ? <Relacionados locale={locale} relacionados={c.relacionados} align="left" /> : null}
+        </TrekJourney>
+      ) : (
+        <>
+          <Section padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
+            <Heading id="itinerario-heading" as="h2" size="section">{c.itinerario.titulo}</Heading>
+            {c.itinerario.corpo.map((paragrafo) => (
+              <Text key={paragrafo} size="base" weight="light" tone="secondary" leading="relaxed" pretty>
+                {paragrafo}
+              </Text>
+            ))}
+            {c.itinerario.dias?.map((dia) => (
+              <Card key={dia.rotulo} as="article" surface="muted" padding="none" className="gap-3 border border-line-strong p-6 sm:p-8">
+                <div className="flex flex-wrap items-baseline gap-x-4 gap-y-2">
+                  <Badge variant="solid" size="sm">{dia.rotulo}</Badge>
+                  <Heading as="h3" size="quote">{dia.titulo}</Heading>
+                </div>
+                <Text size="base" weight="light" tone="secondary" leading="relaxed" pretty>{dia.corpo}</Text>
+                <div className="mt-1 flex flex-wrap gap-2">
+                  <Badge variant="outline" size="sm">{dia.distancia}</Badge>
+                  <Badge variant="outline" size="sm">{dia.esforco}</Badge>
+                </div>
+              </Card>
+            ))}
+            <div className="rounded-control border-l-4 border-brand bg-surface-sunken px-5 py-4">
+              <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>{c.itinerario.aviso}</Text>
             </div>
-            <Text size="base" weight="light" tone="secondary" leading="relaxed" pretty>{dia.corpo}</Text>
-            <div className="mt-1 flex flex-wrap gap-2">
-              <Badge variant="outline" size="sm">{dia.distancia}</Badge>
-              <Badge variant="outline" size="sm">{dia.esforco}</Badge>
+          </Section>
+
+          <Section padding="default" container="prose" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="precos-heading">
+            <Heading id="precos-heading" as="h2" size="section" className="text-display-sm!">{c.precos.titulo}</Heading>
+            <div className="grid w-full gap-5 sm:grid-cols-2">
+              {c.precos.formatos.map((formato, i) => (
+                <Card
+                  key={formato.titulo}
+                  as="article"
+                  surface="muted"
+                  padding="none"
+                  className={cn('items-center gap-3 border p-8 text-center', i === 1 ? 'border-brand' : 'border-line-strong')}
+                >
+                  <Heading as="h3" size="quote">{formato.titulo}</Heading>
+                  <p className={cn('font-display text-display-md', i === 1 && 'text-brand-strong')}>{formato.preco}</p>
+                  <Text size="sm" weight="light" tone="secondary">{c.hero.porPessoa}</Text>
+                  <Text size="sm" weight="light" tone="muted" pretty className="mt-1">{formato.nota}</Text>
+                </Card>
+              ))}
             </div>
-          </Card>
-        ))}
-        <div className="rounded-control border-l-4 border-brand bg-surface-sunken px-5 py-4">
-          <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>{c.itinerario.aviso}</Text>
-        </div>
-      </Section>
+            <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
+            <Button href={SITE.whatsappUrl} arrow>{c.hero.reservar}</Button>
+          </Section>
 
-      <Section padding="default" container="prose" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="precos-heading">
-        <Heading id="precos-heading" as="h2" size="section" className="text-display-sm!">{c.precos.titulo}</Heading>
-        <div className="grid w-full gap-5 sm:grid-cols-2">
-          {c.precos.formatos.map((formato, i) => (
-            <Card
-              key={formato.titulo}
-              as="article"
-              surface="muted"
-              padding="none"
-              className={cn('items-center gap-3 border p-8 text-center', i === 1 ? 'border-brand' : 'border-line-strong')}
-            >
-              <Heading as="h3" size="quote">{formato.titulo}</Heading>
-              <p className={cn('font-display text-display-md', i === 1 && 'text-brand-strong')}>{formato.preco}</p>
-              <Text size="sm" weight="light" tone="secondary">{c.hero.porPessoa}</Text>
-              <Text size="sm" weight="light" tone="muted" pretty className="mt-1">{formato.nota}</Text>
-            </Card>
-          ))}
-        </div>
-        <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
-        <Button href={SITE.whatsappUrl} arrow>{c.hero.reservar}</Button>
-      </Section>
+          <Section padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
+            <Heading id="faq-heading" as="h2" size="section" className="text-center">{c.faqTitulo}</Heading>
+            <PatiFaqList faqs={c.faqs} />
+          </Section>
 
-      <Section padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
-        <Heading id="faq-heading" as="h2" size="section" className="text-center">{c.faqTitulo}</Heading>
-        <PatiFaqList faqs={c.faqs} />
-      </Section>
+          {c.relacionados ? <Relacionados locale={locale} relacionados={c.relacionados} /> : null}
 
-      {c.relacionados ? <Relacionados locale={locale} relacionados={c.relacionados} /> : null}
-
-      <Section padding="default" containerClassName="flex flex-col items-center gap-8 text-center">
-        <Heading as="h2" size="hero" balance className="max-lg:text-[clamp(28px,8.4vw,36px)]">
-          {c.cta.titulo[0]}
-          <br />
-          {c.cta.titulo[1]}
-        </Heading>
-        <Text size="sm" tone="muted" pretty className="max-w-131.5 sm:text-lg">{c.cta.corpo}</Text>
-        <Button href={SITE.whatsappUrl} arrow className="max-lg:w-full">{c.cta.botao}</Button>
-      </Section>
+          <Section padding="default" containerClassName="flex flex-col items-center gap-8 text-center">
+            <Heading as="h2" size="hero" balance className="max-lg:text-[clamp(28px,8.4vw,36px)]">
+              {c.cta.titulo[0]}
+              <br />
+              {c.cta.titulo[1]}
+            </Heading>
+            <Text size="sm" tone="muted" pretty className="max-w-131.5 sm:text-lg">{c.cta.corpo}</Text>
+            <Button href={SITE.whatsappUrl} arrow className="max-lg:w-full">{c.cta.botao}</Button>
+          </Section>
+        </>
+      )}
     </article>
   );
 }
@@ -245,9 +254,11 @@ export function DayTourExperience({
 function Relacionados({
   locale,
   relacionados,
+  align = 'center',
 }: {
   locale: Locale;
   relacionados: NonNullable<DayTourContent['relacionados']>;
+  align?: 'center' | 'left';
 }) {
   const catalogo = aventurasDoIdioma(locale);
   // `map` sobre os ids, e não `filter` sobre o catálogo: assim a ordem é a que
@@ -260,7 +271,7 @@ function Relacionados({
 
   return (
     <Section padding="default" containerClassName="flex flex-col gap-8" labelledBy="relacionados-heading">
-      <Heading id="relacionados-heading" as="h2" size="section" className="text-center">
+      <Heading id="relacionados-heading" as="h2" size="section" className={align === 'center' ? 'text-center' : undefined}>
         {relacionados.titulo}
       </Heading>
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">

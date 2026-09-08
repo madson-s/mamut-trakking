@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { Mail, MapPin } from 'lucide-react';
 import type { ReactNode } from 'react';
 import { Button, Card, FacebookIcon, Heading, InstagramIcon, Text } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
@@ -25,14 +25,14 @@ function ChannelCard({
   title,
   children,
 }: {
-  icon: string;
+  icon: ReactNode;
   title: string;
   children: ReactNode;
 }) {
   return (
-    <Card as="article" surface="muted" radius="panelLg" padding="none" className="gap-3 px-7 py-7">
-      <span className="flex size-10 items-center justify-center rounded-full bg-brand">
-        <Image src={icon} alt="" width={20} height={20} unoptimized className="size-5 brightness-0 invert" />
+    <Card as="article" surface="outline" radius="panelLg" padding="none" className="gap-4 p-7 sm:p-8">
+      <span className="mb-2 flex size-12 items-center justify-center rounded-full border border-brand/50 text-brand-strong" aria-hidden="true">
+        {icon}
       </span>
       <Heading as="h3" size="label">
         {title}
@@ -45,61 +45,64 @@ function ChannelCard({
 export function ContatoChannels({ locale = 'pt' }: { locale?: Locale }) {
   const c = CONTATO_CONTENT[locale].canais;
   return (
-    <div className="flex flex-col gap-6">
-      <ChannelCard icon="/svg/figma/pati-3/whatsapp.svg" title={c.whatsapp.titulo}>
-        <Text size="sm" tone="muted" pretty>
+    <div className="flex flex-col gap-8">
+      <div className="grid gap-5 md:grid-cols-3">
+      <ChannelCard icon={<span className="size-5 bg-current [mask-image:url('/svg/figma/pati-3/whatsapp.svg')] [mask-repeat:no-repeat] [mask-size:contain]" />} title={c.whatsapp.titulo}>
+        <Text size="sm" tone="secondary" pretty>
           {c.whatsapp.texto}
         </Text>
-        <Button href={SITE.whatsappUrl} size="sm" arrow className="mt-2 self-start">
+        <Button href={SITE.whatsappUrl} size="sm" variant="outline" arrow className="mt-auto self-start">
           {c.whatsapp.cta}
         </Button>
       </ChannelCard>
 
-      <ChannelCard icon="/svg/_icons/icon_07_text.svg" title={c.email.titulo}>
-        <Text size="sm" tone="muted" pretty>
+      <ChannelCard icon={<Mail className="size-5" />} title={c.email.titulo}>
+        <Text size="sm" tone="secondary" pretty>
           {c.email.texto}
         </Text>
         <a
           href={`mailto:${SITE.email}`}
-          className="mt-1 self-start font-body text-base text-content underline underline-offset-4 transition-colors ease-brand hover:text-brand-strong"
+          className="mt-auto inline-flex min-h-11 items-center self-start break-all font-body text-base text-content underline underline-offset-4 transition-colors ease-brand hover:text-brand-strong"
         >
           {SITE.email}
         </a>
       </ChannelCard>
 
-      <ChannelCard icon="/svg/_icons/icon_09_location.svg" title={c.endereco.titulo}>
-        <Text size="sm" tone="muted" pretty>
+      <ChannelCard icon={<MapPin className="size-5" />} title={c.endereco.titulo}>
+        <Text size="sm" tone="secondary" pretty>
           {ADDRESS}
         </Text>
         <a
           href={MAPS_URL}
           target="_blank"
           rel="noreferrer"
-          className="mt-1 self-start font-body text-base text-content underline underline-offset-4 transition-colors ease-brand hover:text-brand-strong"
+          className="mt-auto inline-flex min-h-11 items-center self-start font-body text-base text-content underline underline-offset-4 transition-colors ease-brand hover:text-brand-strong"
         >
           {c.endereco.mapa}
         </a>
       </ChannelCard>
+      </div>
 
-      <ChannelCard icon="/svg/_icons/icon_16_internet.svg" title={c.redes.titulo}>
-        <div className="mt-1 flex flex-wrap gap-2">
+      <div className="flex flex-col gap-5 border-t border-line pt-8 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-2">
+          <Heading as="h3" size="label">{c.redes.titulo}</Heading>
+          <Text size="xs" tone="subtle">{c.redes.cadastur} {SITE.cadastur}</Text>
+        </div>
+        <div className="flex flex-wrap gap-2">
           {SOCIAL.map((rede) => (
             <a
               key={rede.label}
               href={rede.href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex min-h-10 items-center gap-2 rounded-pill border border-line-contrast px-4 font-body text-sm text-content-secondary transition-colors ease-brand hover:border-brand hover:bg-brand hover:text-brand-contrast"
+              className="inline-flex min-h-11 items-center gap-2 rounded-pill border border-line-contrast px-4 font-body text-sm text-content-secondary transition-colors ease-brand hover:border-brand hover:bg-brand hover:text-brand-contrast"
             >
               {rede.icon}
               {rede.label}
             </a>
           ))}
         </div>
-        <Text size="xs" tone="subtle" className="mt-3">
-          {c.redes.cadastur} {SITE.cadastur}
-        </Text>
-      </ChannelCard>
+      </div>
     </div>
   );
 }

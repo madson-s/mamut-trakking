@@ -36,11 +36,14 @@ export function AdventureCard({
   content,
   locale,
   featured = false,
+  compact = false,
 }: {
   adventure: Adventure;
   content: AdventuresContent;
   locale: Locale;
   featured?: boolean;
+  /** Recomendação editorial: foto, nome, dificuldade e seta, sem preço. */
+  compact?: boolean;
 }) {
   const difficultyEmoji = adventure.difficultyGroup === 'Fácil' ? '🟢' : adventure.difficultyGroup === 'Moderado' ? '🟡' : '🔴';
 
@@ -48,7 +51,8 @@ export function AdventureCard({
     <Link
       href={adventure.href}
       className={cn(
-        'group relative flex min-h-132 flex-col overflow-hidden rounded-card-lg border border-line-strong bg-surface-raised text-content shadow-card',
+        'group relative flex flex-col overflow-hidden rounded-card-lg border border-line-strong bg-surface-raised text-content shadow-card',
+        compact ? 'min-w-0' : 'min-h-132',
         'transition-[transform,box-shadow] hover:-translate-y-1 hover:shadow-float',
         featured && 'min-h-144',
         motion.base,
@@ -62,27 +66,33 @@ export function AdventureCard({
           src={adventure.image}
           alt={`Paisagem de ${adventure.title}`}
           fill
-          priority={adventure.title === 'Cachoeira do Palmital 2 Dias'}
+          priority={!compact && adventure.title === 'Cachoeira do Palmital 2 Dias'}
           sizes="(min-width: 1024px) 390px, (min-width: 768px) 50vw, 100vw"
           className="object-cover shadow-image-outline transition-transform duration-700 ease-brand group-hover:scale-[1.04]"
         />
         <div className="absolute inset-0 bg-linear-to-t from-black/55 via-transparent to-black/5" />
-        <Badge variant="outlineOnMedia" size="sm" className="absolute left-5 top-5 z-10 bg-black/12 font-medium backdrop-blur-sm">
+        {!compact && <Badge variant="outlineOnMedia" size="sm" className="absolute left-5 top-5 z-10 bg-black/12 font-medium backdrop-blur-sm">
           {adventure.duration} {adventure.duration === 1 ? content.card.dia : content.card.dias}
-        </Badge>
+        </Badge>}
       </div>
 
-      <div className="flex flex-1 flex-col gap-5 p-6">
-        <Heading as="h3" size="card" balance className="min-h-[2lh]">{adventure.title}</Heading>
-        <div className="flex flex-wrap gap-2">
+      <div className={cn('flex flex-1 flex-col', compact ? 'gap-5 p-5' : 'gap-5 p-6')}>
+        <Heading as="h3" size={compact ? 'quote' : 'card'} balance className="min-h-[2lh]">{adventure.title}</Heading>
+        <div className={cn('flex flex-wrap gap-2', compact && 'mt-auto items-center justify-between')}>
           <Badge variant="outline" size="sm">
             <span aria-hidden>{difficultyEmoji}</span>
             {adventure.difficulty}
           </Badge>
-          <Badge variant="outline" size="sm">{adventure.distance}</Badge>
-          <Badge variant="outline" size="sm">{adventure.location}</Badge>
+          {compact ? (
+            <span aria-hidden="true" className="flex size-11 shrink-0 items-center justify-center rounded-pill bg-brand text-brand-contrast transition-colors duration-300 group-hover:bg-brand-hover">
+              <ArrowRightIcon className="size-5 transition-transform duration-300 group-hover:translate-x-0.5" />
+            </span>
+          ) : <>
+            <Badge variant="outline" size="sm">{adventure.distance}</Badge>
+            <Badge variant="outline" size="sm">{adventure.location}</Badge>
+          </>}
         </div>
-        <div className="mt-auto flex items-end justify-between gap-4 border-t border-line pt-5">
+        {!compact && <div className="mt-auto flex items-end justify-between gap-4 border-t border-line pt-5">
           <div>
             <Text size="xs" weight="light" tone="secondary">{content.card.apartirDe}</Text>
             <Text size="xl" weight="semibold" className="tabular-nums">{formatPrice(adventure.price, locale)}</Text>
@@ -91,7 +101,7 @@ export function AdventureCard({
             <span>{content.card.explorar}</span>
             <ArrowRightIcon aria-hidden className="size-4 transition-transform duration-300 ease-out group-hover:translate-x-0.5" />
           </span>
-        </div>
+        </div>}
       </div>
     </Link>
   );
