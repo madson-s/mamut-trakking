@@ -10,6 +10,40 @@
 
 import type { Locale } from '@/lib/site';
 
+export const CONTATO_EDITORIAL: Record<Locale, {
+  photoAlt: string;
+  photoTitle: string;
+  photoLead: string;
+  exploreTitle: string;
+  exploreLead: string;
+  exploreCta: string;
+}> = {
+  pt: {
+    photoAlt: 'Paisagem das montanhas da Chapada Diamantina',
+    photoTitle: 'A próxima história é sua.',
+    photoLead: 'Você traz a vontade de explorar. Nosso bando cuida do caminho.',
+    exploreTitle: 'Ainda escolhendo seu caminho?',
+    exploreLead: 'Explore os roteiros e encontre a aventura que combina com o seu ritmo.',
+    exploreCta: 'Explorar as aventuras',
+  },
+  en: {
+    photoAlt: 'Mountain landscape in Chapada Diamantina',
+    photoTitle: 'The next story is yours.',
+    photoLead: 'You bring the spirit of adventure. Our crew takes care of the trail.',
+    exploreTitle: 'Still choosing your path?',
+    exploreLead: 'Explore our routes and find the adventure that matches your pace.',
+    exploreCta: 'Explore the adventures',
+  },
+  es: {
+    photoAlt: 'Paisaje de montañas en la Chapada Diamantina',
+    photoTitle: 'La próxima historia es tuya.',
+    photoLead: 'Tú traes las ganas de explorar. Nuestro grupo se encarga del camino.',
+    exploreTitle: '¿Aún eligiendo tu camino?',
+    exploreLead: 'Explora las rutas y encuentra la aventura que se adapta a tu ritmo.',
+    exploreCta: 'Explorar las aventuras',
+  },
+};
+
 export type ContatoContent = {
   meta: { title: string; description: string; canonical: string; ogTitle: string; ogDescription: string };
   titulo: { antes: string; destaque: string };

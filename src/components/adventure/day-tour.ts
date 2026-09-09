@@ -64,6 +64,8 @@ export type DayTourContent = {
 
 /** A parte que não muda com o idioma: fotos, números e o preço de entrada. */
 export type DayTourAssets = {
+  /** O layout editorial é o padrão; `legacy` preserva apenas as variantes do Vale do Pati. */
+  detailLayout?: 'journey' | 'legacy';
   hero: { src: string; position?: string };
   galeria: { src: string; width: number; height: number }[];
   /** `[valor, ícone]` — o rótulo vem de `DayTourContent.stats`, na mesma ordem. */

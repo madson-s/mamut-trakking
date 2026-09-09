@@ -15,6 +15,7 @@ import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-trek-shared';
 
 export const PALMITAL_ASSETS: DayTourAssets = {
+  detailLayout: 'journey',
   hero: { src: '/img/adventures/palmital/hero.jpeg', position: '50% 55%' },
   galeria: [
     { src: '/img/adventures/palmital/1.jpeg', width: 2048, height: 1536 },
