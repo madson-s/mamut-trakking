@@ -35,6 +35,8 @@ export const ADVENTURE_ROUTES: AdventureRoute[] = [
   { id: 'pati-4-capao', pt: 'vale-do-pati-4-dias-via-capao', en: 'pati-valley-4-days-capao-way', es: 'valle-del-pati-4-dias-via-capao' },
   { id: 'pati-5-capao', pt: 'vale-do-pati-5-dias-via-capao', en: 'pati-valley-5-days-capao-way', es: 'valle-del-pati-5-dias-via-capao' },
   { id: 'fumaca-baixo', pt: 'cachoeira-da-fumaca-por-baixo', en: 'fumaca-waterfall-from-bellow', es: 'cascada-da-fumaca-por-abajo' },
+  { id: 'fumaca-360', pt: 'cachoeira-da-fumaca-360', en: 'fumaca-waterfall-360', es: 'cascada-da-fumaca-360' },
+  { id: 'fundao', pt: 'cachoeira-do-fundao-vinte-e-um', en: 'fundao-vinte-e-um-waterfalls', es: 'cascadas-do-fundao-vinte-e-um' },
   { id: 'city-tour-lencois', pt: 'city-tour-lencois', en: 'lencois-city-tour', es: 'city-tour-lencois' },
   { id: 'reveillon', pt: 'reveillon-na-chapada', en: 'new-years-eve-chapada', es: 'ano-nuevo-en-la-chapada' },
 ];
