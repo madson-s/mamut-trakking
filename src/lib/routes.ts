@@ -37,6 +37,9 @@ export const ADVENTURE_ROUTES: AdventureRoute[] = [
   { id: 'fumaca-baixo', pt: 'cachoeira-da-fumaca-por-baixo', en: 'fumaca-waterfall-from-bellow', es: 'cascada-da-fumaca-por-abajo' },
   { id: 'fumaca-360', pt: 'cachoeira-da-fumaca-360', en: 'fumaca-waterfall-360', es: 'cascada-da-fumaca-360' },
   { id: 'fundao', pt: 'cachoeira-do-fundao-vinte-e-um', en: 'fundao-vinte-e-um-waterfalls', es: 'cascadas-do-fundao-vinte-e-um' },
+  { id: 'muritiba', pt: 'parque-da-muritiba', en: 'muritiba-park', es: 'parque-da-muritiba' },
+  { id: 'aguas-claras-1d', pt: 'trilha-aguas-claras-1-dia', en: 'aguas-claras-trail-1-day', es: 'sendero-aguas-claras-1-dia' },
+  { id: 'pratinha', pt: 'fazenda-pratinha', en: 'pratinha-farm', es: 'fazenda-pratinha' },
   { id: 'city-tour-lencois', pt: 'city-tour-lencois', en: 'lencois-city-tour', es: 'city-tour-lencois' },
   { id: 'reveillon', pt: 'reveillon-na-chapada', en: 'new-years-eve-chapada', es: 'ano-nuevo-en-la-chapada' },
 ];
