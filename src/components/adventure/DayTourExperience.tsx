@@ -71,7 +71,7 @@ export function DayTourExperience({
           preload: true,
           position: assets.hero.position,
         }}
-        className="-mt-20 min-h-115 lg:min-h-140"
+        className="hero-under-header -mt-20 min-h-[38rem] sm:min-h-115 lg:min-h-140"
         contentLayer="fill"
         contentClassName="pt-20"
       >

@@ -59,6 +59,7 @@ export function PatiMobileBooking({
   openEvent = PATI_BOOKING_OPEN_EVENT,
   messageIntro,
   sheetId = 'pati-booking-sheet',
+  initialDate = '2026-07-30',
 }: {
   content: Pati3Content['booking'];
   fromPrice: number;
@@ -66,14 +67,16 @@ export function PatiMobileBooking({
   openEvent?: string;
   messageIntro?: string;
   sheetId?: string;
+  initialDate?: `${number}-${number}-${number}`;
 }) {
+  const [initialYear, initialMonth, initialDay] = initialDate.split('-').map(Number);
   const pathname = usePathname();
   const [dockVisible, setDockVisible] = useState(false);
   const [sheetView, setSheetView] = useState<SheetView | null>(null);
   const [travellers, setTravellers] = useState(2);
   const [language, setLanguage] = useState(() => languageFromPath(pathname));
-  const [selectedDate, setSelectedDate] = useState(() => new Date(2026, 6, 30));
-  const [visibleMonth, setVisibleMonth] = useState(() => new Date(2026, 6, 1));
+  const [selectedDate, setSelectedDate] = useState(() => new Date(initialYear, initialMonth - 1, initialDay));
+  const [visibleMonth, setVisibleMonth] = useState(() => new Date(initialYear, initialMonth - 1, 1));
   const sheetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
