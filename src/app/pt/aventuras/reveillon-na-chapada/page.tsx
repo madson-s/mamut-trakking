@@ -1,34 +1,26 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
-
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+import { ReveillonExperience } from '@/components/adventure/ReveillonExperience';
+import { REVEILLON_META } from '@/components/adventure/reveillon-content';
 
 export const metadata: Metadata = {
-  title: "Réveillon na Chapada",
-  description: "Pacote especial de fim de ano na Chapada Diamantina.",
+  title: REVEILLON_META.title,
+  description: REVEILLON_META.description,
   alternates: {
-    canonical: "/pt/aventuras/reveillon-na-chapada",
-    languages: { pt: "/pt/aventuras/reveillon-na-chapada", en: "/en/adventures/new-years-eve-chapada", es: "/es/aventuras/ano-nuevo-en-la-chapada" },
+    canonical: '/pt/aventuras/reveillon-na-chapada',
+    languages: {
+      pt: '/pt/aventuras/reveillon-na-chapada',
+      en: '/en/adventures/new-years-eve-chapada',
+      es: '/es/aventuras/ano-nuevo-en-la-chapada',
+    },
   },
-  openGraph: { title: "Réveillon na Chapada", description: "Pacote especial de fim de ano na Chapada Diamantina.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: REVEILLON_META.title,
+    description: REVEILLON_META.description,
+    images: [REVEILLON_META.image],
+    type: 'article',
+  },
 };
 
 export default function Page() {
-  return (
-    <AdventureDetail
-      locale="pt"
-      title={"Réveillon na Chapada"}
-      summary={"Pacote especial de fim de ano na Chapada Diamantina."}
-      level={"Moderado"}
-      distance={"Vários"}
-      origin={"Lençóis"}
-      price={3800}
-      image={IMG}
-      labels={{ level: "Nível", distance: "Distância", origin: "Saída", from: "A partir de" }}
-    >
-      <p>Conteúdo a migrar do site atual.</p>
-      <p>Conteúdo a migrar do site atual.</p>
-    </AdventureDetail>
-  );
+  return <ReveillonExperience />;
 }
