@@ -17,7 +17,7 @@ export function PatiGalleryExplorer() {
         <Image src="/svg/screen_destinos_vale-do-pati-session-01_backgroud.svg" alt="" width={1920} height={880} unoptimized className="pati-hero-background pointer-events-none absolute left-1/2 top-44 z-0 h-auto w-full min-w-300 -translate-x-1/2 opacity-30" />
         <Container className="relative z-10 flex flex-col gap-10">
           <IconButton
-            href="/pt/aventuras/vale-do-pati-3-dias"
+            href="/pt/aventuras/vale-do-pati-03-dias"
             label="Fechar galeria e voltar ao destino"
             variant="outline"
             size="lg"
@@ -32,7 +32,7 @@ export function PatiGalleryExplorer() {
                 <Heading as="h1" size="hero" balance className="max-lg:text-display-lg">O Vale muda a cada passo.</Heading>
                 <Text size="lg" weight="light" tone="secondary" pretty className="mt-3 max-w-[62ch]">Navegue pelas paisagens da travessia de 3 dias. As imagens abaixo exemplificam os mirantes, caminhos e encontros do roteiro.</Text>
               </div>
-              <Button href="/pt/aventuras/vale-do-pati-3-dias" variant="outline" arrow>Voltar ao destino</Button>
+              <Button href="/pt/aventuras/vale-do-pati-03-dias" variant="outline" arrow>Voltar ao destino</Button>
             </div>
           </header>
 

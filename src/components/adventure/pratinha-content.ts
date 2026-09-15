@@ -117,7 +117,7 @@ export const PRATINHA_CONTENT: Record<Locale, DayTourContent> = {
       title: 'Pratinha Farm & Blue Cave',
       description:
         'A full day of clear water in Iraquara: the Pratinha river, Pratinha Cave and the Blue Cave, with optional snorkelling, kayaking and zip-lining.',
-      canonical: '/en/adventures/pratinha-farm',
+      canonical: '/en/adventures/pratinha-farm-blue-cave',
     },
     hero: {
       nivel: 'Light',

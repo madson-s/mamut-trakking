@@ -44,7 +44,7 @@ export const CITY_TOUR_CONTENT: Record<Locale, DayTourContent> = {
       title: 'City Tour em Lençóis',
       description:
         'Uma hora a pé pelo centro histórico de Lençóis: Praça Horácio de Matos, Mercado Cultural, Igreja Senhor dos Passos e a era dos diamantes.',
-      canonical: '/pt/aventuras/city-tour-lencois',
+      canonical: '/pt/aventuras/city-tour-em-lencois-ba',
     },
     hero: {
       nivel: 'Leve',

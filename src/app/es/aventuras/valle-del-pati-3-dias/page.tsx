@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: CONTENT.meta.canonical,
     languages: {
-      pt: '/pt/aventuras/vale-do-pati-3-dias',
+      pt: '/pt/aventuras/vale-do-pati-03-dias',
       en: '/en/adventures/pati-valley-3-days',
       es: '/es/aventuras/valle-del-pati-3-dias'
     },

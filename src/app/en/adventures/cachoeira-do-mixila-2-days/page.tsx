@@ -8,7 +8,7 @@ const CONTENT = MIXILA_CONTENT.en;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mixila', en: '/en/adventures/mixila-waterfall', es: '/es/aventuras/cascada-del-mixila' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mixila', en: '/en/adventures/cachoeira-do-mixila-2-days', es: '/es/aventuras/cascada-del-mixila' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

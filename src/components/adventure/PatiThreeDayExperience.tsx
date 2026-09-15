@@ -98,7 +98,7 @@ export const PATI3_ASSETS: PatiAssets = {
   ],
   fromPrice: PATI3_FROM_PRICE,
   ogImage: '/img/vale-do-pati/vale-do-pati-04.webp',
-  galleryHref: '/pt/aventuras/vale-do-pati-3-dias/galeria',
+  galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
 };
 
 const TRUST_ICONS = [

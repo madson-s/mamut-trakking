@@ -41,7 +41,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       title: 'Cachoeira do Mosquito + Morro do Pai Inácio',
       description:
         'Três atrativos em um dia de carro com caminhadas curtas: Cachoeira do Mosquito, Poço do Diabo e o pôr do sol no Morro do Pai Inácio.',
-      canonical: '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio',
+      canonical: '/pt/aventuras/mosquito-pai-inacio',
     },
     hero: {
       nivel: 'Leve / Moderado',

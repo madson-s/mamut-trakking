@@ -8,7 +8,7 @@ const CONTENT = MOSQUITO_PAI_INACIO_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio', en: '/en/adventures/mosquito-waterfall-pai-inacio', es: '/es/aventuras/cascada-del-mosquito-morro-do-pai-inacio' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mosquito-pai-inacio', en: '/en/adventures/mosquito-waterfall-pai-inacio-hill', es: '/es/aventuras/cascada-del-mosquito-morro-do-pai-inacio' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

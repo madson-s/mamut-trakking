@@ -87,8 +87,8 @@ export type HomeContent = {
 const destinos = (locale: Locale) => {
   const seg = ADVENTURE_SEGMENT[locale];
   const slug = {
-    pt: ['vale-do-pati-3-dias', 'cachoeira-do-palmital', 'cachoeira-do-mosquito-morro-do-pai-inacio'],
-    en: ['pati-valley-3-days', 'palmital-waterfall', 'mosquito-waterfall-pai-inacio'],
+    pt: ['vale-do-pati-03-dias', 'cachoeira-do-palmital', 'mosquito-pai-inacio'],
+    en: ['pati-valley-3-days', 'palmital-waterfall', 'mosquito-waterfall-pai-inacio-hill'],
     es: ['valle-del-pati-3-dias', 'cascada-del-palmital', 'cascada-del-mosquito-morro-do-pai-inacio'],
   }[locale];
   return slug.map((s) => `/${locale}/${seg}/${s}`);

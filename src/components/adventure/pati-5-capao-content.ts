@@ -39,7 +39,7 @@ export const PATI_5_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
       title: 'Vale do Pati 5 dias via Capão',
       description:
         'Travessia de 78 km pelo Vale do Pati terminando no Vale do Capão, com dia inteiro no Cachoeirão por Baixo e no Calixto.',
-      canonical: '/pt/aventuras/vale-do-pati-5-dias-via-capao',
+      canonical: '/pt/aventuras/vale-do-pati-5-dias-capao',
     },
     hero: {
       nivel: 'Moderado / Difícil',

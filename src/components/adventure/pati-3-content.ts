@@ -106,7 +106,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       title: 'Vale do Pati em 3 Dias',
       description:
         'Travessia guiada de 43 km pelo Vale do Pati, com hospedagem em casas de nativos, cachoeiras e os mirantes mais emblemáticos do vale.',
-      canonical: '/pt/aventuras/vale-do-pati-3-dias',
+      canonical: '/pt/aventuras/vale-do-pati-03-dias',
       ogDescription: 'A travessia que reorganiza o que você chama de natureza.',
     },
     hero: {
@@ -150,7 +150,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       explorar: 'Explorar essa versão',
       relacionados: [
         { titulo: 'Vale do Pati · 4 Dias', nivel: 'Moderado / Avançado', href: '/pt/aventuras/vale-do-pati-4-dias' },
-        { titulo: 'Vale do Pati · 5 Dias', nivel: 'Avançado', href: '/pt/aventuras/vale-do-pati-5-dias' },
+        { titulo: 'Vale do Pati · 5 Dias', nivel: 'Avançado', href: '/pt/aventuras/vale-do-pati-05-dias' },
       ],
     },
     itinerary: {

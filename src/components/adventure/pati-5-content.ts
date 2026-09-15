@@ -49,7 +49,7 @@ export const PATI5_ASSETS: PatiAssets = {
   relatedImages: ['/img/vale-do-pati/vale-do-pati-04.webp', '/img/vale-do-pati/vale-do-pati-14.webp'],
   fromPrice: 2750,
   ogImage: '/img/vale-do-pati/vale-do-pati-20.webp',
-  galleryHref: '/pt/aventuras/vale-do-pati-3-dias/galeria',
+  galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
 };
 
 const VARIANTS: Record<Locale, PatiVariant> = {
@@ -58,7 +58,7 @@ const VARIANTS: Record<Locale, PatiVariant> = {
       title: 'Travessia Vale do Pati 5 Dias',
       description:
         'Travessia guiada de 70 km entrando pelo Guiné e saindo em Andaraí, com Cachoeirão, Morro do Castelo, Poço da Árvore e a Ladeira do Império.',
-      canonical: '/pt/aventuras/vale-do-pati-5-dias',
+      canonical: '/pt/aventuras/vale-do-pati-05-dias',
       ogDescription: 'A travessia de ponta a ponta: entra pelo Guiné, sai por Andaraí.',
     },
     hero: {
@@ -77,7 +77,7 @@ const VARIANTS: Record<Locale, PatiVariant> = {
       ],
       outrasVersoes: 'O Vale também existe em 3 e 4 dias.',
       relacionados: [
-        { titulo: 'Vale do Pati · 3 Dias', nivel: 'Moderado', href: '/pt/aventuras/vale-do-pati-3-dias' },
+        { titulo: 'Vale do Pati · 3 Dias', nivel: 'Moderado', href: '/pt/aventuras/vale-do-pati-03-dias' },
         { titulo: 'Vale do Pati · 4 Dias', nivel: 'Moderado / Avançado', href: '/pt/aventuras/vale-do-pati-4-dias' },
       ],
     },

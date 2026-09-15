@@ -46,7 +46,7 @@ export const PATI4_ASSETS: PatiAssets = {
   relatedImages: ['/img/vale-do-pati/vale-do-pati-04.webp', '/img/vale-do-pati/vale-do-pati-20.webp'],
   fromPrice: 2250,
   ogImage: '/img/vale-do-pati/vale-do-pati-14.webp',
-  galleryHref: '/pt/aventuras/vale-do-pati-3-dias/galeria',
+  galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
 };
 
 const VARIANTS: Record<Locale, PatiVariant> = {
@@ -74,8 +74,8 @@ const VARIANTS: Record<Locale, PatiVariant> = {
       ],
       outrasVersoes: 'O Vale também existe em 3 e 5 dias.',
       relacionados: [
-        { titulo: 'Vale do Pati · 3 Dias', nivel: 'Moderado', href: '/pt/aventuras/vale-do-pati-3-dias' },
-        { titulo: 'Vale do Pati · 5 Dias', nivel: 'Avançado', href: '/pt/aventuras/vale-do-pati-5-dias' },
+        { titulo: 'Vale do Pati · 3 Dias', nivel: 'Moderado', href: '/pt/aventuras/vale-do-pati-03-dias' },
+        { titulo: 'Vale do Pati · 5 Dias', nivel: 'Avançado', href: '/pt/aventuras/vale-do-pati-05-dias' },
       ],
     },
     dias: [

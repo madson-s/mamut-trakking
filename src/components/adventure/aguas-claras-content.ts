@@ -47,7 +47,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       title: 'Trilha Águas Claras — 2 dias',
       description:
         'A primeira noite de barraca de quem nunca acampou: 23 km em terreno majoritariamente plano até as piscinas cristalinas do Vale dos 3 Irmãos.',
-      canonical: '/pt/aventuras/trilha-aguas-claras',
+      canonical: '/pt/aventuras/trilha-aguas-claras-2-dias',
     },
     hero: {
       nivel: 'Leve / Moderado',

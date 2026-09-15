@@ -8,7 +8,7 @@ const CONTENT = PRATINHA_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/fazenda-pratinha', en: '/en/adventures/pratinha-farm', es: '/es/aventuras/fazenda-pratinha' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/fazenda-pratinha', en: '/en/adventures/pratinha-farm-blue-cave', es: '/es/aventuras/fazenda-pratinha' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

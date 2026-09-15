@@ -40,7 +40,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       title: 'Trilha Águas Claras — 1 dia',
       description:
         'Dezoito quilômetros pelos campos gerais até a Cachoeira Águas Claras, com o Morrão de perto e as nascentes do Rio Ribeirão pelo caminho.',
-      canonical: '/pt/aventuras/trilha-aguas-claras-1-dia',
+      canonical: '/pt/aventuras/aguas-claras',
     },
     hero: {
       nivel: 'Leve / Moderado',

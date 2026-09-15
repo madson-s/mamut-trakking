@@ -72,7 +72,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: true,
           links: [
             { label: 'Roteiros', href: '/pt/aventuras' },
-            { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-3-dias' },
+            { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' },
             { label: 'Como se preparar', href: '/pt/dicas' },
             { label: 'Ficha do participante', href: '/pt/formulario-participante' },
           ],

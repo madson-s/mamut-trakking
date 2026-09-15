@@ -8,7 +8,7 @@ const CONTENT = AGUAS_CLARAS_CONTENT.en;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/trilha-aguas-claras', en: '/en/adventures/aguas-claras-trail', es: '/es/aventuras/sendero-aguas-claras' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/trilha-aguas-claras-2-dias', en: '/en/adventures/aguas-claras-trail', es: '/es/aventuras/sendero-aguas-claras' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

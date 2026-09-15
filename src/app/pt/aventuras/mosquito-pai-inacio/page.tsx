@@ -3,12 +3,12 @@ import { DayTourExperience } from '@/components/adventure/DayTourExperience';
 import { MOSQUITO_PAI_INACIO_ASSETS, MOSQUITO_PAI_INACIO_CONTENT } from '@/components/adventure/mosquito-pai-inacio-content';
 
 const IMG = MOSQUITO_PAI_INACIO_ASSETS.hero.src;
-const CONTENT = MOSQUITO_PAI_INACIO_CONTENT.en;
+const CONTENT = MOSQUITO_PAI_INACIO_CONTENT.pt;
 
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mosquito-morro-do-pai-inacio', en: '/en/adventures/mosquito-waterfall-pai-inacio', es: '/es/aventuras/cascada-del-mosquito-morro-do-pai-inacio' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mosquito-pai-inacio', en: '/en/adventures/mosquito-waterfall-pai-inacio-hill', es: '/es/aventuras/cascada-del-mosquito-morro-do-pai-inacio' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,
@@ -17,6 +17,6 @@ export const metadata: Metadata = {
   },
 };
 
-export default function MosquitoPaiInacioEnRoute() {
-  return <DayTourExperience locale="en" content={MOSQUITO_PAI_INACIO_CONTENT} assets={MOSQUITO_PAI_INACIO_ASSETS} />;
+export default function MosquitoPaiInacioPtRoute() {
+  return <DayTourExperience locale="pt" content={MOSQUITO_PAI_INACIO_CONTENT} assets={MOSQUITO_PAI_INACIO_ASSETS} />;
 }
