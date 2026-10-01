@@ -35,7 +35,7 @@ export const ADVENTURES: AdventureBase[] = [
   { id: 'cachoeira-da-fumaca-por-baixo', category: 'trekking', route: 'fumaca-baixo', image: '/img/adventures/fumaca-baixo/hero.jpeg', duration: 3, difficultyGroup: 'Desafiador', distance: '38 km', location: 'Lençóis', price: 1450 },
   { id: 'cachoeira-da-fumaca-360', category: 'trekking', route: 'fumaca-360', image: '/img/adventures/fumaca-360/hero.jpg', duration: 3, difficultyGroup: 'Desafiador', distance: '38 km', location: 'Vale do Capão', price: 1450 },
   { id: 'cachoeira-do-fundao-vinte-e-um', category: 'trekking', route: 'fundao', image: '/img/adventures/fundao/hero.jpg', duration: 3, difficultyGroup: 'Desafiador', distance: '18–24 km', location: 'Lençóis', price: 1750 },
-  { id: 'vale-do-pati-3-dias', category: 'trekking', route: 'vale-do-pati-3', image: '/img/adventures/home/vale-do-pati-3-dias.jpeg', duration: 3, difficultyGroup: 'Moderado', distance: '43 km', location: 'Lençóis', price: 2100 },
+  { id: 'vale-do-pati-3-dias', category: 'trekking', route: 'vale-do-pati-3', image: '/img/adventures/home/vale-do-pati-3-dias.jpeg', duration: 3, difficultyGroup: 'Moderado', distance: '43 km', location: 'Lençóis', price: 1500 },
   { id: 'vale-do-pati-4-dias-via-capao', category: 'trekking', route: 'pati-4-capao', image: '/img/adventures/pati-4-capao/hero.jpeg', duration: 4, difficultyGroup: 'Desafiador', distance: '68 km', location: 'Palmeiras', price: 2450 },
   { id: 'vale-do-pati-5-dias-via-capao', category: 'trekking', route: 'pati-5-capao', image: '/img/adventures/pati-5-capao/hero.jpeg', duration: 5, difficultyGroup: 'Desafiador', distance: '78 km', location: 'Palmeiras', price: 3300 },
 
