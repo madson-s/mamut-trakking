@@ -8,6 +8,7 @@ import { PatiFaqList } from './PatiFaqList';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { PATI3_CONTENT } from './pati-3-content';
 import { TrekBookingButton } from './TrekBookingButton';
+import { PriceTable } from './PriceTable';
 
 /** Layout opt-in: mantém a fonte de conteúdo e a composição superior do roteiro. */
 export function TrekJourney({
@@ -133,6 +134,17 @@ export function TrekJourney({
               </Card>
             );
           })}
+          {/* Aqui os cards levam o botão de reserva de cada formato, então
+              continuam; a tabela completa entra abaixo, ocupando as 2 colunas. */}
+          {assets.priceTable && c.precos.tabela ? (
+            <div className="sm:col-span-2">
+              <PriceTable
+                labels={c.precos.tabela}
+                formatos={c.precos.formatos.map((f) => f.titulo)}
+                rows={assets.priceTable}
+              />
+            </div>
+          ) : null}
         </div>
       </Section>
 

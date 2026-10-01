@@ -28,6 +28,14 @@ export const FUMACA_ASSETS: DayTourAssets = {
     ['Moderado / Alto', '/svg/_icons/icon_03_montain.svg'],
   ],
   fromPrice: 320,
+  // Valores publicados em mamut.agency/aventuras/cachoeira-da-fumaca (#tabela-pagamento).
+  // Ordem das colunas: privado, em grupo.
+  priceTable: [
+    { people: '1', prices: ['R$ 650', 'R$ 420'] },
+    { people: '2', prices: ['R$ 490', 'R$ 420'] },
+    { people: '3', prices: ['R$ 390', 'R$ 350'] },
+    { people: '4+', prices: ['R$ 390', 'R$ 320'] },
+  ],
 };
 
 export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
@@ -75,6 +83,13 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Pacote privado', preco: 'R$ 420', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
         { titulo: 'Em grupo', preco: 'R$ 320', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
+      tabela: {
+        titulo: 'Tabela completa de preços',
+        colunaPessoas: 'Nº de pessoas',
+        pessoa: 'pessoa',
+        pessoas: 'pessoas',
+        nota: 'Valores por pessoa, em reais, para pagamento em dinheiro, transferência ou boleto.',
+      },
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
     faqTitulo: 'Tudo que você precisa saber.',
@@ -152,6 +167,13 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Private package', preco: 'R$ 420', nota: 'Minimum of 2 people. Just your group on the trail.' },
         { titulo: 'Group tour', preco: 'R$ 320', nota: 'From 2 to 7 people. You join an open group.' },
       ],
+      tabela: {
+        titulo: 'Full price table',
+        colunaPessoas: 'Group size',
+        pessoa: 'person',
+        pessoas: 'people',
+        nota: 'Prices per person, in Brazilian reais, for cash, bank transfer or boleto.',
+      },
       nota: 'Prices for cash, bank transfer or boleto. International transfer or a larger group: talk to us.',
     },
     faqTitulo: 'Everything you need to know.',
@@ -229,6 +251,13 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Paquete privado', preco: 'R$ 420', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
         { titulo: 'En grupo', preco: 'R$ 320', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
+      tabela: {
+        titulo: 'Tabla completa de precios',
+        colunaPessoas: 'Nº de personas',
+        pessoa: 'persona',
+        pessoas: 'personas',
+        nota: 'Valores por persona, en reales, para pago en efectivo, transferencia o boleto.',
+      },
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o grupo mayor: consultá con atención.',
     },
     faqTitulo: 'Todo lo que necesitás saber.',

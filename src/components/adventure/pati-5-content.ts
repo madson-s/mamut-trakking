@@ -46,6 +46,14 @@ export const PATI5_ASSETS: PatiAssets = {
     { price: 'R$ 2.900', highlight: false },
     { price: 'R$ 2.750', highlight: true },
   ],
+  // Valores publicados em mamut.agency/aventuras/vale-do-pati-05-dias
+  // (#tabela-pagamento). Ordem das colunas: privado, em grupo.
+  priceTable: [
+    { people: '1', prices: ['R$ 4.000', 'R$ 2.900'] },
+    { people: '2', prices: ['R$ 3.100', 'R$ 2.900'] },
+    { people: '3', prices: ['R$ 3.000', 'R$ 2.850'] },
+    { people: '4+', prices: ['R$ 2.850', 'R$ 2.750'] },
+  ],
   relatedImages: ['/img/vale-do-pati/vale-do-pati-04.webp', '/img/vale-do-pati/vale-do-pati-14.webp'],
   fromPrice: 2750,
   ogImage: '/img/vale-do-pati/vale-do-pati-20.webp',

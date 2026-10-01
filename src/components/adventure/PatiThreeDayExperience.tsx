@@ -17,6 +17,7 @@ import {
 import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
+import { PriceTable } from './PriceTable';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
 import { PATI3_CONTENT, type Pati3Content } from './pati-3-content';
 import { PATI3_FAQS } from './pati-3-faqs';
@@ -45,6 +46,15 @@ export type PatiAssets = {
   landmarks: readonly (readonly [string, string])[];
   /** Preço de cada formato; `highlight` marca o card em destaque. */
   priceTiers: readonly { price: string; highlight: boolean }[];
+  /**
+   * Tabela completa por faixa de grupo, como a de mamut.agency (âncora
+   * `#tabela-pagamento`). `people` é só o número da faixa — o rótulo
+   * ("pessoas", "people", "personas") vem de `PatiContent.pricing.tabela`,
+   * porque os assets são os mesmos nos três idiomas. `prices` segue a ordem de
+   * `priceTiers` (privado, em grupo). Omitir quando a operadora ainda não
+   * publicou os valores por faixa — aí a seção fica só com os dois cards.
+   */
+  priceTable?: readonly { people: string; prices: readonly [string, string] }[];
   /** Foto de cada trilha relacionada, na ordem de `story.relacionados`. */
   relatedImages: readonly string[];
   /** Menor preço da tabela — o que o hero e o JSON-LD anunciam. */
@@ -69,7 +79,7 @@ const PATI3_ASSETS_STATS = [
 // Preços de mamut.agency/en/aventuras/pati-valley-3-days: dois formatos, por
 // pessoa, com mínimo de 2 pessoas. O destaque é o de grupo, o mais procurado.
 /** Menor preço da tabela — o que o hero e o JSON-LD anunciam. */
-export const PATI3_FROM_PRICE = 2100;
+export const PATI3_FROM_PRICE = 1500;
 
 export const PATI3_ASSETS: PatiAssets = {
   stats: PATI3_ASSETS_STATS,
@@ -91,6 +101,14 @@ export const PATI3_ASSETS: PatiAssets = {
   priceTiers: [
     { price: 'R$ 2.300', highlight: false },
     { price: 'R$ 2.100', highlight: true },
+  ],
+  // Valores publicados em mamut.agency/aventuras/vale-do-pati-03-dias
+  // (#tabela-pagamento). Ordem das colunas: privado, em grupo.
+  priceTable: [
+    { people: '1', prices: ['R$ 2.700', 'R$ 2.100'] },
+    { people: '2', prices: ['R$ 2.200', 'R$ 1.900'] },
+    { people: '3', prices: ['R$ 2.100', 'R$ 1.700'] },
+    { people: '4+', prices: ['R$ 1.900', 'R$ 1.500'] },
   ],
   relatedImages: [
     '/img/vale-do-pati/vale-do-pati-14.webp',
@@ -387,34 +405,55 @@ function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
     <Section id="preco" padding="tall" container="panel" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
       <Heading id="pricing-heading" as="h2" size="section" className="text-display-sm!">{c.pricing.titulo}</Heading>
 
-      <div className="grid w-full gap-5 sm:grid-cols-2">
-        {a.priceTiers.map((tier, i) => {
-          const formato = c.pricing.formatos[i];
-          const destaque = tier.highlight;
-
-          return (
-            <Card
-              key={formato.titulo}
-              as="article"
-              surface="muted"
-              padding="none"
-              className={cn(
-                'items-center gap-3 border p-8 text-center',
-                destaque ? 'border-brand' : 'border-line-strong',
-              )}
-            >
-              <Heading as="h3" size="quote">{formato.titulo}</Heading>
-              <p className={cn('font-display text-display-md', destaque && 'text-brand-strong')}>
-                {tier.price}
-              </p>
-              <Text size="sm" weight="light" tone="secondary">{c.pricing.porPessoa}</Text>
-              <Text size="sm" weight="light" tone="muted" pretty className="mt-1">
+      {/* Com tabela publicada, ela é a seção inteira — os cards diriam o mesmo,
+          só que resumido. Sem tabela (roteiros cujos valores por faixa a
+          operadora ainda não publicou), os cards seguem sendo o preço. */}
+      {a.priceTable ? (
+        <>
+          <PriceTable
+            labels={c.pricing.tabela}
+            formatos={c.pricing.formatos.map((f) => f.titulo)}
+            rows={a.priceTable}
+          />
+          <div className="flex flex-col gap-1.5">
+            {c.pricing.formatos.map((formato) => (
+              <Text key={formato.titulo} size="sm" weight="light" tone="muted" pretty>
+                <strong className="font-normal text-content-secondary">{formato.titulo}:</strong>{' '}
                 {formato.nota}
               </Text>
-            </Card>
-          );
-        })}
-      </div>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div className="grid w-full gap-5 sm:grid-cols-2">
+          {a.priceTiers.map((tier, i) => {
+            const formato = c.pricing.formatos[i];
+            const destaque = tier.highlight;
+
+            return (
+              <Card
+                key={formato.titulo}
+                as="article"
+                surface="muted"
+                padding="none"
+                className={cn(
+                  'items-center gap-3 border p-8 text-center',
+                  destaque ? 'border-brand' : 'border-line-strong',
+                )}
+              >
+                <Heading as="h3" size="quote">{formato.titulo}</Heading>
+                <p className={cn('font-display text-display-md', destaque && 'text-brand-strong')}>
+                  {tier.price}
+                </p>
+                <Text size="sm" weight="light" tone="secondary">{c.pricing.porPessoa}</Text>
+                <Text size="sm" weight="light" tone="muted" pretty className="mt-1">
+                  {formato.nota}
+                </Text>
+              </Card>
+            );
+          })}
+        </div>
+      )}
 
       <Text size="sm" weight="light" tone="secondary" pretty>{c.pricing.nota.antes}<strong className="font-semibold text-content">{c.pricing.nota.destaque}</strong>{c.pricing.nota.depois}</Text>
       <Button href={SITE.whatsappUrl} arrow>{c.pricing.cta}</Button>

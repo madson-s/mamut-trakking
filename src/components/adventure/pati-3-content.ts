@@ -57,6 +57,16 @@ export type Pati3Content = {
     /** Os dois formatos do site de referência, na ordem: privado e em grupo. */
     formatos: { titulo: string; nota: string }[];
     porPessoa: string;
+    /** Tabela completa por faixa de grupo — só aparece se houver `priceTable`. */
+    tabela: {
+      titulo: string;
+      /** Cabeçalho da 1ª coluna; os outros dois vêm de `formatos[].titulo`. */
+      colunaPessoas: string;
+      /** Sufixo da faixa: "1 pessoa" e "4+ pessoas". */
+      pessoa: string;
+      pessoas: string;
+      nota: string;
+    };
     nota: { antes: string; destaque: string; depois: string };
     cta: string;
   };
@@ -192,6 +202,13 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         { titulo: 'Em grupo', nota: 'Mínimo de 2 pessoas. Você entra num grupo aberto.' },
       ],
       porPessoa: 'por pessoa',
+      tabela: {
+        titulo: 'Tabela completa de preços',
+        colunaPessoas: 'Nº de pessoas',
+        pessoa: 'pessoa',
+        pessoas: 'pessoas',
+        nota: 'Valores por pessoa, em reais, para pagamento em dinheiro, transferência ou boleto.',
+      },
       nota: {
         antes: 'Dinheiro, transferência ou boleto. ',
         destaque: 'Cartão: +5%, em até 12x (PagSeguro). Reserva confirmada com 50% de sinal:',
@@ -339,6 +356,13 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         { titulo: 'In a group', nota: 'Minimum 2 people. You join an open group.' },
       ],
       porPessoa: 'per person',
+      tabela: {
+        titulo: 'Full price table',
+        colunaPessoas: 'Group size',
+        pessoa: 'person',
+        pessoas: 'people',
+        nota: 'Prices per person, in Brazilian reais, for cash, bank transfer or boleto.',
+      },
       nota: {
         antes: 'Cash, bank transfer or boleto. ',
         destaque: 'Card: +5%, up to 12 instalments (PagSeguro). Booking confirmed with a 50% deposit:',
@@ -486,6 +510,13 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         { titulo: 'En grupo', nota: 'Mínimo 2 personas. Te sumás a un grupo abierto.' },
       ],
       porPessoa: 'por persona',
+      tabela: {
+        titulo: 'Tabla completa de precios',
+        colunaPessoas: 'Nº de personas',
+        pessoa: 'persona',
+        pessoas: 'personas',
+        nota: 'Valores por persona, en reales, para pago en efectivo, transferencia o boleto.',
+      },
       nota: {
         antes: 'Efectivo, transferencia o boleto. ',
         destaque: 'Tarjeta: +5%, hasta en 12 cuotas (PagSeguro). Reserva confirmada con 50% de seña:',

@@ -14,6 +14,7 @@ import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
+import { PriceTable } from './PriceTable';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
@@ -208,22 +209,42 @@ export function DayTourExperience({
 
           <Section padding="default" container="prose" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="precos-heading">
             <Heading id="precos-heading" as="h2" size="section" className="text-display-sm!">{c.precos.titulo}</Heading>
-            <div className="grid w-full gap-5 sm:grid-cols-2">
-              {c.precos.formatos.map((formato, i) => (
-                <Card
-                  key={formato.titulo}
-                  as="article"
-                  surface="muted"
-                  padding="none"
-                  className={cn('items-center gap-3 border p-8 text-center', i === 1 ? 'border-brand' : 'border-line-strong')}
-                >
-                  <Heading as="h3" size="quote">{formato.titulo}</Heading>
-                  <p className={cn('font-display text-display-md', i === 1 && 'text-brand-strong')}>{formato.preco}</p>
-                  <Text size="sm" weight="light" tone="secondary">{c.hero.porPessoa}</Text>
-                  <Text size="sm" weight="light" tone="muted" pretty className="mt-1">{formato.nota}</Text>
-                </Card>
-              ))}
-            </div>
+            {/* Com tabela publicada, ela é a seção — os cards diriam o mesmo,
+                resumido. Sem tabela, os cards seguem sendo o preço. */}
+            {assets.priceTable && c.precos.tabela ? (
+              <>
+                <PriceTable
+                  labels={c.precos.tabela}
+                  formatos={c.precos.formatos.map((f) => f.titulo)}
+                  rows={assets.priceTable}
+                />
+                <div className="flex flex-col gap-1.5">
+                  {c.precos.formatos.map((formato) => (
+                    <Text key={formato.titulo} size="sm" weight="light" tone="muted" pretty>
+                      <strong className="font-normal text-content-secondary">{formato.titulo}:</strong>{' '}
+                      {formato.nota}
+                    </Text>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="grid w-full gap-5 sm:grid-cols-2">
+                {c.precos.formatos.map((formato, i) => (
+                  <Card
+                    key={formato.titulo}
+                    as="article"
+                    surface="muted"
+                    padding="none"
+                    className={cn('items-center gap-3 border p-8 text-center', i === 1 ? 'border-brand' : 'border-line-strong')}
+                  >
+                    <Heading as="h3" size="quote">{formato.titulo}</Heading>
+                    <p className={cn('font-display text-display-md', i === 1 && 'text-brand-strong')}>{formato.preco}</p>
+                    <Text size="sm" weight="light" tone="secondary">{c.hero.porPessoa}</Text>
+                    <Text size="sm" weight="light" tone="muted" pretty className="mt-1">{formato.nota}</Text>
+                  </Card>
+                ))}
+              </div>
+            )}
             <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
             <Button href={SITE.whatsappUrl} arrow>{c.hero.reservar}</Button>
           </Section>
