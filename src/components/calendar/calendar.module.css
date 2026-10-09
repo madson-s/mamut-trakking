@@ -1,0 +1,135 @@
+.page { background: var(--surface); color: var(--content); }
+.page h1, .page h2, .page h3 { font-family: var(--font-display); font-weight: 400; }
+.page a:focus-visible { outline: 2px solid var(--brand-strong); outline-offset: 5px; }
+.page p { text-wrap: pretty; }
+.container { position: relative; max-width: 1216px; margin-inline: auto; padding-inline: 24px; }
+.cover { object-fit: cover; }
+.hero { position: relative; overflow: hidden; }
+.heroArt, .calendarArt { pointer-events: none; position: absolute; background: url('/img/calendar/vale-do-pati-session-01_backgroud.svg') center / 100% auto no-repeat; }
+.heroArt { width: max(100%, 1400px); height: 700px; left: 50%; bottom: 0; transform: translateX(-50%); opacity: .42; }
+.heroInner { position: relative; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: clamp(40px, 4.4vw, 72px); max-width: 1216px; margin-inline: auto; padding: clamp(24px, 4vw, 56px) 24px clamp(64px, 8vw, 112px); }
+.heroCopy { flex: 0 1 500px; min-width: min(100%, 340px); display: flex; flex-direction: column; gap: clamp(24px, 2.6vw, 32px); }
+.heroCopy h1 { font-size: clamp(42px, 5vw, 72px); line-height: 1.04; letter-spacing: -.005em; color: var(--content); }
+:global([data-theme='dark']) .heroCopy h1 { color: #e2eee0; }
+.heroCopy h1 > span { display: inline-flex; align-items: center; gap: .12em; white-space: nowrap; }
+.heroCopy h1 img { height: .92em; width: auto; margin-top: .06em; }
+.heroCopy > p { max-width: 42ch; font-size: clamp(16px, 1.3vw, 18px); font-weight: 300; line-height: 1.55; color: var(--content-secondary); }
+.heroActions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 32px; }
+.heroActions > a:last-child { display: inline-flex; align-items: center; gap: 12px; min-height: 48px; font-size: 18px; font-weight: 300; }
+.heroActions > a:last-child > span { display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--line-strong); border-radius: 50%; }
+.stack { flex: 0 1 380px; width: 100%; max-width: 380px; height: clamp(560px, 50vw, 620px); position: relative; }
+.stack ul { list-style: none; padding: 0; }
+.stackCard { position: absolute; left: 0; right: 0; bottom: 0; height: calc(100% - 214px); border-radius: 28px; background: #101716; color: white; transform: translate(var(--card-x), var(--card-y)) rotate(var(--card-rotation)) scale(var(--card-scale)); transform-origin: 50% 100%; transition: transform .5s cubic-bezier(.2,0,0,1), filter .35s ease-out; box-shadow: 0 18px 48px #0005; }
+.stackCard > a { position: relative; display: block; width: 100%; height: 100%; border-radius: inherit; overflow: hidden; outline: 1px solid #ffffff24; outline-offset: -1px; }
+.stackCard > a:focus-visible { outline: 3px solid #a8c39a; }
+.stackPills { position: absolute; inset: 14px 14px auto; display: flex; justify-content: space-between; gap: 8px; }
+.stackPills > span { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 0 14px; border: 1px solid #ffffff47; border-radius: 999px; background: #ffffff24; backdrop-filter: blur(14px); font-size: 13px; font-weight: 600; }
+.stackCaption { position: absolute; left: 14px; right: 14px; bottom: 14px; display: flex; align-items: flex-end; justify-content: space-between; gap: 10px; padding: 18px 16px 16px 18px; border-radius: 20px; background: linear-gradient(#ffffff29, #ffffff0f); backdrop-filter: blur(18px) saturate(150%); border: 1px solid #ffffff42; box-shadow: inset 0 1px 0 #ffffff47, 0 8px 24px #0003; transition: opacity .35s ease-out, transform .45s cubic-bezier(.2,0,0,1); }
+.stackCard[data-active='false'] .stackCaption { visibility: hidden; opacity: 0; transform: translateY(10px); }
+.stackCaption h2 { font-size: 22px; line-height: 1.2; margin-bottom: 10px; }
+.stackCaption p { margin-top: 6px; font-size: 13px; font-weight: 300; }
+.stackMeta, .stackMeta span { display: flex; align-items: center; gap: 6px; }
+.stackMeta { gap: 12px; flex-wrap: wrap; font-size: 13px; }
+.stackMeta svg { width: 15px; height: 15px; }
+.stackArrow { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; flex-shrink: 0; border: 1px solid #ffffff66; border-radius: 50%; }
+.calendar { position: relative; padding-top: clamp(64px, 8vw, 112px); }
+.calendarArt { left: 0; right: 0; top: 30%; height: 800px; opacity: .12; }
+.groups { display: flex; flex-direction: column; gap: clamp(64px, 8vw, 104px); }
+.trekGroup { scroll-margin-top: 24px; }
+.groupHeading { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 32px; margin-bottom: 28px; }
+.difficulty { display: inline-flex; align-items: center; gap: 6px; border: 1px solid var(--line-strong); padding: 5px 12px; border-radius: 999px; color: var(--content-secondary); font-size: 12px; font-weight: 300; line-height: 1.1; }
+.difficulty > span { font-size: 10px; }
+.groupHeading h2 { margin-top: 14px; font-size: clamp(32px, 3.6vw, 48px); line-height: 1.1; }
+.groupHeading p { margin-top: 16px; font-size: 15px; font-weight: 300; color: var(--content-secondary); }
+.groupBody { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 24px; }
+.trekPhoto { position: sticky; top: 24px; flex: 1 1 300px; max-width: 380px; }
+.trekPhotoMedia { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 28px; box-shadow: var(--image-outline); }
+.departures { flex: 999 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 16px; }
+.departure { display: flex; flex-direction: column; gap: 24px; padding: clamp(22px, 2.4vw, 32px); border-radius: 24px; background: var(--surface-muted); border: 1px solid var(--line); }
+.departureHeader { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 16px; }
+.calendarIcon { flex-shrink: 0; display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 50%; border: 1px solid var(--line-strong); }
+.dateHeading { flex-grow: 1; }
+.dateHeading p { color: var(--content-secondary); font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; }
+.dateHeading h3 { font-size: clamp(24px, 2.2vw, 30px); line-height: 1.1; margin-top: 3px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.dateChips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.dateChips > span { border: 1px solid var(--line-strong); border-radius: 999px; padding: 8px 15px; font-size: 12px; line-height: 1.35; }
+.timeline { position: relative; display: flex; justify-content: space-between; gap: 4px; list-style: none; margin: 0; padding: 0; }
+.timeline::before { content: ''; position: absolute; left: 22px; right: 22px; top: 21px; height: 1px; background: var(--line); }
+.timeline li { position: relative; flex: 1; min-width: 0; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 12px; font-weight: 300; color: var(--content-secondary); }
+.timeline strong { font-size: 13px; font-weight: 500; color: var(--content); }
+.dayIcon { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line-strong); background: var(--surface-muted); color: var(--content); }
+.dayStatus { font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; }
+.timeline li[data-holiday='true'] .dayIcon { background: #a8c39a; border-color: #a8c39a; color: #1c1c1c; }
+.timeline li[data-holiday='true'] .dayStatus { color: var(--brand-strong); }
+.departureFooter { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 24px; padding-top: 20px; border-top: 1px solid var(--line); }
+.departureDetails { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 24px; }
+.price { display: flex; flex-direction: column; gap: 2px; }
+.price > span { font-size: 12px; font-weight: 300; color: var(--content-secondary); }
+.price strong { font-size: 20px; font-weight: 600; line-height: 1.2; font-variant-numeric: tabular-nums; }
+.origin { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 300; color: var(--content-secondary); }
+.summer { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 32px; padding: clamp(24px, 2.6vw, 32px); border: 1px solid var(--line); background: var(--surface-muted); border-radius: 24px; }
+.summer > div { flex: 1 1 280px; }
+.summer h2 { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.15; }
+.summer > div > a { display: inline-flex; align-items: center; min-height: 36px; font-size: 14px; color: var(--content-secondary); text-decoration: underline; text-underline-offset: 3px; }
+.related { padding-top: clamp(72px, 8vw, 112px); }
+.related > header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 40px; }
+.related h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; color: var(--brand-strong); }
+.related > header > a { display: inline-flex; align-items: center; min-height: 44px; gap: 8px; font-size: 15px; font-weight: 500; }
+.relatedGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(360px, 100%), 1fr)); gap: 20px; margin-top: 28px; }
+.relatedCard { display: grid; grid-template-columns: 140px minmax(0,1fr); min-height: 160px; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; background: var(--surface-muted); }
+.relatedPhoto { position: relative; min-height: 160px; }
+.relatedCopy { display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 10px; padding: 18px 20px; }
+.relatedCopy h3 { font-family: var(--font-body); font-weight: 600; font-size: 18px; line-height: 1.15; }
+.relatedCopy .difficulty { font-size: 11px; padding: 4px 10px; }
+.relatedCopy > a { font-size: 14px; white-space: normal; text-align: center; }
+.contact { padding-top: clamp(72px, 8vw, 112px); padding-bottom: clamp(72px, 8vw, 112px); }
+.contactPanel { position: relative; overflow: hidden; min-height: 340px; display: flex; align-items: flex-end; border-radius: clamp(28px, 3vw, 40px); }
+.contactPanel > img { object-position: center 40%; }
+.contactPanel::after { content: ''; position: absolute; inset: 0; background: linear-gradient(0deg, #141612d1, #14161259 70%, #14161233); }
+.contactContent { position: relative; z-index: 1; width: 100%; padding: clamp(28px, 4vw, 52px); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 24px; color: white; }
+.contactContent > div { max-width: 560px; }
+.contact h2 { font-size: clamp(30px, 3.6vw, 48px); line-height: 1.08; }
+.contact p { margin-top: 12px; font-size: 16px; font-weight: 300; line-height: 1.55; }
+@media (max-width: 980px) { .heroArt { height: 600px; } }
+@media (max-width: 640px) {
+  .container { padding-inline: 20px; }
+  .heroInner { padding-inline: 24px; gap: 0; }
+  .heroCopy { min-width: 0; }
+  .heroCopy h1 { font-size: clamp(40px, 11vw, 54px); }
+  .heroActions { gap: 12px; }
+  .heroActions > a:last-child { font-size: 16px; }
+  .stack { max-width: 340px; height: 550px; margin-top: 16px; }
+  .stackMeta { gap: 8px; font-size: 12px; }
+  .stackCaption { left: 10px; right: 10px; bottom: 10px; padding: 16px 12px; gap: 6px; }
+  .stackCaption h2 { font-size: 21px; }
+  .stackArrow { width: 36px; height: 36px; }
+  .calendar { padding-top: 32px; }
+  .groupHeading { gap: 20px; margin-bottom: 24px; }
+  .groupHeading > a { width: 100%; }
+  .groupHeading p { line-height: 1.6; }
+  .groupBody { flex-direction: column; }
+  .trekPhoto { position: relative; top: auto; flex: none; width: 100%; max-width: none; }
+  .trekPhotoMedia { aspect-ratio: 4 / 3; }
+  .departures { flex: none; width: 100%; }
+  .departure { padding: 20px 16px; }
+  .departureHeader { gap: 12px; }
+  .calendarIcon { width: 46px; height: 46px; }
+  .dateChips { width: 100%; }
+  .dateChips > span { padding: 7px 12px; }
+  .departureFooter > a { width: 100%; }
+  .departureDetails { width: 100%; justify-content: space-between; gap: 12px; }
+  .origin { font-size: 13px; }
+  .timeline li { gap: 7px; }
+  .dayStatus { font-size: 10px; letter-spacing: 0; }
+  .summer { gap: 16px; padding: 24px; }
+  .summer > div { flex-basis: 200px; }
+  .summer > a { width: 100%; white-space: normal; text-align: center; }
+  .relatedCard { grid-template-columns: 110px minmax(0, 1fr); }
+  .relatedCopy { padding: 16px 14px; }
+  .relatedCopy h3 { font-size: 17px; }
+  .relatedCopy > a { width: 100%; padding-inline: 10px; }
+  .relatedCopy .difficulty { padding: 4px 8px; }
+  .contactContent { padding: 28px 24px; }
+  .contactContent > a { width: 100%; }
+}
+@media (prefers-reduced-motion: reduce) { .stackCard, .stackCaption { transition: none; } }
