@@ -31,6 +31,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/pt/contato` });
   entries.push({ url: `${BASE}/en/contact` });
   entries.push({ url: `${BASE}/es/contacto` });
+  entries.push({ url: `${BASE}/pt/calendario-e-grupos` });
   // As quatro páginas da seção de dicas, em cada idioma. `/dicas` em si só
   // redireciona, então fica de fora.
   for (const locale of LOCALES) {

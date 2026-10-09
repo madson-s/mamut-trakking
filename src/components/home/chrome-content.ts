@@ -50,6 +50,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Falar no WhatsApp',
     nav: [
       { label: 'Aventuras', href: '/pt/aventuras' },
+      { label: 'Saídas', mobileLabel: 'Calendário e grupos', href: '/pt/calendario-e-grupos' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
       { label: 'Dicas', mobileLabel: 'Dicas de trilha', href: '/pt/dicas' },
@@ -72,6 +73,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: true,
           links: [
             { label: 'Roteiros', href: '/pt/aventuras' },
+            { label: 'Próximas saídas', href: '/pt/calendario-e-grupos' },
             { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' },
             { label: 'Como se preparar', href: '/pt/dicas' },
             { label: 'Ficha do participante', href: '/pt/formulario-participante' },
