@@ -86,6 +86,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Quem Somos', href: '/pt/sobre' },
             { label: 'Manifesto', href: '/pt/manifesto' },
             { label: 'Guias Nativos', href: '/pt/sobre#guias' },
+            { label: 'Perguntas frequentes', href: '/pt/perguntas-frequentes' },
           ],
         },
         {
@@ -142,6 +143,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'About us', href: '/en/about' },
             { label: 'Manifesto', href: '/en/manifesto' },
             { label: 'Native guides', href: '/en/about#guias' },
+            { label: 'FAQ', href: '/en/faq' },
           ],
         },
         {
@@ -198,6 +200,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Quiénes Somos', href: '/es/quienes-somos' },
             { label: 'Manifiesto', href: '/es/manifiesto' },
             { label: 'Guías nativos', href: '/es/quienes-somos#guias' },
+            { label: 'Preguntas frecuentes', href: '/es/preguntas-frecuentes' },
           ],
         },
         {
