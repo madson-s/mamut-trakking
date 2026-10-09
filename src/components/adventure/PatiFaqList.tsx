@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { CaretDownIcon, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { scrollToBrand } from '@/lib/scroll';
@@ -90,6 +90,9 @@ const SCROLL_OFFSET = 16;
 
 export function PatiFaqList({ faqs }: { faqs: readonly PatiFaqItem[] }) {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  // Prefixo por instância: com mais de uma lista na página (o FAQ geral tem
+  // uma por seção), um id fixo duplicaria e o aria-controls apontaria errado.
+  const listId = useId();
   const itemRefs = useRef<(HTMLElement | null)[]>([]);
   const panelRefs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -113,7 +116,7 @@ export function PatiFaqList({ faqs }: { faqs: readonly PatiFaqItem[] }) {
     <div className="flex flex-col gap-4">
       {faqs.map((faq, index) => {
         const isOpen = openIndex === index;
-        const panelId = `pati-faq-panel-${index}`;
+        const panelId = `${listId}-panel-${index}`;
 
         return (
           <article
