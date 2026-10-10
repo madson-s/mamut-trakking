@@ -83,6 +83,7 @@ export function MobileMenu({
         aria-modal="true"
         aria-label={content.heading}
         aria-hidden={!open}
+        inert={!open}
         className={cn(
           'fixed inset-0 z-50 flex h-dvh flex-col overflow-y-auto bg-surface p-6',
           'transition-[opacity,transform] duration-300 ease-brand',
