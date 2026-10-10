@@ -50,6 +50,7 @@ export const ADVENTURE_ROUTES: AdventureRoute[] = [
  */
 const PAGE_ROUTES: Partial<Record<Locale, string>>[] = [
   { pt: 'calendario-e-grupos' },
+  { pt: 'torus-festival-chapada-diamantina-2026' },
   { pt: 'formulario-participante', en: 'participant-form', es: 'formulario-participante' },
   { pt: 'dicas', en: 'tips', es: 'consejos' },
   { pt: 'informacoes-gerais', en: 'general-information', es: 'informacion-general' },
