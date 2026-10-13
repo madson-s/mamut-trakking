@@ -49,7 +49,7 @@ export const ADVENTURE_ROUTES: AdventureRoute[] = [
  * "ainda não traduzida" — o seletor de idioma cai na home nesse caso.
  */
 const PAGE_ROUTES: Partial<Record<Locale, string>>[] = [
-  { pt: 'calendario-e-grupos' },
+  { pt: 'calendario-e-grupos', en: 'calendar-and-groups', es: 'calendario-y-grupos' },
   { pt: 'torus-festival-chapada-diamantina-2026' },
   { pt: 'formulario-participante', en: 'participant-form', es: 'formulario-participante' },
   { pt: 'dicas', en: 'tips', es: 'consejos' },

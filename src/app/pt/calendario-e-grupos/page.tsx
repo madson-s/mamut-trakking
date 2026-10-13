@@ -1,15 +1,15 @@
 import type { Metadata } from 'next';
 import { CalendarGroupsExperience } from '@/components/calendar/CalendarGroupsExperience';
+import { CALENDAR_CONTENT, CALENDAR_HREF } from '@/components/calendar/calendar-content';
+
+const CONTENT = CALENDAR_CONTENT.pt;
 
 export const metadata: Metadata = {
-  title: 'Calendário e grupos de trekking',
-  description:
-    'Confira as próximas saídas em grupo para o Vale do Pati e reserve sua vaga com guias nativos da Chapada Diamantina.',
-  alternates: {
-    canonical: '/pt/calendario-e-grupos',
-  },
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: CALENDAR_HREF },
 };
 
 export default function CalendarioEGruposPage() {
-  return <CalendarGroupsExperience />;
+  return <CalendarGroupsExperience locale="pt" />;
 }

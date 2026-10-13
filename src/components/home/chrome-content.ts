@@ -109,6 +109,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Talk on WhatsApp',
     nav: [
       { label: 'Adventures', href: '/en/adventures' },
+      { label: 'Departures', mobileLabel: 'Calendar and groups', href: '/en/calendar-and-groups' },
       { label: 'About us', mobileLabel: 'About us', href: '/en/about' },
       { label: 'Manifesto', href: '/en/manifesto' },
       { label: 'Tips', mobileLabel: 'Trail tips', href: '/en/tips' },
@@ -131,6 +132,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: true,
           links: [
             { label: 'All trips', href: '/en/adventures' },
+            { label: 'Upcoming departures', href: '/en/calendar-and-groups' },
             { label: 'Pati Valley', href: '/en/adventures/pati-valley-3-days' },
             { label: 'How to prepare', href: '/en/tips' },
             { label: 'Participant form', href: '/en/participant-form' },
@@ -166,6 +168,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Hablar por WhatsApp',
     nav: [
       { label: 'Aventuras', href: '/es/aventuras' },
+      { label: 'Salidas', mobileLabel: 'Calendario y grupos', href: '/es/calendario-y-grupos' },
       { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/es/quienes-somos' },
       { label: 'Manifiesto', href: '/es/manifiesto' },
       { label: 'Consejos', mobileLabel: 'Consejos de sendero', href: '/es/consejos' },
@@ -188,6 +191,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: true,
           links: [
             { label: 'Todos los recorridos', href: '/es/aventuras' },
+            { label: 'Próximas salidas', href: '/es/calendario-y-grupos' },
             { label: 'Valle del Pati', href: '/es/aventuras/valle-del-pati-3-dias' },
             { label: 'Cómo prepararse', href: '/es/consejos' },
             { label: 'Ficha del participante', href: '/es/formulario-participante' },

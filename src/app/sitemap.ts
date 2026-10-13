@@ -32,6 +32,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/en/contact` });
   entries.push({ url: `${BASE}/es/contacto` });
   entries.push({ url: `${BASE}/pt/calendario-e-grupos` });
+  entries.push({ url: `${BASE}/en/calendar-and-groups` });
+  entries.push({ url: `${BASE}/es/calendario-y-grupos` });
   entries.push({ url: `${BASE}/pt/perguntas-frequentes` });
   entries.push({ url: `${BASE}/en/faq` });
   entries.push({ url: `${BASE}/es/preguntas-frecuentes` });
