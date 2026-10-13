@@ -6,9 +6,17 @@ export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'pt';
 
+/**
+ * Endereço público do site — base de canonical, hreflang, sitemap, robots,
+ * Open Graph e JSON-LD. Vem de NEXT_PUBLIC_SITE_URL (para testar numa prévia
+ * com o endereço dela); sem a variável, é o domínio definitivo. O WordPress
+ * antigo segue em mamut.agency, que na virada passa a só redirecionar para cá.
+ */
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mamuttrakking.com').replace(/\/+$/, '');
+
 export const SITE = {
   name: 'Mamut Trekking',
-  url: 'https://mamut.agency',
+  url: SITE_URL,
   location: 'Lençóis, Chapada Diamantina — Bahia',
   email: 'contato@mamut.agency',
   whatsapp: '+55 75 99935-9150',

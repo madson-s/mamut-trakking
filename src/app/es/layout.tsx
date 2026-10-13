@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { LocaleShell } from '@/components/layout/LocaleShell';
 import { SITE } from '@/lib/site';
+import { ROBOTS_META } from '@/lib/indexing';
 
 // Root layout do idioma ES. Desde que a home foi redesenhada, todo o
 // idioma usa a casca da identidade nova (LocaleShell) — o SiteHeader antigo
@@ -13,7 +14,7 @@ export const metadata: Metadata = {
   },
   description: 'Operadora especializada en trekkings y aventuras en la Chapada Diamantina, Bahía.',
   openGraph: { siteName: SITE.name, locale: 'es_ES', type: 'website' },
-  robots: { index: true, follow: true },
+  robots: ROBOTS_META,
   appleWebApp: { title: 'Mamut' },
 };
 

@@ -91,6 +91,21 @@
 >   propósito não recebe `ref`/`style`: quem anima envolve o card num wrapper de
 >   layout (ver `ScrollFeedbackStack`).
 >
+> **Domínio e "porta fechada" (migração para mamuttrakking.com):** o site novo
+> vai morar em `mamuttrakking.com`; o WordPress segue em `mamut.agency` e, na
+> virada, passa a só redirecionar (301) para cá — os redirects ficam no servidor
+> antigo, não neste repo. Duas variáveis, ambas lidas **no build**:
+> - `NEXT_PUBLIC_SITE_URL` — base de canonical, hreflang, sitemap, robots, OG e
+>   JSON-LD (`SITE.url`). Sem ela, `https://mamuttrakking.com`. Use para prévias.
+> - `SITE_INDEXABLE` — **fechado por padrão**: sem `true`, toda resposta leva
+>   `X-Robots-Tag: noindex, nofollow` (next.config) e a meta robots dos layouts
+>   vira noindex (`src/lib/indexing.ts`). Liga-se no deploy do dia da virada.
+>   O robots.txt **não** bloqueia o rastreamento de propósito: sem rastrear, o
+>   Google não lê o noindex. Complementa a senha (Basic Auth) do servidor.
+> - O e-mail (`contato@mamut.agency`) segue no domínio antigo; nenhuma imagem
+>   ou arquivo vem mais do WordPress (o termo de responsabilidade está em
+>   `public/docs/`).
+
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e
 > `Disallow` no `robots.ts`): gerador de voucher em PDF. `src/lib/voucher.ts`
 > guarda o modelo de dados (clientes com nome/idade/e-mail, serviços,

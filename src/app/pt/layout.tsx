@@ -3,6 +3,7 @@ import '../globals.css';
 import { HomeHeader } from '@/components/home/HomeHeader';
 import { HomeFooter } from '@/components/home/HomeFooter';
 import { SITE } from '@/lib/site';
+import { ROBOTS_META } from '@/lib/indexing';
 import { fontBody, fontDisplay } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { ScrollExperience } from '@/components/layout/ScrollExperience';
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   },
   description: 'Operadora especializada em trekkings e aventuras na Chapada Diamantina, Bahia.',
   openGraph: { siteName: SITE.name, locale: 'pt_BR', type: 'website' },
-  robots: { index: true, follow: true },
+  robots: ROBOTS_META,
   appleWebApp: { title: 'Mamut' },
 };
 
