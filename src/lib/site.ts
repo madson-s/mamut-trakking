@@ -24,10 +24,14 @@ export const ADVENTURE_SEGMENT: Record<Locale, string> = {
 };
 
 // Locale BCP-47 para Intl.NumberFormat (formatação de preço em BRL).
+// O espanhol usa o padrão brasileiro de propósito: nenhum locale es-* escreve
+// "R$ 1.350" — o es-ES dá "1350 BRL" (sem separador de milhar até 4 dígitos) e
+// o es-AR/es-419 dão "BRL 1.350". O valor é cobrado em reais, e as páginas de
+// roteiro em espanhol já trazem "R$ 1.500" escrito à mão.
 const INTL_LOCALE: Record<Locale, string> = {
   pt: 'pt-BR',
   en: 'en-US',
-  es: 'es-ES',
+  es: 'pt-BR',
 };
 
 export function formatPrice(value: number, locale: Locale): string {
