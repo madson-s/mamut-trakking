@@ -73,7 +73,7 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       title: 'Ficha técnica completa e documentos',
       facts: [['Categoria', 'Trekking com pernoite'], ['Origem', 'Lençóis'], ['Percurso de carro', '160 km'], ['Idade mínima', '18 anos (menores c/ responsável)']],
       requirements: ['Condicionamento para subidas/descidas em terreno acidentado', 'Atravessar rios', 'Caminhar longas distâncias por vários dias', 'Informar restrições alimentares e necessidade de quarto privativo na reserva', 'Reservas confirmadas não têm reajuste'],
-      documents: [['Termo de Responsabilidade (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'], ['Classificação de Nível das Atividades', '/pt/classificacao-de-nivel']],
+      documents: [['Termo de Responsabilidade (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Classificação de Nível das Atividades', '/pt/classificacao-de-nivel']],
     },
   ],
 
@@ -136,7 +136,7 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       title: 'Full technical sheet and documents',
       facts: [['Category', 'Trekking with overnight stays'], ['Starts in', 'Lençóis'], ['Road section', '160 km'], ['Minimum age', '18 (minors with a legal guardian)']],
       requirements: ['Fitness for ascents and descents on rough terrain', 'Crossing rivers', 'Walking long distances over several days', 'Declaring dietary restrictions and the need for a private room at booking', 'Confirmed bookings are not subject to price adjustments'],
-      documents: [['Liability waiver (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'], ['Activity difficulty classification', '/en/level-classification']],
+      documents: [['Liability waiver (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Activity difficulty classification', '/en/level-classification']],
     },
   ],
 
@@ -199,7 +199,7 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       title: 'Ficha técnica completa y documentos',
       facts: [['Categoría', 'Trekking con pernocte'], ['Origen', 'Lençóis'], ['Tramo en auto', '160 km'], ['Edad mínima', '18 años (menores con responsable)']],
       requirements: ['Condición física para subidas y bajadas en terreno accidentado', 'Cruzar ríos', 'Caminar largas distancias durante varios días', 'Informar restricciones alimentarias y necesidad de habitación privada en la reserva', 'Las reservas confirmadas no sufren reajuste'],
-      documents: [['Término de Responsabilidad (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'], ['Clasificación de Nivel de las Actividades', '/es/clasificacion-de-nivel']],
+      documents: [['Término de Responsabilidad (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Clasificación de Nivel de las Actividades', '/es/clasificacion-de-nivel']],
     },
   ],
 };

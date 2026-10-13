@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { AdventureDetail } from '@/components/ui/AdventureDetail';
 
 // Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "https://mamut.agency/wp-content/uploads/2024/11/palmital-768x432.jpeg";
+const IMG = "/img/adventures/pacotes/palmital-provisoria.jpeg";
 
 export const metadata: Metadata = {
   title: "Paquete 6 Días",

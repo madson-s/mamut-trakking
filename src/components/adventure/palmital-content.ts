@@ -123,7 +123,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           'Os valores estão sujeitos a mudança — reservas já confirmadas não sofrem reajuste.',
         ],
         documents: [
-          ['Termo de Responsabilidade (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'],
+          ['Termo de Responsabilidade (PDF)', '/docs/termo-de-responsabilidade.pdf'],
           ['Classificação de nível das atividades', '/pt/classificacao-de-nivel'],
         ],
         labels: { requirements: 'Requisitos', documents: 'Documentos' },
@@ -226,7 +226,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           'Prices are subject to change — bookings already confirmed are not repriced.',
         ],
         documents: [
-          ['Liability waiver (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'],
+          ['Liability waiver (PDF)', '/docs/termo-de-responsabilidade.pdf'],
           ['Activity difficulty classification', '/en/level-classification'],
         ],
         labels: { requirements: 'Requirements', documents: 'Documents' },
@@ -329,7 +329,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           'Los valores están sujetos a cambios — las reservas ya confirmadas no sufren reajuste.',
         ],
         documents: [
-          ['Término de Responsabilidad (PDF)', 'https://mamut.agency/wp-content/uploads/2024/04/TERMO-DE-RESPONSABILIDADE.docx.pdf'],
+          ['Término de Responsabilidad (PDF)', '/docs/termo-de-responsabilidade.pdf'],
           ['Clasificación de nivel de las actividades', '/es/clasificacion-de-nivel'],
         ],
         labels: { requirements: 'Requisitos', documents: 'Documentos' },
