@@ -59,3 +59,21 @@ export const RELATED_ROUTES: RelatedRoute[] = [
   { adventureId: 'vale-do-pati-4-dias', image: '/img/calendar/vale-do-pati-4-dias.png' },
   { adventureId: 'trilha-aguas-claras-2-dias' },
 ];
+
+/**
+ * Data de hoje em Lençóis, como `YYYY-MM-DD`. O fuso é fixo: a regra é "a
+ * saída ainda não começou na Chapada", não importa onde o servidor roda.
+ * (`en-CA` é só o formato de data ISO; não tem relação com o idioma da página.)
+ */
+export function todayInChapada(now: Date = new Date()): string {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Bahia' }).format(now);
+}
+
+/**
+ * Saídas que ainda não começaram — "próximas" no sentido literal. Uma saída que
+ * começa hoje já não é reservável, então sai junto. A comparação é de texto:
+ * datas ISO ordenam como string.
+ */
+export function upcomingDepartures(today: string = todayInChapada()): CalendarDeparture[] {
+  return CALENDAR_DEPARTURES.filter((departure) => departure.start > today);
+}

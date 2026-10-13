@@ -7,7 +7,7 @@ import { ArrowRight, CalendarDays, ChevronDown, Flag, MapPin, Mountain } from 'l
 import { Button } from '@/components/ui';
 import { aventurasDoIdioma, type Adventure } from '@/components/adventures/AdventureCard';
 import { ADVENTURE_SEGMENT, SITE, formatPrice, type Locale } from '@/lib/site';
-import { CALENDAR_DEPARTURES, CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture, type CalendarTrek } from './calendar-data';
+import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture, type CalendarTrek } from './calendar-data';
 import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
 import styles from './calendar.module.css';
 
@@ -24,7 +24,7 @@ const date = (iso: string) => new Date(`${iso}T12:00:00`);
 const wa = (message: string) => `${SITE.whatsappUrl}?text=${encodeURIComponent(message)}`;
 
 /** Roteiro do calendário já com os dados do hub no idioma da página. */
-type Trek = CalendarTrek & { adventure: Adventure };
+type Trek = CalendarTrek & { adventure: Adventure; departures: CalendarDeparture[] };
 
 /** Contexto que cada bloco precisa: textos e formatação do idioma. */
 type Ctx = { c: CalendarContent; locale: Locale };
@@ -48,7 +48,7 @@ function PhotoStack({ ctx, treks }: { ctx: Ctx; treks: Trek[] }) {
     <div className={styles.stack} onMouseLeave={() => setHovered(null)}>
       <ul aria-label={c.hero.pilhaRotulo}>
         {treks.map((trek, index) => {
-          const departures = CALENDAR_DEPARTURES.filter((item) => item.trekId === trek.id);
+          const departures = trek.departures;
           const pulled = hovered === index && index !== 0;
           const focused = hovered === index;
           const otherPulled = hovered !== null && hovered > 0 && !focused;
@@ -116,7 +116,18 @@ function DepartureCard({ ctx, trek, departure }: { ctx: Ctx; trek: Trek; departu
   );
 }
 
-export function CalendarGroupsExperience({ locale = 'pt' }: { locale?: Locale }) {
+export function CalendarGroupsExperience({
+  locale = 'pt',
+  departures,
+}: {
+  locale?: Locale;
+  /**
+   * Saídas a exibir — já filtradas pelo servidor (`upcomingDepartures`). O
+   * filtro não roda aqui de propósito: num componente cliente, a data do
+   * render no servidor e a da hidratação podem cair em dias diferentes.
+   */
+  departures: CalendarDeparture[];
+}) {
   const c = CALENDAR_CONTENT[locale];
   const ctx: Ctx = { c, locale };
   const hub = aventurasDoIdioma(locale);
@@ -126,7 +137,15 @@ export function CalendarGroupsExperience({ locale = 'pt' }: { locale?: Locale })
     if (!adventure) throw new Error(`calendário: roteiro "${id}" não existe no hub`);
     return adventure;
   };
-  const treks: Trek[] = CALENDAR_TREKS.map((trek) => ({ ...trek, adventure: doHub(trek.adventureId) }));
+  // Roteiro sem saída futura sai da pilha e do calendário; na seção "não achou
+  // sua data?" ele continua, com o botão de pedir nova data.
+  const treks: Trek[] = CALENDAR_TREKS
+    .map((trek) => ({
+      ...trek,
+      adventure: doHub(trek.adventureId),
+      departures: departures.filter((departure) => departure.trekId === trek.id),
+    }))
+    .filter((trek) => trek.departures.length > 0);
 
   return (
     <article className={styles.page}>
@@ -138,7 +157,7 @@ export function CalendarGroupsExperience({ locale = 'pt' }: { locale?: Locale })
             <p>{c.hero.texto}</p>
             <div className={styles.heroActions}><Button href={askDate(ctx)} size="lg" arrow>{c.hero.cta}</Button><a href="#calendario">{c.hero.explorar}<span><ChevronDown size={16} aria-hidden /></span></a></div>
           </div>
-          <PhotoStack ctx={ctx} treks={treks} />
+          {treks.length > 0 && <PhotoStack ctx={ctx} treks={treks} />}
         </div>
       </section>
       <section id="calendario" className={styles.calendar} aria-label={c.calendarioRotulo} data-scroll-reveal="off">
@@ -146,7 +165,7 @@ export function CalendarGroupsExperience({ locale = 'pt' }: { locale?: Locale })
         <div className={styles.container}><div className={styles.groups}>
           {treks.map((trek) => <section id={`saidas-${trek.id}`} className={styles.trekGroup} key={trek.id} aria-labelledby={`heading-${trek.id}`}>
             <header className={styles.groupHeading}><div><Difficulty adventure={trek.adventure} /><h2 id={`heading-${trek.id}`}>{c.tituloCurto(trek.days)}</h2><p>{c.grupo.resumo(trek.days, trek.adventure.distance, trek.adventure.location, price(ctx, trek.adventure.price))}</p></div><Button href={trek.adventure.href} variant="outline" size="lg" arrow aria-label={c.grupo.verRoteiroRotulo(trek.adventure.title)}>{c.grupo.verRoteiro}</Button></header>
-            <div className={styles.groupBody}><div className={styles.trekPhoto}><div className={styles.trekPhotoMedia}><Image src={trek.image} alt={c.grupo.fotoAlt(trek.adventure.title)} fill sizes="(max-width: 640px) 100vw, 380px" className={styles.cover} /></div></div><div className={styles.departures}>{CALENDAR_DEPARTURES.filter((departure) => departure.trekId === trek.id).map((departure) => <DepartureCard key={departure.id} ctx={ctx} trek={trek} departure={departure} />)}</div></div>
+            <div className={styles.groupBody}><div className={styles.trekPhoto}><div className={styles.trekPhotoMedia}><Image src={trek.image} alt={c.grupo.fotoAlt(trek.adventure.title)} fill sizes="(max-width: 640px) 100vw, 380px" className={styles.cover} /></div></div><div className={styles.departures}>{trek.departures.map((departure) => <DepartureCard key={departure.id} ctx={ctx} trek={trek} departure={departure} />)}</div></div>
           </section>)}
           <aside className={styles.summer}><span className={styles.calendarIcon}><CalendarDays size={21} aria-hidden /></span><div><h2>{c.verao.titulo}</h2><a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">{c.verao.abrirCalendario}</a></div><Button href={wa(c.verao.mensagem)} variant="outline" size="lg" arrow>{c.verao.cta}</Button></aside>
         </div></div>
