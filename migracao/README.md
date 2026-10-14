@@ -16,6 +16,26 @@ site novo.
 3. Depois da troca, o painel do WordPress fica inacessível pelo domínio (410).
    Para voltar a ele, restaure o `.htaccess` antigo.
 
+## Na troca
+
+1. **Substituir o `.htaccess` inteiro** (não colar por cima do antigo). Os blocos
+   do WP Rocket, LiteSpeed e WordPress deixam de ter função: nenhuma requisição
+   chega mais ao PHP.
+2. **Renomear os `.htaccess` dos subdiretórios** (ex.: `wp-content/.htaccess`,
+   que o WebP Express cria, e `wp-content/uploads/.htaccess`, se existir) para
+   `.htaccess.bak`. No Apache/LiteSpeed, um `.htaccess` com `RewriteEngine On`
+   num subdiretório anula as regras da raiz ali dentro: o termo de
+   responsabilidade e o certificado Cadastur continuariam servidos pelo
+   WordPress (200) em vez de redirecionar, e os demais uploads não dariam 410.
+   Testado num Apache local; `RewriteOptions Inherit` não resolve, porque as
+   regras herdadas casam o caminho relativo ao subdiretório.
+   Para achá-los: `find . -name .htaccess` na raiz do site (File Manager da
+   Hostinger, com "mostrar arquivos ocultos").
+3. Deixar o `.htaccess` novo **somente leitura** (permissão 444): WP Rocket e
+   LiteSpeed Cache reescrevem o arquivo quando rodam.
+4. **Limpar o cache** da Hostinger (LiteSpeed/CDN, no hPanel). Senão, páginas já
+   em cache continuam sendo servidas no lugar do redirect.
+
 ## Depois de ativar
 
 - Conferir algumas linhas do CSV no navegador (`curl -I` deve mostrar 301 com
