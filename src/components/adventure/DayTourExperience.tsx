@@ -11,7 +11,7 @@ import {
   Text,
 } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import { SITE, type Locale } from '@/lib/site';
+import { SITE, formatPrice, type Locale } from '@/lib/site';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
@@ -94,7 +94,7 @@ export function DayTourExperience({
             </Button>
             <Text size="sm" weight="light" tone="onMediaSoft">
               {c.hero.apartirDe}{' '}
-              <strong className="font-display text-xl">R$ {assets.fromPrice}</strong>{' '}
+              <strong className="font-display text-xl">{formatPrice(assets.fromPrice, locale)}</strong>{' '}
               {c.hero.porPessoa}
             </Text>
           </div>

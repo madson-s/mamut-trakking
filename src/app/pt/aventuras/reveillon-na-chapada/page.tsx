@@ -1,12 +1,14 @@
 import type { Metadata } from 'next';
 import { ReveillonExperience } from '@/components/adventure/ReveillonExperience';
-import { REVEILLON_META } from '@/components/adventure/reveillon-content';
+import { REVEILLON_CONTENT, REVEILLON_IMAGE } from '@/components/adventure/reveillon-content';
+
+const CONTENT = REVEILLON_CONTENT.pt;
 
 export const metadata: Metadata = {
-  title: REVEILLON_META.title,
-  description: REVEILLON_META.description,
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: '/pt/aventuras/reveillon-na-chapada',
+    canonical: CONTENT.meta.canonical,
     languages: {
       pt: '/pt/aventuras/reveillon-na-chapada',
       en: '/en/adventures/new-years-eve-chapada',
@@ -14,13 +16,13 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: REVEILLON_META.title,
-    description: REVEILLON_META.description,
-    images: [REVEILLON_META.image],
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [REVEILLON_IMAGE],
     type: 'article',
   },
 };
 
 export default function Page() {
-  return <ReveillonExperience />;
+  return <ReveillonExperience locale="pt" />;
 }

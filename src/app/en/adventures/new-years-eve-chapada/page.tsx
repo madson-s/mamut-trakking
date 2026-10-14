@@ -1,34 +1,28 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { ReveillonExperience } from '@/components/adventure/ReveillonExperience';
+import { REVEILLON_CONTENT, REVEILLON_IMAGE } from '@/components/adventure/reveillon-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "/img/adventures/pacotes/palmital-provisoria.jpeg";
+const CONTENT = REVEILLON_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "New Year’s Eve in Chapada",
-  description: "A special year-end package in Chapada Diamantina.",
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: "/en/adventures/new-years-eve-chapada",
-    languages: { pt: "/pt/aventuras/reveillon-na-chapada", en: "/en/adventures/new-years-eve-chapada", es: "/es/aventuras/ano-nuevo-en-la-chapada" },
+    canonical: CONTENT.meta.canonical,
+    languages: {
+      pt: '/pt/aventuras/reveillon-na-chapada',
+      en: '/en/adventures/new-years-eve-chapada',
+      es: '/es/aventuras/ano-nuevo-en-la-chapada',
+    },
   },
-  openGraph: { title: "New Year’s Eve in Chapada", description: "A special year-end package in Chapada Diamantina.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [REVEILLON_IMAGE],
+    type: 'article',
+  },
 };
 
 export default function Page() {
-  return (
-    <AdventureDetail
-      locale="en"
-      title={"New Year’s Eve in Chapada"}
-      summary={"A special year-end package in Chapada Diamantina."}
-      level={"Moderate"}
-      distance={"Vários"}
-      origin={"Lençóis"}
-      price={3800}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
-  );
+  return <ReveillonExperience locale="en" />;
 }

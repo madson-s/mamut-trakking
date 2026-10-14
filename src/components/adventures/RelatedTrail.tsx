@@ -41,12 +41,14 @@ export function RelatedTrail({
   return (
     <article
       className={cn(
-        'grid h-40 w-full grid-cols-1 items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted px-5 sm:px-0 sm:pr-5',
+        'grid min-h-40 w-full grid-cols-1 items-center gap-5 overflow-hidden rounded-card-lg border border-line bg-surface-muted px-5 sm:px-0 sm:pr-5',
         stretch ? 'sm:grid-cols-[140px_minmax(0,1fr)]' : 'sm:w-95.5 sm:grid-cols-[140px_202px]',
       )}
     >
-      <div className="relative hidden h-40 w-35 shrink-0 overflow-hidden rounded-card-lg sm:block"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
-      <div className="flex h-30 min-w-0 flex-col items-start justify-center gap-2.5">
+      <div className="relative hidden min-h-40 w-35 shrink-0 self-stretch overflow-hidden rounded-card-lg sm:block"><Image src={image} alt="" fill sizes="140px" className="object-cover" /></div>
+      {/* Altura mínima, não fixa: selo + título em duas linhas + botão passam
+          dos 120px, e com altura fixa o título encolhia e perdia a 2ª linha. */}
+      <div className="flex min-h-30 min-w-0 flex-col items-start justify-center gap-2.5 py-4">
         <Badge variant="soft" size="sm"><span aria-hidden>{emoji}</span> {level}</Badge>
         <Heading as="h4" size="quote" className={cn('text-xl/[27px]!', stretch ? 'line-clamp-2 text-balance' : 'whitespace-nowrap')}>{title}</Heading>
         <Button href={href} size="sm" arrow className="min-h-11 w-full">{cta}</Button>

@@ -1,34 +1,24 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { PACOTE_4_ASSETS, PACOTE_4_CONTENT } from '@/components/adventure/pacotes-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "/img/adventures/pacotes/palmital-provisoria.jpeg";
+const CONTENT = PACOTE_4_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "4-Day Package",
-  description: "Four days combining waterfalls, caves and viewpoints of Chapada.",
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: "/en/adventures/package-4-days",
-    languages: { pt: "/pt/aventuras/pacote-4-dias", en: "/en/adventures/package-4-days", es: "/es/aventuras/paquete-4-dias" },
+    canonical: CONTENT.meta.canonical,
+    languages: { pt: '/pt/aventuras/pacote-4-dias', en: '/en/adventures/package-4-days', es: '/es/aventuras/paquete-4-dias' },
   },
-  openGraph: { title: "4-Day Package", description: "Four days combining waterfalls, caves and viewpoints of Chapada.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [PACOTE_4_ASSETS.hero.src],
+    type: 'article',
+  },
 };
 
 export default function Page() {
-  return (
-    <AdventureDetail
-      locale="en"
-      title={"4-Day Package"}
-      summary={"Four days combining waterfalls, caves and viewpoints of Chapada."}
-      level={"Moderate"}
-      distance={"Vários"}
-      origin={"Lençóis"}
-      price={2900}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
-  );
+  return <DayTourExperience locale="en" content={PACOTE_4_CONTENT} assets={PACOTE_4_ASSETS} />;
 }

@@ -1,34 +1,31 @@
 import Image from 'next/image';
 import { BedDouble, CalendarDays, MapPin, ShieldCheck, TicketCheck, UsersRound } from 'lucide-react';
 import { Badge, Button, Container, Heading, JsonLd, MediaCard, Section, Text } from '@/components/ui';
-import { SITE } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
 import { ReveillonBookingTrigger } from './ReveillonBookingTrigger';
 import { ReveillonPackageExplorer } from './ReveillonPackageExplorer';
-import { REVEILLON_FAQS, REVEILLON_META, REVEILLON_PACKAGES } from './reveillon-content';
+import { REVEILLON_CONTENT, REVEILLON_IMAGE, REVEILLON_PACKAGES, type ReveillonContent } from './reveillon-content';
 
-const INCLUSIONS = [
-  { icon: TicketCheck, label: 'Acessos', detail: 'Taxas de entrada previstas no roteiro' },
-  { icon: UsersRound, label: 'Guias locais', detail: 'Condução especializada em todas as atividades' },
-  { icon: BedDouble, label: 'Hospedagem', detail: 'Pernoites conforme o pacote escolhido' },
-  { icon: MapPin, label: 'Traslados', detail: 'Deslocamentos para os atrativos do roteiro' },
-] as const;
+// Ícones na ordem de `REVEILLON_CONTENT[locale].inclusos.itens`.
+const INCLUSION_ICONS = [TicketCheck, UsersRound, BedDouble, MapPin] as const;
 
-export function ReveillonExperience() {
+export function ReveillonExperience({ locale }: { locale: Locale }) {
+  const c = REVEILLON_CONTENT[locale];
   return (
     <article className="overflow-x-clip">
       <JsonLd
         data={{
           '@context': 'https://schema.org',
           '@type': 'TouristTrip',
-          name: REVEILLON_META.title,
-          description: REVEILLON_META.description,
-          image: `${SITE.url}${REVEILLON_META.image}`,
-          touristType: 'Trekking e ecoturismo',
+          name: c.meta.title,
+          description: c.meta.description,
+          image: `${SITE.url}${REVEILLON_IMAGE}`,
+          touristType: c.jsonLd.touristType,
           provider: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
           offers: REVEILLON_PACKAGES.map((item) => ({
             '@type': 'Offer',
-            name: `Réveillon na Chapada — ${item.days}`,
+            name: c.jsonLd.offerName(c.pacotes[item.key].days),
             price: item.price,
             priceCurrency: 'BRL',
             availability: 'https://schema.org/InStock',
@@ -36,19 +33,19 @@ export function ReveillonExperience() {
         }}
       />
 
-      <Hero />
-      <Story />
+      <Hero c={c} />
+      <Story c={c} />
       <Section id="pacotes" padding="tall" containerClassName="relative">
-        <ReveillonPackageExplorer />
+        <ReveillonPackageExplorer locale={locale} />
       </Section>
-      <IncludedBand />
-      <PracticalInformation />
-      <FinalCta />
+      <IncludedBand c={c} />
+      <PracticalInformation c={c} />
+      <FinalCta c={c} />
     </article>
   );
 }
 
-function Hero() {
+function Hero({ c }: { c: ReveillonContent }) {
   return (
     <Section
       padding="none"
@@ -56,8 +53,8 @@ function Hero() {
       className="hero-under-header relative isolate -mt-20 flex min-h-[46rem] items-end overflow-hidden bg-media-backdrop pt-28 pb-10 sm:min-h-[48rem] sm:pb-14 lg:min-h-[52rem] lg:pb-16"
     >
       <Image
-        src={REVEILLON_META.image}
-        alt="Montanhas da Chapada Diamantina vistas ao fim da tarde"
+        src={REVEILLON_IMAGE}
+        alt={c.hero.fotoAlt}
         fill
         priority
         sizes="100vw"
@@ -70,17 +67,17 @@ function Hero() {
         <div>
           <header className="max-w-205">
             <Badge variant="outlineOnMedia" size="md" icon={<CalendarDays aria-hidden className="size-4" />}>
-              28 dez 2026 — 2 jan 2027
+              {c.hero.dates}
             </Badge>
             <Heading as="h1" size="hero" tone="onMedia" balance className="mt-5 max-w-205 text-[clamp(3.2rem,9.4vw,7.7rem)]! leading-[.88]! tracking-[-.045em]">
-              Vire o ano no coração da Chapada.
+              {c.hero.titulo}
             </Heading>
             <Text weight="light" tone="onMediaSoft" pretty className="mt-6 max-w-155 text-lg sm:text-xl">
-              Troque a contagem regressiva pela trilha: cachoeiras, vales e paisagens para começar 2027 em movimento.
+              {c.hero.lead}
             </Text>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="#pacotes" size="lg" arrow className="max-sm:w-full">Ver os pacotes</Button>
-              <ReveillonBookingTrigger label="Falar com a equipe" variant="outlineOnMedia" className="max-sm:w-full" />
+              <Button href="#pacotes" size="lg" arrow className="max-sm:w-full">{c.hero.verPacotes}</Button>
+              <ReveillonBookingTrigger label={c.hero.falar} variant="outlineOnMedia" className="max-sm:w-full" />
             </div>
           </header>
         </div>
@@ -89,7 +86,7 @@ function Hero() {
   );
 }
 
-function Story() {
+function Story({ c }: { c: ReveillonContent }) {
   return (
     <Section padding="tall" container={false} className="relative isolate overflow-hidden border-b border-line">
       <div
@@ -107,22 +104,19 @@ function Story() {
       <Container className="relative z-10">
         <div className="grid gap-12 lg:grid-cols-[minmax(0,.82fr)_minmax(0,1.18fr)] lg:items-center lg:gap-20">
           <div>
-            <Badge variant="brand" size="sm">Réveillon 2027</Badge>
+            <Badge variant="brand" size="sm">{c.story.badge}</Badge>
             <Heading as="h2" size="hero" balance className="mt-5 max-lg:text-display-lg">
-              A virada acontece lá fora.
+              {c.story.titulo}
             </Heading>
             <div className="mt-6 flex max-w-158 flex-col gap-4 text-lg font-light leading-relaxed text-content-secondary">
-              <p className="text-pretty">
-                Este é um Réveillon para quem prefere o som da água, o silêncio do vale e a sensação de chegar caminhando a um lugar extraordinário.
-              </p>
-              <p className="text-pretty">
-                Os roteiros combinam trilhas, cachoeiras, paisagens e hospedagem em viagens de quatro a seis dias. Você escolhe a intensidade; a Mamut organiza o caminho.
-              </p>
+              {c.story.paragrafos.map((paragrafo) => (
+                <p key={paragrafo} className="text-pretty">{paragrafo}</p>
+              ))}
             </div>
             <div className="mt-8 flex items-center gap-4 border-l-2 border-brand pl-5">
               <ShieldCheck aria-hidden className="size-6 shrink-0 text-brand-strong" />
               <Text size="sm" weight="light" tone="secondary" pretty>
-                Grupos pequenos, guias locais e possibilidade de personalizar o pacote.
+                {c.story.selo}
               </Text>
             </div>
           </div>
@@ -131,7 +125,7 @@ function Story() {
             <figure className="relative min-h-115 overflow-hidden rounded-panel-lg bg-media-backdrop shadow-image-outline sm:min-h-145">
               <Image
                 src="/img/adventures/buracao/hero.jpeg"
-                alt="Cachoeira do Buracão vista entre os paredões do cânion"
+                alt={c.story.fotos.buracao}
                 fill
                 sizes="(min-width: 1024px) 36vw, 56vw"
                 className="object-cover"
@@ -141,7 +135,7 @@ function Story() {
               <figure className="relative min-h-56 overflow-hidden rounded-panel bg-media-backdrop shadow-image-outline sm:min-h-70">
                 <Image
                   src="/img/home_backgroud/home_backgroud_03_no_crop_1x.webp"
-                  alt="Rua histórica de Lençóis na Chapada Diamantina"
+                  alt={c.story.fotos.lencois}
                   fill
                   sizes="(min-width: 1024px) 26vw, 42vw"
                   className="object-cover"
@@ -151,7 +145,7 @@ function Story() {
                 <MapPin aria-hidden className="size-6" />
                 <div>
                   <p className="font-display text-4xl leading-none sm:text-6xl">Chapada</p>
-                  <p className="mt-2 text-xs font-light opacity-75 sm:text-sm">Lençóis · Pati · Ibicoara · Mucugê</p>
+                  <p className="mt-2 text-xs font-light opacity-75 sm:text-sm">{c.story.regioes}</p>
                 </div>
               </div>
             </div>
@@ -162,24 +156,27 @@ function Story() {
   );
 }
 
-function IncludedBand() {
+function IncludedBand({ c }: { c: ReveillonContent }) {
   return (
-    <Section padding="none" surface="muted" bordered container={false} aria-label="Itens incluídos nos pacotes">
+    <Section padding="none" surface="muted" bordered container={false} aria-label={c.inclusos.ariaLabel}>
       <Container>
         <div className="grid lg:grid-cols-[260px_minmax(0,1fr)]">
           <div className="flex items-center border-line py-8 lg:border-r lg:pr-10">
-            <Heading as="h2" size="quote" balance>Todo pacote já organiza o essencial.</Heading>
+            <Heading as="h2" size="quote" balance>{c.inclusos.titulo}</Heading>
           </div>
           <dl className="grid sm:grid-cols-2 lg:grid-cols-4">
-            {INCLUSIONS.map(({ icon: Icon, label, detail }) => (
-              <div key={label} className="flex gap-4 border-line py-6 sm:p-7 sm:odd:border-r lg:border-r lg:last:border-r-0">
-                <Icon aria-hidden className="mt-0.5 size-5 shrink-0 text-brand-strong" />
-                <div>
-                  <dt className="font-semibold text-content">{label}</dt>
-                  <dd className="mt-1 text-xs font-light leading-relaxed text-content-secondary">{detail}</dd>
+            {c.inclusos.itens.map(({ label, detail }, i) => {
+              const Icon = INCLUSION_ICONS[i];
+              return (
+                <div key={label} className="flex gap-4 border-line py-6 sm:p-7 sm:odd:border-r lg:border-r lg:last:border-r-0">
+                  <Icon aria-hidden className="mt-0.5 size-5 shrink-0 text-brand-strong" />
+                  <div>
+                    <dt className="font-semibold text-content">{label}</dt>
+                    <dd className="mt-1 text-xs font-light leading-relaxed text-content-secondary">{detail}</dd>
+                  </div>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </dl>
         </div>
       </Container>
@@ -187,14 +184,14 @@ function IncludedBand() {
   );
 }
 
-function PracticalInformation() {
+function PracticalInformation({ c }: { c: ReveillonContent }) {
   return (
     <Section id="informacoes" padding="tall" containerClassName="grid gap-10 lg:grid-cols-[360px_minmax(0,1fr)] lg:gap-16">
       <div className="lg:sticky lg:top-28 lg:self-start">
-        <Badge variant="brand" size="sm">Antes de reservar</Badge>
-        <Heading as="h2" size="section" balance className="mt-4">Tudo claro antes do primeiro passo.</Heading>
+        <Badge variant="brand" size="sm">{c.info.badge}</Badge>
+        <Heading as="h2" size="section" balance className="mt-4">{c.info.titulo}</Heading>
         <Text weight="light" tone="secondary" leading="relaxed" pretty className="mt-5">
-          Consulte equipamentos, condições de pagamento, cancelamento e cuidados de segurança. As informações ficam aqui para você decidir com tranquilidade.
+          {c.info.corpo}
         </Text>
         <Image
           src="/svg/about/story-walkers.svg"
@@ -205,12 +202,12 @@ function PracticalInformation() {
           className="mt-10 hidden h-auto w-64 opacity-85 lg:block"
         />
       </div>
-      <PatiFaqList faqs={REVEILLON_FAQS} />
+      <PatiFaqList faqs={c.faqs} />
     </Section>
   );
 }
 
-function FinalCta() {
+function FinalCta({ c }: { c: ReveillonContent }) {
   return (
     <Section padding="none" className="pb-20 lg:pb-28">
       <MediaCard
@@ -225,7 +222,7 @@ function FinalCta() {
           <>
             <Image
               src="/img/home_backgroud/home_backgroud_02_no_crop_1x.webp"
-              alt="Trilha em direção às montanhas da Chapada Diamantina"
+              alt={c.finalCta.fotoAlt}
               fill
               sizes="(min-width: 1280px) 1216px, 100vw"
               className="object-cover"
@@ -235,14 +232,14 @@ function FinalCta() {
         }
       >
         <div className="relative z-10 max-w-174">
-          <Badge variant="outlineOnMedia" size="sm">Comece 2027 em movimento</Badge>
+          <Badge variant="outlineOnMedia" size="sm">{c.finalCta.badge}</Badge>
           <Heading as="h2" size="hero" tone="onMedia" balance className="mt-5 max-lg:text-display-lg">
-            Seu próximo ano pode começar por uma trilha.
+            {c.finalCta.titulo}
           </Heading>
           <Text weight="light" tone="onMediaSoft" pretty className="mt-5 max-w-135 sm:text-lg">
-            Conte para a Mamut quantos dias você tem e como gosta de viajar. A equipe ajuda a escolher — ou adaptar — o roteiro certo.
+            {c.finalCta.corpo}
           </Text>
-          <ReveillonBookingTrigger label="Planejar meu Réveillon" className="mt-8 max-sm:w-full" />
+          <ReveillonBookingTrigger label={c.finalCta.cta} className="mt-8 max-sm:w-full" />
         </div>
         <Image
           src="/svg/humans-assets-yellow.svg"

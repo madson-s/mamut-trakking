@@ -1,3 +1,5 @@
+import { ADVENTURES } from './adventures-data';
+
 export type DifficultyFilter = 'all' | 'Fácil' | 'Moderado' | 'Desafiador';
 export type DifficultyGroup = Exclude<DifficultyFilter, 'all'>;
 
@@ -17,7 +19,9 @@ export type FilterableAdventure = {
 };
 
 export const MIN_BUDGET = 50;
-export const MAX_BUDGET = 4550;
+// Teto do filtro = aventura mais cara do catálogo. Com um número fixo, o card
+// que passasse dele sumia do hub já no filtro padrão ("qualquer valor").
+export const MAX_BUDGET = Math.max(...ADVENTURES.map((a) => a.price));
 
 export const LOCATION_OPTIONS = ['all', 'Lençóis', 'Vale do Capão', 'Palmeiras', 'Ibicoara', 'Guiné'];
 export const DURATION_OPTIONS = ['all', '1', '2', '3', '4', '5', '6'];

@@ -1,34 +1,24 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { PACOTE_6_ASSETS, PACOTE_6_CONTENT } from '@/components/adventure/pacotes-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "/img/adventures/pacotes/palmital-provisoria.jpeg";
+const CONTENT = PACOTE_6_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "6-Day Package",
-  description: "The complete Chapada experience in six days, including Pati Valley.",
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: "/en/adventures/package-6-days",
-    languages: { pt: "/pt/aventuras/pacote-6-dias", en: "/en/adventures/package-6-days", es: "/es/aventuras/paquete-6-dias" },
+    canonical: CONTENT.meta.canonical,
+    languages: { pt: '/pt/aventuras/pacote-6-dias', en: '/en/adventures/package-6-days', es: '/es/aventuras/paquete-6-dias' },
   },
-  openGraph: { title: "6-Day Package", description: "The complete Chapada experience in six days, including Pati Valley.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [PACOTE_6_ASSETS.hero.src],
+    type: 'article',
+  },
 };
 
 export default function Page() {
-  return (
-    <AdventureDetail
-      locale="en"
-      title={"6-Day Package"}
-      summary={"The complete Chapada experience in six days, including Pati Valley."}
-      level={"Challenging"}
-      distance={"Vários"}
-      origin={"Lençóis"}
-      price={4200}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
-  );
+  return <DayTourExperience locale="en" content={PACOTE_6_CONTENT} assets={PACOTE_6_ASSETS} />;
 }

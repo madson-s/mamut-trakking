@@ -1,34 +1,24 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { PACOTE_6_ASSETS, PACOTE_6_CONTENT } from '@/components/adventure/pacotes-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "/img/adventures/pacotes/palmital-provisoria.jpeg";
+const CONTENT = PACOTE_6_CONTENT.es;
 
 export const metadata: Metadata = {
-  title: "Paquete 6 Días",
-  description: "La experiencia completa de la Chapada en seis días, incluyendo el Valle del Pati.",
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: "/es/aventuras/paquete-6-dias",
-    languages: { pt: "/pt/aventuras/pacote-6-dias", en: "/en/adventures/package-6-days", es: "/es/aventuras/paquete-6-dias" },
+    canonical: CONTENT.meta.canonical,
+    languages: { pt: '/pt/aventuras/pacote-6-dias', en: '/en/adventures/package-6-days', es: '/es/aventuras/paquete-6-dias' },
   },
-  openGraph: { title: "Paquete 6 Días", description: "La experiencia completa de la Chapada en seis días, incluyendo el Valle del Pati.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [PACOTE_6_ASSETS.hero.src],
+    type: 'article',
+  },
 };
 
 export default function Page() {
-  return (
-    <AdventureDetail
-      locale="es"
-      title={"Paquete 6 Días"}
-      summary={"La experiencia completa de la Chapada en seis días, incluyendo el Valle del Pati."}
-      level={"Exigente"}
-      distance={"Vários"}
-      origin={"Lençóis"}
-      price={4200}
-      image={IMG}
-      labels={{ level: "Nivel", distance: "Distancia", origin: "Salida", from: "Desde" }}
-    >
-      <p>Contenido a migrar del sitio actual.</p>
-      <p>Contenido a migrar del sitio actual.</p>
-    </AdventureDetail>
-  );
+  return <DayTourExperience locale="es" content={PACOTE_6_CONTENT} assets={PACOTE_6_ASSETS} />;
 }

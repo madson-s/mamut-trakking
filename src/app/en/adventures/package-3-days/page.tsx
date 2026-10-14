@@ -1,34 +1,24 @@
 import type { Metadata } from 'next';
-import { AdventureDetail } from '@/components/ui/AdventureDetail';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { PACOTE_3_ASSETS, PACOTE_3_CONTENT } from '@/components/adventure/pacotes-content';
 
-// Página gerada como scaffold — edite o conteúdo (textos, imagem, corpo) direto aqui.
-const IMG = "/img/adventures/pacotes/palmital-provisoria.jpeg";
+const CONTENT = PACOTE_3_CONTENT.en;
 
 export const metadata: Metadata = {
-  title: "3-Day Package",
-  description: "A three-day itinerary covering the highlights of Chapada Diamantina.",
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
   alternates: {
-    canonical: "/en/adventures/package-3-days",
-    languages: { pt: "/pt/aventuras/pacote-3-dias", en: "/en/adventures/package-3-days", es: "/es/aventuras/paquete-3-dias" },
+    canonical: CONTENT.meta.canonical,
+    languages: { pt: '/pt/aventuras/pacote-3-dias', en: '/en/adventures/package-3-days', es: '/es/aventuras/paquete-3-dias' },
   },
-  openGraph: { title: "3-Day Package", description: "A three-day itinerary covering the highlights of Chapada Diamantina.", images: [IMG], type: 'article' },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [PACOTE_3_ASSETS.hero.src],
+    type: 'article',
+  },
 };
 
 export default function Page() {
-  return (
-    <AdventureDetail
-      locale="en"
-      title={"3-Day Package"}
-      summary={"A three-day itinerary covering the highlights of Chapada Diamantina."}
-      level={"Moderate"}
-      distance={"Vários"}
-      origin={"Lençóis"}
-      price={2200}
-      image={IMG}
-      labels={{ level: "Level", distance: "Distance", origin: "Departure", from: "From" }}
-    >
-      <p>Content to migrate from the current site.</p>
-      <p>Content to migrate from the current site.</p>
-    </AdventureDetail>
-  );
+  return <DayTourExperience locale="en" content={PACOTE_3_CONTENT} assets={PACOTE_3_ASSETS} />;
 }
