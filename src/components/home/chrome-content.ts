@@ -76,7 +76,6 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Próximas saídas', href: '/pt/calendario-e-grupos' },
             { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' },
             { label: 'Como se preparar', href: '/pt/dicas' },
-            { label: 'Ficha do participante', href: '/pt/formulario-participante' },
           ],
         },
         {
@@ -137,7 +136,6 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Upcoming departures', href: '/en/calendar-and-groups' },
             { label: 'Pati Valley', href: '/en/adventures/pati-valley-3-days' },
             { label: 'How to prepare', href: '/en/tips' },
-            { label: 'Participant form', href: '/en/participant-form' },
           ],
         },
         {
@@ -198,7 +196,6 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Próximas salidas', href: '/es/calendario-y-grupos' },
             { label: 'Valle del Pati', href: '/es/aventuras/valle-del-pati-3-dias' },
             { label: 'Cómo prepararse', href: '/es/consejos' },
-            { label: 'Ficha del participante', href: '/es/formulario-participante' },
           ],
         },
         {
