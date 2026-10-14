@@ -91,12 +91,12 @@
 >   propósito não recebe `ref`/`style`: quem anima envolve o card num wrapper de
 >   layout (ver `ScrollFeedbackStack`).
 >
-> **Domínio e "porta fechada" (migração para mamuttrakking.com):** o site novo
-> vai morar em `mamuttrakking.com`; o WordPress segue em `mamut.agency` e, na
+> **Domínio e "porta fechada" (migração para mamuttrekking.com):** o site novo
+> vai morar em `mamuttrekking.com`; o WordPress segue em `mamut.agency` e, na
 > virada, passa a só redirecionar (301) para cá — os redirects ficam no servidor
 > antigo, não neste repo. Duas variáveis, ambas lidas **no build**:
 > - `NEXT_PUBLIC_SITE_URL` — base de canonical, hreflang, sitemap, robots, OG e
->   JSON-LD (`SITE.url`). Sem ela, `https://mamuttrakking.com`. Use para prévias.
+>   JSON-LD (`SITE.url`). Sem ela, `https://mamuttrekking.com`. Use para prévias.
 > - `SITE_INDEXABLE` — **fechado por padrão**: sem `true`, toda resposta leva
 >   `X-Robots-Tag: noindex, nofollow` (next.config) e a meta robots dos layouts
 >   vira noindex (`src/lib/indexing.ts`). Liga-se no deploy do dia da virada.

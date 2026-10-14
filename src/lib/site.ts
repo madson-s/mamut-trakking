@@ -12,7 +12,7 @@ export const DEFAULT_LOCALE: Locale = 'pt';
  * com o endereço dela); sem a variável, é o domínio definitivo. O WordPress
  * antigo segue em mamut.agency, que na virada passa a só redirecionar para cá.
  */
-const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mamuttrakking.com').replace(/\/+$/, '');
+const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://mamuttrekking.com').replace(/\/+$/, '');
 
 export const SITE = {
   name: 'Mamut Trekking',

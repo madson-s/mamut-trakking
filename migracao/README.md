@@ -1,4 +1,4 @@
-# Migração mamut.agency → mamuttrakking.com
+# Migração mamut.agency → mamuttrekking.com
 
 Arquivos para o servidor **antigo** (Hostinger, LiteSpeed). Nada aqui roda no
 site novo.
@@ -12,7 +12,7 @@ site novo.
 ## Antes de ativar
 
 1. Backup completo do WordPress (arquivos + banco) e cópia do `.htaccess` atual.
-2. O site novo já no ar em `mamuttrakking.com` com `SITE_INDEXABLE=true`.
+2. O site novo já no ar em `mamuttrekking.com` com `SITE_INDEXABLE=true`.
 3. Depois da troca, o painel do WordPress fica inacessível pelo domínio (410).
    Para voltar a ele, restaure o `.htaccess` antigo.
 
@@ -41,7 +41,7 @@ site novo.
 - Conferir algumas linhas do CSV no navegador (`curl -I` deve mostrar 301 com
   `location:` no domínio novo, sem segundo salto).
 - Search Console: "Mudança de endereço" de `mamut.agency` para
-  `mamuttrakking.com`.
+  `mamuttrekking.com`.
 - Manter o `.htaccess` ativo por pelo menos um ano.
 
 ## Como foi validado
