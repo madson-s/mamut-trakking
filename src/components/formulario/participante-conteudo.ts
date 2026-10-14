@@ -189,6 +189,7 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       'Declaro que esclareci todas as minhas dúvidas sobre a atividade, pagamento e segurança com a Mamut Trekking.',
       'Assumo, por minha livre e espontânea vontade, todos os riscos envolvidos e suas consequências pela participação neste evento, isentando a Mamut Trekking, seus organizadores e colaboradores, DE TODA E QUALQUER RESPONSABILIDADE por quaisquer danos materiais, morais ou físicos que porventura venha a sofrer, advindos da participação neste evento.',
       'Autorizo o uso de minha imagem e voz para fins de divulgação do evento, tanto virtual quanto impressa.',
+      'Autorizo a Mamut Trekking a tratar os meus dados pessoais, inclusive as informações de saúde desta ficha, para organizar o passeio e cuidar da minha segurança, conforme a Política de privacidade do site.',
     ],
     aceite: 'Li e aceito os termos acima.',
     acoes: {
@@ -302,6 +303,7 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       'I declare that I have clarified all my doubts about the activity, safety and payment with Mamut Trekking.',
       'I assume, of my own free will, all risks involved and their consequences for participating in this event, exempting Mamut Trekking, its organizers and collaborators, FROM ANY AND ALL RESPONSIBILITY for any material, moral or physical damages that I may suffer arising from participation in this event.',
       'I authorize the use of my image and voice for the purpose of publicizing the event, both virtual and in print.',
+      'I authorise Mamut Trekking to process my personal data, including the health information in this form, to organise the trip and look after my safety, as described in the website’s Privacy policy.',
     ],
     aceite: 'I have read and accept the terms above.',
     acoes: {
@@ -415,6 +417,7 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       'Declaro que aclaré todas mis dudas sobre la actividad, el pago y la seguridad con Mamut Trekking.',
       'Asumo, por mi libre y espontánea voluntad, todos los riesgos involucrados y sus consecuencias por participar en este evento, eximiendo a Mamut Trekking, sus organizadores y colaboradores, DE TODA Y CUALQUIER RESPONSABILIDAD por cualquier daño material, moral o físico que pudiera sufrir, derivado de la participación en este evento.',
       'Autorizo el uso de mi imagen y voz para fines de divulgación del evento, tanto virtual como impresa.',
+      'Autorizo a Mamut Trekking a tratar mis datos personales, incluida la información de salud de esta ficha, para organizar el paseo y cuidar de mi seguridad, según la Política de privacidad del sitio.',
     ],
     aceite: 'Leí y acepto los términos anteriores.',
     acoes: {

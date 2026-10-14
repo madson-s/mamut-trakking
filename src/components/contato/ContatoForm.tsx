@@ -12,6 +12,7 @@ import {
   Text,
   Textarea,
 } from '@/components/ui';
+import { PrivacidadeNota } from '@/components/privacidade/PrivacidadeNota';
 import { RecaptchaNota, RecaptchaScript, useRecaptcha } from '@/components/recaptcha/Recaptcha';
 import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
 import { SITE, type Locale } from '@/lib/site';
@@ -262,6 +263,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
           {c.nota}
         </Text>
 
+        <PrivacidadeNota locale={locale} />
         <RecaptchaNota locale={locale} />
       </form>
 

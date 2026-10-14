@@ -78,7 +78,7 @@ export function FaqPage({ locale }: { locale: Locale }) {
     <>
       <JsonLd data={jsonLd} />
 
-      <Section padding="none" container={false} labelledBy="faq-title" className="relative isolate">
+      <Section padding="none" container={false} labelledBy="faq-title" className="relative isolate overflow-x-clip">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -left-28 top-20 h-150 w-240 max-w-none bg-content opacity-[0.045] [mask-image:url('/svg/session-05_backgroud-people-01.svg')] [mask-repeat:no-repeat] [mask-size:contain]"

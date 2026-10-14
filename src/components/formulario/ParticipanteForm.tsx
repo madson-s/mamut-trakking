@@ -13,6 +13,7 @@ import {
   Text,
   Textarea,
 } from '@/components/ui';
+import { PrivacidadeNota } from '@/components/privacidade/PrivacidadeNota';
 import { RecaptchaNota, RecaptchaScript, useRecaptcha } from '@/components/recaptcha/Recaptcha';
 import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
 import { SITE, type Locale } from '@/lib/site';
@@ -334,6 +335,7 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
 
         <Text size="xs" tone="subtle">{c.acoes.nota}</Text>
 
+        <PrivacidadeNota locale={locale} />
         <RecaptchaNota locale={locale} />
       </form>
 

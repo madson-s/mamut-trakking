@@ -37,6 +37,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/pt/perguntas-frequentes` });
   entries.push({ url: `${BASE}/en/faq` });
   entries.push({ url: `${BASE}/es/preguntas-frecuentes` });
+  entries.push({ url: `${BASE}/pt/politica-de-privacidade` });
+  entries.push({ url: `${BASE}/en/privacy-policy` });
+  entries.push({ url: `${BASE}/es/politica-de-privacidad` });
   entries.push({ url: `${BASE}/pt/torus-festival-chapada-diamantina-2026` });
   // As quatro páginas da seção de dicas, em cada idioma. `/dicas` em si só
   // redireciona, então fica de fora.

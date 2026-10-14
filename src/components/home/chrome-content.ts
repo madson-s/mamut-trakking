@@ -10,6 +10,7 @@
 
 import type { Locale } from '@/lib/site';
 import { SITE } from '@/lib/site';
+import { PRIVACIDADE_HREF } from '@/components/privacidade/privacidade-content';
 import type { MobileNavItem } from './MobileMenu';
 
 export type ChromeColumn = {
@@ -37,6 +38,8 @@ export type ChromeContent = {
     place: string;
     columns: ChromeColumn[];
     rights: string;
+    /** Link legal na linha de baixo, ao lado dos direitos. */
+    privacy: { label: string; href: string };
     whatsapp: string;
   };
 };
@@ -100,6 +103,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
         },
       ],
       rights: 'Todos os direitos reservados',
+      privacy: { label: 'Política de privacidade', href: PRIVACIDADE_HREF.pt },
       whatsapp: 'Falar no WhatsApp',
     },
   },
@@ -159,6 +163,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
         },
       ],
       rights: 'All rights reserved',
+      privacy: { label: 'Privacy policy', href: PRIVACIDADE_HREF.en },
       whatsapp: 'Talk on WhatsApp',
     },
   },
@@ -218,6 +223,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
         },
       ],
       rights: 'Todos los derechos reservados',
+      privacy: { label: 'Política de privacidad', href: PRIVACIDADE_HREF.es },
       whatsapp: 'Hablar por WhatsApp',
     },
   },

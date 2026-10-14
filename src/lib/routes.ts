@@ -60,6 +60,7 @@ const PAGE_ROUTES: Partial<Record<Locale, string>>[] = [
   { pt: 'manifesto', en: 'manifesto', es: 'manifiesto' },
   { pt: 'contato', en: 'contact', es: 'contacto' },
   { pt: 'perguntas-frequentes', en: 'faq', es: 'preguntas-frecuentes' },
+  { pt: 'politica-de-privacidade', en: 'privacy-policy', es: 'politica-de-privacidad' },
 ];
 
 function isLocale(value: string | undefined): value is Locale {
