@@ -85,7 +85,7 @@ export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
           </Button>
 
           <div className="flex items-center gap-2 lg:hidden">
-            <a href="#" className={linkClasses}>
+            <a href={SITE.social.instagram} className={linkClasses}>
               <Text as="span" size="xs" tone="secondary">
                 Instagram
               </Text>
@@ -93,7 +93,7 @@ export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
             <Text as="span" size="xs" tone="muted" aria-hidden>
               ·
             </Text>
-            <a href="#" className={linkClasses}>
+            <a href={SITE.social.facebook} className={linkClasses}>
               <Text as="span" size="xs" tone="secondary">
                 Facebook
               </Text>
@@ -102,10 +102,10 @@ export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
 
           <div className="hidden items-center gap-3 lg:flex">
             <div className="flex items-center gap-2 text-content-secondary">
-              <a href="#" aria-label="Instagram" className={linkClasses}>
+              <a href={SITE.social.instagram} aria-label="Instagram" className={linkClasses}>
                 <InstagramIcon className="size-6" />
               </a>
-              <a href="#" aria-label="Facebook" className={linkClasses}>
+              <a href={SITE.social.facebook} aria-label="Facebook" className={linkClasses}>
                 <FacebookIcon className="size-6" />
               </a>
             </div>

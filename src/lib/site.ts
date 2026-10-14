@@ -22,6 +22,12 @@ export const SITE = {
   whatsapp: '+55 75 99935-9150',
   whatsappUrl: 'https://wa.me/5575999359150',
   cadastur: '43500583000122',
+  social: {
+    instagram: 'https://www.instagram.com/mamut.trekking/',
+    facebook: 'https://www.facebook.com/mamut.trekking/',
+    tripadvisor:
+      'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html',
+  },
 } as const;
 
 // Segmento da seção de aventuras por idioma (usado nas URLs e no sitemap).

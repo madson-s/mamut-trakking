@@ -1,11 +1,8 @@
 import Image from 'next/image';
 import { Badge, Button, Container, Heading, Section, StarIcon, Stat } from '@/components/ui';
 import { ScrollFeedbackStack, homeTestimonials } from '@/components/home/ScrollFeedbackStack';
-import type { Locale } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
-
-const TRIPADVISOR_URL =
-  'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html';
 
 export function ReviewsSection({ locale = 'pt' }: { locale?: Locale }) {
   const c = HOME_CONTENT[locale].reviews;
@@ -74,7 +71,7 @@ export function ReviewsSection({ locale = 'pt' }: { locale?: Locale }) {
             <Button href={c.ctaTrilhaHref} arrow className="max-lg:w-full">
               {c.ctaTrilha}
             </Button>
-            <Button href={TRIPADVISOR_URL} variant="outline" className="max-lg:w-full">
+            <Button href={SITE.social.tripadvisor} variant="outline" className="max-lg:w-full">
               {c.ctaTripadvisor}
             </Button>
           </div>

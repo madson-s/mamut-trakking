@@ -191,7 +191,7 @@ export function MobileMenu({
           </div>
 
           <div className="flex items-center gap-2">
-            <a href="#" className="transition-colors hover:text-brand-strong">
+            <a href={SITE.social.instagram} className="transition-colors hover:text-brand-strong">
               <Text as="span" size="xs" tone="secondary">
                 Instagram
               </Text>
@@ -199,7 +199,7 @@ export function MobileMenu({
             <Text as="span" size="xs" tone="muted" aria-hidden>
               ·
             </Text>
-            <a href="#" className="transition-colors hover:text-brand-strong">
+            <a href={SITE.social.facebook} className="transition-colors hover:text-brand-strong">
               <Text as="span" size="xs" tone="secondary">
                 Facebook
               </Text>

@@ -44,9 +44,6 @@ export type ChromeContent = {
   };
 };
 
-const TRIPADVISOR = 'https://www.tripadvisor.com.br/';
-const INSTAGRAM = 'https://www.instagram.com/';
-
 export const CHROME: Record<Locale, ChromeContent> = {
   pt: {
     home: '/pt',
@@ -97,8 +94,9 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: false,
           links: [
             { label: 'WhatsApp', href: SITE.whatsappUrl },
-            { label: 'TripAdvisor', href: TRIPADVISOR },
-            { label: 'Instagram', href: INSTAGRAM },
+            { label: 'TripAdvisor', href: SITE.social.tripadvisor },
+            { label: 'Instagram', href: SITE.social.instagram },
+            { label: 'Facebook', href: SITE.social.facebook },
           ],
         },
       ],
@@ -157,8 +155,9 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: false,
           links: [
             { label: 'WhatsApp', href: SITE.whatsappUrl },
-            { label: 'TripAdvisor', href: TRIPADVISOR },
-            { label: 'Instagram', href: INSTAGRAM },
+            { label: 'TripAdvisor', href: SITE.social.tripadvisor },
+            { label: 'Instagram', href: SITE.social.instagram },
+            { label: 'Facebook', href: SITE.social.facebook },
           ],
         },
       ],
@@ -217,8 +216,9 @@ export const CHROME: Record<Locale, ChromeContent> = {
           onMobile: false,
           links: [
             { label: 'WhatsApp', href: SITE.whatsappUrl },
-            { label: 'TripAdvisor', href: TRIPADVISOR },
-            { label: 'Instagram', href: INSTAGRAM },
+            { label: 'TripAdvisor', href: SITE.social.tripadvisor },
+            { label: 'Instagram', href: SITE.social.instagram },
+            { label: 'Facebook', href: SITE.social.facebook },
           ],
         },
       ],
