@@ -16,6 +16,7 @@ import {
 } from '@/components/home/ScrollFeedbackStack';
 import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
+import { statValue } from './stat-values';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
@@ -142,6 +143,7 @@ FINISH: unreviewed and undocumented is unfinished; this build ends with the fini
 export function PatiThreeDayExperience({ locale = 'pt' }: { locale?: Locale }) {
   return (
     <PatiExperience
+      locale={locale}
       content={PATI3_CONTENT[locale]}
       assets={PATI3_ASSETS}
       faqs={PATI3_FAQS[locale]}
@@ -150,10 +152,12 @@ export function PatiThreeDayExperience({ locale = 'pt' }: { locale?: Locale }) {
 }
 
 export function PatiExperience({
+  locale,
   content: c,
   assets: a,
   faqs,
 }: {
+  locale: Locale;
   content: Pati3Content;
   assets: PatiAssets;
   faqs: readonly PatiFaqItem[];
@@ -171,7 +175,7 @@ export function PatiExperience({
         provider: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
         offers: { '@type': 'Offer', price: a.fromPrice, priceCurrency: 'BRL', availability: 'https://schema.org/InStock' },
       }} />
-      <Hero c={c} a={a} />
+      <Hero c={c} a={a} locale={locale} />
       <Story c={c} a={a} />
       <Itinerary c={c} a={a} />
       <Landmarks c={c} a={a} />
@@ -184,8 +188,8 @@ export function PatiExperience({
   );
 }
 
-function Hero({ c, a }: { c: Pati3Content; a: PatiAssets }) {
-  const stats = a.stats.map(([value, icon], i) => ({ value, icon, label: c.stats[i] }));
+function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale }) {
+  const stats = a.stats.map(([value, icon], i) => ({ value: statValue(value, locale), icon, label: c.stats[i] }));
 
   return (
     <Section padding="none" container={false} className="relative isolate overflow-hidden pt-20 pb-20 lg:pb-24">
@@ -196,7 +200,7 @@ function Hero({ c, a }: { c: Pati3Content; a: PatiAssets }) {
           <header className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2.5">
               <InfoChip><span aria-hidden className="size-3 rounded-full bg-accent-line-art" />{c.hero.nivel}</InfoChip>
-              <InfoChip>{a.stats[0][0]}</InfoChip>
+              <InfoChip>{stats[0].value}</InfoChip>
               <InfoChip>{c.hero.origem}</InfoChip>
               <InfoChip>{c.hero.grupo}</InfoChip>
             </div>

@@ -12,6 +12,7 @@ import {
 } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { SITE, formatPrice, type Locale } from '@/lib/site';
+import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
@@ -39,7 +40,7 @@ export function DayTourExperience({
   assets: DayTourAssets;
 }) {
   const c = content[locale];
-  const stats = assets.stats.map(([value, icon], i) => ({ value, icon, label: c.stats[i] }));
+  const stats = assets.stats.map(([value, icon], i) => ({ value: statValue(value, locale), icon, label: c.stats[i] }));
 
   return (
     <article>

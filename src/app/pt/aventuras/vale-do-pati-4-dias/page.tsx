@@ -20,6 +20,7 @@ export const metadata: Metadata = {
 export default function Pati4PtRoute() {
   return (
     <PatiExperience
+      locale="pt"
       content={CONTENT}
       assets={PATI4_ASSETS}
       faqs={PATI4_FAQS.pt}
