@@ -105,9 +105,9 @@ export const PATI3_ASSETS: PatiAssets = {
   // Valores publicados em mamut.agency/aventuras/vale-do-pati-03-dias
   // (#tabela-pagamento). Ordem das colunas: privado, em grupo.
   priceTable: [
-    { people: '1', prices: ['R$ 2.700', 'R$ 2.100'] },
-    { people: '2', prices: ['R$ 2.200', 'R$ 1.900'] },
-    { people: '3', prices: ['R$ 2.100', 'R$ 1.700'] },
+    { people: '1', prices: ['R$ 2.700', 'R$ 2.200'] },
+    { people: '2', prices: ['R$ 2.200', 'R$ 1.950'] },
+    { people: '3', prices: ['R$ 2.100', 'R$ 1.750'] },
     { people: '4+', prices: ['R$ 1.900', 'R$ 1.500'] },
   ],
   relatedImages: [
