@@ -22,7 +22,7 @@ import {
 } from '@/components/ui';
 import { Emphasis } from '@/components/ui/Text';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
-import { ADVENTURE_SEGMENT, type Locale } from '@/lib/site';
+import { ADVENTURE_SEGMENT, siteLocale, type HomeLocale } from '@/lib/site';
 import { HOME_CONTENT, type TrailId } from './home-content';
 
 type Trail = {
@@ -45,8 +45,10 @@ const TRAILS: Trail[] = [
 ];
 
 /** Junta a parte fixa do card com o texto e o link do idioma. */
-function trilhasDoIdioma(locale: Locale) {
-  const seg = ADVENTURE_SEGMENT[locale];
+function trilhasDoIdioma(locale: HomeLocale) {
+  // Texto no idioma da home; link no idioma das páginas (FR → EN).
+  const destino = siteLocale(locale);
+  const seg = ADVENTURE_SEGMENT[destino];
   const c = HOME_CONTENT[locale].paths.trilhas;
 
   return TRAILS.map((trail) => {
@@ -54,7 +56,7 @@ function trilhasDoIdioma(locale: Locale) {
     return {
       ...trail,
       ...c[trail.id],
-      href: rota ? `/${locale}/${seg}/${rota[locale]}` : `/${locale}/${seg}`,
+      href: rota ? `/${destino}/${seg}/${rota[destino]}` : `/${destino}/${seg}`,
     };
   });
 }
@@ -63,7 +65,7 @@ type TrailWithCopy = ReturnType<typeof trilhasDoIdioma>[number];
 
 const ICON_ROOT = '/svg/figma/paths';
 
-export function PathsSection({ locale = 'pt' }: { locale?: Locale }) {
+export function PathsSection({ locale = 'pt' }: { locale?: HomeLocale }) {
   const c = HOME_CONTENT[locale].paths;
   const trilhas = trilhasDoIdioma(locale);
   const [activeIndex, setActiveIndex] = useState(0);

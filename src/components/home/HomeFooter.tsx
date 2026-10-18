@@ -10,12 +10,12 @@ import {
   InstagramIcon,
   Text,
 } from '@/components/ui';
-import { SITE, type Locale } from '@/lib/site';
+import { SITE, type HomeLocale } from '@/lib/site';
 import { CHROME } from './chrome-content';
 
 const linkClasses = cn('transition-colors hover:text-content', motion.fast);
 
-export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
+export function HomeFooter({ locale = 'pt' }: { locale?: HomeLocale }) {
   const { tagline, place, columns, rights, privacy, whatsapp } = CHROME[locale].footer;
 
   return (

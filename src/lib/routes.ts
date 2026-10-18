@@ -1,4 +1,4 @@
-import { ADVENTURE_SEGMENT, LOCALES, type Locale } from './site';
+import { ADVENTURE_SEGMENT, LOCALES, type HomeLocale, type Locale } from './site';
 import { DICAS_PATHS, DICAS_SEGMENT } from '@/components/dicas/dicas-rotas';
 
 // Manifesto estrutural de URLs (apenas slugs, sem conteúdo) usado para gerar o
@@ -94,4 +94,13 @@ export function localizePath(pathname: string, target: Locale): string {
   const page = PAGE_ROUTES.find((route) => route[first] === second);
   const slug = page?.[target];
   return slug ? `/${target}/${slug}` : `/${target}`;
+}
+
+/**
+ * Destino dos seletores de idioma. O francês só existe na home, então FR leva
+ * sempre a `/fr`; de `/fr`, os outros idiomas levam à home deles (o
+ * `localizePath` já cai na home quando o caminho não é de um idioma do site).
+ */
+export function languageHref(pathname: string, target: HomeLocale): string {
+  return target === 'fr' ? '/fr' : localizePath(pathname, target);
 }

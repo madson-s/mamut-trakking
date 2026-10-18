@@ -7,7 +7,7 @@ import { EntrelinhasBand } from '@/components/home/EntrelinhasBand';
 import { GuidesSection } from '@/components/home/GuidesSection';
 import { ReviewsSection } from '@/components/home/ReviewsSection';
 import { FinalCta } from '@/components/home/FinalCta';
-import { HOME_CONTENT } from '@/components/home/home-content';
+import { HOME_CONTENT, HOME_HREFLANG } from '@/components/home/home-content';
 
 const CONTENT = HOME_CONTENT.es;
 
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: '/es',
-    languages: { pt: '/pt', en: '/en', es: '/es' },
+    languages: HOME_HREFLANG,
   },
 };
 

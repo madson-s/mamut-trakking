@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ArrowRightIcon, Section } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import type { Locale } from '@/lib/site';
+import type { HomeLocale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
 const LABEL = 'text-center font-display text-[clamp(11px,3vw,24px)]';
@@ -11,7 +11,7 @@ export function EntrelinhasBand({
   locale = 'pt',
 }: {
   overlap?: boolean;
-  locale?: Locale;
+  locale?: HomeLocale;
 }) {
   const c = HOME_CONTENT[locale].entrelinhas;
 

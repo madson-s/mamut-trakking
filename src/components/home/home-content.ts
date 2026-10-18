@@ -1,9 +1,13 @@
 /**
  * Todo o texto da home, por idioma.
  *
- * PT é o copy do redesenho (Figma). EN e ES são tradução feita neste
+ * PT é o copy do redesenho (Figma). EN, ES e FR são tradução feita neste
  * repositório: a home publicada em mamut.agency/en é a do site antigo, com
  * outra estrutura de seções, então não há original a transcrever.
+ *
+ * FR existe só aqui (ver `HomeLocale`): os links da home em francês apontam
+ * para as páginas em inglês, e os textos dos guias, que nos outros idiomas vêm
+ * da página Sobre, vêm de `guides.guiaTexto`.
  *
  * ⚠️ Os depoimentos são avaliações reais do TripAdvisor. Nome, nota e link são
  * fato e não mudam com o idioma; as citações aqui são traduções. Matt D e
@@ -11,7 +15,7 @@
  * `reviewUrl` antes de publicar a versão EN.
  */
 
-import type { Locale } from '@/lib/site';
+import type { HomeLocale, Locale } from '@/lib/site';
 import { ADVENTURE_SEGMENT } from '@/lib/site';
 
 /** Ids do manifesto de rotas — o carrossel mostra estes sete, nesta ordem. */
@@ -64,7 +68,14 @@ export type HomeContent = {
     carrossel: { rotulo: string; anterior: string; proximo: string; pagina: string; progresso: string };
   };
   entrelinhas: { rotulo: string; bando: string; reune: string; mundo: string };
-  guides: { titulo: { linha1: string; linha2: string; linha3: string }; cta: string; ctaHref: string; pagina: string };
+  guides: {
+    titulo: { linha1: string; linha2: string; linha3: string };
+    cta: string;
+    ctaHref: string;
+    pagina: string;
+    /** Função e bio dos guias, só onde não há página Sobre no idioma (FR). */
+    guiaTexto?: Record<string, { role: string; bio: string }>;
+  };
   reviews: {
     badge: string;
     titulo: { antes: string; destaque: string };
@@ -98,7 +109,10 @@ const PT_DESTINOS = destinos('pt');
 const EN_DESTINOS = destinos('en');
 const ES_DESTINOS = destinos('es');
 
-export const HOME_CONTENT: Record<Locale, HomeContent> = {
+/** hreflang das quatro homes — a única página que existe também em francês. */
+export const HOME_HREFLANG: Record<HomeLocale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr' };
+
+export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
   pt: {
     meta: {
       title: 'Mamut Trekking · Chapada Diamantina',
@@ -470,6 +484,149 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
         'Hablá con nosotros por WhatsApp. Descubrí cuál es tu recorrido ideal para conocer la Chapada Diamantina y cómo prepararte.',
       cta: 'Sumate a la manada',
       ctaHref: '/es/contacto',
+    },
+  },
+
+  fr: {
+    meta: {
+      title: 'Mamut Trekking · Chapada Diamantina',
+      description:
+        'Agence spécialisée dans les treks et les aventures dans la Chapada Diamantina, à Bahia (Brésil).',
+    },
+    hero: {
+      eyebrow: 'Guides locaux · Chapada Diamantina',
+      titulo: { mamut: 'MAMUT', guia: 'GUIDE.', linha2: 'VOUS N’AVEZ PLUS', linha3: 'QU’À PROFITER.' },
+      lead: [
+        'Des treks guidés par des enfants de la Chapada Diamantina.',
+        'Chaque sentier est un retour vers soi.',
+      ],
+      ctaTrilhas: 'Choisissez votre sentier',
+      ctaTrilhasHref: '/en/adventures',
+      ctaGuia: 'Parler à un guide',
+      selo: { antes: 'Un', jornada: 'voyage', meio: 'pour renouer avec les gestes', primitivas: 'primitifs' },
+      destinos: [
+        { titulo: 'Vallée du Pati', subtitulo: '3 jours · traversée', href: EN_DESTINOS[0] },
+        { titulo: 'Cascade du Palmital', subtitulo: '2 jours · trek', href: EN_DESTINOS[1] },
+        { titulo: 'Pai Inácio', subtitulo: '1 jour · trek', href: EN_DESTINOS[2] },
+      ],
+      verDestino: 'Découvrir',
+    },
+    stats: [
+      { value: '+500', label: 'aventuriers guidés' },
+      { value: 'Guides', label: 'pompiers volontaires, nés ici' },
+      { value: 'Cadastur', label: 'agence agréée' },
+      { value: 'TripAdvisor', label: 'Certificat d’excellence' },
+      { value: 'Réservation', label: 'en ligne garantie' },
+    ],
+    manifesto: {
+      eyebrow: 'Inspirés par nos ancêtres nomades',
+      titulo: { antes: 'Nous sommes la', meio: 'harde', depois: 'qui guide votre tribu.' },
+      corpo:
+        'Dans l’immensité des mégacontinents, les mammouths marchaient en grandes hardes — et ont marqué leur existence pour toujours.',
+      memoria: 'C’est de cette mémoire que nous sommes nés.',
+      cta: 'Lire notre manifeste',
+      ctaHref: '/en/manifesto',
+    },
+    paths: {
+      trilhas: {
+        'vale-do-pati-3': {
+          duration: '3 Jours', level: 'Moyen', title: 'Vallée du Pati (03 jours)',
+          description: 'Trois jours d’immersion entre canyons, rivières et villages au cœur de la vallée du Pati.',
+        },
+        palmital: {
+          duration: '2 Jours', level: 'Moyen', title: 'Cascade du Palmital (02 jours)',
+          description: 'Une traversée entre plateaux d’altitude et falaises jusqu’aux eaux de la cascade du Palmital.',
+        },
+        'vale-do-pati-5': {
+          duration: '5 Jours', level: 'Moyen', title: 'Vallée du Pati (05 jours)',
+          description: 'Au cœur du parc national de la Chapada Diamantina, entourée de montagnes, de cascades et de grottes.',
+        },
+        'aguas-claras': {
+          duration: '1 Jour', level: 'Facile', title: 'Sentier d’Águas Claras',
+          description: 'Une journée entre champs rocheux, piscines naturelles et grandes falaises de la Chapada Diamantina.',
+        },
+        'mosquito-pai-inacio': {
+          duration: '1 Jour', level: 'Moyen', title: 'Mosquito + Pai Inácio',
+          description: 'La cascade du Mosquito et le coucher de soleil au Morro do Pai Inácio, en une journée complète.',
+        },
+        mixila: {
+          duration: '2 Jours', level: 'Moyen', title: 'Cascade du Mixila',
+          description: 'Une traversée jusqu’à l’une des cascades les mieux préservées de la région de Lençóis.',
+        },
+        'vale-do-pati-4': {
+          duration: '4 Jours', level: 'Difficile', title: 'Vallée du Pati (04 jours)',
+          description: 'Quatre jours entre belvédères, cascades et maisons d’habitants de la vallée du Pati.',
+        },
+      },
+      eyebrow: 'Choisissez votre chemin',
+      titulo: { antes: 'Les itinéraires que la', destaque: 'Chapada appelle.' },
+      todos: 'Tous les itinéraires',
+      todosHref: '/en/adventures',
+      arraste: 'Faites glisser pour voir les itinéraires suivants →',
+      explorar: 'Découvrir le sentier',
+      carrossel: {
+        rotulo: 'Carrousel des itinéraires',
+        anterior: 'Itinéraire précédent',
+        proximo: 'Itinéraire suivant',
+        pagina: 'Page du carrousel des itinéraires',
+        progresso: 'Progression du carrousel des itinéraires',
+      },
+    },
+    entrelinhas: {
+      rotulo: 'Une harde qui rassemble le monde entier',
+      bando: 'Une harde',
+      reune: 'qui rassemble',
+      mundo: 'le monde entier !',
+    },
+    guides: {
+      titulo: { linha1: 'Nés ici.', linha2: 'Façonnés par la', linha3: 'Chapada.' },
+      cta: 'Rencontrez ceux qui guident notre harde',
+      ctaHref: '/en/about#guias',
+      pagina: 'Page des guides',
+      guiaTexto: {
+        'marcelo-cabral': {
+          role: 'Guide et fondateur',
+          bio: '13 ans à Lençóis. Il s’occupe de toute l’organisation — du premier message au dernier pas sur le sentier. Il fait découvrir la Chapada aux Brésiliens comme aux étrangers, avec l’autorité de quelqu’un qui a choisi cette terre pour foyer.',
+        },
+        'felipe-ribeiro': {
+          role: 'PT · EN',
+          bio: 'Né à Salvador, il a grandi à Lençóis. Il connaît la grande majorité des sentiers autour du parc national. On se souvient de sa gentillesse et de sa cuisine. Il conçoit les itinéraires et la logistique de chaque groupe, et guide en anglais.',
+        },
+        'salomao-andrade': {
+          role: 'Pompier volontaire',
+          bio: 'Né et élevé dans la Chapada, spécialiste des treks sauvages du parc national. Il guide les groupes étrangers.',
+        },
+        'aman-duart': {
+          role: 'Pompier civil',
+          bio: 'Petit-fils de chercheurs de diamants et natif de Lençóis. Il connaît en profondeur les plantes médicinales de la Chapada Diamantina, se forme comme pompier civil et est un excellent compagnon de route.',
+        },
+      },
+    },
+    reviews: {
+      badge: 'Avis vérifiés · TripAdvisor',
+      titulo: { antes: 'Ce que notre harde', destaque: 'dit de ses aventures.' },
+      avaliacoes: '145 avis',
+      avaliacoesLabel: 'Avis',
+      mediaChip: '5.0 au global',
+      mediaLabel: 'Note moyenne globale',
+      rankingChip: 'N° 5 à Lençóis',
+      ranking: 'N° 5 au classement',
+      rankingLabel: 'des activités de plein air à Lençóis',
+      ctaTrilha: 'Choisissez votre sentier',
+      ctaTrilhaHref: '/en/adventures',
+      ctaTripadvisor: 'Voir notre page TripAdvisor',
+      depoimentos: [
+        '« Du premier contact à la fin du voyage, l’agence a fait preuve de professionnalisme et d’organisation. »',
+        '« Les paysages étaient magnifiques, les cascades épiques et l’aventure incroyable. »',
+        '« Notre guide était très sympathique, attentionné et s’est adapté à tous nos besoins. Sa connaissance du parc national est immense. »',
+      ],
+    },
+    finalCta: {
+      titulo: ['Votre sentier commence', 'par un message.'],
+      corpo:
+        'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour explorer la Chapada Diamantina et comment vous y préparer.',
+      cta: 'Rejoindre la harde',
+      ctaHref: '/en/contact',
     },
   },
 };

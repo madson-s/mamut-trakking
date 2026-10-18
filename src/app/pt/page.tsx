@@ -7,10 +7,11 @@ import { EntrelinhasBand } from '@/components/home/EntrelinhasBand';
 import { GuidesSection } from '@/components/home/GuidesSection';
 import { ReviewsSection } from '@/components/home/ReviewsSection';
 import { FinalCta } from '@/components/home/FinalCta';
+import { HOME_HREFLANG } from '@/components/home/home-content';
 
 // Home PT — reformulada a partir do Figma (node 572:680, tema dark).
 export const metadata: Metadata = {
-  alternates: { canonical: '/pt', languages: { pt: '/pt', en: '/en', es: '/es' } },
+  alternates: { canonical: '/pt', languages: HOME_HREFLANG },
 };
 
 export default function HomePage() {

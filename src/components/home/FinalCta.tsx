@@ -1,8 +1,8 @@
 import { Button, Section, SectionHeading, Text } from '@/components/ui';
-import type { Locale } from '@/lib/site';
+import type { HomeLocale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
-export function FinalCta({ locale = 'pt' }: { locale?: Locale }) {
+export function FinalCta({ locale = 'pt' }: { locale?: HomeLocale }) {
   const c = HOME_CONTENT[locale].finalCta;
 
   return (

@@ -1,13 +1,13 @@
 import Image, { getImageProps } from 'next/image';
 import { Button, Heading, MediaCard, Section, Text } from '@/components/ui';
-import type { Locale } from '@/lib/site';
+import type { HomeLocale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
 const CARD_WIDE = { src: '/img/session_02_saqure_text_crop.webp', width: 1217, height: 284 };
 const CARD_TALL = { src: '/img/session-02_saqure-text_no-crop.webp', width: 2000, height: 1600 };
 const WALKERS = { src: '/svg/about/story-walkers.svg', width: 290, height: 114 };
 
-export function ManifestoSection({ locale = 'pt' }: { locale?: Locale }) {
+export function ManifestoSection({ locale = 'pt' }: { locale?: HomeLocale }) {
   const c = HOME_CONTENT[locale].manifesto;
   const cardCommon = { alt: '', sizes: '100vw' } as const;
   const {

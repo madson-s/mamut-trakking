@@ -1,5 +1,5 @@
 import { Section, Stat } from '@/components/ui';
-import type { Locale } from '@/lib/site';
+import type { HomeLocale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
 // A grade do mobile é fixa; só o texto de cada célula vem do idioma.
@@ -11,7 +11,7 @@ const CELLS = [
   'order-4 col-span-2 lg:order-none',
 ];
 
-export function StatsBar({ locale = 'pt' }: { locale?: Locale }) {
+export function StatsBar({ locale = 'pt' }: { locale?: HomeLocale }) {
   const stats = HOME_CONTENT[locale].stats;
 
   return (

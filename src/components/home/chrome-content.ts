@@ -6,9 +6,12 @@
  * português quando não existe (Quem Somos, Manifesto, Contato, que ainda não
  * foram traduzidas). Melhor mandar para o conteúdo em PT do que para um 404;
  * quando essas páginas ganharem versão EN/ES, é aqui que o href muda.
+ *
+ * FR só existe na home: o texto é francês, mas os links levam às páginas em
+ * inglês (ver `siteLocale`).
  */
 
-import type { Locale } from '@/lib/site';
+import type { HomeLocale } from '@/lib/site';
 import { SITE } from '@/lib/site';
 import { PRIVACIDADE_HREF } from '@/components/privacidade/privacidade-content';
 import type { MobileNavItem } from './MobileMenu';
@@ -44,7 +47,7 @@ export type ChromeContent = {
   };
 };
 
-export const CHROME: Record<Locale, ChromeContent> = {
+export const CHROME: Record<HomeLocale, ChromeContent> = {
   pt: {
     home: '/pt',
     whatsapp: 'Falar no WhatsApp',
@@ -222,6 +225,66 @@ export const CHROME: Record<Locale, ChromeContent> = {
       rights: 'Todos los derechos reservados',
       privacy: { label: 'Política de privacidad', href: PRIVACIDADE_HREF.es },
       whatsapp: 'Hablar por WhatsApp',
+    },
+  },
+
+  fr: {
+    home: '/fr',
+    whatsapp: 'Écrire sur WhatsApp',
+    nav: [
+      { label: 'Aventures', href: '/en/adventures' },
+      { label: 'Départs', mobileLabel: 'Calendrier et groupes', href: '/en/calendar-and-groups' },
+      { label: 'Qui sommes-nous', mobileLabel: 'Qui sommes-nous', href: '/en/about' },
+      { label: 'Manifeste', href: '/en/manifesto' },
+      { label: 'Conseils', mobileLabel: 'Conseils de trek', href: '/en/tips' },
+      { label: 'Contact', href: '/en/contact' },
+    ],
+    menu: {
+      open: 'Menu',
+      close: 'Fermer le menu',
+      heading: 'Menu',
+      invite: 'Chaque sentier commence par une conversation.',
+      whatsapp: 'Écrire sur WhatsApp',
+      language: 'Langue',
+    },
+    footer: {
+      tagline: ['Des treks guidés par des enfants', 'de la Chapada Diamantina.'],
+      place: 'LENÇÓIS · BAHIA · BRÉSIL',
+      columns: [
+        {
+          title: 'AVENTURES',
+          onMobile: true,
+          links: [
+            { label: 'Tous les itinéraires', href: '/en/adventures' },
+            { label: 'Prochains départs', href: '/en/calendar-and-groups' },
+            { label: 'Vallée du Pati', href: '/en/adventures/pati-valley-3-days' },
+            { label: 'Se préparer', href: '/en/tips' },
+          ],
+        },
+        {
+          title: 'À PROPOS',
+          onMobile: true,
+          links: [
+            { label: 'Qui sommes-nous', href: '/en/about' },
+            { label: 'Manifeste', href: '/en/manifesto' },
+            { label: 'Guides locaux', href: '/en/about#guias' },
+            { label: 'Questions fréquentes', href: '/en/faq' },
+          ],
+        },
+        {
+          title: 'CONTACT',
+          onMobile: false,
+          links: [
+            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'TripAdvisor', href: SITE.social.tripadvisor },
+            { label: 'Instagram', href: SITE.social.instagram },
+            { label: 'Facebook', href: SITE.social.facebook },
+          ],
+        },
+      ],
+      rights: 'Tous droits réservés',
+      privacy: { label: 'Politique de confidentialité', href: PRIVACIDADE_HREF.en },
+      whatsapp: 'Écrire sur WhatsApp',
     },
   },
 };

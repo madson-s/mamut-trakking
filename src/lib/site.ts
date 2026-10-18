@@ -7,6 +7,22 @@ export type Locale = (typeof LOCALES)[number];
 export const DEFAULT_LOCALE: Locale = 'pt';
 
 /**
+ * Idiomas da home. O francês existe só na home (e no header/footer que a
+ * envolvem): o resto do site segue em pt/en/es. Por isso `fr` não entra em
+ * `Locale` — senão todo `Record<Locale, …>` do site passaria a exigir francês.
+ */
+export const HOME_LOCALES = [...LOCALES, 'fr'] as const;
+export type HomeLocale = (typeof HOME_LOCALES)[number];
+
+/**
+ * Idioma das páginas para onde a home aponta. Da home em francês, os links
+ * levam à versão em inglês — a mais provável de servir a quem lê francês.
+ */
+export function siteLocale(locale: HomeLocale): Locale {
+  return locale === 'fr' ? 'en' : locale;
+}
+
+/**
  * Endereço público do site — base de canonical, hreflang, sitemap, robots,
  * Open Graph e JSON-LD. Vem de NEXT_PUBLIC_SITE_URL (para testar numa prévia
  * com o endereço dela); sem a variável, é o domínio definitivo. O WordPress

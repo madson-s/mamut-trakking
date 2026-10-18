@@ -8,10 +8,12 @@ const BASE = SITE.url;
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
-  const homeLangs = langMap((l) => `${BASE}/${l}`);
+  // A home é a única página também em francês: o hreflang dela inclui `fr`.
+  const homeLangs = { ...langMap((l) => `${BASE}/${l}`), fr: `${BASE}/fr` };
   const hubLangs = langMap((l) => `${BASE}/${l}/${ADVENTURE_SEGMENT[l]}`);
 
   // Home + hub de aventuras, em cada idioma, com hreflang entre as versões.
+  entries.push({ url: `${BASE}/fr`, alternates: { languages: homeLangs } });
   for (const locale of LOCALES) {
     entries.push({ url: `${BASE}/${locale}`, alternates: { languages: homeLangs } });
     entries.push({

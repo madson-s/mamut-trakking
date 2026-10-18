@@ -4,7 +4,7 @@ import { HomeFooter } from '@/components/home/HomeFooter';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { ScrollExperience } from '@/components/layout/ScrollExperience';
 import { fontBody, fontDisplay } from '@/lib/fonts';
-import type { Locale } from '@/lib/site';
+import type { HomeLocale } from '@/lib/site';
 
 /**
  * Casca da identidade nova (header, footer, tema) para páginas EN e ES.
@@ -18,7 +18,7 @@ export function LocaleShell({
   locale,
   children,
 }: {
-  locale: Locale;
+  locale: HomeLocale;
   children: React.ReactNode;
 }) {
   return (

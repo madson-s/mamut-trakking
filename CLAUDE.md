@@ -106,6 +106,13 @@
 >   ou arquivo vem mais do WordPress (o termo de responsabilidade está em
 >   `public/docs/`).
 
+> **Francês só na home (`/fr`):** `fr` não entra em `Locale` (senão todo
+> `Record<Locale, …>` do site exigiria francês). A home, o header e o footer usam
+> `HomeLocale` (pt/en/es/fr); os links da home em francês levam às páginas em
+> inglês via `siteLocale()`, e os seletores de idioma usam `languageHref()` (FR
+> sempre leva a `/fr`). Textos em `home-content.ts` e `chrome-content.ts`; o
+> hreflang das quatro homes vem de `HOME_HREFLANG`.
+
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e
 > `Disallow` no `robots.ts`): gerador de voucher em PDF. `src/lib/voucher.ts`
 > guarda o modelo de dados (clientes com nome/idade/e-mail, serviços,

@@ -3,13 +3,13 @@ import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Heading';
 import { MediaCard } from '@/components/ui/MediaCard';
 import { Emphasis, Text } from '@/components/ui/Text';
-import { SITE, type Locale } from '@/lib/site';
+import { SITE, type HomeLocale } from '@/lib/site';
 import { HeroDestinations } from './HeroDestinations';
 import { HOME_CONTENT } from './home-content';
 
 const HERO_BACKGROUND = '/img/home_backgroud/home_hero_background_1_5x.webp';
 
-export function Hero({ locale = 'pt' }: { locale?: Locale }) {
+export function Hero({ locale = 'pt' }: { locale?: HomeLocale }) {
   const c = HOME_CONTENT[locale].hero;
 
   return (
