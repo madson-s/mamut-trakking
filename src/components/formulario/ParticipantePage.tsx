@@ -2,6 +2,14 @@ import { Card, Container, Section, SectionHeading, Text } from '@/components/ui'
 import type { Locale } from '@/lib/site';
 import { ParticipanteForm } from './ParticipanteForm';
 import { PARTICIPANTE_CONTENT } from './participante-conteudo';
+import { TallyEmbed } from './TallyEmbed';
+
+// Idiomas cuja ficha já migrou para o Tally. Os demais seguem com o formulário
+// próprio (ParticipanteForm → /api/formulario-participante).
+const TALLY_FORMS: Partial<Record<Locale, string>> = {
+  pt: 'xXyErJ',
+  en: 'EkDo4N',
+};
 
 // Sem hero: a página abre direto no formulário. Como nada passa por baixo do
 // header, ele fica sobre a superfície da página e segue as cores do tema.
@@ -9,6 +17,7 @@ import { PARTICIPANTE_CONTENT } from './participante-conteudo';
 // em vez de somar com o py-12 que o padding "default" traria.
 export function ParticipantePage({ locale }: { locale: Locale }) {
   const c = PARTICIPANTE_CONTENT[locale];
+  const tallyFormId = TALLY_FORMS[locale];
 
   return (
     <Section padding="none" container={false} labelledBy="formulario-title" className="pb-12">
@@ -50,7 +59,17 @@ export function ParticipantePage({ locale }: { locale: Locale }) {
             </ul>
           </Card>
 
-          <ParticipanteForm locale={locale} />
+          {tallyFormId ? (
+            // O tema do Tally tem texto escuro: o painel é sempre claro, mesmo
+            // com a página em dark (os tokens recalculam sob o data-theme).
+            <div data-theme="light" className="min-w-0">
+              <Card as="section" surface="muted" radius="panelLg" padding="none" className="px-4 py-6 sm:px-8 sm:py-8">
+                <TallyEmbed formId={tallyFormId} title={c.meta.title} />
+              </Card>
+            </div>
+          ) : (
+            <ParticipanteForm locale={locale} />
+          )}
         </div>
       </Container>
     </Section>
