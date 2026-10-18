@@ -63,6 +63,7 @@ export const CALENDAR_HREF: Record<Locale, string> = {
   pt: '/pt/calendario-e-grupos',
   en: '/en/calendar-and-groups',
   es: '/es/calendario-y-grupos',
+  fr: '/fr/calendrier-et-groupes',
 };
 
 export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
@@ -257,6 +258,73 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       titulo: '¿Tu fecha no está aquí?',
       texto: 'Cuéntanos cuándo llegas a la Chapada y qué itinerario quieres hacer. Abrimos una nueva salida para ti.',
       cta: 'Hablar con un guía',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Calendrier et groupes de trek',
+      description:
+        'Consultez les prochains départs en groupe vers la vallée du Pati et réservez votre place avec des guides natifs de la Chapada Diamantina.',
+      canonical: CALENDAR_HREF.fr,
+    },
+    tituloCurto: (dias) => `Vallée du Pati ${dias} Jours`,
+    intl: 'fr-FR',
+    semana: ['dim', 'lun', 'mar', 'mer', 'jeu', 'ven', 'sam'],
+    meses: ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
+    feriados: { aparecida: 'Notre-Dame d’Aparecida', republica: 'Proclamation de la République' },
+    hero: {
+      titulo: { antes: 'Les prochains', meio: 'treks', depois: 'de Mamut' },
+      texto: 'Si vous ne trouvez pas votre date, contactez-nous : nous ouvrirons un nouveau départ pour vous.',
+      cta: 'Parler à un guide',
+      explorar: 'Découvrez tous les départs',
+      pilhaRotulo: 'Découvrez les prochaines traversées',
+      verSaidasDe: (titulo) => `Voir les prochains départs pour ${titulo}`,
+    },
+    saida: (n) => `${n} ${n === 1 ? 'départ' : 'départs'}`,
+    dias: (n) => `${n} jours`,
+    aPartirDe: 'À partir de',
+    saidaDe: (origem) => `Départ de ${origem}`,
+    partida: {
+      rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} ${ano}`,
+      feriado: 'Jour férié',
+      linhaDoTempo: 'Jours de la traversée',
+      dia: (n) => `Jour ${n}`,
+      status: { feriado: 'Férié', saida: 'Départ', retorno: 'Retour' },
+      reservar: 'Réserver ma place',
+      reservarRotulo: (titulo, periodo) => `Réserver ${titulo}, ${periodo}`,
+      mensagem: (roteiro, inicio, fim) =>
+        `Bonjour ! Je souhaite réserver une place pour l’itinéraire ${roteiro}, du ${inicio} au ${fim}.`,
+    },
+    calendarioRotulo: 'Calendrier des départs',
+    grupo: {
+      resumo: (dias, distancia, origem, preco) => `${dias} jours · ${distancia} · Départ de ${origem} · À partir de ${preco}`,
+      verRoteiro: 'Voir l’itinéraire complet',
+      verRoteiroRotulo: (nome) => `Voir l’itinéraire complet : ${nome}`,
+      fotoAlt: (nome) => `Paysage de la traversée ${nome}`,
+    },
+    // Comme en EN/ES : « l’été » d’un lecteur de l’hémisphère nord n’est pas
+    // celui de la Chapada — les mois lèvent le doute.
+    verao: {
+      titulo: 'Les groupes pour l’été brésilien (décembre à mars) sont déjà ouverts — demandez à notre équipe.',
+      abrirCalendario: 'Ouvrir le calendrier complet',
+      cta: 'Demander les dates d’été',
+      mensagem: 'Bonjour ! J’aimerais avoir des informations sur les groupes d’été.',
+    },
+    relacionados: {
+      titulo: 'Vous n’avez pas trouvé votre date ? Nous en ouvrons une.',
+      verTodas: 'Voir toutes les aventures',
+      fotoAlt: (nome) => `Paysage de ${nome}`,
+      verSaidas: 'Voir les prochains départs',
+      pedirData: 'Demander une nouvelle date',
+    },
+    novaData: {
+      geral: 'Bonjour ! J’aimerais ouvrir une nouvelle date de départ.',
+      roteiro: (nome) => `Bonjour ! J’aimerais ouvrir une nouvelle date pour l’itinéraire ${nome}.`,
+    },
+    contato: {
+      titulo: 'Votre date n’est pas ici ?',
+      texto: 'Dites-nous quand vous arrivez dans la Chapada et quel itinéraire vous souhaitez faire. Nous ouvrons un nouveau départ pour vous.',
+      cta: 'Parler à un guide',
     },
   },
 };

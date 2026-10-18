@@ -10,6 +10,9 @@
  * itinerário diz "aproximadamente 140 km" por trecho e depois "250 km (ida e
  * volta)". Adotei os 140 km do itinerário, que é a única medida por trecho — e
  * a que fecha com as 3 horas de estrada declaradas.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -264,6 +267,83 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para conocer', 'el otro lado de la Chapada?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Cascade du Herculano',
+      description:
+        'Soixante mètres de chute et un bassin pour la baignade à Itaetê, loin des circuits touristiques. Un sentier de 6 km à travers forêt dense et ruisseaux.',
+      canonical: '/fr/aventures/cascade-du-herculano',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Itaetê',
+      duracao: '1 jour',
+      titulo: 'Cascade du Herculano.',
+      lead: 'Soixante mètres de chute à Itaetê, de l’autre côté de la Chapada — et presque toujours rien que pour votre groupe.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Hauteur de la chute', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade du Herculano.',
+      paragrafos: [
+        'Une chute d’environ 60 mètres à Itaetê, commune voisine de Lençóis, avec un bassin large et assez peu profond pour rester dans l’eau sans se presser.',
+        'C’est un itinéraire hors des circuits habituels. La distance depuis Lençóis limite l’affluence, et il est courant que le groupe ait la cascade pour lui seul.',
+        'Le sentier fait environ 6 km aller-retour et prend près de 2 heures, à travers une forêt dense et des ruisseaux, avec des passages irréguliers et des montées qui justifient le niveau modéré.',
+        'Pendant les randonnées, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ du centre de Lençóis à 6h00, avec 30 minutes de tolérance, en direction d’Itaetê. Environ 140 km et 3 heures de route.',
+        'À l’arrivée à Itaetê, courte pause pour un petit-déjeuner — non inclus — et pour préparer la randonnée.',
+        'La marche jusqu’à la cascade dure environ 2 heures, à travers des passages de forêt dense et des ruisseaux.',
+        'Arrivée à la cascade du Herculano : environ 60 mètres de chute qui forment un bassin idéal pour la baignade, avec du temps pour en profiter.',
+        'Retour par le même sentier jusqu’au point de départ à Itaetê, puis retour à Lençóis en fin d’après-midi, avec une arrivée prévue vers 18h00.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 650', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 600', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Répulsif anti-moustiques'], ['En-cas ou fruit', 'Serviette', 'De l’argent pour le petit-déjeuner']],
+        note: 'Le départ est à 6h00 et le petit-déjeuner est à votre charge lors de la pause à Itaetê — prévoyez un peu de monnaie.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide local bilingue formé aux premiers secours (APH)', 'Droit d’accès', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner lors de la pause', 'Pique-nique (en option)', 'Équipement personnel', 'Boissons supplémentaires', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      safetyFaq(
+        'fr',
+        'Le sentier comporte des passages irréguliers et des montées, avec des traversées de ruisseaux qui deviennent glissantes après la pluie. Des chaussures à bonne adhérence et un répulsif anti-moustiques font ici toute la différence — une grande partie du chemin se fait en forêt dense.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à découvrir', 'l’autre côté de la Chapada ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

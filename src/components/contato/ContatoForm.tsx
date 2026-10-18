@@ -63,7 +63,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
       `${l.telefone}: ${telefone}`,
       `${l.aventura}: ${aventuras.length ? aventuras.join(', ') : l.naoSei}`,
       `${l.chegada}: ${chegadaLabel}`,
-      `${l.datas}: ${formatDate(checkin, l.aDefinir)} · Check-out: ${formatDate(checkout, l.aDefinir)}`,
+      `${l.datas}: ${formatDate(checkin, l.aDefinir)} · ${l.saida}: ${formatDate(checkout, l.aDefinir)}`,
       `${l.grupo}: ${grupo} ${grupo === '1' ? l.pessoa : l.pessoas}`,
       '',
       mensagem,

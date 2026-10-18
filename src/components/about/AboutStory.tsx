@@ -21,6 +21,7 @@ const AUTHORITY_ICONS = [
 
 export function AboutStory({ locale = 'pt' }: { locale?: Locale }) {
   const c = ABOUT_CONTENT[locale].story;
+  const arte = c.arte;
   const selos = c.selos.map((selo, i) => ({ ...selo, icon: AUTHORITY_ICONS[i] }));
   return (
     <Section
@@ -90,10 +91,10 @@ export function AboutStory({ locale = 'pt' }: { locale?: Locale }) {
               className="absolute left-[33px] top-[156px] z-10 w-[224px] text-[25.31px] leading-[42.476px]"
             >
               <span className="block whitespace-nowrap">
-                Uma <span className="font-display text-[35.397px]">jornada</span> de
+                {arte.antes} <span className="font-display text-[35.397px]">{arte.jornada}</span> {arte.depois}
               </span>
-              <span className="block whitespace-nowrap">resgate das práticas</span>
-              <span className="block font-display text-[35.397px]">primitivas</span>
+              <span className="block whitespace-nowrap">{arte.linha2}</span>
+              <span className="block font-display text-[35.397px]">{arte.primitivas}</span>
             </Text>
             <Image
               src="/svg/about/story-walkers.svg"

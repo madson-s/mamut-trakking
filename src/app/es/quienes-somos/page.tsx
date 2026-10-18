@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: CONTENT.meta.canonical,
-    languages: { pt: '/pt/sobre', en: '/en/about', es: '/es/quienes-somos' },
+    languages: { pt: '/pt/sobre', en: '/en/about', es: '/es/quienes-somos', fr: '/fr/a-propos' },
   },
   openGraph: {
     title: CONTENT.meta.ogTitle,

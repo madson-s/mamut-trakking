@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: CONTENT.meta.canonical,
-    languages: { pt: '/pt/aventuras/pacote-3-dias', en: '/en/adventures/package-3-days', es: '/es/aventuras/paquete-3-dias' },
+    languages: { pt: '/pt/aventuras/pacote-3-dias', en: '/en/adventures/package-3-days', es: '/es/aventuras/paquete-3-dias', fr: '/fr/aventures/forfait-3-jours' },
   },
   openGraph: {
     title: CONTENT.meta.title,

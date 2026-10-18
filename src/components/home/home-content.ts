@@ -5,7 +5,7 @@
  * repositório: a home publicada em mamut.agency/en é a do site antigo, com
  * outra estrutura de seções, então não há original a transcrever.
  *
- * FR existe só aqui (ver `HomeLocale`): os links da home em francês apontam
+ * FR existe só aqui (ver `Locale`): os links da home em francês apontam
  * para as páginas em inglês, e os textos dos guias, que nos outros idiomas vêm
  * da página Sobre, vêm de `guides.guiaTexto`.
  *
@@ -15,7 +15,7 @@
  * `reviewUrl` antes de publicar a versão EN.
  */
 
-import type { HomeLocale, Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { ADVENTURE_SEGMENT } from '@/lib/site';
 
 /** Ids do manifesto de rotas — o carrossel mostra estes sete, nesta ordem. */
@@ -73,8 +73,6 @@ export type HomeContent = {
     cta: string;
     ctaHref: string;
     pagina: string;
-    /** Função e bio dos guias, só onde não há página Sobre no idioma (FR). */
-    guiaTexto?: Record<string, { role: string; bio: string }>;
   };
   reviews: {
     badge: string;
@@ -101,6 +99,7 @@ const destinos = (locale: Locale) => {
     pt: ['vale-do-pati-03-dias', 'cachoeira-do-palmital', 'mosquito-pai-inacio'],
     en: ['pati-valley-3-days', 'palmital-waterfall', 'mosquito-waterfall-pai-inacio-hill'],
     es: ['valle-del-pati-3-dias', 'cascada-del-palmital', 'cascada-del-mosquito-morro-do-pai-inacio'],
+    fr: ['vallee-du-pati-3-jours', 'cascade-du-palmital', 'cascade-du-mosquito-morro-do-pai-inacio'],
   }[locale];
   return slug.map((s) => `/${locale}/${seg}/${s}`);
 };
@@ -108,11 +107,12 @@ const destinos = (locale: Locale) => {
 const PT_DESTINOS = destinos('pt');
 const EN_DESTINOS = destinos('en');
 const ES_DESTINOS = destinos('es');
+const FR_DESTINOS = destinos('fr');
 
 /** hreflang das quatro homes — a única página que existe também em francês. */
-export const HOME_HREFLANG: Record<HomeLocale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr' };
+export const HOME_HREFLANG: Record<Locale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr' };
 
-export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
+export const HOME_CONTENT: Record<Locale, HomeContent> = {
   pt: {
     meta: {
       title: 'Mamut Trekking · Chapada Diamantina',
@@ -501,13 +501,13 @@ export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
         'Chaque sentier est un retour vers soi.',
       ],
       ctaTrilhas: 'Choisissez votre sentier',
-      ctaTrilhasHref: '/en/adventures',
+      ctaTrilhasHref: '/fr/aventures',
       ctaGuia: 'Parler à un guide',
       selo: { antes: 'Un', jornada: 'voyage', meio: 'pour renouer avec les gestes', primitivas: 'primitifs' },
       destinos: [
-        { titulo: 'Vallée du Pati', subtitulo: '3 jours · traversée', href: EN_DESTINOS[0] },
-        { titulo: 'Cascade du Palmital', subtitulo: '2 jours · trek', href: EN_DESTINOS[1] },
-        { titulo: 'Pai Inácio', subtitulo: '1 jour · trek', href: EN_DESTINOS[2] },
+        { titulo: 'Vallée du Pati', subtitulo: '3 jours · traversée', href: FR_DESTINOS[0] },
+        { titulo: 'Cascade du Palmital', subtitulo: '2 jours · trek', href: FR_DESTINOS[1] },
+        { titulo: 'Pai Inácio', subtitulo: '1 jour · trek', href: FR_DESTINOS[2] },
       ],
       verDestino: 'Découvrir',
     },
@@ -525,7 +525,7 @@ export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
         'Dans l’immensité des mégacontinents, les mammouths marchaient en grandes hardes — et ont marqué leur existence pour toujours.',
       memoria: 'C’est de cette mémoire que nous sommes nés.',
       cta: 'Lire notre manifeste',
-      ctaHref: '/en/manifesto',
+      ctaHref: '/fr/manifeste',
     },
     paths: {
       trilhas: {
@@ -561,7 +561,7 @@ export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
       eyebrow: 'Choisissez votre chemin',
       titulo: { antes: 'Les itinéraires que la', destaque: 'Chapada appelle.' },
       todos: 'Tous les itinéraires',
-      todosHref: '/en/adventures',
+      todosHref: '/fr/aventures',
       arraste: 'Faites glisser pour voir les itinéraires suivants →',
       explorar: 'Découvrir le sentier',
       carrossel: {
@@ -581,26 +581,8 @@ export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
     guides: {
       titulo: { linha1: 'Nés ici.', linha2: 'Façonnés par la', linha3: 'Chapada.' },
       cta: 'Rencontrez ceux qui guident notre harde',
-      ctaHref: '/en/about#guias',
+      ctaHref: '/fr/a-propos#guias',
       pagina: 'Page des guides',
-      guiaTexto: {
-        'marcelo-cabral': {
-          role: 'Guide et fondateur',
-          bio: '13 ans à Lençóis. Il s’occupe de toute l’organisation — du premier message au dernier pas sur le sentier. Il fait découvrir la Chapada aux Brésiliens comme aux étrangers, avec l’autorité de quelqu’un qui a choisi cette terre pour foyer.',
-        },
-        'felipe-ribeiro': {
-          role: 'PT · EN',
-          bio: 'Né à Salvador, il a grandi à Lençóis. Il connaît la grande majorité des sentiers autour du parc national. On se souvient de sa gentillesse et de sa cuisine. Il conçoit les itinéraires et la logistique de chaque groupe, et guide en anglais.',
-        },
-        'salomao-andrade': {
-          role: 'Pompier volontaire',
-          bio: 'Né et élevé dans la Chapada, spécialiste des treks sauvages du parc national. Il guide les groupes étrangers.',
-        },
-        'aman-duart': {
-          role: 'Pompier civil',
-          bio: 'Petit-fils de chercheurs de diamants et natif de Lençóis. Il connaît en profondeur les plantes médicinales de la Chapada Diamantina, se forme comme pompier civil et est un excellent compagnon de route.',
-        },
-      },
     },
     reviews: {
       badge: 'Avis vérifiés · TripAdvisor',
@@ -613,7 +595,7 @@ export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
       ranking: 'N° 5 au classement',
       rankingLabel: 'des activités de plein air à Lençóis',
       ctaTrilha: 'Choisissez votre sentier',
-      ctaTrilhaHref: '/en/adventures',
+      ctaTrilhaHref: '/fr/aventures',
       ctaTripadvisor: 'Voir notre page TripAdvisor',
       depoimentos: [
         '« Du premier contact à la fin du voyage, l’agence a fait preuve de professionnalisme et d’organisation. »',
@@ -626,7 +608,7 @@ export const HOME_CONTENT: Record<HomeLocale, HomeContent> = {
       corpo:
         'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour explorer la Chapada Diamantina et comment vous y préparer.',
       cta: 'Rejoindre la harde',
-      ctaHref: '/en/contact',
+      ctaHref: '/fr/contact',
     },
   },
 };

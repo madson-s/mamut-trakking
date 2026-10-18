@@ -273,4 +273,81 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Sentier d’Águas Claras — 2 jours',
+      description:
+        'La première nuit sous tente de ceux qui n’ont jamais campé : 23 km sur un terrain majoritairement plat jusqu’aux piscines cristallines du Vale dos 3 Irmãos.',
+      canonical: '/fr/aventures/sentier-aguas-claras',
+    },
+    hero: {
+      nivel: 'Facile / Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '2 jours',
+      titulo: 'Sentier d’Águas Claras.',
+      lead: 'Le bon sentier pour une première nuit sous tente — plat, court, et tout le ciel étoilé pour vous la nuit.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Où l’on dort', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du sentier d’Águas Claras.',
+      paragrafos: [
+        'C’est l’activité idéale pour qui n’a jamais campé et veut commencer par un sentier facile, mais aussi pour qui vient avec des enfants ou des personnes âgées. Le terrain est majoritairement plat.',
+        'La marche commence aux abords du Morro do Pai Inácio et se dirige vers le Vale dos 3 Irmãos — deux cartes postales de la Chapada Diamantina dans la même journée. 9 km, environ 3 heures, jusqu’aux piscines cristallines où se trouve le campement.',
+        'La zone des sources d’Águas Claras est fragile : ici, l’attention portée aux déchets est redoublée, et c’est pour cette raison que le campement est installé à environ 60 mètres de la rivière.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.fr,
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent. Ce trek est flexible et admet plusieurs points d’entrée et de sortie — renseignez-vous auprès de nous sur les options.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Transfert jusqu’au Pai Inácio + sentier d’Águas Claras + campement',
+          corpo: 'Départ à partir de 7 h du centre de Lençóis, avec toutes vos affaires, en voiture jusqu’aux abords du Morro do Pai Inácio, sur la BR-242. Après les derniers ajustements, la marche commence en direction du Vale dos 3 Irmãos : 9 km, environ 3 heures, jusqu’aux piscines cristallines. Nous montons le campement à environ 60 mètres de la rivière — la zone des sources est fragile et l’attention portée aux déchets est redoublée. Arrivée vers 13 h ; le guide prépare le pique-nique pendant que le groupe profite de la rivière. L’après-midi, on peut explorer les environs, apprendre à reconnaître les plantes et contempler les montagnes jusqu’au dîner, servi à partir de 18 h. Si le ciel est dégagé, aucune lumière artificielle ne vient troubler la nuit — et, selon la date, il y a la pleine lune.',
+          distancia: '9 km',
+          esforco: 'Facile / Modéré',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'Águas Claras + sentier du Grisante',
+          corpo: 'Après le petit-déjeuner préparé par le guide, nous levons le camp et partons vers 9 h. 1 heure de marche jusqu’à voir le Morrão de face, l’un des grands attraits du Vale do Capão, puis encore 30 minutes jusqu’au Poço das Piabas, où l’on peut se baigner et profiter du casse-croûte vers midi. Nous continuons 2 heures jusqu’à apercevoir Lençóis, puis descendons 40 minutes jusqu’au centre historique, où se termine le sentier.',
+          distancia: '15 km',
+          esforco: 'Modéré',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 1.350', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 1.150', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      wildTrekChecklist('fr', `C’est le sentier le plus facile de nos campements, mais la nuit en altitude se rafraîchit. ${WILD_TREK_PORTER.fr}`),
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue, formé aux premiers secours (APH)', 'Camping sauvage (1 nuit), avec tente, tapis isolant et sac de couchage', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après le sentier'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Équipement personnel', 'Évacuation médicale'],
+      },
+      safetyFaq(
+        'fr',
+        'Le sentier est facile, mais la nuit se passe sous tente à la belle étoile et il fait frais — les vêtements pour dormir ne sont pas une option ici. Le campement se trouve dans une zone de sources : tout ce qui entre doit ressortir avec le groupe, sans exception.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt pour votre', 'première nuit sous tente ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

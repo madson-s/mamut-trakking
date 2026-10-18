@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Badge, Button, Heading, Section, Text } from '@/components/ui';
 import { focus, motion } from '@/design/tokens';
 import { cn } from '@/lib/cn';
-import { siteLocale, type HomeLocale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 import { ABOUT_CONTENT } from '@/components/about/about-content';
 import { GUIDES } from '../about/about-data';
@@ -14,9 +14,9 @@ const GUIDE_CARD_SIZES = '(min-width: 1024px) 280px, 216px';
 
 const HOME_GUIDES = GUIDES.slice(0, 4);
 
-/** Guia + função/bio no idioma pedido (FR traz o próprio texto, sem página Sobre). */
-function guiasDoIdioma(locale: HomeLocale) {
-  const texto = HOME_CONTENT[locale].guides.guiaTexto ?? ABOUT_CONTENT[siteLocale(locale)].guiaTexto;
+/** Guia + função/bio no idioma pedido. */
+function guiasDoIdioma(locale: Locale) {
+  const texto = ABOUT_CONTENT[locale].guiaTexto;
   return HOME_GUIDES.map((guide) => ({ ...guide, ...texto[guide.id] }));
 }
 
@@ -25,7 +25,7 @@ const CROSSFADE = cn(
   'group-hover/guide:scale-[1.025] group-focus-visible/guide:scale-[1.025]',
 );
 
-export function GuidesSection({ locale = 'pt' }: { locale?: HomeLocale }) {
+export function GuidesSection({ locale = 'pt' }: { locale?: Locale }) {
   const c = HOME_CONTENT[locale].guides;
   const guias = guiasDoIdioma(locale);
   const carouselRef = useRef<HTMLDivElement>(null);

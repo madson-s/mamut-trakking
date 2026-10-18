@@ -260,4 +260,79 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Sentier d’Águas Claras — 1 jour',
+      description:
+        'Dix-huit kilomètres à travers les campos gerais jusqu’à la cascade d’Águas Claras, avec le Morrão tout proche et les sources de la rivière Ribeirão en chemin.',
+      canonical: '/fr/aventures/sentier-aguas-claras-1-jour',
+    },
+    hero: {
+      nivel: 'Facile / Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Sentier d’Águas Claras.',
+      lead: 'Dix-huit kilomètres de grands espaces ouverts, des montagnes sur tout l’horizon et le Morrão tout proche.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Jusqu’à la cascade', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du sentier d’Águas Claras.',
+      paragrafos: [
+        'L’une des traversées les plus singulières de la Chapada Diamantina, et l’une des rares en végétation ouverte — ce qu’on appelle ici les campos gerais, des terres qui servaient autrefois à l’élevage. L’horizon est bordé de montagnes et de collines tout au long du parcours.',
+        'C’est une région de sources, et c’est là que jaillit, entre autres, celle de la rivière Ribeirão — celle-là même qui traverse Lençóis. On voit aussi de très près le Morrão, l’une des cartes postales du Vale do Capão ; pour le voir en entier, il faut faire la sortie par un itinéraire alternatif.',
+        'Le terrain est majoritairement plat, ce qui rend les 18 km moins durs que le chiffre ne le laisse penser. Le retour change selon la formule choisie — aller-retour ou traversée —, mais dans les deux cas la distance est pratiquement la même.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ à 8 h par la BR-242 jusqu’au pied du Morro do Pai Inácio, où se trouve l’entrée du sentier.',
+        'La marche commence à une ancienne cabane qui servait de halte aux voyageurs de passage. De là, 9 km, environ 2 heures, sur un terrain majoritairement plat jusqu’à la cascade d’Águas Claras — avec, en permanence sous les yeux, des montagnes et des collines aux formes et aux tailles très variées.',
+        'À la cascade, le guide prépare le casse-croûte du groupe, pendant que chacun profite de la vue sur les montagnes et d’une baignade dans les eaux cristallines.',
+        'Le retour dépend de la formule choisie : aller-retour par le même chemin, ou traversée avec sortie par un autre point. Dans les deux cas, la distance est d’environ 9 km.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 450', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 390', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Protection de pluie (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Serviette', 'Appareil photo']],
+        note: 'Terrain ouvert signifie soleil direct sur les 18 km, sans ombre où s’abriter. Chapeau, crème solaire et eau sont ce qui compte le plus ici.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide de montagne bilingue, formé aux premiers secours (APH)', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Pique-nique (en option)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement'],
+      },
+      safetyFaq(
+        'fr',
+        'Le sentier est plat et sans passage technique, mais ce sont 18 km en terrain ouvert, sans ombre sur presque tout le parcours. Le vrai risque de la journée, c’est l’insolation et la déshydratation, pas le terrain — emportez vos 1,5 L d’eau et ne comptez pas trouver d’abri en chemin.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à traverser', 'les campos gerais ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

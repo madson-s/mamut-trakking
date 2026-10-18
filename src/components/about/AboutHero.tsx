@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Button, Emphasis, PageHero, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
+import { HOME_CONTENT } from '@/components/home/home-content';
 import { ABOUT_CONTENT } from './about-content';
 import { GUIDES } from './about-data';
 
@@ -9,6 +10,8 @@ const HERO_FACES = GUIDES.slice(0, 6);
 
 export function AboutHero({ locale = 'pt' }: { locale?: Locale }) {
   const c = ABOUT_CONTENT[locale].hero;
+  // O selo é o mesmo do hero da home: uma fonte só por idioma.
+  const selo = HOME_CONTENT[locale].hero.selo;
   return (
     <PageHero
       size="tall"
@@ -104,8 +107,8 @@ export function AboutHero({ locale = 'pt' }: { locale?: Locale }) {
           className="h-4 w-6.25 shrink-0 brightness-0 invert"
         />
         <Text size="xs" weight="light" tone="onMediaMuted" leading="tight">
-          Uma <Emphasis size="xs">jornada</Emphasis> de resgate das práticas{' '}
-          <Emphasis size="xs">primitivas</Emphasis>
+          {selo.antes} <Emphasis size="xs">{selo.jornada}</Emphasis> {selo.meio}{' '}
+          <Emphasis size="xs">{selo.primitivas}</Emphasis>
         </Text>
       </div>
     </PageHero>

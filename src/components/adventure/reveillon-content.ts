@@ -1,9 +1,9 @@
 /**
  * Conteúdo da página do Réveillon na Chapada, por idioma.
  *
- * PT é o copy do redesenho. EN e ES são tradução feita aqui — a operadora não
- * publica esta página em outro idioma. O espanhol segue o voseo das demais
- * páginas em ES do site.
+ * PT é o copy do redesenho. EN, ES e FR são tradução feita aqui — a operadora
+ * não publica esta página em outro idioma. O espanhol segue o voseo das demais
+ * páginas em ES do site; o francês usa "vous".
  *
  * Números, datas, fotos e preços ficam em `REVEILLON_PACKAGES`: não mudam com
  * o idioma. O texto de cada pacote fica em `REVEILLON_CONTENT[locale].pacotes`,
@@ -92,7 +92,7 @@ export type ReveillonContent = {
   meta: { title: string; description: string; canonical: string };
   /** Locale BCP-47 para o milhar do preço (o espanhol usa o padrão brasileiro, como em `site.ts`). */
   numberLocale: string;
-  /** Rótulo do dia no roteiro (29/12 em pt/es, Dec 29 em en). */
+  /** Rótulo do dia no roteiro (29/12 em pt/es/fr, Dec 29 em en). */
   dateLabel: (day: number, month: number) => string;
   walk: (km: number) => string;
   drive: (km: number) => string;
@@ -651,6 +651,178 @@ export const REVEILLON_CONTENT: Record<Locale, ReveillonContent> = {
         body: 'Las actividades las acompañan conductores locales formados en primeros auxilios y en competencias mínimas de conducción según la ABNT brasileña. Parte del equipo tiene formación WAFA.',
         warning: 'El trekking implica terreno irregular, cambios de clima, caídas, animales y zonas remotas. En algunos puntos un rescate puede tardar más de cinco horas, y su costo no está incluido en el paquete.',
         footer: 'Seguí las indicaciones del guía, avisá con anticipación sobre condiciones de salud y llevá todo el equipo obligatorio. El recorrido puede cambiar cada vez que la seguridad lo exija.',
+      },
+    ],
+  },
+
+  fr: {
+    meta: {
+      title: 'Réveillon dans la Chapada Diamantina 2027',
+      description:
+        'Forfaits de 4, 5 et 6 jours pour vivre le Réveillon 2027 entre sentiers, cascades et paysages de la Chapada Diamantina.',
+      canonical: '/fr/aventures/reveillon-dans-la-chapada',
+    },
+    numberLocale: 'pt-BR',
+    dateLabel: ddmm,
+    walk: (km) => `${km} km à pied`,
+    drive: (km) => `${km} km en voiture`,
+    jsonLd: { touristType: 'Trek et écotourisme', offerName: (days) => `Réveillon dans la Chapada — ${days}` },
+    hero: {
+      dates: '28 déc. 2026 — 2 janv. 2027',
+      titulo: 'Passez le cap de la nouvelle année au cœur de la Chapada.',
+      lead: 'Troquez le compte à rebours contre le sentier : cascades, vallées et grands paysages pour commencer 2027 en mouvement.',
+      verPacotes: 'Voir les forfaits',
+      falar: 'Parler avec l’équipe',
+      fotoAlt: 'Montagnes de la Chapada Diamantina en fin d’après-midi',
+    },
+    story: {
+      badge: 'Réveillon 2027',
+      titulo: 'Le passage à la nouvelle année se vit dehors.',
+      paragrafos: [
+        'Voici un Réveillon pour celles et ceux qui préfèrent le bruit de l’eau, le silence de la vallée et la sensation d’arriver à pied dans un lieu extraordinaire.',
+        'Les itinéraires associent sentiers, cascades, paysages et hébergement, sur des voyages de quatre à six jours. Vous choisissez l’intensité ; Mamut organise le chemin.',
+      ],
+      selo: 'Petits groupes, guides locaux et possibilité de personnaliser le forfait.',
+      fotos: {
+        buracao: 'La cascade du Buracão vue entre les parois du canyon',
+        lencois: 'Rue historique de Lençóis, dans la Chapada Diamantina',
+      },
+      regioes: 'Lençóis · Pati · Ibicoara · Mucugê',
+    },
+    explorer: {
+      badge: 'Choisissez votre rythme',
+      titulo: 'Trois chemins vers la même nouvelle année.',
+      duracao: 'Durée du forfait',
+      nome: 'Réveillon dans la Chapada',
+      tituloPacote: (days) => `${days} d’aventure.`,
+      minimo: 'Minimum 2 participants',
+      regiao: 'Chapada Diamantina · Bahia',
+      apartirDe: 'À partir de',
+      porPessoa: 'par personne',
+      pagamento: { antes: 'Réservez avec', destaque: '50 % d’acompte.', depois: 'Carte bancaire jusqu’à 12 fois, avec majoration.' },
+      quero: 'Je veux ce forfait',
+      adaptar: 'Envie d’adapter l’itinéraire ? Parlez-en avec l’équipe.',
+      mensagem: (days) => `Bonjour ! Je voudrais vérifier le forfait de ${days} du Réveillon 2027 dans la Chapada pour le`,
+      roteiro: 'Itinéraire jour par jour',
+      roteiroTitulo: (days) => `${days} en mouvement`,
+      roteiroNota: 'Distances approximatives. L’ordre peut changer pour mieux profiter de la météo et garantir la sécurité du groupe.',
+    },
+    inclusos: {
+      titulo: 'Chaque forfait règle déjà l’essentiel.',
+      ariaLabel: 'Ce qui est inclus dans les forfaits',
+      itens: [
+        { label: 'Accès', detail: 'Droits d’entrée prévus dans l’itinéraire' },
+        { label: 'Guides locaux', detail: 'Encadrement spécialisé pour toutes les activités' },
+        { label: 'Hébergement', detail: 'Nuits selon le forfait choisi' },
+        { label: 'Transferts', detail: 'Trajets vers les sites de l’itinéraire' },
+      ],
+    },
+    info: {
+      badge: 'Avant de réserver',
+      titulo: 'Tout est clair avant le premier pas.',
+      corpo: 'Consultez l’équipement, les conditions de paiement et d’annulation et les consignes de sécurité. Tout est réuni ici pour que vous décidiez l’esprit tranquille.',
+    },
+    finalCta: {
+      badge: 'Commencez 2027 en mouvement',
+      titulo: 'Votre nouvelle année peut commencer sur un sentier.',
+      corpo: 'Dites à Mamut combien de jours vous avez et comment vous aimez voyager. L’équipe vous aide à choisir — ou à adapter — le bon itinéraire.',
+      cta: 'Préparer mon Réveillon',
+      fotoAlt: 'Sentier en direction des montagnes de la Chapada Diamantina',
+    },
+    pacotes: {
+      '4-dias': {
+        days: '4 jours',
+        dates: '29 déc. 2026 — 1er janv. 2027',
+        places: 'Lençóis · Iraquara',
+        imageAlt: 'Coucher de soleil entre les montagnes de la Chapada Diamantina',
+        pitch: 'Un passage à la nouvelle année au départ de Lençóis, avec quatre jours de baignades, de belvédères et de sentiers classiques.',
+        highlights: ['Parc de la Muritiba', 'Fazenda Pratinha', 'Cascade du Mosquito', 'Morro do Pai Inácio', 'Cascade da Fumaça'],
+        itinerary: [
+          { title: 'Muritiba + Ribeirão do Meio', description: 'Arrivée à Lençóis et première baignade dans les circuits naturels les plus proches de la ville.' },
+          { title: 'Grottes, Pratinha + belvédère du Camelo', description: 'Une journée entre formations souterraines, eau cristalline et la silhouette la plus emblématique de la région.' },
+          { title: 'Mosquito + Mucugezinho + Pai Inácio', description: 'Des cascades pendant la journée et l’horizon de la Chapada comme décor pour clore l’année.' },
+          { title: 'Cascade da Fumaça', description: 'Le premier grand défi de 2027 mène au sommet de l’une des chutes les plus célèbres du Brésil.' },
+        ],
+      },
+      '5-dias': {
+        days: '5 jours',
+        dates: '29 déc. 2026 — 2 janv. 2027',
+        places: 'Lençóis · vallée du Pati · Ibicoara',
+        imageAlt: 'Montagnes et sentiers de la vallée du Pati',
+        pitch: 'La traversée est au cœur du voyage : trois jours dans le Pati avant les eaux du sud de la Chapada.',
+        highlights: ['Vallée du Pati en 3 jours', 'Morro do Castelo', 'Cachoeirão', 'Cascade du Buracão', 'Poço Azul'],
+        itinerary: [
+          { title: 'Lençóis → Guiné + belvédère da Rampa', description: 'Transfert jusqu’à Guiné, montée de la Rampa et première vue panoramique sur la vallée du Pati.' },
+          { title: 'Morro do Castelo', description: 'Traversée à l’intérieur de la montagne et vue plongeante sur les vallées qui entourent le Pati.' },
+          { title: 'Cachoeirão + transfert vers Ibicoara', description: 'Longue marche jusqu’au belvédère du Cachoeirão avant de rejoindre le sud de la Chapada.' },
+          { title: 'Cascade du Buracão', description: 'L’année commence au fond du canyon, entre passerelles, rivière et la puissance de la chute.' },
+          { title: 'Poço Azul + Mosquito + Lençóis', description: 'Flottaison, baignade en cascade et retour à Lençóis pour conclure l’expédition.' },
+        ],
+      },
+      '6-dias': {
+        days: '6 jours',
+        dates: '28 déc. 2026 — 2 janv. 2027',
+        places: 'Lençóis · Mucugê · vallée du Pati · Ibicoara',
+        imageAlt: 'La cascade da Fumacinha entre des parois rocheuses',
+        pitch: 'L’expérience la plus complète : le Pati, de grandes cascades et six jours à travers des paysages variés.',
+        highlights: ['Vallée du Pati en 3 jours', 'Cachoeirão', 'Cascade du Buracão', 'Cascade da Fumacinha', 'Poço Azul'],
+        itinerary: [
+          { title: 'Lençóis → Guiné + belvédère da Rampa', description: 'Le voyage commence par l’entrée classique dans la vallée du Pati et l’arrivée chez une famille de la vallée.' },
+          { title: 'Morro do Castelo', description: 'Grottes, altitude et l’un des panoramas les plus marquants du trek dans le Pati.' },
+          { title: 'Cachoeirão + transfert vers Ibicoara', description: 'L’étape la plus longue de la traversée se termine par la liaison vers le sud de la Chapada.' },
+          { title: 'Cascade du Buracão', description: 'On dit au revoir à l’année dans le canyon de l’une des expériences aquatiques les plus intenses de la région.' },
+          { title: 'Cascade da Fumacinha', description: 'Dix-huit kilomètres dans le lit de la rivière et le canyon pour commencer 2027 à une échelle monumentale.' },
+          { title: 'Poço Azul + Mosquito + Lençóis', description: 'Un dernier circuit d’eaux transparentes et de cascade avant le retour à Lençóis.' },
+        ],
+      },
+    },
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Quoi emporter',
+        intro: 'Voyagez léger, mais ne faites pas l’impasse sur ce qui garde votre corps protégé et à l’aise sur les sentiers.',
+        requiredColumns: [
+          ['Eau — 1 litre minimum', 'Chaussures ou bottes de trek', 'Vêtements légers'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité avec photo', 'Sac à dos'],
+        ],
+        recommendedColumns: [
+          ['Protection de pluie pour vous et votre sac', 'En-cas léger ou fruit'],
+          ['Bâton de marche', 'Sandales ou tongs'],
+        ],
+        note: 'L’équipe peut vérifier les articles obligatoires avant les activités. La sécurité du groupe dépend de la préparation de chacun.',
+      },
+      {
+        type: 'payment',
+        title: 'Paiement et réservation',
+        paragraphs: [
+          'La réservation est confirmée avec 50 % du montant du forfait. Le paiement peut se faire comptant par virement ou par boleto bancaire.',
+          'Les cartes bancaires sont majorées de 6 %. Le paiement peut être échelonné jusqu’à 12 fois via PagSeguro ou Mercado Pago. Pour les cartes internationales, contactez l’équipe.',
+          'Le solde est à régler au check-in ou par virement bancaire jusqu’à deux jours ouvrés avant le début du forfait.',
+        ],
+      },
+      {
+        type: 'cancellation',
+        title: 'Annulation et modifications',
+        intro: 'Si vous ne pouvez pas voyager, vous pouvez désigner une autre personne ou conserver le montant sous forme d’avoir. Pour un remboursement, les délais ci-dessous s’appliquent :',
+        refunds: [
+          ['30 jours ou plus avant', '90 % du montant'],
+          ['De 21 à 29 jours avant', '80 % du montant'],
+          ['De 7 à 20 jours avant', '50 % du montant'],
+          ['Moins de 7 jours avant', 'Aucun remboursement'],
+        ],
+        paragraphs: [
+          'Une fois le forfait commencé, aucun remboursement n’est possible. Une absence à l’heure convenue est considérée comme un désistement.',
+          'L’itinéraire peut être modifié en raison de la météo, de la sécurité du groupe ou des consignes des autorités compétentes. Toute personne qui décide de quitter le groupe pendant l’activité prend à sa charge les frais qui en découlent.',
+        ],
+      },
+      {
+        type: 'safety',
+        title: 'Sécurité pendant les activités',
+        riskLabel: 'Risques et limites — à lire attentivement',
+        lead: 'La nature donne le rythme — l’équipe se charge des décisions techniques.',
+        body: 'Les activités sont encadrées par des guides locaux formés aux premiers secours et aux compétences minimales d’encadrement selon les normes brésiliennes ABNT. Une partie de l’équipe est certifiée WAFA.',
+        warning: 'Le trek implique un terrain irrégulier, des changements de météo, des chutes, des animaux et des zones isolées. À certains endroits, un secours peut prendre plus de cinq heures, et son coût n’est pas inclus dans le forfait.',
+        footer: 'Suivez les consignes du guide, signalez à l’avance tout problème de santé et emportez tout l’équipement obligatoire. L’itinéraire peut changer chaque fois que la sécurité l’exige.',
       },
     ],
   },

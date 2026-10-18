@@ -249,4 +249,76 @@ export const SOSSEGO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Sumate a la manada',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade du Sossego',
+      description:
+        'L’un des sentiers les plus exigeants de la Chapada Diamantina : 15 km à sauter de rocher en rocher dans le lit de la rivière Ribeirão, entre des canyons de plus de 100 mètres.',
+      canonical: '/fr/aventures/cascade-du-sossego',
+    },
+    hero: {
+      nivel: 'Modéré / Difficile',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Cascade du Sossego.',
+      lead: 'Quinze kilomètres à sauter de rocher en rocher dans le lit de la rivière, entre des parois de plus de 100 mètres.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Dénivelé positif', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade du Sossego.',
+      paragrafos: [
+        'L’un des sentiers les plus impressionnants et les plus exigeants de la Chapada Diamantina. La marche alterne montées et descentes, en sautant littéralement de rocher en rocher dans le lit de la rivière Ribeirão, entourée de canyons de plus de 100 mètres de haut.',
+        'Le trajet jusqu’à la cascade est intense, avec beaucoup de montées et de descentes. Le dénivelé cumulé en fin de journée peut dépasser les 750 mètres.',
+        'Pendant les marches, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ à 8 h — avec 15 minutes de tolérance — du centre de Lençóis, par le sentier traditionnel en direction du Ribeirão do Meio. Environ 30 minutes jusqu’au belvédère de la rivière Ribeirão, d’où l’on aperçoit déjà une partie du trajet.',
+        'De là, le sentier remonte la rivière, et le paysage change à chaque pas. En chemin apparaissent d’anciennes constructions et les « tocas », les abris sous roche des chercheurs de diamants.',
+        'Après environ 1 heure, on atteint le lit de la rivière Ribeirão, où il faut sauter de rocher en rocher — ils peuvent être glissants — et, selon la météo, traverser l’eau. C’est le passage le plus exigeant pour le groupe. Encore 30 minutes jusqu’à la cascade.',
+        'Retour par le même chemin, avec un arrêt aux Caldeirões do Ribeirão de Cima pour une baignade en eaux moins profondes.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 250', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 200', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Protection de pluie (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Serviette', 'Appareil photo']],
+        note: 'Le lit de la rivière est glissant : des chaussures avec une bonne adhérence font une vraie différence sur cet itinéraire.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue, formé aux premiers secours (APH)', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Gilet de sauvetage'],
+        excluded: ['Tout ce qui n’est pas listé', 'Transfert (en option)', 'Pique-nique (en option)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après la sortie'],
+      },
+      safetyFaq('fr', 'Le lit de la rivière Ribeirão oblige à sauter entre des rochers qui peuvent être glissants et, selon la météo, à traverser l’eau. C’est ce qui rend ce sentier plus difficile que sa distance ne le laisse penser.'),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Votre sentier commence', 'par un message.'],
+      corpo: 'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour connaître la Chapada Diamantina et comment vous y préparer.',
+      botao: 'Rejoindre la harde',
+    },
+  },
 };

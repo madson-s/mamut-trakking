@@ -1,8 +1,8 @@
 'use client';
 
 import { usePathname } from 'next/navigation';
-import { languageHref } from '@/lib/routes';
-import type { HomeLocale } from '@/lib/site';
+import { localizePath } from '@/lib/routes';
+import type { Locale } from '@/lib/site';
 import { cn } from '@/lib/cn';
 import { focus, motion, press } from '@/design/tokens';
 import {
@@ -23,7 +23,7 @@ const LANGUAGES = [
 // mas a mecânica é o Select do beui — painel com spring + stagger em vez do
 // toggle seco do <details>. Troca de idioma segue sendo full reload: cada
 // idioma é uma raiz estática independente — e leva para a MESMA página no
-// idioma escolhido, via `languageHref` (FR só existe na home).
+// idioma escolhido, via `localizePath` (FR só existe na home).
 export function LanguageSwitcher() {
   const pathname = usePathname();
   const currentCode =
@@ -36,7 +36,7 @@ export function LanguageSwitcher() {
       value={currentCode}
       onValueChange={(next) => {
         if (next !== currentCode) {
-          window.location.assign(languageHref(pathname, next as HomeLocale));
+          window.location.assign(localizePath(pathname, next as Locale));
         }
       }}
       className="shrink-0 font-body font-light text-content"

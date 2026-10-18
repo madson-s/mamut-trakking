@@ -1,26 +1,10 @@
 // Configuração global do site (não é tradução de conteúdo — são constantes
 // de marca, contato e formatação usadas pelos componentes e pelo SEO).
 
-export const LOCALES = ['pt', 'en', 'es'] as const;
+export const LOCALES = ['pt', 'en', 'es', 'fr'] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'pt';
-
-/**
- * Idiomas da home. O francês existe só na home (e no header/footer que a
- * envolvem): o resto do site segue em pt/en/es. Por isso `fr` não entra em
- * `Locale` — senão todo `Record<Locale, …>` do site passaria a exigir francês.
- */
-export const HOME_LOCALES = [...LOCALES, 'fr'] as const;
-export type HomeLocale = (typeof HOME_LOCALES)[number];
-
-/**
- * Idioma das páginas para onde a home aponta. Da home em francês, os links
- * levam à versão em inglês — a mais provável de servir a quem lê francês.
- */
-export function siteLocale(locale: HomeLocale): Locale {
-  return locale === 'fr' ? 'en' : locale;
-}
 
 /**
  * Endereço público do site — base de canonical, hreflang, sitemap, robots,
@@ -51,17 +35,21 @@ export const ADVENTURE_SEGMENT: Record<Locale, string> = {
   pt: 'aventuras',
   en: 'adventures',
   es: 'aventuras',
+  fr: 'aventures',
 };
 
 // Locale BCP-47 para Intl.NumberFormat (formatação de preço em BRL).
 // O espanhol usa o padrão brasileiro de propósito: nenhum locale es-* escreve
 // "R$ 1.350" — o es-ES dá "1350 BRL" (sem separador de milhar até 4 dígitos) e
 // o es-AR/es-419 dão "BRL 1.350". O valor é cobrado em reais, e as páginas de
-// roteiro em espanhol já trazem "R$ 1.500" escrito à mão.
+// roteiro em espanhol já trazem "R$ 1.500" escrito à mão. O francês segue o
+// mesmo padrão (o fr-FR daria "1 350 R$"), para o preço ter uma forma só fora
+// do inglês — e é assim que ele aparece escrito nas páginas em francês.
 const INTL_LOCALE: Record<Locale, string> = {
   pt: 'pt-BR',
   en: 'en-US',
   es: 'pt-BR',
+  fr: 'pt-BR',
 };
 
 export function formatPrice(value: number, locale: Locale): string {

@@ -8,7 +8,7 @@ const CONTENT = PATI_4_CAPAO_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/vale-do-pati-4-dias-via-capao', en: '/en/adventures/pati-valley-4-days-capao-way', es: '/es/aventuras/valle-del-pati-4-dias-via-capao' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/vale-do-pati-4-dias-via-capao', en: '/en/adventures/pati-valley-4-days-capao-way', es: '/es/aventuras/valle-del-pati-4-dias-via-capao', fr: '/fr/aventures/vallee-du-pati-4-jours-par-capao' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

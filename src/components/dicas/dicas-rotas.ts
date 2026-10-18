@@ -1,7 +1,7 @@
 /**
  * As quatro páginas da seção de dicas e o caminho de cada uma por idioma.
  *
- * "Como chegar" É a página da seção (`/dicas`, `/tips`, `/consejos`); as outras
+ * "Como chegar" É a página da seção (`/dicas`, `/tips`, `/consejos`, `/conseils`); as outras
  * três ficam na raiz do idioma, com os mesmos slugs do site atual. Como a regra
  * não é uniforme, o caminho vem declarado inteiro em vez de montado a partir de
  * um segmento.
@@ -25,6 +25,7 @@ export const DICAS_SEGMENT: Record<Locale, string> = {
   pt: 'dicas',
   en: 'tips',
   es: 'consejos',
+  fr: 'conseils',
 };
 
 export const DICAS_PATHS: Record<Locale, Record<DicasPageId, string>> = {
@@ -45,6 +46,12 @@ export const DICAS_PATHS: Record<Locale, Record<DicasPageId, string>> = {
     'informacoes-gerais': '/es/informacion-general',
     'classificacao-de-nivel': '/es/clasificacion-de-nivel',
     geologia: '/es/geologia-de-la-chapada-diamantina',
+  },
+  fr: {
+    'como-chegar': '/fr/conseils',
+    'informacoes-gerais': '/fr/informations-generales',
+    'classificacao-de-nivel': '/fr/classification-des-niveaux',
+    geologia: '/fr/geologie-de-la-chapada-diamantina',
   },
 };
 

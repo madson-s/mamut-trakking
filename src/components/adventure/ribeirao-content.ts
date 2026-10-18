@@ -11,6 +11,9 @@
  *
  * ⚠️ A faixa do topo marca "1 dia", mas o próprio itinerário sai às 8h00 e
  * volta às 13h00. Usei "Meio dia", como na página da Cachoeira do Mosquito.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -265,6 +268,83 @@ export const RIBEIRAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para bajar', 'el tobogán de piedra?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Ribeirão do Meio',
+      description:
+        'Une marche facile de 7 km au départ du centre de Lençóis jusqu’à une grande piscine naturelle avec un toboggan de roche polie. Une demi-journée, idéale en famille.',
+      canonical: '/fr/aventures/ribeirao-do-meio',
+    },
+    hero: {
+      nivel: 'Facile',
+      origem: 'Départ : Lençóis',
+      duracao: 'Demi-journée',
+      titulo: 'Ribeirão do Meio.',
+      lead: 'Une immense piscine naturelle avec un toboggan de roche polie, à 40 minutes de marche du centre.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Durée', 'Départ (Lençóis)', 'Retour prévu', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du Ribeirão do Meio.',
+      paragrafos: [
+        'Sept kilomètres au total, sur terrain plat, au départ même du centre de Lençóis. C’est le sentier le plus accessible que nous proposons, et celui qui convient le mieux aux enfants.',
+        'Sur place, un très grand bassin naturel et, sur l’un de ses bords, une roche lentement polie par le passage de l’eau — le toboggan naturel qui a fait la réputation du lieu. Aux alentours, d’autres bassins moins profonds.',
+        'Le chemin traverse la transition entre des vestiges de forêt atlantique et les champs rupestres, au milieu de plantes médicinales, de broméliacées et de cactus. Environ 40 minutes de marche jusqu’au bassin.',
+        'Le Ribeirão do Meio peut se combiner le même jour avec le parc de la Muritiba, le Morro do Pai Inácio ou la cascade du Mosquito. Contactez notre équipe pour composer la combinaison.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ à partir de 8h00 du centre de Lençóis. Du centre au Ribeirão do Meio, il y a 3,5 km, presque entièrement sur terrain plat et sans grands obstacles.',
+        'Pendant la marche, le paysage change : les vestiges de forêt atlantique cèdent la place aux champs rupestres, avec des fleurs, des cactus et des plantes médicinales le long du chemin.',
+        'Après environ 40 minutes, on arrive au bassin — une grande piscine naturelle bordée par la roche polie.',
+        'Consignes du guide et gilet de sauvetage avant d’entrer dans l’eau. Ensuite, chacun peut profiter du bassin principal et du toboggan naturel ; aux alentours, il y a des bassins moins profonds.',
+        'Le retour se fait par le même chemin, avec une arrivée prévue vers 13h00.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 175', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 145', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1 L par personne)', 'Baskets ou chaussures de randonnée', 'Vêtements légers', 'Maillot de bain', 'Casquette ou chapeau'],
+          ['Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires', 'Serviette'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Tongs', 'Appareil photo']],
+        note: 'Un itinéraire court, à pied depuis le centre : vous pouvez voyager léger. L’essentiel, ce sont des chaussures fermées, de l’eau et un maillot de bain.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide local agréé formé aux premiers secours (APH)', 'Gilet de sauvetage', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Transfert (en option)', 'Pique-nique (en option)', 'En-cas ou déjeuner', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      safetyFaq(
+        'fr',
+        'Le toboggan est une roche polie par l’eau, donc glissante par définition — c’est ce qui le rend amusant et ce qui exige des consignes. Le gilet de sauvetage est fourni et obligatoire dans le bassin principal, adultes compris. La descente n’a lieu qu’après le briefing du guide.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à descendre', 'le toboggan de pierre ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

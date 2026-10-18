@@ -11,6 +11,9 @@
  * ⚠️ A página também se contradiz sobre a alimentação: o cartão de preços lista
  * "Almoço (opcional)" como não incluso, mas a aba "O que está incluso" traz
  * "Alimentação". Segui o cartão, que é o que o cliente lê primeiro.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -268,6 +271,84 @@ export const BURACAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para nadar', 'hasta la cascada?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Cascade du Buracão',
+      description:
+        'Plus de 80 mètres de chute au fond d’un canyon, dans un bassin aux eaux sombres. Un sentier de 6 km dans le parc naturel municipal do Espalhado, à Ibicoara.',
+      canonical: '/fr/aventures/cascade-du-buracao',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Ibicoara',
+      duracao: '1 jour',
+      titulo: 'Cascade du Buracão.',
+      lead: 'Quatre-vingts mètres de chute au fond d’un canyon — le dernier tronçon se fait à la nage.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Hauteur de la chute', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade du Buracão.',
+      paragrafos: [
+        'L’une des cascades les plus impressionnantes de la Chapada Diamantina : plus de 80 mètres de chute au cœur d’un canyon fermé, dans un bassin aux eaux sombres idéal pour la baignade.',
+        'Ce qui la rend unique, c’est l’arrivée. Au bord du canyon, le groupe descend un escalier en bois jusqu’à la rivière et, à partir de là, on avance à la nage ou en escaladant les rochers jusqu’à ce que la cascade apparaisse face à vous.',
+        'Sur place, il est possible de descendre en rappel jusqu’au pied de la chute — activité en supplément, non incluse. Elle est encadrée avec notre propre équipement et n’a jamais connu d’incident.',
+        'Pendant les randonnées, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ du centre de Lençóis à 6h00, avec 10 minutes de tolérance, en direction d’Ibicoara — où se trouve l’entrée du parc naturel municipal do Espalhado. Environ 250 km et 3 heures de route.',
+        'Arrivée à Ibicoara et préparation pour la randonnée. 3 km de marche jusqu’au sommet de la cascade, avec quelques passages raides et des escaliers, mais sur un terrain relativement facile.',
+        'En chemin, pause rafraîchissante à la cascade du Recanto Verde et à la cascade das Orquídeas.',
+        'Au sommet, la vue s’ouvre sur le canyon. Ceux qui le souhaitent descendent en rappel jusqu’au pied — en option, R$ 220.',
+        'Au bord du canyon, le groupe descend un escalier en bois jusqu’à la rivière. De là, on continue à la nage ou en escaladant les rochers jusqu’à la cascade du Buracão, où l’on peut se baigner dans le bassin.',
+        'Retour par le même chemin jusqu’à l’entrée du parc, avec un déjeuner typique de la région préparé par des habitants. Retour à Lençóis vers 20h00.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 820', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 750', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Vêtements légers', 'Maillot de bain', 'Casquette ou chapeau'],
+          ['Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires', 'Chaussettes de rechange'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Serviette'], ['En-cas ou fruit', 'Sac étanche pour l’appareil photo', 'Vêtements secs de rechange']],
+        note: 'Le dernier tronçon se fait dans l’eau : protégez votre appareil photo dans un sac étanche et attendez-vous à ressortir mouillé de la cascade.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide local bilingue', 'Droit d’entrée du parc', 'Assurance aventure', 'Gilet de sauvetage', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Déjeuner (en option)', 'Rappel (en option, R$ 220)', 'Équipement personnel', 'Boissons supplémentaires', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      safetyFaq(
+        'fr',
+        'Le dernier tronçon jusqu’à la cascade se fait à la nage ou en escaladant les rochers de la rivière, et la descente jusqu’au lit se fait par un escalier en bois. Le gilet de sauvetage est fourni et obligatoire pour la traversée. Si vous n’êtes pas à l’aise dans l’eau, vous pouvez attendre en haut du canyon, d’où la vue vaut déjà la marche.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à nager', 'jusqu’à la cascade ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

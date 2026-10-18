@@ -8,12 +8,10 @@ const BASE = SITE.url;
 export default function sitemap(): MetadataRoute.Sitemap {
   const entries: MetadataRoute.Sitemap = [];
 
-  // A home é a única página também em francês: o hreflang dela inclui `fr`.
-  const homeLangs = { ...langMap((l) => `${BASE}/${l}`), fr: `${BASE}/fr` };
+  const homeLangs = langMap((l) => `${BASE}/${l}`);
   const hubLangs = langMap((l) => `${BASE}/${l}/${ADVENTURE_SEGMENT[l]}`);
 
   // Home + hub de aventuras, em cada idioma, com hreflang entre as versões.
-  entries.push({ url: `${BASE}/fr`, alternates: { languages: homeLangs } });
   for (const locale of LOCALES) {
     entries.push({ url: `${BASE}/${locale}`, alternates: { languages: homeLangs } });
     entries.push({
@@ -27,21 +25,27 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/pt/sobre` });
   entries.push({ url: `${BASE}/en/about` });
   entries.push({ url: `${BASE}/es/quienes-somos` });
+  entries.push({ url: `${BASE}/fr/a-propos` });
   entries.push({ url: `${BASE}/pt/manifesto` });
   entries.push({ url: `${BASE}/en/manifesto` });
   entries.push({ url: `${BASE}/es/manifiesto` });
+  entries.push({ url: `${BASE}/fr/manifeste` });
   entries.push({ url: `${BASE}/pt/contato` });
   entries.push({ url: `${BASE}/en/contact` });
   entries.push({ url: `${BASE}/es/contacto` });
+  entries.push({ url: `${BASE}/fr/contact` });
   entries.push({ url: `${BASE}/pt/calendario-e-grupos` });
   entries.push({ url: `${BASE}/en/calendar-and-groups` });
   entries.push({ url: `${BASE}/es/calendario-y-grupos` });
+  entries.push({ url: `${BASE}/fr/calendrier-et-groupes` });
   entries.push({ url: `${BASE}/pt/perguntas-frequentes` });
   entries.push({ url: `${BASE}/en/faq` });
   entries.push({ url: `${BASE}/es/preguntas-frecuentes` });
+  entries.push({ url: `${BASE}/fr/questions-frequentes` });
   entries.push({ url: `${BASE}/pt/politica-de-privacidade` });
   entries.push({ url: `${BASE}/en/privacy-policy` });
   entries.push({ url: `${BASE}/es/politica-de-privacidad` });
+  entries.push({ url: `${BASE}/fr/politique-de-confidentialite` });
   entries.push({ url: `${BASE}/pt/torus-festival-chapada-diamantina-2026` });
   // As quatro páginas da seção de dicas, em cada idioma. `/dicas` em si só
   // redireciona, então fica de fora.

@@ -2,7 +2,7 @@
  * Travessia do Vale do Pati em 4 dias (entrada e saída por Guiné).
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-4-dias e EN de
- * mamut.agency/en/aventuras/pati-valley-4-days. ES é tradução feita aqui.
+ * mamut.agency/en/aventuras/pati-valley-4-days. ES e FR são tradução feita aqui.
  *
  * Não confundir com a de 4 dias **via Capão**, que sai de Palmeiras e termina
  * no Vale do Capão — é outro produto, em `pati-4-capao-content`.
@@ -253,16 +253,83 @@ const VARIANTS: Record<Locale, PatiVariant> = {
     },
     safetyWarning: 'El 2º día es el más exigente: 250 metros de subida en 60 a 80 minutos para pasar los 1.200 m. El 4º es el más largo, con 23 km, pero de dificultad técnica baja. Quien tenga dudas sobre su preparación debería hablar con atención antes de cerrar.',
   },
+  fr: {
+    meta: {
+      title: 'Vallée du Pati en 4 jours',
+      description:
+        'Traversée guidée de 62 km dans la vallée du Pati, avec le Morro do Castelo, la cascade du Calixto et le Mirante do Cachoeirão, chacun sur sa propre journée.',
+      canonical: '/fr/aventures/vallee-du-pati-4-jours',
+      ogDescription: 'Quatre jours pour toute la vallée, sans jamais se presser.',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Lençóis',
+      titulo: { antes: 'Vallée du Pati en', destaque: '4 jours.' },
+      lead: { antes: 'Quatre jours pour toute la vallée, sans se presser', destaque: 'un seul instant.' },
+      apoio: 'Castelo, Calixto et Cachoeirão, chacun sur sa propre journée. Hébergement chez l’habitant.',
+      saida: 'Départ de Lençóis à 6h00',
+    },
+    story: {
+      titulo: ['Toute la vallée,', 'avec du temps pour chaque étape.'],
+      paragrafos: [
+        'Le plus beau trek du Brésil, au cœur du parc national de la Chapada Diamantina, entouré de montagnes, de cascades et de grottes. Dans cette version de quatre jours, chaque grand site a sa propre journée au lieu de partager la sienne.',
+        'Vous contemplez des montagnes lointaines, vous baignez dans l’eau fraîche des cascades, entrez dans des grottes, écoutez les histoires des anciens habitants de la vallée et goûtez le meilleur de la cuisine locale chez l’habitant. Un spectacle à la fois naturel, historique, géologique et culturel.',
+      ],
+      outrasVersoes: 'La vallée existe aussi en 3 et 5 jours.',
+      relacionados: [
+        { titulo: 'Vallée du Pati · 3 jours', nivel: 'Modéré', href: '/fr/aventures/vallee-du-pati-3-jours' },
+        { titulo: 'Vallée du Pati · 5 jours', nivel: 'Avancé', href: '/fr/aventures/vallee-du-pati-5-jours' },
+      ],
+    },
+    dias: [
+      {
+        day: 'Jour 1', level: 'Modéré', lead: '6h départ',
+        body: ' de Lençóis → 8h Vila do Guiné → 3h de sentier (1h de montée raide + 2h de plat) jusqu’au Mirante da Rampa → collation → +1h30 jusqu’aux cascades Funis, Altina et Bananeiras → 17h hébergement → 19h dîner.',
+        note: 'Nous vous conseillons de prendre le petit-déjeuner à l’arrivée plutôt qu’avant de partir.',
+      },
+      {
+        day: 'Jour 2', level: 'Modéré / Élevé', lead: '8h départ',
+        body: ' vers le Morro do Castelo, avec seulement les affaires de la journée. C’est le jour le plus exigeant : 250 m de dénivelé pour dépasser 1 200 m d’altitude, entre 60 et 80 minutes de montée. Au sommet, deux belvédères et l’entrée de la grotte de la Lapinha. Retour par le même chemin et, s’il reste du temps, une cascade près de l’hébergement.',
+        note: 'Aller-retour : nous dormons dans la même maison.',
+      },
+      {
+        day: 'Jour 3', level: 'Modéré / Élevé', lead: '8h départ',
+        body: ' après un petit-déjeuner copieux, vers la cascade du Calixto. Il faut environ 2h30 en forêt dense, en sautant de rocher en rocher, pour y arriver. Le retour se fait par le même chemin.',
+        note: 'L’un des coins les moins visités du Pati.',
+      },
+      {
+        day: 'Jour 4', level: 'Modéré / Élevé', lead: '8h départ',
+        body: ' et adieux à l’hébergement. Environ 3h de marche (2h en terrain accidenté + 1h de plat) jusqu’au Mirante do Cachoeirão, haut de 280 m. À la saison des pluies, on peut y contempler quelque 16 cascades autour de la vallée. Après la collation, retour partiel par le même chemin puis bifurcation vers la sortie du sentier, où la voiture attend.',
+        note: 'Difficulté technique faible — l’effort, c’est la distance.',
+      },
+    ],
+    landmarks: [
+      { titulo: 'Mirante da Rampa', apoio: 'Le plus traditionnel de la vallée' },
+      { titulo: 'Cascades Funis, Altina et Bananeiras', apoio: 'Trois dès le premier jour' },
+      { titulo: 'Morro do Castelo', apoio: 'Plus de 1 200 m d’altitude' },
+      { titulo: 'Grotte de la Lapinha', apoio: 'Parmi les grottes les plus rares au-dessus de 1 000 m' },
+      { titulo: 'Cascade du Calixto', apoio: 'Forêt dense et lit de roche' },
+      { titulo: 'Mirante do Cachoeirão', apoio: '280 m — jusqu’à 16 cascades sous la pluie' },
+    ],
+    included: {
+      title: 'Ce qui est inclus / non inclus',
+      included: ['Guide de montagne agréé formé aux premiers secours (APH)', 'Hébergement chez l’habitant dans le Pati (3 nuits)', 'Transfert Lençóis › Guiné › Lençóis', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après la randonnée'],
+      excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Transferts depuis Salvador', 'Équipement personnel', 'Évacuation médicale'],
+    },
+    safetyWarning: 'Le 2e jour est le plus exigeant : 250 mètres de dénivelé en 60 à 80 minutes pour dépasser 1 200 m. Le 4e est le plus long, avec 23 km, mais de faible difficulté technique. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver.',
+  },
 };
 
 export const PATI4_CONTENT = {
   pt: buildPatiContent('pt', VARIANTS.pt),
   en: buildPatiContent('en', VARIANTS.en),
   es: buildPatiContent('es', VARIANTS.es),
+  fr: buildPatiContent('fr', VARIANTS.fr),
 };
 
 export const PATI4_FAQS = {
   pt: buildPatiFaqs('pt', VARIANTS.pt),
   en: buildPatiFaqs('en', VARIANTS.en),
   es: buildPatiFaqs('es', VARIANTS.es),
+  fr: buildPatiFaqs('fr', VARIANTS.fr),
 };

@@ -343,4 +343,107 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade du Palmital — 2 jours',
+      description:
+        'Deux jours sur les sentiers rustiques de l’ancien garimpo, en dormant sous tente au bord de la rivière. Cascade du Palmital et cascade du Capivara.',
+      canonical: '/fr/aventures/cascade-du-palmital',
+    },
+    hero: {
+      nivel: 'Modéré / Élevé',
+      origem: 'Départ : Lençóis',
+      duracao: '2 jours',
+      titulo: 'Cascade du Palmital.',
+      lead: 'Deux jours sur les routes de l’ancien garimpo, en dormant sous tente au bord de la rivière.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Cascades', 'Où l’on dort', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade du Palmital.',
+      paragrafos: [
+        'L’une des routes les plus traditionnelles du garimpo (l’orpaillage diamantaire) dans la Chapada Diamantina, avec deux cascades : celle du Palmital et celle du Capivara. Les sentiers sont rustiques et anciens, à l’intérieur du parc national, avec des passages accidentés et glissants.',
+        'La marche raconte le quotidien et les techniques de l’ancienne extraction de diamants dans la région — on dort d’ailleurs dans les anciennes « tocas », les abris sous roche des chercheurs de diamants. C’est un itinéraire d’immersion autant naturelle que culturelle.',
+        'C’est la bonne option pour qui dispose de peu de jours dans la Chapada et veut un trek sauvage, ou pour qui cherche à éviter la foule : celui-ci est vraiment tranquille.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.fr,
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent. Ce trek est flexible et admet plusieurs points d’entrée et de sortie — renseignez-vous auprès de nous sur les options.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Serra do Veneno + Toca da Onça + cascade du Palmital',
+          corpo: 'Départ à partir de 6 h du centre de Lençóis, avec toutes vos affaires, en direction du sentier du Ribeirão do Meio. 40 minutes sur un terrain majoritairement plat jusqu’à la rivière Ribeirão, que l’on traverse pour attaquer la montée de la Serra do Veneno — une ancienne exploitation de chercheurs de diamants, environ 2 heures de montée soutenue. Premier arrêt à la Toca da Onça, un belvédère d’où l’on voit la cascade du Capivari et la confluence des rivières Capivara et Capivari. Encore 1 heure jusqu’au camp de base, à la cascade du Palmital, et le reste de la journée appartient à la cascade. Dîner vers 19 h.',
+          distancia: '9 km',
+          esforco: 'Modéré / Élevé',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'Cascade du Capivara + Ribeirão do Meio',
+          corpo: 'Après le petit-déjeuner préparé par le guide, nous remontons la rivière principale pendant 30 minutes — avec seulement un sac léger — jusqu’à la cascade du Capivara, où nous passons le reste de la matinée. Après le pique-nique du déjeuner, nous plions le camp et revenons par le même chemin, en repassant par la Toca da Onça et la Serra do Veneno. À la descente, arrêt au Ribeirão do Meio et à son toboggan naturel poli dans la roche. Encore 40 minutes et nous voilà de retour au centre de Lençóis, vers 17 h.',
+          distancia: '13 km',
+          esforco: 'Faible / Modéré',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 1.600', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 1.350', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      wildTrekChecklist('fr', WILD_TREK_PORTER.fr),
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne formé aux premiers secours (APH)', 'Camping : tente, sac de couchage et tapis isolant', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après le sentier'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Dîner du 2e jour', 'Transfert depuis Salvador (en option)', 'Porteur personnel ou mules (en option)', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Hébergement et repas avant ou après le trek', 'Pourboires pour services supplémentaires'],
+      },
+      safetyFaq(
+        'fr',
+        'Les sentiers sont rustiques, avec des passages accidentés et glissants — cet itinéraire demande une bonne condition physique. Dormir sous tente à l’intérieur du parc national signifie n’avoir aucune infrastructure à proximité : c’est pourquoi la lampe frontale et la protection de pluie sont obligatoires, et non simplement recommandés.',
+      ),
+      {
+        type: 'technical',
+        title: 'Fiche technique et conditions',
+        facts: [
+          ['Catégorie', 'Trek avec nuit sous tente'],
+          ['Distance à pied', '22 km'],
+          ['Trajet en voiture', '1 km'],
+          ['Dénivelé positif', '460 m'],
+          ['Altitude maximale', '850 m'],
+          ['Points d’intérêt', 'Palmital, Capivara et Toca da Onça'],
+          ['Lieux de baignade', '2'],
+          ['Départ / retour', '6 h / 19 h'],
+        ],
+        requirements: [
+          'Avoir plus de 18 ans. Les mineurs uniquement accompagnés de leur responsable légal.',
+          'Condition physique pour des montées et descentes raides sur terrain accidenté, des traversées de rivières et de ruisseaux, des passages de désescalade et de longues distances.',
+          'Signaler toute restriction alimentaire à la réservation.',
+          'Les tarifs peuvent changer — les réservations déjà confirmées ne sont pas réajustées.',
+        ],
+        documents: [
+          ['Décharge de responsabilité (PDF, en portugais)', '/docs/termo-de-responsabilidade.pdf'],
+          ['Classification des niveaux des activités', '/fr/classification-des-niveaux'],
+        ],
+        labels: { requirements: 'Conditions', documents: 'Documents' },
+      },
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    relacionados: { titulo: 'Autres aventures.', ids: ['trilha-aguas-claras-2-dias', 'city-tour-em-lencois', 'fazenda-pratinha-gruta-azul'] },
+    cta: {
+      titulo: ['Prêt à dormir', 'au bord de la rivière ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

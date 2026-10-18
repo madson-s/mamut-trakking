@@ -5,7 +5,7 @@
  * PT vem de mamut.agency/pacote-personalizado/pacote-{3,4,6}-dias e EN de
  * mamut.agency/en/pacote-personalizado/{3-days-package-chapada-special,
  * 4-days-package-stunning-chapada, 6-days-package-extraordinary-chapada}.
- * ES é tradução feita aqui.
+ * ES e FR são traduções feitas aqui.
  *
  * Os pacotes são combinações de passeios que o site já tem em página própria
  * (Muritiba, Mosquito + Pai Inácio, Grutas + Pratinha, Marimbus, Vale do Pati,
@@ -163,6 +163,26 @@ const DIAS_BASE: Record<Locale, [Omit<Dia, 'rotulo'>, Omit<Dia, 'rotulo'>, Omit<
       esforco: 'Leve',
     },
   ],
+  fr: [
+    {
+      titulo: 'Parc de la Muritiba',
+      corpo: 'Le départ peut se faire à n’importe quelle heure entre 8h00 et 14h00 — le circuit prend 4 à 5 heures et commence au Centre d’accueil touristique (CAT), qui offre déjà un panorama de tout le parcours. En 5 minutes, nous arrivons aux piscines naturelles du Serrano, avec leurs conglomérats polis par l’eau et leurs petites cascades. Encore 15 minutes et nous entrons dans le labyrinthe du Salão das Areias Coloridas, où l’infiltration de l’eau a rendu la roche poreuse et sableuse. Viennent ensuite le Poço Halley, avec ses argiles colorées pour s’amuser, la cascade da Primavera, le Poço Paraíso et le belvédère de Lençóis, d’où l’on voit toute la ville et un horizon qui semble sans fin. La descente se termine à la Cachoeirinha, aux eaux cristallines.',
+      distancia: '4 km',
+      esforco: 'Facile / Modéré',
+    },
+    {
+      titulo: 'Cascade du Mosquito + Poço do Diabo + Morro do Pai Inácio',
+      corpo: 'Départ de Lençóis à 8h00 vers la Fazenda Santo Antônio : 40 km en voiture, environ 1 heure, puis 700 mètres de marche jusqu’au pied de la cascade du Mosquito. Après la baignade, encore 28 km jusqu’à l’espace de baignade du Mucugêzinho et 15 minutes à pied jusqu’au Poço do Diabo, une immense piscine naturelle aux eaux sombres et glacées, où nous restons jusqu’à 16h00. Encore 5 km en voiture et une montée de 300 mètres, une vingtaine de minutes, jusqu’au sommet du Morro do Pai Inácio — là-haut, le guide raconte la légende qui a donné son nom au morro. Le retour à Lençóis se fait par la BR-242, la serra à vos côtés.',
+      distancia: '4 km',
+      esforco: 'Facile',
+    },
+    {
+      titulo: 'Gruta da Fumaça + Pratinha + Gruta Azul + Morro do Camelo',
+      corpo: 'Départ à 8h00 pour Iraquara, à 1 heure de Lençóis. Premier arrêt : la Gruta da Fumaça, l’une des grottes les plus riches du Brésil en formations. De là, nous rejoignons la Fazenda Pratinha, sur la rivière du même nom — snorkeling, photo sous-marine, kayak et tyrolienne sont en option, à régler sur place. À 15h00, nous entrons dans la Gruta Azul, où la lumière de l’après-midi offre le spectacle. Vers 16h30, encore 40 minutes de voiture jusqu’au belvédère du Morro do Camelo, pour le coucher du soleil. Arrivée à Lençóis vers 18h30.',
+      distancia: '2 km',
+      esforco: 'Facile',
+    },
+  ],
 };
 
 const DIA_MARIMBUS: Record<Locale, Omit<Dia, 'rotulo'>> = {
@@ -184,12 +204,19 @@ const DIA_MARIMBUS: Record<Locale, Omit<Dia, 'rotulo'>> = {
     distancia: '8 km',
     esforco: 'Leve',
   },
+  fr: {
+    titulo: 'Marais de Marimbus + piscines du Roncador',
+    corpo: 'Départ à 8h00 pour la communauté quilombola du Remanso, à 20 km. De là, nous partons en canoë sur 9 km — environ 2 heures — à travers le marais de Marimbus, avec la chance d’apercevoir anacondas, caïmans et singes hurleurs, sans compter de nombreux oiseaux et plantes aquatiques. Nous débarquons et marchons 30 minutes jusqu’aux piscines naturelles du Roncador. En milieu d’après-midi, un sentier de 40 minutes nous ramène à la voiture.',
+    distancia: '8 km',
+    esforco: 'Facile',
+  },
 };
 
 const ROTULO: Record<Locale, (n: number) => string> = {
   pt: (n) => `${n}º dia`,
   en: (n) => `Day ${n}`,
   es: (n) => `${n}º día`,
+  fr: (n) => `Jour ${n}`,
 };
 
 function numerar(locale: Locale, dias: Omit<Dia, 'rotulo'>[]): Dia[] {
@@ -317,6 +344,38 @@ const COMUM: Record<
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    hero: { origem: 'Départ : Lençóis', apartirDe: 'À partir de', porPessoa: '/ personne', reservar: 'Réserver sur WhatsApp' },
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en fonction de la météo ou de tout cas de force majeure que l’équipe jugerait important. Le forfait est aussi personnalisable : vous voulez changer une journée ou composer une autre combinaison ? Parlez-en avec nous.',
+    },
+    precosTitulo: 'Choisissez la formule idéale pour votre groupe.',
+    precosNota: 'Tarifs par personne pour un paiement en espèces, par virement ou par boleto. Carte bancaire, virement international ou groupe plus nombreux : contactez-nous.',
+    privado: { titulo: 'Forfait privé', nota: 'Minimum 2 personnes. Uniquement votre groupe sur l’itinéraire.' },
+    grupo: { titulo: 'En groupe', nota: 'De 2 à 7 personnes. Conditions spéciales pour les groupes — renseignez-vous.' },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    relacionados: 'Autres aventures.',
+    checklistTitulo: 'Checklist — quoi emporter',
+    checklistIntro: 'Les articles obligatoires sont vérifiés avant les activités : l’absence d’un seul d’entre eux empêche la participation.',
+    incluidoTitulo: 'Ce qui est inclus / non inclus',
+    tecnicaTitulo: 'Fiche technique et conditions',
+    labels: { requirements: 'Conditions', documents: 'Documents' },
+    documentos: [
+      ['Décharge de responsabilité (PDF)', '/docs/termo-de-responsabilidade.pdf'],
+      ['Classification des niveaux des activités', '/fr/classification-des-niveaux'],
+    ],
+    requisitosFinais: [
+      'Avoir plus de 18 ans. Les mineurs uniquement accompagnés de leur représentant légal.',
+      'Signaler toute restriction alimentaire lors de la réservation.',
+      'Les tarifs peuvent changer — les réservations déjà confirmées ne sont pas réajustées.',
+    ],
+    cta: {
+      titulo: ['Quelques jours,', 'toute la Chapada.'],
+      corpo: 'Dites-nous combien vous êtes, les dates que vous envisagez et ce que vous voulez voir avant tout — nous composons le forfait avec vous.',
+      botao: 'Parler avec Mamut',
+    },
+  },
 };
 
 /** Checklist dos pacotes sem pernoite em trilha (3 e 4 dias). */
@@ -345,6 +404,14 @@ const CHECKLIST_LEVE: Record<Locale, Pick<Extract<PatiFaqItem, { type: 'checklis
     recommendedColumns: [['Toalla fina', 'Piloto de lluvia (consultá con nosotros)', 'Bastón de caminata'], ['Snack o fruta', 'Dinero para bebidas']],
     note: 'Todos los días hay baño de cascada o de pozo: llevá la malla y la toalla en la mochila de ataque.',
   },
+  fr: {
+    requiredColumns: [
+      ['Eau (1,5 L par personne)', 'Chaussures ou bottes de randonnée', 'Chaussettes de rechange', 'Deux tenues légères de rechange', 'Maillot de bain', 'Casquette ou chapeau'],
+      ['Crème solaire', 'Anti-moustiques', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires', 'Lampe frontale ou torche'],
+    ],
+    recommendedColumns: [['Serviette fine', 'Imperméable (renseignez-vous auprès de l’agence)', 'Bâton de marche'], ['En-cas ou fruit', 'Espèces pour les boissons']],
+    note: 'Chaque jour, il y a une baignade en cascade ou en bassin : gardez maillot et serviette dans votre petit sac à dos.',
+  },
 };
 
 const INCLUIDO_LEVE: Record<Locale, { included: string[]; excluded: string[] }> = {
@@ -360,18 +427,24 @@ const INCLUIDO_LEVE: Record<Locale, { included: string[]; excluded: string[] }> 
     included: ['Conductor de turismo de Mamut', 'Traslado Lençóis × atractivos', 'Tasas de acceso en todos los atractivos', 'Seguro de aventura', 'Botiquín de primeros auxilios'],
     excluded: ['Cualquier ítem no listado', 'Alojamiento — si lo necesitás, lo incluimos', 'Actividades opcionales de la Fazenda Pratinha (flotación, kayak, tirolesa)', 'Bebidas extra', 'Equipo personal', 'Evacuación médica', 'Porteadores personales', 'Hoteles y comidas antes y después de las actividades', 'Propinas por servicios adicionales (fotos y otras ayudas)'],
   },
+  fr: {
+    included: ['Guide touristique de Mamut', 'Transferts entre Lençóis et les sites', 'Droits d’entrée sur tous les sites', 'Assurance aventure', 'Trousse de premiers secours'],
+    excluded: ['Tout ce qui n’est pas listé', 'Hébergement — si besoin, nous l’ajoutons', 'Activités optionnelles de la Fazenda Pratinha (snorkeling, kayak, tyrolienne)', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Porteurs personnels', 'Hôtels et repas avant et après les activités', 'Pourboires pour services supplémentaires (photos et autres aides)'],
+  },
 };
 
 const RISCO_LEVE: Record<Locale, string> = {
   pt: 'São dias de carro com caminhadas curtas, mas há banho em poços fundos e gelados, como o Poço do Diabo, e pedra escorregadia na beira das cachoeiras. Entre na água com o grupo e siga a orientação do condutor.',
   en: 'These are days by car with short walks, but there are swims in deep, cold pools such as Poço do Diabo, and slippery rock around the waterfalls. Go into the water with the group and follow the guide’s lead.',
   es: 'Son días en auto con caminatas cortas, pero hay baños en pozos hondos y helados, como el Poço do Diabo, y piedra resbaladiza al borde de las cascadas. Entrá al agua con el grupo y seguí la indicación del conductor.',
+  fr: 'Ce sont des journées en voiture avec de courtes marches, mais on se baigne dans des bassins profonds et glacés, comme le Poço do Diabo, et la roche est glissante au bord des cascades. Entrez dans l’eau avec le groupe et suivez les consignes du guide.',
 };
 
 const FITNESS_LEVE: Record<Locale, string> = {
   pt: 'Condicionamento para subidas e descidas íngremes em terreno acidentado e travessia de riachos.',
   en: 'Fitness for steep ascents and descents on rough ground and for crossing streams.',
   es: 'Estado físico para subidas y bajadas empinadas en terreno accidentado y cruce de arroyos.',
+  fr: 'Une condition physique permettant d’enchaîner montées et descentes raides sur terrain accidenté et de traverser des ruisseaux.',
 };
 
 /** Monta a página de um pacote "leve" (3 ou 4 dias, base em Lençóis). */
@@ -393,11 +466,12 @@ function pacoteLeve(
   const c = COMUM[locale];
   return {
     meta: p.meta,
-    hero: { ...c.hero, nivel: { pt: 'Leve / Moderado', en: 'Light / Moderate', es: 'Leve / Moderado' }[locale], duracao: p.duracao, titulo: p.titulo, lead: p.lead },
+    hero: { ...c.hero, nivel: { pt: 'Leve / Moderado', en: 'Light / Moderate', es: 'Leve / Moderado', fr: 'Facile / Modéré' }[locale], duracao: p.duracao, titulo: p.titulo, lead: p.lead },
     stats: {
       pt: ['Distância a pé', 'Percurso de carro', 'Atrativos', 'Saída (Lençóis)', 'Retorno'],
       en: ['Distance on foot', 'Drive', 'Sights', 'Departure (Lençóis)', 'Return'],
       es: ['Distancia a pie', 'Recorrido en auto', 'Atractivos', 'Salida (Lençóis)', 'Regreso'],
+      fr: ['Distance à pied', 'Trajet en voiture', 'Sites', 'Départ (Lençóis)', 'Retour'],
     }[locale],
     sobre: p.sobre,
     itinerario: { ...c.itinerario, corpo: [], dias: numerar(locale, p.dias) },
@@ -437,6 +511,7 @@ const ATRATIVOS_3: Record<Locale, string> = {
   pt: 'Parque da Muritiba, Salão das Areias Coloridas, Cachoeira da Primavera, Cachoeirinha, Cachoeira do Mosquito, Poço do Diabo, Rio Mucugêzinho, Morro do Pai Inácio, Fazenda Pratinha, Gruta Azul, Gruta da Fumaça e Mirante do Morro do Camelo',
   en: 'Muritiba Park, Salão das Areias Coloridas, Primavera Waterfall, Cachoeirinha, Mosquito Waterfall, Poço do Diabo, Mucugêzinho River, Pai Inácio Hill, Fazenda Pratinha, Blue Cave, Gruta da Fumaça and the Morro do Camelo lookout',
   es: 'Parque da Muritiba, Salão das Areias Coloridas, Cascada de la Primavera, Cachoeirinha, Cascada del Mosquito, Poço do Diabo, Río Mucugêzinho, Morro do Pai Inácio, Fazenda Pratinha, Gruta Azul, Gruta da Fumaça y Mirador del Morro do Camelo',
+  fr: 'Parc de la Muritiba, Salão das Areias Coloridas, cascade da Primavera, Cachoeirinha, cascade du Mosquito, Poço do Diabo, rivière Mucugêzinho, Morro do Pai Inácio, Fazenda Pratinha, Gruta Azul, Gruta da Fumaça et le belvédère du Morro do Camelo',
 };
 
 export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
@@ -530,6 +605,37 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ['Atractivos', ATRATIVOS_3.es],
       ['Alojamiento', 'No incluido — si lo necesitás, lo incluimos'],
       ['Salida / regreso', '8:00 / 18:00'],
+    ],
+    relacionados: ['chapada-deslumbrante-4-dias', 'chapada-extraordinaria-6-dias', 'vale-do-pati-3-dias'],
+  }),
+  fr: pacoteLeve('fr', {
+    meta: {
+      title: 'Forfait Chapada Spéciale — 3 jours',
+      description: 'Trois jours au départ de Lençóis : parc de la Muritiba, cascade du Mosquito, Morro do Pai Inácio, Gruta da Fumaça, Pratinha et le coucher du soleil au Morro do Camelo.',
+      canonical: '/fr/aventures/forfait-3-jours',
+    },
+    duracao: '3 jours',
+    titulo: 'Chapada Spéciale en 3 jours.',
+    lead: 'Cascades, grottes, belvédères et sentiers courts — le meilleur de la Chapada quand le temps est compté.',
+    sobre: {
+      titulo: 'À propos du forfait.',
+      paragrafos: [
+        'C’est le bon choix si votre séjour dans la Chapada Diamantina est court et que vous voulez découvrir les lieux les plus remarquables de la région. En trois jours, le forfait réunit randonnée, cascades, grottes et belvédères.',
+        'Tous les départs se font de Lençóis. La première journée se passe au parc de la Muritiba, aux portes de la ville : le guide y présente la Chapada — son histoire, sa géologie, l’époque des chercheurs de diamants et les curiosités de sa faune et de sa flore. C’est votre introduction à la région.',
+        'Les jours suivants, nous allons un peu plus loin, en voiture, avec de courtes marches : cascade du Mosquito, Poço do Diabo et Pai Inácio un jour ; Gruta da Fumaça, Pratinha, Gruta Azul et le coucher du soleil au Morro do Camelo le lendemain.',
+      ],
+    },
+    dias: [...DIAS_BASE.fr],
+    privado: 'R$ 1.750',
+    grupo: 'R$ 1.500',
+    facts: [
+      ['Catégorie', 'Excursions à la journée au départ de Lençóis'],
+      ['Distance à pied', '7 km'],
+      ['Trajet en voiture', '250 km'],
+      ['Niveau d’effort', 'Facile / Modéré'],
+      ['Sites', ATRATIVOS_3.fr],
+      ['Hébergement', 'Non inclus — si besoin, nous l’ajoutons'],
+      ['Départ / retour', '8h00 / 18h00'],
     ],
     relacionados: ['chapada-deslumbrante-4-dias', 'chapada-extraordinaria-6-dias', 'vale-do-pati-3-dias'],
   }),
@@ -630,6 +736,36 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
     ],
     relacionados: ['chapada-especial-3-dias', 'chapada-extraordinaria-6-dias', 'pantanal-marimbus'],
   }),
+  fr: pacoteLeve('fr', {
+    meta: {
+      title: 'Forfait Chapada Éblouissante — 4 jours',
+      description: 'Quatre jours au départ de Lençóis : Muritiba, Mosquito, Pai Inácio, Gruta da Fumaça, Pratinha et une journée en canoë à travers le marais de Marimbus jusqu’aux piscines du Roncador.',
+      canonical: '/fr/aventures/forfait-4-jours',
+    },
+    duracao: '4 jours',
+    titulo: 'Chapada Éblouissante en 4 jours.',
+    lead: 'Les grands classiques de la Chapada et une journée en canoë à travers le marais de Marimbus.',
+    sobre: {
+      titulo: 'À propos du forfait.',
+      paragrafos: [
+        'Pour celles et ceux qui ont peu de jours dans la Chapada Diamantina et veulent découvrir les lieux les plus remarquables de la région. En quatre jours, le forfait réunit randonnée, cascades, grottes, belvédères et une sortie en bateau.',
+        'Tous les départs se font de Lençóis. La première journée se passe au parc de la Muritiba, aux portes de la ville : le guide y présente la Chapada — son histoire, sa géologie, l’époque des chercheurs de diamants et les curiosités de sa faune et de sa flore.',
+        'Les jours suivants, nous allons un peu plus loin : cascade du Mosquito et Pai Inácio ; grottes, Pratinha et le coucher du soleil au Morro do Camelo ; et, pour finir, la traversée en canoë du marais de Marimbus jusqu’aux piscines du Roncador.',
+      ],
+    },
+    dias: [...DIAS_BASE.fr, DIA_MARIMBUS.fr],
+    privado: 'R$ 3.100',
+    facts: [
+      ['Catégorie', 'Excursions à la journée au départ de Lençóis'],
+      ['Distance à pied', '15 km'],
+      ['Trajet en voiture', '290 km'],
+      ['Niveau d’effort', 'Facile / Modéré'],
+      ['Sites', `${ATRATIVOS_3.fr.replace(' et le belvédère', ', le belvédère')}, le marais de Marimbus et les piscines du Roncador`],
+      ['Hébergement', 'Non inclus — si besoin, nous l’ajoutons'],
+      ['Départ / retour', '8h00 / 18h00'],
+    ],
+    relacionados: ['chapada-especial-3-dias', 'chapada-extraordinaria-6-dias', 'pantanal-marimbus'],
+  }),
 };
 
 /* ------------------------------------------------------------------------ */
@@ -640,6 +776,7 @@ const STATS_6: Record<Locale, string[]> = {
   pt: ['Distância a pé', 'Percurso de carro', 'Noites de hospedagem', 'Locais para banho', 'Saída (Lençóis)'],
   en: ['Distance on foot', 'Drive', 'Nights included', 'Places to swim', 'Departure (Lençóis)'],
   es: ['Distancia a pie', 'Recorrido en auto', 'Noches de alojamiento', 'Lugares para bañarse', 'Salida (Lençóis)'],
+  fr: ['Distance à pied', 'Trajet en voiture', 'Nuits d’hébergement', 'Lieux de baignade', 'Départ (Lençóis)'],
 };
 
 const DIAS_6: Record<Locale, Omit<Dia, 'rotulo'>[]> = {
@@ -757,6 +894,44 @@ const DIAS_6: Record<Locale, Omit<Dia, 'rotulo'>[]> = {
       esforco: 'Leve',
     },
   ],
+  fr: [
+    {
+      titulo: 'Belvédère du Pati + Igrejinha',
+      corpo: 'Départ de Lençóis à 7h30 pour le village de Guiné, où commence le sentier. Il faut environ 3 heures — 1 de montée raide et 2 sur terrain plat — pour atteindre le belvédère classique de la vallée du Pati. Après une collation, encore 1h30 jusqu’à l’Igrejinha, où seu João et sa famille accueillent le groupe dans leur maison d’hôtes.',
+      distancia: '12 km',
+      esforco: 'Modéré',
+    },
+    {
+      titulo: 'Morro do Castelo + cascades',
+      corpo: 'Après un petit-déjeuner copieux, départ à 8h00 vers le Morro do Castelo — la journée la plus exigeante, avec une montée à plus de 1 200 m d’altitude. Au sommet, trois belvédères et la Gruta da Lapinha, l’une des grottes les plus rares au monde, à plus de 1 000 m. Le retour se fait par un autre chemin, en passant par la cascade das Lajes et celle dos Funis, avec une arrivée à l’Igrejinha vers 18h00.',
+      distancia: '18 km',
+      esforco: 'Élevé',
+    },
+    {
+      titulo: 'Cachoeirão + Aleixos',
+      corpo: 'Au revoir à nos hôtes et départ à 8h00. Environ 3 heures jusqu’au belvédère du Cachoeirão, avec quelque 280 m de chute — à la saison des pluies, on peut compter jusqu’à 16 cascades autour de la vallée. Après la collation préparée par le guide, nous traversons les Gerais do Vieira jusqu’à la descente des Aleixos, où la voiture attend vers 17h00 pour le transfert jusqu’au Baixão, à Ibicoara.',
+      distancia: '15 km',
+      esforco: 'Modéré',
+    },
+    {
+      titulo: 'Cascade du Buracão + Recanto Verde + Orquídeas',
+      corpo: 'Trente minutes de voiture jusqu’au début du sentier, puis 3 km jusqu’au sommet de la cascade du Buracão, avec des baignades dans la cascade du Recanto Verde et celle das Orquídeas en chemin. Le sentier est tranquille, avec quelques passages raides et des escaliers. Au bord du canyon, un escalier en bois descend jusqu’à la rivière, et la suite se fait à la nage ou en escaladant jusqu’à la chute, avec un bassin cristallin pour nager. Au retour, déjeuner typique préparé par des habitants à l’entrée du parc, puis retour à l’hébergement au Baixão. Le rappel est en option.',
+      distancia: '6 km',
+      esforco: 'Facile / Modéré',
+    },
+    {
+      titulo: 'Cascade da Fumacinha + cascade du Encontro',
+      corpo: 'La marche commence dans le cerrado et suit sentiers et pistes de terre jusqu’au lit de la rivière, qui devient le chemin — avec des pauses baignade dans des bassins et de petites cascades. La dernière portion est la plus exigeante : on monte et on descend entre des canyons aux parois de plus de 100 m, et certains passages demandent un équipement de sécurité. À la Fumacinha, repos et contemplation ; le retour se fait par le même chemin. En fin d’après-midi, transfert du Baixão à Mucugê.',
+      distancia: '18 km',
+      esforco: 'Élevé',
+    },
+    {
+      titulo: 'Poço Encantado + Poço Azul',
+      corpo: 'La journée la plus légère, après des jours intenses. Après le petit-déjeuner, route vers le Poço Encantado, un immense bassin souterrain aux eaux cristallines qui s’illumine de bleu — ici, on ne fait que contempler : la baignade est interdite pour préserver les formations. Après le déjeuner, le Poço Azul, semblable, mais où l’on peut flotter au-dessus d’une vingtaine de mètres d’eau transparente ; on y a retrouvé des fossiles de paresseux géant et de tigre à dents de sabre. Enfin, environ 2 heures de voiture jusqu’à Lençóis, où le forfait se termine.',
+      distancia: 'Courtes marches',
+      esforco: 'Facile',
+    },
+  ],
 };
 
 const CHECKLIST_6: Record<Locale, Pick<Extract<PatiFaqItem, { type: 'checklist' }>, 'requiredColumns' | 'recommendedColumns' | 'note'>> = {
@@ -784,6 +959,14 @@ const CHECKLIST_6: Record<Locale, Pick<Extract<PatiFaqItem, { type: 'checklist' 
     recommendedColumns: [['Toalla fina', 'Bastón de caminata'], ['Snack o fruta', 'Dinero para bebidas']],
     note: 'En los tres días de Pati cargás tu propia mochila: cuanto más liviana, mejor. Si no querés cargar peso, consultá la opción de porteador o mula.',
   },
+  fr: {
+    requiredColumns: [
+      ['Eau (1,5 L par personne)', 'Chaussures ou bottes de randonnée', 'Chaussettes de rechange', 'Deux tenues légères de rechange', 'Maillot de bain', 'Tenue pour dormir (il peut faire 15 °C)', 'Casquette ou chapeau'],
+      ['Crème solaire', 'Anti-moustiques', 'Médicaments personnels', 'Pièce d’identité', 'Sac de trek (40 L ou plus)', 'Petit sac à dos (10 L ou plus)', 'Imperméable', 'Lampe frontale ou torche'],
+    ],
+    recommendedColumns: [['Serviette fine', 'Bâton de marche'], ['En-cas ou fruit', 'Espèces pour les boissons']],
+    note: 'Pendant les trois jours dans le Pati, vous portez votre propre sac : plus il est léger, mieux c’est. Si vous préférez ne pas porter de charge, renseignez-vous sur l’option porteur ou mule.',
+  },
 };
 
 const INCLUIDO_6: Record<Locale, { included: string[]; excluded: string[] }> = {
@@ -799,12 +982,17 @@ const INCLUIDO_6: Record<Locale, { included: string[]; excluded: string[] }> = {
     included: ['Guía de montaña bilingüe con formación WAFA (consultá disponibilidad)', 'Rastreador SPOT X satelital (consultá disponibilidad)', 'Traslado Lençóis × Guiné × Ibicoara × Mucugê × Lençóis', 'Alojamiento (5 noches)', 'Comidas durante el paquete — avisá restricciones', 'Seguro de aventura', 'Botiquín de primeros auxilios'],
     excluded: ['Cualquier ítem no listado', 'Desayuno del 1º día', 'Cena del 5º y del 6º día', 'Bebidas extra', 'Equipo personal', 'Evacuación médica', 'Porteador personal o mulas', 'Hoteles y comidas antes y después del paquete', 'Propinas por servicios adicionales (fotos y otras ayudas)'],
   },
+  fr: {
+    included: ['Guide de montagne bilingue formé WAFA (selon disponibilité)', 'Balise satellite SPOT X (selon disponibilité)', 'Transferts Lençóis × Guiné × Ibicoara × Mucugê × Lençóis', 'Hébergement (5 nuits)', 'Repas pendant le forfait — signalez vos restrictions', 'Assurance aventure', 'Trousse de premiers secours'],
+    excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Dîner des 5e et 6e jours', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Porteur personnel ou mules', 'Hôtels et repas avant et après le forfait', 'Pourboires pour services supplémentaires (photos et autres aides)'],
+  },
 };
 
 const RISCO_6: Record<Locale, string> = {
   pt: 'Os três primeiros dias são trekking dentro do Vale do Pati, longe de estrada. O Morro do Castelo e a Fumacinha são os trechos mais exigentes, com subidas fortes, leito de rio e passagens que pedem equipamento de segurança — e é ali que um resgate mais demora.',
   en: 'The first three days are a trek inside the Pati Valley, far from any road. Morro do Castelo and Fumacinha are the most demanding stretches, with steep climbs, riverbed walking and passages that call for safety gear — and that is where a rescue takes longest.',
   es: 'Los tres primeros días son trekking dentro del Valle del Pati, lejos de cualquier ruta. El Morro do Castelo y la Fumacinha son los tramos más exigentes, con subidas fuertes, lecho de río y pasos que piden equipo de seguridad — y es ahí donde un rescate más tarda.',
+  fr: 'Les trois premiers jours sont un trek au cœur de la vallée du Pati, loin de toute route. Le Morro do Castelo et la Fumacinha sont les portions les plus exigeantes, avec de fortes montées, de la marche dans le lit de la rivière et des passages qui demandent un équipement de sécurité — et c’est là qu’un secours met le plus de temps à arriver.',
 };
 
 function pacote6(
@@ -855,7 +1043,7 @@ function pacote6(
     relacionados: { titulo: c.relacionados, ids: ['vale-do-pati-3-dias', 'cachoeira-da-fumacinha', 'cachoeira-do-buracao'] },
     cta: {
       ...c.cta,
-      titulo: { pt: ['Seis dias,', 'a Chapada de ponta a ponta.'], en: ['Six days,', 'the Chapada end to end.'], es: ['Seis días,', 'la Chapada de punta a punta.'] }[locale] as [string, string],
+      titulo: { pt: ['Seis dias,', 'a Chapada de ponta a ponta.'], en: ['Six days,', 'the Chapada end to end.'], es: ['Seis días,', 'la Chapada de punta a punta.'], fr: ['Six jours,', 'la Chapada de bout en bout.'] }[locale] as [string, string],
     },
   };
 }
@@ -956,5 +1144,37 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
       ['Salida / regreso', '7:30 / 20:00'],
     ],
     fitness: 'Estado físico para subidas y bajadas empinadas en terreno accidentado, cruce de ríos y arroyos, trepada y largas distancias.',
+  }),
+  fr: pacote6('fr', {
+    meta: {
+      title: 'Forfait Chapada Extraordinaire — 6 jours',
+      description: 'Six jours, dont trois de trek dans la vallée du Pati, plus la cascade du Buracão, la cascade da Fumacinha, le Poço Encantado et le Poço Azul. Hébergement et repas inclus.',
+      canonical: '/fr/aventures/forfait-6-jours',
+    },
+    nivel: 'Modéré / Élevé',
+    duracao: '6 jours',
+    titulo: 'Chapada Extraordinaire en 6 jours.',
+    lead: 'Trois jours dans la vallée du Pati, les canyons du Buracão et de la Fumacinha et les bassins bleus du sud de la Chapada.',
+    sobre: {
+      titulo: 'À propos du forfait.',
+      paragrafos: [
+        'Pour celles et ceux qui ont plus de temps dans la Chapada Diamantina et veulent découvrir les lieux les plus emblématiques de la région. En six jours, le forfait réunit trek, canyoning, tourisme communautaire et les sites les plus saisissants.',
+        'Le départ se fait de Lençóis, avec une option de transfert depuis Palmeiras ou le village de Guiné (Mucugê). Les trois premiers jours suivent le parcours classique de la vallée du Pati : belvédère da Rampa, Igrejinha, Morro do Castelo, Gruta da Lapinha, cascade dos Funis et le Cachoeirão vu d’en haut, en dormant chez l’habitant.',
+        'Ensuite, la base se déplace dans la campagne d’Ibicoara, d’où l’on rejoint la cascade du Buracão (rappel en option) et, le lendemain, la cascade da Fumacinha. Le dernier jour, nous rentrons à Lençóis en passant par le Poço Encantado et le Poço Azul.',
+      ],
+    },
+    precos: ['R$ 4.950', 'R$ 4.650'],
+    grupoNota: 'De 2 à 7 personnes. Conditions spéciales pour les groupes — renseignez-vous.',
+    facts: [
+      ['Catégorie', 'Trek + excursions à la journée'],
+      ['Distance à pied', '57 km'],
+      ['Trajet en voiture', '510 km'],
+      ['Niveau d’effort', 'Modéré / Élevé'],
+      ['Sites', 'Vallée du Pati (3 jours), cascade du Buracão, cascade da Fumacinha, Poço Encantado et Poço Azul'],
+      ['Hébergement', 'Chambre partagée chez l’habitant dans le Pati (prévenez-nous si vous avez besoin d’une chambre privée) ; chambres privées avec salle de bain à Ibicoara et Mucugê'],
+      ['Lieux de baignade', '8'],
+      ['Départ / retour', '7h30 / 20h00'],
+    ],
+    fitness: 'Une condition physique permettant d’enchaîner montées et descentes raides sur terrain accidenté, traversées de rivières et de ruisseaux, passages d’escalade facile et longues distances.',
   }),
 };

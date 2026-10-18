@@ -8,7 +8,7 @@ const CONTENT = CITY_TOUR_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/city-tour-em-lencois-ba', en: '/en/adventures/lencois-city-tour', es: '/es/aventuras/city-tour-lencois' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/city-tour-em-lencois-ba', en: '/en/adventures/lencois-city-tour', es: '/es/aventuras/city-tour-lencois', fr: '/fr/aventures/visite-de-lencois' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

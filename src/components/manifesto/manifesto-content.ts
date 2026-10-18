@@ -2,8 +2,8 @@
  * Manifesto por idioma.
  *
  * PT é o texto de mamut.agency/manifesto e EN o de mamut.agency/en/manifest —
- * os dois na íntegra e na ordem original. ES é tradução feita neste
- * repositório: a operadora não publica versão em espanhol.
+ * os dois na íntegra e na ordem original. ES e FR são tradução feita neste
+ * repositório: a operadora não publica versão em espanhol nem em francês.
  *
  * Cada parágrafo é uma lista de trechos. String simples é texto corrido;
  * `{ mark }` é o que o original destaca em negrito — por isso o parágrafo não
@@ -164,6 +164,55 @@ export const MANIFESTO_CONTENT: Record<Locale, ManifestoContent> = {
       ],
       [
         'Bienvenidos a la Chapada Diamantina y a Mamut, donde la naturaleza es nuestra casa y la comunidad es nuestra familia, donde creemos en un mundo más solidario y consciente para todos. Juntos somos más fuertes. Juntos somos imponentes. Juntos dejaremos marcados el respeto, el compromiso y el amor por la tierra que llamamos casa.',
+      ],
+    ],
+  },
+
+  fr: {
+    meta: {
+      title: 'Manifeste',
+      description:
+        'Nous sommes plus qu’une agence d’écotourisme. Nous défendons la Serra do Sincorá, les traditions locales et nos ancêtres.',
+      canonical: '/fr/manifeste',
+      ogTitle: 'Le manifeste de Mamut Trekking',
+      ogDescription:
+        'Nous sommes nés pour marcher et nous marchons pour vivre, en honorant la toile de la vie qui unit tous les êtres de l’Univers.',
+    },
+    titulo: { antes: 'C’est de cette mémoire', destaque: 'que nous sommes nés.' },
+    paragrafos: [
+      [
+        'Dans l’immensité des mégacontinents, les mammouths ont parcouru de longues distances en grandes hardes, ',
+        { mark: 'marquant pour toujours leur existence' },
+        ' sur la planète. Tout naturellement, nous sommes ',
+        { mark: 'une harde qui rassemble le monde entier' },
+        ', dans ce qui fut autrefois le « cœur » de la terre : la Chapada Diamantina.',
+      ],
+      [
+        'Nous sommes plus qu’une agence d’écotourisme. Nous défendons la Serra do Sincorá, les traditions locales et nos ancêtres. Nous construisons ',
+        { mark: 'des ponts entre l’humanité et le monde naturel' },
+        ' (des ponts qu’il est urgent de rebâtir). Comme les mammouths d’autrefois, ',
+        { mark: 'nous marchons par amour, solidarité, respect, résistance…' },
+        ' ',
+        { mark: 'Nous sommes nés pour marcher et nous marchons pour vivre' },
+        ', et nous honorons ainsi la toile de la vie qui unit tous les êtres de l’Univers.',
+      ],
+      [
+        'Notre force ne tient pas seulement à notre stature, mais aussi à notre ',
+        { mark: 'mémoire et à notre intelligence' },
+        '. Elles ne nous laissent jamais oublier d’où nous venons, tout comme nous savons très bien où nous voulons aller. Sans oublier la sagacité qu’il faut pour admirer le présent qui nous est offert chaque jour, la beauté des chemins et des cheminements.',
+      ],
+      [
+        'Comme les mammouths protégeaient les membres de leur harde, nous sommes là pour garantir la sécurité et le bien-être de nos voyageurs. Au-delà de protocoles rigoureux qui se traduisent par des expériences sûres et inoubliables, ',
+        { mark: 'nous tenons profondément à l’expérience de chaque personne qui croise notre chemin.' },
+      ],
+      [
+        { mark: 'Rejoignez notre harde.' },
+        ' Ensemble, explorons, apprenons et célébrons la beauté et la diversité du monde, sans jamais oublier que ',
+        { mark: 'nous faisons partie de quelque chose de plus grand' },
+        ', quelque chose qui mérite d’être protégé et admiré.',
+      ],
+      [
+        'Bienvenue dans la Chapada Diamantina et chez Mamut, où la nature est notre maison et la communauté notre famille, où nous croyons en un monde plus solidaire et plus conscient pour tous. Ensemble, nous sommes plus forts. Ensemble, nous sommes imposants. Ensemble, nous laisserons l’empreinte de notre respect, de notre engagement et de notre amour pour la terre que nous appelons notre maison.',
       ],
     ],
   },

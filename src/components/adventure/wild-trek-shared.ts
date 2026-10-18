@@ -7,7 +7,7 @@
  * camping são os mesmos nos três, e a operadora publica o texto palavra por
  * palavra igual. Fica aqui para não divergir por descuido.
  *
- * ES é tradução feita neste repositório.
+ * ES e FR são tradução feita neste repositório.
  */
 
 import type { Locale } from '@/lib/site';
@@ -89,6 +89,29 @@ export const WILD_TREK_ESTADIA: Record<Locale, { titulo: string; itens: { img: s
       },
     ],
   },
+  fr: {
+    titulo: 'Où l’on dort et ce que l’on mange.',
+    itens: [
+      {
+        img: '/img/adventures/comum/acampamento.jpg',
+        alt: 'Ciel étoilé au-dessus de la forêt, vu depuis le campement',
+        titulo: 'Où nous dormons',
+        corpo: 'Sous la tente ou au bord de la rivière, sur un tapis isolant et dans un sac de couchage adaptés à la température — tout est fourni. Selon la météo, on peut dormir hors de la tente, bercé par le bruit de la rivière, sous un ciel étoilé.',
+      },
+      {
+        img: '/img/adventures/comum/refeicoes.jpeg',
+        alt: 'Marmites de riz, de haricots et de pâtes servies au campement de base, à la nuit tombée',
+        titulo: 'Petit-déjeuner et dîner',
+        corpo: 'Préparés au campement de base par le guide local, avec un menu varié. Signalez vos restrictions alimentaires lors de la réservation.',
+      },
+      {
+        img: '/img/adventures/comum/piquenique.jpeg',
+        alt: 'Pique-nique étalé sur un paréo, avec fruits, pains et charcuterie',
+        titulo: 'Le pique-nique',
+        corpo: 'Pendant les marches, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      },
+    ],
+  },
 };
 
 /**
@@ -127,6 +150,15 @@ const CHECKLIST: Record<Locale, Omit<Extract<PatiFaqItem, { type: 'checklist' }>
     ],
     recommendedColumns: [['Medias extra', 'Bastón de caminata'], ['Repelente', 'Power bank', 'Snack o fruta']],
   },
+  fr: {
+    title: 'Checklist — quoi emporter',
+    intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux rend la participation impossible. La tente, le sac de couchage et le tapis isolant sont fournis par nos soins.',
+    requiredColumns: [
+      ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Deux tenues légères de marche', 'Vêtements de nuit', 'Maillot de bain', 'Sac à dos de portage 50 L+'],
+      ['Casquette ou chapeau', 'Protection de pluie (corps et sac)', 'Crème solaire', 'Lampe frontale', 'Sac étanche', 'Serviette fine et tongs'],
+    ],
+    recommendedColumns: [['Chaussettes de rechange', 'Bâton de marche'], ['Anti-moustique', 'Batterie externe', 'En-cas ou fruit']],
+  },
 };
 
 /** "Se não quiser carregar peso, há carregador pessoal" — igual nos três. */
@@ -134,4 +166,5 @@ export const WILD_TREK_PORTER: Record<Locale, string> = {
   pt: 'Se não quiser carregar peso, há opção de carregador pessoal. Os itens são conferidos na reserva e no check-in.',
   en: 'If you would rather not carry the weight, a personal porter can be arranged. Items are checked at booking and at check-in.',
   es: 'Si no querés cargar peso, hay opción de porteador personal. Los ítems se revisan en la reserva y en el check-in.',
+  fr: 'Si vous préférez ne pas porter de charge, un porteur personnel est possible. Les articles sont vérifiés à la réservation et au check-in.',
 };

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: '/es/geologia-de-la-chapada-diamantina',
-    languages: { pt: '/pt/geologia-da-chapada-diamantina', en: '/en/geology-of-chapada-diamantina', es: '/es/geologia-de-la-chapada-diamantina' },
+    languages: { pt: '/pt/geologia-da-chapada-diamantina', en: '/en/geology-of-chapada-diamantina', es: '/es/geologia-de-la-chapada-diamantina', fr: '/fr/geologie-de-la-chapada-diamantina' },
   },
 };
 

@@ -267,4 +267,81 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade du Mosquito + Morro do Pai Inácio',
+      description:
+        'Trois sites en une journée en voiture, avec de courtes marches : la cascade du Mosquito, le Poço do Diabo et le coucher de soleil au Morro do Pai Inácio.',
+      canonical: '/fr/aventures/cascade-du-mosquito-morro-do-pai-inacio',
+    },
+    hero: {
+      nivel: 'Facile / Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Mosquito + Pai Inácio.',
+      lead: 'Trois cartes postales en une journée, avec de courtes marches — l’itinéraire qui convient aux enfants comme aux grands-parents.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Sites', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la sortie.',
+      paragrafos: [
+        'Une sortie en voiture avec de courtes marches, pensée pour qui veut découvrir la Chapada Diamantina sans affronter un long sentier. Tous les sites sont faciles d’accès, sûrs et équipés pour accueillir les visiteurs.',
+        'Trois arrêts : la cascade du Mosquito, le Vale das Piscinas sur la rivière Mucugêzinho — où se trouve le Poço do Diabo — et le Morro do Pai Inácio, la principale carte postale de la région.',
+        'La plus longue marche de la journée fait 700 mètres ; la plus courte, 300. Au total, 4 km, répartis sur 120 km de route. C’est pour cela que la sortie convient aux enfants et à ceux qui marchent peu.',
+        'La journée se termine au sommet du Pai Inácio, où le guide raconte la légende qui a donné son nom au morro, et où la vue s’ouvre sur toute la vallée.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 8 h vers la Fazenda Santo Antônio, où se trouve l’accès à la cascade du Mosquito. 40 km en voiture, environ 1 heure, puis 700 mètres de marche jusqu’au pied de la cascade.',
+        'Baignade dans la cascade et retour à la voiture.',
+        'Encore 28 km jusqu’au Balneário Mucugêzinho et 15 minutes de marche jusqu’au Poço do Diabo — une immense piscine naturelle aux eaux sombres et glacées. Le groupe y reste jusqu’à 16 h.',
+        'Encore 5 km en voiture et une marche de 300 mètres, environ 20 minutes, jusqu’au sommet du Morro do Pai Inácio. Là-haut, le guide raconte la légende qui a donné son nom au lieu, et la vue s’ouvre sur la vallée.',
+        'Retour à Lençóis, avec la vue depuis la BR-242 sur le chemin du retour.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 500', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
+        { titulo: 'En groupe', preco: 'R$ 450', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Protection de pluie (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Serviette', 'Appareil photo']],
+        note: 'Il y a deux arrêts baignade dans la même journée : prenez une serviette et, si possible, une tenue sèche pour la dernière étape jusqu’au Pai Inácio.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide local agréé, formé aux premiers secours (APH)', 'Droits d’accès', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Déjeuner (en option)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après la sortie'],
+      },
+      safetyFaq(
+        'fr',
+        'Les marches sont courtes, mais le Poço do Diabo est une piscine naturelle profonde, aux eaux sombres et glacées — entrez dans l’eau avec le groupe et suivez les consignes du guide. La montée finale au Pai Inácio fait 300 mètres en escaliers et sur sol rocheux : elle est courte, mais raide.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à voir', 'la Chapada en une journée ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

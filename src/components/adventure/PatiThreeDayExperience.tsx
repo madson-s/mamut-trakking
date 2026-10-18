@@ -209,7 +209,7 @@ function Hero({ c, a }: { c: Pati3Content; a: PatiAssets }) {
           </header>
           <PatiHeroGallery />
         </div>
-        <BookingCard c={c} />
+        <BookingCard c={c} fromPrice={a.fromPrice} />
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-8">
@@ -257,7 +257,9 @@ function InfoChip({ children, className }: { children: React.ReactNode; classNam
 }
 
 
-function BookingCard({ c }: { c: Pati3Content }) {
+// O preço vem dos assets de cada variante: com o PATI3_FROM_PRICE fixo, as
+// páginas de 4 e 5 dias anunciavam o preço do roteiro de 3.
+function BookingCard({ c, fromPrice }: { c: Pati3Content; fromPrice: number }) {
   return (
     <div className="relative">
       <Image src="/svg/about/story-walkers.svg" alt="" width={290} height={114} unoptimized className="pointer-events-none absolute left-1/2 -top-23 hidden h-26 w-65.75 -translate-x-1/2 object-contain lg:block" />
@@ -266,8 +268,8 @@ function BookingCard({ c }: { c: Pati3Content }) {
         <div className="flex flex-col gap-2 border-b border-line-strong pb-6">
           <Text size="sm" weight="light" tone="secondary">{c.hero.apartirDe}</Text>
           <div className="flex flex-wrap items-end gap-2">
-            <Heading as="p" size="section">R$ {PATI3_FROM_PRICE.toLocaleString('pt-BR')}</Heading>
-            <Text size="sm" weight="light" tone="secondary" className="pb-1">/ pessoa</Text>
+            <Heading as="p" size="section">R$ {fromPrice.toLocaleString('pt-BR')}</Heading>
+            <Text size="sm" weight="light" tone="secondary" className="pb-1">{c.booking.porPessoa}</Text>
           </div>
         </div>
         <ul className="flex flex-col gap-2.5 text-sm font-light text-content-secondary">
@@ -277,7 +279,7 @@ function BookingCard({ c }: { c: Pati3Content }) {
         </ul>
         <PatiBookingTrigger />
         <div className="flex flex-col gap-3 border-t border-line-strong pt-6 text-center">
-          <Text size="sm" weight="light" tone="muted">{c.hero.paraGrupos} <strong className="font-semibold">{c.hero.pessoas}</strong> ou mais:</Text>
+          <Text size="sm" weight="light" tone="muted">{c.hero.paraGrupos} <strong className="font-semibold">{c.hero.pessoas}</strong> {c.hero.ouMais}</Text>
           <Button href="#preco" variant="outline" block>{c.hero.verPrecos}</Button>
           <Text size="xs" weight="light" tone="subtle">{c.hero.resposta}<br />PT · EN · ES</Text>
         </div>

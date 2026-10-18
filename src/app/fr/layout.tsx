@@ -3,8 +3,7 @@ import { LocaleShell } from '@/components/layout/LocaleShell';
 import { SITE } from '@/lib/site';
 import { ROBOTS_META } from '@/lib/indexing';
 
-// Root layout do francês. Diferente de pt/en/es, o FR tem só a home: header,
-// footer e links levam às páginas em inglês (ver `siteLocale`).
+// Root layout do idioma FR — mesma casca (LocaleShell) de pt/en/es.
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {

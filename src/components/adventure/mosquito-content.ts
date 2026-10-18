@@ -247,4 +247,75 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Sumate a la manada',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade du Mosquito',
+      description:
+        'Une demi-journée à la cascade que les chercheurs de diamants ont baptisée d’après les « mosquitinhos » : 2 km de marche jusqu’au lit de la rivière Santo Antônio, dans la Fazenda Santo Antônio.',
+      canonical: '/fr/aventures/cascade-du-mosquito',
+    },
+    hero: {
+      nivel: 'Facile',
+      origem: 'Départ : Lençóis',
+      duracao: 'Demi-journée',
+      titulo: 'Cascade du Mosquito.',
+      lead: 'Son nom vient des diamants minuscules que les chercheurs de diamants appelaient les « mosquitinhos », les petits moustiques.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Durée', 'Départ (Lençóis)', 'Retour', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade du Mosquito.',
+      paragrafos: [
+        'Une cascade de la région de Lençóis, dans la Chapada Diamantina. Son nom vient de la grande quantité de petits diamants trouvés dans la zone, que les chercheurs de diamants surnommaient affectueusement les « mosquitinhos » (petits moustiques).',
+        'C’est une sortie courte, qui occupe une demi-journée : départ à partir de 8 h et retour vers 13 h. Il reste du temps pour caser une autre activité le même jour.',
+        'Nous la combinons souvent avec le Parque da Muritiba, le Morro do Pai Inácio, le Ribeirão do Meio ou la Serra das Paridas — et aussi avec le Poço Azul, qui s’intègre bien dans un transfert entre Lençóis et Mucugê. Contactez-nous pour composer le duo qui vous convient.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ entre 8 h et 9 h du matin. Environ 1 heure de voiture (40 km) : 20 km d’asphalte sur la BR-242 et 20 km de piste irrégulière à travers la campagne de Lençóis.',
+        'Arrivée à la Fazenda Santo Antônio, propriété privée où se trouve la cascade — et où l’on peut très bien déjeuner au retour.',
+        'Après la descente du véhicule, 20 à 30 minutes de marche en descente, tantôt sur sentier, tantôt sur des marches, jusqu’au lit de la rivière Santo Antônio, d’où l’on voit la cascade du Mosquito par en bas.',
+        'Le site ne présente ni danger immédiat ni difficulté technique, mais demande de la prudence sur les zones glissantes et quand le débit d’eau est élevé — le guide accompagne tout le parcours. Après la baignade, retour par le même chemin jusqu’à la voiture, puis direction la Fazenda Santo Antônio ou directement Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 410', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
+        { titulo: 'En groupe', preco: 'R$ 375', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou paiement par carte : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Chaussettes de rechange', 'Protection de pluie (corps et sac)'], ['En-cas ou fruit', 'Bâton de marche']],
+        note: 'La descente alterne passages de sentier et passages de marches : des chaussures fermées avec une bonne adhérence conviennent aux deux.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide local agréé et formé', 'Transfert aller-retour', 'Droits d’accès', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Déjeuner (en option)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement'],
+      },
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Votre sentier commence', 'par un message.'],
+      corpo: 'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour connaître la Chapada Diamantina et comment vous y préparer.',
+      botao: 'Rejoindre la harde',
+    },
+  },
 };

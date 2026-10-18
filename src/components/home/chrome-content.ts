@@ -6,12 +6,9 @@
  * português quando não existe (Quem Somos, Manifesto, Contato, que ainda não
  * foram traduzidas). Melhor mandar para o conteúdo em PT do que para um 404;
  * quando essas páginas ganharem versão EN/ES, é aqui que o href muda.
- *
- * FR só existe na home: o texto é francês, mas os links levam às páginas em
- * inglês (ver `siteLocale`).
  */
 
-import type { HomeLocale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { SITE } from '@/lib/site';
 import { PRIVACIDADE_HREF } from '@/components/privacidade/privacidade-content';
 import type { MobileNavItem } from './MobileMenu';
@@ -47,7 +44,7 @@ export type ChromeContent = {
   };
 };
 
-export const CHROME: Record<HomeLocale, ChromeContent> = {
+export const CHROME: Record<Locale, ChromeContent> = {
   pt: {
     home: '/pt',
     whatsapp: 'Falar no WhatsApp',
@@ -232,12 +229,12 @@ export const CHROME: Record<HomeLocale, ChromeContent> = {
     home: '/fr',
     whatsapp: 'Écrire sur WhatsApp',
     nav: [
-      { label: 'Aventures', href: '/en/adventures' },
-      { label: 'Départs', mobileLabel: 'Calendrier et groupes', href: '/en/calendar-and-groups' },
-      { label: 'Qui sommes-nous', mobileLabel: 'Qui sommes-nous', href: '/en/about' },
-      { label: 'Manifeste', href: '/en/manifesto' },
-      { label: 'Conseils', mobileLabel: 'Conseils de trek', href: '/en/tips' },
-      { label: 'Contact', href: '/en/contact' },
+      { label: 'Aventures', href: '/fr/aventures' },
+      { label: 'Départs', mobileLabel: 'Calendrier et groupes', href: '/fr/calendrier-et-groupes' },
+      { label: 'Qui sommes-nous', mobileLabel: 'Qui sommes-nous', href: '/fr/a-propos' },
+      { label: 'Manifeste', href: '/fr/manifeste' },
+      { label: 'Conseils', mobileLabel: 'Conseils de trek', href: '/fr/conseils' },
+      { label: 'Contact', href: '/fr/contact' },
     ],
     menu: {
       open: 'Menu',
@@ -255,20 +252,20 @@ export const CHROME: Record<HomeLocale, ChromeContent> = {
           title: 'AVENTURES',
           onMobile: true,
           links: [
-            { label: 'Tous les itinéraires', href: '/en/adventures' },
-            { label: 'Prochains départs', href: '/en/calendar-and-groups' },
-            { label: 'Vallée du Pati', href: '/en/adventures/pati-valley-3-days' },
-            { label: 'Se préparer', href: '/en/tips' },
+            { label: 'Tous les itinéraires', href: '/fr/aventures' },
+            { label: 'Prochains départs', href: '/fr/calendrier-et-groupes' },
+            { label: 'Vallée du Pati', href: '/fr/aventures/vallee-du-pati-3-jours' },
+            { label: 'Se préparer', href: '/fr/conseils' },
           ],
         },
         {
           title: 'À PROPOS',
           onMobile: true,
           links: [
-            { label: 'Qui sommes-nous', href: '/en/about' },
-            { label: 'Manifeste', href: '/en/manifesto' },
-            { label: 'Guides locaux', href: '/en/about#guias' },
-            { label: 'Questions fréquentes', href: '/en/faq' },
+            { label: 'Qui sommes-nous', href: '/fr/a-propos' },
+            { label: 'Manifeste', href: '/fr/manifeste' },
+            { label: 'Guides locaux', href: '/fr/a-propos#guias' },
+            { label: 'Questions fréquentes', href: '/fr/questions-frequentes' },
           ],
         },
         {
@@ -283,7 +280,7 @@ export const CHROME: Record<HomeLocale, ChromeContent> = {
         },
       ],
       rights: 'Tous droits réservés',
-      privacy: { label: 'Politique de confidentialité', href: PRIVACIDADE_HREF.en },
+      privacy: { label: 'Politique de confidentialité', href: PRIVACIDADE_HREF.fr },
       whatsapp: 'Écrire sur WhatsApp',
     },
   },

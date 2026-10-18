@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { Badge, Button, Container, Heading, Section, StarIcon, Stat } from '@/components/ui';
 import { ScrollFeedbackStack, homeTestimonials } from '@/components/home/ScrollFeedbackStack';
-import { SITE, type HomeLocale } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
-export function ReviewsSection({ locale = 'pt' }: { locale?: HomeLocale }) {
+export function ReviewsSection({ locale = 'pt' }: { locale?: Locale }) {
   const c = HOME_CONTENT[locale].reviews;
 
   return (

@@ -7,8 +7,8 @@ import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/cn';
 import { focus, motion, press } from '@/design/tokens';
 import { Button, Divider, Text, XIcon } from '@/components/ui';
-import { SITE, type HomeLocale } from '@/lib/site';
-import { languageHref } from '@/lib/routes';
+import { SITE, type Locale } from '@/lib/site';
+import { localizePath } from '@/lib/routes';
 
 export type MobileNavItem = { label: string; mobileLabel?: string; href: string };
 
@@ -177,7 +177,7 @@ export function MobileMenu({
                     ·
                   </Text>
                 )}
-                <Link href={languageHref(pathname, code as HomeLocale)} onClick={() => setOpen(false)}>
+                <Link href={localizePath(pathname, code as Locale)} onClick={() => setOpen(false)}>
                   <Text
                     as="span"
                     size="xs"

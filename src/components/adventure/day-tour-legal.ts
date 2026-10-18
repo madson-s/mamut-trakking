@@ -5,8 +5,8 @@
  * roteiro: a política cita a deliberação normativa nº 161/1985 da EMBRATUR, e
  * uma mudança nela vale para todos de uma vez.
  *
- * ⚠️ As versões EN e ES são tradução feita neste repositório e precisam de
- * revisão antes de valerem como termo contratual.
+ * ⚠️ As versões EN, ES e FR são tradução feita neste repositório e precisam
+ * de revisão antes de valerem como termo contratual.
  */
 
 import type { Locale } from '@/lib/site';
@@ -100,6 +100,35 @@ export const DAY_TOUR_LEGAL: Record<Locale, readonly PatiFaqItem[]> = {
       ],
     },
   ],
+  fr: [
+    {
+      type: 'payment',
+      title: 'Modes de paiement',
+      paragraphs: [
+        'Un acompte de 50 % confirme la réservation, par virement, dépôt ou boleto. Les 50 % restants au check-in en espèces, ou par dépôt jusqu’à 2 jours ouvrés avant.',
+        'Le paiement par carte entraîne une majoration de 6 %, payable en jusqu’à 12 mensualités, selon les taux pratiqués par PagSeguro, Mercado Pago et services similaires.',
+        'Envoyez le justificatif avec la date confirmée, ainsi que le nom complet et le numéro de pièce d’identité de chaque participant.',
+      ],
+    },
+    {
+      type: 'cancellation',
+      title: 'Politique d’annulation',
+      intro: 'L’annulation par le voyageur suit la délibération normative nº 161/1985 de l’EMBRATUR (Brésil) :',
+      refunds: [['30 jours ou plus avant', '90 % remboursés'], ['21 à 29 jours', '80 % remboursés'], ['7 à 20 jours', '50 % remboursés'], ['Moins de 7 jours', 'aucun remboursement'], ['Pendant le forfait', 'aucun remboursement']],
+      paragraphs: [
+        'Avant d’annuler : vous pouvez désigner un remplaçant ou conserver le montant en avoir pour une autre date. Frais de réservation : 10 % à titre de pénalité en cas d’annulation après la confirmation.',
+        'Non-présentation : ne pas se présenter entraîne la perte totale du montant. Mamut peut modifier l’itinéraire lorsque la météo compromet la sécurité ; la sortie a lieu même sous la pluie, sauf cas de force majeure.',
+      ],
+    },
+    {
+      type: 'payment',
+      title: 'Politique de transfert des sorties',
+      paragraphs: [
+        'Nous travaillons avec un réseau de partenaires. Si une sortie est transférée à un autre opérateur, les tarifs pratiqués peuvent varier selon le nombre de participants, le type de sortie et la logistique nécessaire — ils peuvent correspondre au tarif guichet, ou être ajustés à la hausse comme à la baisse.',
+        'En réservant avec nous, vous acceptez qu’en cas de transfert, l’exécution du service relève de la responsabilité de l’opérateur désigné. Notre rôle est de servir d’intermédiaire et de garantir le respect de ce qui a été convenu ; nous ne sommes pas responsables des différences de prix constatées après la réservation.',
+      ],
+    },
+  ],
 };
 
 /**
@@ -168,6 +197,22 @@ const SAFETY_COPY: Record<
     gear: [
       { img: '/img/adventures/comum/spot-x.jpg', alt: 'Comunicador satelital SPOT X', legenda: 'SPOT X satelital, con botón de S.O.S.' },
       { img: '/img/adventures/comum/radio.jpg', alt: 'Radio portátil', legenda: 'Radio portátil' },
+    ],
+  },
+  fr: {
+    title: 'Sécurité',
+    lead: 'Le mammouth protège la harde. Toujours.',
+    body: 'Des guides de trek locaux, formés aux premiers secours préhospitaliers (APH) et aux compétences minimales de conduite de groupe (CMC, selon les normes brésiliennes ABNT), certains titulaires de la certification WAFA — renseignez-vous sur la disponibilité. Tous emportent une trousse de premiers secours pour zones isolées. Les protocoles commencent avant la sortie, avec le formulaire de renseignements que chaque participant remplit.',
+    riskLabel: 'Risques et limites — à lire attentivement',
+    disclaimer: [
+      'Cette activité n’est pas sûre à 100 %. Même avec toutes les précautions, des imprévus et des accidents peuvent survenir — comme dans pratiquement toute activité d’aventure en milieu naturel : animaux venimeux, chutes avec fractures et écorchures, orages, inondations. Des pannes mécaniques du transport peuvent aussi retarder ou modifier l’itinéraire.',
+      'L’activité se déroule en milieu sauvage, où les secours peuvent être longs : l’intervention peut mettre plus de 5 heures à commencer, et le coût du sauvetage est à la charge du participant — il n’est pas inclus dans la réservation.',
+      'Pendant l’activité, suivez rigoureusement les consignes de l’équipe. Emporter tous les articles obligatoires de la checklist est indispensable : l’absence de l’un d’eux rend la participation impossible.',
+    ],
+    footer: 'Sur le terrain, nous utilisons des radios portatives et le communicateur satellite bidirectionnel SPOT X, doté d’un bouton S.O.S. pour les situations extrêmes.',
+    gear: [
+      { img: '/img/adventures/comum/spot-x.jpg', alt: 'Communicateur satellite SPOT X', legenda: 'SPOT X par satellite, avec bouton S.O.S.' },
+      { img: '/img/adventures/comum/radio.jpg', alt: 'Radio portative', legenda: 'Radio portative' },
     ],
   },
 };

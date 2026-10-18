@@ -10,8 +10,9 @@
  * vira "check-in"; as formas de pagamento mudam; e o formulário PT tem uma
  * pergunta de saúde a mais (a de campo aberto no fim).
  *
- * ⚠️ ES é tradução feita neste repositório — a operadora não publica versão em
- * espanhol. A estrutura segue a de EN, porque o público também é estrangeiro.
+ * ⚠️ ES e FR são tradução feita neste repositório — a operadora não publica
+ * versão em espanhol nem em francês. A estrutura segue a de EN, porque o
+ * público também é estrangeiro.
  * Os rótulos são seguros, mas o TEXTO LEGAL precisa de revisão antes de valer
  * como termo de responsabilidade assinado.
  */
@@ -441,6 +442,120 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       naoAceitos: 'NO aceptados.',
       assunto: 'Formulario del participante',
       semNome: 'nuevo participante',
+    },
+  },
+
+  fr: {
+    meta: {
+      title: 'Fiche du participant',
+      description:
+        'Fiche du participant Mamut Trekking : données personnelles, informations médicales, contact d’urgence et décharge de responsabilité.',
+      canonical: '/fr/formulaire-participant',
+    },
+    titulo: { antes: 'Avant le sentier,', destaque: 'la fiche.' },
+    lead: 'Une fiche par participant. Lisez les remarques ci-dessous avant de la remplir — elles précisent qui peut participer et ce que la Chapada va exiger de vous.',
+    observacoesLabel: 'Remarques',
+    observacoes: [
+      'Les participants doivent avoir plus de 18 ans. Les participants mineurs doivent être accompagnés de leur représentant légal.',
+      'Une bonne condition physique est nécessaire pour les montées et descentes raides sur terrain accidenté, la traversée de rivières et de ruisseaux, les passages d’escalade facile et la marche sur de longues distances.',
+      'Signalez toute restriction alimentaire. Les tarifs peuvent changer — contactez notre équipe pour connaître le tarif exact aux dates de votre séjour.',
+      'Les réservations confirmées ne font l’objet d’aucune révision de prix.',
+    ],
+    blocos: {
+      pessoais: 'Informations sur le participant',
+      passeio: 'À propos de la sortie',
+      medicas: 'Informations médicales',
+      medicasApoio:
+        'Elles restent avec le guide et ne servent que s’il se passe quelque chose sur le sentier. Si la réponse est « non », écrivez « non » — aucun champ ne peut rester vide.',
+      emergencia: 'Contact d’urgence',
+      termos: 'Conditions générales',
+    },
+    campos: {
+      nome: { label: 'Nom complet', placeholder: 'Floriane Peron' },
+      nascimento: { label: 'Date de naissance' },
+      documento: { label: 'Passeport', placeholder: 'X6666665' },
+      idade: { label: 'Âge', placeholder: '36' },
+      nacionalidade: { label: 'Nationalité', placeholder: 'Française' },
+      profissao: { label: 'Profession', placeholder: 'Avocate' },
+      telefone: { label: 'Téléphone (WhatsApp)', placeholder: '+33 6 12 34 56 78' },
+      email: { label: 'E-mail', placeholder: 'vous@email.com' },
+      altura: { label: 'Taille', placeholder: '160', hint: 'En centimètres.' },
+      peso: { label: 'Poids', placeholder: '50', hint: 'En kilos.' },
+      inicio: { label: 'Date d’arrivée' },
+      pagamento: { label: 'Mode de paiement' },
+      endereco: { label: 'Adresse', placeholder: '10 rue du 1er-Mai' },
+      cidade: { label: 'Ville / Région / Pays', placeholder: 'Lyon — Auvergne-Rhône-Alpes — France' },
+      hospedagem: { label: 'Hébergement dans la Chapada Diamantina', placeholder: 'Viela Hostel' },
+      emergenciaNome: { label: 'Nom du contact', placeholder: 'Suzana Peron' },
+      emergenciaTelefone: { label: 'Téléphone du contact', placeholder: '+33 6 12 34 56 78' },
+      emergenciaParentesco: { label: 'Lien de parenté', placeholder: 'Mère' },
+    },
+    pagamentos: ['Carte', 'Wise', 'Revolut', 'Espèces'],
+    simNao: { sim: 'Oui', nao: 'Non' },
+    sabeNadar: 'Savez-vous nager ?',
+    gravidez: 'Si vous êtes de sexe féminin, existe-t-il une possibilité que vous soyez enceinte à la date de l’activité ?',
+    perguntasMedicas: [
+      {
+        id: 'atividades',
+        label: 'À quelle fréquence pratiquez-vous une activité physique ?',
+        placeholder: 'Escalade 3 fois par semaine et natation 2 fois par semaine',
+      },
+      {
+        id: 'alergias',
+        label: 'Avez-vous des allergies ? Si oui, lesquelles et quel traitement ?',
+        placeholder: 'Médicaments, pollen, poussière, aliments, autre.',
+      },
+      {
+        id: 'restricoes',
+        label: 'Avez-vous des restrictions alimentaires ? Si oui, lesquelles ?',
+        placeholder: 'Végétarisme, intolérance au lactose, fruits à coque, autre.',
+      },
+      {
+        id: 'remedios',
+        label: 'Prenez-vous des médicaments sur ordonnance ? Si oui, précisez lesquels et le traitement correspondant.',
+        placeholder: 'Si ce n’est pas le cas, écrivez « non ».',
+      },
+      {
+        id: 'tratamentos',
+        label:
+          'Avez-vous suivi, au cours des 3 dernières années, un traitement sous surveillance médicale pour une maladie et/ou subi une intervention chirurgicale ? Si oui, quelles ont été les recommandations médicales ?',
+        placeholder: 'Si ce n’est pas le cas, écrivez « non ».',
+      },
+      {
+        id: 'motora',
+        label: 'Avez-vous des difficultés motrices ? Si oui, précisez lesquelles.',
+        placeholder: 'Si ce n’est pas le cas, écrivez « non ».',
+      },
+    ],
+    termos: [
+      'Les informations ci-dessus sont exactes et j’assume l’entière responsabilité de leur exactitude.',
+      'Je déclare avoir obtenu de Mamut Trekking des réponses à toutes mes questions concernant l’activité, le paiement et la sécurité.',
+      'J’assume, de mon plein gré, tous les risques liés à ma participation à cet événement et leurs conséquences, et j’exonère Mamut Trekking, ses organisateurs et ses collaborateurs DE TOUTE RESPONSABILITÉ, QUELLE QU’ELLE SOIT, pour tout dommage matériel, moral ou physique que je pourrais subir du fait de ma participation à cet événement.',
+      'J’autorise l’utilisation de mon image et de ma voix à des fins de promotion de l’événement, sur support numérique comme imprimé.',
+      'J’autorise Mamut Trekking à traiter mes données personnelles, y compris les informations de santé de cette fiche, pour organiser la sortie et veiller à ma sécurité, conformément à la Politique de confidentialité du site.',
+    ],
+    aceite: 'J’ai lu et j’accepte les conditions ci-dessus.',
+    acoes: {
+      email: 'Envoyer la fiche',
+      whatsapp: 'Envoyer sur WhatsApp',
+      enviando: 'Envoi…',
+      sucesso: 'Fiche envoyée. Nous vous confirmerons sa réception sur WhatsApp ou à l’adresse e-mail que vous avez indiquée.',
+      erro: 'Impossible d’envoyer la fiche.',
+      erroFallback: 'Réessayez dans quelques instants ou utilisez le bouton WhatsApp, qui ne dépend pas de notre serveur.',
+      recaptcha: 'Nous n’avons pas pu confirmer que vous n’êtes pas un robot. Rechargez la page et réessayez.',
+      nota: 'La fiche est envoyée par e-mail à notre équipe. Le bouton WhatsApp ouvre l’application avec le formulaire déjà rempli, si vous préférez l’envoyer par ce biais.',
+    },
+    documento: {
+      titulo: 'FICHE DU PARTICIPANT — MAMUT TREKKING',
+      pessoais: 'DONNÉES PERSONNELLES',
+      passeio: 'SORTIE',
+      medicas: 'INFORMATIONS MÉDICALES',
+      emergencia: 'CONTACT D’URGENCE',
+      termos: 'CONDITIONS GÉNÉRALES',
+      aceitos: 'Acceptées par le participant lors de l’envoi de cette fiche.',
+      naoAceitos: 'NON acceptées.',
+      assunto: 'Fiche du participant',
+      semNome: 'nouveau participant',
     },
   },
 };

@@ -1,4 +1,4 @@
-import { ADVENTURE_SEGMENT, LOCALES, type HomeLocale, type Locale } from './site';
+import { ADVENTURE_SEGMENT, LOCALES, type Locale } from './site';
 import { DICAS_PATHS, DICAS_SEGMENT } from '@/components/dicas/dicas-rotas';
 
 // Manifesto estrutural de URLs (apenas slugs, sem conteúdo) usado para gerar o
@@ -9,39 +9,39 @@ import { DICAS_PATHS, DICAS_SEGMENT } from '@/components/dicas/dicas-rotas';
 export type AdventureRoute = { id: string } & Record<Locale, string>;
 
 export const ADVENTURE_ROUTES: AdventureRoute[] = [
-  { id: 'palmital', pt: 'cachoeira-do-palmital', en: 'palmital-waterfall', es: 'cascada-del-palmital' },
-  { id: 'aguas-claras', pt: 'trilha-aguas-claras-2-dias', en: 'aguas-claras-trail', es: 'sendero-aguas-claras' },
-  { id: 'mosquito-pai-inacio', pt: 'mosquito-pai-inacio', en: 'mosquito-waterfall-pai-inacio-hill', es: 'cascada-del-mosquito-morro-do-pai-inacio' },
-  { id: 'mixila', pt: 'cachoeira-do-mixila', en: 'cachoeira-do-mixila-2-days', es: 'cascada-del-mixila' },
-  { id: 'vale-do-pati-3', pt: 'vale-do-pati-03-dias', en: 'pati-valley-3-days', es: 'valle-del-pati-3-dias' },
-  { id: 'vale-do-pati-4', pt: 'vale-do-pati-4-dias', en: 'pati-valley-4-days', es: 'valle-del-pati-4-dias' },
-  { id: 'vale-do-pati-5', pt: 'vale-do-pati-05-dias', en: 'pati-valley-5-days', es: 'valle-del-pati-5-dias' },
-  { id: 'pacote-3', pt: 'pacote-3-dias', en: 'package-3-days', es: 'paquete-3-dias' },
-  { id: 'pacote-4', pt: 'pacote-4-dias', en: 'package-4-days', es: 'paquete-4-dias' },
-  { id: 'pacote-6', pt: 'pacote-6-dias', en: 'package-6-days', es: 'paquete-6-dias' },
-  { id: 'mosquito', pt: 'cachoeira-do-mosquito', en: 'mosquito-waterfall', es: 'cascada-del-mosquito' },
-  { id: 'sossego', pt: 'cachoeira-do-sossego', en: 'sossego-waterfall', es: 'cascada-do-sossego' },
-  { id: 'pai-inacio', pt: 'morro-do-pai-inacio', en: 'pai-inacio-hill', es: 'morro-do-pai-inacio' },
-  { id: 'fumaca', pt: 'cachoeira-da-fumaca', en: 'fumaca-waterfall', es: 'cascada-da-fumaca' },
-  { id: 'fumacinha', pt: 'cachoeira-da-fumacinha', en: 'fumacinha-waterfall', es: 'cascada-da-fumacinha' },
-  { id: 'marimbus', pt: 'pantanal-marimbus', en: 'marimbus-swamp', es: 'pantanal-marimbus' },
-  { id: 'buracao', pt: 'cachoeira-do-buracao', en: 'buracao-waterfall', es: 'cascada-do-buracao' },
-  { id: 'herculano', pt: 'cachoeira-do-herculano', en: 'herculano-waterfall', es: 'cascada-do-herculano' },
-  { id: 'ferradura', pt: 'cachoeira-da-ferradura', en: 'ferradura-waterfall', es: 'cascada-da-ferradura' },
-  { id: 'ribeirao', pt: 'ribeirao-do-meio', en: 'ribeirao-do-meio-natural-pool', es: 'ribeirao-do-meio' },
-  { id: 'mirante-pati', pt: 'mirante-do-pati', en: 'pati-viewpoint-1-day', es: 'mirador-del-pati' },
-  { id: 'cachoeirao', pt: 'mirante-do-cachoeirao', en: 'cachoeirao-viewpoint', es: 'mirador-do-cachoeirao' },
-  { id: 'grutas', pt: 'grutas', en: 'caves-tour', es: 'grutas' },
-  { id: 'pati-4-capao', pt: 'vale-do-pati-4-dias-via-capao', en: 'pati-valley-4-days-capao-way', es: 'valle-del-pati-4-dias-via-capao' },
-  { id: 'pati-5-capao', pt: 'vale-do-pati-5-dias-capao', en: 'pati-valley-5-days-capao-way', es: 'valle-del-pati-5-dias-via-capao' },
-  { id: 'fumaca-baixo', pt: 'cachoeira-da-fumaca-por-baixo', en: 'fumaca-waterfall-from-bellow', es: 'cascada-da-fumaca-por-abajo' },
-  { id: 'fumaca-360', pt: 'cachoeira-da-fumaca-360', en: 'fumaca-waterfall-360', es: 'cascada-da-fumaca-360' },
-  { id: 'fundao', pt: 'cachoeira-do-fundao-vinte-e-um', en: 'fundao-vinte-e-um-waterfalls', es: 'cascadas-do-fundao-vinte-e-um' },
-  { id: 'muritiba', pt: 'parque-da-muritiba', en: 'muritiba-park', es: 'parque-da-muritiba' },
-  { id: 'aguas-claras-1d', pt: 'aguas-claras', en: 'aguas-claras-trail-1-day', es: 'sendero-aguas-claras-1-dia' },
-  { id: 'pratinha', pt: 'fazenda-pratinha', en: 'pratinha-farm-blue-cave', es: 'fazenda-pratinha' },
-  { id: 'city-tour-lencois', pt: 'city-tour-em-lencois-ba', en: 'lencois-city-tour', es: 'city-tour-lencois' },
-  { id: 'reveillon', pt: 'reveillon-na-chapada', en: 'new-years-eve-chapada', es: 'ano-nuevo-en-la-chapada' },
+  { id: 'palmital', pt: 'cachoeira-do-palmital', en: 'palmital-waterfall', es: 'cascada-del-palmital', fr: 'cascade-du-palmital' },
+  { id: 'aguas-claras', pt: 'trilha-aguas-claras-2-dias', en: 'aguas-claras-trail', es: 'sendero-aguas-claras', fr: 'sentier-aguas-claras' },
+  { id: 'mosquito-pai-inacio', pt: 'mosquito-pai-inacio', en: 'mosquito-waterfall-pai-inacio-hill', es: 'cascada-del-mosquito-morro-do-pai-inacio', fr: 'cascade-du-mosquito-morro-do-pai-inacio' },
+  { id: 'mixila', pt: 'cachoeira-do-mixila', en: 'cachoeira-do-mixila-2-days', es: 'cascada-del-mixila', fr: 'cascade-du-mixila' },
+  { id: 'vale-do-pati-3', pt: 'vale-do-pati-03-dias', en: 'pati-valley-3-days', es: 'valle-del-pati-3-dias', fr: 'vallee-du-pati-3-jours' },
+  { id: 'vale-do-pati-4', pt: 'vale-do-pati-4-dias', en: 'pati-valley-4-days', es: 'valle-del-pati-4-dias', fr: 'vallee-du-pati-4-jours' },
+  { id: 'vale-do-pati-5', pt: 'vale-do-pati-05-dias', en: 'pati-valley-5-days', es: 'valle-del-pati-5-dias', fr: 'vallee-du-pati-5-jours' },
+  { id: 'pacote-3', pt: 'pacote-3-dias', en: 'package-3-days', es: 'paquete-3-dias', fr: 'forfait-3-jours' },
+  { id: 'pacote-4', pt: 'pacote-4-dias', en: 'package-4-days', es: 'paquete-4-dias', fr: 'forfait-4-jours' },
+  { id: 'pacote-6', pt: 'pacote-6-dias', en: 'package-6-days', es: 'paquete-6-dias', fr: 'forfait-6-jours' },
+  { id: 'mosquito', pt: 'cachoeira-do-mosquito', en: 'mosquito-waterfall', es: 'cascada-del-mosquito', fr: 'cascade-du-mosquito' },
+  { id: 'sossego', pt: 'cachoeira-do-sossego', en: 'sossego-waterfall', es: 'cascada-do-sossego', fr: 'cascade-du-sossego' },
+  { id: 'pai-inacio', pt: 'morro-do-pai-inacio', en: 'pai-inacio-hill', es: 'morro-do-pai-inacio', fr: 'morro-do-pai-inacio' },
+  { id: 'fumaca', pt: 'cachoeira-da-fumaca', en: 'fumaca-waterfall', es: 'cascada-da-fumaca', fr: 'cascade-da-fumaca' },
+  { id: 'fumacinha', pt: 'cachoeira-da-fumacinha', en: 'fumacinha-waterfall', es: 'cascada-da-fumacinha', fr: 'cascade-da-fumacinha' },
+  { id: 'marimbus', pt: 'pantanal-marimbus', en: 'marimbus-swamp', es: 'pantanal-marimbus', fr: 'marais-de-marimbus' },
+  { id: 'buracao', pt: 'cachoeira-do-buracao', en: 'buracao-waterfall', es: 'cascada-do-buracao', fr: 'cascade-du-buracao' },
+  { id: 'herculano', pt: 'cachoeira-do-herculano', en: 'herculano-waterfall', es: 'cascada-do-herculano', fr: 'cascade-du-herculano' },
+  { id: 'ferradura', pt: 'cachoeira-da-ferradura', en: 'ferradura-waterfall', es: 'cascada-da-ferradura', fr: 'cascade-da-ferradura' },
+  { id: 'ribeirao', pt: 'ribeirao-do-meio', en: 'ribeirao-do-meio-natural-pool', es: 'ribeirao-do-meio', fr: 'ribeirao-do-meio' },
+  { id: 'mirante-pati', pt: 'mirante-do-pati', en: 'pati-viewpoint-1-day', es: 'mirador-del-pati', fr: 'belvedere-du-pati' },
+  { id: 'cachoeirao', pt: 'mirante-do-cachoeirao', en: 'cachoeirao-viewpoint', es: 'mirador-do-cachoeirao', fr: 'belvedere-du-cachoeirao' },
+  { id: 'grutas', pt: 'grutas', en: 'caves-tour', es: 'grutas', fr: 'grottes' },
+  { id: 'pati-4-capao', pt: 'vale-do-pati-4-dias-via-capao', en: 'pati-valley-4-days-capao-way', es: 'valle-del-pati-4-dias-via-capao', fr: 'vallee-du-pati-4-jours-par-capao' },
+  { id: 'pati-5-capao', pt: 'vale-do-pati-5-dias-capao', en: 'pati-valley-5-days-capao-way', es: 'valle-del-pati-5-dias-via-capao', fr: 'vallee-du-pati-5-jours-par-capao' },
+  { id: 'fumaca-baixo', pt: 'cachoeira-da-fumaca-por-baixo', en: 'fumaca-waterfall-from-bellow', es: 'cascada-da-fumaca-por-abajo', fr: 'cascade-da-fumaca-par-le-bas' },
+  { id: 'fumaca-360', pt: 'cachoeira-da-fumaca-360', en: 'fumaca-waterfall-360', es: 'cascada-da-fumaca-360', fr: 'cascade-da-fumaca-360' },
+  { id: 'fundao', pt: 'cachoeira-do-fundao-vinte-e-um', en: 'fundao-vinte-e-um-waterfalls', es: 'cascadas-do-fundao-vinte-e-um', fr: 'cascades-du-fundao-vinte-e-um' },
+  { id: 'muritiba', pt: 'parque-da-muritiba', en: 'muritiba-park', es: 'parque-da-muritiba', fr: 'parc-de-la-muritiba' },
+  { id: 'aguas-claras-1d', pt: 'aguas-claras', en: 'aguas-claras-trail-1-day', es: 'sendero-aguas-claras-1-dia', fr: 'sentier-aguas-claras-1-jour' },
+  { id: 'pratinha', pt: 'fazenda-pratinha', en: 'pratinha-farm-blue-cave', es: 'fazenda-pratinha', fr: 'fazenda-pratinha' },
+  { id: 'city-tour-lencois', pt: 'city-tour-em-lencois-ba', en: 'lencois-city-tour', es: 'city-tour-lencois', fr: 'visite-de-lencois' },
+  { id: 'reveillon', pt: 'reveillon-na-chapada', en: 'new-years-eve-chapada', es: 'ano-nuevo-en-la-chapada', fr: 'reveillon-dans-la-chapada' },
 ];
 
 /**
@@ -49,18 +49,18 @@ export const ADVENTURE_ROUTES: AdventureRoute[] = [
  * "ainda não traduzida" — o seletor de idioma cai na home nesse caso.
  */
 const PAGE_ROUTES: Partial<Record<Locale, string>>[] = [
-  { pt: 'calendario-e-grupos', en: 'calendar-and-groups', es: 'calendario-y-grupos' },
+  { pt: 'calendario-e-grupos', en: 'calendar-and-groups', es: 'calendario-y-grupos', fr: 'calendrier-et-groupes' },
   { pt: 'torus-festival-chapada-diamantina-2026' },
-  { pt: 'formulario-participante', en: 'participant-form', es: 'formulario-participante' },
-  { pt: 'dicas', en: 'tips', es: 'consejos' },
-  { pt: 'informacoes-gerais', en: 'general-information', es: 'informacion-general' },
-  { pt: 'classificacao-de-nivel', en: 'level-classification', es: 'clasificacion-de-nivel' },
-  { pt: 'geologia-da-chapada-diamantina', en: 'geology-of-chapada-diamantina', es: 'geologia-de-la-chapada-diamantina' },
-  { pt: 'sobre', en: 'about', es: 'quienes-somos' },
-  { pt: 'manifesto', en: 'manifesto', es: 'manifiesto' },
-  { pt: 'contato', en: 'contact', es: 'contacto' },
-  { pt: 'perguntas-frequentes', en: 'faq', es: 'preguntas-frecuentes' },
-  { pt: 'politica-de-privacidade', en: 'privacy-policy', es: 'politica-de-privacidad' },
+  { pt: 'formulario-participante', en: 'participant-form', es: 'formulario-participante', fr: 'formulaire-participant' },
+  { pt: 'dicas', en: 'tips', es: 'consejos', fr: 'conseils' },
+  { pt: 'informacoes-gerais', en: 'general-information', es: 'informacion-general', fr: 'informations-generales' },
+  { pt: 'classificacao-de-nivel', en: 'level-classification', es: 'clasificacion-de-nivel', fr: 'classification-des-niveaux' },
+  { pt: 'geologia-da-chapada-diamantina', en: 'geology-of-chapada-diamantina', es: 'geologia-de-la-chapada-diamantina', fr: 'geologie-de-la-chapada-diamantina' },
+  { pt: 'sobre', en: 'about', es: 'quienes-somos', fr: 'a-propos' },
+  { pt: 'manifesto', en: 'manifesto', es: 'manifiesto', fr: 'manifeste' },
+  { pt: 'contato', en: 'contact', es: 'contacto', fr: 'contact' },
+  { pt: 'perguntas-frequentes', en: 'faq', es: 'preguntas-frecuentes', fr: 'questions-frequentes' },
+  { pt: 'politica-de-privacidade', en: 'privacy-policy', es: 'politica-de-privacidad', fr: 'politique-de-confidentialite' },
 ];
 
 function isLocale(value: string | undefined): value is Locale {
@@ -94,13 +94,4 @@ export function localizePath(pathname: string, target: Locale): string {
   const page = PAGE_ROUTES.find((route) => route[first] === second);
   const slug = page?.[target];
   return slug ? `/${target}/${slug}` : `/${target}`;
-}
-
-/**
- * Destino dos seletores de idioma. O francês só existe na home, então FR leva
- * sempre a `/fr`; de `/fr`, os outros idiomas levam à home deles (o
- * `localizePath` já cai na home quando o caminho não é de um idioma do site).
- */
-export function languageHref(pathname: string, target: HomeLocale): string {
-  return target === 'fr' ? '/fr' : localizePath(pathname, target);
 }

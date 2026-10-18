@@ -296,4 +296,88 @@ export const FUMACA_360_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade da Fumaça 360° — 3 jours',
+      description:
+        'La même cascade sous quatre angles : d’en haut au belvédère, de côté dans la faille, d’en bas à son pied et de face depuis la Serra da Folha Larga.',
+      canonical: '/fr/aventures/cascade-da-fumaca-360',
+    },
+    hero: {
+      nivel: 'Modéré / Élevé',
+      origem: 'Départ : Vale do Capão',
+      duracao: '3 jours',
+      titulo: 'Fumaça 360°.',
+      lead: 'La même cascade sous quatre angles — d’en haut, de côté, d’en bas et de face.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Hauteur de la paroi', 'Angles sur la cascade', 'Où l’on dort', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la Fumaça 360°.',
+      paragrafos: [
+        'La cascade da Fumaça, l’une des plus hautes du Brésil, plonge d’une paroi de 400 mètres où l’eau n’atteint pas le sol de manière uniforme — c’est cet effet qui a donné son nom à la cascade (« fumaça », la fumée). Presque tout le monde ne la connaît que sous un seul angle. Cet itinéraire les fait tous les quatre.',
+        'D’en haut, depuis le belvédère classique du Vale do Capão. De côté, en dormant dans la faille, dans la toca da pingueira (un abri sous roche). D’en bas, au pied de la paroi, là où peu de gens arrivent. Et de face, depuis le sommet de la Serra da Folha Larga, le dernier jour.',
+        'Le chemin passe par d’anciennes exploitations et des « tocas » abandonnées, les abris des chercheurs de diamants, et inclut aussi la cascade du Palmital et la cascade du Capivara. Le sentier peut devenir nettement plus dangereux selon la météo et la saison ; suivez toujours les consignes du guide.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.fr,
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent. Ce trek est flexible et admet plusieurs points d’entrée et de sortie — renseignez-vous auprès de nous sur les options.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'La Fumaça par le haut + la faille de la Fumaça',
+          corpo: 'Nous partons par le sentier traditionnel qui mène du Vale do Capão à la cascade da Fumaça par le haut — le belvédère de 400 mètres, atteint après 1 h 30 de marche. Après un casse-croûte et une pause, nous continuons jusqu’à la faille de la cascade da Fumaça, où se trouve le campement de la première nuit et d’où l’on peut contempler la cascade de côté, depuis la toca da pingueira.',
+          distancia: '13 km',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'La faille + la Fumaça par le bas',
+          corpo: 'Après le petit-déjeuner préparé par le guide, nous partons vers 8 h en descendant par la faille même où nous avons dormi, jusqu’au pied de la cascade da Fumaça — vue d’en bas, c’est l’angle le plus saisissant de l’itinéraire. Nous suivons le cours du ruisseau jusqu’à la cascade du Capivara, où se trouve le deuxième camp de base. À l’arrivée, le guide prépare le dîner.',
+          distancia: '12 km',
+          esforco: 'Modéré',
+        },
+        {
+          rotulo: '3e jour',
+          titulo: 'La Fumaça de face + cascade du Palmital',
+          corpo: 'Départ à la même heure, vers la cascade du Palmital — environ 40 minutes de marche. Nous laissons la charge à l’endroit indiqué par le guide et gravissons la Serra da Folha Larga avec un sac léger jusqu’au belvédère qui fait face à la cascade da Fumaça, le quatrième et dernier angle. Retour par le même sentier jusqu’au Palmital, où nous reprenons les gros sacs, puis direction Lençóis par la Serra do Veneno, avec une arrivée vers 18 h et une dernière baignade au Ribeirão do Meio pour clore l’aventure.',
+          distancia: '18 km',
+          esforco: 'Élevé',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 1.750', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 1.450', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      wildTrekChecklist('fr', `Trois jours, deux changements de campement et une nuit à dormir dans la faille. ${WILD_TREK_PORTER.fr}`),
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue, formé aux premiers secours (APH)', 'Transfert Vale do Capão × Lençóis (80 km)', 'Camping sauvage (2 nuits), avec tente, tapis isolant et sac de couchage', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Équipement personnel', 'Évacuation médicale'],
+      },
+      safetyFaq(
+        'fr',
+        'Le sentier peut devenir nettement plus dangereux selon la météo et la saison. La descente de la faille jusqu’au pied de la paroi, le 2e jour, est le passage qui demande le plus d’attention. Selon le rythme du groupe, le retour peut glisser à un 4e jour — vérifiez cette possibilité avec nous avant de réserver vos billets ou votre hébergement.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à voir la Fumaça', 'sous ses quatre angles ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

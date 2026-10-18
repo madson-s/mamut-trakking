@@ -34,6 +34,7 @@ export const FAQ_HREF: Record<Locale, string> = {
   pt: '/pt/perguntas-frequentes',
   en: '/en/faq',
   es: '/es/preguntas-frecuentes',
+  fr: '/fr/questions-frequentes',
 };
 
 export const FAQ_CONTENT: Record<Locale, FaqContent> = {
@@ -116,6 +117,33 @@ export const FAQ_CONTENT: Record<Locale, FaqContent> = {
       whatsapp: 'Hablar por WhatsApp',
       contato: 'Otras formas de contacto',
       contatoHref: '/es/contacto',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Questions fréquentes',
+      description:
+        'Vos questions sur un voyage dans la Chapada Diamantina avec Mamut Trekking : combien de jours prévoir, meilleure saison, préparation, paiement, annulation et sécurité.',
+      canonical: FAQ_HREF.fr,
+      ogTitle: 'Questions fréquentes · Mamut Trekking',
+      ogDescription: 'Ce que l’on nous demande avant de venir dans la Chapada — et les règles de réservation.',
+    },
+    titulo: { antes: 'Questions', destaque: 'fréquentes.' },
+    lead: 'Avant de venir, au moment de réserver et pendant le trek. Si votre question n’est pas ici, nous vous répondons sur WhatsApp.',
+    secoes: { antes: 'Avant de venir', reserva: 'Réservation et paiement', seguranca: 'Sécurité' },
+    leads: {
+      antes: 'La ville, la durée du séjour, la préparation et la meilleure saison pour chaque type de sortie.',
+      reserva: 'Comment payer, ce qui se passe si vous devez annuler et comment fonctionnent les transferts de groupe.',
+      seguranca: 'Qui vous guide, quel équipement nous emportons et ce qu’aucun opérateur ne peut éliminer.',
+    },
+    avisoSeguranca:
+      'Chaque sentier a ses propres risques — passages techniques, traversées de rivière, exposition au soleil. Ils sont décrits sur la page de chaque itinéraire, dans ce même bloc sécurité.',
+    fechamento: {
+      titulo: 'Vous n’avez pas trouvé ce que vous cherchiez ?',
+      texto: 'Contactez notre équipe. Nous répondons en portugais, en anglais et en espagnol.',
+      whatsapp: 'Écrire sur WhatsApp',
+      contato: 'Autres moyens de nous contacter',
+      contatoHref: '/fr/contact',
     },
   },
 };

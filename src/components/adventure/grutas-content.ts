@@ -11,6 +11,9 @@
  * ⚠️ O hub tem uma entrada separada, `fazenda-pratinha-gruta-azul`, que cobre
  * só a fazenda. Este roteiro a inclui e soma a Gruta da Fumaça e o Morro do
  * Camelo. Confirme com a operadora se os dois produtos coexistem.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -268,6 +271,84 @@ export const GRUTAS_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para entrar', 'en 700 millones de años?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Grottes + Morro do Camelo',
+      description:
+        'Gruta da Fumaça, Fazenda Pratinha, Gruta Azul et le coucher de soleil au Morro do Camelo : une journée dans le calcaire de la Chapada, avec de courtes marches.',
+      canonical: '/fr/aventures/grottes',
+    },
+    hero: {
+      nivel: 'Facile',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Grottes + Morro do Camelo.',
+      lead: 'Une journée au cœur du calcaire — grottes, rivière aux eaux bleues et, pour finir, le coucher de soleil au Camelo.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Sites visités', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de l’excursion.',
+      paragrafos: [
+        'Une excursion en voiture avec de courtes marches, idéale pour les enfants, les personnes âgées et tous ceux qui veulent découvrir la Chapada Diamantina sans trop d’effort. Tous les sites sont faciles d’accès, sûrs et bien aménagés.',
+        'Quatre étapes : la Gruta da Fumaça, la Fazenda Pratinha, la Gruta Azul et le belvédère du Morro do Camelo — l’une des cartes postales emblématiques de la région, où la journée se termine au coucher du soleil.',
+        'Dans cette partie de la Chapada domine le calcaire, une roche vulnérable à l’action de l’eau. C’est ce qui explique le grand nombre de grottes et de puits souterrains : la formation Salitre a environ 700 millions d’années, et on y a trouvé des fossiles datés de plus de 10 000 ans, ainsi que des traces des mers qui ont recouvert la région et de l’ère glaciaire.',
+        'À la Fazenda Pratinha, des activités supplémentaires sont proposées — snorkeling, photo sous-marine, kayak, tyrolienne et autres. Elles sont en option et ne sont pas comprises dans le prix ; contactez notre équipe pour vérifier ce qui est disponible.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 8h00 et environ 1 heure de voiture jusqu’à la Gruta da Fumaça, l’une des plus complètes de la région d’Iraquara.',
+        'Visite d’environ 40 minutes de la grotte, avec des spéléothèmes de toutes sortes : stalactites, stalagmites, hélictites et la très rare fleur d’aragonite.',
+        'En voiture jusqu’à la Fazenda Pratinha, où coule le Rio Pratinha. On y trouve une multitude d’activités en option — snorkeling, photo sous-marine, kayak, tyrolienne et autres.',
+        'À 15h00, la Gruta Azul, à l’intérieur même de la fazenda : un spectacle naturel de lumière qui n’a lieu que l’après-midi, quand le soleil pénètre dans l’eau.',
+        'Vers 16h30, environ 40 minutes de voiture jusqu’au belvédère du Morro do Camelo, pour le coucher de soleil.',
+        'Retour à Lençóis, en ville vers 18h30.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 580', nota: 'Minimum 2 personnes. Seul votre groupe pendant l’excursion.' },
+        { titulo: 'En groupe', preco: 'R$ 540', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Serviette', 'De l’argent pour les activités de la fazenda']],
+        note: 'Le sol des grottes est humide et glissant toute l’année — des chaussures fermées à bonne adhérence ne sont pas facultatives ici, même pour un itinéraire facile.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide local agréé formé aux premiers secours (APH)', 'Droits d’accès', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Déjeuner (en option)', 'Tyrolienne et autres activités de la Pratinha (en option)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      safetyFaq(
+        'fr',
+        'Dans les grottes, le sol est humide, irrégulier et glissant, et certains passages ont un plafond bas — suivez le guide et ne vous appuyez pas sur les spéléothèmes : une stalactite met des milliers d’années à se former et se brise d’un simple contact. L’effet de lumière de la Gruta Azul dépend de la position du soleil, c’est pourquoi la visite est fixée à 15h00.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à entrer', 'dans 700 millions d’années ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

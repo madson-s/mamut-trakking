@@ -6,6 +6,9 @@
  *
  * É o único roteiro de um dia que combina caminhada e canoa — daí a faixa de
  * números trazer as duas distâncias separadas.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -257,6 +260,82 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para remar', 'por el pantanal?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Marais de Marimbus',
+      description:
+        'Le « pantanal » de la Chapada Diamantina : 9 km en canoë sur les rivières Santo Antônio et Roncador, au départ de la communauté quilombola du Remanso.',
+      canonical: '/fr/aventures/marais-de-marimbus',
+    },
+    hero: {
+      nivel: 'Facile / Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Marais de Marimbus.',
+      lead: 'Neuf kilomètres en canoë au cœur du marais de la Chapada, au départ du Remanso.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Distance en canoë', 'Trajet en voiture', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du marais de Marimbus.',
+      paragrafos: [
+        'On l’appelle le « pantanal » de la Chapada Diamantina, et la comparaison tient : une zone humide permanente, couverte de végétation aquatique, où l’on se déplace en canoë et où le silence est de règle.',
+        'L’excursion commence dans la communauté quilombola du Remanso et descend le Rio Santo Antônio jusqu’au Rio Roncador. Environ 2 heures de pagaie, 9 kilomètres au total, sous la conduite du guide local.',
+        'La faune est le point fort : anacondas, caïmans et singes hurleurs se montrent souvent à ceux qui avancent en silence et savent observer. En plus des 8 km à pied, la journée comprend les piscines du Roncador.',
+        'Pendant les randonnées, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 8h00 vers la communauté quilombola du Remanso — environ 20 km en voiture.',
+        'Embarquement dans les canoës sur le Rio Santo Antônio. La descente à la pagaie va jusqu’à la confluence avec le Rio Roncador, à travers la zone humide : environ 2 heures et 9 kilomètres.',
+        'Débarquement et marche d’environ 30 minutes jusqu’aux piscines du Roncador, où le groupe s’arrête pour la baignade et le pique-nique.',
+        'Retour par un sentier, environ 40 minutes, avec un autre point de vue sur le paysage inondé. Retour à Lençóis en fin d’après-midi.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 510', nota: 'Minimum 2 personnes. Seul votre groupe pendant l’excursion.' },
+        { titulo: 'En groupe', preco: 'R$ 465', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'T-shirt anti-UV', 'Maillot de bain', 'Casquette ou chapeau'],
+          ['Crème solaire', 'Répulsif anti-moustiques', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Lunettes de soleil'], ['En-cas ou fruit', 'Serviette', 'Sac étanche pour l’appareil photo']],
+        note: 'Il n’y a pas d’ombre sur le canoë et le reflet de l’eau double l’exposition au soleil. Un haut à manches longues anti-UV et du répulsif font ici toute la différence.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue formé aux premiers secours (APH)', 'Canoë avec un batelier local du Remanso', 'Gilet de sauvetage', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Transfert (en option)', 'Pique-nique (en option)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      safetyFaq(
+        'fr',
+        'Ici, le risque ne vient pas du sentier mais du soleil et des insectes : environ 2 heures en canoë sans ombre, avec le reflet de l’eau qui s’ajoute à l’exposition. Crème solaire, répulsif et haut à manches longues évitent ce qui gâche le plus souvent la journée. Le gilet de sauvetage est obligatoire pendant toute la descente en canoë.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à pagayer', 'dans le marais ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

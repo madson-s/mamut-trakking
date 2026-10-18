@@ -2,7 +2,7 @@
  * Travessia do Vale do Pati em 5 dias (entra por Guiné, sai por Andaraí).
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-05-dias e EN de
- * mamut.agency/en/aventuras/pati-valley-5-days. ES é tradução feita aqui.
+ * mamut.agency/en/aventuras/pati-valley-5-days. ES e FR são tradução feita aqui.
  *
  * É a única versão que atravessa o vale de ponta a ponta: entra pelo Guiné e
  * sai do outro lado, em Andaraí, pela Ladeira do Império. Não confundir com a
@@ -274,16 +274,89 @@ const VARIANTS: Record<Locale, PatiVariant> = {
     },
     safetyWarning: 'Este recorrido exige muy buen estado físico y capacidad de caminar varios días seguidos en condiciones adversas — sol, lluvia, terreno resbaladizo y accidentado. El 3º día tiene 250 m de subida para pasar los 1.200 m; el 5º sube 2,5 km por la Ladeira do Império y baja otros 9 km en terreno accidentado. Quien tenga dudas sobre su preparación debería hablar con atención antes de cerrar.',
   },
+  fr: {
+    meta: {
+      title: 'Traversée de la vallée du Pati en 5 jours',
+      description:
+        'Traversée guidée de 70 km, entrée par Guiné et sortie par Andaraí, avec le Cachoeirão, le Morro do Castelo, le Poço da Árvore et la Ladeira do Império.',
+      canonical: '/fr/aventures/vallee-du-pati-5-jours',
+      ogDescription: 'La traversée de bout en bout : entrée par Guiné, sortie par Andaraí.',
+    },
+    hero: {
+      nivel: 'Modéré / Élevé',
+      origem: 'Départ : Lençóis',
+      titulo: { antes: 'Traversée de la vallée du Pati', destaque: '5 jours.' },
+      lead: { antes: 'Entrée par Guiné, sortie par Andaraí. La traversée de', destaque: 'bout en bout.' },
+      apoio: 'Soixante-dix kilomètres par les points les plus emblématiques de la vallée, avec une sortie de l’autre côté de la serra.',
+      saida: 'Départ de Lençóis à 7h30',
+    },
+    story: {
+      titulo: ['La traversée complète,', 'd’un bout à l’autre de la vallée.'],
+      paragrafos: [
+        'La vallée du Pati se situe autour de 1 000 mètres d’altitude, avec une riche variété de transitions entre vestiges de forêt atlantique, champs rupestres et prairies ouvertes. La région a abrité des paysans il y a environ 200 ans et compte aujourd’hui 14 maisons encore debout, qui servent d’hébergement aux visiteurs.',
+        'Cet itinéraire parcourt les points les plus emblématiques de la région — Morro do Castelo, Cachoeirão et Mirante da Rampa — et ressort de l’autre côté, à Andaraí, en passant par le Poço da Árvore, le Pati de Baixo et la Ladeira do Império. Il exige une excellente condition physique et la capacité de marcher plusieurs jours dans des conditions difficiles : soleil, pluie, terrain glissant et accidenté.',
+      ],
+      outrasVersoes: 'La vallée existe aussi en 3 et 4 jours.',
+      relacionados: [
+        { titulo: 'Vallée du Pati · 3 jours', nivel: 'Modéré', href: '/fr/aventures/vallee-du-pati-3-jours' },
+        { titulo: 'Vallée du Pati · 4 jours', nivel: 'Modéré / Avancé', href: '/fr/aventures/vallee-du-pati-4-jours' },
+      ],
+    },
+    dias: [
+      {
+        day: 'Jour 1', level: 'Modéré', lead: '7h30 départ',
+        body: ' de Lençóis vers le village de Guiné, où commence le sentier. Environ 3h de marche (1h de montée raide + 2h sur terrain plat) jusqu’au belvédère traditionnel de la vallée du Pati. Après la collation, encore 1h30 jusqu’à l’Igrejinha, où Seu João et sa famille accueillent le groupe dans leur maison d’hôtes.',
+        note: 'La montée raide est la première épreuve du Pati.',
+      },
+      {
+        day: 'Jour 2', level: 'Modéré / Élevé', lead: '8h départ',
+        body: ' et adieux à l’hébergement. Environ 3h jusqu’au Mirante do Cachoeirão, haut de 280 m — à la saison des pluies, on peut y contempler quelque 16 cascades autour de la vallée. Après la collation préparée par le guide, retour par le même chemin jusqu’à l’Igrejinha pour récupérer les affaires et rejoindre une maison plus bas dans la vallée.',
+        note: 'La journée la plus longue : 22 km.',
+      },
+      {
+        day: 'Jour 3', level: 'Élevé', lead: '8h départ',
+        body: ' après un petit-déjeuner très copieux, vers le Morro do Castelo. C’est la journée d’effort physique le plus intense : 250 m de dénivelé en 40 à 60 minutes pour dépasser 1 200 m d’altitude. Au sommet, deux belvédères et l’entrée de la grotte de la Lapinha. Le retour se fait par un autre chemin, en passant par la cascade des Bananeiras, avec une arrivée à l’hébergement vers 18h.',
+        note: 'L’une des grottes les plus rares au monde au-dessus de 1 000 m.',
+      },
+      {
+        day: 'Jour 4', level: 'Facile', lead: '8h départ',
+        body: ' — la journée la plus calme de l’itinéraire. Après le petit-déjeuner, nous descendons la vallée du Pati pendant environ 2h jusqu’au Poço da Árvore. Nous y restons un bon moment, puis marchons encore 2h jusqu’à la maison de nos derniers hôtes dans la vallée.',
+        note: 'Après trois jours intenses, une journée facile, à dessein.',
+      },
+      {
+        day: 'Jour 5', level: 'Élevé', lead: '6h petit-déjeuner',
+        body: ' — lever plus tôt pour éviter le soleil brûlant sur le passage le plus critique. 2h30 de montée (2,5 km) par la Ladeira do Império, ancien chemin qui servait à acheminer le café de la vallée du Pati. Une fois sur le plateau, encore 9 km de descente en terrain accidenté par la Serra do Ramalho jusqu’à la ville d’Andaraí, où le transport attend.',
+        alert: 'La Ladeira do Império est le passage le plus critique de l’itinéraire — d’où le petit-déjeuner à 6h.',
+      },
+    ],
+    landmarks: [
+      { titulo: 'Mirante da Rampa', apoio: 'Le plus traditionnel de la vallée' },
+      { titulo: 'Maison d’hôtes de l’Igrejinha', apoio: 'Chez Seu João et sa famille' },
+      { titulo: 'Mirante do Cachoeirão', apoio: '280 m — jusqu’à 16 cascades sous la pluie' },
+      { titulo: 'Morro do Castelo et grotte de la Lapinha', apoio: 'Plus de 1 200 m d’altitude' },
+      { titulo: 'Poço da Árvore', apoio: 'La journée facile de la traversée' },
+      { titulo: 'Ladeira do Império', apoio: 'Ancien chemin du café' },
+      { titulo: 'Serra do Ramalho jusqu’à Andaraí', apoio: '9 km de descente à la sortie' },
+    ],
+    included: {
+      title: 'Ce qui est inclus / non inclus',
+      included: ['Guide de montagne agréé formé aux premiers secours (APH)', 'Hébergement chez l’habitant dans le Pati (4 nuits)', 'Transfert aller et retour, avec sortie par Andaraí', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après la randonnée'],
+      excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Équipement personnel', 'Évacuation médicale'],
+    },
+    safetyWarning: 'Cet itinéraire exige une excellente condition physique et la capacité de marcher plusieurs jours d’affilée dans des conditions difficiles — soleil, pluie, terrain glissant et accidenté. Le 3e jour comporte 250 m de dénivelé pour dépasser 1 200 m ; le 5e monte 2,5 km par la Ladeira do Império et redescend encore 9 km en terrain accidenté. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver.',
+  },
 };
 
 export const PATI5_CONTENT = {
   pt: buildPatiContent('pt', VARIANTS.pt),
   en: buildPatiContent('en', VARIANTS.en),
   es: buildPatiContent('es', VARIANTS.es),
+  fr: buildPatiContent('fr', VARIANTS.fr),
 };
 
 export const PATI5_FAQS = {
   pt: buildPatiFaqs('pt', VARIANTS.pt),
   en: buildPatiFaqs('en', VARIANTS.en),
   es: buildPatiFaqs('es', VARIANTS.es),
+  fr: buildPatiFaqs('fr', VARIANTS.fr),
 };

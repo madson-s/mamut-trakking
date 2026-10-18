@@ -16,6 +16,9 @@
  * ⚠️ A aba "O que está incluso" também é boilerplate de trilha e lista
  * "Transfers in-out" num roteiro de 0 km de carro. Segui o cartão de preços da
  * própria página, que lista guia, arquitetura, história, cultura e cotidiano.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -301,6 +304,94 @@ export const CITY_TOUR_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para conocer', 'la ciudad que hicieron los diamantes?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Visite guidée de Lençóis',
+      description:
+        'Une heure à pied dans le centre historique de Lençóis : la praça Horácio de Matos, le Mercado Cultural, l’église Senhor dos Passos et l’époque des diamants.',
+      canonical: '/fr/aventures/visite-de-lencois',
+    },
+    hero: {
+      nivel: 'Facile',
+      origem: 'Départ : Lençóis',
+      duracao: '1 heure',
+      titulo: 'Visite guidée de Lençóis.',
+      lead: 'Une heure à pied pour comprendre pourquoi cette ville existe — et ce que les diamants y ont laissé.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Lieux visités', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la visite guidée.',
+      paragrafos: [
+        'Lençóis n’est pas seulement le point de départ des randonnées : c’est une ville née de l’orpaillage, entrée dans le circuit mondial des diamants au XIXe siècle. Une heure à pied dans le centre historique éclaire tout le reste de votre semaine dans la Chapada.',
+        'Le parcours passe par la praça Horácio de Matos, l’ancien consulat de France, le Mercado Cultural, l’église Senhor dos Passos, la Rua das Pedras et l’Hotel de Lençóis, où l’on voit encore des outils utilisés par les chercheurs de diamants il y a deux siècles.',
+        'Ce n’est pas qu’une visite d’architecture. On y parle de l’époque des « coronéis », de la foi des chercheurs de diamants, du quotidien de ceux qui vivent ici aujourd’hui et du côté sombre de l’histoire — le Mercado Cultural a aussi servi à la vente de personnes réduites en esclavage.',
+        'Comme elle part du bureau de Mamut et se fait sans voiture, c’est l’activité la plus facile à caser : elle tient dans l’après-midi de votre arrivée ou dans la matinée avant votre transfert.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la visite.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ à pied du bureau de Mamut et quelques mètres jusqu’à la praça Horácio de Matos : des bâtiments historiques comme l’ancien consulat de France et la Loja Magnólia, l’époque des « coronéis » et le rôle de Lençóis dans le circuit mondial des diamants.',
+        'Le Mercado Cultural, bâtiment historique qui a servi à la vente de diamants, d’outils et de personnes réduites en esclavage.',
+        'Traversée du pont historique, à l’architecture unique, jusqu’à l’église Senhor dos Passos — dédiée au saint des anciens chercheurs de diamants.',
+        'Retour au Mercado Cultural et montée par la Rua das Pedras, ancienne rue pavée de pierres de rivière, avec des histoires de chercheurs de diamants et du quotidien d’hier et d’aujourd’hui. On continue par la Rua da Baderna.',
+        'L’église do Rosário, l’église « officielle » de la ville, et le mémorial Afrânio Peixoto sur la même place — personnage natif de Lençóis, important et controversé.',
+        'La Rua da Boa Vista, avec l’architecture coloniale de ses maisons et l’organisation urbaine de la ville, jusqu’à l’Hotel de Lençóis : un bâtiment ancien utilisé pour la taille des diamants, avec des outils vieux de deux siècles.',
+        'Retour au centre en passant devant d’anciennes constructions et l’Associação Mineira, association qui préserve la mémoire des chercheurs de diamants.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 75', nota: 'Minimum 2 personnes. Seul votre groupe avec le guide.' },
+        { titulo: 'En groupe', preco: 'R$ 50', nota: 'De 4 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'C’est une visite d’une heure en ville, donc la liste est courte. Les éléments marqués d’un * sont obligatoires.',
+        requiredColumns: [
+          ['Chaussures confortables', 'Eau', 'Pièce d’identité'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels'],
+        ],
+        recommendedColumns: [['Imperméable', 'Appareil photo'], ['De l’argent pour le Mercado Cultural']],
+        note: 'La Rua das Pedras est pavée de pierres de rivière, irrégulières par nature — des chaussures fermées et stables aident plus qu’on ne le pense.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide local agréé formé aux premiers secours (APH)', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'En-cas ou repas', 'Achats au Mercado Cultural', 'Entrées de musées ou de mémoriaux', 'Évacuation médicale', 'Hébergement'],
+      },
+      {
+        type: 'seasons',
+        title: 'Quand visiter Lençóis',
+        facts: [
+          ['Été et automne (janv.–mai)', 'Cascades pleines ; janv.–mars, c’est la haute saison'],
+          ['Hiver et printemps (juin–déc.)', 'Terrain plus ferme, moins de débit'],
+          ['Fin juin à juillet', 'Deuxième haute saison'],
+        ],
+        notes: [
+          'Il n’existe pas de meilleure saison absolue — tout dépend de ce que vous voulez voir.',
+          'La visite guidée fonctionne toute l’année : c’est la seule activité qui ne dépend pas du niveau des rivières.',
+        ],
+      },
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à découvrir', 'la ville née des diamants ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

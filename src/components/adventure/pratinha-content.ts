@@ -11,6 +11,9 @@
  *
  * O roteiro [Grutas + Morro do Camelo] inclui esta fazenda e soma a Gruta da
  * Fumaça e o mirante do Camelo. A operadora vende os dois separados.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -262,6 +265,82 @@ export const PRATINHA_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para un día', 'de agua cristalina?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Fazenda Pratinha & Gruta Azul',
+      description:
+        'Une journée entière d’eaux cristallines à Iraquara : le Rio Pratinha, la Gruta da Pratinha et la Gruta Azul, avec snorkeling, kayak et tyrolienne en option.',
+      canonical: '/fr/aventures/fazenda-pratinha',
+    },
+    hero: {
+      nivel: 'Facile',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Fazenda Pratinha.',
+      lead: 'Cent mètres à pied et toute la journée dans l’eau — l’oasis qui surgit au milieu du sertão.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Durée', 'Horaire de départ', 'Retour prévu', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la Fazenda Pratinha.',
+      paragrafos: [
+        'À Iraquara, la Fazenda Pratinha attire des visiteurs du monde entier venus voir de près les eaux cristallines qui surgissent comme une oasis dans le sertão de Bahia. C’est un domaine privé qui abrite la Gruta Azul, la Gruta da Pratinha et la rivière qui donne son nom à la fazenda.',
+        'C’est l’excursion la plus facile que nous proposons — 100 mètres de marche au total —, mais elle occupe toute la journée : départ à partir de 8h00 et retour vers 18h00, ce qui laisse largement le temps de se baigner et de profiter des activités de la fazenda.',
+        'Ce sont les activités supplémentaires qui remplissent vraiment la journée : snorkeling avec masque, palmes, lampe et gilet ; kayak ; balade à cheval ; tyrolienne ; photo sous-marine. Aucune n’est comprise dans le prix — elles se paient sur place, et mieux vaut vérifier auprès de notre équipe ce qui est disponible à votre date.',
+        'La baignade dans la Pratinha est peu profonde et agréable, surtout par beau temps. Le déjeuner se prend sur place, la fazenda comptant plusieurs points de restauration, du repas complet aux en-cas, desserts, café et glaces.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis entre 8h00 et 9h00. Environ 1 heure de voiture, 65 km — 60 km d’asphalte par la BR-242 et 5 km de route irrégulière dans la campagne d’Iraquara.',
+        'Arrivée à la Fazenda Pratinha, le domaine privé qui abrite la Gruta Azul, la Gruta da Pratinha et la rivière. Le temps sur place est libre, entre baignade, paysages au bord de la rivière et autour des grottes, et activités en option.',
+        'Le déjeuner se prend sur place — plusieurs points proposent des options allant du repas complet aux en-cas, desserts, cafés et glaces.',
+        'Le retour se fait par un autre chemin : 30 minutes à travers la campagne d’Iraquara jusqu’à la BR-242, avec vue sur les montagnes et les vallées lointaines. Retour à Lençóis prévu vers 18h00.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 550', nota: 'Minimum 2 personnes. Seul votre groupe pendant l’excursion.' },
+        { titulo: 'En groupe', preco: 'R$ 500', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'C’est une excursion facile, donc la liste est courte. Les éléments marqués d’un * sont obligatoires.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Maillot de bain', 'Casquette ou chapeau', 'Crème solaire'],
+          ['Médicaments personnels', 'Pièce d’identité', 'Serviette', 'Tongs'],
+        ],
+        recommendedColumns: [['Appareil photo ou sac étanche', 'Vêtements secs de rechange'], ['De l’argent pour le déjeuner et les activités en option']],
+        note: 'Les activités de la fazenda se paient sur place — prévoyez un moyen de paiement si vous comptez faire du snorkeling, du kayak ou de la tyrolienne.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide local', 'Droits d’accès', 'Assurance aventure'],
+        excluded: ['Tout ce qui n’est pas listé', 'Déjeuner (en option)', 'Snorkeling, kayak, tyrolienne, cheval et photo sous-marine (payés sur place)', 'Équipement personnel', 'Évacuation médicale', 'Hébergement'],
+      },
+      safetyFaq(
+        'fr',
+        'Le site ne présente pas de danger immédiat et n’exige aucune technique, mais deux points méritent attention : les zones mouillées autour des grottes sont glissantes, et des animaux circulent librement dans la fazenda — évitez tout contact. La baignade dans la Pratinha est peu profonde ; dans les grottes, suivez les consignes de l’équipe locale.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt pour une journée', 'd’eaux cristallines ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

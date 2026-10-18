@@ -294,4 +294,89 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade da Fumacinha',
+      description:
+        'Dix-huit kilomètres dans le lit de la rivière, entre des canyons de 100 mètres, à Ibicoara. L’itinéraire d’une journée le plus technique de la Chapada Diamantina.',
+      canonical: '/fr/aventures/cascade-da-fumacinha',
+    },
+    hero: {
+      nivel: 'Modéré / Difficile',
+      origem: 'Départ : Ibicoara',
+      duracao: '1 jour',
+      titulo: 'Cascade da Fumacinha.',
+      lead: 'Dix-huit kilomètres dans la rivière, entre des parois de cent mètres qui se resserrent peu à peu.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Hauteur des canyons', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade da Fumacinha.',
+      paragrafos: [
+        'La Fumacinha est l’itinéraire d’une journée le plus technique que nous proposons. Une grande partie des 18 kilomètres se fait dans le lit de la rivière, en sautant de rocher mouillé en rocher mouillé, avec des passages où il faut utiliser un équipement de sécurité pour franchir l’obstacle.',
+        'Le décor en vaut la peine : le canyon se resserre et les parois atteignent 100 mètres de haut de chaque côté. En chemin, le groupe passe par la cascade du Encontro, où deux cours d’eau se rejoignent.',
+        'La difficulté ne tient pas qu’à la distance — elle tient au terrain. C’est un sentier pour qui a déjà randonné et se sent à l’aise sur un sol irrégulier et glissant pendant des heures d’affilée.',
+        'Pendant les marches, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 5 h, avec 30 minutes de tolérance. On part tôt parce que la journée est longue, et le trajet aussi : environ 260 km et 3 heures de voiture jusqu’à Ibicoara.',
+        'D’Ibicoara, encore 1 heure jusqu’au début du sentier, sur piste en terre.',
+        'La marche entre aussitôt dans le lit de la rivière. Le groupe remonte le courant en sautant de rocher en rocher, tandis que le canyon se referme peu à peu et que les parois prennent de la hauteur.',
+        'Passage par la cascade du Encontro, où deux cours d’eau se rejoignent — une bonne pause pour souffler avant la dernière partie.',
+        'Aux endroits les plus exposés, nous utilisons un équipement de sécurité pour le passage, un par un, avec le guide en place.',
+        'Arrivée à la Fumacinha, baignade et pique-nique. Retour par le même chemin ; on rentre à Lençóis déjà de nuit.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 715', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 550', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      tabela: {
+        titulo: 'Grille tarifaire complète',
+        colunaPessoas: 'Nb de personnes',
+        pessoa: 'personne',
+        pessoas: 'personnes',
+        nota: 'Tarifs par personne, en reais, pour paiement en espèces, virement ou boleto.',
+      },
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (2 L par personne)', 'Chaussures de randonnée à bonne adhérence', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Lampe frontale'],
+        ],
+        recommendedColumns: [['Protection de pluie (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Serviette', 'Vêtements secs de rechange pour le retour']],
+        note: 'Les chaussures sont l’élément critique de cet itinéraire : presque tout le sentier se fait sur rocher mouillé. La lampe frontale est obligatoire car le départ a lieu avant l’aube et le retour peut se terminer dans le noir.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue, formé aux premiers secours (APH)', 'Équipement de sécurité pour les passages techniques', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Transfert (en option)', 'Pique-nique (en option)', 'Équipement personnel', 'Droit d’accès', 'Évacuation médicale', 'Hébergement avant ou après la sortie'],
+      },
+      safetyFaq(
+        'fr',
+        'Nous déconseillons de faire la Fumacinha en aller-retour depuis Lençóis : 3 heures de voiture à l’aller et au retour, en plus d’une journée entière de sentier technique. Si possible, dormez à Ibicoara la veille. Les passages exposés du canyon se franchissent avec un équipement de sécurité, un participant à la fois.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à entrer', 'dans le canyon ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

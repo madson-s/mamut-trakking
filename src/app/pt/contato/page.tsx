@@ -7,7 +7,7 @@ const CONTENT = CONTATO_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/contato', en: '/en/contact', es: '/es/contacto' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/contato', en: '/en/contact', es: '/es/contacto', fr: '/fr/contact' } },
   openGraph: {
     title: CONTENT.meta.ogTitle,
     description: CONTENT.meta.ogDescription,

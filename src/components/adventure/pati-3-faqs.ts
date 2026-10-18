@@ -6,8 +6,8 @@
  * cancelamento e termo de responsabilidade).
  *
  * ⚠️ A política de cancelamento cita a deliberação normativa nº 161/1985 da
- * EMBRATUR — norma brasileira. As versões EN e ES são tradução feita aqui e
- * precisam de revisão da operadora antes de valer como termo contratual.
+ * EMBRATUR — norma brasileira. As versões EN, ES e FR são tradução feita aqui
+ * e precisam de revisão da operadora antes de valer como termo contratual.
  */
 
 import type { Locale } from '@/lib/site';
@@ -200,6 +200,68 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       facts: [['Categoría', 'Trekking con pernocte'], ['Origen', 'Lençóis'], ['Tramo en auto', '160 km'], ['Edad mínima', '18 años (menores con responsable)']],
       requirements: ['Condición física para subidas y bajadas en terreno accidentado', 'Cruzar ríos', 'Caminar largas distancias durante varios días', 'Informar restricciones alimentarias y necesidad de habitación privada en la reserva', 'Las reservas confirmadas no sufren reajuste'],
       documents: [['Término de Responsabilidad (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Clasificación de Nivel de las Actividades', '/es/clasificacion-de-nivel']],
+    },
+  ],
+  fr: [
+    {
+      type: 'checklist',
+      title: 'Checklist — quoi emporter',
+      intro:
+        'Les articles marqués * sont obligatoires. L’absence de l’un d’eux rend la participation impossible — nous vérifions à la réservation et au check-in.',
+      requiredColumns: [
+        ['Eau (1,5 L/personne)', 'Vêtements légers', 'Casquette/chapeau', 'Sac à dos 35 L+', 'Crème solaire', 'Trousse de toilette', 'Petit sac à dos de journée'],
+        ['Chaussures/bottes de randonnée', 'Maillot de bain', 'En-cas/fruit supplémentaire', 'Protection de pluie (corps + sac)', 'Médicaments personnels', 'Pièces d’identité', 'Lampe frontale'],
+      ],
+      recommendedColumns: [['Chaussettes de rechange', 'Bâton de marche'], ['Serviette à séchage rapide', 'Batterie externe']],
+      note: 'Vous préférez ne pas porter de charge ? Des porteurs personnels sont disponibles (coût supplémentaire).',
+    },
+    {
+      type: 'included',
+      title: 'Ce qui est inclus / non inclus',
+      included: ['Guide de montagne bilingue certifié APH', 'Balise satellite SPOT X', 'Transfert Lençóis ↔ Guiné (160 km aller-retour)', 'Hébergement 2 nuits', 'Assurance aventure', 'Repas complets', 'Trousse de premiers secours', 'Consigne à bagages pendant l’activité', 'Douche avant/après', 'Salle d’attente'],
+      excluded: ['Tout ce qui n’est pas listé', 'Transfert Salvador ↔ Lençóis (en option)', 'Petit-déjeuner du 1er jour', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Porteurs/mules (en option)', 'Hôtels/repas avant ou après (en option)', 'Pourboires'],
+    },
+    {
+      type: 'safety',
+      title: 'Sécurité en détail et risques',
+      lead: 'Le mammouth protège la harde. Toujours.',
+      body: 'Tous les guides sont des guides locaux certifiés APH (premiers secours préhospitaliers) et CMC (compétences minimales de conduite de groupe) selon la norme brésilienne ABNT ; certains sont titulaires du WAFA. Tous emportent une trousse de premiers secours pour zones isolées. Sur le terrain : radios VHF/UHF + communicateur satellite SPOT X avec S.O.S.',
+      warning: 'Les activités en milieu naturel comportent des risques inhérents — terrain irrégulier, animaux venimeux, météo. La vallée du Pati est une zone isolée : un sauvetage peut mettre plus de 5 heures à commencer. L’évacuation médicale N’EST PAS incluse. Il existe une capacité limitée d’évacuation à dos de mule (limite de 110 kg) — renseignez-vous auprès de notre équipe.',
+      footer: 'Suivre les consignes des guides et emporter les articles obligatoires de la checklist sont des conditions de participation.',
+    },
+    {
+      type: 'payment',
+      title: 'Modes de paiement',
+      paragraphs: [
+        'Un acompte de 50 % confirme la réservation, par virement, dépôt ou boleto. Les 50 % restants au check-in en espèces (ou par dépôt jusqu’à 2 jours ouvrés avant).',
+        'Envoyez le justificatif avec : la date confirmée, ainsi que le nom complet et le numéro de pièce d’identité de chaque participant.',
+        'Carte : +5 %, jusqu’à 12 mensualités (PagSeguro). Paiement international : contactez notre équipe.',
+      ],
+    },
+    {
+      type: 'cancellation',
+      title: 'Politique d’annulation',
+      intro: 'L’annulation par le voyageur suit la délibération normative nº 161/1985 de l’EMBRATUR (Brésil) :',
+      refunds: [['30 jours ou plus avant', '90 % remboursés'], ['21 à 29 jours', '80 % remboursés'], ['7 à 20 jours', '50 % remboursés'], ['Moins de 7 jours', 'aucun remboursement'], ['Pendant le forfait', 'aucun remboursement']],
+      paragraphs: [
+        'Avant d’annuler : vous pouvez désigner un remplaçant ou conserver le montant en avoir. Frais de réservation : 10 % à titre de pénalité en cas d’annulation après la confirmation.',
+        'Non-présentation : ne pas se présenter entraîne la perte totale du montant. Mamut peut modifier l’itinéraire lorsque la météo compromet la sécurité ; l’activité a lieu même par temps de pluie, sauf cas de force majeure.',
+      ],
+    },
+    {
+      type: 'payment',
+      title: 'Politique de transfert des sorties',
+      paragraphs: [
+        'Nous travaillons avec un réseau de partenaires. Si une sortie est transférée à un autre opérateur, les tarifs pratiqués peuvent varier selon le nombre de participants, le type de sortie et la logistique nécessaire — ils peuvent correspondre au tarif guichet, ou être ajustés à la hausse comme à la baisse.',
+        'En réservant avec nous, vous acceptez qu’en cas de transfert, l’exécution du service relève de la responsabilité de l’opérateur désigné. Notre rôle est de servir d’intermédiaire et de garantir le respect de ce qui a été convenu ; nous ne sommes pas responsables des différences de prix constatées après la réservation.',
+      ],
+    },
+    {
+      type: 'technical',
+      title: 'Fiche technique complète et documents',
+      facts: [['Catégorie', 'Trek avec nuitées'], ['Départ', 'Lençóis'], ['Trajet en voiture', '160 km'], ['Âge minimum', '18 ans (mineurs accompagnés d’un responsable légal)']],
+      requirements: ['Condition physique pour les montées et descentes en terrain accidenté', 'Traverser des rivières', 'Marcher de longues distances pendant plusieurs jours', 'Signaler à la réservation les restrictions alimentaires et le besoin d’une chambre privée', 'Les réservations confirmées ne font l’objet d’aucune révision de prix'],
+      documents: [['Décharge de responsabilité (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Classification des niveaux des activités', '/fr/classification-des-niveaux']],
     },
   ],
 };

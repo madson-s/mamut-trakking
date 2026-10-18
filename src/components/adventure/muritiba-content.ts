@@ -7,6 +7,9 @@
  * O passeio mais denso em atrativos do catálogo: sete paradas em 4 km, todas a
  * pé desde o centro de Lençóis. A faixa de números conta isso, e o itinerário
  * segue a ordem real das paradas em vez de virar prosa corrida.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -399,6 +402,129 @@ export const MURITIBA_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para los siete', 'atractivos de la Muritiba?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Parc de la Muritiba',
+      description:
+        'Sept sites en 4 km à pied depuis le centre de Lençóis : Serrano, Salão de Areias Coloridas, Poço Halley, Primavera, Poço Paraíso, le belvédère et Cachoeirinha.',
+      canonical: '/fr/aventures/parc-de-la-muritiba',
+    },
+    hero: {
+      nivel: 'Facile / Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '4 à 5 heures',
+      titulo: 'Parc de la Muritiba.',
+      lead: 'Sept sites en quatre kilomètres — et le sentier commence en plein centre-ville.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Sites', 'Durée', 'Altitude', 'Horaire de départ', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du parc de la Muritiba.',
+      paragrafos: [
+        'L’une des excursions les plus complètes de la Chapada Diamantina. Le parc abrite des cascades, des belvédères et des grottes, et l’itinéraire classique passe par sept d’entre eux : les piscines naturelles du Serrano, le Salão de Areias Coloridas, le Poço Halley, la cascade da Primavera, le Poço Paraíso, le belvédère de Lençóis et la Cachoeirinha.',
+        'Au-delà des sites, le parc est une leçon de géologie, d’histoire et de vie sociale de la région — les roches racontent l’infiltration et l’érosion, et le chemin montre ce que la ville a fait de son eau.',
+        'Assez facile pour trouver sa place n’importe quel jour du voyage : on peut partir entre 8h et 14h, et l’excursion complète dure de 4 à 5 heures. Elle peut se combiner avec le Morro do Pai Inácio en fin d’après-midi — contactez notre équipe.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Les sept étapes.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Le sentier commence au centre d’accueil des visiteurs (CAT), d’où l’on a déjà une vue d’ensemble de tout le parcours. Comme l’excursion dure de 4 à 5 heures, le départ peut se faire à toute heure entre 8h et 14h.',
+      ],
+      dias: [
+        {
+          rotulo: '5 min',
+          titulo: 'Piscines naturelles du Serrano',
+          corpo: 'La première étape, juste à la sortie du CAT : des conglomérats polis par l’action de l’eau au fil du temps, formant des bassins avec de petites cascades.',
+          distancia: 'du CAT',
+          esforco: 'Facile',
+        },
+        {
+          rotulo: '+15 min',
+          titulo: 'Salão das Areias Coloridas',
+          corpo: 'Un labyrinthe où les roches ont subi un processus d’infiltration — l’érosion — qui les a rendues poreuses et sableuses. C’est le point le plus singulier du parc, et celui qui suscite le plus de discussions sur la géologie.',
+          distancia: '15 min',
+          esforco: 'Facile',
+        },
+        {
+          rotulo: '+15 min',
+          titulo: 'Poço Halley',
+          corpo: 'Halte baignade, avec les argiles colorées qui s’y trouvent grâce aux roches ignées affleurant au bord du bassin.',
+          distancia: '15 min',
+          esforco: 'Facile',
+        },
+        {
+          rotulo: '+20 min',
+          titulo: 'Cascade da Primavera',
+          corpo: 'L’un des affluents du Rio Lençóis — la même rivière que nous traversons au Serrano, au début de la journée.',
+          distancia: '20 min',
+          esforco: 'Facile',
+        },
+        {
+          rotulo: 'Ensuite',
+          titulo: 'Poço Paraíso',
+          corpo: 'Une autre halte baignade, en eaux peu profondes, avec une petite cascade.',
+          distancia: '—',
+          esforco: 'Facile',
+        },
+        {
+          rotulo: '+10 min',
+          titulo: 'Belvédère de Lençóis',
+          corpo: 'D’ici, on voit toute la ville et un horizon plat qui semble ne jamais finir.',
+          distancia: '10 min',
+          esforco: 'Modéré',
+        },
+        {
+          rotulo: '+15 min',
+          titulo: 'Cachoeirinha',
+          corpo: 'Quinze minutes de descente jusqu’à la dernière étape : une petite cascade aux eaux cristallines, elle aussi affluent du Rio Lençóis.',
+          distancia: '15 min',
+          esforco: 'Facile',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 220', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 160', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Serviette'], ['En-cas ou fruit', 'Tongs', 'Appareil photo']],
+        note: 'Quatre haltes baignade en 4 km : une serviette et des vêtements secs de rechange comptent ici plus que pour toute autre courte excursion.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue formé aux premiers secours (APH)', 'Droits d’accès', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Pique-nique (en option)', 'Porteur personnel', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Hébergement'],
+      },
+      safetyFaq(
+        'fr',
+        'Le parc est facile d’accès, mais les conglomérats polis par l’eau deviennent glissants — et c’est justement là que tout le monde veut entrer. Des chaussures à bonne adhérence et de la prudence au bord des bassins règlent le principal risque de la journée.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt pour les sept', 'sites de la Muritiba ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

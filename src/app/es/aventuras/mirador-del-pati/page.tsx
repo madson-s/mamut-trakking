@@ -8,7 +8,7 @@ const CONTENT = MIRANTE_PATI_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mirante-do-pati', en: '/en/adventures/pati-viewpoint-1-day', es: '/es/aventuras/mirador-del-pati' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mirante-do-pati', en: '/en/adventures/pati-viewpoint-1-day', es: '/es/aventuras/mirador-del-pati', fr: '/fr/aventures/belvedere-du-pati' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

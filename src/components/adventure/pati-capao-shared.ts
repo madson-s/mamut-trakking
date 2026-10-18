@@ -7,7 +7,7 @@
  * garantiria que um dia divergissem por descuido.
  *
  * Fonte: mamut.agency/aventuras/vale-do-pati-{4,5}-dias{-,-via-}capao e as
- * versões inglesas. ES é tradução feita aqui.
+ * versões inglesas. ES e FR são tradução feita aqui.
  */
 
 import type { Locale } from '@/lib/site';
@@ -33,6 +33,12 @@ export const PATI_CAPAO_SOBRE: Record<Locale, string[]> = {
     'Es un trekking versátil, que personas de cualquier edad pueden hacer según la ruta elegida. Operamos de 1 a 7 días dentro del Pati — si estos no entran en tu estadía, hablá con atención.',
     'El desayuno y la cena se preparan en los alojamientos y el menú varía todos los días. Durante las caminatas el picnic equivale al almuerzo: comidas balanceadas entre vitaminas, proteínas, fibras y carbohidratos.',
   ],
+  fr: [
+    'L’un des plus beaux treks du monde, au cœur de l’État de Bahia. La vallée du Pati se situe autour de 1 000 mètres d’altitude, avec une riche variété de transitions entre vestiges de forêt atlantique, champs rupestres — le cerrado d’altitude — et prairies ouvertes.',
+    'La région a abrité des paysans il y a environ 200 ans et compte aujourd’hui 14 maisons encore debout, qui servent d’hébergement aux visiteurs. C’est là que vous dormez : chez des habitants de la vallée, en chambre partagée ou privée (prévenez-nous à l’avance si vous avez besoin d’une chambre privée).',
+    'C’est un trek polyvalent, accessible à des personnes de tout âge selon l’itinéraire choisi. Nous proposons des séjours de 1 à 7 jours dans le Pati — si aucun ne correspond à votre séjour, contactez-nous.',
+    'Le petit-déjeuner et le dîner sont préparés dans les hébergements et le menu change chaque jour. Pendant les marches, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+  ],
 };
 
 /** Aviso do itinerário — as duas páginas trazem a mesma ressalva. */
@@ -40,6 +46,7 @@ export const PATI_CAPAO_AVISO: Record<Locale, string> = {
   pt: 'O itinerário pode mudar por condição climática ou por qualquer fator de força maior que a equipe julgue relevante. Este trekking é muito dinâmico e pode ser feito de várias maneiras, com diversas entradas e saídas — consulte todas as opções com o atendimento.',
   en: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant. This trek is highly dynamic and can be walked in several ways, with different entry and exit points — ask us about all the options.',
   es: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es muy dinámico y se puede hacer de varias maneras, con diversas entradas y salidas — consultá todas las opciones con atención.',
+  fr: 'L’itinéraire peut changer en raison des conditions météorologiques ou de tout autre cas de force majeure que l’équipe juge pertinent. Ce trek est très modulable et peut se faire de plusieurs façons, avec différents points d’entrée et de sortie — renseignez-vous auprès de notre équipe sur toutes les options.',
 };
 
 /** Checklist, o que entra no valor e quando ir — idênticos nas duas rotas. */
@@ -141,6 +148,38 @@ const PATI_CAPAO_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       notes: [
         'No existe una mejor época absoluta — depende de lo que quieras ver.',
         'Hace frío de noche todo el año: la ropa para dormir entra en el checklist incluso en verano.',
+      ],
+    },
+  ],
+  fr: [
+    {
+      type: 'checklist',
+      title: 'Checklist — quoi emporter',
+      intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux rend la participation impossible. Les articles sont vérifiés à la réservation et au check-in.',
+      requiredColumns: [
+        ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Vêtements légers de marche', 'Vêtements de nuit', 'Maillot de bain', 'Sac à dos de portage 50 L+'],
+        ['Protection de pluie (corps et sac)', 'Crème solaire', 'Médicaments personnels', 'Trousse de toilette', 'Pièce d’identité', 'Lampe frontale et petit sac de journée'],
+      ],
+      recommendedColumns: [['Chaussettes de rechange', 'Serviette à séchage rapide'], ['Bâton de marche', 'Batterie externe', 'En-cas ou fruit']],
+      note: 'Si vous préférez ne pas porter de charge, un porteur personnel est possible — le sac à dos de portage reste obligatoire pour les jours où le groupe change d’hébergement.',
+    },
+    {
+      type: 'included',
+      title: 'Ce qui est inclus / non inclus',
+      included: ['Guide de montagne agréé formé aux premiers secours (APH)', 'Hébergement dans les maisons de la vallée du Pati', 'Transferts Palmeiras › Pati › Capão › Lençóis (certains en transport alternatif ou interurbain)', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après la randonnée'],
+      excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Boissons supplémentaires à l’épicerie de l’hébergement', 'Équipement personnel', 'Évacuation médicale'],
+    },
+    {
+      type: 'seasons',
+      title: 'Quand visiter la vallée du Pati',
+      facts: [
+        ['Été et automne (janv.–mai)', 'Cascades pleines, plus de boue sur les sentiers'],
+        ['Hiver et printemps (juin–déc.)', 'Terrain plus ferme, moins de débit d’eau'],
+        ['Altitude de la vallée', 'Environ 1 000 m'],
+      ],
+      notes: [
+        'Il n’y a pas de meilleure saison absolue — tout dépend de ce que vous voulez voir.',
+        'Il fait frais la nuit toute l’année : les vêtements de nuit figurent dans la checklist même en été.',
       ],
     },
   ],

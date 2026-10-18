@@ -2,7 +2,7 @@
  * Conteúdo da travessia do Vale do Pati em 5 dias via Capão, por idioma.
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-5-dias-capao e EN de
- * mamut.agency/en/aventuras/pati-valley-5-days-capao-way. ES é tradução aqui.
+ * mamut.agency/en/aventuras/pati-valley-5-days-capao-way. ES e FR são tradução aqui.
  *
  * Mesma rota da versão de 4 dias, com um dia a mais: o Cachoeirão por Baixo
  * ganha um bate-volta próprio em vez de ficar de fora. O texto compartilhado
@@ -284,6 +284,90 @@ export const PATI_5_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para los cinco días', 'de travesía?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la travesía con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Vallée du Pati en 5 jours par le Capão',
+      description:
+        'Traversée de 78 km dans la vallée du Pati, avec arrivée dans la vallée du Capão et une journée entière au Cachoeirão par le bas et au Calixto.',
+      canonical: '/fr/aventures/vallee-du-pati-5-jours-par-capao',
+    },
+    hero: {
+      nivel: 'Modéré / Difficile',
+      origem: 'Départ : Palmeiras',
+      duracao: '5 jours',
+      titulo: 'Vallée du Pati en 5 jours, par le Capão.',
+      lead: 'La traversée complète : soixante-dix-huit kilomètres, avec le Cachoeirão par le bas et le Calixto, chacun sur sa propre journée.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Altitude maximale', 'Où l’on dort', 'Départ (Palmeiras)', 'Difficulté'],
+    sobre: { titulo: 'À propos de la vallée du Pati.', paragrafos: PATI_CAPAO_SOBRE.fr },
+    itinerario: {
+      titulo: 'Jour par jour.',
+      aviso: PATI_CAPAO_AVISO.fr,
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Cachoeirão par le haut + Pati de Baixo',
+          corpo: 'Départ à partir de 7h00 de Palmeiras, 1 heure de voiture jusqu’au village de Guiné, où nous entrons dans la vallée du Pati. Nous prenons le sentier des Aleixos et montons pendant 1 heure, puis encore 1h30 sur terrain plat jusqu’au belvédère du Cachoeirão par le haut. De là, nous rejoignons la Fenda da Prefeitura, une descente raide d’une heure jusqu’au pied de la serra, puis encore 40 minutes jusqu’à l’hébergement.',
+          distancia: '15 km',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'Cachoeirão par le bas',
+          corpo: 'Départ vers 8h00, après le petit-déjeuner servi à l’hébergement. Aller-retour sur un chemin en grande partie accidenté, dans le lit de la rivière Cachoeirão, en sautant de rocher en rocher. Nous allons jusqu’au pied de la cascade avec un simple sac de journée. Après la contemplation et la collation préparée par le guide, nous revenons par le même chemin.',
+          distancia: '12 km',
+          esforco: 'Modéré / Élevé',
+        },
+        {
+          rotulo: '3e jour',
+          titulo: 'Cascade du Calixto + Poço da Árvore',
+          corpo: 'Journée au Calixto, l’un des coins les moins visités du Pati. Nous partons avec un simple sac de journée, en sautant de rocher en rocher et en traversant une forêt dense jusqu’à la cascade du Calixto. En chemin, on peut se rafraîchir au Poço da Árvore.',
+          distancia: '18 km',
+          esforco: 'Modéré / Élevé',
+        },
+        {
+          rotulo: '4e jour',
+          titulo: 'Morro do Castelo + cascades',
+          corpo: 'Départ à 8h00 après un petit-déjeuner très copieux, avec toutes les affaires, que nous laissons à la bifurcation. C’est la journée d’effort la plus intense : nous attaquons un morro à plus de 1 200 m d’altitude, avec environ 250 mètres de dénivelé en 40 à 60 minutes. Au sommet du Morro do Castelo, deux belvédères et l’entrée de la grotte de la Lapinha, l’une des grottes les plus rares au monde au-dessus de 1 000 m. Nous redescendons, récupérons les affaires et continuons par un autre chemin, à la découverte des cascades Altina (Lajes), Funis et Bananeiras, avant d’arriver à l’hébergement vers 18h00.',
+          distancia: '—',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: '5e jour',
+          titulo: 'Mirante da Rampa + Quebra Bunda + Gerais do Vieira',
+          corpo: 'Départ de l’Igrejinha vers 8h00 et 1 heure de montée jusqu’au Mirante da Rampa. Puis 2 heures sur terrain plat jusqu’au belvédère du Quebra Bunda, où commence 1 heure de descente. Au pied de la serra, encore 3 heures sur terrain plat à travers les Gerais do Vieira jusqu’à la Vila do Bomba, où la voiture attend vers 16h00 pour le transfert retour. Nuit en auberge, sans petit-déjeuner.',
+          distancia: '—',
+          esforco: 'Modéré',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 3.500', nota: 'Minimum 2 personnes. Seul votre groupe sur la traversée.' },
+        { titulo: 'En groupe', preco: 'R$ 3.300', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Prix pour un paiement en espèces, par virement ou par boleto. Virement international ou groupe plus grand : contactez notre équipe.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      ...patiCapaoFaqs('fr'),
+      safetyFaq(
+        'fr',
+        'Il s’agit de cinq jours de marche d’affilée, avec un niveau technique entre Modéré et Difficile. Le 2e jour se fait dans le lit de la rivière Cachoeirão, en sautant sur des rochers qui peuvent être glissants ; le 4e est le plus dur, avec 250 mètres de dénivelé pour dépasser 1 200 m. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt pour cinq jours', 'de traversée ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous construisons la traversée avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

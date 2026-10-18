@@ -1,7 +1,7 @@
 /**
  * Texto da página Sobre por idioma.
  *
- * ⚠️ EN e ES são tradução feita neste repositório. A operadora não publica
+ * ⚠️ EN, ES e FR são tradução feita neste repositório. A operadora não publica
  * versão traduzida: `mamut.agency/en/quem-somos` serve a página em português.
  *
  * As biografias falam de pessoas reais — nomes, certificações e o idioma que
@@ -30,6 +30,11 @@ export type AboutContent = {
     cards: { titulo: string; paragrafos: [string, string] }[];
     selos: { titulo: string; texto: string }[];
     fotoAlt: string;
+    /**
+     * Frase sobre a foto do card, em três linhas sem quebra (largura fixa):
+     * `antes` **`jornada`** `depois` / `linha2` / **`primitivas`**.
+     */
+    arte: { antes: string; jornada: string; depois: string; linha2: string; primitivas: string };
   };
   guides: {
     badge: string;
@@ -107,6 +112,7 @@ export const ABOUT_CONTENT: Record<Locale, AboutContent> = {
         { titulo: 'Cadastur regularizado', texto: 'CNPJ 43.500.583/0001-22 · Ministério do Turismo.' },
       ],
       fotoAlt: 'Chapada Diamantina ao pôr do sol',
+      arte: { antes: 'Uma', jornada: 'jornada', depois: 'de', linha2: 'resgate das práticas', primitivas: 'primitivas' },
     },
     guides: {
       badge: 'Conheça quem guia o nosso bando!',
@@ -222,6 +228,7 @@ export const ABOUT_CONTENT: Record<Locale, AboutContent> = {
         { titulo: 'Licensed with Cadastur', texto: 'CNPJ 43.500.583/0001-22 · Brazilian Ministry of Tourism.' },
       ],
       fotoAlt: 'The Chapada Diamantina at sunset',
+      arte: { antes: 'A', jornada: 'journey', depois: 'to', linha2: 'reclaim the', primitivas: 'primitive' },
     },
     guides: {
       badge: 'Meet the people who guide our herd',
@@ -337,6 +344,7 @@ export const ABOUT_CONTENT: Record<Locale, AboutContent> = {
         { titulo: 'Cadastur habilitado', texto: 'CNPJ 43.500.583/0001-22 · Ministerio de Turismo de Brasil.' },
       ],
       fotoAlt: 'La Chapada Diamantina al atardecer',
+      arte: { antes: 'Un', jornada: 'viaje', depois: 'de', linha2: 'rescate de prácticas', primitivas: 'primitivas' },
     },
     guides: {
       badge: '¡Conocé a quienes guían nuestra manada!',
@@ -404,6 +412,101 @@ export const ABOUT_CONTENT: Record<Locale, AboutContent> = {
         role: 'Chofer principal',
         bio: 'El integrante más reciente y el “papá” del equipo. Nacido en Paraná, vecino de Lençóis desde hace más de 15 años. Conduce siempre con buen humor y simpatía.',
       },
+    },
+  },
+
+  fr: {
+    meta: {
+      title: 'Qui sommes-nous',
+      description:
+        'Découvrez l’histoire et les guides locaux de Mamut Trekking, façonnés par la Chapada Diamantina.',
+      canonical: '/fr/a-propos',
+      ogTitle: 'À propos de Mamut Trekking',
+      ogDescription:
+        'Sept guides locaux, façonnés par la Chapada. Ensemble, ils couvrent tout le parc national.',
+    },
+    hero: {
+      titulo: { antes: 'Nés', aqui: 'ici.', mobile: 'ici, façonnés par la Chapada.', desktop: 'Façonnés par la Chapada.' },
+      leadDesktop:
+        'Des treks guidés par des enfants de la Chapada Diamantina. Chaque sentier est un retour vers soi.',
+      leadMobile:
+        'Des treks guidés par des enfants de la Chapada Diamantina — chaque sentier est un retour vers soi.',
+      ctaBando: 'Découvrir la harde',
+      ctaGuia: 'Parler à un guide',
+      fotoAlt: 'Le centre historique de Lençóis au coucher du soleil',
+    },
+    story: {
+      titulo: { l1: 'Nous ne sommes pas', l2: 'une agence de voyages.', l3: 'Nous sommes la harde', l4: 'qui guide', l5: 'votre tribu.' },
+      cards: [
+        {
+          titulo: 'C’est de cette mémoire que nous sommes nés.',
+          paragrafos: [
+            'Dans l’immensité des mégacontinents, les mammouths marchaient en grandes hardes — et ont marqué leur existence pour toujours.',
+            'Dans la Chapada Diamantina, nous renouons avec ce lien. Chaque sentier est un retour à vos racines : sentir le sol, écouter le vent, appartenir à quelque chose de plus grand.',
+          ],
+        },
+        {
+          titulo: 'Façonnés par la Serra do Sincorá.',
+          paragrafos: [
+            'Tous nos guides sont d’ici — pompiers forestiers volontaires, guides certifiés (CMC, APH, WFA) et connaisseurs de la flore, de la faune et de la géologie de la Serra do Sincorá.',
+            'C’est ce qui nous permet de nous aventurer dans les traversées les plus reculées du parc national sans rien céder sur le soin dû à ceux qui marchent et au territoire.',
+          ],
+        },
+      ],
+      selos: [
+        { titulo: 'Guides 100 % locaux', texto: 'Nés et élevés à Lençóis et dans les environs de la Chapada.' },
+        { titulo: 'CMC, APH et WFA', texto: 'Guides certifiés et pompiers forestiers volontaires.' },
+        { titulo: 'Flore, faune et géologie', texto: 'Une connaissance vivante de la Serra do Sincorá.' },
+        { titulo: 'Agréée Cadastur', texto: 'CNPJ 43.500.583/0001-22 · ministère du Tourisme du Brésil.' },
+      ],
+      fotoAlt: 'La Chapada Diamantina au coucher du soleil',
+      arte: { antes: 'Un', jornada: 'voyage', depois: 'pour', linha2: 'retrouver les gestes', primitivas: 'primitifs' },
+    },
+    guides: {
+      badge: 'Rencontrez ceux qui guident notre harde !',
+      titulo: 'Ceux qui guident notre harde.',
+      lead: 'Sept guides locaux, façonnés par la Chapada. Chacun a sa spécialité — ensemble, ils couvrent tout le parc national.',
+      pagina: 'Page des guides',
+      ctaTitulo: { linha1: 'Envie de marcher', linha2: 'avec nous ?' },
+      ctaTexto: 'Écrivez à un guide local sur WhatsApp. Nous choisissons ensemble le rythme, l’itinéraire et la date.',
+      cta: 'Rejoindre la harde',
+    },
+    reviews: {
+      badge: 'Avis vérifiés · TripAdvisor',
+      titulo: { mobile: ['Ce que notre harde', 'dit de ses aventures.'], desktop: ['Chaque avis est un', 'sentier que nous avons fait', 'ensemble.'] },
+      avaliacoes: '145 avis',
+      avaliacoesLabel: 'Avis',
+      mediaChip: '5.0 au global',
+      mediaLabel: 'Note moyenne globale',
+      rankingChip: 'N° 5 à Lençóis',
+      ranking: 'N° 5 au classement',
+      rankingLabel: 'des activités de plein air à Lençóis',
+      ctaTrilha: 'Choisissez votre sentier',
+      ctaTrilhaHref: '/fr/aventures',
+      ctaWhatsapp: 'Réserver sur WhatsApp',
+      ctaTripadvisor: 'Voir notre page TripAdvisor',
+      depoimentos: [
+        '« Du premier contact à la fin du voyage, l’agence a fait preuve de professionnalisme et d’organisation. »',
+        '« Les paysages étaient magnifiques, les cascades épiques et l’aventure incroyable. »',
+        '« Notre guide était très sympathique, attentionné et s’est adapté à tous nos besoins. Sa connaissance du parc national est immense. »',
+      ],
+    },
+    cta: {
+      titulo: ['Votre sentier commence', 'par un message.'],
+      corpo:
+        'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour explorer la Chapada Diamantina et comment vous y préparer.',
+      botao: 'Rejoindre la harde',
+      botaoHref: '/fr/contact',
+      fotoAlt: 'Un sentier face au Morro do Pai Inácio',
+    },
+    guiaTexto: {
+      'marcelo-cabral': { role: 'Guide et fondateur', bio: '13 ans à Lençóis. Il s’occupe de toute l’organisation — du premier message au dernier pas sur le sentier. Il fait découvrir la Chapada aux Brésiliens comme aux étrangers, avec l’autorité de quelqu’un qui a choisi cette terre pour foyer.' },
+      'felipe-ribeiro': { role: 'PT · EN', bio: 'Né à Salvador, il a grandi à Lençóis. Il connaît la grande majorité des sentiers autour du parc national. On se souvient de sa gentillesse et de sa cuisine. Il conçoit les itinéraires et la logistique de chaque groupe, et guide en anglais.' },
+      'salomao-andrade': { role: 'Pompier volontaire', bio: 'Né et élevé dans la Chapada, spécialiste des treks sauvages du parc national. Il guide les groupes étrangers.' },
+      'aman-duart': { role: 'Pompier civil', bio: 'Petit-fils de chercheurs de diamants et natif de Lençóis. Il connaît en profondeur les plantes médicinales de la Chapada Diamantina, se forme comme pompier civil et est un excellent compagnon de route.' },
+      'luiz-henrique': { role: 'Certifié WFA', bio: 'Né et élevé dans la Chapada, avec une énergie inépuisable pour gravir la serra. Il maîtrise les treks les plus classiques autour du parc. Grimpeur amateur et étudiant en analyse et développement de systèmes.' },
+      'rodolfo-anjos': { role: 'Pompier volontaire', bio: 'Né à Lençóis, mentor de l’équipe. Guide touristique d’une grande expérience et excellent chauffeur, il connaît la Chapada sur le bout des doigts. Il guide en français.' },
+      'jair-dalcin': { role: 'Chauffeur principal', bio: 'Le plus récent de l’équipe et son « papa ». Né dans le Paraná, il vit à Lençóis depuis plus de 15 ans. Il conduit toujours avec bonne humeur et gentillesse.' },
     },
   },
 };

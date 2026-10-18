@@ -15,6 +15,9 @@
  *
  * ⚠️ Preço em grupo: R$ 500 em português, R$ 525 em inglês. Mantive o valor em
  * português.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -314,6 +317,98 @@ export const CACHOEIRAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para ver', 'veinte cascadas de una vez?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Belvédère du Cachoeirão',
+      description:
+        'Un belvédère à 280 mètres au-dessus de la vallée du Pati, avec plus de 20 chutes d’eau dans la même vallée après de fortes pluies. 18 km en une journée.',
+      canonical: '/fr/aventures/belvedere-du-cachoeirao',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Guiné',
+      duracao: '1 jour',
+      titulo: 'Belvédère du Cachoeirão.',
+      lead: 'Deux cent quatre-vingts mètres de falaise et, après de fortes pluies, plus de vingt chutes d’eau dans la même vallée.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Hauteur du belvédère', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du belvédère du Cachoeirão.',
+      paragrafos: [
+        'Dix-huit kilomètres en une journée pour atteindre un belvédère à 280 mètres de hauteur au-dessus de la vallée du Pati. Après de fortes pluies, on peut y contempler plus de 20 chutes d’eau dans la même vallée, en même temps.',
+        'Le sentier est en grande partie plat et traverse les Gerais do Rio Preto, une zone ouverte qui représente plus de 70 % du parc national — un immense jardin à ciel ouvert, avec la flore d’altitude et les montagnes en toile de fond.',
+        'Aux abords du belvédère se trouve une zone de baignade avec une piscine naturelle. C’est là que le groupe prend son repas avant d’entamer le retour.',
+        'Pour nous, la visite idéale du Pati dure au moins 3 jours. Mais si vous n’avez que peu de jours dans la Chapada, c’est un excellent choix — et, dans le même format d’une journée, nous proposons aussi le belvédère da Rampa, le plus célèbre de la vallée.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 7h00 vers le sud du parc national de la Chapada Diamantina. 80 km et environ 2 heures de voiture jusqu’au village de Guiné, où le sentier commence et se termine.',
+        'Arrivée, présentation générale du parcours, vérification de la checklist et début de la marche.',
+        'Premier tronçon : 30 minutes de montée sur terrain accidenté jusqu’au belvédère dos Aleixos. Courte pause, puis nous continuons vers l’intérieur de la vallée.',
+        'Environ 1h30 de marche sur terrain plat à travers les Gerais do Rio Preto. À mi-chemin, nous traversons le Rio Preto — des itinéraires alternatifs peuvent être adoptés selon la météo.',
+        'Arrivée au belvédère du Cachoeirão, 280 mètres au-dessus de la vallée. Si le parcours se fait après de fortes pluies, plus de 20 chutes d’eau sont visibles d’un seul coup d’œil.',
+        'Repas dans la zone de baignade à côté du belvédère, avec piscine naturelle, et préparation pour le retour.',
+        'Retour par le même parcours, avec un arrêt optionnel au Rio Preto pour une baignade. Arrivée à la voiture vers 16h00, courte halte à Guiné — où l’on peut bien manger — puis retour à Lençóis, en ville vers 19h00.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 540', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 500', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1 L par personne)', 'Baskets ou chaussures de randonnée', 'Vêtements légers', 'Casquette ou chapeau', 'Crème solaire'],
+          ['Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires', 'En-cas pour le belvédère', 'Maillot de bain'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Bâton de marche'], ['Tongs', 'Serviette', 'Appareil photo']],
+        note: 'Les tongs sont sur la liste à cause de la zone de baignade à côté du belvédère — c’est là que le groupe mange et se repose avant le retour.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide local agréé formé aux premiers secours (APH)', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Pique-nique (en option)', 'En-cas ou déjeuner', 'Repas à Guiné', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      {
+        type: 'seasons',
+        title: 'Quand visiter la vallée du Pati',
+        facts: [
+          ['Été et automne (janv.–mai)', 'Cascades pleines, plus de boue sur les sentiers'],
+          ['Hiver et printemps (juin–déc.)', 'Terrain plus ferme, moins de débit'],
+          ['Les 20 chutes du belvédère', 'N’apparaissent qu’après de fortes pluies'],
+        ],
+        notes: [
+          'Il n’existe pas de meilleure saison absolue — tout dépend de ce que vous voulez voir.',
+          'Pour le Cachoeirão en particulier, c’est la saison des pluies qui offre la vue complète.',
+        ],
+      },
+      safetyFaq(
+        'fr',
+        'La journée est longue : départ à 7h00, retour vers 19h00, avec environ 4 heures de route en plus des 18 km de marche. La traversée du Rio Preto dépend du niveau de l’eau — en saison des pluies, l’équipe adopte un itinéraire alternatif. Les Gerais n’offrent aucune ombre : chapeau, crème solaire et eau sont ici l’essentiel.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à voir', 'vingt cascades d’un coup ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

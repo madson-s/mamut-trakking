@@ -3,8 +3,8 @@
  *
  * PT é transcrição de mamut.agency/dicas e EN de mamut.agency/en/tips.
  *
- * ⚠️ ES é tradução feita neste repositório — a operadora não publica versão em
- * espanhol (`/es/consejos` responde 404).
+ * ⚠️ ES e FR são traduções feitas neste repositório — a operadora não publica
+ * versão em espanhol nem em francês (`/es/consejos` responde 404).
  *
  * Os telefones ficam num único lugar: o número não muda com o idioma, e
  * duplicá-lo por locale faria uma correção virar três. Só o `nome` traduz, e
@@ -17,7 +17,7 @@ import type { Locale } from '@/lib/site';
 /* Telefones — dado compartilhado                                     */
 /* ------------------------------------------------------------------ */
 
-type Nome = { pt: string; en?: string; es?: string };
+type Nome = { pt: string; en?: string; es?: string; fr?: string };
 export type Contato = { nome: Nome; numeros: string[] };
 export type GrupoId = 'brigadas' | 'emergencia' | 'atrativos' | 'instituicoes';
 
@@ -35,11 +35,11 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
   ],
   emergencia: [
     {
-      nome: { pt: 'Corpo de Bombeiros', en: 'Fire Department', es: 'Bomberos' },
+      nome: { pt: 'Corpo de Bombeiros', en: 'Fire Department', es: 'Bomberos', fr: 'Pompiers' },
       numeros: ['193'],
     },
     {
-      nome: { pt: 'Polícia Militar', en: 'Military Police', es: 'Policía Militar' },
+      nome: { pt: 'Polícia Militar', en: 'Military Police', es: 'Policía Militar', fr: 'Police militaire' },
       numeros: ['190'],
     },
     {
@@ -47,6 +47,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Hospital Regional de Seabra',
         en: 'Regional Hospital of Seabra',
         es: 'Hospital Regional de Seabra',
+        fr: 'Hôpital régional de Seabra',
       },
       numeros: ['(75) 3331-9400'],
     },
@@ -55,6 +56,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Hospital Regional de Irecê',
         en: 'Regional Hospital of Irecê',
         es: 'Hospital Regional de Irecê',
+        fr: 'Hôpital régional d’Irecê',
       },
       numeros: ['(74) 3688-7700'],
     },
@@ -63,6 +65,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'CIPPA — Polícia Ambiental, Lençóis',
         en: 'CIPPA — Lençóis Environmental Police',
         es: 'CIPPA — Policía Ambiental, Lençóis',
+        fr: 'CIPPA — Police environnementale, Lençóis',
       },
       numeros: ['(75) 3334-1493'],
     },
@@ -82,6 +85,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Parque Natural Municipal do Espalhado — Ibicoara',
         en: 'Espalhado Municipal Natural Park — Ibicoara',
         es: 'Parque Natural Municipal do Espalhado — Ibicoara',
+        fr: 'Parc naturel municipal do Espalhado — Ibicoara',
       },
       numeros: ['(77) 3413-2374'],
     },
@@ -90,6 +94,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Parque Sempre-Viva — Mucugê',
         en: 'Sempre-Viva Park — Mucugê',
         es: 'Parque Sempre-Viva — Mucugê',
+        fr: 'Parc Sempre-Viva — Mucugê',
       },
       numeros: ['(75) 3338-2143'],
     },
@@ -103,6 +108,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Abeta — Ecoturismo e Turismo de Aventura',
         en: 'Abeta — Ecotourism and Adventure Travel',
         es: 'Abeta — Ecoturismo y Turismo de Aventura',
+        fr: 'Abeta — Écotourisme et tourisme d’aventure',
       },
       numeros: ['(11) 2371-5336'],
     },
@@ -113,6 +119,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Disque Bahia Turismo',
         en: 'Bahia Tourism hotline',
         es: 'Línea de Turismo de Bahía',
+        fr: 'Ligne d’information touristique de Bahia',
       },
       numeros: ['(71) 3103-3103'],
     },
@@ -123,6 +130,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         pt: 'Iphan — Escritório Lençóis',
         en: 'Iphan — Lençóis office',
         es: 'Iphan — Oficina Lençóis',
+        fr: 'Iphan — Bureau de Lençóis',
       },
       numeros: ['(75) 3334-1123'],
     },
@@ -789,6 +797,206 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
       whatsapp: 'Hablar por WhatsApp',
       contato: 'Página de contacto',
       contatoHref: '/es/contacto',
+    },
+  },
+
+  fr: {
+    meta: {
+      title: 'Conseils',
+      description:
+        'Comment rejoindre la Chapada Diamantina, où loger à Lençóis, où manger, les banques et les numéros utiles — ce qu’il faut savoir avant de monter dans la serra.',
+      ogDescription: 'Comment venir, où loger, où manger et les numéros utiles de la Chapada Diamantina.',
+      canonical: '/fr/conseils',
+    },
+    chegada: {
+      titulo: { antes: 'Comment rejoindre la', destaque: 'Chapada Diamantina ?' },
+      lead: 'Lençóis est la porte d’entrée. Il existe quatre façons d’y arriver, et la meilleure dépend du temps dont vous disposez.',
+      opcoes: [
+        {
+          titulo: 'En avion',
+          texto:
+            'Le moyen le plus rapide de rejoindre Lençóis est l’avion avec Azul (Confins × Lençóis) ; de temps à autre, Voepass annonce des vols entre Salvador et Lençóis. Vous pouvez aussi atterrir à Vitória da Conquista et continuer en transfert jusqu’à Lençóis ou Mucugê.',
+        },
+        {
+          titulo: 'En bus',
+          texto:
+            'Salvador × Lençóis avec Rápido Federal (Guanabara). Les sièges sont pour la plupart confortables et il existe un service couchette. Comptez environ 6 heures de trajet.',
+        },
+        {
+          titulo: 'En voiture',
+          texto:
+            'La BR-242 est la principale voie d’accès à la Chapada Diamantina. Les villes qui entourent la région sont Feira de Santana, Vitória da Conquista, Irecê et Barreiras.',
+        },
+        {
+          titulo: 'Transfert avec Mamut',
+          texto:
+            'Le moyen le plus rapide et le plus direct : un transfert privé avec nous, avec flexibilité, confort et sécurité tout au long du voyage vers l’intérieur de Bahia.',
+          destaque: true,
+        },
+      ],
+    },
+    estadia: {
+      titulo: { antes: 'Où dormir et', destaque: 'où manger.' },
+      assuntos: [
+        {
+          titulo: 'Où loger à Lençóis',
+          paragrafos: [
+            'Lençóis dispose d’infrastructures pour tous les publics : pousadas, hôtels, maisons de charme, locations saisonnières, auberges de jeunesse et campings.',
+            'N’oubliez pas que de nombreux sites de la Chapada sont éloignés de Lençóis, ce qui amène souvent à passer la nuit dans des villes différentes. Découvrir d’autres villages — Vale do Capão, Igatu et Mucugê — en vaut généralement la peine.',
+          ],
+        },
+        {
+          titulo: 'Où manger',
+          paragrafos: [
+            'Les villages de Lençóis et du Vale do Capão offrent la plus grande variété et la meilleure qualité en la matière : maisons de pâtes, restaurants asiatiques, arabes et méditerranéens, cafés, pâtisseries et options véganes.',
+            'On y trouve aussi des cuisines expérimentales et des menus dégustation de haute gastronomie.',
+          ],
+        },
+      ],
+      listas: [
+        {
+          titulo: 'Banques',
+          nota: 'Ayez toujours de l’argent liquide sur vous — les distributeurs manquent souvent de billets, surtout en haute saison.',
+          itens: [
+            'Banco do Brasil — Lençóis et Seabra',
+            'Bradesco — Lençóis, Palmeiras et Seabra',
+            'Caixa — Seabra',
+          ],
+        },
+        { titulo: 'Laverie', itens: ['Banho de Cheiro — Lençóis', 'Capricho — Lençóis'] },
+      ],
+    },
+    telefones: {
+      titulo: { antes: 'Des numéros à garder', destaque: 'dans la poche.' },
+      lead: 'Le réseau mobile est rare dans la serra. Enregistrez ce qui vous sera utile avant de quitter Lençóis.',
+      grupos: {
+        brigadas: 'Brigades volontaires de lutte contre les feux de forêt',
+        emergencia: 'Hôpitaux et urgences',
+        atrativos: 'Sites naturels et aires protégées',
+        instituicoes: 'Institutions et organismes publics',
+      },
+    },
+    secao: { titulo: 'Conseils', selectLabel: 'Choisissez un sujet' },
+    paginas: {
+      'como-chegar': {
+        nav: 'Comment venir',
+        meta: {
+          title: 'Comment rejoindre la Chapada Diamantina',
+          description:
+            'Avion, bus, voiture ou transfert privé — les quatre façons de rejoindre Lençóis, et aussi où loger et où manger dans la Chapada Diamantina.',
+        },
+        titulo: { antes: 'Comment rejoindre la', destaque: 'Chapada Diamantina ?' },
+        lead: 'Lençóis est la porte d’entrée. Il existe quatre façons d’y arriver, et la meilleure dépend du temps dont vous disposez.',
+      },
+      'informacoes-gerais': {
+        nav: 'Informations générales',
+        meta: {
+          title: 'Informations générales',
+          description:
+            'Sécurité à Lençóis, combien de jours prévoir, la meilleure période de l’année, banques, laveries et numéros utiles de la Chapada Diamantina.',
+        },
+        titulo: { antes: 'Ce que l’on nous demande', destaque: 'avant de venir.' },
+        lead: 'Les questions qui reviennent le plus souvent à notre équipe — et les services à noter avant de monter dans la serra.',
+        perguntas: [
+          { pergunta: 'Lençóis est-elle une ville sûre ?', resposta: 'Oui, et tout particulièrement pour les visiteurs. Ceux qui arrivent y trouvent des habitants accueillants et serviables. La ville dispose d’un bataillon indépendant de police militaire, d’une compagnie indépendante de police environnementale, d’une garde municipale et d’un commissariat de police civile, avec de faibles taux de vols et de cambriolages.' },
+          { pergunta: 'Combien de jours faut-il pour la Chapada Diamantina ?', resposta: 'L’idéal est d’au moins 7 jours. En 3 jours, vous pouvez découvrir les sites les plus proches de Lençóis. Gardez à l’esprit que la Chapada regroupe environ 24 villes, avec des sites répartis entre elles — choisissez bien où aller et où loger.' },
+          { pergunta: 'Combien de jours faut-il pour la vallée du Pati ?', resposta: 'La vallée est assez grande pour dépasser 8 jours de marche si vous voulez la parcourir entièrement. Les itinéraires les plus demandés sont celui de 3 jours et la traversée de 5 jours. C’est un trek polyvalent, accessible depuis différents villages et villes.' },
+          { pergunta: 'Comment se préparer pour la vallée du Pati ?', resposta: 'Côté condition physique : pratiquer une activité physique au moins 3 fois par semaine, en privilégiant l’endurance et le cardio. Côté équipement : chaussures fermées, sac à dos de 40 L ou plus, chapeau ou casquette, t-shirts anti-UV 50+ à manches longues, maillot de bain, tongs et tenue pour dormir.' },
+          { pergunta: 'Quelle est la meilleure période pour découvrir la Chapada ?', resposta: 'Cela dépend de ce que vous recherchez. Pour voir les chutes d’eau à leur débit maximal, venez en été ou en automne (de décembre à juin, au Brésil) — les sentiers deviennent nettement plus difficiles et techniques, et le guide local devient indispensable. Pour marcher sans difficulté supplémentaire, venez entre l’hiver et le printemps (de juin à décembre).' },
+          { pergunta: 'Quels sont les plus beaux endroits de la Chapada ?', resposta: 'C’est une affaire très personnelle. Notre avis : la cascade du Mixila, la cascade da Fumaça par le bas, la cascade da Fumacinha et la vallée du Pati.' },
+        ],
+      },
+      'classificacao-de-nivel': {
+        nav: 'Classification des niveaux',
+        meta: {
+          title: 'Classification des niveaux',
+          description:
+            'Comment Mamut évalue l’effort et la difficulté technique de chaque itinéraire dans la Chapada Diamantina — de léger à soutenu, de facile à difficile.',
+        },
+        titulo: { antes: 'Jusqu’où', destaque: 'vous irez.' },
+        lead: 'Chaque itinéraire porte deux niveaux : un d’effort, un technique. Voici les critères.',
+        aviso: 'La classification est relative : chacun a son contexte et ses limites. Elle varie selon votre condition physique actuelle et votre expérience préalable des activités de plein air. Nos activités ne sont pas recommandées aux personnes sédentaires.',
+        esforco: {
+          titulo: 'Niveau d’effort',
+          niveis: [
+            { nome: 'Léger', texto: 'Capacité à marcher jusqu’à 3 heures avec un sac à dos léger sur terrain irrégulier. Une bonne condition physique générale est nécessaire.' },
+            { nome: 'Léger / Modéré', texto: 'Capacité à marcher de 3 à 5 heures, avec un sac de randonnée à la journée ou un sac de trek, sur terrain irrégulier.' },
+            { nome: 'Modéré', texto: 'Capacité à marcher de 5 à 7 heures, avec un sac de randonnée à la journée ou un sac de trek, sur terrain irrégulier.' },
+            { nome: 'Modéré / Soutenu', texto: 'Capacité à marcher de 7 à 9 heures, avec un sac de randonnée à la journée ou un sac de trek, sur terrain irrégulier.' },
+            { nome: 'Soutenu', texto: 'Capacité à marcher de 7 à 9 heures, voire plus, avec un sac de trek sur terrain irrégulier.' },
+          ],
+        },
+        tecnico: {
+          titulo: 'Niveau technique',
+          niveis: [
+            { nome: 'Facile', texto: 'Aucune exposition. Il peut y avoir des passages de terrain glissant — accidenté et/ou boueux.' },
+            { nome: 'Facile / Modéré', texto: 'Peu de montées et de descentes faciles, voire aucune, avec des passages de terrain glissant.' },
+            { nome: 'Modéré', texto: 'Montées et descentes peu exposées, passages de terrain glissant et dalles rocheuses.' },
+            { nome: 'Modéré / Difficile', texto: 'Quelques passages exposés de désescalade et d’escalade facile. L’utilisation d’équipement de sécurité est nécessaire.' },
+            { nome: 'Difficile', texto: 'Passages exposés de désescalade et d’escalade facile. L’utilisation d’équipement de sécurité est nécessaire, et la connaissance des techniques verticales est souhaitable.' },
+          ],
+        },
+      },
+      geologia: {
+        nav: 'Géologie de la Chapada',
+        meta: {
+          title: 'Géologie de la Chapada Diamantina',
+          description:
+            'Le Supergroupe d’Espinhaço, le bassin vieux de 1,7 milliard d’années et le soulèvement qui a dessiné la Chapada Diamantina — et où observer chaque formation.',
+        },
+        titulo: { antes: '4,5 milliards d’années', destaque: 'sous vos pieds.' },
+        lead: 'La Chapada est l’un des meilleurs endroits au monde pour lire l’évolution de la planète dans le paysage lui-même.',
+        blocos: [
+          {
+            titulo: 'Qu’est-ce que la Chapada Diamantina ?',
+            paragrafos: [
+              'Le parc national de la Chapada Diamantina se trouve dans la région centrale de Bahia, entre quatre villes : Andaraí, Lençóis, Mucugê et Palmeiras. Sa région identitaire, en revanche, englobe environ 24 villes autour du Parc — peut-être davantage, selon les critères géographiques retenus.',
+              'Sur une carte de Bahia, on distingue une sorte d’échine, comme une colonne vertébrale, du nord au sud. En prenant du recul, on voit que cette échine se prolonge jusqu’à la région centrale du Minas Gerais, avec une petite interruption à la frontière entre les deux États. Cette formation, c’est le Supergroupe d’Espinhaço, notre mini-cordillère brésilienne — plus de 1 000 km de long.',
+              'Elle est le fruit de 4,5 milliards d’années de transformations de la forme et du relief de la Terre. C’est l’un des meilleurs endroits pour observer cette évolution, par l’âge des formations comme par les fossiles, les peintures rupestres et toute l’histoire qui a façonné le paysage. Aujourd’hui, la région est faite de serras, de conglomérats de roches sédimentaires et de grottes.',
+            ],
+            figuras: [
+              { src: '/img/dicas/espinhaco-porcao-norte.png', alt: 'Carte de la partie nord du Supergroupe d’Espinhaço', legenda: 'Partie nord du Supergroupe d’Espinhaço : la cordillère du Sincorá et les bassins du Rio Paraguaçu, du Rio de Contas et du Rio Una.', width: 855, height: 531 },
+              { src: '/img/dicas/supergrupo-espinhaco.png', alt: 'Étendue du Supergroupe d’Espinhaço sur la carte du Brésil', legenda: 'Le Supergroupe d’Espinhaço, considéré comme la seule cordillère du Brésil.', width: 597, height: 530 },
+            ],
+          },
+          {
+            titulo: 'Comment s’est formée la Chapada Diamantina ?',
+            paragrafos: [
+              'Il y a environ 1,7 milliard d’années, la région du Supergroupe d’Espinhaço était un immense bassin d’environ 60 000 km² — une dépression semblable à un bol, au centre du supercontinent Columbia. De nombreux fleuves y convergeaient, et parfois l’océan lui-même y pénétrait. Des sédiments se sont déposés dans cette dépression pendant environ 700 millions d’années. Ce n’est qu’à la fin de ce processus que la vie multicellulaire a commencé à proliférer, grâce à l’abondance d’oxygène dans l’atmosphère.',
+              'Le biologiste Roy Funch, dans Um Guia Para a Chapada Diamantina, compare ce mouvement à l’assemblage d’un gâteau à plusieurs étages qui remplit tout le bassin. Pendant cette période, le supercontinent se sépare puis se reforme encore deux fois, ce qui laisse le gâteau déformé et brisé.',
+              'Parmi les collisions de plaques et de continents, le soulèvement a été l’accident géologique le plus déterminant pour le paysage. Imaginez deux continents qui se heurtent : pendant l’impact — qui peut durer des millions d’années — une portion de terre s’enfonce et une autre s’élève. C’est ce qui s’est produit lorsque l’Inde s’est soudée à l’Asie, créant l’Himalaya ; dans notre cas, lorsque l’Amérique s’est jointe au continent africain.',
+              'Ensuite, l’érosion a fait son œuvre en creusant vallées, grottes et gouffres, redessinant le paysage jusqu’à aujourd’hui. L’eau s’infiltre lentement entre les roches et en arrache de petits sédiments, qui rejoindront fleuves et océans et formeront les montagnes du futur, dans des millions d’années, quand les continents se heurteront à nouveau.',
+            ],
+            itens: [
+              { titulo: 'Roches calcaires et salitres', texto: 'Principalement entre Irecê et Iraquara, et aussi au sud, près d’Andaraí et de Nova Redenção, aux abords du Rio Una — affluent du Paraguaçu. Probablement le dernier groupe à s’être formé. Elles frappent par le nombre de grottes et de cavernes, et des fossiles auraient été observés à l’intérieur du Poço Azul.' },
+              { titulo: 'Conglomérats de grès', texto: 'Les formations les plus anciennes de la Chapada. Des roches sédimentaires de types et d’origines variés qui, après le soulèvement, ont formé plateaux, vallées et serras. On les trouve dans tout le parc national et ses environs — ce sont les plus courantes.' },
+            ],
+          },
+          {
+            titulo: 'Où observer les principales formations ?',
+            paragrafos: [
+              'Notre principale suggestion est le parc de la Muritiba. Outre les grands conglomérats massifs de grès des piscines naturelles du Serrano, on y observe l’altération des roches du Salão de Areias Coloridas, qui s’effritent au toucher, et les très rares roches ignées du Poço Halley, fruit d’une activité volcanique dans la zone.',
+              'Sur le chemin de la cascade du Sossego, des plis géologiques montrent la force de l’impact qui a soulevé la Chapada, ainsi que l’infinité de couches sédimentaires qui composent un paysage rude et singulier. La grandeur de la vallée du Pati, au cœur du parc national, mérite aussi le détour.',
+            ],
+          },
+        ],
+        referenciasTitulo: 'Références',
+        referencias: [
+          { texto: 'Roy Funch — Um Guia Para a Chapada Diamantina' },
+          { texto: 'Info Escola — Chapada Diamantina', href: 'https://www.infoescola.com/geografia/chapada-diamantina/' },
+        ],
+        complementaresTitulo: 'Pour aller plus loin',
+        complementares: [
+          { texto: 'Augusto José de C. L. Pedreira da Silva — O Supergrupo Espinhaço na Chapada Diamantina centro-oriental, Bahia: sedimentologia, estratigrafia e tectônica', href: 'https://rigeo.cprm.gov.br/jspui/bitstream/doc/147/1/tese_augusto_pedreira.pdf' },
+        ],
+      },
+    },
+    cta: {
+      titulo: { antes: 'Encore des', destaque: 'questions ?' },
+      texto: 'Écrivez-nous — nous vous répondons avec l’itinéraire adapté à votre groupe.',
+      whatsapp: 'Écrire sur WhatsApp',
+      contato: 'Page de contact',
+      contatoHref: '/fr/contact',
     },
   },
 };

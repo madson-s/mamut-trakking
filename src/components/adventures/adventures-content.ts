@@ -5,7 +5,7 @@
  * PT é o copy do redesenho. EN toma como base
  * mamut.agency/en/adventures-of-chapada-diamantina — daí "Pati Valley
  * Crossing", "Fumaça Waterfall from Below" e a nomenclatura de nível
- * (Moderate / Hard). ES é tradução feita neste repositório.
+ * (Moderate / Hard). ES e FR são traduções feitas neste repositório.
  *
  * Os ids são os de `adventures-data.ts`; a parte neutra (foto, distância,
  * preço) não se repete aqui.
@@ -371,6 +371,111 @@ export const ADVENTURES_CONTENT: Record<Locale, AdventuresContent> = {
       'chapada-especial-3-dias': { title: 'Chapada Especial 3 Días', difficulty: 'Moderado / Difícil' },
       'chapada-deslumbrante-4-dias': { title: 'Chapada Deslumbrante 4 Días', difficulty: 'Moderado / Difícil' },
       'chapada-extraordinaria-6-dias': { title: 'Chapada Extraordinaria 6 Días', difficulty: 'Moderado / Difícil' },
+    },
+  },
+
+  fr: {
+    meta: {
+      title: 'Aventures',
+      description:
+        'Treks, excursions d’une journée et forfaits dans la Chapada Diamantina, avec des guides natifs. Filtrez par durée, niveau, point de départ et budget.',
+      canonical: '/fr/aventures',
+    },
+    hero: {
+      linha1: 'Découvrez les',
+      linha2: 'aventures de la',
+      linha3: 'Chapada Diamantina !',
+      filtrar: 'Filtrer les aventures',
+      explorar: 'Découvrez toutes les aventures',
+      limpar: 'Effacer',
+      removerFiltro: 'Retirer le filtre',
+    },
+    filtros: {
+      local: 'Point de départ',
+      duracao: 'Durée',
+      dificuldade: 'Difficulté',
+      investimento: 'Budget',
+      investimentoMax: 'Budget maximum',
+      escolher: 'Choisissez votre sentier',
+      todosLocais: 'Tous les points de départ',
+      todas: 'Toutes',
+      qualquerDuracao: 'Toutes durées',
+      qualquer: 'Toutes',
+      todosNiveis: 'Tous les niveaux',
+      todos: 'Tous',
+      qualquerValor: 'Tous budgets',
+      ate: 'Jusqu’à',
+      dia: 'jour',
+      dias: 'jours',
+    },
+    drawer: {
+      titulo: 'Filtrer',
+      fechar: 'Fermer les filtres',
+      duracao: 'Durée',
+      dificuldade: 'Difficulté',
+      origem: 'Point de départ',
+      preco: 'Prix · jusqu’à',
+      limpar: 'Effacer les filtres',
+      ver: 'Voir {n} aventure',
+      verPlural: 'Voir {n} aventures',
+      vazio: 'Aucune aventure trouvée',
+    },
+    secoes: {
+      trekking: {
+        titulo: 'Treks de 2 à 6 jours',
+        descricao:
+          'Des chemins pour vivre la Chapada à votre rythme, avec des guides natifs, en toute sécurité et avec l’expérience de ceux qui connaissent chaque tronçon.',
+      },
+      dayTours: {
+        titulo: 'Excursions d’une journée',
+        descricao:
+          'Baignades en cascade, belvédères et circuits pour qui veut vivre beaucoup sans avoir à compter les nuits.',
+      },
+      pacotes: {
+        titulo: 'Forfaits spéciaux',
+        descricao:
+          'Des itinéraires combinés pour découvrir différents paysages de la Chapada, avec toute l’organisation assurée par la harde Mamut.',
+      },
+    },
+    vazio: {
+      titulo: 'Aucune aventure ne correspond à ces filtres.',
+      texto: 'Essayez d’élargir la durée, le niveau ou le budget pour découvrir d’autres chemins.',
+    },
+    card: { apartirDe: 'À partir de', explorar: 'Découvrir le sentier', conhecer: 'Découvrir', dia: 'jour', dias: 'jours' },
+    niveis: { 'Fácil': 'Facile', 'Moderado': 'Modéré', 'Desafiador': 'Difficile' },
+    roteiros: {
+      'cachoeira-do-palmital-2-dias': { title: 'Cascade du Palmital 2 Jours', difficulty: 'Modéré' },
+      'trilha-aguas-claras-2-dias': { title: 'Sentier d’Águas Claras 2 Jours', difficulty: 'Facile' },
+      'travessia-vale-do-pati-5-dias': { title: 'Traversée de la vallée du Pati 5 Jours', difficulty: 'Modéré / Difficile' },
+      'vale-do-pati-3-dias': { title: 'Vallée du Pati 3 Jours', difficulty: 'Modéré' },
+      'vale-do-pati-4-dias': { title: 'Vallée du Pati 4 Jours', difficulty: 'Modéré / Difficile' },
+      'cachoeira-do-mixila-2-dias': { title: 'Cascade du Mixila 2 Jours', difficulty: 'Modéré / Difficile' },
+      'cachoeira-da-fumaca-por-baixo': { title: 'Cascade da Fumaça par le bas', difficulty: 'Modéré / Difficile' },
+      'cachoeira-da-fumaca-360': { title: 'Cascade da Fumaça 360', difficulty: 'Modéré / Difficile' },
+      'cachoeira-do-fundao-vinte-e-um': { title: 'Cascades du Fundão + Vinte e Um', difficulty: 'Très difficile' },
+      'vale-do-pati-4-dias-via-capao': { title: 'Vallée du Pati 4 Jours par le Capão', difficulty: 'Modéré / Difficile' },
+      'vale-do-pati-5-dias-via-capao': { title: 'Vallée du Pati 5 Jours par le Capão', difficulty: 'Modéré / Difficile' },
+      'mosquito-pai-inacio': { title: 'Mosquito + Pai Inácio', difficulty: 'Facile / Modéré' },
+      'city-tour-em-lencois': { title: 'Visite de Lençóis', difficulty: 'Facile' },
+      'morro-do-pai-inacio': { title: 'Morro do Pai Inácio', difficulty: 'Facile' },
+      'cachoeira-do-mosquito': { title: 'Cascade du Mosquito', difficulty: 'Facile' },
+      'cachoeira-do-sossego': { title: 'Cascade du Sossego', difficulty: 'Modéré / Difficile' },
+      'parque-da-muritiba': { title: 'Parc de la Muritiba', difficulty: 'Facile / Modéré' },
+      'grutas-morro-do-camelo': { title: 'Grottes + Morro do Camelo', difficulty: 'Facile' },
+      'fazenda-pratinha-gruta-azul': { title: 'Fazenda Pratinha & Gruta Azul', difficulty: 'Facile' },
+      'aguas-claras': { title: 'Águas Claras', difficulty: 'Facile' },
+      'cachoeira-da-fumaca': { title: 'Cascade da Fumaça', difficulty: 'Modéré / Difficile' },
+      'cachoeira-da-fumacinha': { title: 'Cascade da Fumacinha', difficulty: 'Modéré / Difficile' },
+      'pantanal-marimbus': { title: 'Marais de Marimbus', difficulty: 'Facile' },
+      'cachoeira-do-buracao': { title: 'Cascade du Buracão', difficulty: 'Facile / Modéré' },
+      'cachoeira-do-herculano': { title: 'Cascade du Herculano', difficulty: 'Modéré' },
+      'cachoeira-da-ferradura': { title: 'Cascade da Ferradura', difficulty: 'Facile / Modéré' },
+      'mirante-do-pati-1-dia': { title: 'Belvédère du Pati 1 Jour', difficulty: 'Modéré' },
+      'mirante-do-cachoeirao': { title: 'Belvédère du Cachoeirão', difficulty: 'Modéré' },
+      'ribeirao-do-meio': { title: 'Ribeirão do Meio', difficulty: 'Facile' },
+      'chapada-especial-3-dias': { title: 'Chapada Spéciale 3 Jours', difficulty: 'Modéré / Difficile' },
+      'chapada-deslumbrante-4-dias': { title: 'Chapada Éblouissante 4 Jours', difficulty: 'Modéré / Difficile' },
+      'chapada-extraordinaria-6-dias': { title: 'Chapada Extraordinaire 6 Jours', difficulty: 'Modéré / Difficile' },
     },
   },
 };

@@ -291,4 +291,88 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade da Fumaça',
+      description:
+        'La plus haute chute libre du Brésil : 380 mètres d’eau qui se changent en brume avant de toucher le sol. Un sentier de 12 km depuis le Vale do Capão jusqu’au belvédère.',
+      canonical: '/fr/aventures/cascade-da-fumaca',
+    },
+    hero: {
+      nivel: 'Modéré / Élevé',
+      origem: 'Départ : Vale do Capão',
+      duracao: '1 jour',
+      titulo: 'Cascade da Fumaça.',
+      lead: 'Trois cent quatre-vingts mètres de chute libre — l’eau se change en fumée avant d’atteindre le bas.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Hauteur de la chute', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade da Fumaça.',
+      paragrafos: [
+        'Avec ses 380 mètres, c’est la plus haute chute libre du Brésil. Le débit est faible face à la hauteur : le vent saisit le filet d’eau à mi-chemin et le transforme en brume — d’où son nom, « fumaça », la fumée. Une bonne partie de l’année, l’eau n’atteint pas le sol.',
+        'La visite se fait par le haut. Depuis le belvédère, allongé à plat ventre au bord, vous voyez tout l’abîme s’ouvrir sous vous, avec le Vale do Capão au loin. Il y a deux belvédères, tous deux avec environ 400 mètres de vide.',
+        'Le sentier commence par le plus dur : environ 1 heure de montée sur 2 km de rocher jusqu’au plateau. Ensuite, le terrain devient plat et la marche est tranquille jusqu’au bord.',
+        'Pendant les marches, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 8 h vers le Vale do Capão — environ 60 km de voiture, avec des tronçons de piste en terre.',
+        'Le sentier commence au Capão. La première heure est la plus exigeante : 2 km de montée sur sol rocheux, où l’on prend vite de la hauteur jusqu’au plateau.',
+        'En haut, le terrain s’ouvre et devient plat. La marche se poursuit à travers le campo rupestre, entre immortelles et affleurements de grès, jusqu’au bord du canyon.',
+        'Arrivée aux belvédères. S’allonger au bord pour voir la chute de 380 mètres, c’est la raison d’être de la marche — on peut y passer un bon moment avant le pique-nique.',
+        'Retour par le même chemin, avec cette fois la descente rocheuse à la fin. Retour à Lençóis en fin d’après-midi.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 420', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 320', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      tabela: {
+        titulo: 'Grille tarifaire complète',
+        colunaPessoas: 'Nb de personnes',
+        pessoa: 'personne',
+        pessoas: 'personnes',
+        nota: 'Tarifs par personne, en reais, pour paiement en espèces, virement ou boleto.',
+      },
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (2 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Casquette ou chapeau'],
+          ['Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires', 'Lampe frontale'],
+        ],
+        recommendedColumns: [['Protection de pluie (corps et sac)', 'Bâton de marche'], ['En-cas ou fruit', 'Maillot de bain', 'Appareil photo']],
+        note: 'Il n’y a pas d’ombre sur le plateau et le soleil tape directement pendant presque toute la traversée. Chapeau et crème solaire ne sont pas optionnels, en pratique.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue, formé aux premiers secours (APH)', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Transfert (en option)', 'Pique-nique (en option)', 'Équipement personnel', 'Droit d’accès', 'Évacuation médicale', 'Hébergement avant ou après la sortie'],
+      },
+      safetyFaq(
+        'fr',
+        'Le belvédère est un bord de canyon sans aucune protection, avec environ 400 mètres de vide. On s’en approche allongé, un par un, toujours avec le guide. Si vous êtes sujet au vertige, vous pouvez faire le sentier et profiter de la vallée sans aller jusqu’au bord.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à voir', 'l’eau se changer en fumée ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

@@ -93,17 +93,17 @@ export function AboutReviews({ locale = 'pt' }: { locale?: Locale }) {
                       5.0
                     </span>
                   }
-                  label="{c.mediaLabel}"
+                  label={c.mediaLabel}
                 />
                 <Stat
                   variant="chip"
                   value={c.ranking}
-                  label="{c.rankingLabel}"
+                  label={c.rankingLabel}
                 />
               </div>
 
               <div className="flex flex-wrap gap-3 max-lg:order-3 max-lg:flex-col max-lg:items-stretch">
-                <Button href="/pt/aventuras" arrow className="w-full lg:hidden">
+                <Button href={c.ctaTrilhaHref} arrow className="w-full lg:hidden">
                   {c.ctaTrilha}
                 </Button>
                 <Button href={SITE.whatsappUrl} arrow className="max-lg:hidden">

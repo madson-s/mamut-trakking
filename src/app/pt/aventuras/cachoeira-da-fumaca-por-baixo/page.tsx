@@ -8,7 +8,7 @@ const CONTENT = FUMACA_BAIXO_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-fumaca-por-baixo', en: '/en/adventures/fumaca-waterfall-from-bellow', es: '/es/aventuras/cascada-da-fumaca-por-abajo' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-fumaca-por-baixo', en: '/en/adventures/fumaca-waterfall-from-bellow', es: '/es/aventuras/cascada-da-fumaca-por-abajo', fr: '/fr/aventures/cascade-da-fumaca-par-le-bas' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

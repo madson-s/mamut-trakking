@@ -2,7 +2,7 @@
  * Conteúdo da travessia do Vale do Pati em 4 dias via Capão, por idioma.
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-4-dias-via-capao e EN de
- * mamut.agency/en/aventuras/pati-valley-4-days-capao-way. ES é tradução aqui.
+ * mamut.agency/en/aventuras/pati-valley-4-days-capao-way. ES e FR são tradução aqui.
  *
  * O texto de abertura, o checklist, o "o que está incluso" e o bloco de
  * sazonalidade vêm de `pati-capao-shared` — são iguais aos da versão de 5 dias.
@@ -295,6 +295,90 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para atravesar', 'el Valle del Pati?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la travesía con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Vallée du Pati en 4 jours par le Capão',
+      description:
+        'Traversée de 68 km dans la vallée du Pati, avec arrivée dans la vallée du Capão : Cachoeirão, Calixto, Morro do Castelo et Mirante da Rampa.',
+      canonical: '/fr/aventures/vallee-du-pati-4-jours-par-capao',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Palmeiras',
+      duracao: '4 jours',
+      titulo: 'Vallée du Pati en 4 jours, par le Capão.',
+      lead: 'La plus belle traversée du Brésil, avec une arrivée au village niché entre les montagnes de la vallée du Capão.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Altitude maximale', 'Où l’on dort', 'Départ (Palmeiras)', 'Difficulté'],
+    sobre: { titulo: 'À propos de la vallée du Pati.', paragrafos: PATI_CAPAO_SOBRE.fr },
+    itinerario: {
+      titulo: 'Jour par jour.',
+      aviso: PATI_CAPAO_AVISO.fr,
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Cachoeirão par le haut + Fenda da Prefeitura + Pati de Baixo',
+          corpo: 'Départ à partir de 7h00 de Palmeiras, 1 heure de voiture jusqu’au village de Guiné, où nous entrons dans la vallée du Pati. Nous prenons le sentier des Aleixos et montons pendant 1 heure, puis encore 1h30 sur terrain plat jusqu’au belvédère du Cachoeirão par le haut. De là, nous rejoignons la Fenda da Prefeitura, une descente raide d’une heure jusqu’à l’hébergement. Des boissons supplémentaires peuvent être achetées à la petite épicerie de l’hébergement — c’est valable tous les jours.',
+          distancia: '18 km',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'Cascade du Calixto',
+          corpo: 'Journée au Calixto, l’un des coins les moins visités du Pati. Nous partons avec un simple sac de journée, car nous revenons au même hébergement. Il faut environ 2h30 à sauter de rocher en rocher et à traverser une forêt dense pour atteindre la cascade du Calixto. À midi, le guide prépare le pique-nique. Au retour, on peut se rafraîchir au Poço da Árvore.',
+          distancia: '15 km',
+          esforco: 'Modéré / Élevé',
+        },
+        {
+          rotulo: '3e jour',
+          titulo: 'Morro do Castelo + cascades',
+          corpo: 'Départ à 8h00 avec toutes les affaires, que nous laissons à la bifurcation. C’est la journée d’effort la plus intense : nous attaquons un morro à plus de 1 200 m d’altitude, avec environ 250 mètres de dénivelé en 40 à 60 minutes. Au sommet du Morro do Castelo, deux belvédères et l’entrée de la grotte de la Lapinha, l’une des grottes les plus rares au monde au-dessus de 1 000 m. Nous redescendons, récupérons les affaires et continuons par un autre chemin, à la découverte des cascades des Bananeiras, des Funis et des Lajes (ou Altina), avant d’arriver à l’hébergement vers 18h00.',
+          distancia: '—',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: '4e jour',
+          titulo: 'Mirante da Rampa + Quebra Bunda + Gerais do Vieira',
+          corpo: 'Départ de l’Igrejinha vers 8h00 et 1 heure de montée jusqu’au Mirante da Rampa. Puis 2 heures sur terrain plat jusqu’au belvédère du Quebra Bunda, où commence 1 heure de descente. Au pied de la serra, encore 3 heures sur terrain plat à travers les Gerais do Vieira jusqu’à la Vila do Bomba, où la voiture attend vers 16h00 pour le transfert retour. Nuit en auberge, sans petit-déjeuner.',
+          distancia: '—',
+          esforco: 'Modéré',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 2.750', nota: 'Minimum 2 personnes. Seul votre groupe sur la traversée.' },
+        { titulo: 'En groupe', preco: 'R$ 2.450', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      tabela: {
+        titulo: 'Grille tarifaire complète',
+        colunaPessoas: 'Nombre de personnes',
+        pessoa: 'personne',
+        pessoas: 'personnes',
+        nota: 'Prix par personne, en reais brésiliens, pour un paiement en espèces, par virement ou par boleto.',
+      },
+      nota: 'Prix pour un paiement en espèces, par virement ou par boleto. Virement international ou groupe plus grand : contactez notre équipe.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      ...patiCapaoFaqs('fr'),
+      safetyFaq(
+        'fr',
+        'La journée du Morro do Castelo est la plus exigeante : 250 mètres de dénivelé pour dépasser 1 200 m. Le passage de la Fenda da Prefeitura, le 1er jour, est une descente raide d’une heure — et le 1er jour est déjà le plus long, avec 18 km. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à traverser', 'la vallée du Pati ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous construisons la traversée avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

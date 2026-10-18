@@ -2,7 +2,7 @@
  * Conteúdo da página do Mirante do Pati (Mirante da Rampa), por idioma.
  *
  * PT vem de mamut.agency/aventuras/mirante-do-pati e EN de
- * mamut.agency/en/aventuras/pati-viewpoint-1-day. ES é tradução feita aqui.
+ * mamut.agency/en/aventuras/pati-viewpoint-1-day. ES e FR são tradução feita aqui.
  *
  * ⚠️ A página portuguesa não publica itinerário nem checklist — só o cartão de
  * preços. O roteiro do dia aqui é tradução do itinerário inglês da operadora,
@@ -274,6 +274,84 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para ver', 'el Pati desde arriba?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Belvédère du Pati',
+      description:
+        'La vallée du Pati en une journée : 14 à 18 km à travers les Gerais do Rio Preto jusqu’au Mirante da Rampa, face au Morro Branco, au Castelo et au Sobradinho.',
+      canonical: '/fr/aventures/belvedere-du-pati',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Guiné',
+      duracao: '1 jour',
+      titulo: 'Belvédère du Pati.',
+      lead: 'La vallée du Pati en une journée — la traversée des Gerais jusqu’au bord du belvédère le plus connu de la vallée.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Durée', 'Départ (Lençóis)', 'Retour prévu', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du belvédère du Pati.',
+      paragrafos: [
+        'Une belle randonnée pour qui veut découvrir la vallée du Pati en une seule journée. Le sentier mène au belvédère en 3 heures environ et il est en grande partie plat — l’effort vient de la distance, pas du terrain.',
+        'Une bonne partie du parcours traverse les Gerais do Rio Preto, une zone ouverte qui représente plus de 70 % du parc national. C’est un immense jardin à ciel ouvert, avec des espèces de flore d’altitude et des serras imposantes en toile de fond.',
+        'Au bout du sentier se trouve le Mirante da Rampa, le belvédère le plus connu de la vallée, avec vue sur le Morro Branco, le Castelo et le Sobradinho.',
+        'Pour nous, la visite idéale du Pati dure au moins 3 jours. Mais pour qui n’a que quelques jours dans la Chapada, c’est la meilleure façon de découvrir la vallée sans y dormir.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Le déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météorologiques ou de tout autre cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ de Lençóis à 7h00 vers le sud du parc national de la Chapada Diamantina. 80 km et environ 2 heures de voiture jusqu’au village de Guiné, où le sentier commence et se termine.',
+        'Arrivée, présentation générale du parcours, vérification de la checklist et début de la marche.',
+        'Premier tronçon : 30 minutes de montée en terrain accidenté jusqu’au Mirante dos Aleixos. Courte pause, puis nous continuons vers l’intérieur de la vallée.',
+        'Environ 1h30 de marche sur terrain plat à travers les Gerais do Rio Preto. À mi-chemin, nous traversons le Rio Preto — des itinéraires alternatifs peuvent être choisis selon la météo.',
+        'Arrivée au Mirante da Rampa, avec vue sur la vallée du Pati et les serras alentour : Morro Branco, Castelo et Sobradinho. Longue pause pour parler de la géologie, de l’histoire et des traditions de la région, et manger votre en-cas (non inclus).',
+        'Retour par le même chemin, avec un arrêt baignade facultatif au Rio Preto. Arrivée à la voiture vers 16h00, courte halte à Guiné — où l’on peut faire un bon repas — et retour à Lençóis, en ville vers 19h00.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 550', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 475', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Prix pour un paiement en espèces, par virement ou par boleto. Virement international ou groupe plus grand : contactez notre équipe.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les articles marqués * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et rend la participation impossible.',
+        requiredColumns: [
+          ['Eau (1 L par personne)', 'Baskets ou chaussures de randonnée', 'Vêtements légers', 'Casquette ou chapeau', 'Crème solaire'],
+          ['Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires', 'En-cas pour le belvédère', 'Chaussettes de rechange'],
+        ],
+        recommendedColumns: [['Protection de pluie (corps et sac)', 'Bâton de marche'], ['Maillot de bain pour le Rio Preto', 'Serviette', 'Appareil photo']],
+        note: 'L’en-cas du belvédère n’est pas inclus et c’est le seul repas du parcours — apportez le vôtre. Les Gerais sont une zone ouverte, sans ombre pendant environ 1h30 de marche.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Transfert aller-retour', 'Guide de montagne agréé formé aux premiers secours (APH)', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Pique-nique (en option)', 'En-cas ou déjeuner', 'Le repas à Guiné', 'Équipement personnel', 'Évacuation médicale', 'Hébergement avant ou après la sortie'],
+      },
+      safetyFaq(
+        'fr',
+        'La journée est longue : départ à 7h00, retour vers 19h00, avec environ 4 heures de route en plus de la marche. La traversée du Rio Preto dépend du niveau de l’eau — en saison des pluies, l’équipe adopte un itinéraire alternatif. Les Gerais n’offrent aucune ombre : chapeau, crème solaire et eau sont ici essentiels.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à voir', 'le Pati d’en haut ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

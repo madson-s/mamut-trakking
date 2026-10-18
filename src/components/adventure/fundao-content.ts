@@ -16,6 +16,9 @@
  * 24 km em 3 dias com duas. O itinerário descreve o de 2 dias e a variação.
  *
  * Trekking selvagem: comida, hospedagem e checklist vêm de `wild-trek-shared`.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -292,6 +295,90 @@ export const FUNDAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para el recorrido', 'más difícil de la Chapada?'],
       corpo: 'Contanos cuántas personas, tu experiencia en sendero y las fechas que estás considerando — armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Cascades du Fundão + Vinte e Um',
+      description:
+        'L’un des treks les plus difficiles de la Chapada Diamantina : des canyons de 80 mètres sur un itinéraire isolé du parc national, réservé aux randonneurs expérimentés.',
+      canonical: '/fr/aventures/cascades-du-fundao-vinte-e-um',
+    },
+    hero: {
+      nivel: 'Modéré / Difficile',
+      origem: 'Départ : Lençóis',
+      duracao: '2 ou 3 jours',
+      titulo: 'Fundão + Vinte e Um.',
+      lead: 'L’itinéraire le plus difficile que nous proposons — canyons fermés, parcours isolé, réservé à ceux qui ont déjà beaucoup marché.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Hauteur des falaises', 'Hébergement', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos du Fundão + Vinte e Um.',
+      paragrafos: [
+        'Il est considéré comme l’un des treks les plus difficiles de la Chapada Diamantina et n’est recommandé qu’aux randonneurs très expérimentés. Il emprunte un itinéraire peu fréquenté du parc national — assez inhospitalier et isolé.',
+        'Le parcours remonte le canyon du Fundão par le lit de la rivière jusqu’à la cascade du Fundão, puis franchit un passage très difficile pour atteindre le canyon du Vinte e Um, où le campement fait face à des falaises d’environ 80 mètres.',
+        'Deux formules pour un même itinéraire : 18 km en 2 jours, avec une nuit de camping, ou jusqu’à 24 km en 3 jours, avec deux nuits et la cascade da Fumaça vue de face en chemin. Il peut se combiner avec la Fumaça 360°, la Fumaça par le bas ou le Mixila — renseignez-vous sur les disponibilités.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.fr,
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent. Ce trek est modulable et admet plusieurs points d’entrée et de sortie — renseignez-vous sur les options auprès de notre équipe.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Canyon du Fundão + cascade du Vinte e Um',
+          corpo: 'Départ vers 6h00 par le sentier qui relie Lençóis à la vallée du Capão. À la confluence du Rio Ribeirão et du Rio Fundão, nous remontons la rivière par le canyon du Fundão — environ 3h30 de marche jusqu’à la cascade du Fundão. Après l’en-cas préparé par le guide, nous escaladons la cascade par un passage très difficile, 40 minutes, jusqu’au canyon du Vinte e Um, où se trouve le camp de base, face à des falaises d’environ 80 mètres. Le guide installe le campement et prépare le dîner.',
+          distancia: '8 km',
+          esforco: 'Extrême',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'En remontant le canyon + la Fumaça par le haut + vallée du Capão',
+          corpo: 'Départ à 8h00, après le petit-déjeuner, en remontant la rivière. Nous passons par des tronçons difficiles mais visuellement saisissants, en marchant au pied des falaises du canyon. Il faut 2 à 3 heures jusqu’au sommet de la cascade da Fumaça, puis encore 1h30 jusqu’à la vallée du Capão, où la voiture attend pour ramener le groupe à Lençóis.',
+          distancia: '10 km',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: 'En 3 jours',
+          titulo: 'La variante, avec une nuit au Palmital',
+          corpo: 'Si le groupe choisit la formule en 3 jours, le 2e jour ne va pas jusqu’au sommet de la Fumaça : il continue 1 heure jusqu’au belvédère face à la cascade da Fumaça, puis encore 1 heure jusqu’au campement de la cascade du Palmital, où il passe une autre nuit. La sortie se fait le lendemain — confirmez le parcours exact auprès de notre équipe au moment de fixer la date.',
+          distancia: 'jusqu’à 24 km au total',
+          esforco: 'Élevé',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 2.000', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 1.750', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      wildTrekChecklist('fr', `Ici, les chaussures et l’imperméable comptent plus que tout : presque tout le parcours se fait dans le lit de la rivière, entre les falaises. ${WILD_TREK_PORTER.fr}`),
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne bilingue formé WAFA', 'Camping sauvage, avec tente, matelas isolant et sac de couchage', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Porteur personnel', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale'],
+      },
+      safetyFaq(
+        'fr',
+        'C’est l’itinéraire le plus exigeant de notre catalogue, et l’agence elle-même ne le recommande qu’aux randonneurs très expérimentés. Le 1er jour est classé en effort extrême — le seul dans ce cas parmi tous nos itinéraires : 3h30 dans le lit de la rivière, puis 40 minutes d’escalade de la cascade par un passage très difficile. Le parcours est peu fréquenté et isolé, ce qui signifie que tout secours prend plus de temps que la norme, déjà longue, de la région. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver — ce n’est pas l’itinéraire pour le découvrir sur le sentier.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt pour l’itinéraire', 'le plus difficile de la Chapada ?'],
+      corpo: 'Dites-nous combien vous êtes, votre expérience de la randonnée et les dates envisagées — nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

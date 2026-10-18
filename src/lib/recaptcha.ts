@@ -13,6 +13,7 @@ const GOOGLE_HL: Record<Locale, string> = {
   pt: 'pt-BR',
   en: 'en',
   es: 'es',
+  fr: 'fr',
 };
 
 export function recaptchaLinks(locale: Locale) {
@@ -47,5 +48,12 @@ export const RECAPTCHA_NOTA: Record<
     entre: ' y los ',
     termos: 'Términos de Servicio',
     depois: ' de Google.',
+  },
+  fr: {
+    antes: 'Ce site est protégé par reCAPTCHA : les ',
+    privacidade: 'Règles de confidentialité',
+    entre: ' et les ',
+    termos: 'Conditions d’utilisation',
+    depois: ' de Google s’appliquent.',
   },
 };

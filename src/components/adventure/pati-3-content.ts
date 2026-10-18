@@ -3,7 +3,7 @@
  *
  * PT é o copy do redesenho. EN toma como base
  * mamut.agency/en/aventuras/pati-valley-3-days — a única página de roteiro que
- * a operadora publica traduzida de verdade. ES é tradução feita aqui.
+ * a operadora publica traduzida de verdade. ES e FR são tradução feita aqui.
  *
  * ⚠️ Os números da página em inglês do site atual divergem dos deste
  * repositório (43 km × 45 km; saída 7h × 6h; preços diferentes). Mantive os do
@@ -30,6 +30,8 @@ export type Pati3Content = {
     sinal: string;
     paraGrupos: string;
     pessoas: string;
+    /** Fecha a frase "Para grupos de 4 pessoas ou mais:" do card de reserva. */
+    ouMais: string;
     verPrecos: string;
     resposta: string;
     idiomas: string;
@@ -132,6 +134,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       sinal: '50% de sinal para confirmar reserva',
       paraGrupos: 'Para grupos de',
       pessoas: '4 pessoas',
+      ouMais: 'ou mais:',
       verPrecos: 'Ver tabela de preços',
       resposta: 'Respondemos em até 2h',
       idiomas: 'PT · EN · ES',
@@ -286,6 +289,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       sinal: '50% deposit confirms the booking',
       paraGrupos: 'For groups of',
       pessoas: '4 people',
+      ouMais: 'or more:',
       verPrecos: 'See the price table',
       resposta: 'We reply within 2h',
       idiomas: 'PT · EN · ES',
@@ -440,6 +444,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       sinal: '50% de seña para confirmar la reserva',
       paraGrupos: 'Para grupos de',
       pessoas: '4 personas',
+      ouMais: 'o más:',
       verPrecos: 'Ver la tabla de precios',
       resposta: 'Respondemos en hasta 2h',
       idiomas: 'PT · EN · ES',
@@ -570,6 +575,160 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       intl: 'es-AR',
       diasSemana: ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'],
       mensagem: { antes: '¡Hola! Quiero verificar el Valle del Pati en 3 días para', viajante: 'viajero', viajantes: 'viajeros', idioma: 'idioma' },
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Vallée du Pati en 3 jours',
+      description:
+        'Traversée guidée de 43 km dans la vallée du Pati, avec hébergement chez l’habitant, cascades et les belvédères les plus emblématiques de la vallée.',
+      canonical: '/fr/aventures/vallee-du-pati-3-jours',
+      ogDescription: 'La traversée qui redéfinit ce que vous appelez la nature.',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Lençóis',
+      titulo: { antes: 'Vallée du Pati en', destaque: '3 jours.' },
+      lead: { antes: 'La traversée qui redéfinit ce que vous appelez la', destaque: 'nature.' },
+      apoio: 'Cascades et maisons d’habitants à 1 000 m d’altitude. Guidée par ceux qui sont nés ici.',
+      apartirDe: 'À partir de',
+      grupo: 'En groupe',
+      saida: 'Départ de Lençóis à 6h00',
+      tripadvisor: 'TripAdvisor — Certificat d’excellence',
+      sinal: 'Acompte de 50 % pour confirmer la réservation',
+      paraGrupos: 'Pour les groupes de',
+      pessoas: '4 personnes',
+      ouMais: 'ou plus :',
+      verPrecos: 'Voir la grille tarifaire',
+      resposta: 'Réponse en moins de 2h',
+      idiomas: 'PT · EN · ES',
+      fotoAlt: 'La vallée du Pati vue d’en haut',
+    },
+    stats: [
+      'Distance à pied', 'Durée', 'Altitude maximale', 'Dénivelé positif',
+      'Départ (Lençóis)', 'Retour', 'Langues', 'Difficulté',
+    ],
+    story: {
+      titulo: ['Le trek le plus célèbre', 'de la Chapada Diamantina.'],
+      paragrafos: [
+        'La vallée du Pati se trouve à mille mètres d’altitude et offre une diversité de paysages rare au Brésil : vestiges de forêt atlantique, champs rupestres et les Gerais do Rio Preto. Une région qui a accueilli des paysans il y a deux siècles et qui garde encore, dans 14 maisons habitées, la mémoire de ceux qui ne sont jamais partis.',
+        'Le terrain est bien réel : soleil, pluie, boue, montées raides, traversées de rivière. Ce n’est pas une promenade. C’est une traversée — le Pati se mérite. Notre itinéraire fait la boucle complète par les points les plus emblématiques de la vallée.',
+      ],
+      quando: 'Quand marcher dans le Pati ?',
+      estacoes: [
+        { titulo: 'Été et automne', meses: 'janv. – mai', pontos: ['Cascades pleines, débit d’eau maximal', 'Plus de boue sur les sentiers'] },
+        { titulo: 'Hiver et printemps', meses: 'juin – déc.', pontos: ['Terrain plus ferme et plus sec', 'Moins de débit dans les cascades'] },
+      ],
+      editoriais: [
+        { titulo: 'Table généreuse', corpo: 'Petit-déjeuner et dîner préparés dans les hébergements, avec un menu copieux qui change chaque jour. Pendant les marches, un pique-nique équilibré. Le petit-déjeuner du 1er jour n’est pas inclus — prenez-le à Lençóis avant le départ.' },
+        { titulo: 'Hébergement', corpo: 'Hébergement chez l’habitant, en chambres partagées. Besoin d’une chambre privée ? Indiquez-le lors de la réservation et nous vérifions la disponibilité.' },
+      ],
+      outrasVersoes: 'La vallée existe aussi en 4 et 5 jours.',
+      explorar: 'Découvrir cette version',
+      relacionados: [
+        { titulo: 'Vallée du Pati · 4 jours', nivel: 'Modéré / Avancé', href: '/fr/aventures/vallee-du-pati-4-jours' },
+        { titulo: 'Vallée du Pati · 5 jours', nivel: 'Avancé', href: '/fr/aventures/vallee-du-pati-5-jours' },
+      ],
+    },
+    itinerary: {
+      titulo: 'L’itinéraire de la traversée.',
+      dias: [
+        {
+          day: 'Jour 1', level: 'Modéré', lead: '6h départ',
+          body: ' de Lençóis → 8h Vila do Guiné (2h de voiture) → 3h de sentier (1h de montée raide + 2h de plat) jusqu’au Mirante da Rampa → +1h30 jusqu’aux cascades Funis, Altina et Bananeiras → 17h hébergement → 19h dîner.',
+          note: 'La montée raide est la première épreuve du Pati.',
+        },
+        {
+          day: 'Jour 2', level: 'Élevé', lead: '8h départ',
+          body: ' → Morro do Castelo, montée de +250 m jusqu’à 1 200 m d’altitude (60–80 min) → 2 belvédères au sommet + la grotte de la Lapinha, l’une des grottes les plus rares au monde → retour par le même chemin → cascade voisine, s’il reste du temps.',
+          note: 'La journée la plus exigeante de la traversée.', alert: 'Journée la plus exigeante',
+        },
+        {
+          day: 'Jour 3', level: 'Modéré', lead: '8h adieux',
+          body: ' au Pati → 3h jusqu’au Mirante do Cachoeirão (+280 m ; en saison des pluies, jusqu’à 16 cascades autour de la vallée) → collation → Gerais do Rio Preto → descente des Aleixos → transfert de 80 km → ~19h à Lençóis.',
+        },
+      ],
+    },
+    landmarks: {
+      titulo: 'Les points les plus emblématiques de la vallée.',
+      itens: [
+        { titulo: '4 lieux de baignade', apoio: 'Tout au long de l’itinéraire' },
+        { titulo: 'Gerais do Rio Preto', apoio: '' },
+        { titulo: 'Mirante da Rampa', apoio: 'Entrée de la vallée' },
+        { titulo: 'Mirante do Cachoeirão', apoio: '280 m · jusqu’à 16 cascades' },
+        { titulo: 'Morro do Castelo', apoio: '1 200 m d’altitude' },
+        { titulo: 'Grotte de la Lapinha', apoio: 'L’une des plus rares au monde' },
+        { titulo: 'Cascades Funis, Altina et Bananeiras', apoio: '' },
+        { titulo: 'Descente des Aleixos', apoio: '' },
+      ],
+    },
+    pricing: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', nota: 'Minimum 2 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      porPessoa: 'par personne',
+      tabela: {
+        titulo: 'Grille tarifaire complète',
+        colunaPessoas: 'Nombre de personnes',
+        pessoa: 'personne',
+        pessoas: 'personnes',
+        nota: 'Prix par personne, en reais brésiliens, pour un paiement en espèces, par virement ou par boleto.',
+      },
+      nota: {
+        antes: 'Espèces, virement ou boleto. ',
+        destaque: 'Carte : +5 %, jusqu’à 12 mensualités (PagSeguro). Réservation confirmée avec un acompte de 50 % :',
+        depois: ' le solde au check-in. Virement international ou groupe plus grand : contactez notre équipe.',
+      },
+      cta: 'Réserver sur WhatsApp',
+    },
+    trust: {
+      badge: 'Avis vérifiés · TripAdvisor',
+      titulo: { antes: 'Ceux qui ont déjà marché avec nous', destaque: 'nous font confiance !' },
+      selos: [
+        { titulo: 'Guides certifiés', corpo: 'APH et CMC (ABNT), certains avec WAFA' },
+        { titulo: 'Communication par satellite', corpo: 'SPOT X avec bouton S.O.S.' },
+        { titulo: 'Assurance aventure', corpo: 'Trousse de premiers secours incluse' },
+        { titulo: 'Certificat d’excellence', corpo: 'Avis vérifiés sur TripAdvisor' },
+      ],
+      cta: 'Réserver sur WhatsApp',
+      ctaTripadvisor: 'Voir notre page TripAdvisor',
+    },
+    faqTitulo: {
+      titulo: 'Tout ce que vous devez savoir.',
+      lead: 'Les détails pratiques pour répondre à vos questions avant de vous lancer dans cette aventure avec la harde Mamut.',
+    },
+    finalCta: {
+      titulo: ['Votre randonnée commence', 'par un message.'],
+      corpo: 'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour explorer la Chapada Diamantina et comment vous y préparer.',
+      cta: 'Rejoindre la harde',
+      fotoAlt: 'Le Morro do Castelo entouré de fleurs dans la vallée du Pati',
+    },
+    booking: {
+      dockApoio: 'Choisissez la formule idéale pour votre groupe',
+      reservar: 'Réserver',
+      whatsapp: 'Écrire sur WhatsApp',
+      fechar: 'Fermer la réservation',
+      titulo: 'Réservez votre randonnée',
+      data: 'Date',
+      viajantes: 'Voyageurs',
+      remover: 'Retirer un voyageur',
+      adicionar: 'Ajouter un voyageur',
+      idioma: 'Langue',
+      valor: 'Prix estimé',
+      porPessoa: '/ personne',
+      verificar: 'Vérifier la disponibilité',
+      nota: 'Nous confirmons tout avec vous sur WhatsApp — sans engagement.',
+      calendario: 'Choisissez la date',
+      voltar: 'Retour à la réservation',
+      mesAnterior: 'Mois précédent',
+      proximoMes: 'Mois suivant',
+      escolherDia: 'Choisir le jour',
+      semana: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+      intl: 'fr-FR',
+      diasSemana: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
+      mensagem: { antes: 'Bonjour ! Je souhaite vérifier la vallée du Pati en 3 jours pour', viajante: 'voyageur', viajantes: 'voyageurs', idioma: 'langue' },
     },
   },
 };

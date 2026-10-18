@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRightIcon } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import type { HomeLocale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
 // As fotos são fixas; título, legenda e destino vêm do idioma.
@@ -15,7 +15,7 @@ const FOTOS = [
   { src: '/img/home_square_right_morro_3_1_5x.webp', alt: 'Morro do Pai Inácio' },
 ] as const;
 
-export function HeroDestinations({ locale = 'pt' }: { locale?: HomeLocale }) {
+export function HeroDestinations({ locale = 'pt' }: { locale?: Locale }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const hero = HOME_CONTENT[locale].hero;
   const destinations = hero.destinos.map((destino, i) => ({

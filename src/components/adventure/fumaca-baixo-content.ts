@@ -292,4 +292,88 @@ export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade da Fumaça par le bas — 3 jours',
+      description:
+        'Trois jours jusqu’au pied de la paroi de 400 mètres de la cascade da Fumaça, en passant par le Palmital et le Capivara, avec sortie par le Vale do Capão.',
+      canonical: '/fr/aventures/cascade-da-fumaca-par-le-bas',
+    },
+    hero: {
+      nivel: 'Modéré / Élevé',
+      origem: 'Départ : Lençóis',
+      duracao: '3 jours',
+      titulo: 'Fumaça par le bas.',
+      lead: 'Atteindre le pied de la paroi de 400 mètres — et, le dernier jour, contempler le même lieu d’en haut.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Hauteur de la paroi', 'Où l’on dort', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la Fumaça par le bas.',
+      paragrafos: [
+        'L’un des sentiers les plus traditionnels et les plus exigeants de la Chapada Diamantina. Vue d’en bas, la cascade da Fumaça, l’une des plus hautes du Brésil, est un spectacle réservé à ceux qui vont jusqu’à son pied : une paroi de 400 mètres où l’eau n’atteint pas le sol de manière uniforme — c’est cet effet qui a donné son nom à la cascade (« fumaça », la fumée).',
+        'Le sentier passe par d’anciennes exploitations et des « tocas » abandonnées, les abris sous roche des chercheurs de diamants, sur un parcours qui tient autant de l’histoire que du paysage. En chemin, nous visitons aussi la cascade du Palmital et la cascade du Capivara.',
+        'Le troisième jour, nous gravissons la Serra do Macaco jusqu’au belvédère de la Fumaça par le haut — le même lieu, vu de l’autre extrémité. Le sentier peut devenir nettement plus dangereux selon la météo et la saison ; suivez toujours les consignes du guide.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.fr,
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent. Ce trek est flexible et admet plusieurs points d’entrée et de sortie — renseignez-vous auprès de nous sur les options.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Cascade du Palmital + cascade du Capivara',
+          corpo: 'Départ de Lençóis vers 7 h, par le sentier du Ribeirão do Meio. Environ 2 heures de montée sur la Serra do Veneno jusqu’à la Toca da Onça, où nous faisons une pause casse-croûte, puis encore 1 heure jusqu’à la cascade du Palmital — un paradis niché dans la montagne. Après 1 heure de marche supplémentaire, nous arrivons à la cascade du Capivara, où nous passons la première nuit. Une fois le campement monté, le guide prépare le dîner en tenant compte des restrictions alimentaires du groupe.',
+          distancia: '15 km',
+          esforco: 'Élevé',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'La Fumaça par le bas',
+          corpo: 'Départ à 8 h, après le petit-déjeuner, avec tout l’équipement, vers le pied de la Serra do Macaco — le prochain camp de base. 2 heures en longeant la rivière Capivara. Nous laissons la charge à l’endroit indiqué par le guide et continuons 2 heures jusqu’aux chutes de la cascade da Fumaça, par le bas. La marche le long du Riacho da Fumaça est singulière justement parce qu’elle est intacte et protégée : on peut observer de nombreuses espèces de flore et de faune dans les branches, sur les rochers et tout autour. Retour au campement, où est servi le dernier dîner de l’itinéraire.',
+          distancia: '12 km',
+          esforco: 'Modéré',
+        },
+        {
+          rotulo: '3e jour',
+          titulo: 'La Fumaça par le haut + Vale do Capão',
+          corpo: 'Départ à la même heure, après le petit-déjeuner. Nous gravissons la Serra do Macaco jusqu’au belvédère de la cascade da Fumaça par le haut : environ 3 heures de marche en montée. Après un casse-croûte et le temps d’admirer la cascade depuis l’autre extrémité, nous prenons le sentier traditionnel jusqu’au village de Caeté-Açu, dans le Vale do Capão, où la voiture attend pour le transfert retour vers Lençóis.',
+          distancia: '—',
+          esforco: 'Élevé',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 1.700', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 1.450', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      wildTrekChecklist('fr', `Trois jours sans aucune infrastructure à proximité et deux changements de campement. ${WILD_TREK_PORTER.fr}`),
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne formé aux premiers secours (APH)', 'Transfert aller-retour, avec retour par le Vale do Capão', 'Camping : tente, sac de couchage et tapis isolant', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après le sentier'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Équipement personnel', 'Évacuation médicale'],
+      },
+      safetyFaq(
+        'fr',
+        'Le sentier peut devenir nettement plus dangereux selon la météo et la saison — les consignes du guide comptent ici plus que sur n’importe lequel de nos autres itinéraires. Trois jours avec deux campements différents, sans aucune infrastructure à proximité : lampe frontale et protection de pluie sont obligatoires, pas simplement recommandées.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à voir la Fumaça', 'des deux côtés ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

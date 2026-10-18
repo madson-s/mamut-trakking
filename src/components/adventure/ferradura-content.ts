@@ -13,6 +13,9 @@
  *
  * A cachoeira é sazonal: só enche depois de chuva forte. Isso está no lead e no
  * bloco de segurança de propósito — é a informação que muda a decisão de ir.
+ *
+ * FR é tradução feita neste repositório (a operadora não tem versão em
+ * francês) e precisa de revisão antes de valer como material de venda.
  */
 
 import type { Locale } from '@/lib/site';
@@ -263,6 +266,82 @@ export const FERRADURA_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['¿Listo para escapar', 'de la ruta de siempre?'],
       corpo: 'Contanos cuántas personas y las fechas que estás considerando y armamos la salida con vos.',
       botao: 'Hablar con Mamut',
+    },
+  },
+  fr: {
+    meta: {
+      title: 'Cascade da Ferradura',
+      description:
+        'Une marche facile de 3 km jusqu’à une cascade saisonnière sur le Rio Mandassaia, à 4,5 km de Lençóis — hors du circuit touristique principal.',
+      canonical: '/fr/aventures/cascade-da-ferradura',
+    },
+    hero: {
+      nivel: 'Facile / Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '1 jour',
+      titulo: 'Cascade da Ferradura.',
+      lead: 'Une cascade saisonnière sur le Rio Mandassaia, à une demi-heure de Lençóis — et loin de la foule des excursions habituelles.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Trajet en voiture', 'Durée', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade da Ferradura.',
+      paragrafos: [
+        'L’une des sorties les plus spéciales hors du circuit touristique principal de la Chapada. Elle se trouve sur le cours du Rio Mandassaia, à quelques kilomètres de Lençóis, et pourtant il n’y a presque jamais de monde.',
+        'C’est une cascade saisonnière : elle est éblouissante après de fortes pluies et peut être faible en saison sèche. Mieux vaut vérifier son état auprès de notre équipe avant de fixer la date.',
+        'La marche est courte et facile — 3 km jusqu’à la cascade. Le sentier comporte des passages qui demandent de l’attention, mais avec les conseils du guide ils ne présentent pas de difficulté.',
+        'Pendant les randonnées, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Déroulé de la journée.',
+      aviso: 'L’itinéraire peut changer en raison des conditions météo ou de tout cas de force majeure que l’équipe juge pertinent.',
+      corpo: [
+        'Départ à partir de 8h00 du centre de Lençóis, en voiture ou à moto, et 4,5 km jusqu’à l’entrée du sentier, au village de Barro Branco.',
+        'Marche de 3 km jusqu’à la cascade da Ferradura, sur le cours du Rio Mandassaia. Le sentier comporte des passages qui demandent de l’attention, toujours avec le guide pour indiquer le chemin.',
+        'À la cascade, le guide prépare le pique-nique face à la chute — du temps pour se reposer, nager et profiter de la vue.',
+        'Retour par le même chemin jusqu’à la sortie du sentier, où le véhicule attend pour le retour au centre-ville.',
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Formule privée', preco: 'R$ 320', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 280', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — quoi emporter',
+        intro: 'Les éléments marqués d’un * sont obligatoires. L’absence de l’un d’eux compromet la sécurité du groupe et empêche la participation.',
+        requiredColumns: [
+          ['Eau (1,5 L par personne)', 'Baskets ou chaussures de randonnée', 'Chaussettes de rechange', 'Vêtements légers', 'Maillot de bain'],
+          ['Casquette ou chapeau', 'Crème solaire', 'Médicaments personnels', 'Pièce d’identité', 'Sac à dos pour vos affaires'],
+        ],
+        recommendedColumns: [['Imperméable (corps et sac)', 'Répulsif anti-moustiques'], ['En-cas ou fruit', 'Serviette', 'Appareil photo']],
+        note: 'Un itinéraire court et proche de la ville : vous pouvez voyager léger. L’essentiel, ce sont des chaussures fermées et de l’eau.',
+      },
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide local bilingue formé aux premiers secours (APH)', 'Transport jusqu’à l’entrée du sentier', 'Pique-nique à la cascade', 'Assurance aventure', 'Trousse de premiers secours'],
+        excluded: ['Tout ce qui n’est pas listé', 'Équipement personnel', 'Boissons supplémentaires', 'Évacuation médicale', 'Hébergement avant ou après l’excursion'],
+      },
+      safetyFaq(
+        'fr',
+        'La Ferradura est saisonnière et dépend des pluies récentes : hors de la saison des pluies, son débit peut être faible. Confirmez son état auprès de notre équipe avant de fixer la date — et sachez que le sentier devient glissant justement quand la cascade est à son apogée.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à sortir', 'des sentiers battus ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates envisagées, et nous organisons la sortie avec vous.',
+      botao: 'Parler à Mamut',
     },
   },
 };

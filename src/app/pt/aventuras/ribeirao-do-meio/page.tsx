@@ -8,7 +8,7 @@ const CONTENT = RIBEIRAO_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/ribeirao-do-meio', en: '/en/adventures/ribeirao-do-meio-natural-pool', es: '/es/aventuras/ribeirao-do-meio' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/ribeirao-do-meio', en: '/en/adventures/ribeirao-do-meio-natural-pool', es: '/es/aventuras/ribeirao-do-meio', fr: '/fr/aventures/ribeirao-do-meio' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

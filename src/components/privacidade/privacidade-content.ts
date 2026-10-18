@@ -1,7 +1,7 @@
 import type { Locale } from '@/lib/site';
 
 /**
- * Política de privacidade, nos três idiomas.
+ * Política de privacidade, nos quatro idiomas.
  *
  * Substitui a página da iubenda que o WordPress linkava (2023), que só cobria
  * um formulário de contato com nome, e-mail e telefone. O site novo coleta bem
@@ -54,6 +54,7 @@ export const PRIVACIDADE_HREF: Record<Locale, string> = {
   pt: '/pt/politica-de-privacidade',
   en: '/en/privacy-policy',
   es: '/es/politica-de-privacidad',
+  fr: '/fr/politique-de-confidentialite',
 };
 
 /** Data da última revisão do texto (ISO), exibida no idioma da página. */
@@ -602,6 +603,188 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
     ],
   },
+
+  fr: {
+    meta: {
+      title: 'Politique de confidentialité',
+      description:
+        'Quelles données personnelles Mamut Trekking collecte sur le site et dans la fiche du participant, dans quel but, avec qui elles sont partagées et comment demander à y accéder, à les corriger ou à les supprimer.',
+      canonical: PRIVACIDADE_HREF.fr,
+    },
+    titulo: { antes: 'Politique de', destaque: 'confidentialité.' },
+    lead: 'Ce que nous collectons, dans quel but, avec qui nous le partageons et comment vous pouvez demander à consulter, corriger ou effacer vos données.',
+    atualizado: 'Dernière mise à jour',
+    indice: 'Sur cette page',
+    controlador: {
+      titulo: 'Qui est responsable de vos données',
+      nome: 'Mamut Trekking',
+      cnpj: `CNPJ (numéro d’immatriculation de l’entreprise au Brésil) ${CNPJ}`,
+      endereco: ENDERECO,
+      contato: 'Pour toute question concernant vos données, y compris en tant que délégué à la protection des données (« encarregado » au sens de la LGPD) :',
+    },
+    secoes: [
+      {
+        id: 'ce-que-nous-collectons',
+        titulo: 'Ce que nous collectons et dans quel but',
+        blocos: [
+          {
+            tipo: 'itens',
+            itens: [
+              [
+                'Demande de devis (page de contact).',
+                'Nom, e-mail, téléphone, aventure qui vous intéresse, dates, taille du groupe, moyen d’arrivée et votre message. Le formulaire n’envoie rien à notre serveur : il rédige le message et ouvre votre WhatsApp ou votre application de messagerie, et c’est vous qui décidez de l’envoyer. Nous utilisons ces données pour vous répondre et préparer notre proposition.',
+              ],
+              [
+                'Fiche du participant.',
+                'Nom, date de naissance, CPF (numéro fiscal brésilien) ou passeport, âge, nationalité, profession, téléphone, e-mail, adresse, taille, poids, date de la sortie, mode de paiement, hébergement dans la Chapada et un contact d’urgence. Nous les utilisons pour identifier qui part sur le sentier, organiser la sortie (transport, hébergement, repas) et agir vite en cas de problème.',
+              ],
+              [
+                'Informations de santé (dans la fiche).',
+                'Condition physique, allergies, restrictions alimentaires, médicaments, problèmes de santé et difficultés motrices. Ce sont des données sensibles au sens de la LGPD (loi brésilienne sur la protection des données) : nous ne les utilisons que pour votre sécurité — adapter le rythme et l’itinéraire, préparer le guide et informer les secours en cas d’urgence —, et uniquement avec votre consentement, donné dans la fiche elle-même.',
+              ],
+              [
+                'Photos et vidéos des sorties.',
+                'Les conditions de la fiche autorisent l’utilisation de votre image et de votre voix dans la communication de Mamut. Si vous préférez ne pas apparaître, il suffit de nous le dire — nous cesserons de les utiliser dans les publications suivantes.',
+              ],
+              [
+                'Navigation.',
+                'Nous n’utilisons aucun outil de statistiques ni de publicité, et nous ne déposons aucun cookie de suivi qui nous soit propre. Le serveur enregistre des données techniques de chaque visite (adresse IP, date, heure et page), comme l’exige le Marco Civil da Internet (loi brésilienne encadrant l’internet). Votre préférence de thème clair ou sombre est conservée uniquement dans votre navigateur.',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'bases-legales',
+        titulo: 'Bases légales',
+        blocos: [
+          {
+            tipo: 'p',
+            texto: 'Nous traitons les données personnelles sur le fondement de la Loi générale de protection des données du Brésil (LGPD, loi 13.709/2018) :',
+          },
+          {
+            tipo: 'lista',
+            itens: [
+              'demandes de devis et réservations : mesures précontractuelles et exécution du contrat de la sortie (art. 7, V) ;',
+              'données de santé : votre consentement spécifique (art. 11, I) et, en cas d’urgence, la protection de votre vie et de votre intégrité physique (art. 11, II, « e ») ;',
+              'journaux de connexion et documents de réservation : respect d’une obligation légale (art. 7, II) et exercice de droits dans le cadre d’une éventuelle procédure (art. 7, VI) ;',
+              'protection des formulaires contre les robots : notre intérêt légitime à assurer la sécurité du site (art. 7, IX).',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'partage',
+        titulo: 'Avec qui nous les partageons',
+        blocos: [
+          {
+            tipo: 'p',
+            texto: 'Nous ne vendons ni ne louons de données personnelles. Nous ne partageons que le strict nécessaire avec :',
+          },
+          {
+            tipo: 'itens',
+            itens: [
+              [
+                'Ceux qui assurent la sortie avec nous.',
+                'Les guides, les chauffeurs ainsi que les maisons et pousadas de l’itinéraire reçoivent votre nom et ce qu’ils doivent savoir pour prendre soin de vous — par exemple une restriction alimentaire ou un problème de santé important sur le sentier.',
+              ],
+              [
+                'Les services que nous utilisons pour travailler.',
+                'Resend (envoi de la fiche par e-mail), Google (reCAPTCHA, qui distingue les personnes des robots sur les formulaires), Meta (WhatsApp, lorsque vous choisissez d’y échanger avec nous), Notion (organisation interne des réservations), notre fournisseur de messagerie et l’hébergeur du site.',
+              ],
+              [
+                'Les autorités.',
+                'Lorsque la loi l’exige ou en cas d’urgence — par exemple les secours ou l’hôpital.',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'transfert-international',
+        titulo: 'Transfert international',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Certains de ces services (Resend, Google, Meta et Notion) stockent des données sur des serveurs situés hors du Brésil, principalement aux États-Unis. Nous choisissons des fournisseurs qui proposent des clauses contractuelles de protection des données, comme le prévoit l’article 33 de la LGPD.',
+          },
+        ],
+      },
+      {
+        id: 'durees',
+        titulo: 'Combien de temps nous les conservons',
+        blocos: [
+          {
+            tipo: 'lista',
+            itens: [
+              'Demandes de devis qui n’ont pas abouti à une réservation : jusqu’à 12 mois.',
+              'Fiche du participant et données de réservation : jusqu’à 5 ans après la sortie — le délai prévu pour d’éventuelles réclamations par le Code de défense du consommateur brésilien.',
+              'Journaux de connexion au site : 6 mois, comme l’impose le Marco Civil da Internet.',
+            ],
+          },
+          { tipo: 'p', texto: 'Passé ce délai, les données sont supprimées ou anonymisées.' },
+        ],
+      },
+      {
+        id: 'securite',
+        titulo: 'Sécurité',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Le site ne fonctionne qu’avec une connexion chiffrée (HTTPS), les formulaires sont protégés contre les robots et l’accès aux fiches est réservé à l’équipe qui organise votre sortie. Aucun système n’est infaillible ; si un incident susceptible de vous affecter se produit, nous vous en informerons, ainsi que l’Autorité nationale de protection des données du Brésil (ANPD).',
+          },
+        ],
+      },
+      {
+        id: 'vos-droits',
+        titulo: 'Vos droits',
+        blocos: [
+          { tipo: 'p', texto: 'À tout moment, vous pouvez demander :' },
+          {
+            tipo: 'lista',
+            itens: [
+              'la confirmation que nous traitons des données vous concernant, et l’accès à celles-ci ;',
+              'la rectification de données incomplètes, inexactes ou obsolètes ;',
+              'l’anonymisation, le blocage ou la suppression de données inutiles ou traitées en violation de la loi ;',
+              'la portabilité de vos données vers un autre fournisseur ;',
+              'des informations sur les personnes avec qui nous les partageons ;',
+              'le retrait de votre consentement, y compris pour les données de santé et l’utilisation de votre image ;',
+              'l’opposition à un traitement que vous jugez irrégulier.',
+            ],
+          },
+          {
+            tipo: 'p',
+            texto:
+              'Adressez votre demande par e-mail ou par WhatsApp (ci-dessus). Nous répondons sous 15 jours. Si la réponse ne vous satisfait pas, vous pouvez aussi déposer une réclamation auprès de l’ANPD (gov.br/anpd).',
+          },
+        ],
+      },
+      {
+        id: 'mineurs',
+        titulo: 'Enfants et adolescents',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Les mineurs de moins de 18 ans ne participent qu’accompagnés ou autorisés par leur représentant légal, qui remplit ou approuve la fiche et donne le consentement en leur nom.',
+          },
+        ],
+      },
+      {
+        id: 'modifications',
+        titulo: 'Modifications de cette politique',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Lorsque nous modifions la façon dont nous traitons vos données, nous mettons à jour cette page et la date indiquée en haut. Les changements importants sont également signalés aux personnes ayant une réservation en cours.',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 /**
@@ -612,4 +795,5 @@ export const PRIVACIDADE_NOTA: Record<Locale, { antes: string; link: string; dep
   pt: { antes: 'Como usamos os seus dados: ', link: 'Política de privacidade', depois: '.' },
   en: { antes: 'How we use your data: ', link: 'Privacy policy', depois: '.' },
   es: { antes: 'Cómo usamos tus datos: ', link: 'Política de privacidad', depois: '.' },
+  fr: { antes: 'Comment nous utilisons vos données : ', link: 'Politique de confidentialité', depois: '.' },
 };

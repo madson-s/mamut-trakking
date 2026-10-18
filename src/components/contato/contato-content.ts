@@ -1,7 +1,7 @@
 /**
  * Texto da página de contato por idioma.
  *
- * PT vem de mamut.agency/contato. ⚠️ EN e ES são tradução feita neste
+ * PT vem de mamut.agency/contato. ⚠️ EN, ES e FR são tradução feita neste
  * repositório — a página em inglês do site atual tem outra estrutura.
  *
  * Endereço, e-mail, redes e Cadastur são fato: ficam em `SITE` e nos links,
@@ -42,6 +42,14 @@ export const CONTATO_EDITORIAL: Record<Locale, {
     exploreLead: 'Explora las rutas y encuentra la aventura que se adapta a tu ritmo.',
     exploreCta: 'Explorar las aventuras',
   },
+  fr: {
+    photoAlt: 'Paysage de montagnes dans la Chapada Diamantina',
+    photoTitle: 'La prochaine histoire, c’est la vôtre.',
+    photoLead: 'Vous apportez l’envie d’explorer. Notre harde s’occupe du chemin.',
+    exploreTitle: 'Vous hésitez encore sur votre chemin ?',
+    exploreLead: 'Parcourez nos itinéraires et trouvez l’aventure qui correspond à votre rythme.',
+    exploreCta: 'Découvrir les aventures',
+  },
 };
 
 export type ContatoContent = {
@@ -74,7 +82,7 @@ export type ContatoContent = {
     recaptchaErro: string;
     nota: string;
     saudacao: string;
-    linhas: { nome: string; email: string; telefone: string; aventura: string; chegada: string; datas: string; grupo: string; pessoa: string; pessoas: string; naoSei: string; aDefinir: string };
+    linhas: { nome: string; email: string; telefone: string; aventura: string; chegada: string; datas: string; saida: string; grupo: string; pessoa: string; pessoas: string; naoSei: string; aDefinir: string };
     assunto: string;
     semNome: string;
   };
@@ -132,7 +140,7 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       saudacao: 'Olá! Vim pelo site da Mamut.',
       linhas: {
         nome: 'Nome', email: 'E-mail', telefone: 'WhatsApp', aventura: 'Tipo de aventura',
-        chegada: 'Como pretendo chegar', datas: 'Check-in', grupo: 'Tamanho do grupo',
+        chegada: 'Como pretendo chegar', datas: 'Check-in', saida: 'Check-out', grupo: 'Tamanho do grupo',
         pessoa: 'pessoa', pessoas: 'pessoas', naoSei: 'ainda não sei', aDefinir: 'a definir',
       },
       assunto: 'Contato pelo site',
@@ -191,7 +199,7 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       saudacao: 'Hi! I came from the Mamut website.',
       linhas: {
         nome: 'Name', email: 'Email', telefone: 'WhatsApp', aventura: 'Type of adventure',
-        chegada: 'How I plan to arrive', datas: 'Check-in', grupo: 'Group size',
+        chegada: 'How I plan to arrive', datas: 'Check-in', saida: 'Check-out', grupo: 'Group size',
         pessoa: 'person', pessoas: 'people', naoSei: 'not sure yet', aDefinir: 'to be defined',
       },
       assunto: 'Website enquiry',
@@ -250,11 +258,70 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       saudacao: '¡Hola! Vine por el sitio de Mamut.',
       linhas: {
         nome: 'Nombre', email: 'Correo', telefone: 'WhatsApp', aventura: 'Tipo de aventura',
-        chegada: 'Cómo pienso llegar', datas: 'Check-in', grupo: 'Tamaño del grupo',
+        chegada: 'Cómo pienso llegar', datas: 'Check-in', saida: 'Check-out', grupo: 'Tamaño del grupo',
         pessoa: 'persona', pessoas: 'personas', naoSei: 'todavía no sé', aDefinir: 'a definir',
       },
       assunto: 'Contacto por el sitio',
       semNome: 'nuevo viajero',
+    },
+  },
+
+  fr: {
+    meta: {
+      title: 'Contact',
+      description:
+        'Contactez Mamut Trekking : WhatsApp, e-mail et adresse à Lençóis, dans la Chapada Diamantina. Parlez-nous de votre voyage et nous composons l’itinéraire idéal.',
+      canonical: '/fr/contact',
+      ogTitle: 'Contact · Mamut Trekking',
+      ogDescription: 'Contactez-nous — WhatsApp, e-mail et notre base à Lençóis.',
+    },
+    titulo: { antes: 'Chaque sentier commence par', destaque: 'une conversation.' },
+    lead: 'Choisissez le canal que vous préférez — ou racontez-nous tout dans le formulaire et nous vous répondrons avec le bon itinéraire.',
+    canais: {
+      whatsapp: {
+        titulo: 'WhatsApp',
+        texto: 'Le moyen le plus rapide — nous répondons sous 2 h, en PT · EN · ES.',
+        cta: 'Écrire sur WhatsApp',
+      },
+      email: { titulo: 'E-mail', texto: 'Écrivez-nous par e-mail si vous préférez.' },
+      endereco: { titulo: 'Retrouvez-nous sur place à l’adresse', mapa: 'Ouvrir dans la carte' },
+      redes: { titulo: 'Retrouvez-nous sur les réseaux sociaux', cadastur: 'Cadastur/CNPJ :' },
+    },
+    form: {
+      titulo: 'Parlez-nous de votre voyage.',
+      lead: 'Remplissez le formulaire et choisissez où poursuivre la conversation — nous vous répondrons avec l’itinéraire idéal pour votre groupe.',
+      nome: { label: 'Nom', placeholder: 'Comment pouvons-nous vous appeler ?' },
+      email: { label: 'E-mail', placeholder: 'vous@email.com' },
+      telefone: { label: 'Téléphone (WhatsApp)', placeholder: '+33 6 12 34 56 78' },
+      grupo: { label: 'Taille du groupe', hint: 'Nombre de personnes, vous compris.' },
+      aventuras: 'Type d’aventure',
+      opcoesAventura: ['Trek', 'Camping', 'Traversées', 'Randonnées courtes', 'Lune de miel'],
+      chegada: 'Comment comptez-vous venir',
+      opcoesChegada: [
+        { value: 'Avião', label: 'Avion' },
+        { value: 'Ônibus', label: 'Bus' },
+        { value: 'Carro Particular', label: 'Voiture' },
+      ],
+      checkin: { label: 'Arrivée', hint: 'Date d’arrivée.' },
+      checkout: { label: 'Départ', hint: 'Date de départ prévue.' },
+      mensagem: {
+        label: 'Message',
+        placeholder:
+          'Décrivez ici toutes vos attentes sur la Chapada Diamantina, ainsi que tout détail qui vous semble important.',
+      },
+      enviarWhatsapp: 'Envoyer sur WhatsApp',
+      enviarEmail: 'Envoyer par e-mail',
+      verificando: 'Vérification…',
+      recaptchaErro: 'Nous n’avons pas pu confirmer que vous n’êtes pas un robot. Rechargez la page et réessayez.',
+      nota: 'À l’envoi, nous ouvrons WhatsApp ou votre messagerie avec le message déjà rédigé.',
+      saudacao: 'Bonjour ! Je viens du site de Mamut.',
+      linhas: {
+        nome: 'Nom', email: 'E-mail', telefone: 'WhatsApp', aventura: 'Type d’aventure',
+        chegada: 'Comment je compte venir', datas: 'Arrivée', saida: 'Départ', grupo: 'Taille du groupe',
+        pessoa: 'personne', pessoas: 'personnes', naoSei: 'je ne sais pas encore', aDefinir: 'à définir',
+      },
+      assunto: 'Contact via le site',
+      semNome: 'nouveau voyageur',
     },
   },
 };

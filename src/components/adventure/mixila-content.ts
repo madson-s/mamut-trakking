@@ -264,4 +264,80 @@ export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Hablar con Mamut',
     },
   },
+  fr: {
+    meta: {
+      title: 'Cascade du Mixila — 2 jours',
+      description:
+        'Un trek sauvage de 24 km avec trois cascades — Poção, Capivari et la légendaire Mixila —, en campant à l’intérieur du parc national.',
+      canonical: '/fr/aventures/cascade-du-mixila',
+    },
+    hero: {
+      nivel: 'Modéré',
+      origem: 'Départ : Lençóis',
+      duracao: '2 jours',
+      titulo: 'Cascade du Mixila.',
+      lead: 'Trois cascades en deux jours — et la dernière ne s’atteint qu’en traversant deux bassins à la nage.',
+      apartirDe: 'À partir de',
+      porPessoa: '/ personne',
+      reservar: 'Réserver sur WhatsApp',
+    },
+    stats: ['Distance à pied', 'Durée', 'Cascades', 'Où l’on dort', 'Départ (Lençóis)', 'Difficulté'],
+    sobre: {
+      titulo: 'À propos de la cascade du Mixila.',
+      paragrafos: [
+        'L’un des treks les plus marquants de la Chapada Diamantina, avec trois cascades : celle du Poção, celle du Capivari et la légendaire Mixila. Les sentiers sont rustiques et anciens, à l’intérieur du parc national, avec des passages accidentés et glissants.',
+        'La marche raconte le quotidien et les techniques de l’ancienne extraction de diamants dans la région — on dort d’ailleurs dans les anciennes « tocas », les abris sous roche des chercheurs de diamants. C’est un itinéraire d’immersion autant naturelle que culturelle, et très tranquille : une route alternative pour qui veut fuir les sites bondés.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.fr,
+    itinerario: {
+      titulo: 'Jour après jour.',
+      aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent. Ce trek est flexible et admet plusieurs points d’entrée et de sortie — renseignez-vous auprès de nous sur les options.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: '1er jour',
+          titulo: 'Transfert en 4x4 + cascade du Poção + cascade du Mixila',
+          corpo: 'Départ de Lençóis à 7 h vers la communauté du Capivara, où commence le sentier. Après la présentation de l’activité, environ 3 heures de marche (1 heure de montée raide et 2 heures sur terrain plat) jusqu’à la cascade du Poção, où nous montons le campement. Après le pique-nique, nous continuons avec un sac léger à travers les canyons de la rivière Capivari jusqu’à la cascade du Mixila : environ 1 heure, avec des passages accidentés et glissants, et la traversée de deux grands bassins à la nage — gilet de sauvetage et sac étanche collectif fournis. Retour par le même chemin ; le dîner est servi vers 19 h.',
+          distancia: '13 km',
+          esforco: 'Modéré / Élevé',
+        },
+        {
+          rotulo: '2e jour',
+          titulo: 'Cascade du Capivari + transfert vers Lençóis',
+          corpo: 'Après le petit-déjeuner préparé par le guide, nous profitons des abords du campement, à la cascade du Poção. Vers 10 h, nous partons avec toutes nos affaires et marchons 40 minutes jusqu’à l’accès de la cascade du Capivari. Nous laissons une partie de la charge à un endroit propice et continuons avec un sac léger jusqu’au pied de la cascade, où nous restons jusqu’au début d’après-midi — pique-nique vers 12 h. Retour par le même chemin : environ 1 heure jusqu’à la Serra do Bode, puis 1 heure de descente. Arrivée au point de départ vers 15 h et au centre de Lençóis vers 16 h.',
+          distancia: '11 km',
+          esforco: 'Élevé',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Choisissez la formule idéale pour votre groupe.',
+      formatos: [
+        { titulo: 'Forfait privé', preco: 'R$ 1.600', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 1.200', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+      ],
+      nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
+    },
+    faqTitulo: 'Tout ce que vous devez savoir.',
+    faqs: [
+      wildTrekChecklist('fr', `La traversée à la nage jusqu’au Mixila mouille tout ce qui n’est pas dans un sac étanche. ${WILD_TREK_PORTER.fr}`),
+      {
+        type: 'included',
+        title: 'Ce qui est inclus / non inclus',
+        included: ['Guide de montagne formé aux premiers secours (APH)', 'Transfert aller-retour, avec un tronçon en 4x4', 'Camping : tente, sac de couchage et tapis isolant', 'Gilet de sauvetage et sac étanche collectif', 'Repas pendant le trek', 'Balise satellite SPOT X', 'Assurance aventure', 'Trousse de premiers secours', 'Salle d’attente, consigne sécurisée pour les bagages en plus et douche avant/après l’activité'],
+        excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Hébergement avant ou après le trek', 'Équipement personnel', 'Évacuation médicale'],
+      },
+      safetyFaq(
+        'fr',
+        'L’accès à la cascade du Mixila oblige à traverser à la nage deux grands bassins, dans un canyon, en plus de passages accidentés et glissants. Gilet de sauvetage et sac étanche collectif sont fournis, et ce passage ne se fait qu’avec le guide en place. Si vous n’êtes pas à l’aise dans l’eau, vous pouvez attendre au campement de la cascade du Poção.',
+      ),
+      ...DAY_TOUR_LEGAL.fr,
+    ],
+    cta: {
+      titulo: ['Prêt à rejoindre', 'le Mixila à la nage ?'],
+      corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous organisons le départ avec vous.',
+      botao: 'Parler à Mamut',
+    },
+  },
 };

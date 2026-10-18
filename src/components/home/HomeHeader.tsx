@@ -4,12 +4,12 @@ import { cn } from '@/lib/cn';
 import { focus, motion } from '@/design/tokens';
 import { Button, Container, Text } from '@/components/ui';
 import { Theme } from '@/components/ui/theme';
-import { SITE, type HomeLocale } from '@/lib/site';
+import { SITE, type Locale } from '@/lib/site';
 import { LanguageSwitcher } from './LanguageSwitcher';
 import { MobileMenu } from './MobileMenu';
 import { CHROME } from './chrome-content';
 
-export function HomeHeader({ locale = 'pt' }: { locale?: HomeLocale }) {
+export function HomeHeader({ locale = 'pt' }: { locale?: Locale }) {
   const chrome = CHROME[locale];
 
   return (
