@@ -59,6 +59,7 @@
    quase brancos aqui e cinza no resto do site. */
 .site-header .site-header-controls,
 .site-header [role="dialog"],
+.site-header .site-header-dropdown,
 .site-header-shell[data-mode="fixed"] > .site-header {
 
   /* superfícies */

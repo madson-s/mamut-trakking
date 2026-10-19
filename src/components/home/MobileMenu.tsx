@@ -10,7 +10,13 @@ import { Button, Divider, Text, XIcon } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import { localizePath } from '@/lib/routes';
 
-export type MobileNavItem = { label: string; mobileLabel?: string; href: string };
+export type MobileNavItem = {
+  label: string;
+  mobileLabel?: string;
+  href: string;
+  /** Submenu: dropdown no hover/foco no desktop, itens recuados no menu mobile. */
+  children?: { label: string; href: string }[];
+};
 
 export type MobileMenuContent = {
   open: string;
@@ -149,6 +155,30 @@ export function MobileMenu({
                     {item.mobileLabel ?? item.label}
                   </Text>
                 </Link>
+                {item.children ? (
+                  <ul className="-mt-2 flex flex-col pb-3 pl-9">
+                    {item.children.map((child) => (
+                      <li key={child.href}>
+                        <Link
+                          href={child.href}
+                          onClick={() => setOpen(false)}
+                          className={cn(
+                            'flex items-center gap-2 py-1.5 transition-colors',
+                            motion.fast,
+                            'hover:text-brand-strong',
+                          )}
+                        >
+                          <Text as="span" size="sm" tone="muted" aria-hidden>
+                            ↳
+                          </Text>
+                          <Text as="span" size="base" tone="secondary">
+                            {child.label}
+                          </Text>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                ) : null}
                 <Divider />
               </div>
             ))}

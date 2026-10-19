@@ -49,7 +49,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     home: '/pt',
     whatsapp: 'Falar no WhatsApp',
     nav: [
-      { label: 'Aventuras', href: '/pt/aventuras' },
+      { label: 'Aventuras', href: '/pt/aventuras', children: [{ label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' }] },
       { label: 'Saídas', mobileLabel: 'Calendário e grupos', href: '/pt/calendario-e-grupos' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
@@ -109,7 +109,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     home: '/en',
     whatsapp: 'Talk on WhatsApp',
     nav: [
-      { label: 'Adventures', href: '/en/adventures' },
+      { label: 'Adventures', href: '/en/adventures', children: [{ label: 'Pati Valley', href: '/en/adventures/pati-valley-3-days' }] },
       { label: 'Departures', mobileLabel: 'Calendar and groups', href: '/en/calendar-and-groups' },
       { label: 'About us', mobileLabel: 'About us', href: '/en/about' },
       { label: 'Manifesto', href: '/en/manifesto' },
@@ -169,7 +169,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     home: '/es',
     whatsapp: 'Hablar por WhatsApp',
     nav: [
-      { label: 'Aventuras', href: '/es/aventuras' },
+      { label: 'Aventuras', href: '/es/aventuras', children: [{ label: 'Valle del Pati', href: '/es/aventuras/valle-del-pati-3-dias' }] },
       { label: 'Salidas', mobileLabel: 'Calendario y grupos', href: '/es/calendario-y-grupos' },
       { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/es/quienes-somos' },
       { label: 'Manifiesto', href: '/es/manifiesto' },
@@ -229,7 +229,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     home: '/fr',
     whatsapp: 'Écrire sur WhatsApp',
     nav: [
-      { label: 'Aventures', href: '/fr/aventures' },
+      { label: 'Aventures', href: '/fr/aventures', children: [{ label: 'Vallée du Pati', href: '/fr/aventures/vallee-du-pati-3-jours' }] },
       { label: 'Départs', mobileLabel: 'Calendrier et groupes', href: '/fr/calendrier-et-groupes' },
       { label: 'Qui sommes-nous', mobileLabel: 'Qui sommes-nous', href: '/fr/a-propos' },
       { label: 'Manifeste', href: '/fr/manifeste' },
@@ -288,7 +288,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     home: '/nl',
     whatsapp: 'Praat via WhatsApp',
     nav: [
-      { label: 'Avonturen', href: '/nl/avonturen' },
+      { label: 'Avonturen', href: '/nl/avonturen', children: [{ label: 'Vale do Pati', href: '/nl/avonturen/pati-vallei-3-dagen' }] },
       { label: 'Vertrekdata', mobileLabel: 'Kalender en groepen', href: '/nl/kalender-en-groepen' },
       { label: 'Over ons', mobileLabel: 'Over ons', href: '/nl/over-ons' },
       { label: 'Manifest', href: '/nl/manifest' },
