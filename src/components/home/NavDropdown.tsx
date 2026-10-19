@@ -14,7 +14,8 @@ import type { MobileNavItem } from './MobileMenu';
  * Item do menu com submenu, no formato do dropdown de idioma
  * (`LanguageSwitcher` → `components/motion/select`): painel `bg-surface` com
  * contorno fino, altura que cresce numa mola, itens em pílula que entram em
- * cascata com blur, hover verde e o item da página atual com borda verde.
+ * cascata com blur, hover verde e o item da página atual em verde (sem a
+ * borda do item atual do Select).
  *
  * Diferenças de propósito em relação ao Select: abre no hover (e no foco, para
  * o teclado), não no clique — o próprio rótulo continua sendo link para a
@@ -147,13 +148,13 @@ export function NavDropdown({ item }: { item: MobileNavItem }) {
                     aria-current={isCurrent ? 'page' : undefined}
                     onClick={() => setOpen(false)}
                     className={cn(
-                      'flex min-h-10 items-center rounded-control border px-3 text-sm whitespace-nowrap',
-                      'transition-[background-color,border-color,color]',
+                      'flex min-h-10 items-center rounded-control px-3 text-sm whitespace-nowrap',
+                      'transition-[background-color,color]',
                       motion.fast,
                       focus.onSurface,
                       isCurrent
-                        ? 'border-brand bg-transparent text-brand-strong'
-                        : 'border-transparent text-content-secondary hover:bg-brand hover:text-brand-contrast focus-visible:bg-brand focus-visible:text-brand-contrast',
+                        ? 'text-brand-strong'
+                        : 'text-content-secondary hover:bg-brand hover:text-brand-contrast focus-visible:bg-brand focus-visible:text-brand-contrast',
                     )}
                   >
                     {child.label}
