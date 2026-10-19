@@ -8,6 +8,7 @@
  */
 
 import type { PatiFaqItem } from './PatiFaqList';
+import type { PriceTableLabels, PriceTableRow } from './PriceTable';
 
 export type DayTourContent = {
   meta: { title: string; description: string; canonical: string };
@@ -48,14 +49,8 @@ export type DayTourContent = {
   precos: {
     titulo: string;
     formatos: { titulo: string; preco: string; nota: string }[];
-    /** Rótulos da tabela por faixa — só usados quando há `priceTable`. */
-    tabela?: {
-      titulo: string;
-      colunaPessoas: string;
-      pessoa: string;
-      pessoas: string;
-      nota: string;
-    };
+    /** Rótulos da tabela por faixa — só usados quando há `priceTable`. Use `PRICE_TABLE_LABELS` (`price-table.ts`). */
+    tabela?: PriceTableLabels;
     nota: string;
   };
   faqTitulo: string;
@@ -85,6 +80,7 @@ export type DayTourAssets = {
    * `precos.tabela`, porque os assets valem para os três idiomas. `prices`
    * segue a ordem de `precos.formatos` (privado, em grupo). Omitir quando a
    * operadora não publicou os valores por faixa: aí ficam só os dois cards.
+   * Monte com `pricing()` de `price-table.ts`, que também define `fromPrice`.
    */
-  priceTable?: readonly { people: string; prices: readonly [string, string] }[];
+  priceTable?: readonly PriceTableRow[];
 };

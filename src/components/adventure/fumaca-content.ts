@@ -10,6 +10,7 @@
 
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
+import { PRICE_TABLE_LABELS, pricing } from './price-table';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 
 export const FUMACA_ASSETS: DayTourAssets = {
@@ -27,15 +28,14 @@ export const FUMACA_ASSETS: DayTourAssets = {
     ['8h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Moderado / Alto', '/svg/_icons/icon_03_montain.svg'],
   ],
-  fromPrice: 320,
   // Valores publicados em mamut.agency/aventuras/cachoeira-da-fumaca (#tabela-pagamento).
-  // Ordem das colunas: privado, em grupo.
-  priceTable: [
-    { people: '1', prices: ['R$ 650', 'R$ 420'] },
-    { people: '2', prices: ['R$ 490', 'R$ 420'] },
-    { people: '3', prices: ['R$ 390', 'R$ 350'] },
-    { people: '4+', prices: ['R$ 390', 'R$ 320'] },
-  ],
+  // [pessoas, privado, em grupo]
+  ...pricing([
+    ['1', 650, 420],
+    ['2', 490, 420],
+    ['3', 390, 350],
+    ['4+', 390, 320],
+  ]),
 };
 
 export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
@@ -83,13 +83,7 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Pacote privado', preco: 'R$ 420', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
         { titulo: 'Em grupo', preco: 'R$ 320', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
-      tabela: {
-        titulo: 'Tabela completa de preços',
-        colunaPessoas: 'Nº de pessoas',
-        pessoa: 'pessoa',
-        pessoas: 'pessoas',
-        nota: 'Valores por pessoa, em reais, para pagamento em dinheiro, transferência ou boleto.',
-      },
+      tabela: PRICE_TABLE_LABELS.pt,
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
     faqTitulo: 'Tudo que você precisa saber.',
@@ -167,13 +161,7 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Private package', preco: 'R$ 420', nota: 'Minimum of 2 people. Just your group on the trail.' },
         { titulo: 'Group tour', preco: 'R$ 320', nota: 'From 2 to 7 people. You join an open group.' },
       ],
-      tabela: {
-        titulo: 'Full price table',
-        colunaPessoas: 'Group size',
-        pessoa: 'person',
-        pessoas: 'people',
-        nota: 'Prices per person, in Brazilian reais, for cash, bank transfer or boleto.',
-      },
+      tabela: PRICE_TABLE_LABELS.en,
       nota: 'Prices for cash, bank transfer or boleto. International transfer or a larger group: talk to us.',
     },
     faqTitulo: 'Everything you need to know.',
@@ -251,13 +239,7 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Paquete privado', preco: 'R$ 420', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
         { titulo: 'En grupo', preco: 'R$ 320', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
-      tabela: {
-        titulo: 'Tabla completa de precios',
-        colunaPessoas: 'Nº de personas',
-        pessoa: 'persona',
-        pessoas: 'personas',
-        nota: 'Valores por persona, en reales, para pago en efectivo, transferencia o boleto.',
-      },
+      tabela: PRICE_TABLE_LABELS.es,
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o grupo mayor: consultá con atención.',
     },
     faqTitulo: 'Todo lo que necesitás saber.',
@@ -335,13 +317,7 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Forfait privé', preco: 'R$ 420', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
         { titulo: 'En groupe', preco: 'R$ 320', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
-      tabela: {
-        titulo: 'Grille tarifaire complète',
-        colunaPessoas: 'Nb de personnes',
-        pessoa: 'personne',
-        pessoas: 'personnes',
-        nota: 'Tarifs par personne, en reais, pour paiement en espèces, virement ou boleto.',
-      },
+      tabela: PRICE_TABLE_LABELS.fr,
       nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
     },
     faqTitulo: 'Tout ce que vous devez savoir.',
@@ -419,13 +395,7 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
         { titulo: 'Privépakket', preco: 'R$ 420', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
         { titulo: 'In een groep', preco: 'R$ 320', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
-      tabela: {
-        titulo: 'Volledige prijstabel',
-        colunaPessoas: 'Aantal personen',
-        pessoa: 'persoon',
-        pessoas: 'personen',
-        nota: 'Prijzen per persoon, in Braziliaanse real, bij betaling contant, per overboeking of met boleto.',
-      },
+      tabela: PRICE_TABLE_LABELS.nl,
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
     },
     faqTitulo: 'Alles wat je moet weten.',

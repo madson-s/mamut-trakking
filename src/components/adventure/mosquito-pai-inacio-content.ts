@@ -15,6 +15,7 @@
 
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
+import { PRICE_TABLE_LABELS, pricing } from './price-table';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 
 export const MOSQUITO_PAI_INACIO_ASSETS: DayTourAssets = {
@@ -29,16 +30,21 @@ export const MOSQUITO_PAI_INACIO_ASSETS: DayTourAssets = {
     ['120 km', '/svg/_icons/icon_09_location.svg'],
     ['3 atrativos', '/svg/_icons/icon_10_home.svg'],
     ['1 dia', '/svg/_icons/icon_11_calendar.svg'],
-    ['8h00', '/svg/_icons/icon_11_calendar.svg'],
+    ['8h30', '/svg/_icons/icon_11_calendar.svg'],
     ['Leve / Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
-  fromPrice: 450,
+  // [pessoas, privado, em grupo]
+  ...pricing([
+    ['1', 799, 499],
+    ['2', 545, 449],
+    ['3+', 499, 399],
+  ]),
 };
 
 export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
   pt: {
     meta: {
-      title: 'Cachoeira do Mosquito + Morro do Pai Inácio',
+      title: 'Cachoeira do Mosquito + Mucugêzinho + Morro do Pai Inácio',
       description:
         'Três atrativos em um dia de carro com caminhadas curtas: Cachoeira do Mosquito, Poço do Diabo e o pôr do sol no Morro do Pai Inácio.',
       canonical: '/pt/aventuras/mosquito-pai-inacio',
@@ -47,7 +53,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       nivel: 'Leve / Moderado',
       origem: 'Origem: Lençóis',
       duracao: '1 dia',
-      titulo: 'Mosquito + Pai Inácio.',
+      titulo: 'Mosquito + Mucugêzinho + Pai Inácio.',
       lead: 'Três cartões-postais em um dia, com caminhadas curtas — o roteiro que funciona com criança e com avó.',
       apartirDe: 'A partir de',
       porPessoa: '/ pessoa',
@@ -67,19 +73,20 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Como é o dia.',
       aviso: 'O itinerário pode mudar por condição climática ou por qualquer fator de força maior que a equipe julgue relevante.',
       corpo: [
-        'Saída de Lençóis às 8h00 rumo à Fazenda Santo Antônio, onde fica a entrada para a Cachoeira do Mosquito. São 40 km de carro, cerca de 1 hora, mais 700 metros de caminhada até a base da cachoeira.',
-        'Banho na cachoeira e volta ao carro.',
-        'Mais 28 km até o Balneário Mucugêzinho e uma caminhada de 15 minutos até o Poço do Diabo — uma enorme piscina natural de águas escuras e geladas. O grupo fica lá até as 16h00.',
-        'Mais 5 km de carro e uma caminhada de 300 metros, cerca de 20 minutos, até o topo do Morro do Pai Inácio. Lá em cima o guia conta a lenda que dá nome ao lugar e a vista abre sobre o vale.',
+        'Saída de Lençóis às 8h30 rumo à Fazenda Santo Antônio, onde fica a entrada para a Cachoeira do Mosquito. São 40 km de carro, cerca de 1 hora, e mais 700 metros de caminhada até a base da cachoeira.',
+        'Banho na cachoeira e volta ao carro pelo mesmo percurso.',
+        'Mais 28 km até o Balneário Mucugêzinho e uma caminhada de 2 minutos até o Vale das Piscinas, onde podemos provar uma ótima comida caseira e aproveitar o Rio Mucugêzinho, que passa logo à frente. A depender do ritmo e da disposição do grupo, podemos caminhar mais 20 minutos e alcançar o Poço do Diabo — uma enorme piscina natural de águas escuras e geladas. O grupo fica lá até as 16h00 e retorna pelo mesmo percurso até o carro.',
+        'Mais 5 km de carro e uma caminhada de 300 metros, cerca de 20 minutos, até o topo do Morro do Pai Inácio. Lá em cima, o guia vai contar sobre as flores, a geologia, curiosidades e, eventualmente, sobre a lenda que dá nome ao morro.',
         'Retorno a Lençóis, com a vista da BR-242 no caminho de volta.',
       ],
     },
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 500', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
-        { titulo: 'Em grupo', preco: 'R$ 450', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
+        { titulo: 'Pacote privado', preco: 'R$ 545', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
+        { titulo: 'Em grupo', preco: 'R$ 399', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
+      tabela: PRICE_TABLE_LABELS.pt,
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
     faqTitulo: 'Tudo que você precisa saber.',
@@ -115,7 +122,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
   },
   en: {
     meta: {
-      title: 'Mosquito Waterfall + Pai Inácio Hill',
+      title: 'Mosquito Waterfall + Mucugêzinho + Pai Inácio Hill',
       description:
         'Three sights in one day by car with short walks: Mosquito Waterfall, Poço do Diabo and sunset from Pai Inácio Hill.',
       canonical: '/en/adventures/mosquito-waterfall-pai-inacio-hill',
@@ -124,7 +131,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       nivel: 'Light / Moderate',
       origem: 'From: Lençóis',
       duracao: '1 day',
-      titulo: 'Mosquito + Pai Inácio.',
+      titulo: 'Mosquito + Mucugêzinho + Pai Inácio.',
       lead: 'Three postcard sights in a day, with short walks — the trip that works with a child and with a grandmother.',
       apartirDe: 'From',
       porPessoa: '/ person',
@@ -144,19 +151,20 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'How the day goes.',
       aviso: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant.',
       corpo: [
-        'Departure from Lençóis at 8:00 am for Fazenda Santo Antônio, where the entrance to Mosquito Waterfall is. That is 40 km by car, about 1 hour, plus a 700-metre walk to the base of the falls.',
-        'A swim at the waterfall and back to the car.',
-        'Another 28 km to the Mucugêzinho bathing area and a 15-minute walk to Poço do Diabo — a huge natural pool of dark, cold water. The group stays there until 4:00 pm.',
-        'Another 5 km by car and a 300-metre walk, around 20 minutes, to the top of Pai Inácio Hill. Up there the guide tells the legend the place is named for and the view opens over the valley.',
+        'Departure from Lençóis at 8:30 am for Fazenda Santo Antônio, where the entrance to Mosquito Waterfall is. That is 40 km by car, about 1 hour, plus a 700-metre walk to the base of the falls.',
+        'A swim at the waterfall and back to the car along the same path.',
+        'Another 28 km to the Mucugêzinho bathing area and a 2-minute walk to the Vale das Piscinas, where we can enjoy great home-cooked food and the Mucugêzinho river running right in front. Depending on the pace and energy of the group, we can walk another 20 minutes to reach Poço do Diabo — a huge natural pool of dark, cold water. The group stays there until 4:00 pm and returns to the car along the same path.',
+        'Another 5 km by car and a 300-metre walk, around 20 minutes, to the top of Pai Inácio Hill. Up there the guide will talk about the flowers, the geology, a few curiosities and, sometimes, the legend the hill is named for.',
         'Back to Lençóis, with the view from the BR-242 on the way.',
       ],
     },
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 500', nota: 'Minimum of 2 people. Just your group on the trip.' },
-        { titulo: 'Group tour', preco: 'R$ 450', nota: 'From 2 to 7 people. You join an open group.' },
+        { titulo: 'Private package', preco: 'R$ 545', nota: 'Minimum of 2 people. Just your group on the trip.' },
+        { titulo: 'Group tour', preco: 'R$ 399', nota: 'From 2 to 7 people. You join an open group.' },
       ],
+      tabela: PRICE_TABLE_LABELS.en,
       nota: 'Prices for cash, bank transfer or boleto. International transfer or a larger group: talk to us.',
     },
     faqTitulo: 'Everything you need to know.',
@@ -192,7 +200,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
   },
   es: {
     meta: {
-      title: 'Cascada del Mosquito + Morro do Pai Inácio',
+      title: 'Cascada del Mosquito + Mucugêzinho + Morro do Pai Inácio',
       description:
         'Tres atractivos en un día en auto con caminatas cortas: Cascada del Mosquito, Poço do Diabo y el atardecer en el Morro do Pai Inácio.',
       canonical: '/es/aventuras/cascada-del-mosquito-morro-do-pai-inacio',
@@ -201,7 +209,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       nivel: 'Suave / Moderado',
       origem: 'Origen: Lençóis',
       duracao: '1 día',
-      titulo: 'Mosquito + Pai Inácio.',
+      titulo: 'Mosquito + Mucugêzinho + Pai Inácio.',
       lead: 'Tres postales en un día, con caminatas cortas — el recorrido que funciona con chicos y con abuelos.',
       apartirDe: 'Desde',
       porPessoa: '/ persona',
@@ -221,19 +229,20 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Cómo es el día.',
       aviso: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante.',
       corpo: [
-        'Salida de Lençóis a las 8:00 rumbo a la Fazenda Santo Antônio, donde está la entrada a la Cascada del Mosquito. Son 40 km en auto, cerca de 1 hora, más 700 metros de caminata hasta la base de la cascada.',
-        'Baño en la cascada y vuelta al auto.',
-        'Otros 28 km hasta el Balneario Mucugêzinho y una caminata de 15 minutos hasta el Poço do Diabo — una enorme piscina natural de aguas oscuras y heladas. El grupo se queda ahí hasta las 16:00.',
-        'Otros 5 km en auto y una caminata de 300 metros, cerca de 20 minutos, hasta la cima del Morro do Pai Inácio. Arriba el guía cuenta la leyenda que da nombre al lugar y la vista se abre sobre el valle.',
+        'Salida de Lençóis a las 8:30 rumbo a la Fazenda Santo Antônio, donde está la entrada a la Cascada del Mosquito. Son 40 km en auto, cerca de 1 hora, más 700 metros de caminata hasta la base de la cascada.',
+        'Baño en la cascada y vuelta al auto por el mismo recorrido.',
+        'Otros 28 km hasta el Balneario Mucugêzinho y una caminata de 2 minutos hasta el Vale das Piscinas, donde podemos probar una muy buena comida casera y disfrutar del Río Mucugêzinho, que pasa justo enfrente. Según el ritmo y las ganas del grupo, podemos caminar 20 minutos más y llegar al Poço do Diabo — una enorme piscina natural de aguas oscuras y heladas. El grupo se queda ahí hasta las 16:00 y vuelve al auto por el mismo recorrido.',
+        'Otros 5 km en auto y una caminata de 300 metros, cerca de 20 minutos, hasta la cima del Morro do Pai Inácio. Arriba, el guía va a contar sobre las flores, la geología, algunas curiosidades y, a veces, sobre la leyenda que da nombre al morro.',
         'Regreso a Lençóis, con la vista de la BR-242 en el camino de vuelta.',
       ],
     },
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 500', nota: 'Mínimo de 2 personas. Solo tu grupo en el paseo.' },
-        { titulo: 'En grupo', preco: 'R$ 450', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
+        { titulo: 'Paquete privado', preco: 'R$ 545', nota: 'Mínimo de 2 personas. Solo tu grupo en el paseo.' },
+        { titulo: 'En grupo', preco: 'R$ 399', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
+      tabela: PRICE_TABLE_LABELS.es,
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o grupo mayor: consultá con atención.',
     },
     faqTitulo: 'Todo lo que necesitás saber.',
@@ -269,7 +278,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
   },
   fr: {
     meta: {
-      title: 'Cascade du Mosquito + Morro do Pai Inácio',
+      title: 'Cascade du Mosquito + Mucugêzinho + Morro do Pai Inácio',
       description:
         'Trois sites en une journée en voiture, avec de courtes marches : la cascade du Mosquito, le Poço do Diabo et le coucher de soleil au Morro do Pai Inácio.',
       canonical: '/fr/aventures/cascade-du-mosquito-morro-do-pai-inacio',
@@ -278,7 +287,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       nivel: 'Facile / Modéré',
       origem: 'Départ : Lençóis',
       duracao: '1 jour',
-      titulo: 'Mosquito + Pai Inácio.',
+      titulo: 'Mosquito + Mucugêzinho + Pai Inácio.',
       lead: 'Trois cartes postales en une journée, avec de courtes marches — l’itinéraire qui convient aux enfants comme aux grands-parents.',
       apartirDe: 'À partir de',
       porPessoa: '/ personne',
@@ -298,19 +307,20 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Le déroulé de la journée.',
       aviso: 'L’itinéraire peut changer en raison de la météo ou de tout cas de force majeure que l’équipe juge pertinent.',
       corpo: [
-        'Départ de Lençóis à 8 h vers la Fazenda Santo Antônio, où se trouve l’accès à la cascade du Mosquito. 40 km en voiture, environ 1 heure, puis 700 mètres de marche jusqu’au pied de la cascade.',
-        'Baignade dans la cascade et retour à la voiture.',
-        'Encore 28 km jusqu’au Balneário Mucugêzinho et 15 minutes de marche jusqu’au Poço do Diabo — une immense piscine naturelle aux eaux sombres et glacées. Le groupe y reste jusqu’à 16 h.',
-        'Encore 5 km en voiture et une marche de 300 mètres, environ 20 minutes, jusqu’au sommet du Morro do Pai Inácio. Là-haut, le guide raconte la légende qui a donné son nom au lieu, et la vue s’ouvre sur la vallée.',
+        'Départ de Lençóis à 8 h 30 vers la Fazenda Santo Antônio, où se trouve l’accès à la cascade du Mosquito. 40 km en voiture, environ 1 heure, puis 700 mètres de marche jusqu’au pied de la cascade.',
+        'Baignade dans la cascade et retour à la voiture par le même chemin.',
+        'Encore 28 km jusqu’au Balneário Mucugêzinho et 2 minutes de marche jusqu’au Vale das Piscinas, où l’on peut goûter une excellente cuisine maison et profiter de la rivière Mucugêzinho, qui coule juste devant. Selon le rythme et l’envie du groupe, on peut marcher encore 20 minutes pour atteindre le Poço do Diabo — une immense piscine naturelle aux eaux sombres et glacées. Le groupe y reste jusqu’à 16 h, puis regagne la voiture par le même chemin.',
+        'Encore 5 km en voiture et une marche de 300 mètres, environ 20 minutes, jusqu’au sommet du Morro do Pai Inácio. Là-haut, le guide parle des fleurs, de la géologie, de quelques curiosités et, parfois, de la légende qui a donné son nom au morro.',
         'Retour à Lençóis, avec la vue depuis la BR-242 sur le chemin du retour.',
       ],
     },
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Forfait privé', preco: 'R$ 500', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
-        { titulo: 'En groupe', preco: 'R$ 450', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+        { titulo: 'Forfait privé', preco: 'R$ 545', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
+        { titulo: 'En groupe', preco: 'R$ 399', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
+      tabela: PRICE_TABLE_LABELS.fr,
       nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
     },
     faqTitulo: 'Tout ce que vous devez savoir.',
@@ -346,7 +356,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
   },
   nl: {
     meta: {
-      title: 'Waterval Mosquito + Morro do Pai Inácio',
+      title: 'Waterval Mosquito + Mucugêzinho + Morro do Pai Inácio',
       description:
         'Drie bezienswaardigheden op één dag met de auto en korte wandelingen: de Waterval Mosquito, de Poço do Diabo en de zonsondergang vanaf de Morro do Pai Inácio.',
       canonical: '/nl/avonturen/waterval-mosquito-morro-do-pai-inacio',
@@ -355,7 +365,7 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       nivel: 'Licht / Gemiddeld',
       origem: 'Vertrek: Lençóis',
       duracao: '1 dag',
-      titulo: 'Mosquito + Pai Inácio.',
+      titulo: 'Mosquito + Mucugêzinho + Pai Inácio.',
       lead: 'Drie ansichtkaartplekken op één dag, met korte wandelingen — de tocht die werkt met een kind én met oma.',
       apartirDe: 'Vanaf',
       porPessoa: '/ persoon',
@@ -375,19 +385,20 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Zo verloopt de dag.',
       aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
       corpo: [
-        'Vertrek om 8.00 uur uit Lençóis naar de Fazenda Santo Antônio, waar de ingang van de Waterval Mosquito is. Dat is 40 km met de auto, zo’n uur, plus een wandeling van 700 meter naar de voet van de waterval.',
-        'Een duik bij de waterval en terug naar de auto.',
-        'Nog 28 km naar de zwemplek van de Mucugêzinho en een wandeling van 15 minuten naar de Poço do Diabo — een enorm natuurlijk bad met donker, koud water. De groep blijft daar tot 16.00 uur.',
-        'Nog 5 km met de auto en een wandeling van 300 meter, zo’n 20 minuten, naar de top van de Morro do Pai Inácio. Daarboven vertelt de gids de legende waar de plek zijn naam aan dankt en opent het uitzicht zich over het dal.',
+        'Vertrek om 8.30 uur uit Lençóis naar de Fazenda Santo Antônio, waar de ingang van de Waterval Mosquito is. Dat is 40 km met de auto, zo’n uur, plus een wandeling van 700 meter naar de voet van de waterval.',
+        'Een duik bij de waterval en over hetzelfde pad terug naar de auto.',
+        'Nog 28 km naar de zwemplek van de Mucugêzinho en een wandeling van 2 minuten naar de Vale das Piscinas, waar we heerlijk huisgemaakt eten kunnen proeven en kunnen genieten van de rivier de Mucugêzinho, die er vlak voor stroomt. Afhankelijk van het tempo en de zin van de groep kunnen we nog 20 minuten doorlopen naar de Poço do Diabo — een enorm natuurlijk bad met donker, koud water. De groep blijft daar tot 16.00 uur en loopt over hetzelfde pad terug naar de auto.',
+        'Nog 5 km met de auto en een wandeling van 300 meter, zo’n 20 minuten, naar de top van de Morro do Pai Inácio. Daarboven vertelt de gids over de bloemen, de geologie, wat wetenswaardigheden en soms over de legende waar de berg zijn naam aan dankt.',
         'Terug naar Lençóis, onderweg met het uitzicht vanaf de BR-242.',
       ],
     },
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 500', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
-        { titulo: 'In een groep', preco: 'R$ 450', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+        { titulo: 'Privépakket', preco: 'R$ 545', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
+        { titulo: 'In een groep', preco: 'R$ 399', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
+      tabela: PRICE_TABLE_LABELS.nl,
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
     },
     faqTitulo: 'Alles wat je moet weten.',
