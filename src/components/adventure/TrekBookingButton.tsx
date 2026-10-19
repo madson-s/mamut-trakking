@@ -1,6 +1,7 @@
 'use client';
 
 import { Button } from '@/components/ui';
+import type { GuidePriceTiers, PriceColumn } from './guide-pricing';
 import type { Pati3Content } from './pati-3-content';
 import { PatiMobileBooking } from './PatiMobileBooking';
 
@@ -10,6 +11,8 @@ export function TrekBookingButton({
   label,
   messageIntro,
   price,
+  tiers,
+  column,
   sheetId,
   variant,
 }: {
@@ -18,6 +21,8 @@ export function TrekBookingButton({
   label: string;
   messageIntro: string;
   price: number;
+  tiers?: GuidePriceTiers;
+  column?: PriceColumn;
   sheetId: string;
   variant: 'outline' | 'primary';
 }) {
@@ -36,6 +41,8 @@ export function TrekBookingButton({
       <PatiMobileBooking
         content={content}
         fromPrice={price}
+        tiers={tiers}
+        column={column}
         messageIntro={messageIntro}
         openEvent={eventName}
         sheetId={sheetId}

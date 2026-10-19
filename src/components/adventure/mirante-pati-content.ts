@@ -22,6 +22,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
+import { pricing } from './price-table';
 
 export const MIRANTE_PATI_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/mirante-pati/hero.jpeg', position: '50% 55%' },
@@ -38,7 +39,14 @@ export const MIRANTE_PATI_ASSETS: DayTourAssets = {
     ['~19h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
-  fromPrice: 475,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 1250, 650],
+    ['2', 740, 650],
+    ['3', 650, 599],
+    ['4+', 599, 550],
+  ]),
+  priceOrigin: 'Guiné',
 };
 
 export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
@@ -84,8 +92,8 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 550', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
-        { titulo: 'Em grupo', preco: 'R$ 475', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
+        { titulo: 'Pacote privado', preco: 'R$ 740', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
+        { titulo: 'Em grupo', preco: 'R$ 550', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
@@ -162,8 +170,8 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 550', nota: 'Minimum of 2 people. Just your group on the trail.' },
-        { titulo: 'Group tour', preco: 'R$ 475', nota: 'From 2 to 7 people. You join an open group.' },
+        { titulo: 'Private package', preco: 'R$ 740', nota: 'Minimum of 2 people. Just your group on the trail.' },
+        { titulo: 'Group tour', preco: 'R$ 550', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       nota: 'Prices for cash, bank transfer or boleto. International transfer or a larger group: talk to us.',
     },
@@ -240,8 +248,8 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 550', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
-        { titulo: 'En grupo', preco: 'R$ 475', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
+        { titulo: 'Paquete privado', preco: 'R$ 740', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
+        { titulo: 'En grupo', preco: 'R$ 550', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o grupo mayor: consultá con atención.',
     },
@@ -318,8 +326,8 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Forfait privé', preco: 'R$ 550', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
-        { titulo: 'En groupe', preco: 'R$ 475', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+        { titulo: 'Forfait privé', preco: 'R$ 740', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'En groupe', preco: 'R$ 550', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       nota: 'Prix pour un paiement en espèces, par virement ou par boleto. Virement international ou groupe plus grand : contactez notre équipe.',
     },
@@ -396,8 +404,8 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 550', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
-        { titulo: 'In een groep', preco: 'R$ 475', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+        { titulo: 'Privépakket', preco: 'R$ 740', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 550', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
     },
@@ -474,8 +482,8 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
-        { titulo: 'Privatpaket', preco: 'R$ 550', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
-        { titulo: 'In der Gruppe', preco: 'R$ 475', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+        { titulo: 'Privatpaket', preco: 'R$ 740', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 550', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
     },

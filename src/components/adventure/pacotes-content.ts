@@ -25,6 +25,7 @@ import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import type { PatiFaqItem } from './PatiFaqList';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
+import { pricing } from './price-table';
 
 type Dia = NonNullable<DayTourContent['itinerario']['dias']>[number];
 
@@ -67,7 +68,13 @@ export const PACOTE_3_ASSETS: DayTourAssets = {
     ['8h00', ICON.calendario],
     ['18h00', ICON.enviar],
   ],
-  fromPrice: 1500,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 2399, 1700],
+    ['2', 1900, 1700],
+    ['3', 1700, 1650],
+    ['4+', 1650, 1500],
+  ]),
 };
 
 export const PACOTE_4_ASSETS: DayTourAssets = {
@@ -95,7 +102,13 @@ export const PACOTE_6_ASSETS: DayTourAssets = {
     ['8', ICON.local],
     ['7h30', ICON.calendario],
   ],
-  fromPrice: 4650,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 9000, 4800],
+    ['2', 5100, 4700],
+    ['3', 4700, 4500],
+    ['4+', 4500, 4250],
+  ]),
 };
 
 /* ------------------------------------------------------------------------ */
@@ -683,7 +696,7 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.pt],
-    privado: 'R$ 1.750',
+    privado: 'R$ 1.900',
     grupo: 'R$ 1.500',
     facts: [
       ['Categoria', 'Passeios de um dia, com base em Lençóis'],
@@ -714,7 +727,7 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.en],
-    privado: 'R$ 1,750',
+    privado: 'R$ 1,900',
     grupo: 'R$ 1,500',
     facts: [
       ['Category', 'Day tours based in Lençóis'],
@@ -745,7 +758,7 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.es],
-    privado: 'R$ 1.750',
+    privado: 'R$ 1.900',
     grupo: 'R$ 1.500',
     facts: [
       ['Categoría', 'Paseos de un día con base en Lençóis'],
@@ -776,7 +789,7 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.fr],
-    privado: 'R$ 1.750',
+    privado: 'R$ 1.900',
     grupo: 'R$ 1.500',
     facts: [
       ['Catégorie', 'Excursions à la journée au départ de Lençóis'],
@@ -807,7 +820,7 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.nl],
-    privado: 'R$ 1.750',
+    privado: 'R$ 1.900',
     grupo: 'R$ 1.500',
     facts: [
       ['Categorie', 'Dagtochten met Lençóis als uitvalsbasis'],
@@ -838,7 +851,7 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.de],
-    privado: 'R$ 1.750',
+    privado: 'R$ 1.900',
     grupo: 'R$ 1.500',
     facts: [
       ['Kategorie', 'Tagestouren mit Lençóis als Ausgangspunkt'],
@@ -1443,7 +1456,7 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
         'Depois a base passa para a zona rural de Ibicoara, de onde se chega à Cachoeira do Buracão (com rapel opcional) e, no dia seguinte, à Cachoeira da Fumacinha. No último dia voltamos a Lençóis passando pelo Poço Encantado e pelo Poço Azul.',
       ],
     },
-    precos: ['R$ 4.950', 'R$ 4.650'],
+    precos: ['R$ 5.100', 'R$ 4.250'],
     grupoNota: 'De 2 a 7 pessoas. Há condições especiais para grupos — consulte.',
     facts: [
       ['Categoria', 'Trekking + passeios de um dia'],
@@ -1475,7 +1488,7 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
         'Then the base moves to the countryside around Ibicoara, from where we reach Buracão Waterfall (with optional abseiling) and, the next day, Fumacinha Waterfall. On the last day we return to Lençóis by way of Poço Encantado and Poço Azul.',
       ],
     },
-    precos: ['R$ 4,950', 'R$ 4,650'],
+    precos: ['R$ 5,100', 'R$ 4,250'],
     grupoNota: 'From 2 to 7 people. Special terms for groups — ask us.',
     facts: [
       ['Category', 'Trek + day tours'],
@@ -1507,7 +1520,7 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
         'Después la base pasa a la zona rural de Ibicoara, desde donde se llega a la Cascada do Buracão (con rappel opcional) y, al día siguiente, a la Cascada da Fumacinha. El último día volvemos a Lençóis pasando por el Poço Encantado y el Poço Azul.',
       ],
     },
-    precos: ['R$ 4.950', 'R$ 4.650'],
+    precos: ['R$ 5.100', 'R$ 4.250'],
     grupoNota: 'De 2 a 7 personas. Hay condiciones especiales para grupos — consultá.',
     facts: [
       ['Categoría', 'Trekking + paseos de un día'],
@@ -1539,7 +1552,7 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
         'Ensuite, la base se déplace dans la campagne d’Ibicoara, d’où l’on rejoint la cascade du Buracão (rappel en option) et, le lendemain, la cascade da Fumacinha. Le dernier jour, nous rentrons à Lençóis en passant par le Poço Encantado et le Poço Azul.',
       ],
     },
-    precos: ['R$ 4.950', 'R$ 4.650'],
+    precos: ['R$ 5.100', 'R$ 4.250'],
     grupoNota: 'De 2 à 7 personnes. Conditions spéciales pour les groupes — renseignez-vous.',
     facts: [
       ['Catégorie', 'Trek + excursions à la journée'],
@@ -1571,7 +1584,7 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
         'Daarna verhuist de uitvalsbasis naar het platteland rond Ibicoara, vanwaar we de Waterval Buracão bereiken (met optioneel abseilen) en, de dag erna, de Waterval Fumacinha. Op de laatste dag gaan we terug naar Lençóis via de Poço Encantado en de Poço Azul.',
       ],
     },
-    precos: ['R$ 4.950', 'R$ 4.650'],
+    precos: ['R$ 5.100', 'R$ 4.250'],
     grupoNota: 'Van 2 tot 7 personen. Speciale voorwaarden voor groepen — vraag het ons.',
     facts: [
       ['Categorie', 'Trektocht + dagtochten'],
@@ -1603,7 +1616,7 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
         'Danach zieht der Ausgangspunkt aufs Land rund um Ibicoara, von wo wir den Buracão-Wasserfall erreichen (mit optionalem Abseilen) und am Tag darauf den Fumacinha-Wasserfall. Am letzten Tag geht es über den Poço Encantado und den Poço Azul zurück nach Lençóis.',
       ],
     },
-    precos: ['R$ 4.950', 'R$ 4.650'],
+    precos: ['R$ 5.100', 'R$ 4.250'],
     grupoNota: 'Von 2 bis 7 Personen. Besondere Konditionen für Gruppen — frag uns.',
     facts: [
       ['Kategorie', 'Trekking + Tagestouren'],

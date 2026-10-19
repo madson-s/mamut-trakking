@@ -154,7 +154,7 @@ export const CALENDAR_DEPARTURES: CalendarDeparture[] = [
   { id: 'pacote6-2026-12-11', trekId: 'pacote6', start: '2026-12-11', end: '2026-12-16', price: 4700 },
   { id: 'pati3-2026-12-17', trekId: 'pati3', start: '2026-12-17', end: '2026-12-19', price: 2200 },
   { id: 'pati3-2026-12-26', trekId: 'pati3', start: '2026-12-26', end: '2026-12-28', price: 2200 },
-  { id: 'reveillon6-2026-12-28', trekId: 'reveillon6', start: '2026-12-28', end: '2027-01-02', price: 4979 },
+  { id: 'reveillon6-2026-12-28', trekId: 'reveillon6', start: '2026-12-28', end: '2027-01-02', price: 5199 },
   { id: 'pati3-2027-01-12', trekId: 'pati3', start: '2027-01-12', end: '2027-01-14', price: 2200 },
   { id: 'mosquitoPocoAzul-2027-01-15', trekId: 'mosquitoPocoAzul', start: '2027-01-15', end: '2027-01-15', price: 570 },
   { id: 'mixila-2027-01-16', trekId: 'mixila', start: '2027-01-16', end: '2027-01-17', price: 1500 },

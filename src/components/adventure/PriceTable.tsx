@@ -10,6 +10,10 @@ export type PriceTableLabels = {
   pessoa: string;
   pessoas: string;
   nota: string;
+  /** Reserva de última hora — vai numa linha própria, abaixo da nota. */
+  aviso?: string;
+  /** Aviso para quem sai de outra cidade; `{cidade}` vira a `origin` da tabela. */
+  consulta?: string;
 };
 
 /**
@@ -31,6 +35,7 @@ export function PriceTable({
   formatos,
   rows,
   highlightIndex = 1,
+  origin,
 }: {
   labels: PriceTableLabels;
   /** Nome de cada formato, na ordem das colunas (privado, em grupo). */
@@ -38,6 +43,8 @@ export function PriceTable({
   rows: readonly PriceTableRow[];
   /** Coluna destacada em verde — por padrão a segunda, "em grupo". */
   highlightIndex?: number;
+  /** Outra cidade de saída possível, com valores sob consulta (ex.: Ibicoara). */
+  origin?: string;
 }) {
   return (
     <div id="tabela-pagamento" className="flex w-full scroll-mt-24 flex-col gap-4">
@@ -94,7 +101,11 @@ export function PriceTable({
         </table>
       </div>
 
-      <Text size="sm" weight="light" tone="muted" pretty>{labels.nota}</Text>
+      <Text size="sm" weight="light" tone="muted" pretty>
+        {labels.nota}
+        {origin && labels.consulta ? ` ${labels.consulta.replace('{cidade}', origin)}` : null}
+      </Text>
+      {labels.aviso ? <Text size="sm" weight="light" tone="muted" pretty className="-mt-2">{labels.aviso}</Text> : null}
     </div>
   );
 }

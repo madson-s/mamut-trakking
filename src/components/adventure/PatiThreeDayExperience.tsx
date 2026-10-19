@@ -30,6 +30,8 @@ import { PatiMobileBooking } from './PatiMobileBooking';
 import { PatiItinerary } from './PatiItinerary';
 import { AgencyFacilities, TripLogistics } from './AgencySupport';
 import type { ReturnTime } from './agency-support';
+import type { GuidePriceTiers } from './guide-pricing';
+import { patiPricing } from './price-table';
 import { AssetIcon } from './AssetIcon';
 
 /**
@@ -63,6 +65,8 @@ export type PatiAssets = {
   relatedImages: readonly string[];
   /** Menor preço da tabela — o que o hero e o JSON-LD anunciam. */
   fromPrice: number;
+  /** Faixas por idioma do guia, para a estimativa do sheet de reserva — vem de `patiPricing()`. */
+  tiers?: GuidePriceTiers;
   /** Imagem do JSON-LD e do Open Graph. */
   ogImage: string;
   /** Destino do botão "ver todas as fotos" no itinerário. */
@@ -82,11 +86,6 @@ const PATI3_ASSETS_STATS = [
   ['Moderado', '/svg/_icons/icon_03_montain.svg'],
 ] as const;
 
-// Preços de mamut.agency/en/aventuras/pati-valley-3-days: dois formatos, por
-// pessoa, com mínimo de 2 pessoas. O destaque é o de grupo, o mais procurado.
-/** Menor preço da tabela — o que o hero e o JSON-LD anunciam. */
-export const PATI3_FROM_PRICE = 1500;
-
 export const PATI3_ASSETS: PatiAssets = {
   stats: PATI3_ASSETS_STATS,
   itinerary: [
@@ -104,23 +103,17 @@ export const PATI3_ASSETS: PatiAssets = {
     ['/svg/figma/pati-3/landmark-waterfall.svg', 'lg:w-[280px]'],
     ['/svg/figma/pati-3/landmark-descent.svg', 'lg:w-[188px]'],
   ],
-  priceTiers: [
-    { price: 'R$ 2.300', highlight: false },
-    { price: 'R$ 2.100', highlight: true },
-  ],
-  // Valores publicados em mamut.agency/aventuras/vale-do-pati-03-dias
-  // (#tabela-pagamento). Ordem das colunas: privado, em grupo.
-  priceTable: [
-    { people: '1', prices: ['R$ 2.700', 'R$ 2.200'] },
-    { people: '2', prices: ['R$ 2.200', 'R$ 1.950'] },
-    { people: '3', prices: ['R$ 2.100', 'R$ 1.750'] },
-    { people: '4+', prices: ['R$ 1.900', 'R$ 1.500'] },
-  ],
   relatedImages: [
     '/img/vale-do-pati/vale-do-pati-14.webp',
     '/img/vale-do-pati/vale-do-pati-20.webp',
   ],
-  fromPrice: PATI3_FROM_PRICE,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...patiPricing([
+    ['1', 2850, 2100],
+    ['2', 2300, 2000],
+    ['3', 2100, 1850],
+    ['4+', 1850, 1500],
+  ]),
   ogImage: '/img/vale-do-pati/vale-do-pati-04.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   returnTime: { time: '19:00' },
@@ -189,7 +182,7 @@ export function PatiExperience({
       <TrustAndReviews c={c} locale={locale} />
       <Faq c={c} faqs={faqs} />
       <FinalCta c={c} />
-      <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} />
+      <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} tiers={a.tiers} />
     </article>
   );
 }
@@ -268,7 +261,7 @@ function InfoChip({ children, className }: { children: React.ReactNode; classNam
 }
 
 
-// O preço vem dos assets de cada variante: com o PATI3_FROM_PRICE fixo, as
+// O preço vem dos assets de cada variante: com um preço fixo do roteiro de 3, as
 // páginas de 4 e 5 dias anunciavam o preço do roteiro de 3.
 function BookingCard({ c, fromPrice }: { c: Pati3Content; fromPrice: number }) {
   return (

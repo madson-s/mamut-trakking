@@ -16,6 +16,7 @@ import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
+import { PRICE_TABLE_LABELS } from './price-table';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
@@ -215,12 +216,13 @@ export function DayTourExperience({
             <Heading id="precos-heading" as="h2" size="section" className="text-display-sm!">{c.precos.titulo}</Heading>
             {/* Com tabela publicada, ela é a seção — os cards diriam o mesmo,
                 resumido. Sem tabela, os cards seguem sendo o preço. */}
-            {assets.priceTable && c.precos.tabela ? (
+            {assets.priceTable ? (
               <>
                 <PriceTable
-                  labels={c.precos.tabela}
+                  labels={c.precos.tabela ?? PRICE_TABLE_LABELS[locale]}
                   formatos={c.precos.formatos.map((f) => f.titulo)}
                   rows={assets.priceTable}
+                  origin={assets.priceOrigin}
                 />
                 <div className="flex flex-col gap-1.5">
                   {c.precos.formatos.map((formato) => (

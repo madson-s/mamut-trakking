@@ -8,6 +8,7 @@ import { PatiFaqList } from './PatiFaqList';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { PATI3_CONTENT } from './pati-3-content';
 import { TrekBookingButton } from './TrekBookingButton';
+import { PRICE_TABLE_LABELS, brl } from './price-table';
 import { PriceTable } from './PriceTable';
 import { TripLogistics } from './AgencySupport';
 
@@ -111,7 +112,7 @@ export function TrekJourney({
         <div className="grid gap-5 sm:grid-cols-2">
           {c.precos.formatos.map((format, index) => {
             const Icon = index === 0 ? UserRound : Users;
-            const price = Number(format.preco.replace(/\D/g, ''));
+            const price = assets.cardPrices?.[index] ?? Number(format.preco.replace(/\D/g, ''));
             const eventName = `trek:open-booking:${index}`;
             const sheetId = `trek-booking-sheet-${index}`;
             return (
@@ -121,7 +122,7 @@ export function TrekJourney({
                 </div>
                 <Heading as="h3" size="quote" balance>{format.titulo}</Heading>
                 <div className="flex flex-col gap-1 border-y border-line py-6">
-                  <Heading as="p" size="section" tone="brand" className="whitespace-nowrap">{format.preco}</Heading>
+                  <Heading as="p" size="section" tone="brand" className="whitespace-nowrap">{assets.cardPrices ? brl(price) : format.preco}</Heading>
                   <Text size="sm" tone="secondary">{c.hero.porPessoa}</Text>
                 </div>
                 <Text size="sm" tone="secondary" leading="relaxed" pretty className="flex-1">{format.nota}</Text>
@@ -131,6 +132,8 @@ export function TrekJourney({
                   label={c.hero.reservar}
                   messageIntro={bookingMessageIntro(locale, c.hero.titulo, format.titulo)}
                   price={price}
+                  tiers={assets.tiers}
+                  column={index === 0 ? 0 : 1}
                   sheetId={sheetId}
                   variant={index === 0 ? 'outline' : 'primary'}
                 />
@@ -139,12 +142,13 @@ export function TrekJourney({
           })}
           {/* Aqui os cards levam o botão de reserva de cada formato, então
               continuam; a tabela completa entra abaixo, ocupando as 2 colunas. */}
-          {assets.priceTable && c.precos.tabela ? (
+          {assets.priceTable ? (
             <div className="sm:col-span-2">
               <PriceTable
-                labels={c.precos.tabela}
+                labels={c.precos.tabela ?? PRICE_TABLE_LABELS[locale]}
                 formatos={c.precos.formatos.map((f) => f.titulo)}
                 rows={assets.priceTable}
+                origin={assets.priceOrigin}
               />
             </div>
           ) : null}

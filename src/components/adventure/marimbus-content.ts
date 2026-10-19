@@ -14,6 +14,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
+import { pricing } from './price-table';
 
 export const MARIMBUS_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/marimbus/hero.jpeg', position: '50% 55%' },
@@ -30,7 +31,13 @@ export const MARIMBUS_ASSETS: DayTourAssets = {
     ['8h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Leve / Moderado', '/svg/_icons/icon_03_montain.svg'],
   ],
-  fromPrice: 465,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 900, 490],
+    ['2', 740, 490],
+    ['3', 490, 450],
+    ['4+', 450, 399],
+  ]),
 };
 
 export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
@@ -74,8 +81,8 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 510', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
-        { titulo: 'Em grupo', preco: 'R$ 465', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
+        { titulo: 'Pacote privado', preco: 'R$ 740', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
+        { titulo: 'Em grupo', preco: 'R$ 399', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
@@ -150,8 +157,8 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 510', nota: 'Minimum of 2 people. Just your group on the trip.' },
-        { titulo: 'Group tour', preco: 'R$ 465', nota: 'From 2 to 7 people. You join an open group.' },
+        { titulo: 'Private package', preco: 'R$ 740', nota: 'Minimum of 2 people. Just your group on the trip.' },
+        { titulo: 'Group tour', preco: 'R$ 399', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       nota: 'Prices for cash, bank transfer or boleto. International transfer or a larger group: talk to us.',
     },
@@ -226,8 +233,8 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 510', nota: 'Mínimo de 2 personas. Solo tu grupo en el paseo.' },
-        { titulo: 'En grupo', preco: 'R$ 465', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
+        { titulo: 'Paquete privado', preco: 'R$ 740', nota: 'Mínimo de 2 personas. Solo tu grupo en el paseo.' },
+        { titulo: 'En grupo', preco: 'R$ 399', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o grupo mayor: consultá con atención.',
     },
@@ -302,8 +309,8 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Formule privée', preco: 'R$ 510', nota: 'Minimum 2 personnes. Seul votre groupe pendant l’excursion.' },
-        { titulo: 'En groupe', preco: 'R$ 465', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+        { titulo: 'Formule privée', preco: 'R$ 740', nota: 'Minimum 2 personnes. Seul votre groupe pendant l’excursion.' },
+        { titulo: 'En groupe', preco: 'R$ 399', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
     },
@@ -378,8 +385,8 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 510', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
-        { titulo: 'In een groep', preco: 'R$ 465', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+        { titulo: 'Privépakket', preco: 'R$ 740', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
+        { titulo: 'In een groep', preco: 'R$ 399', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
     },
@@ -454,8 +461,8 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
-        { titulo: 'Privatpaket', preco: 'R$ 510', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
-        { titulo: 'In der Gruppe', preco: 'R$ 465', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+        { titulo: 'Privatpaket', preco: 'R$ 740', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 399', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
     },

@@ -38,7 +38,7 @@ export const REVEILLON_IMAGE = '/img/home_backgroud/home_hero_background_1_5x.we
 export const REVEILLON_PACKAGES: readonly ReveillonPackage[] = [
   {
     key: '4-dias',
-    price: 2369,
+    price: 2699,
     image: '/img/home_backgroud/home_backgroud_04_no_crop_1x.webp',
     startDate: '2026-12-29',
     itinerary: [
@@ -50,7 +50,7 @@ export const REVEILLON_PACKAGES: readonly ReveillonPackage[] = [
   },
   {
     key: '5-dias',
-    price: 3559,
+    price: 3799,
     image: '/img/figma/destinations/vale-do-pati-3/cta-morro-do-castelo.png',
     startDate: '2026-12-29',
     itinerary: [
@@ -63,7 +63,7 @@ export const REVEILLON_PACKAGES: readonly ReveillonPackage[] = [
   },
   {
     key: '6-dias',
-    price: 4979,
+    price: 5199,
     image: '/img/adventures/fumacinha/hero.jpg',
     startDate: '2026-12-28',
     itinerary: [

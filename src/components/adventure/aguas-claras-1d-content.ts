@@ -16,6 +16,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
+import { pricing } from './price-table';
 
 export const AGUAS_CLARAS_1D_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/aguas-claras-1d/hero.jpeg', position: '50% 55%' },
@@ -31,7 +32,13 @@ export const AGUAS_CLARAS_1D_ASSETS: DayTourAssets = {
     ['8h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Leve / Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
-  fromPrice: 390,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 700, 375],
+    ['2', 450, 375],
+    ['3', 375, 350],
+    ['4+', 350, 299],
+  ]),
 };
 
 export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
@@ -75,7 +82,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
         { titulo: 'Pacote privado', preco: 'R$ 450', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
-        { titulo: 'Em grupo', preco: 'R$ 390', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
+        { titulo: 'Em grupo', preco: 'R$ 299', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
@@ -150,7 +157,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Choose the format that fits your group.',
       formatos: [
         { titulo: 'Private package', preco: 'R$ 450', nota: 'Minimum of 2 people. Just your group on the trail.' },
-        { titulo: 'Group tour', preco: 'R$ 390', nota: 'From 2 to 7 people. You join an open group.' },
+        { titulo: 'Group tour', preco: 'R$ 299', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       nota: 'Prices for cash, bank transfer or boleto. International transfer or a larger group: talk to us.',
     },
@@ -225,7 +232,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
         { titulo: 'Paquete privado', preco: 'R$ 450', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
-        { titulo: 'En grupo', preco: 'R$ 390', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
+        { titulo: 'En grupo', preco: 'R$ 299', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o grupo mayor: consultá con atención.',
     },
@@ -300,7 +307,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
         { titulo: 'Forfait privé', preco: 'R$ 450', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
-        { titulo: 'En groupe', preco: 'R$ 390', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+        { titulo: 'En groupe', preco: 'R$ 299', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou groupe plus grand : contactez-nous.',
     },
@@ -375,7 +382,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
         { titulo: 'Privépakket', preco: 'R$ 450', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
-        { titulo: 'In een groep', preco: 'R$ 390', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+        { titulo: 'In een groep', preco: 'R$ 299', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
     },
@@ -450,7 +457,7 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
         { titulo: 'Privatpaket', preco: 'R$ 450', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
-        { titulo: 'In der Gruppe', preco: 'R$ 390', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 299', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
     },

@@ -14,6 +14,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL } from './day-tour-legal';
+import { pricing } from './price-table';
 
 export const PAI_INACIO_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/pai-inacio/2-1.jpeg', position: '50% 62%' },
@@ -30,7 +31,13 @@ export const PAI_INACIO_ASSETS: DayTourAssets = {
     ['~18h30', '/svg/_icons/icon_11_calendar.svg'],
     ['Leve', '/svg/_icons/icon_01_3-bars.svg'],
   ],
-  fromPrice: 265,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 499, 299],
+    ['2', 375, 299],
+    ['3', 299, 250],
+    ['4+', 250, 200],
+  ]),
 };
 
 export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
@@ -73,8 +80,8 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 300', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
-        { titulo: 'Em grupo', preco: 'R$ 265', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
+        { titulo: 'Pacote privado', preco: 'R$ 375', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
+        { titulo: 'Em grupo', preco: 'R$ 200', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       nota: 'Valores para dinheiro, transferência ou boleto. Cartão: +5%, em até 12x. Transferência internacional ou grupo maior: consulte o atendimento.',
     },
@@ -145,8 +152,8 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 300', nota: 'Minimum 2 people. Only your group on the tour.' },
-        { titulo: 'In a group', preco: 'R$ 265', nota: 'From 2 to 7 people. You join an open group.' },
+        { titulo: 'Private package', preco: 'R$ 375', nota: 'Minimum 2 people. Only your group on the tour.' },
+        { titulo: 'In a group', preco: 'R$ 200', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       nota: 'Prices for cash, bank transfer or boleto. Card: +5%, up to 12 instalments. International transfer or a larger group: ask our team.',
     },
@@ -217,8 +224,8 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 300', nota: 'Mínimo 2 personas. Solo tu grupo en el paseo.' },
-        { titulo: 'En grupo', preco: 'R$ 265', nota: 'De 2 a 7 personas. Te sumás a un grupo abierto.' },
+        { titulo: 'Paquete privado', preco: 'R$ 375', nota: 'Mínimo 2 personas. Solo tu grupo en el paseo.' },
+        { titulo: 'En grupo', preco: 'R$ 200', nota: 'De 2 a 7 personas. Te sumás a un grupo abierto.' },
       ],
       nota: 'Valores para efectivo, transferencia o boleto. Tarjeta: +5%, hasta en 12 cuotas. Transferencia internacional o grupo mayor: consultá con atención.',
     },
@@ -288,8 +295,8 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Forfait privé', preco: 'R$ 300', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
-        { titulo: 'En groupe', preco: 'R$ 265', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
+        { titulo: 'Forfait privé', preco: 'R$ 375', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
+        { titulo: 'En groupe', preco: 'R$ 200', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       nota: 'Tarifs pour paiement en espèces, virement ou boleto. Carte : +5 %, jusqu’à 12 mensualités. Virement international ou groupe plus grand : contactez-nous.',
     },
@@ -359,8 +366,8 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 300', nota: 'Minimaal 2 personen. Alleen jouw groep op de tour.' },
-        { titulo: 'In een groep', preco: 'R$ 265', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+        { titulo: 'Privépakket', preco: 'R$ 375', nota: 'Minimaal 2 personen. Alleen jouw groep op de tour.' },
+        { titulo: 'In een groep', preco: 'R$ 200', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Creditcard: +5%, tot 12 termijnen. Internationale overboeking of een grotere groep: vraag het ons team.',
     },
@@ -430,8 +437,8 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
-        { titulo: 'Privatpaket', preco: 'R$ 300', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
-        { titulo: 'In der Gruppe', preco: 'R$ 265', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+        { titulo: 'Privatpaket', preco: 'R$ 375', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 200', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Kreditkarte: +5 %, bis zu 12 Raten. Internationale Überweisung oder größere Gruppe: frag unser Team.',
     },

@@ -28,14 +28,14 @@ export const FUMACINHA_ASSETS: DayTourAssets = {
     ['5h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Moderado / Pesado', '/svg/_icons/icon_03_montain.svg'],
   ],
-  // Valores publicados em mamut.agency/aventuras/cachoeira-da-fumacinha (#tabela-pagamento).
-  // [pessoas, privado, em grupo]
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
   ...pricing([
-    ['1', 1200, 715],
-    ['2', 830, 715],
-    ['3', 715, 625],
+    ['1', 1500, 775],
+    ['2', 850, 775],
+    ['3', 775, 625],
     ['4+', 625, 550],
   ]),
+  priceOrigin: 'Ibicoara',
 };
 
 export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
@@ -81,7 +81,7 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 715', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
+        { titulo: 'Pacote privado', preco: 'R$ 850', nota: 'Mínimo de 2 pessoas. Só o seu grupo na trilha.' },
         { titulo: 'Em grupo', preco: 'R$ 550', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       tabela: PRICE_TABLE_LABELS.pt,
@@ -160,7 +160,7 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 715', nota: 'Minimum of 2 people. Just your group on the trail.' },
+        { titulo: 'Private package', preco: 'R$ 850', nota: 'Minimum of 2 people. Just your group on the trail.' },
         { titulo: 'Group tour', preco: 'R$ 550', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       tabela: PRICE_TABLE_LABELS.en,
@@ -239,7 +239,7 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 715', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
+        { titulo: 'Paquete privado', preco: 'R$ 850', nota: 'Mínimo de 2 personas. Solo tu grupo en el sendero.' },
         { titulo: 'En grupo', preco: 'R$ 550', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
       tabela: PRICE_TABLE_LABELS.es,
@@ -318,7 +318,7 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Forfait privé', preco: 'R$ 715', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
+        { titulo: 'Forfait privé', preco: 'R$ 850', nota: 'Minimum 2 personnes. Seul votre groupe sur le sentier.' },
         { titulo: 'En groupe', preco: 'R$ 550', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       tabela: PRICE_TABLE_LABELS.fr,
@@ -397,7 +397,7 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 715', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'Privépakket', preco: 'R$ 850', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
         { titulo: 'In een groep', preco: 'R$ 550', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       tabela: PRICE_TABLE_LABELS.nl,
@@ -476,7 +476,7 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
-        { titulo: 'Privatpaket', preco: 'R$ 715', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'Privatpaket', preco: 'R$ 850', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
         { titulo: 'In der Gruppe', preco: 'R$ 550', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       tabela: PRICE_TABLE_LABELS.de,

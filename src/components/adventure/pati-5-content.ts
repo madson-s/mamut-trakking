@@ -14,6 +14,7 @@
 import type { Locale } from '@/lib/site';
 import type { PatiAssets } from './PatiThreeDayExperience';
 import { buildPatiContent, buildPatiFaqs, type PatiVariant } from './pati-variants';
+import { patiPricing } from './price-table';
 
 export const PATI5_ASSETS: PatiAssets = {
   stats: [
@@ -42,20 +43,14 @@ export const PATI5_ASSETS: PatiAssets = {
     ['/svg/figma/pati-3/landmark-river.svg', 'lg:w-[280px]'],
     ['/svg/figma/pati-3/landmark-descent.svg', 'lg:w-[188px]'],
   ],
-  priceTiers: [
-    { price: 'R$ 2.900', highlight: false },
-    { price: 'R$ 2.750', highlight: true },
-  ],
-  // Valores publicados em mamut.agency/aventuras/vale-do-pati-05-dias
-  // (#tabela-pagamento). Ordem das colunas: privado, em grupo.
-  priceTable: [
-    { people: '1', prices: ['R$ 4.000', 'R$ 2.900'] },
-    { people: '2', prices: ['R$ 3.100', 'R$ 2.900'] },
-    { people: '3', prices: ['R$ 3.000', 'R$ 2.850'] },
-    { people: '4+', prices: ['R$ 2.850', 'R$ 2.750'] },
-  ],
   relatedImages: ['/img/vale-do-pati/vale-do-pati-04.webp', '/img/vale-do-pati/vale-do-pati-14.webp'],
-  fromPrice: 2750,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...patiPricing([
+    ['1', 4500, 3450],
+    ['2', 3700, 3450],
+    ['3', 3100, 2900],
+    ['4+', 2900, 2750],
+  ]),
   ogImage: '/img/vale-do-pati/vale-do-pati-20.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   // A caminhada termina em Andaraí por volta das 12h00; o transfer até Lençóis chega às 13h30.

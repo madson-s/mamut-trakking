@@ -16,6 +16,7 @@ import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 import { PATI_CAPAO_AVISO, PATI_CAPAO_SOBRE, patiCapaoFaqs } from './pati-capao-shared';
+import { pricing } from './price-table';
 
 export const PATI_4_CAPAO_ASSETS: DayTourAssets = {
   detailLayout: 'legacy',
@@ -33,15 +34,13 @@ export const PATI_4_CAPAO_ASSETS: DayTourAssets = {
     ['7h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
-  fromPrice: 2450,
-  // Valores publicados em mamut.agency/aventuras/vale-do-pati-4-dias-via-capao (#tabela-pagamento).
-  // Ordem das colunas: privado, em grupo.
-  priceTable: [
-    { people: '1', prices: ['R$ 3.500', 'R$ 2.750'] },
-    { people: '2', prices: ['R$ 2.850', 'R$ 2.750'] },
-    { people: '3', prices: ['R$ 2.750', 'R$ 2.550'] },
-    { people: '4+', prices: ['R$ 2.550', 'R$ 2.450'] },
-  ],
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 3750, 2800],
+    ['2', 2899, 2699],
+    ['3', 2699, 2550],
+    ['4+', 2550, 2450],
+  ]),
   // A caminhada termina no Capão por volta das 16h00; o transfer até Lençóis (incluso) leva 1h30.
   returnTime: { time: '17:30' },
 };
@@ -104,7 +103,7 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 2.750', nota: 'Mínimo de 2 pessoas. Só o seu grupo na travessia.' },
+        { titulo: 'Pacote privado', preco: 'R$ 2.899', nota: 'Mínimo de 2 pessoas. Só o seu grupo na travessia.' },
         { titulo: 'Em grupo', preco: 'R$ 2.450', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       tabela: {
@@ -188,7 +187,7 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 2,750', nota: 'Minimum of 2 people. Just your group on the crossing.' },
+        { titulo: 'Private package', preco: 'R$ 2,899', nota: 'Minimum of 2 people. Just your group on the crossing.' },
         { titulo: 'Group tour', preco: 'R$ 2,450', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       tabela: {
@@ -272,7 +271,7 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 2.750', nota: 'Mínimo de 2 personas. Solo tu grupo en la travesía.' },
+        { titulo: 'Paquete privado', preco: 'R$ 2.899', nota: 'Mínimo de 2 personas. Solo tu grupo en la travesía.' },
         { titulo: 'En grupo', preco: 'R$ 2.450', nota: 'De 2 a 7 personas. Entrás en un grupo abierto.' },
       ],
       tabela: {
@@ -356,7 +355,7 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Forfait privé', preco: 'R$ 2.750', nota: 'Minimum 2 personnes. Seul votre groupe sur la traversée.' },
+        { titulo: 'Forfait privé', preco: 'R$ 2.899', nota: 'Minimum 2 personnes. Seul votre groupe sur la traversée.' },
         { titulo: 'En groupe', preco: 'R$ 2.450', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       tabela: {
@@ -440,7 +439,7 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 2.750', nota: 'Minimaal 2 personen. Alleen jouw groep op de doorsteek.' },
+        { titulo: 'Privépakket', preco: 'R$ 2.899', nota: 'Minimaal 2 personen. Alleen jouw groep op de doorsteek.' },
         { titulo: 'In een groep', preco: 'R$ 2.450', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       tabela: {
@@ -524,7 +523,7 @@ export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
-        { titulo: 'Privatpaket', preco: 'R$ 2.750', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Durchquerung.' },
+        { titulo: 'Privatpaket', preco: 'R$ 2.899', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Durchquerung.' },
         { titulo: 'In der Gruppe', preco: 'R$ 2.450', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       tabela: {

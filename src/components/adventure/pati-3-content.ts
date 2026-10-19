@@ -70,6 +70,8 @@ export type Pati3Content = {
       pessoa: string;
       pessoas: string;
       nota: string;
+      /** Reserva de última hora: menos de 2 dias úteis vira privativa. */
+      aviso: string;
     };
     nota: { antes: string; destaque: string; depois: string };
     cta: string;
@@ -213,7 +215,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         colunaPessoas: 'Nº de pessoas',
         pessoa: 'pessoa',
         pessoas: 'pessoas',
-        nota: 'Valores por pessoa, em reais, para pagamento em dinheiro, transferência ou boleto.',
+        nota: 'Valores por pessoa, em reais, com saída e retorno em Lençóis, para pagamento em dinheiro, transferência ou boleto.',
+        aviso: 'Reservas feitas com menos de 2 dias úteis de antecedência serão automaticamente privativas.',
       },
       nota: {
         antes: 'Dinheiro, transferência ou boleto. ',
@@ -369,7 +372,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         colunaPessoas: 'Group size',
         pessoa: 'person',
         pessoas: 'people',
-        nota: 'Prices per person, in Brazilian reais, for cash, bank transfer or boleto.',
+        nota: 'Prices per person, in Brazilian reais, departing from and returning to Lençóis, for cash, bank transfer or boleto.',
+        aviso: 'Bookings made less than 2 business days in advance are automatically private.',
       },
       nota: {
         antes: 'Cash, bank transfer or boleto. ',
@@ -525,7 +529,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         colunaPessoas: 'Nº de personas',
         pessoa: 'persona',
         pessoas: 'personas',
-        nota: 'Valores por persona, en reales, para pago en efectivo, transferencia o boleto.',
+        nota: 'Valores por persona, en reales, con salida y regreso en Lençóis, para pago en efectivo, transferencia o boleto.',
+        aviso: 'Las reservas hechas con menos de 2 días hábiles de anticipación serán automáticamente privadas.',
       },
       nota: {
         antes: 'Efectivo, transferencia o boleto. ',
@@ -680,7 +685,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         colunaPessoas: 'Nombre de personnes',
         pessoa: 'personne',
         pessoas: 'personnes',
-        nota: 'Prix par personne, en reais brésiliens, pour un paiement en espèces, par virement ou par boleto.',
+        nota: 'Prix par personne, en reais brésiliens, départ et retour à Lençóis, pour un paiement en espèces, par virement ou par boleto.',
+        aviso: 'Les réservations faites moins de 2 jours ouvrés à l’avance sont automatiquement privées.',
       },
       nota: {
         antes: 'Espèces, virement ou boleto. ',
@@ -835,7 +841,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         colunaPessoas: 'Aantal personen',
         pessoa: 'persoon',
         pessoas: 'personen',
-        nota: 'Prijzen per persoon, in Braziliaanse real, bij betaling contant, per overboeking of met boleto.',
+        nota: 'Prijzen per persoon, in Braziliaanse real, met vertrek en terugkeer in Lençóis, bij betaling contant, per overboeking of met boleto.',
+        aviso: 'Boekingen die minder dan 2 werkdagen van tevoren worden gemaakt, zijn automatisch privé.',
       },
       nota: {
         antes: 'Contant, per overboeking of met boleto. ',
@@ -990,7 +997,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
         colunaPessoas: 'Anzahl Personen',
         pessoa: 'Person',
         pessoas: 'Personen',
-        nota: 'Preise pro Person, in brasilianischen Real, bei Zahlung in bar, per Überweisung oder mit Boleto.',
+        nota: 'Preise pro Person, in brasilianischen Real, mit Start und Rückkehr in Lençóis, bei Zahlung in bar, per Überweisung oder mit Boleto.',
+        aviso: 'Buchungen, die weniger als 2 Werktage im Voraus erfolgen, sind automatisch privat.',
       },
       nota: {
         antes: 'Bar, per Überweisung oder mit Boleto. ',

@@ -34,9 +34,10 @@ export const MOSQUITO_PAI_INACIO_ASSETS: DayTourAssets = {
     ['Leve / Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
   // [pessoas, privado, em grupo]
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
   ...pricing([
     ['1', 799, 499],
-    ['2', 545, 449],
+    ['2', 545, 500],
     ['3+', 499, 399],
   ]),
 };

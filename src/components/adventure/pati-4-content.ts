@@ -13,6 +13,7 @@
 import type { Locale } from '@/lib/site';
 import type { PatiAssets } from './PatiThreeDayExperience';
 import { buildPatiContent, buildPatiFaqs, type PatiVariant } from './pati-variants';
+import { patiPricing } from './price-table';
 
 export const PATI4_ASSETS: PatiAssets = {
   stats: [
@@ -39,20 +40,14 @@ export const PATI4_ASSETS: PatiAssets = {
     ['/svg/figma/pati-3/landmark-water.svg', 'lg:w-[280px]'],
     ['/svg/figma/pati-3/landmark-river.svg', 'lg:w-[280px]'],
   ],
-  priceTiers: [
-    { price: 'R$ 2.600', highlight: false },
-    { price: 'R$ 2.250', highlight: true },
-  ],
-  // Valores publicados em mamut.agency/aventuras/vale-do-pati-4-dias
-  // (#tabela-pagamento). Ordem das colunas: privado, em grupo.
-  priceTable: [
-    { people: '1', prices: ['R$ 3.300', 'R$ 2.650'] },
-    { people: '2', prices: ['R$ 2.850', 'R$ 2.600'] },
-    { people: '3', prices: ['R$ 2.600', 'R$ 2.450'] },
-    { people: '4+', prices: ['R$ 2.600', 'R$ 2.250'] },
-  ],
   relatedImages: ['/img/vale-do-pati/vale-do-pati-04.webp', '/img/vale-do-pati/vale-do-pati-20.webp'],
-  fromPrice: 2250,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...patiPricing([
+    ['1', 3600, 2750],
+    ['2', 2850, 2650],
+    ['3', 2650, 2450],
+    ['4+', 2450, 2250],
+  ]),
   ogImage: '/img/vale-do-pati/vale-do-pati-14.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   returnTime: { time: '19:00' },

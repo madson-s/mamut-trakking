@@ -12,6 +12,7 @@
 import type { Locale } from '@/lib/site';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { DAY_TOUR_LEGAL } from './day-tour-legal';
+import { pricing } from './price-table';
 
 export const MOSQUITO_ASSETS: DayTourAssets = {
   hero: { src: '/img/adventures/mosquito/hero.jpeg', position: '50% 55%' },
@@ -28,7 +29,13 @@ export const MOSQUITO_ASSETS: DayTourAssets = {
     ['~13h00', '/svg/_icons/icon_11_calendar.svg'],
     ['Leve', '/svg/_icons/icon_01_3-bars.svg'],
   ],
-  fromPrice: 375,
+  // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
+  ...pricing([
+    ['1', 780, 450],
+    ['2', 530, 450],
+    ['3', 450, 410],
+    ['4+', 410, 375],
+  ]),
 };
 
 export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
@@ -71,7 +78,7 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Escolha o formato ideal para o seu grupo.',
       formatos: [
-        { titulo: 'Pacote privado', preco: 'R$ 410', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
+        { titulo: 'Pacote privado', preco: 'R$ 530', nota: 'Mínimo de 2 pessoas. Só o seu grupo no passeio.' },
         { titulo: 'Em grupo', preco: 'R$ 375', nota: 'De 2 a 7 pessoas. Você entra num grupo aberto.' },
       ],
       nota: 'Valores para dinheiro, transferência ou boleto. Transferência internacional ou pagamento em cartão: consulte o atendimento.',
@@ -143,7 +150,7 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choose the format that fits your group.',
       formatos: [
-        { titulo: 'Private package', preco: 'R$ 410', nota: 'Minimum 2 people. Only your group on the tour.' },
+        { titulo: 'Private package', preco: 'R$ 530', nota: 'Minimum 2 people. Only your group on the tour.' },
         { titulo: 'In a group', preco: 'R$ 375', nota: 'From 2 to 7 people. You join an open group.' },
       ],
       nota: 'Prices for cash, bank transfer or boleto. International transfer or card payment: ask our team.',
@@ -215,7 +222,7 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Elegí el formato ideal para tu grupo.',
       formatos: [
-        { titulo: 'Paquete privado', preco: 'R$ 410', nota: 'Mínimo 2 personas. Solo tu grupo en el paseo.' },
+        { titulo: 'Paquete privado', preco: 'R$ 530', nota: 'Mínimo 2 personas. Solo tu grupo en el paseo.' },
         { titulo: 'En grupo', preco: 'R$ 375', nota: 'De 2 a 7 personas. Te sumás a un grupo abierto.' },
       ],
       nota: 'Valores para efectivo, transferencia o boleto. Transferencia internacional o pago con tarjeta: consultá con atención.',
@@ -286,7 +293,7 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Choisissez la formule idéale pour votre groupe.',
       formatos: [
-        { titulo: 'Forfait privé', preco: 'R$ 410', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
+        { titulo: 'Forfait privé', preco: 'R$ 530', nota: 'Minimum 2 personnes. Seul votre groupe pendant la sortie.' },
         { titulo: 'En groupe', preco: 'R$ 375', nota: 'De 2 à 7 personnes. Vous rejoignez un groupe ouvert.' },
       ],
       nota: 'Tarifs pour paiement en espèces, virement ou boleto. Virement international ou paiement par carte : contactez-nous.',
@@ -357,7 +364,7 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Kies de vorm die bij je groep past.',
       formatos: [
-        { titulo: 'Privépakket', preco: 'R$ 410', nota: 'Minimaal 2 personen. Alleen jouw groep op de tour.' },
+        { titulo: 'Privépakket', preco: 'R$ 530', nota: 'Minimaal 2 personen. Alleen jouw groep op de tour.' },
         { titulo: 'In een groep', preco: 'R$ 375', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
       ],
       nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of betaling met creditcard: vraag het ons team.',
@@ -428,7 +435,7 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
     precos: {
       titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
       formatos: [
-        { titulo: 'Privatpaket', preco: 'R$ 410', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'Privatpaket', preco: 'R$ 530', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
         { titulo: 'In der Gruppe', preco: 'R$ 375', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
       ],
       nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder Kreditkartenzahlung: frag unser Team.',

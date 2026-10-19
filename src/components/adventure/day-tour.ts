@@ -10,6 +10,7 @@
 import type { PatiFaqItem } from './PatiFaqList';
 import type { PriceTableLabels, PriceTableRow } from './PriceTable';
 import type { ReturnTime } from './agency-support';
+import type { GuidePriceTiers } from './guide-pricing';
 
 export type DayTourContent = {
   meta: { title: string; description: string; canonical: string };
@@ -84,6 +85,12 @@ export type DayTourAssets = {
    * Monte com `pricing()` de `price-table.ts`, que também define `fromPrice`.
    */
   priceTable?: readonly PriceTableRow[];
+  /** Os dois cards (privado para 2 pessoas, menor em grupo) — vem de `pricing()`. */
+  cardPrices?: readonly [number, number];
+  /** Faixas por idioma do guia, para a estimativa do sheet de reserva — vem de `pricing()`. */
+  tiers?: GuidePriceTiers;
+  /** Outra cidade de saída, com valores sob consulta (ex.: 'Ibicoara'). */
+  priceOrigin?: string;
   /**
    * Chegada de volta a Lençóis nas atividades de 2 dias ou mais — liga o
    * "antes / depois" abaixo do itinerário (`agency-support.ts`).

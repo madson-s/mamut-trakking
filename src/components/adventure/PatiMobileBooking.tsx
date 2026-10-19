@@ -16,6 +16,7 @@ import { MorphingModal } from '@/components/motion/morphing-modal';
 import { SITE } from '@/lib/site';
 import type { Pati3Content } from './pati-3-content';
 import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
+import { estimatePrice, type GuidePriceTiers, type PriceColumn } from './guide-pricing';
 
 type SheetView = 'booking' | 'calendar';
 
@@ -41,8 +42,10 @@ function languageFromPath(pathname: string) {
   );
   return LANGUAGE_BY_LOCALE[locale ?? 'pt'];
 }
-// Preço de grupo por pessoa, fixo — a tabela de faixas saiu quando os preços
-// passaram a seguir mamut.agency (dois formatos, mínimo de 2 pessoas).
+// Com `tiers`, o valor estimado segue a tabela: muda com o nº de viajantes e
+// com o idioma escolhido para o guia (português × bilíngue), e não com o
+// idioma da página — quem está em /en e quer guia em português vê o preço
+// de português. Sem `tiers`, fica o `fromPrice` fixo (ex.: Réveillon).
 
 function getMonthDays(year: number, month: number) {
   const firstWeekday = new Date(year, month, 1).getDay();
@@ -65,11 +68,17 @@ export function PatiMobileBooking({
   showDock = true,
   openEvent = PATI_BOOKING_OPEN_EVENT,
   messageIntro,
+  tiers,
+  column = 1,
   sheetId = 'pati-booking-sheet',
   initialDate = '2026-07-30',
 }: {
   content: Pati3Content['booking'];
   fromPrice: number;
+  /** Faixas da tabela por idioma do guia (`pricing()`). */
+  tiers?: GuidePriceTiers;
+  /** Formato estimado: 0 = privado, 1 = em grupo (padrão). */
+  column?: PriceColumn;
   showDock?: boolean;
   openEvent?: string;
   messageIntro?: string;
@@ -137,7 +146,7 @@ export function PatiMobileBooking({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [sheetView]);
 
-  const estimatedPrice = GROUP_PRICE;
+  const estimatedPrice = tiers ? estimatePrice(tiers, travellers, column, language) : GROUP_PRICE;
   const monthDays = useMemo(
     () => getMonthDays(visibleMonth.getFullYear(), visibleMonth.getMonth()),
     [visibleMonth],
