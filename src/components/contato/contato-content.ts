@@ -1,7 +1,7 @@
 /**
  * Texto da página de contato por idioma.
  *
- * PT vem de mamut.agency/contato. ⚠️ EN, ES e FR são tradução feita neste
+ * PT vem de mamut.agency/contato. ⚠️ EN, ES, FR e NL são tradução feita neste
  * repositório — a página em inglês do site atual tem outra estrutura.
  *
  * Endereço, e-mail, redes e Cadastur são fato: ficam em `SITE` e nos links,
@@ -49,6 +49,14 @@ export const CONTATO_EDITORIAL: Record<Locale, {
     exploreTitle: 'Vous hésitez encore sur votre chemin ?',
     exploreLead: 'Parcourez nos itinéraires et trouvez l’aventure qui correspond à votre rythme.',
     exploreCta: 'Découvrir les aventures',
+  },
+  nl: {
+    photoAlt: 'Berglandschap in de Chapada Diamantina',
+    photoTitle: 'Het volgende verhaal is dat van jou.',
+    photoLead: 'Jij brengt de zin in avontuur mee. Onze kudde zorgt voor het pad.',
+    exploreTitle: 'Twijfel je nog over je pad?',
+    exploreLead: 'Bekijk onze routes en vind het avontuur dat bij jouw tempo past.',
+    exploreCta: 'Ontdek de avonturen',
   },
 };
 
@@ -322,6 +330,64 @@ export const CONTATO_CONTENT: Record<Locale, ContatoContent> = {
       },
       assunto: 'Contact via le site',
       semNome: 'nouveau voyageur',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Contact',
+      description:
+        'Neem contact op met Mamut Trekking: WhatsApp, e-mail en ons adres in Lençóis, Chapada Diamantina. Vertel ons over je reis, dan stellen we de juiste route samen.',
+      canonical: '/nl/contact',
+      ogTitle: 'Contact · Mamut Trekking',
+      ogDescription: 'Neem contact op — WhatsApp, e-mail en onze basis in Lençóis.',
+    },
+    titulo: { antes: 'Elk pad begint met', destaque: 'een gesprek.' },
+    lead: 'Kies het kanaal dat je het liefst gebruikt — of vertel ons alles via het formulier, dan antwoorden we met de juiste route.',
+    canais: {
+      whatsapp: {
+        titulo: 'WhatsApp',
+        texto: 'De snelste manier — we antwoorden binnen 2 uur, in het Portugees, Engels of Spaans.',
+        cta: 'Praat via WhatsApp',
+      },
+      email: { titulo: 'E-mail', texto: 'Liever per e-mail? Dat kan ook.' },
+      endereco: { titulo: 'Je vindt ons hier', mapa: 'Openen in kaarten' },
+      redes: { titulo: 'Volg ons op sociale media', cadastur: 'Cadastur/CNPJ:' },
+    },
+    form: {
+      titulo: 'Vertel ons over je reis.',
+      lead: 'Vul het formulier in en kies waar je het gesprek wilt voortzetten — we antwoorden met de juiste route voor je groep.',
+      nome: { label: 'Naam', placeholder: 'Hoe mogen we je noemen' },
+      email: { label: 'E-mail', placeholder: 'jij@email.nl' },
+      telefone: { label: 'Telefoon (WhatsApp)', placeholder: '+31 6 12345678' },
+      grupo: { label: 'Grootte van de groep', hint: 'Aantal personen, jijzelf meegerekend.' },
+      aventuras: 'Soort avontuur',
+      opcoesAventura: ['Trektochten', 'Kamperen', 'Doorsteken', 'Korte paden', 'Huwelijksreis'],
+      chegada: 'Hoe je van plan bent te komen',
+      opcoesChegada: [
+        { value: 'Avião', label: 'Vliegtuig' },
+        { value: 'Ônibus', label: 'Bus' },
+        { value: 'Carro Particular', label: 'Auto' },
+      ],
+      checkin: { label: 'Aankomst', hint: 'Datum van aankomst.' },
+      checkout: { label: 'Vertrek', hint: 'Verwachte vertrekdatum.' },
+      mensagem: {
+        label: 'Bericht',
+        placeholder:
+          'Vertel ons alles wat je van de Chapada Diamantina verwacht, plus elk detail dat je belangrijk vindt.',
+      },
+      enviarWhatsapp: 'Versturen via WhatsApp',
+      enviarEmail: 'Versturen per e-mail',
+      verificando: 'Bezig met controleren…',
+      recaptchaErro: 'We konden niet bevestigen dat je geen robot bent. Herlaad de pagina en probeer het opnieuw.',
+      nota: 'Bij het versturen openen we WhatsApp of je e-mailprogramma met het bericht al ingevuld.',
+      saudacao: 'Hallo! Ik kom via de website van Mamut.',
+      linhas: {
+        nome: 'Naam', email: 'E-mail', telefone: 'WhatsApp', aventura: 'Soort avontuur',
+        chegada: 'Hoe ik van plan ben te komen', datas: 'Aankomst', saida: 'Vertrek', grupo: 'Grootte van de groep',
+        pessoa: 'persoon', pessoas: 'personen', naoSei: 'weet ik nog niet', aDefinir: 'nog te bepalen',
+      },
+      assunto: 'Contact via de website',
+      semNome: 'nieuwe reiziger',
     },
   },
 };

@@ -1,0 +1,22 @@
+import type { Metadata } from 'next';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { MURITIBA_ASSETS, MURITIBA_CONTENT } from '@/components/adventure/muritiba-content';
+
+const IMG = MURITIBA_ASSETS.hero.src;
+const CONTENT = MURITIBA_CONTENT.nl;
+
+export const metadata: Metadata = {
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/parque-da-muritiba', en: '/en/adventures/muritiba-park', es: '/es/aventuras/parque-da-muritiba', fr: '/fr/aventures/parc-de-la-muritiba', nl: '/nl/avonturen/park-muritiba' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
+  },
+};
+
+export default function MuritibaNlRoute() {
+  return <DayTourExperience locale="nl" content={MURITIBA_CONTENT} assets={MURITIBA_ASSETS} />;
+}

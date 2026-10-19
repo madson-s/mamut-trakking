@@ -350,4 +350,81 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Wandelpad Águas Claras — 2 dagen',
+      description:
+        'De ideale eerste nacht in de tent: 23 km over overwegend vlak terrein naar de heldere poelen van de Vale dos 3 Irmãos.',
+      canonical: '/nl/avonturen/wandelpad-aguas-claras',
+    },
+    hero: {
+      nivel: 'Licht / Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '2 dagen',
+      titulo: 'Wandelpad Águas Claras.',
+      lead: 'Het ideale pad voor een eerste nacht in de tent — vlak, kort, en ’s nachts de hele sterrenhemel.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Waar je slaapt', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over het wandelpad Águas Claras.',
+      paragrafos: [
+        'Dit is de juiste tocht voor wie nog nooit heeft gekampeerd en met een makkelijk pad wil beginnen, en net zo goed voor wie met kinderen of oudere reisgenoten reist. Het terrein is overwegend vlak.',
+        'De wandeling begint bij de Morro do Pai Inácio en gaat richting de Vale dos 3 Irmãos — twee iconen van de Chapada Diamantina op één dag. Het is 9 km, zo’n 3 uur, tot de heldere poelen waar we kamperen.',
+        'Het brongebied van Águas Claras is kwetsbaar: hier letten we dubbel zo goed op ons afval, en daarom ligt het kamp zo’n 60 meter van de rivier.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.nl,
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is flexibel en kent verschillende in- en uitstappunten — vraag ons naar de mogelijkheden.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Dag 1',
+          titulo: 'Transfer naar Pai Inácio + wandelpad Águas Claras + kamp',
+          corpo: 'Vertrek vanaf 7.00 uur uit het centrum van Lençóis, met alle bagage, per auto naar de omgeving van de Morro do Pai Inácio aan de BR-242. Na de laatste voorbereidingen begint de wandeling richting de Vale dos 3 Irmãos: 9 km, zo’n 3 uur, tot de heldere poelen. We zetten het kamp op zo’n 60 meter van de rivier — het brongebied is kwetsbaar en we letten dubbel zo goed op afval. Rond 13.00 uur komen we aan; de gids maakt de picknick klaar terwijl de groep van de rivier geniet. ’s Middags is er tijd om de omgeving van het kamp te verkennen, de planten te leren kennen en naar de bergen te kijken tot het avondeten, vanaf 18.00 uur. Is de lucht helder, dan valt de nacht zonder enig kunstlicht — en, afhankelijk van de datum, met volle maan.',
+          distancia: '9 km',
+          esforco: 'Licht / Gemiddeld',
+        },
+        {
+          rotulo: 'Dag 2',
+          titulo: 'Águas Claras + wandelpad Grisante',
+          corpo: 'Na het ontbijt dat de gids klaarmaakt, breken we het kamp op en vertrekken we rond 9.00 uur. We lopen een uur tot de Morrão voor ons opdoemt, een van de bekendste bezienswaardigheden van de Vale do Capão, en nog 30 minuten naar de Poço das Piabas, waar we rond het middaguur zwemmen en iets eten. Na nog 2 uur komt Lençóis in zicht, en een afdaling van 40 minuten brengt ons in het historische centrum, waar het pad eindigt.',
+          distancia: '15 km',
+          esforco: 'Gemiddeld',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 1.350', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 1.150', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      wildTrekChecklist('nl', `Het is de makkelijkste van onze kampeertochten, maar ’s nachts wordt het daarboven koud. ${WILD_TREK_PORTER.nl}`),
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met EHBO-opleiding', 'Wildkamperen (1 nacht), met tent, isolatiemat en slaapzak', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na het pad'],
+        excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+      },
+      safetyFaq(
+        'nl',
+        'Het pad is makkelijk, maar de nacht breng je door in een tent onder de open hemel en het wordt koud — nachtkleding is hier geen optie maar een must. Het kamp ligt in een brongebied: alles wat erin gaat, gaat met de groep weer mee naar buiten, zonder uitzondering.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar voor je', 'eerste nacht in de tent?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

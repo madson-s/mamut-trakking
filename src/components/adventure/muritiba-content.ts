@@ -527,4 +527,127 @@ export const MURITIBA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Parque da Muritiba',
+      description:
+        'Zeven bezienswaardigheden in 4 km te voet vanuit het centrum van Lençóis: Serrano, de Salão de Areias Coloridas, Poço Halley, Primavera, Poço Paraíso, het uitkijkpunt en de Cachoeirinha.',
+      canonical: '/nl/avonturen/park-muritiba',
+    },
+    hero: {
+      nivel: 'Licht / Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '4 à 5 uur',
+      titulo: 'Parque da Muritiba.',
+      lead: 'Zeven bezienswaardigheden in vier kilometer — en het pad begint in het centrum van het stadje.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Bezienswaardigheden', 'Duur', 'Hoogte', 'Vertrektijd', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over het Parque da Muritiba.',
+      paragrafos: [
+        'Een van de meest complete tochten van de Chapada Diamantina. Het park heeft watervallen, uitkijkpunten en grotten, en de traditionele route neemt er zeven mee: de natuurlijke baden van de Serrano, de Salão de Areias Coloridas (de zaal van het gekleurde zand), de Poço Halley, de Waterval Primavera, de Poço Paraíso, het uitkijkpunt over Lençóis en de Cachoeirinha.',
+        'Naast de bezienswaardigheden is het park een les in de geologie, de geschiedenis en het sociale leven van de regio — de rotsen vertellen over infiltratie en verwering, en het pad loopt langs wat het stadje met zijn water heeft gedaan.',
+        'Hij is licht genoeg om op elke dag van je reis te passen: je kunt op elk moment tussen 8.00 en 14.00 uur vertrekken, en de hele wandeling duurt 4 tot 5 uur. Hij is te combineren met de Morro do Pai Inácio laat in de middag — vraag het ons gewoon.',
+      ],
+    },
+    itinerario: {
+      titulo: 'De zeven stops.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Het pad begint bij het toeristeninformatiecentrum (CAT), vanwaar je de hele route al ziet liggen. Omdat de wandeling 4 tot 5 uur duurt, kun je op elk moment tussen 8.00 en 14.00 uur vertrekken.',
+      ],
+      dias: [
+        {
+          rotulo: '5 min',
+          titulo: 'Natuurlijke baden van de Serrano',
+          corpo: 'De eerste stop, meteen bij het verlaten van het CAT: conglomeraatgesteente dat het water in de loop der tijd heeft gladgeslepen, met poelen en kleine verfrissende watervalletjes.',
+          distancia: 'vanaf het CAT',
+          esforco: 'Licht',
+        },
+        {
+          rotulo: '+15 min',
+          titulo: 'Salão de Areias Coloridas',
+          corpo: 'Een labyrint waar het gesteente een proces van infiltratie — verwering — heeft doorgemaakt dat het poreus en zanderig maakte. Het is de bijzonderste plek van het park, en de plek die het meeste gesprek over geologie oplevert.',
+          distancia: '15 min',
+          esforco: 'Licht',
+        },
+        {
+          rotulo: '+15 min',
+          titulo: 'Poço Halley',
+          corpo: 'Een zwemstop, met de gekleurde kleisoorten die je hier vindt dankzij het stollingsgesteente dat aan de rand van de poel aan de oppervlakte kwam.',
+          distancia: '15 min',
+          esforco: 'Licht',
+        },
+        {
+          rotulo: '+20 min',
+          titulo: 'Waterval Primavera',
+          corpo: 'Een van de zijrivieren van de rivier de Lençóis — dezelfde rivier die we aan het begin van de dag bij de Serrano overstaken.',
+          distancia: '20 min',
+          esforco: 'Licht',
+        },
+        {
+          rotulo: 'Verder',
+          titulo: 'Poço Paraíso',
+          corpo: 'Nog een zwemstop, in ondiep water, met een kleine waterval.',
+          distancia: '—',
+          esforco: 'Licht',
+        },
+        {
+          rotulo: '+10 min',
+          titulo: 'Uitkijkpunt over Lençóis',
+          corpo: 'Vanaf hier zie je het hele stadje en een vlakke horizon die geen einde lijkt te hebben.',
+          distancia: '10 min',
+          esforco: 'Gemiddeld',
+        },
+        {
+          rotulo: '+15 min',
+          titulo: 'Cachoeirinha',
+          corpo: 'Vijftien minuten bergaf naar de laatste stop: een kleine waterval met helder water, ook een zijrivier van de rivier de Lençóis.',
+          distancia: '15 min',
+          esforco: 'Licht',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 220', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 160', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Handdoek'], ['Snack of fruit', 'Slippers', 'Camera']],
+        note: 'Er zijn vier zwemstops in 4 km: een handdoek en droge kleren zijn hier belangrijker dan bij welke andere korte tocht ook.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met EHBO-opleiding', 'Entreegelden', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Picknick (optioneel)', 'Persoonlijke drager', 'Extra drankjes', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting'],
+      },
+      safetyFaq(
+        'nl',
+        'Het park is makkelijk bereikbaar, maar het door het water gladgeslepen conglomeraat wordt glad — en juist daar wil iedereen het water in. Schoenen met goede grip en voorzichtigheid aan de randen van de poelen dekken het belangrijkste risico van de dag af.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar voor de zeven', 'bezienswaardigheden van de Muritiba?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

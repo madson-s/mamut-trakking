@@ -5,9 +5,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CalendarDays, ChevronDown, Flag, MapPin, Mountain } from 'lucide-react';
 import { Button } from '@/components/ui';
-import { aventurasDoIdioma, type Adventure } from '@/components/adventures/AdventureCard';
+import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
+import type { DifficultyGroup } from '@/components/adventures/filters';
 import { ADVENTURE_SEGMENT, SITE, formatPrice, type Locale } from '@/lib/site';
-import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture, type CalendarTrek } from './calendar-data';
+import { ADVENTURE_ROUTES } from '@/lib/routes';
+import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture } from './calendar-data';
 import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
 import styles from './calendar.module.css';
 
@@ -23,8 +25,26 @@ const CALENDAR_URL = 'https://calendar.google.com/calendar/embed?wkst=1&ctz=Amer
 const date = (iso: string) => new Date(`${iso}T12:00:00`);
 const wa = (message: string) => `${SITE.whatsappUrl}?text=${encodeURIComponent(message)}`;
 
-/** Roteiro do calendário já com os dados do hub no idioma da página. */
-type Trek = CalendarTrek & { adventure: Adventure; departures: CalendarDeparture[] };
+/**
+ * Roteiro do calendário pronto para exibir: texto no idioma da página (do hub
+ * ou do `custom`), saídas futuras e o menor preço entre elas.
+ */
+type Trek = {
+  id: string;
+  /** Id no hub — ausente nos roteiros montados só para o calendário. */
+  adventureId?: string;
+  days: number;
+  image: string;
+  title: string;
+  difficultyGroup: DifficultyGroup;
+  difficulty: string;
+  distance?: string;
+  location: string;
+  /** Página do roteiro; sem ela, o grupo oferece WhatsApp. */
+  href?: string;
+  departures: CalendarDeparture[];
+  fromPrice: number;
+};
 
 /** Contexto que cada bloco precisa: textos e formatação do idioma. */
 type Ctx = { c: CalendarContent; locale: Locale };
@@ -38,6 +58,7 @@ const TONE = { 'Fácil': '🟢', 'Moderado': '🟡', 'Desafiador': '🔴' } as c
 
 function dateRange({ c }: Ctx, departure: CalendarDeparture) {
   const start = date(departure.start), end = date(departure.end);
+  if (departure.start === departure.end) return `${start.getDate()} ${c.meses[start.getMonth()]}`;
   return `${start.getDate()}${start.getMonth() !== end.getMonth() ? ` ${c.meses[start.getMonth()]}` : ''} – ${end.getDate()} ${c.meses[end.getMonth()]}`;
 }
 
@@ -47,7 +68,9 @@ function PhotoStack({ ctx, treks }: { ctx: Ctx; treks: Trek[] }) {
   return (
     <div className={styles.stack} onMouseLeave={() => setHovered(null)}>
       <ul aria-label={c.hero.pilhaRotulo}>
-        {treks.map((trek, index) => {
+        {/* A pilha foi desenhada para três cartões: mostra os três roteiros com
+            as saídas mais próximas; os demais seguem na lista abaixo. */}
+        {treks.slice(0, 3).map((trek, index) => {
           const departures = trek.departures;
           const pulled = hovered === index && index !== 0;
           const focused = hovered === index;
@@ -60,7 +83,7 @@ function PhotoStack({ ctx, treks }: { ctx: Ctx; treks: Trek[] }) {
             zIndex: pulled ? 4 : 3 - index,
             filter: focused ? 'none' : otherPulled ? 'brightness(.6)' : index > 0 ? 'brightness(.74)' : 'none',
           } as CSSProperties;
-          const titulo = c.tituloCurto(trek.days);
+          const titulo = trek.title;
           return (
             <li key={trek.id} className={styles.stackCard} style={cardStyle} data-active={index === 0 || pulled}>
               <a href={`#saidas-${trek.id}`} aria-label={c.hero.verSaidasDe(titulo)}
@@ -69,7 +92,7 @@ function PhotoStack({ ctx, treks }: { ctx: Ctx; treks: Trek[] }) {
                 <Image src={trek.image} alt="" fill sizes="(max-width: 420px) 90vw, 380px" priority className={styles.cover} />
                 <div className={styles.stackPills}><span><CalendarDays size={15} aria-hidden />{dateRange(ctx, departures[0])}</span><span>{c.saida(departures.length)}</span></div>
                 <div className={styles.stackCaption}>
-                  <div><h2>{titulo}</h2><div className={styles.stackMeta}><span><CalendarDays aria-hidden />{c.dias(trek.days)}</span><span><Mountain aria-hidden />{trek.adventure.distance}</span><span><MapPin aria-hidden />{trek.adventure.location}</span></div><p>{c.aPartirDe} <strong>{price(ctx, trek.adventure.price)}</strong></p></div>
+                  <div><h2>{titulo}</h2><div className={styles.stackMeta}><span><CalendarDays aria-hidden />{c.dias(trek.days)}</span>{trek.distance && <span><Mountain aria-hidden />{trek.distance}</span>}<span><MapPin aria-hidden />{trek.location}</span></div><p>{c.aPartirDe} <strong>{price(ctx, trek.fromPrice)}</strong></p></div>
                   <span className={styles.stackArrow}><ChevronDown size={20} aria-hidden /></span>
                 </div>
               </a>
@@ -81,17 +104,17 @@ function PhotoStack({ ctx, treks }: { ctx: Ctx; treks: Trek[] }) {
   );
 }
 
-function Difficulty({ adventure }: { adventure: Adventure }) {
-  return <span className={styles.difficulty}><span aria-hidden>{TONE[adventure.difficultyGroup] ?? '🟡'}</span>{adventure.difficulty}</span>;
+function Difficulty({ group, label }: { group: DifficultyGroup; label: string }) {
+  return <span className={styles.difficulty}><span aria-hidden>{TONE[group] ?? '🟡'}</span>{label}</span>;
 }
 
 function DepartureCard({ ctx, trek, departure }: { ctx: Ctx; trek: Trek; departure: CalendarDeparture }) {
   const { c } = ctx;
   const first = date(departure.start), last = date(departure.end);
   const fullDate = new Intl.DateTimeFormat(c.intl, { dateStyle: 'long' });
-  const titulo = c.tituloCurto(trek.days);
+  const titulo = trek.title;
   const periodo = dateRange(ctx, departure);
-  const bookingUrl = wa(c.partida.mensagem(trek.adventure.title, fullDate.format(first), fullDate.format(last)));
+  const bookingUrl = wa(c.partida.mensagem(trek.title, fullDate.format(first), fullDate.format(last)));
   return (
     <article className={styles.departure} aria-label={c.partida.rotulo(titulo, periodo, first.getFullYear())}>
       <header className={styles.departureHeader}>
@@ -109,7 +132,7 @@ function DepartureCard({ ctx, trek, departure }: { ctx: Ctx; trek: Trek; departu
         })}
       </ol>
       <footer className={styles.departureFooter}>
-        <div className={styles.departureDetails}><p className={styles.price}><span>{c.aPartirDe}</span><strong>{price(ctx, trek.adventure.price)}</strong></p><span className={styles.origin}><MapPin size={16} aria-hidden />{c.saidaDe(trek.adventure.location)}</span></div>
+        <div className={styles.departureDetails}><p className={styles.price}><span>{c.porPessoa}</span><strong>{price(ctx, departure.price)}</strong></p><span className={styles.origin}><MapPin size={16} aria-hidden />{c.saidaDe(trek.location)}</span></div>
         <Button href={bookingUrl} size="lg" arrow aria-label={c.partida.reservarRotulo(titulo, periodo)}>{c.partida.reservar}</Button>
       </footer>
     </article>
@@ -138,14 +161,41 @@ export function CalendarGroupsExperience({
     return adventure;
   };
   // Roteiro sem saída futura sai da pilha e do calendário; na seção "não achou
-  // sua data?" ele continua, com o botão de pedir nova data.
+  // sua data?" ele continua, com o botão de pedir nova data. Os grupos seguem
+  // a ordem da próxima saída de cada um.
   const treks: Trek[] = CALENDAR_TREKS
-    .map((trek) => ({
-      ...trek,
-      adventure: doHub(trek.adventureId),
-      departures: departures.filter((departure) => departure.trekId === trek.id),
-    }))
-    .filter((trek) => trek.departures.length > 0);
+    .map((trek): Trek => {
+      const own = departures.filter((departure) => departure.trekId === trek.id);
+      const base = { id: trek.id, days: trek.days, departures: own, fromPrice: Math.min(...own.map((d) => d.price)) };
+      if (trek.custom) {
+        const route = trek.custom.route && ADVENTURE_ROUTES.find((r) => r.id === trek.custom.route);
+        if (trek.custom.route && !route) throw new Error(`calendário: rota "${trek.custom.route}" não existe`);
+        return {
+          ...base,
+          image: trek.image ?? trek.custom.image,
+          title: trek.custom.titulo[locale],
+          difficultyGroup: trek.custom.difficultyGroup,
+          difficulty: trek.custom.difficulty[locale],
+          distance: trek.custom.distance,
+          location: trek.custom.location,
+          href: route ? `/${locale}/${ADVENTURE_SEGMENT[locale]}/${route[locale]}` : undefined,
+        };
+      }
+      const adventure = doHub(trek.adventureId);
+      return {
+        ...base,
+        adventureId: trek.adventureId,
+        image: trek.image ?? adventure.image,
+        title: adventure.title,
+        difficultyGroup: adventure.difficultyGroup,
+        difficulty: adventure.difficulty,
+        distance: adventure.distance,
+        location: adventure.location,
+        href: adventure.href,
+      };
+    })
+    .filter((trek) => trek.departures.length > 0)
+    .sort((a, b) => a.departures[0].start.localeCompare(b.departures[0].start));
 
   return (
     <article className={styles.page}>
@@ -164,8 +214,10 @@ export function CalendarGroupsExperience({
         <div className={styles.calendarArt} aria-hidden />
         <div className={styles.container}><div className={styles.groups}>
           {treks.map((trek) => <section id={`saidas-${trek.id}`} className={styles.trekGroup} key={trek.id} aria-labelledby={`heading-${trek.id}`}>
-            <header className={styles.groupHeading}><div><Difficulty adventure={trek.adventure} /><h2 id={`heading-${trek.id}`}>{c.tituloCurto(trek.days)}</h2><p>{c.grupo.resumo(trek.days, trek.adventure.distance, trek.adventure.location, price(ctx, trek.adventure.price))}</p></div><Button href={trek.adventure.href} variant="outline" size="lg" arrow aria-label={c.grupo.verRoteiroRotulo(trek.adventure.title)}>{c.grupo.verRoteiro}</Button></header>
-            <div className={styles.groupBody}><div className={styles.trekPhoto}><div className={styles.trekPhotoMedia}><Image src={trek.image} alt={c.grupo.fotoAlt(trek.adventure.title)} fill sizes="(max-width: 640px) 100vw, 380px" className={styles.cover} /></div></div><div className={styles.departures}>{trek.departures.map((departure) => <DepartureCard key={departure.id} ctx={ctx} trek={trek} departure={departure} />)}</div></div>
+            <header className={styles.groupHeading}><div><Difficulty group={trek.difficultyGroup} label={trek.difficulty} /><h2 id={`heading-${trek.id}`}>{trek.title}</h2><p>{c.grupo.resumo(c.dias(trek.days), trek.distance, trek.location, price(ctx, trek.fromPrice))}</p></div>{trek.href
+              ? <Button href={trek.href} variant="outline" size="lg" arrow aria-label={c.grupo.verRoteiroRotulo(trek.title)}>{c.grupo.verRoteiro}</Button>
+              : <Button href={wa(c.grupo.mensagem(trek.title))} variant="outline" size="lg" arrow>{c.grupo.falar}</Button>}</header>
+            <div className={styles.groupBody}><div className={styles.trekPhoto}><div className={styles.trekPhotoMedia}><Image src={trek.image} alt={c.grupo.fotoAlt(trek.title)} fill sizes="(max-width: 640px) 100vw, 380px" className={styles.cover} /></div></div><div className={styles.departures}>{trek.departures.map((departure) => <DepartureCard key={departure.id} ctx={ctx} trek={trek} departure={departure} />)}</div></div>
           </section>)}
           <aside className={styles.summer}><span className={styles.calendarIcon}><CalendarDays size={21} aria-hidden /></span><div><h2>{c.verao.titulo}</h2><a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">{c.verao.abrirCalendario}</a></div><Button href={wa(c.verao.mensagem)} variant="outline" size="lg" arrow>{c.verao.cta}</Button></aside>
         </div></div>
@@ -176,7 +228,7 @@ export function CalendarGroupsExperience({
           const adventure = doHub(route.adventureId);
           const scheduled = treks.find((trek) => trek.adventureId === route.adventureId);
           const image = scheduled?.image ?? route.image ?? adventure.image;
-          return <article key={route.adventureId} className={styles.relatedCard}><div className={styles.relatedPhoto}><Image src={image} alt={c.relacionados.fotoAlt(adventure.title)} fill sizes="(max-width: 420px) 110px, 140px" className={styles.cover} /></div><div className={styles.relatedCopy}><Difficulty adventure={adventure} /><h3>{adventure.title}</h3><Button href={scheduled ? `#saidas-${scheduled.id}` : askDate(ctx, adventure.title)} size="lg">{scheduled ? c.relacionados.verSaidas : c.relacionados.pedirData}</Button></div></article>;
+          return <article key={route.adventureId} className={styles.relatedCard}><div className={styles.relatedPhoto}><Image src={image} alt={c.relacionados.fotoAlt(adventure.title)} fill sizes="(max-width: 420px) 110px, 140px" className={styles.cover} /></div><div className={styles.relatedCopy}><Difficulty group={adventure.difficultyGroup} label={adventure.difficulty} /><h3>{adventure.title}</h3><Button href={scheduled ? `#saidas-${scheduled.id}` : askDate(ctx, adventure.title)} size="lg">{scheduled ? c.relacionados.verSaidas : c.relacionados.pedirData}</Button></div></article>;
         })}</div>
       </section>
       <section className={`${styles.container} ${styles.contact}`} aria-labelledby="contact-calendar-title" data-scroll-reveal="off"><div className={styles.contactPanel}>

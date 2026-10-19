@@ -3,8 +3,8 @@
  *
  * PT é transcrição de mamut.agency/dicas e EN de mamut.agency/en/tips.
  *
- * ⚠️ ES e FR são traduções feitas neste repositório — a operadora não publica
- * versão em espanhol nem em francês (`/es/consejos` responde 404).
+ * ⚠️ ES, FR e NL são traduções feitas neste repositório — a operadora não publica
+ * versão em espanhol, francês nem holandês (`/es/consejos` responde 404).
  *
  * Os telefones ficam num único lugar: o número não muda com o idioma, e
  * duplicá-lo por locale faria uma correção virar três. Só o `nome` traduz, e
@@ -17,7 +17,7 @@ import type { Locale } from '@/lib/site';
 /* Telefones — dado compartilhado                                     */
 /* ------------------------------------------------------------------ */
 
-type Nome = { pt: string; en?: string; es?: string; fr?: string };
+type Nome = { pt: string; en?: string; es?: string; fr?: string; nl?: string };
 export type Contato = { nome: Nome; numeros: string[] };
 export type GrupoId = 'brigadas' | 'emergencia' | 'atrativos' | 'instituicoes';
 
@@ -35,11 +35,11 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
   ],
   emergencia: [
     {
-      nome: { pt: 'Corpo de Bombeiros', en: 'Fire Department', es: 'Bomberos', fr: 'Pompiers' },
+      nome: { pt: 'Corpo de Bombeiros', en: 'Fire Department', es: 'Bomberos', fr: 'Pompiers', nl: 'Brandweer' },
       numeros: ['193'],
     },
     {
-      nome: { pt: 'Polícia Militar', en: 'Military Police', es: 'Policía Militar', fr: 'Police militaire' },
+      nome: { pt: 'Polícia Militar', en: 'Military Police', es: 'Policía Militar', fr: 'Police militaire', nl: 'Militaire politie' },
       numeros: ['190'],
     },
     {
@@ -48,6 +48,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Regional Hospital of Seabra',
         es: 'Hospital Regional de Seabra',
         fr: 'Hôpital régional de Seabra',
+        nl: 'Regionaal ziekenhuis van Seabra',
       },
       numeros: ['(75) 3331-9400'],
     },
@@ -57,6 +58,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Regional Hospital of Irecê',
         es: 'Hospital Regional de Irecê',
         fr: 'Hôpital régional d’Irecê',
+        nl: 'Regionaal ziekenhuis van Irecê',
       },
       numeros: ['(74) 3688-7700'],
     },
@@ -66,6 +68,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'CIPPA — Lençóis Environmental Police',
         es: 'CIPPA — Policía Ambiental, Lençóis',
         fr: 'CIPPA — Police environnementale, Lençóis',
+        nl: 'CIPPA — Milieupolitie, Lençóis',
       },
       numeros: ['(75) 3334-1493'],
     },
@@ -86,6 +89,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Espalhado Municipal Natural Park — Ibicoara',
         es: 'Parque Natural Municipal do Espalhado — Ibicoara',
         fr: 'Parc naturel municipal do Espalhado — Ibicoara',
+        nl: 'Parque Natural Municipal do Espalhado — Ibicoara',
       },
       numeros: ['(77) 3413-2374'],
     },
@@ -95,6 +99,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Sempre-Viva Park — Mucugê',
         es: 'Parque Sempre-Viva — Mucugê',
         fr: 'Parc Sempre-Viva — Mucugê',
+        nl: 'Parque Sempre-Viva — Mucugê',
       },
       numeros: ['(75) 3338-2143'],
     },
@@ -109,6 +114,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Abeta — Ecotourism and Adventure Travel',
         es: 'Abeta — Ecoturismo y Turismo de Aventura',
         fr: 'Abeta — Écotourisme et tourisme d’aventure',
+        nl: 'Abeta — Ecotoerisme en avonturentoerisme',
       },
       numeros: ['(11) 2371-5336'],
     },
@@ -120,6 +126,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Bahia Tourism hotline',
         es: 'Línea de Turismo de Bahía',
         fr: 'Ligne d’information touristique de Bahia',
+        nl: 'Toeristische informatielijn van Bahia',
       },
       numeros: ['(71) 3103-3103'],
     },
@@ -131,6 +138,7 @@ export const TELEFONES: Record<GrupoId, Contato[]> = {
         en: 'Iphan — Lençóis office',
         es: 'Iphan — Oficina Lençóis',
         fr: 'Iphan — Bureau de Lençóis',
+        nl: 'Iphan — Kantoor Lençóis',
       },
       numeros: ['(75) 3334-1123'],
     },
@@ -997,6 +1005,205 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
       whatsapp: 'Écrire sur WhatsApp',
       contato: 'Page de contact',
       contatoHref: '/fr/contact',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Tips',
+      description:
+        'Hoe je in de Chapada Diamantina komt, waar je slaapt in Lençóis, eten, banken en handige telefoonnummers — wat je moet weten voordat je de bergen in gaat.',
+      ogDescription: 'Hoe je er komt, waar je slaapt, waar je eet en de handige nummers voor de Chapada Diamantina.',
+      canonical: '/nl/tips',
+    },
+    chegada: {
+      titulo: { antes: 'Hoe kom je in de', destaque: 'Chapada Diamantina?' },
+      lead: 'Lençóis is de toegangspoort. Er zijn vier manieren om er te komen, en welke het best is hangt af van hoeveel tijd je hebt.',
+      opcoes: [
+        {
+          titulo: 'Met het vliegtuig',
+          texto:
+            'De snelste manier om Lençóis te bereiken is met het vliegtuig van Azul (Confins × Lençóis); af en toe kondigt Voepass vluchten aan tussen Salvador en Lençóis. Je kunt ook landen op het vliegveld van Vitória da Conquista en een transfer nemen naar Lençóis of Mucugê.',
+        },
+        {
+          titulo: 'Met de bus',
+          texto:
+            'Salvador × Lençóis met Rápido Federal (Guanabara). De stoelen zijn meestal comfortabel en er is een slaapbus. De reis duurt ongeveer 6 uur.',
+        },
+        {
+          titulo: 'Met de auto',
+          texto:
+            'De BR-242 is de belangrijkste toegangsweg tot de Chapada Diamantina. De grotere steden rond de regio zijn Feira de Santana, Vitória da Conquista, Irecê en Barreiras.',
+        },
+        {
+          titulo: 'Transfer met Mamut',
+          texto:
+            'De snelste en meest directe manier: een privétransfer met ons, met flexibiliteit, comfort en veiligheid tijdens je hele reis naar het binnenland van Bahia.',
+          destaque: true,
+        },
+      ],
+    },
+    estadia: {
+      titulo: { antes: 'Waar je slaapt en', destaque: 'waar je eet.' },
+      assuntos: [
+        {
+          titulo: 'Overnachten in Lençóis',
+          paragrafos: [
+            'Lençóis heeft voorzieningen voor elk soort bezoeker: pensions, hotels, sfeervolle huizen, vakantiewoningen, hostels en campings.',
+            'Houd er rekening mee dat veel bezienswaardigheden in de Chapada Diamantina ver van Lençóis liggen, waardoor je vaak nachten in verschillende plaatsen doorbrengt. Andere dorpen verkennen — de Vale do Capão, Igatu en Mucugê — loont meestal de moeite.',
+          ],
+        },
+        {
+          titulo: 'Eten en drinken',
+          paragrafos: [
+            'De dorpen Lençóis en Vale do Capão bieden hier de meeste keuze en kwaliteit: pastarestaurants, oosterse, Arabische en mediterrane restaurants, cafés, banketbakkers en veganistische opties.',
+            'Er zijn ook experimentele keukens en proeverijmenu’s van hoog niveau.',
+          ],
+        },
+      ],
+      listas: [
+        {
+          titulo: 'Banken',
+          nota: 'Heb altijd contant geld bij je — geldautomaten raken vaak leeg, vooral in het hoogseizoen.',
+          itens: [
+            'Banco do Brasil — Lençóis en Seabra',
+            'Bradesco — Lençóis, Palmeiras en Seabra',
+            'Caixa — Seabra',
+          ],
+        },
+        { titulo: 'Wasserettes', itens: ['Banho de Cheiro — Lençóis', 'Capricho — Lençóis'] },
+      ],
+    },
+    telefones: {
+      titulo: { antes: 'Nummers die je', destaque: 'op zak wilt hebben.' },
+      lead: 'In de bergen is er weinig bereik. Sla op wat handig is voordat je uit Lençóis vertrekt.',
+      grupos: {
+        brigadas: 'Vrijwillige bosbrandweer',
+        emergencia: 'Ziekenhuizen en noodnummers',
+        atrativos: 'Natuurlijke bezienswaardigheden en beschermde gebieden',
+        instituicoes: 'Instellingen en overheidsdiensten',
+      },
+    },
+    secao: { titulo: 'Tips', selectLabel: 'Kies een onderwerp' },
+    paginas: {
+      'como-chegar': {
+        nav: 'Hoe kom je er',
+        meta: {
+          title: 'Hoe kom je in de Chapada Diamantina',
+          description:
+            'Vliegtuig, bus, auto of privétransfer — de vier manieren om in Lençóis te komen, plus waar je slaapt en waar je eet in de Chapada Diamantina.',
+        },
+        titulo: { antes: 'Hoe kom je in de', destaque: 'Chapada Diamantina?' },
+        lead: 'Lençóis is de toegangspoort. Er zijn vier manieren om er te komen, en welke het best is hangt af van hoeveel tijd je hebt.',
+      },
+      'informacoes-gerais': {
+        nav: 'Algemene informatie',
+        meta: {
+          title: 'Algemene informatie',
+          description:
+            'Veiligheid in Lençóis, hoeveel dagen je moet uittrekken, de beste tijd van het jaar, banken, wasserettes en de handige telefoonnummers van de Chapada Diamantina.',
+        },
+        titulo: { antes: 'Wat mensen vragen', destaque: 'voordat ze komen.' },
+        lead: 'De vragen die ons team het vaakst hoort — en de voorzieningen die je moet kennen voordat je de bergen in gaat.',
+        perguntas: [
+          { pergunta: 'Is Lençóis een veilig stadje?', resposta: 'Ja, en vooral voor bezoekers. Wie er aankomt, treft gastvrije, behulpzame mensen. Het stadje heeft een eigen bataljon van de militaire politie, een eigen eenheid van de milieupolitie, een gemeentelijke wacht en een politiebureau, met weinig diefstal en beroving.' },
+          { pergunta: 'Hoeveel dagen heb ik nodig voor de Chapada Diamantina?', resposta: 'Het liefst minstens 7 dagen. In 3 dagen zie je de bezienswaardigheden het dichtst bij Lençóis. Bedenk dat de Chapada zo’n 24 gemeenten omvat met bezienswaardigheden die daartussen verspreid liggen — kies zorgvuldig wat je bezoekt en waar je overnacht.' },
+          { pergunta: 'Hoeveel dagen heb ik nodig voor de Vale do Pati?', resposta: 'Het dal is groot genoeg om er meer dan 8 dagen te lopen als je alles wilt zien. De meest gevraagde routes zijn die van 3 dagen en de doorsteek van 5 dagen. Het is een veelzijdige trektocht, bereikbaar via verschillende dorpen en plaatsen.' },
+          { pergunta: 'Hoe bereid ik me voor op de Vale do Pati?', resposta: 'Qua conditie: sport minstens 3 keer per week, met de nadruk op aerobe training en uithoudingsvermogen. Qua uitrusting: dichte schoenen, een rugzak van 40 L of meer, een pet of hoed, shirts met lange mouwen en UV50+, zwemkleding, slippers en iets om in te slapen.' },
+          { pergunta: 'Wat is de beste tijd om de Chapada te bezoeken?', resposta: 'Dat hangt af van wat je zoekt. Wil je de watervallen op hun volst zien, kom dan in de zomer of de herfst — de paden worden dan een stuk zwaarder en technischer, en een lokale gids wordt onmisbaar. Wil je lopen zonder die extra uitdaging, kom dan tussen winter en lente.' },
+          { pergunta: 'Wat zijn de mooiste plekken in de Chapada?', resposta: 'Een heel persoonlijke mening. De onze: de Waterval Mixila, de Waterval Fumaça van onderen, de Waterval Fumacinha en de Vale do Pati.' },
+        ],
+      },
+      'classificacao-de-nivel': {
+        nav: 'Niveauclassificatie',
+        meta: {
+          title: 'Niveauclassificatie',
+          description:
+            'Hoe Mamut de inspanning en de technische moeilijkheid van elke route in de Chapada Diamantina beoordeelt — van licht tot zwaar, van makkelijk tot moeilijk.',
+        },
+        titulo: { antes: 'Hoe ver', destaque: 'je gaat.' },
+        lead: 'Elke route heeft twee beoordelingen: een voor de inspanning en een technische. Dit zijn de criteria.',
+        aviso: 'De classificatie is relatief: iedereen heeft zijn eigen context en grenzen. Ze hangt af van je huidige conditie en je eerdere ervaring met outdooractiviteiten. Onze activiteiten worden niet aangeraden voor mensen die weinig bewegen.',
+        esforco: {
+          titulo: 'Inspanningsniveau',
+          niveis: [
+            { nome: 'Licht', texto: 'In staat om tot 3 uur te lopen met een lichte rugzak over oneffen terrein. Een algemeen goede conditie is vereist.' },
+            { nome: 'Licht / Gemiddeld', texto: 'In staat om 3 tot 5 uur te lopen, met een dagrugzak of een volle rugzak, over oneffen terrein.' },
+            { nome: 'Gemiddeld', texto: 'In staat om 5 tot 7 uur te lopen, met een dagrugzak of een volle rugzak, over oneffen terrein.' },
+            { nome: 'Gemiddeld / Zwaar', texto: 'In staat om 7 tot 9 uur te lopen, met een dagrugzak of een volle rugzak, over oneffen terrein.' },
+            { nome: 'Zwaar', texto: 'In staat om 7 tot 9 uur of langer te lopen, met een volle rugzak, over oneffen terrein.' },
+          ],
+        },
+        tecnico: {
+          titulo: 'Technisch niveau',
+          niveis: [
+            { nome: 'Makkelijk', texto: 'Geen blootstelling. Er kunnen stukken glad terrein zijn — ruw en/of modderig.' },
+            { nome: 'Makkelijk / Gemiddeld', texto: 'Weinig of geen makkelijke klimmen en afdalingen, met stukken glad terrein.' },
+            { nome: 'Gemiddeld', texto: 'Licht blootgestelde klimmen en afdalingen, stukken glad terrein en rotshellingen.' },
+            { nome: 'Gemiddeld / Moeilijk', texto: 'Enig blootgesteld klauterwerk. Veiligheidsuitrusting is vereist.' },
+            { nome: 'Moeilijk', texto: 'Blootgesteld klauterwerk. Veiligheidsuitrusting is vereist, en kennis van verticale technieken is wenselijk.' },
+          ],
+        },
+      },
+      geologia: {
+        nav: 'Geologie van de Chapada',
+        meta: {
+          title: 'Geologie van de Chapada Diamantina',
+          description:
+            'De Supergroep Espinhaço, het bekken van 1,7 miljard jaar oud en de opheffing die de Chapada Diamantina vormde — en waar je elke formatie kunt zien.',
+        },
+        titulo: { antes: '4,5 miljard jaar', destaque: 'onder je voeten.' },
+        lead: 'De Chapada is een van de beste plekken ter wereld om de evolutie van de planeet in het landschap zelf te lezen.',
+        blocos: [
+          {
+            titulo: 'Wat is de Chapada Diamantina?',
+            paragrafos: [
+              'Het Nationaal Park Chapada Diamantina ligt in het midden van Bahia, tussen vier gemeenten: Andaraí, Lençóis, Mucugê en Palmeiras. De bredere regio die zich ermee identificeert, omvat echter zo’n 24 gemeenten rond het Park — misschien meer, afhankelijk van welke geografische aspecten je meetelt.',
+              'Op een kaart van Bahia zie je een soort bergrug, als een zuil, die van noord naar zuid loopt. Zoom je uit, dan loopt die rug door tot in het midden van Minas Gerais, met een kleine onderbreking op de grens tussen de staten. Die formatie is de Supergroep Espinhaço, ons Braziliaanse minigebergte — meer dan 1.000 km lang.',
+              'Ze is het resultaat van 4,5 miljard jaar veranderingen in de vorm en het reliëf van de aarde. Dit is een van de beste plekken om die evolutie te zien, vanwege de ouderdom van de formaties en vanwege de fossielen, de rotsschilderingen en de hele geschiedenis die het landschap heeft gevormd. Nu bestaat de regio uit bergen, conglomeraten van sedimentgesteente en grotten.',
+            ],
+            figuras: [
+              { src: '/img/dicas/espinhaco-porcao-norte.png', alt: 'Kaart van het noordelijke deel van de Supergroep Espinhaço', legenda: 'Noordelijk deel van de Supergroep Espinhaço: de Serra do Sincorá en de stroomgebieden van de rivieren Paraguaçu, Contas en Una.', width: 855, height: 531 },
+              { src: '/img/dicas/supergrupo-espinhaco.png', alt: 'De omvang van de Supergroep Espinhaço op een kaart van Brazilië', legenda: 'De Supergroep Espinhaço, beschouwd als het enige gebergte van Brazilië.', width: 597, height: 530 },
+            ],
+          },
+          {
+            titulo: 'Hoe is de Chapada Diamantina ontstaan?',
+            paragrafos: [
+              'Zo’n 1,7 miljard jaar geleden was het gebied van de Supergroep Espinhaço een enorm bekken van ongeveer 60.000 km² — een grote kom, midden op het supercontinent Columbia. Veel rivieren kwamen daar samen, en soms drong de oceaan zelf binnen. In die laagte werden naar schatting 700 miljoen jaar lang sedimenten afgezet. Pas aan het eind van dat proces begon meercellig leven zich massaal te vermenigvuldigen, dankzij de overvloed aan zuurstof in de atmosfeer.',
+              'De bioloog Roy Funch beschrijft het in Um Guia Para a Chapada Diamantina als het opbouwen van een gelaagde taart die het hele bekken vult. In die tijd valt het supercontinent uiteen en komt het nog twee keer weer samen, waardoor de taart vervormd en gebroken raakt.',
+              'Van alle botsingen tussen platen en continenten was de opheffing de geologische gebeurtenis die het landschap het meest heeft bepaald. Stel je twee continenten voor die op elkaar botsen: tijdens de botsing — die miljoenen jaren kan duren — zakt het ene stuk land en wordt het andere omhooggeduwd. Dat gebeurde toen India tegen Azië aan schoof en de Himalaya ontstond; in ons geval toen Amerika zich bij het Afrikaanse continent voegde.',
+              'Daarna deed de erosie haar werk: ze opende dalen, grotten en kloven en tekende het landschap opnieuw tot wat we nu kennen. Water dringt langzaam tussen de rotsen en haalt er kleine sedimenten uit, die naar rivieren en oceanen stromen en over miljoenen jaren, als de continenten weer botsen, de bergen van de toekomst zullen vormen.',
+            ],
+            itens: [
+              { titulo: 'Kalksteen en de rotsen van de Salitre', texto: 'Vooral tussen Irecê en Iraquara, en ook in het zuiden, bij Andaraí en Nova Redenção, rond de loop van de rivier de Una — een zijrivier van de Paraguaçu. Waarschijnlijk de laatste groep die is ontstaan. Ze vallen op door het grote aantal grotten, en er zijn meldingen van fossielen in de Poço Azul.' },
+              { titulo: 'Zandsteenconglomeraten', texto: 'De oudste formaties van de Chapada. Sedimentgesteenten van allerlei soorten en herkomst die na de opheffing plateaus, dalen en bergen vormden. Je vindt ze overal in het Nationaal Park en eromheen — de meest voorkomende van allemaal.' },
+            ],
+          },
+          {
+            titulo: 'Waar zie je de belangrijkste formaties?',
+            paragrafos: [
+              'Onze belangrijkste tip is het Parque da Muritiba. Naast de grote, massieve zandsteenconglomeraten bij de natuurlijke baden van de Serrano zie je de verwering in de rotsen van de Salão de Areias Coloridas, die bij aanraking uiteenvallen, en de zeer zeldzame stollingsgesteenten van de Poço Halley, het resultaat van vulkanische activiteit in het gebied.',
+              'Op weg naar de Waterval Sossego zie je geologische plooien die laten zien hoe hard de botsing was die de Chapada omhoogduwde, plus de eindeloze sedimentlagen die zorgen voor een ruig, uniek landschap. Ook de grootsheid van de Vale do Pati, in het hart van het Nationaal Park, is het zien waard.',
+            ],
+          },
+        ],
+        referenciasTitulo: 'Bronnen',
+        referencias: [
+          { texto: 'Roy Funch — Um Guia Para a Chapada Diamantina' },
+          { texto: 'Info Escola — Chapada Diamantina', href: 'https://www.infoescola.com/geografia/chapada-diamantina/' },
+        ],
+        complementaresTitulo: 'Verder lezen',
+        complementares: [
+          { texto: 'Augusto José de C. L. Pedreira da Silva — O Supergrupo Espinhaço na Chapada Diamantina centro-oriental, Bahia: sedimentologia, estratigrafia e tectônica', href: 'https://rigeo.cprm.gov.br/jspui/bitstream/doc/147/1/tese_augusto_pedreira.pdf' },
+        ],
+      },
+    },
+    cta: {
+      titulo: { antes: 'Nog', destaque: 'vragen?' },
+      texto: 'Neem contact op — we antwoorden met de juiste route voor je groep.',
+      whatsapp: 'Praat via WhatsApp',
+      contato: 'Contactpagina',
+      contatoHref: '/nl/contact',
     },
   },
 };

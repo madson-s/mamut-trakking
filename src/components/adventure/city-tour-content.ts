@@ -394,4 +394,92 @@ export const CITY_TOUR_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Stadswandeling door het historische centrum van Lençóis',
+      description:
+        'Een uur te voet door het historische centrum van Lençóis: de Praça Horácio de Matos, de Mercado Cultural, de kerk Senhor dos Passos en het tijdperk van de diamanten.',
+      canonical: '/nl/avonturen/stadstour-lencois',
+    },
+    hero: {
+      nivel: 'Licht',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 uur',
+      titulo: 'Stadswandeling Lençóis.',
+      lead: 'Een uur te voet om te begrijpen waarom dit stadje bestaat — en wat de diamanten er hebben achtergelaten.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Stops op de route', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de stadswandeling.',
+      paragrafos: [
+        'Lençóis is niet alleen de uitvalsbasis voor de paden: het is een stadje dat is ontstaan uit de diamantwinning en in de 19e eeuw deel werd van de wereldwijde diamanthandel. Een uur te voet door het historische centrum verklaart de rest van je week in de Chapada.',
+        'De route gaat langs de Praça Horácio de Matos, het oude Franse consulaat, de Mercado Cultural, de kerk Senhor dos Passos, de Rua das Pedras en het Hotel de Lençóis, waar je nog gereedschap ziet dat mijnwerkers twee eeuwen geleden gebruikten.',
+        'Het is niet alleen een architectuurtour. Hij gaat over het tijdperk van de kolonels, het geloof van de mijnwerkers, het dagelijks leven van de mensen die hier nu wonen, en het ongemakkelijke deel van de geschiedenis — de Mercado Cultural werd ook gebruikt voor de verkoop van tot slaaf gemaakte mensen.',
+        'Omdat hij begint bij het kantoor van Mamut en er geen voertuig aan te pas komt, is dit de makkelijkste tocht om in te passen: hij past op de middag van je aankomst of op de ochtend voor je transfer.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de tour.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'We beginnen te voet bij het kantoor van Mamut en lopen een paar meter naar de Praça Horácio de Matos: historische gebouwen zoals het oude Franse consulaat en de winkel Magnólia, het tijdperk van de kolonels en de rol die Lençóis speelde in de wereldwijde diamanthandel.',
+        'De Mercado Cultural, een historisch gebouw dat vroeger werd gebruikt voor de verkoop van diamanten, van gereedschap en van tot slaaf gemaakte mensen.',
+        'Over de historische brug, met zijn kenmerkende architectuur, naar de kerk Senhor dos Passos — gewijd aan de heilige van de oude mijnwerkers.',
+        'Terug naar de Mercado Cultural en omhoog door de Rua das Pedras, een oude straat geplaveid met rivierstenen, met verhalen over de mijnwerkers en het dagelijks leven van toen en nu. Verder via de Rua da Baderna.',
+        'De kerk Rosário, de "officiële" kerk van het stadje, en op hetzelfde plein het Memorial Afrânio Peixoto — een figuur uit Lençóis, even belangrijk als omstreden.',
+        'De Rua da Boa Vista, met de koloniale architectuur van de huizen en het stratenplan van het stadje, naar het Hotel de Lençóis: een oud gebouw waar vroeger diamanten werden geslepen, met gereedschap van twee eeuwen geleden.',
+        'Terug naar het centrum langs oude gebouwen en de Associação Mineira, een vereniging die de herinnering aan de mijnwerkers levend houdt.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 75', nota: 'Minimaal 2 personen. Alleen jouw groep met de gids.' },
+        { titulo: 'In een groep', preco: 'R$ 50', nota: 'Van 4 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Dit is een wandeling van een uur door het stadje, dus de lijst is kort. Items met een * zijn verplicht.',
+        requiredColumns: [
+          ['Comfortabele schoenen', 'Water', 'Identiteitsbewijs met foto'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen'],
+        ],
+        recommendedColumns: [['Regenkleding', 'Camera'], ['Contant geld voor de Mercado Cultural']],
+        note: 'De Rua das Pedras is geplaveid met rivierstenen en dus van nature oneffen — dichte, stevige schoenen helpen meer dan je zou denken.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Erkende lokale gids met EHBO-opleiding', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Snack of maaltijd', 'Aankopen op de Mercado Cultural', 'Toegang tot museum of memorial', 'Medische evacuatie', 'Overnachting'],
+      },
+      {
+        type: 'seasons',
+        title: 'Wanneer ga je naar Lençóis',
+        facts: [
+          ['Zomer en herfst (jan–mei)', 'Volle watervallen; jan–mrt is hoogseizoen'],
+          ['Winter en lente (jun–dec)', 'Steviger terrein, minder water in de watervallen'],
+          ['Eind juni tot juli', 'Een tweede hoogseizoen'],
+        ],
+        notes: [
+          'Er is niet één beste seizoen — het hangt af van wat je wilt zien.',
+          'De stadswandeling kan het hele jaar door: het is de enige activiteit die niet afhangt van de waterstand van de rivieren.',
+        ],
+      },
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om het stadje te leren kennen', 'dat de diamanten bouwden?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

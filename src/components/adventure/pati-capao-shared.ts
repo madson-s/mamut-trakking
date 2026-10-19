@@ -7,7 +7,7 @@
  * garantiria que um dia divergissem por descuido.
  *
  * Fonte: mamut.agency/aventuras/vale-do-pati-{4,5}-dias{-,-via-}capao e as
- * versões inglesas. ES e FR são tradução feita aqui.
+ * versões inglesas. ES, FR e NL são tradução feita aqui.
  */
 
 import type { Locale } from '@/lib/site';
@@ -39,6 +39,12 @@ export const PATI_CAPAO_SOBRE: Record<Locale, string[]> = {
     'C’est un trek polyvalent, accessible à des personnes de tout âge selon l’itinéraire choisi. Nous proposons des séjours de 1 à 7 jours dans le Pati — si aucun ne correspond à votre séjour, contactez-nous.',
     'Le petit-déjeuner et le dîner sont préparés dans les hébergements et le menu change chaque jour. Pendant les marches, le pique-nique tient lieu de déjeuner : des repas équilibrés entre vitamines, protéines, fibres et glucides.',
   ],
+  nl: [
+    'Een van de mooiste trektochten ter wereld, in het midden van Bahia. De Vale do Pati ligt rond de 1.000 meter hoogte, met een rijke afwisseling van restanten van Atlantisch regenwoud, rotsvelden — de cerrado op grote hoogte — en open grasland.',
+    'De streek was zo’n 200 jaar geleden de thuis van keuterboeren en telt nu nog 14 huizen, die als onderkomen voor bezoekers dienen. Daar slaap je: in de huizen van bewoners van het dal, in een gedeelde of eigen kamer (laat het ons van tevoren weten als je een eigen kamer nodig hebt).',
+    'Het is een veelzijdige trektocht die mensen van elke leeftijd kunnen doen, afhankelijk van de gekozen route. We organiseren tochten van 1 tot 7 dagen in de Pati — past geen ervan bij je verblijf, praat dan met ons.',
+    'Ontbijt en avondeten worden bereid in de onderkomens en het menu verandert elke dag. Tijdens de wandelingen is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+  ],
 };
 
 /** Aviso do itinerário — as duas páginas trazem a mesma ressalva. */
@@ -47,6 +53,7 @@ export const PATI_CAPAO_AVISO: Record<Locale, string> = {
   en: 'The itinerary may change due to weather conditions or any other factor of force majeure the team considers relevant. This trek is highly dynamic and can be walked in several ways, with different entry and exit points — ask us about all the options.',
   es: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es muy dinámico y se puede hacer de varias maneras, con diversas entradas y salidas — consultá todas las opciones con atención.',
   fr: 'L’itinéraire peut changer en raison des conditions météorologiques ou de tout autre cas de force majeure que l’équipe juge pertinent. Ce trek est très modulable et peut se faire de plusieurs façons, avec différents points d’entrée et de sortie — renseignez-vous auprès de notre équipe sur toutes les options.',
+  nl: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is heel flexibel en kan op verschillende manieren worden gelopen, met verschillende in- en uitstappunten — vraag ons naar alle mogelijkheden.',
 };
 
 /** Checklist, o que entra no valor e quando ir — idênticos nas duas rotas. */
@@ -180,6 +187,38 @@ const PATI_CAPAO_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       notes: [
         'Il n’y a pas de meilleure saison absolue — tout dépend de ce que vous voulez voir.',
         'Il fait frais la nuit toute l’année : les vêtements de nuit figurent dans la checklist même en été.',
+      ],
+    },
+  ],
+  nl: [
+    {
+      type: 'checklist',
+      title: 'Checklist — wat neem je mee',
+      intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan kun je niet deelnemen. De spullen worden gecontroleerd bij de boeking en bij de check-in.',
+      requiredColumns: [
+        ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Lichte wandelkleding', 'Nachtkleding', 'Zwemkleding', 'Trekkingrugzak van 50 L+'],
+        ['Regenkleding (voor jezelf en de rugzak)', 'Zonnebrand', 'Persoonlijke medicijnen', 'Toiletspullen', 'Identiteitsbewijs met foto', 'Hoofdlamp en dagrugzak'],
+      ],
+      recommendedColumns: [['Extra sokken', 'Sneldrogende handdoek'], ['Wandelstok', 'Powerbank', 'Snack of fruit']],
+      note: 'Wil je liever geen gewicht dragen, dan kan er een persoonlijke drager mee — de trekkingrugzak blijft verplicht voor de dagen waarop de groep van onderkomen wisselt.',
+    },
+    {
+      type: 'included',
+      title: 'Wat is inbegrepen / niet inbegrepen',
+      included: ['Erkende berggids met EHBO-opleiding', 'Overnachting in de huizen van de Vale do Pati', 'Transfers Palmeiras › Pati › Capão › Lençóis (deels met alternatief of intercityvervoer)', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na het pad'],
+      excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Extra drankjes in het winkeltje van het onderkomen', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+    },
+    {
+      type: 'seasons',
+      title: 'Wanneer ga je naar de Vale do Pati',
+      facts: [
+        ['Zomer en herfst (jan–mei)', 'Volle watervallen, meer modder op de paden'],
+        ['Winter en lente (jun–dec)', 'Steviger terrein, minder water in de watervallen'],
+        ['Hoogte van het dal', 'Rond de 1.000 m'],
+      ],
+      notes: [
+        'Er is niet één beste seizoen — het hangt af van wat je wilt zien.',
+        'Het hele jaar door wordt het ’s nachts koud: nachtkleding staat ook in de zomer op de checklist.',
       ],
     },
   ],

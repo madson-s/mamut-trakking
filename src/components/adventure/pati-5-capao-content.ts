@@ -2,7 +2,7 @@
  * Conteúdo da travessia do Vale do Pati em 5 dias via Capão, por idioma.
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-5-dias-capao e EN de
- * mamut.agency/en/aventuras/pati-valley-5-days-capao-way. ES e FR são tradução aqui.
+ * mamut.agency/en/aventuras/pati-valley-5-days-capao-way. ES, FR e NL são tradução aqui.
  *
  * Mesma rota da versão de 4 dias, com um dia a mais: o Cachoeirão por Baixo
  * ganha um bate-volta próprio em vez de ficar de fora. O texto compartilhado
@@ -368,6 +368,90 @@ export const PATI_5_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
       titulo: ['Prêt pour cinq jours', 'de traversée ?'],
       corpo: 'Dites-nous combien vous êtes et les dates que vous envisagez, et nous construisons la traversée avec vous.',
       botao: 'Parler à Mamut',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Vale do Pati 5 dagen, via Capão',
+      description:
+        'Een doorsteek van 78 km door de Vale do Pati die eindigt in de Vale do Capão, met volle dagen bij de Cachoeirão van onderen en bij de Calixto.',
+      canonical: '/nl/avonturen/pati-vallei-5-dagen-via-capao',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Moeilijk',
+      origem: 'Vertrek: Palmeiras',
+      duracao: '5 dagen',
+      titulo: 'Vale do Pati in 5 dagen, via Capão.',
+      lead: 'De volledige doorsteek: achtenzeventig kilometer, met een eigen dag voor de Cachoeirão van onderen en voor de Calixto.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Hoogste punt', 'Waar je slaapt', 'Vertrek (Palmeiras)', 'Zwaarte'],
+    sobre: { titulo: 'Over de Vale do Pati.', paragrafos: PATI_CAPAO_SOBRE.nl },
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: PATI_CAPAO_AVISO.nl,
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Dag 1',
+          titulo: 'Cachoeirão van bovenaf + Pati de Baixo',
+          corpo: 'Vertrek vanaf 7.00 uur uit Palmeiras, een uur met de auto naar het dorp Guiné, waar we de Vale do Pati in gaan. We nemen het pad van de Aleixos en klimmen een uur, daarna nog 1,5 uur over vlak terrein naar het uitkijkpunt Cachoeirão. Vandaar gaan we naar de Fenda da Prefeitura, een steile afdaling van een uur naar de voet van de bergketen, en nog 40 minuten naar het onderkomen.',
+          distancia: '15 km',
+          esforco: 'Zwaar',
+        },
+        {
+          rotulo: 'Dag 2',
+          titulo: 'Cachoeirão van onderen',
+          corpo: 'Vertrek rond 8.00 uur, na het ontbijt in het onderkomen. Een heen-en-terugdag over overwegend ruig terrein, in de bedding van de rivier de Cachoeirão, springend over veel rotsen. We gaan met alleen een dagrugzak naar de voet van de watervallen. Na het genieten van het uitzicht en de snack die de gids klaarmaakt, gaan we via dezelfde weg terug.',
+          distancia: '12 km',
+          esforco: 'Gemiddeld / Zwaar',
+        },
+        {
+          rotulo: 'Dag 3',
+          titulo: 'Waterval Calixto + Poço da Árvore',
+          corpo: 'Een dag in de Calixto, een van de minst bezochte delen van de Pati. We nemen alleen een dagrugzak mee en springen van rots naar rots en lopen door dicht bos naar de Waterval Calixto. Onderweg zwemmen we in de Poço da Árvore.',
+          distancia: '18 km',
+          esforco: 'Gemiddeld / Zwaar',
+        },
+        {
+          rotulo: 'Dag 4',
+          titulo: 'Morro do Castelo + watervallen',
+          corpo: 'Om 8.00 uur, na een heel stevig ontbijt, vertrekken we met alle bagage, die we bij de splitsing achterlaten. Dit is de zwaarste dag: we beklimmen een berg van meer dan 1.200 m, met zo’n 250 meter stijgen in 40 tot 60 minuten. Op de top van de Morro do Castelo zijn twee uitkijkpunten en de ingang van de Gruta da Lapinha, een van de zeldzaamste grotten ter wereld boven 1.000 m. We dalen af, halen onze spullen op en lopen via een andere route verder, langs de watervallen Altina (Lajes), Funis en Bananeiras, tot we rond 18.00 uur bij het onderkomen aankomen.',
+          distancia: '—',
+          esforco: 'Zwaar',
+        },
+        {
+          rotulo: 'Dag 5',
+          titulo: 'Uitkijkpunt Rampa + Quebra Bunda + Gerais do Vieira',
+          corpo: 'We vertrekken rond 8.00 uur uit Igrejinha en klimmen een uur naar het uitkijkpunt Rampa. Dan 2 uur over vlak terrein naar het uitkijkpunt Quebra Bunda, waar een uur afdalen begint. Aan de voet van de bergketen nog 3 uur over vlak terrein door de Gerais do Vieira naar Vila do Bomba, waar rond 16.00 uur de auto klaarstaat voor de terugrit. Overnachting in een hostel, ontbijt niet inbegrepen.',
+          distancia: '—',
+          esforco: 'Gemiddeld',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 3.500', nota: 'Minimaal 2 personen. Alleen jouw groep op de doorsteek.' },
+        { titulo: 'In een groep', preco: 'R$ 3.300', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      ...patiCapaoFaqs('nl'),
+      safetyFaq(
+        'nl',
+        'Het zijn vijf dagen achter elkaar lopen, met een technisch niveau tussen Gemiddeld en Moeilijk. Dag 2 loop je in de bedding van de rivier de Cachoeirão, springend over rotsen die glad kunnen zijn; dag 4 is de zwaarste, met 250 meter klimmen tot boven de 1.200 m. Twijfel je over je conditie, praat dan met ons voordat je boekt.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar voor vijf dagen', 'doorsteken?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de doorsteek samen met je op.',
+      botao: 'Praat met Mamut',
     },
   },
 };

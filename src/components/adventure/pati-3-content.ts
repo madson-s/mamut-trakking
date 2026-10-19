@@ -33,6 +33,8 @@ export type Pati3Content = {
     /** Fecha a frase "Para grupos de 4 pessoas ou mais:" do card de reserva. */
     ouMais: string;
     verPrecos: string;
+    /** Botão do cartão de reserva que abre o sheet. */
+    reservarAventura: string;
     resposta: string;
     idiomas: string;
     fotoAlt: string;
@@ -136,6 +138,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       pessoas: '4 pessoas',
       ouMais: 'ou mais:',
       verPrecos: 'Ver tabela de preços',
+      reservarAventura: 'Reservar essa aventura',
       resposta: 'Respondemos em até 2h',
       idiomas: 'PT · EN · ES',
       fotoAlt: 'Vale do Pati visto do alto',
@@ -291,6 +294,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       pessoas: '4 people',
       ouMais: 'or more:',
       verPrecos: 'See the price table',
+      reservarAventura: 'Book this adventure',
       resposta: 'We reply within 2h',
       idiomas: 'PT · EN · ES',
       fotoAlt: 'The Pati Valley seen from above',
@@ -446,6 +450,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       pessoas: '4 personas',
       ouMais: 'o más:',
       verPrecos: 'Ver la tabla de precios',
+      reservarAventura: 'Reservar esta aventura',
       resposta: 'Respondemos en hasta 2h',
       idiomas: 'PT · EN · ES',
       fotoAlt: 'El Valle del Pati visto desde arriba',
@@ -600,6 +605,7 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       pessoas: '4 personnes',
       ouMais: 'ou plus :',
       verPrecos: 'Voir la grille tarifaire',
+      reservarAventura: 'Réserver cette aventure',
       resposta: 'Réponse en moins de 2h',
       idiomas: 'PT · EN · ES',
       fotoAlt: 'La vallée du Pati vue d’en haut',
@@ -729,6 +735,161 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       intl: 'fr-FR',
       diasSemana: ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'],
       mensagem: { antes: 'Bonjour ! Je souhaite vérifier la vallée du Pati en 3 jours pour', viajante: 'voyageur', viajantes: 'voyageurs', idioma: 'langue' },
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Vale do Pati in 3 dagen',
+      description:
+        'Een begeleide doorsteek van 43 km door de Vale do Pati, met overnachtingen bij lokale families, watervallen en de meest iconische uitkijkpunten van het dal.',
+      canonical: '/nl/avonturen/pati-vallei-3-dagen',
+      ogDescription: 'De doorsteek die verandert wat jij natuur noemt.',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      titulo: { antes: 'Vale do Pati in', destaque: '3 dagen.' },
+      lead: { antes: 'De doorsteek die verandert wat jij', destaque: 'natuur noemt.' },
+      apoio: 'Watervallen en huizen van lokale families op 1.000 m hoogte. Begeleid door wie hier geboren is.',
+      apartirDe: 'Vanaf',
+      grupo: 'In een groep',
+      saida: 'Vertrek uit Lençóis om 6.00 uur',
+      tripadvisor: 'TripAdvisor — Certificate of Excellence',
+      sinal: 'Met 50% aanbetaling is je boeking bevestigd',
+      paraGrupos: 'Voor groepen van',
+      pessoas: '4 personen',
+      ouMais: 'of meer:',
+      verPrecos: 'Bekijk de prijstabel',
+      reservarAventura: 'Boek dit avontuur',
+      resposta: 'We antwoorden binnen 2 uur',
+      idiomas: 'PT · EN · ES',
+      fotoAlt: 'De Vale do Pati van bovenaf gezien',
+    },
+    stats: [
+      'Afstand te voet', 'Duur', 'Hoogste punt', 'Hoogtemeters',
+      'Vertrek (Lençóis)', 'Terugkeer', 'Talen', 'Zwaarte',
+    ],
+    story: {
+      titulo: ['De bekendste trektocht', 'van de Chapada Diamantina.'],
+      paragrafos: [
+        'De Vale do Pati ligt op duizend meter hoogte en biedt een verscheidenheid aan landschappen die in Brazilië zeldzaam is: restanten van Atlantisch regenwoud, rotsvelden en de Gerais do Rio Preto. Een streek die twee eeuwen geleden boeren onderdak bood en in 14 nog bewoonde huizen de herinnering bewaart aan wie nooit is vertrokken.',
+        'Het terrein is echt: zon, regen, modder, steile klimmen, rivierovergangen. Dit is geen wandelingetje. Het is een doorsteek — de Pati vraagt iets van wie hem wil doorkruisen. Onze route maakt de volledige ronde langs de meest iconische plekken van het dal.',
+      ],
+      quando: 'Wanneer loop je de Pati?',
+      estacoes: [
+        { titulo: 'Zomer en herfst', meses: 'jan – mei', pontos: ['Volle watervallen, maximale hoeveelheid water', 'Meer modder op de paden'] },
+        { titulo: 'Winter en lente', meses: 'jun – dec', pontos: ['Steviger, droger terrein', 'Minder water in de watervallen'] },
+      ],
+      editoriais: [
+        { titulo: 'Een goed gevulde tafel', corpo: 'Ontbijt en avondeten worden bereid in de onderkomens, een royaal menu dat elke dag anders is. Tijdens de wandelingen een uitgebalanceerde picknick. Het ontbijt op dag 1 is niet inbegrepen — eet in Lençóis voor vertrek.' },
+        { titulo: 'Overnachting', corpo: 'Je slaapt in de huizen van lokale families, in gedeelde kamers. Wil je een eigen kamer? Zeg het bij de boeking, dan checken we de beschikbaarheid.' },
+      ],
+      outrasVersoes: 'Het dal bestaat ook in 4 en 5 dagen.',
+      explorar: 'Bekijk deze versie',
+      relacionados: [
+        { titulo: 'Vale do Pati · 4 dagen', nivel: 'Gemiddeld / Gevorderd', href: '/nl/avonturen/pati-vallei-4-dagen' },
+        { titulo: 'Vale do Pati · 5 dagen', nivel: 'Gevorderd', href: '/nl/avonturen/pati-vallei-5-dagen' },
+      ],
+    },
+    itinerary: {
+      titulo: 'De route van de doorsteek.',
+      dias: [
+        {
+          day: 'Dag 1', level: 'Gemiddeld', lead: '6.00 uur vertrek',
+          body: ' uit Lençóis → 8.00 uur Vila do Guiné (2 uur rijden) → 3 uur pad (1 uur steil klimmen + 2 uur vlak) naar de Mirante da Rampa → +1,5 uur naar de watervallen Funis, Altina en Bananeiras → 17.00 uur onderkomen → 19.00 uur avondeten.',
+          note: 'De steile klim is het eerste wat de Pati van je vraagt.',
+        },
+        {
+          day: 'Dag 2', level: 'Zwaar', lead: '8.00 uur vertrek',
+          body: ' → Morro do Castelo, een klim van +250 m tot 1.200 m hoogte (60–80 min) → 2 uitkijkpunten op de top + de Gruta da Lapinha, een van de zeldzaamste grotten ter wereld → via dezelfde weg terug → een waterval in de buurt, als er tijd is.',
+          note: 'De zwaarste dag van de doorsteek.', alert: 'Zwaarste dag',
+        },
+        {
+          day: 'Dag 3', level: 'Gemiddeld', lead: '8.00 uur afscheid',
+          body: ' van de Pati → 3 uur naar de Mirante do Cachoeirão (+280 m; in het regenseizoen tot 16 watervallen rondom het dal) → snack → Gerais do Rio Preto → afdaling van de Aleixos → transfer van 80 km → ~19.00 uur in Lençóis.',
+        },
+      ],
+    },
+    landmarks: {
+      titulo: 'De meest iconische plekken van het dal.',
+      itens: [
+        { titulo: '4 zwemplekken', apoio: 'Langs de route' },
+        { titulo: 'Gerais do Rio Preto', apoio: '' },
+        { titulo: 'Mirante da Rampa', apoio: 'Toegang tot het dal' },
+        { titulo: 'Mirante do Cachoeirão', apoio: '280 m · tot 16 watervallen' },
+        { titulo: 'Morro do Castelo', apoio: '1.200 m hoogte' },
+        { titulo: 'Gruta da Lapinha', apoio: 'Een van de zeldzaamste ter wereld' },
+        { titulo: 'Watervallen Funis, Altina en Bananeiras', apoio: '' },
+        { titulo: 'Afdaling van de Aleixos', apoio: '' },
+      ],
+    },
+    pricing: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', nota: 'Minimaal 2 personen. Je sluit aan bij een open groep.' },
+      ],
+      porPessoa: 'per persoon',
+      tabela: {
+        titulo: 'Volledige prijstabel',
+        colunaPessoas: 'Aantal personen',
+        pessoa: 'persoon',
+        pessoas: 'personen',
+        nota: 'Prijzen per persoon, in Braziliaanse real, bij betaling contant, per overboeking of met boleto.',
+      },
+      nota: {
+        antes: 'Contant, per overboeking of met boleto. ',
+        destaque: 'Creditcard: +5%, tot 12 termijnen (PagSeguro). Boeking bevestigd met 50% aanbetaling:',
+        depois: ' het restant bij de check-in. Internationale overboeking of een grotere groep: vraag het ons team.',
+      },
+      cta: 'Boek via WhatsApp',
+    },
+    trust: {
+      badge: 'Geverifieerde reviews · TripAdvisor',
+      titulo: { antes: 'Wie al met ons heeft gelopen,', destaque: 'vertrouwt ons!' },
+      selos: [
+        { titulo: 'Gecertificeerde gidsen', corpo: 'APH en CMC (ABNT), sommigen met WAFA' },
+        { titulo: 'Satellietcommunicatie', corpo: 'SPOT X met S.O.S.-knop' },
+        { titulo: 'Avonturenverzekering', corpo: 'Inclusief EHBO-kit' },
+        { titulo: 'Certificate of Excellence', corpo: 'Geverifieerde reviews op TripAdvisor' },
+      ],
+      cta: 'Boek via WhatsApp',
+      ctaTripadvisor: 'Bekijk ons op TripAdvisor',
+    },
+    faqTitulo: {
+      titulo: 'Alles wat je moet weten.',
+      lead: 'De praktische details die je vragen beantwoorden voordat je met de kudde van Mamut aan dit avontuur begint.',
+    },
+    finalCta: {
+      titulo: ['Je pad begint', 'met een bericht.'],
+      corpo: 'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
+      cta: 'Sluit je aan bij de kudde',
+      fotoAlt: 'De Morro do Castelo omringd door bloemen in de Vale do Pati',
+    },
+    booking: {
+      dockApoio: 'Kies de vorm die bij je groep past',
+      reservar: 'Boeken',
+      whatsapp: 'Praat via WhatsApp',
+      fechar: 'Boeking sluiten',
+      titulo: 'Boek je pad',
+      data: 'Datum',
+      viajantes: 'Reizigers',
+      remover: 'Reiziger verwijderen',
+      adicionar: 'Reiziger toevoegen',
+      idioma: 'Taal',
+      valor: 'Geschatte prijs',
+      porPessoa: '/ persoon',
+      verificar: 'Beschikbaarheid checken',
+      nota: 'We bevestigen alles met je via WhatsApp — vrijblijvend.',
+      calendario: 'Kies de datum',
+      voltar: 'Terug naar de boeking',
+      mesAnterior: 'Vorige maand',
+      proximoMes: 'Volgende maand',
+      escolherDia: 'Kies dag',
+      semana: ['Z', 'M', 'D', 'W', 'D', 'V', 'Z'],
+      intl: 'nl-NL',
+      diasSemana: ['zondag', 'maandag', 'dinsdag', 'woensdag', 'donderdag', 'vrijdag', 'zaterdag'],
+      mensagem: { antes: 'Hallo! Ik wil graag de Vale do Pati in 3 dagen checken voor', viajante: 'reiziger', viajantes: 'reizigers', idioma: 'taal' },
     },
   },
 };

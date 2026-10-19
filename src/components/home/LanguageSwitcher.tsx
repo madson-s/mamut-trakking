@@ -17,6 +17,7 @@ const LANGUAGES = [
   { code: 'es', shortLabel: 'ES', label: 'Español' },
   { code: 'en', shortLabel: 'EN', label: 'English' },
   { code: 'fr', shortLabel: 'FR', label: 'Français' },
+  { code: 'nl', shortLabel: 'NL', label: 'Nederlands' },
 ] as const;
 
 // Mesmo visual do switcher original (globo em pílula; código + caret no lg),

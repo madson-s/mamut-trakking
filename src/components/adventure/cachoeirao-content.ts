@@ -411,4 +411,96 @@ export const CACHOEIRAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Uitkijkpunt Cachoeirão',
+      description:
+        'Een uitkijkpunt 280 meter boven de Vale do Pati, met na flinke regen meer dan 20 watervallen in hetzelfde dal. 18 km op één dag.',
+      canonical: '/nl/avonturen/uitzichtpunt-cachoeirao',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Guiné',
+      duracao: '1 dag',
+      titulo: 'Uitkijkpunt Cachoeirão.',
+      lead: 'Tweehonderdtachtig meter rotswand en, na flinke regen, meer dan twintig watervallen in hetzelfde dal.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Hoogte van het uitkijkpunt', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over het uitkijkpunt Cachoeirão.',
+      paragrafos: [
+        'Achttien kilometer op één dag naar een uitkijkpunt 280 meter boven de Vale do Pati. Na flinke regen zie je meer dan 20 watervallen in hetzelfde dal, allemaal tegelijk.',
+        'Het pad is overwegend vlak en loopt door de Gerais do Rio Preto, een open gebied dat meer dan 70% van het Nationaal Park beslaat — een immense tuin onder de open hemel, met hooggebergteplanten en de bergruggen op de achtergrond.',
+        'Naast het uitkijkpunt ligt een zwemplek met een natuurlijk bad. Daar eet de groep voordat we aan de terugweg beginnen.',
+        'Wij vinden dat je de Pati het best in minstens 3 dagen bezoekt. Maar voor wie maar een paar dagen in de Chapada heeft, is dit een uitstekende keuze — en in dezelfde eendaagse vorm doen we ook het uitkijkpunt Rampa, het bekendste van het dal.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 7.00 uur uit Lençóis, zuidwaarts richting het Nationaal Park Chapada Diamantina. Dat is 80 km en zo’n 2 uur met de auto naar het dorp Guiné, waar de wandeling begint en eindigt.',
+        'Aankomst, een algemene briefing over de route, de checklist doorlopen en het begin van de wandeling.',
+        'Eerste stuk: 30 minuten klimmen over ruig terrein naar het uitkijkpunt Aleixos. Een korte pauze en dan verder het dal in.',
+        'Zo’n 1,5 uur lopen over vlak terrein door de Gerais do Rio Preto. Halverwege steken we de Rio Preto over — afhankelijk van het weer kunnen we alternatieve routes nemen.',
+        'Aankomst bij het uitkijkpunt Cachoeirão, 280 meter boven het dal. Loop je de route na flinke regen, dan zie je meer dan 20 watervallen tegelijk.',
+        'Een maaltijd bij de zwemplek naast het uitkijkpunt, met zijn natuurlijke bad, en tijd om je klaar te maken voor de terugweg.',
+        'Terug via dezelfde route, met een optionele stop bij de Rio Preto om te zwemmen. Rond 16.00 uur bij de auto, een korte stop in Guiné — waar je goed kunt eten — en terug naar Lençóis, waar we rond 19.00 uur aankomen.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 540', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 500', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1 L per persoon)', 'Sportschoenen of wandelschoenen', 'Lichte kleding', 'Pet of hoed', 'Zonnebrand'],
+          ['Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen', 'Snack voor bij het uitkijkpunt', 'Zwemkleding'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Slippers', 'Handdoek', 'Camera']],
+        note: 'Slippers staan op de lijst vanwege de zwemplek naast het uitkijkpunt — daar eet en rust de groep voor de terugweg.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Erkende lokale gids met EHBO-opleiding', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Picknick (optioneel)', 'Snack of lunch', 'De maaltijd in Guiné', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      {
+        type: 'seasons',
+        title: 'Wanneer ga je naar de Vale do Pati',
+        facts: [
+          ['Zomer en herfst (jan–mei)', 'Volle watervallen, meer modder op de paden'],
+          ['Winter en lente (jun–dec)', 'Steviger terrein, minder water in de watervallen'],
+          ['De 20 watervallen vanaf het uitkijkpunt', 'Verschijnen alleen na flinke regen'],
+        ],
+        notes: [
+          'Er is niet één beste seizoen — het hangt af van wat je wilt zien.',
+          'Voor de Cachoeirão is het regenseizoen het seizoen dat het volledige uitzicht geeft.',
+        ],
+      },
+      safetyFaq(
+        'nl',
+        'Het is een lange dag: vertrek om 7.00 uur, terug rond 19.00 uur, met zo’n 4 uur rijden bovenop de 18 km wandelen. De oversteek van de Rio Preto hangt af van de waterstand — in het regenseizoen neemt het team een alternatieve route. De Gerais bieden geen schaduw: hoed, zonnebrand en water zijn hier het belangrijkst.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om twintig watervallen', 'tegelijk te zien?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

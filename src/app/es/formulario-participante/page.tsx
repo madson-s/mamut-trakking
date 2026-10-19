@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: CONTENT.meta.canonical,
-    languages: { pt: '/pt/formulario-participante', en: '/en/participant-form', es: '/es/formulario-participante', fr: '/fr/formulaire-participant' },
+    languages: { pt: '/pt/formulario-participante', en: '/en/participant-form', es: '/es/formulario-participante', fr: '/fr/formulaire-participant', nl: '/nl/deelnemersformulier' },
   },
   // Página de serviço, preenchida depois da reserva: não é porta de entrada de
   // busca e por isso também não entra no sitemap.

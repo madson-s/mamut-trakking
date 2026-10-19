@@ -1,7 +1,7 @@
 /**
  * Texto da página Sobre por idioma.
  *
- * ⚠️ EN, ES e FR são tradução feita neste repositório. A operadora não publica
+ * ⚠️ EN, ES, FR e NL são tradução feita neste repositório. A operadora não publica
  * versão traduzida: `mamut.agency/en/quem-somos` serve a página em português.
  *
  * As biografias falam de pessoas reais — nomes, certificações e o idioma que
@@ -507,6 +507,100 @@ export const ABOUT_CONTENT: Record<Locale, AboutContent> = {
       'luiz-henrique': { role: 'Certifié WFA', bio: 'Né et élevé dans la Chapada, avec une énergie inépuisable pour gravir la serra. Il maîtrise les treks les plus classiques autour du parc. Grimpeur amateur et étudiant en analyse et développement de systèmes.' },
       'rodolfo-anjos': { role: 'Pompier volontaire', bio: 'Né à Lençóis, mentor de l’équipe. Guide touristique d’une grande expérience et excellent chauffeur, il connaît la Chapada sur le bout des doigts. Il guide en français.' },
       'jair-dalcin': { role: 'Chauffeur principal', bio: 'Le plus récent de l’équipe et son « papa ». Né dans le Paraná, il vit à Lençóis depuis plus de 15 ans. Il conduit toujours avec bonne humeur et gentillesse.' },
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Over ons',
+      description:
+        'Leer het verhaal en de lokale gidsen van Mamut Trekking kennen, gevormd door de Chapada Diamantina.',
+      canonical: '/nl/over-ons',
+      ogTitle: 'Over Mamut Trekking',
+      ogDescription:
+        'Zeven lokale gidsen, gevormd door de Chapada. Samen kennen ze het hele Nationaal Park.',
+    },
+    hero: {
+      titulo: { antes: 'Hier', aqui: 'geboren.', mobile: 'hier, gevormd door de Chapada.', desktop: 'Gevormd door de Chapada.' },
+      leadDesktop:
+        'Trektochten met gidsen die geboren en getogen zijn in de Chapada Diamantina. Elk pad is een reis terug naar wie je bent.',
+      leadMobile:
+        'Trektochten met gidsen die geboren en getogen zijn in de Chapada Diamantina — elk pad is een reis terug naar wie je bent.',
+      ctaBando: 'Maak kennis met de kudde',
+      ctaGuia: 'Praat met een gids',
+      fotoAlt: 'Het historische centrum van Lençóis bij zonsondergang',
+    },
+    story: {
+      titulo: { l1: 'Wij zijn geen', l2: 'reisbureau.', l3: 'Wij zijn de kudde', l4: 'die jouw stam', l5: 'gidst.' },
+      cards: [
+        {
+          titulo: 'Uit die herinnering komen wij voort.',
+          paragrafos: [
+            'Door de uitgestrektheid van de megacontinenten trokken mammoeten in grote kuddes — en lieten ze voor altijd hun sporen na.',
+            'In de Chapada Diamantina herstellen we die verbinding. Elk pad is een reis terug naar je wortels: de grond voelen, de wind horen, deel zijn van iets groters.',
+          ],
+        },
+        {
+          titulo: 'Gevormd door de Serra do Sincorá.',
+          paragrafos: [
+            'Al onze gidsen komen van hier — vrijwillige bosbrandweerlieden, gecertificeerde berggidsen (CMC, APH, WFA) en kenners van de flora, de fauna en de geologie van de Serra do Sincorá.',
+            'Daardoor kunnen we de meest afgelegen doorsteken van het Nationaal Park bereiken zonder in te leveren op de zorg die we verschuldigd zijn aan wie loopt en aan het gebied zelf.',
+          ],
+        },
+      ],
+      selos: [
+        { titulo: '100% lokale gidsen', texto: 'Geboren en getogen in Lençóis en de omgeving van de Chapada.' },
+        { titulo: 'CMC, APH en WFA', texto: 'Gecertificeerde berggidsen en vrijwillige bosbrandweerlieden.' },
+        { titulo: 'Flora, fauna en geologie', texto: 'Levende kennis van de Serra do Sincorá.' },
+        { titulo: 'Erkend door Cadastur', texto: 'CNPJ 43.500.583/0001-22 · Braziliaans ministerie van Toerisme.' },
+      ],
+      fotoAlt: 'De Chapada Diamantina bij zonsondergang',
+      arte: { antes: 'Een', jornada: 'reis', depois: 'om het', linha2: 'oorspronkelijke', primitivas: 'terug te vinden' },
+    },
+    guides: {
+      badge: 'Maak kennis met wie onze kudde gidst',
+      titulo: 'De mensen die onze kudde gidsen.',
+      lead: 'Zeven lokale gidsen, gevormd door de Chapada. Ieder met een eigen specialiteit — samen kennen ze het hele Nationaal Park.',
+      pagina: 'Pagina van de gidsen',
+      ctaTitulo: { linha1: 'Zin om met ons', linha2: 'te lopen?' },
+      ctaTexto: 'Praat via WhatsApp met een lokale gids. Samen kiezen we het tempo, de route en de datum.',
+      cta: 'Sluit je aan bij de kudde',
+    },
+    reviews: {
+      badge: 'Geverifieerde reviews · TripAdvisor',
+      titulo: { mobile: ['Wat onze kudde', 'over de tochten zegt.'], desktop: ['Elke review is een', 'pad dat we samen', 'hebben gelopen.'] },
+      avaliacoes: '145 reviews',
+      avaliacoesLabel: 'Reviews',
+      mediaChip: '5.0 gemiddeld',
+      mediaLabel: 'Gemiddelde beoordeling',
+      rankingChip: '#5 in Lençóis',
+      ranking: '#5 in de ranglijst',
+      rankingLabel: 'van outdooractiviteiten in Lençóis',
+      ctaTrilha: 'Kies je pad',
+      ctaTrilhaHref: '/nl/avonturen',
+      ctaWhatsapp: 'Boek via WhatsApp',
+      ctaTripadvisor: 'Bekijk ons op TripAdvisor',
+      depoimentos: [
+        '“Van het eerste contact tot het einde van de reis toonde het bureau professionaliteit en organisatie.”',
+        '“De uitzichten waren prachtig, de watervallen episch en het avontuur ongelooflijk.”',
+        '“Onze gids was heel vriendelijk, zorgzaam en speelde in op al onze wensen. Zijn kennis van het nationaal park is enorm.”',
+      ],
+    },
+    cta: {
+      titulo: ['Je pad begint', 'met een bericht.'],
+      corpo:
+        'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
+      botao: 'Sluit je aan bij de kudde',
+      botaoHref: '/nl/contact',
+      fotoAlt: 'Een pad met uitzicht op de Morro do Pai Inácio',
+    },
+    guiaTexto: {
+      'marcelo-cabral': { role: 'Gids & oprichter', bio: 'Woont al 13 jaar in Lençóis. Hij zorgt voor de hele organisatie — van het eerste bericht tot de laatste stap op het pad. Hij laat Brazilianen en buitenlanders de Chapada ontdekken, met het gezag van iemand die deze grond als thuis heeft gekozen.' },
+      'felipe-ribeiro': { role: 'PT · EN', bio: 'Geboren in Salvador, opgegroeid in Lençóis. Hij kent het overgrote deel van de paden rond het Nationaal Park. Bekend om zijn hartelijkheid en zijn kookkunst. Hij ontwerpt de routes en de logistiek voor elke groep, en gidst in het Engels.' },
+      'salomao-andrade': { role: 'Brandweer', bio: 'Geboren en getogen in de Chapada, specialist in de wilde trektochten van het Nationaal Park. Hij begeleidt internationale groepen.' },
+      'aman-duart': { role: 'Civiele brandweer', bio: 'Kleinzoon van diamantzoekers en geboren in Lençóis. Hij weet veel van de geneeskrachtige planten van de Chapada Diamantina, volgt een opleiding tot brandweerman en is uitstekend reisgezelschap.' },
+      'luiz-henrique': { role: 'WFA-gecertificeerd', bio: 'Geboren en getogen in de Chapada, met eindeloos veel zin om de bergen in te gaan. Hij kent de meest traditionele trektochten rond het Park door en door. Amateurklimmer en student systeemanalyse.' },
+      'rodolfo-anjos': { role: 'Brandweer', bio: 'Geboren in Lençóis, de mentor van het team. Een gids met enorm veel ervaring en een uitstekende chauffeur, met een grote kennis van de Chapada. Hij gidst in het Frans.' },
+      'jair-dalcin': { role: 'Hoofdchauffeur', bio: 'Het nieuwste lid en de "vader" van het team. Geboren in Paraná, woont al meer dan 15 jaar in Lençóis. Hij rijdt altijd met goede zin en hartelijkheid.' },
     },
   },
 };

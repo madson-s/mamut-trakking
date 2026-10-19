@@ -2,8 +2,8 @@
  * Manifesto por idioma.
  *
  * PT é o texto de mamut.agency/manifesto e EN o de mamut.agency/en/manifest —
- * os dois na íntegra e na ordem original. ES e FR são tradução feita neste
- * repositório: a operadora não publica versão em espanhol nem em francês.
+ * os dois na íntegra e na ordem original. ES, FR e NL são tradução feita neste
+ * repositório: a operadora não publica versão em espanhol, francês nem holandês.
  *
  * Cada parágrafo é uma lista de trechos. String simples é texto corrido;
  * `{ mark }` é o que o original destaca em negrito — por isso o parágrafo não
@@ -213,6 +213,54 @@ export const MANIFESTO_CONTENT: Record<Locale, ManifestoContent> = {
       ],
       [
         'Bienvenue dans la Chapada Diamantina et chez Mamut, où la nature est notre maison et la communauté notre famille, où nous croyons en un monde plus solidaire et plus conscient pour tous. Ensemble, nous sommes plus forts. Ensemble, nous sommes imposants. Ensemble, nous laisserons l’empreinte de notre respect, de notre engagement et de notre amour pour la terre que nous appelons notre maison.',
+      ],
+    ],
+  },
+  nl: {
+    meta: {
+      title: 'Manifest',
+      description:
+        'We zijn meer dan een ecotoerismebureau. We zijn verdedigers van de Serra do Sincorá, van de lokale tradities en van onze voorouders.',
+      canonical: '/nl/manifest',
+      ogTitle: 'Het manifest van Mamut Trekking',
+      ogDescription:
+        'We zijn geboren om te lopen en we lopen om te leven, en zo eren we het web van het leven dat iedereen in het universum verbindt.',
+    },
+    titulo: { antes: 'Uit die herinnering', destaque: 'komen wij voort.' },
+    paragrafos: [
+      [
+        'In de onmetelijkheid van de megacontinenten liepen mammoeten lange afstanden in grote groepen, ',
+        { mark: 'en lieten ze voor altijd hun sporen na' },
+        ' op de planeet. Vanzelfsprekend zijn wij ',
+        { mark: 'een kudde die de hele wereld samenbrengt' },
+        ', in wat ooit het “hart” van de aarde was: de Chapada Diamantina.',
+      ],
+      [
+        'We zijn meer dan een ecotoerismebureau. We zijn verdedigers van de Serra do Sincorá, van de lokale tradities en van onze voorouders. We bouwen ',
+        { mark: 'bruggen tussen de mensheid en de natuurlijke wereld' },
+        ' (die dringend opnieuw gebouwd moeten worden). Net als de mammoeten van weleer ',
+        { mark: 'lopen we uit liefde, solidariteit, respect, verzet…' },
+        ' ',
+        { mark: 'We zijn geboren om te lopen en we lopen om te leven' },
+        ', en zo eren we het web van het leven dat iedereen in het universum verbindt.',
+      ],
+      [
+        'Onze kracht zit niet alleen in onze grootsheid, maar ook in ons ',
+        { mark: 'geheugen en onze intelligentie' },
+        '. Die laten ons nooit vergeten waar we vandaan komen, net zoals we heel goed weten waar we naartoe willen. Daarbij komt het inzicht om het geschenk te bewonderen dat we elke dag krijgen: de schoonheid van de paden en van de weg ernaartoe.',
+      ],
+      [
+        'Zoals mammoeten de leden van hun kudde beschermden, zijn wij hier om te zorgen voor de veiligheid en het welzijn van onze reizigers. Naast de strenge protocollen die zorgen voor veilige en onvergetelijke ervaringen, ',
+        { mark: 'hechten we veel waarde aan de ervaring van iedereen die ons pad kruist.' },
+      ],
+      [
+        { mark: 'Sluit je aan bij onze kudde.' },
+        ' Samen gaan we de schoonheid en de diversiteit van de wereld verkennen, ervan leren en vieren, altijd in het besef dat ',
+        { mark: 'we deel zijn van iets groters' },
+        ', iets dat bescherming en bewondering verdient.',
+      ],
+      [
+        'Welkom in de Chapada Diamantina en bij Mamut, waar de natuur ons huis is en de gemeenschap onze familie, waar we geloven in een wereld die solidairder en bewuster is, voor iedereen. Samen zijn we sterker. Samen zijn we indrukwekkend. Samen laten we ons respect, onze toewijding en onze liefde achter voor het land dat we ons thuis noemen.',
       ],
     ],
   },

@@ -344,4 +344,81 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Mosquito + Morro do Pai Inácio',
+      description:
+        'Drie bezienswaardigheden op één dag met de auto en korte wandelingen: de Waterval Mosquito, de Poço do Diabo en de zonsondergang vanaf de Morro do Pai Inácio.',
+      canonical: '/nl/avonturen/waterval-mosquito-morro-do-pai-inacio',
+    },
+    hero: {
+      nivel: 'Licht / Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Mosquito + Pai Inácio.',
+      lead: 'Drie ansichtkaartplekken op één dag, met korte wandelingen — de tocht die werkt met een kind én met oma.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Bezienswaardigheden', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de tour.',
+      paragrafos: [
+        'Een tocht met de auto en korte wandelingen, bedoeld voor wie de Chapada Diamantina wil zien zonder aan een lang pad te beginnen. Elke plek is makkelijk bereikbaar, veilig en heeft voorzieningen voor bezoekers.',
+        'Er zijn drie stops: de Waterval Mosquito, de Vale das Piscinas aan de rivier de Mucugêzinho — waar de Poço do Diabo ligt — en de Morro do Pai Inácio, het bekendste herkenningspunt van de regio.',
+        'De langste wandeling van de dag is 700 meter; de kortste 300. Samen zijn ze goed voor de 4 km, verspreid over 120 km weg. Daarom werkt de tocht met kinderen en met mensen die niet veel lopen.',
+        'De dag eindigt boven op de Pai Inácio, waar de gids de legende vertelt waar de berg zijn naam aan dankt en het uitzicht zich over het hele dal opent.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 8.00 uur uit Lençóis naar de Fazenda Santo Antônio, waar de ingang van de Waterval Mosquito is. Dat is 40 km met de auto, zo’n uur, plus een wandeling van 700 meter naar de voet van de waterval.',
+        'Een duik bij de waterval en terug naar de auto.',
+        'Nog 28 km naar de zwemplek van de Mucugêzinho en een wandeling van 15 minuten naar de Poço do Diabo — een enorm natuurlijk bad met donker, koud water. De groep blijft daar tot 16.00 uur.',
+        'Nog 5 km met de auto en een wandeling van 300 meter, zo’n 20 minuten, naar de top van de Morro do Pai Inácio. Daarboven vertelt de gids de legende waar de plek zijn naam aan dankt en opent het uitzicht zich over het dal.',
+        'Terug naar Lençóis, onderweg met het uitzicht vanaf de BR-242.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 500', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
+        { titulo: 'In een groep', preco: 'R$ 450', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Handdoek', 'Camera']],
+        note: 'Er zijn twee zwemstops op één dag: neem een handdoek mee en, als het kan, droge kleren voor het laatste stuk omhoog naar de Pai Inácio.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Erkende lokale gids met EHBO-opleiding', 'Entreegelden', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Lunch (optioneel)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'De wandelingen zijn kort, maar de Poço do Diabo is een diep natuurlijk bad met donker, koud water — ga samen met de groep het water in en volg de gids. De laatste klim naar de Pai Inácio is 300 meter trappen en rots: kort, maar steil.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om de Chapada', 'op één dag te zien?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

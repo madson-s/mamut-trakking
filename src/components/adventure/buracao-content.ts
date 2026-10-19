@@ -351,4 +351,82 @@ export const BURACAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Buracão',
+      description:
+        'Meer dan 80 meter vallend water in een canyon, in een donkere poel. Een pad van 6 km in het Parque Natural Municipal do Espalhado, in Ibicoara.',
+      canonical: '/nl/avonturen/waterval-buracao',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Ibicoara',
+      duracao: '1 dag',
+      titulo: 'Waterval Buracão.',
+      lead: 'Tachtig meter vallend water in een canyon — het laatste stuk zwem je ernaartoe.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Hoogte van de val', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Buracão.',
+      paragrafos: [
+        'Een van de indrukwekkendste watervallen van de Chapada Diamantina: meer dan 80 meter water dat in een gesloten canyon naar beneden stort, in een donkere poel die perfect is om te zwemmen.',
+        'Wat hem bijzonder maakt is de aankomst. Bij de rand van de canyon daalt de groep via een houten trap af naar de rivier, en vandaar zwem je verder of klauter je over de rotsen tot de waterval zich voor je opent.',
+        'Ter plekke kun je abseilen tot aan de voet van de waterval — een extra activiteit, niet inbegrepen. Die gebeurt met onze eigen uitrusting en er zijn nooit incidenten geweest.',
+        'Tijdens onze tochten is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 6.00 uur uit het centrum van Lençóis, met 10 minuten speling, richting Ibicoara — waar de ingang van het Parque Natural Municipal do Espalhado ligt. Dat is zo’n 250 km en 3 uur rijden.',
+        'Aankomst in Ibicoara en voorbereiding op het pad. Het is 3 km lopen naar de top van de waterval, met een paar steile stukken en trappen, maar over vrij makkelijk terrein.',
+        'Onderweg stoppen we om af te koelen bij de Waterval Recanto Verde en de Waterval Orquídeas.',
+        'Bovenaan opent het uitzicht over de canyon. Wie wil, kan abseilen tot aan de voet — optioneel, R$ 220.',
+        'Bij de rand van de canyon daalt de groep via een houten trap af naar de rivier. Vandaar zwem je of klauter je over de rotsen naar de Waterval Buracão, waar je in de poel kunt zwemmen.',
+        'Terug via dezelfde route naar de parkingang, met een typisch regionale lunch, bereid door mensen uit de buurt. Rond 20.00 uur terug in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 820', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 750', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Lichte kleding', 'Zwemkleding', 'Pet of hoed'],
+          ['Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen', 'Extra sokken'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Handdoek'], ['Snack of fruit', 'Waterdichte zak voor de camera', 'Droge set kleren']],
+        note: 'Het laatste stuk gaat door het water: stop de camera in een waterdichte zak en reken erop dat je nat bij de waterval vandaan komt.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Tweetalige lokale gids', 'Toegang tot het park', 'Avonturenverzekering', 'Zwemvest', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Lunch (optioneel)', 'Abseilen (optioneel, R$ 220)', 'Persoonlijke uitrusting', 'Extra drankjes', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'Het laatste stuk naar de waterval zwem je of klauter je over de rotsen in de rivier, en je komt in de rivierbedding via een houten trap. Een zwemvest krijg je van ons en is verplicht bij de oversteek. Wie zich niet op zijn gemak voelt in het water, kan bovenaan de canyon wachten, waar het uitzicht alleen al de wandeling waard is.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om naar', 'de waterval te zwemmen?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

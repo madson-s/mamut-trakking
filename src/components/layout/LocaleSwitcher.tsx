@@ -16,7 +16,7 @@ import { localizePath } from '@/lib/routes';
 // Códigos de idioma (chrome de UI, não conteúdo). Leva para a MESMA página no
 // idioma escolhido (`localizePath`) — cada idioma é uma raiz estática
 // independente, então a navegação entre idiomas é sempre um full reload.
-const LABELS: Record<Locale, string> = { pt: 'PT', en: 'EN', es: 'ES', fr: 'FR' };
+const LABELS: Record<Locale, string> = { pt: 'PT', en: 'EN', es: 'ES', fr: 'FR', nl: 'NL' };
 
 export function LocaleSwitcher({ locale }: { locale: Locale }) {
   const pathname = usePathname();

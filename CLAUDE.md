@@ -106,12 +106,16 @@
 >   ou arquivo vem mais do WordPress (o termo de responsabilidade está em
 >   `public/docs/`).
 
-> **Francês (`/fr`) é o quarto idioma do site** (`LOCALES` = pt, en, es, fr):
-> todo `Record<Locale, …>` exige `fr`, e cada página de pt/en/es tem a irmã em
-> `src/app/fr/` com slug francês (segmento `aventures`; slugs em `routes.ts`,
+> **Francês (`/fr`) e holandês (`/nl`) são o quarto e o quinto idioma**
+> (`LOCALES` = pt, en, es, fr, nl): todo `Record<Locale, …>` exige os dois, e
+> cada página de pt/en/es tem as irmãs em `src/app/fr/` e `src/app/nl/` com slug
+> traduzido (segmentos `aventures` e `avonturen`; slugs em `routes.ts`,
 > `dicas-rotas.ts` e nos `*_HREF`). Preço em francês segue o formato brasileiro
-> (`R$ 1.500`, ver `INTL_LOCALE`). Exceções: o Torus só existe em pt, e as
-> ferramentas internas (`/voucher`, `/reservas`) não têm idioma de site.
+> e em holandês o `nl-NL` — os dois escrevem `R$ 1.500` (ver `INTL_LOCALE`).
+> Ninguém da equipe conduz em holandês: em `/nl` o sheet de reserva do Pati
+> abre em inglês (`PatiMobileBooking`), e a ficha do participante usa o
+> formulário próprio (só pt/en têm Tally). Exceções: o Torus só existe em pt, e
+> as ferramentas internas (`/voucher`, `/reservas`) não têm idioma de site.
 
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e
 > `Disallow` no `robots.ts`): gerador de voucher em PDF. `src/lib/voucher.ts`

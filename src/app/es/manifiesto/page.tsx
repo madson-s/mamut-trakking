@@ -8,7 +8,7 @@ const CONTENT = MANIFESTO_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/manifesto', en: '/en/manifesto', es: '/es/manifiesto', fr: '/fr/manifeste' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/manifesto', en: '/en/manifesto', es: '/es/manifiesto', fr: '/fr/manifeste', nl: '/nl/manifest' } },
   openGraph: {
     title: CONTENT.meta.ogTitle,
     description: CONTENT.meta.ogDescription,

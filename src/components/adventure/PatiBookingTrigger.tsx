@@ -3,10 +3,10 @@
 import { Button } from '@/components/ui';
 import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
 
-export function PatiBookingTrigger() {
+export function PatiBookingTrigger({ label }: { label: string }) {
   return (
     <Button block arrow onClick={() => window.dispatchEvent(new CustomEvent(PATI_BOOKING_OPEN_EVENT))}>
-      Reservar essa aventura
+      {label}
     </Button>
   );
 }

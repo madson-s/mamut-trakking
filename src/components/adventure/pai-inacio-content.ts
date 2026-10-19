@@ -320,4 +320,75 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Rejoindre la harde',
     },
   },
+  nl: {
+    meta: {
+      title: 'Morro do Pai Inácio',
+      description:
+        'Zonsondergang bij hét plaatje van de Chapada Diamantina: een korte klim van 2 km naar het plateau, met een uitzicht van 360° over de Vale do Capão.',
+      canonical: '/nl/avonturen/morro-do-pai-inacio',
+    },
+    hero: {
+      nivel: 'Licht',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Morro do Pai Inácio.',
+      lead: 'De beroemdste zonsondergang van de Chapada, boven op een plateau met 360° uitzicht.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Duur', 'Vertrek (Lençóis)', 'Terugkeer', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Morro do Pai Inácio.',
+      paragrafos: [
+        'De tour begint laat in de middag, zodat we de zonsondergang vanaf de top van de berg zien. De klim naar het plateau is kort en veilig: 15 tot 30 minuten.',
+        'Van bovenaf zie je de Morro do Camelo, de Vale dos Três Irmãos en nog veel meer. We vertrekken om 16.00 uur uit het centrum van Lençóis en zijn vanaf 18.30 uur terug.',
+        'Deze tour is te combineren met het Parque da Muritiba, de Waterval Sossego of het moeras van Marimbus — overleg met ons team om de dag samen te stellen.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek vanaf 16.00 uur uit het centrum van Lençóis. Het is 26 km — zo’n 40 minuten — richting Brasília over de BR-242, met de hele weg tot het afzetpunt mooie uitzichten.',
+        'Bij de toegangspost geeft de gids een korte introductie over de plek en begint de wandeling. Het is 20 minuten klimmen naar het plateau, met trappen, leuningen en veel rots onderweg.',
+        'Op de top een uitzicht van 360°: Vale do Cercado, Morro do Camelo, Vale dos Três Irmãos, Serra da Bacia en Serra do Brejão.',
+        'Na zonsondergang begint de afdaling via hetzelfde pad, extra voorzichtig en altijd achter de gids aan — het is dan al wat donker. Aankomst in Lençóis rond 18.30 uur.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 300', nota: 'Minimaal 2 personen. Alleen jouw groep op de tour.' },
+        { titulo: 'In een groep', preco: 'R$ 265', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Creditcard: +5%, tot 12 termijnen. Internationale overboeking of een grotere groep: vraag het ons team.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (500 ml per persoon)', 'Wandelschoenen', 'Lichte kleding', 'Pet of hoed'],
+          ['Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)'], ['Snack of fruit', 'Wandelstok']],
+        note: 'Heb je voor een item een alternatief nodig? Overleg met ons team voordat je boekt.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Erkende lokale gids met APH-opleiding', 'Vervoer heen en terug', 'Avonturenverzekering', 'EHBO-kit', 'Entreegelden'],
+        excluded: ['Alles wat hierboven niet staat', 'Snack of lunch', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Hotels en maaltijden voor of na de activiteit', 'Fooien'],
+      },
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Je pad begint', 'met een bericht.'],
+      corpo: 'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
+      botao: 'Sluit je aan bij de kudde',
+    },
+  },
 };

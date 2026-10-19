@@ -10,8 +10,8 @@
  * vira "check-in"; as formas de pagamento mudam; e o formulário PT tem uma
  * pergunta de saúde a mais (a de campo aberto no fim).
  *
- * ⚠️ ES e FR são tradução feita neste repositório — a operadora não publica
- * versão em espanhol nem em francês. A estrutura segue a de EN, porque o
+ * ⚠️ ES, FR e NL são tradução feita neste repositório — a operadora não publica
+ * versão em espanhol, francês nem holandês. A estrutura segue a de EN, porque o
  * público também é estrangeiro.
  * Os rótulos são seguros, mas o TEXTO LEGAL precisa de revisão antes de valer
  * como termo de responsabilidade assinado.
@@ -556,6 +556,119 @@ export const PARTICIPANTE_CONTENT: Record<Locale, ParticipanteContent> = {
       naoAceitos: 'NON acceptées.',
       assunto: 'Fiche du participant',
       semNome: 'nouveau participant',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Deelnemersformulier',
+      description:
+        'Deelnemersformulier van Mamut Trekking: persoonsgegevens, medische informatie, contactpersoon voor noodgevallen en aansprakelijkheidsverklaring.',
+      canonical: '/nl/deelnemersformulier',
+    },
+    titulo: { antes: 'Voor het pad,', destaque: 'het formulier.' },
+    lead: 'Eén formulier per deelnemer. Lees de opmerkingen hieronder voordat je het invult — ze bepalen wie mee kan en wat de Chapada van je zal vragen.',
+    observacoesLabel: 'Let op',
+    observacoes: [
+      'Deelnemers moeten ouder zijn dan 18 jaar. Deelnemers jonger dan 18 moeten worden begeleid door een wettelijke vertegenwoordiger.',
+      'Je hebt een goede conditie nodig voor steile klimmen en afdalingen op ruig terrein, het oversteken van rivieren en beken, klauteren en het lopen van lange afstanden.',
+      'Geef eventuele dieetwensen aan ons door. Prijzen kunnen veranderen — neem contact op met onze klantenservice om de exacte prijs voor de data van je verblijf te bevestigen.',
+      'Bevestigde reserveringen worden niet in prijs aangepast.',
+    ],
+    blocos: {
+      pessoais: 'Gegevens van de deelnemer',
+      passeio: 'Over de tocht',
+      medicas: 'Medische informatie',
+      medicasApoio:
+        'Dit blijft bij je gids en wordt alleen gebruikt als er onderweg iets gebeurt. Is het antwoord “nee”, schrijf dan “nee” — geen enkel veld mag leeg blijven.',
+      emergencia: 'Contactpersoon voor noodgevallen',
+      termos: 'Voorwaarden',
+    },
+    campos: {
+      nome: { label: 'Volledige naam', placeholder: 'Sanne de Vries' },
+      nascimento: { label: 'Geboortedatum' },
+      documento: { label: 'Paspoort', placeholder: 'NX1234567' },
+      idade: { label: 'Leeftijd', placeholder: '36' },
+      nacionalidade: { label: 'Nationaliteit', placeholder: 'Nederlands' },
+      profissao: { label: 'Werk / beroep', placeholder: 'Advocaat' },
+      telefone: { label: 'Telefoon (WhatsApp)', placeholder: '+31 6 12345678' },
+      email: { label: 'E-mail', placeholder: 'jij@email.nl' },
+      altura: { label: 'Lengte', placeholder: '170', hint: 'In centimeters.' },
+      peso: { label: 'Gewicht', placeholder: '65', hint: 'In kilogram.' },
+      inicio: { label: 'Aankomst' },
+      pagamento: { label: 'Betaalmethode' },
+      endereco: { label: 'Adres', placeholder: 'Kerkstraat 10' },
+      cidade: { label: 'Stad / provincie / land', placeholder: 'Utrecht — Nederland' },
+      hospedagem: { label: 'Onderkomen in de Chapada Diamantina', placeholder: 'Viela Hostel' },
+      emergenciaNome: { label: 'Naam van de contactpersoon voor noodgevallen', placeholder: 'Anna de Vries' },
+      emergenciaTelefone: { label: 'Telefoon van de contactpersoon voor noodgevallen', placeholder: '+31 6 87654321' },
+      emergenciaParentesco: { label: 'Relatie tot jou', placeholder: 'Moeder' },
+    },
+    pagamentos: ['Creditcard', 'Wise', 'Revolut', 'Contant'],
+    simNao: { sim: 'Ja', nao: 'Nee' },
+    sabeNadar: 'Kun je zwemmen?',
+    gravidez: 'Ben je een vrouw: is er een kans dat je op de datum van de activiteit zwanger bent?',
+    perguntasMedicas: [
+      {
+        id: 'atividades',
+        label: 'Hoe vaak sport je?',
+        placeholder: 'Klimmen 3x per week en zwemmen 2x per week',
+      },
+      {
+        id: 'alergias',
+        label: 'Heb je allergieën? Zo ja, welke en welke behandeling?',
+        placeholder: 'Medicijnen, pollen, stof, voedsel, iets anders.',
+      },
+      {
+        id: 'restricoes',
+        label: 'Heb je dieetwensen? Zo ja, welke?',
+        placeholder: 'Vegetarisch, lactose-intolerantie, noten, iets anders.',
+      },
+      {
+        id: 'remedios',
+        label: 'Gebruik je medicijnen op voorschrift? Zo ja, welke en welke behandeling?',
+        placeholder: 'Zo niet, schrijf dan “nee”.',
+      },
+      {
+        id: 'tratamentos',
+        label:
+          'Ben je de afgelopen drie jaar onder medisch toezicht behandeld voor een ziekte en/of geopereerd? Zo ja, wat waren de medische aanbevelingen?',
+        placeholder: 'Zo niet, schrijf dan “nee”.',
+      },
+      {
+        id: 'motora',
+        label: 'Heb je motorische beperkingen? Zo ja, welke?',
+        placeholder: 'Zo niet, schrijf dan “nee”.',
+      },
+    ],
+    termos: [
+      'De bovenstaande informatie is waar, en ik neem alle verantwoordelijkheid voor de juistheid ervan.',
+      'Ik verklaar dat ik al mijn vragen over de activiteit, de veiligheid en de betaling met Mamut Trekking heb opgehelderd.',
+      'Ik aanvaard uit vrije wil alle risico’s die deelname aan deze activiteit met zich meebrengt en de gevolgen daarvan, en ontsla Mamut Trekking, de organisatoren en medewerkers VAN ELKE AANSPRAKELIJKHEID voor materiële, morele of lichamelijke schade die ik door deelname aan deze activiteit kan oplopen.',
+      'Ik geef toestemming voor het gebruik van mijn beeld en stem om de activiteit te promoten, zowel online als in drukwerk.',
+      'Ik geef Mamut Trekking toestemming om mijn persoonsgegevens te verwerken, inclusief de gezondheidsinformatie in dit formulier, om de reis te organiseren en voor mijn veiligheid te zorgen, zoals beschreven in het Privacybeleid van de website.',
+    ],
+    aceite: 'Ik heb de bovenstaande voorwaarden gelezen en ga ermee akkoord.',
+    acoes: {
+      email: 'Formulier versturen',
+      whatsapp: 'Versturen via WhatsApp',
+      enviando: 'Bezig met versturen…',
+      sucesso: 'Formulier verstuurd. We bevestigen de ontvangst via WhatsApp of op het e-mailadres dat je hebt opgegeven.',
+      erro: 'We konden het formulier niet versturen.',
+      erroFallback: 'Probeer het zo meteen opnieuw, of gebruik de WhatsApp-knop, die niet afhankelijk is van onze server.',
+      recaptcha: 'We konden niet bevestigen dat je geen robot bent. Herlaad de pagina en probeer het opnieuw.',
+      nota: 'Het formulier wordt per e-mail naar ons team gestuurd. De WhatsApp-knop opent de app met alles al ingevuld, als je het liever daar verstuurt.',
+    },
+    documento: {
+      titulo: 'DEELNEMERSFORMULIER — MAMUT TREKKING',
+      pessoais: 'PERSOONSGEGEVENS',
+      passeio: 'TOCHT',
+      medicas: 'MEDISCHE INFORMATIE',
+      emergencia: 'CONTACTPERSOON VOOR NOODGEVALLEN',
+      termos: 'VOORWAARDEN',
+      aceitos: 'Geaccepteerd door de deelnemer bij het versturen van dit formulier.',
+      naoAceitos: 'NIET geaccepteerd.',
+      assunto: 'Deelnemersformulier',
+      semNome: 'nieuwe deelnemer',
     },
   },
 };

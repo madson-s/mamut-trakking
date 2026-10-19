@@ -8,7 +8,7 @@ const CONTENT = PATI5_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/vale-do-pati-05-dias', en: '/en/adventures/pati-valley-5-days', es: '/es/aventuras/valle-del-pati-5-dias', fr: '/fr/aventures/vallee-du-pati-5-jours' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/vale-do-pati-05-dias', en: '/en/adventures/pati-valley-5-days', es: '/es/aventuras/valle-del-pati-5-dias', fr: '/fr/aventures/vallee-du-pati-5-jours', nl: '/nl/avonturen/pati-vallei-5-dagen' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.ogDescription,

@@ -343,4 +343,80 @@ export const PRATINHA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Fazenda Pratinha & Gruta Azul',
+      description:
+        'Een hele dag helder water in Iraquara: de rivier de Pratinha, de Gruta da Pratinha en de Gruta Azul, met optioneel snorkelen, kajakken en ziplinen.',
+      canonical: '/nl/avonturen/fazenda-pratinha',
+    },
+    hero: {
+      nivel: 'Licht',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Fazenda Pratinha.',
+      lead: 'Honderd meter lopen en de hele dag in het water — de oase die midden in het binnenland opduikt.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Duur', 'Vertrektijd', 'Verwachte terugkeer', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Fazenda Pratinha.',
+      paragrafos: [
+        'In Iraquara trekt de Fazenda Pratinha mensen van over de hele wereld, die van dichtbij het heldere water willen zien dat als een oase opborrelt in het binnenland van Bahia. Het is een particulier terrein met de Gruta Azul, de Gruta da Pratinha en de rivier waaraan de boerderij haar naam dankt.',
+        'Het is de lichtste tocht die we organiseren — in totaal 100 meter lopen — maar hij vult de hele dag: we vertrekken vanaf 8.00 uur en zijn rond 18.00 uur terug, zodat er volop tijd is om te zwemmen en voor de activiteiten ter plekke.',
+        'De extra activiteiten vullen de dag pas echt: snorkelen met vinnen, zaklamp en zwemvest; kajakken; paardrijden; ziplinen; onderwaterfotografie. Geen ervan zit in de prijs — je betaalt ze op de boerderij, en het is handig om bij ons te checken wat er op jouw datum beschikbaar is.',
+        'Zwemmen in de Pratinha is ondiep en aangenaam, vooral op heldere dagen. De lunch is op de boerderij zelf, met verschillende plekken waar je van een volledige maaltijd tot snacks, desserts, koffie en ijs kunt krijgen.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek uit Lençóis tussen 8.00 en 9.00 uur. Het is zo’n uur met de auto, 65 km — waarvan 60 asfalt over de BR-242 en 5 onverharde weg door het binnenland van Iraquara.',
+        'Aankomst bij de Fazenda Pratinha, het particuliere terrein met de Gruta Azul, de Gruta da Pratinha en de rivier. De tijd daar is van jou, tussen zwemmen, het landschap langs de rivier en rond de grotten, en de optionele activiteiten.',
+        'De lunch is op de boerderij — verschillende plekken bieden van een volledige maaltijd tot snacks, desserts, koffie en ijs.',
+        'De terugweg gaat over een andere weg: 30 minuten door het binnenland van Iraquara naar de BR-242, met uitzicht op verre bergen en dalen. Rond 18.00 uur terug in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 550', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
+        { titulo: 'In een groep', preco: 'R$ 500', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Dit is een lichte tocht, dus de lijst is kort. Items met een * zijn verplicht.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Zwemkleding', 'Pet of hoed', 'Zonnebrand'],
+          ['Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Handdoek', 'Slippers'],
+        ],
+        recommendedColumns: [['Camera of waterdichte zak', 'Droge set kleren'], ['Contant geld voor de lunch en de optionele activiteiten']],
+        note: 'De activiteiten op de boerderij betaal je ter plekke — neem een betaalmiddel mee als je wilt snorkelen, kajakken of ziplinen.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Lokale gids', 'Entreegelden', 'Avonturenverzekering'],
+        excluded: ['Alles wat niet in de lijst staat', 'Lunch (optioneel)', 'Snorkelen, kajakken, zipline, paardrijden en onderwaterfoto’s (te betalen op de boerderij)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting'],
+      },
+      safetyFaq(
+        'nl',
+        'De plek kent geen acuut risico en vraagt geen techniek, maar let op twee dingen: de natte zones rond de grotten worden glad, en er lopen dieren vrij rond op de boerderij — vermijd contact. Zwemmen in de Pratinha is ondiep; volg in de grotten de aanwijzingen van het lokale team.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar voor een dag', 'helder water?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

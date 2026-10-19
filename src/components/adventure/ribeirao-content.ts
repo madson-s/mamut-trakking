@@ -347,4 +347,81 @@ export const RIBEIRAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Natuurlijk bad Ribeirão do Meio',
+      description:
+        'Een makkelijke wandeling van 7 km vanuit het centrum van Lençóis naar een groot natuurlijk bad met een glijbaan van gladgeslepen steen. Een halve dag, ideaal voor gezinnen.',
+      canonical: '/nl/avonturen/ribeirao-do-meio',
+    },
+    hero: {
+      nivel: 'Licht',
+      origem: 'Vertrek: Lençóis',
+      duracao: 'Halve dag',
+      titulo: 'Ribeirão do Meio.',
+      lead: 'Een enorm natuurlijk bad met een glijbaan van gladgeslepen steen, 40 minuten lopen van het centrum.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Duur', 'Vertrek (Lençóis)', 'Verwachte terugkeer', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Ribeirão do Meio.',
+      paragrafos: [
+        'Zeven kilometer in totaal, over vlak terrein, vanuit het centrum van Lençóis zelf. Het is het toegankelijkste pad dat we organiseren en het pad dat het best werkt met kinderen.',
+        'Ter plekke ligt een heel groot natuurlijk bad en, aan een van de randen, een rots die door het stromende water langzaam glad is geslepen — de natuurlijke glijbaan waar de plek om bekendstaat. Vlakbij zijn ondiepere poelen.',
+        'Het pad loopt door de overgang tussen restanten van Atlantisch regenwoud en rotsvelden, langs geneeskrachtige planten, bromelia’s en cactussen. Het is zo’n 40 minuten lopen naar het bad.',
+        'De Ribeirão do Meio is op dezelfde dag te combineren met het Parque da Muritiba, de Morro do Pai Inácio of de Waterval Mosquito. Praat met ons om de combinatie samen te stellen.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek vanaf 8.00 uur uit het centrum van Lençóis. Het is 3,5 km van het centrum naar de Ribeirão do Meio, bijna helemaal over vlak terrein en zonder grote obstakels.',
+        'Het landschap verandert terwijl je loopt: restanten van Atlantisch regenwoud maken plaats voor rotsvelden, met bloemen, cactussen en geneeskrachtige planten onderweg.',
+        'Na zo’n 40 minuten bereik je het bad — een groot natuurlijk bekken met de gladgeslepen rots aan de rand.',
+        'Een briefing van de gids en zwemvesten voordat je het water in gaat. Daarna kan iedereen gebruikmaken van het grote bad en de natuurlijke glijbaan; vlakbij zijn ondiepere poelen.',
+        'De terugweg gaat via hetzelfde pad; we verwachten rond 13.00 uur terug te zijn.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 175', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 145', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1 L per persoon)', 'Sportschoenen of wandelschoenen', 'Lichte kleding', 'Zwemkleding', 'Pet of hoed'],
+          ['Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen', 'Handdoek'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Slippers', 'Camera']],
+        note: 'Een korte tocht te voet vanuit het centrum: je kunt licht reizen. Dichte schoenen, water en zwemkleding zijn het belangrijkst.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Erkende lokale gids met EHBO-opleiding', 'Zwemvest', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Vervoer (optioneel)', 'Picknick (optioneel)', 'Snack of lunch', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'De glijbaan is een door het water gladgeslepen rots en dus per definitie glad — dat maakt hem leuk en de briefing noodzakelijk. Een zwemvest krijg je van ons en is in het grote bad verplicht, ook voor volwassenen. Niemand gaat naar beneden voordat de gids het heeft uitgelegd.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar voor de', 'stenen glijbaan?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

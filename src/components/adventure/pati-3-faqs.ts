@@ -99,6 +99,7 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
     {
       type: 'safety',
       title: 'Safety in detail, and the risks',
+      riskLabel: 'Risks and limitations — please read',
       lead: 'The mammoth protects the herd. Always.',
       body: 'All guides are local, certified in APH (pre-hospital care) and CMC (minimum guiding competencies) under the Brazilian ABNT standard; some hold WAFA. All carry a first-aid kit for remote areas. In operation: VHF/UHF radios + a SPOT X satellite communicator with S.O.S.',
       warning: 'Activities in a natural environment carry inherent risks — uneven terrain, venomous animals, weather. The Pati Valley is a remote area: a rescue can take more than 5 hours to begin. Medical evacuation is NOT included. There is limited capacity for evacuation by mule (110 kg limit) — ask our team.',
@@ -162,6 +163,7 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
     {
       type: 'safety',
       title: 'Seguridad en detalle y riesgos',
+      riskLabel: 'Riesgos y limitaciones — leé con atención',
       lead: 'El mamut protege a la manada. Siempre.',
       body: 'Todos los guías son conductores locales con certificación APH (Atención Prehospitalaria) y CMC (Competencias Mínimas de Conducción) según la norma brasileña ABNT; algunos con WAFA. Todos llevan kit de primeros auxilios para áreas remotas. En operación: radios VHF/UHF + comunicador satelital SPOT X con S.O.S.',
       warning: 'Las actividades en ambiente natural implican riesgos inherentes — terreno irregular, animales ponzoñosos, clima. El Valle del Pati es área remota: un rescate puede tardar más de 5 horas en iniciarse. La evacuación médica NO está incluida. Hay estructura limitada de traslado en mula (límite 110 kg) — consultá con atención.',
@@ -224,6 +226,7 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
     {
       type: 'safety',
       title: 'Sécurité en détail et risques',
+      riskLabel: 'Risques et limites — à lire attentivement',
       lead: 'Le mammouth protège la harde. Toujours.',
       body: 'Tous les guides sont des guides locaux certifiés APH (premiers secours préhospitaliers) et CMC (compétences minimales de conduite de groupe) selon la norme brésilienne ABNT ; certains sont titulaires du WAFA. Tous emportent une trousse de premiers secours pour zones isolées. Sur le terrain : radios VHF/UHF + communicateur satellite SPOT X avec S.O.S.',
       warning: 'Les activités en milieu naturel comportent des risques inhérents — terrain irrégulier, animaux venimeux, météo. La vallée du Pati est une zone isolée : un sauvetage peut mettre plus de 5 heures à commencer. L’évacuation médicale N’EST PAS incluse. Il existe une capacité limitée d’évacuation à dos de mule (limite de 110 kg) — renseignez-vous auprès de notre équipe.',
@@ -262,6 +265,69 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       facts: [['Catégorie', 'Trek avec nuitées'], ['Départ', 'Lençóis'], ['Trajet en voiture', '160 km'], ['Âge minimum', '18 ans (mineurs accompagnés d’un responsable légal)']],
       requirements: ['Condition physique pour les montées et descentes en terrain accidenté', 'Traverser des rivières', 'Marcher de longues distances pendant plusieurs jours', 'Signaler à la réservation les restrictions alimentaires et le besoin d’une chambre privée', 'Les réservations confirmées ne font l’objet d’aucune révision de prix'],
       documents: [['Décharge de responsabilité (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Classification des niveaux des activités', '/fr/classification-des-niveaux']],
+    },
+  ],
+  nl: [
+    {
+      type: 'checklist',
+      title: 'Checklist — wat neem je mee',
+      intro:
+        'Items met een * zijn verplicht. Ontbreekt er één, dan kun je niet deelnemen — we controleren bij de boeking en bij de check-in.',
+      requiredColumns: [
+        ['Water (1,5 L/persoon)', 'Lichte kleding', 'Pet/hoed', 'Rugzak 35 L+', 'Zonnebrand', 'Toiletspullen', 'Dagrugzak'],
+        ['Wandelschoenen', 'Zwemkleding', 'Extra snack/fruit', 'Regenkleding (jezelf + rugzak)', 'Persoonlijke medicijnen', 'Documenten', 'Hoofdlamp'],
+      ],
+      recommendedColumns: [['Extra sokken', 'Wandelstok'], ['Sneldrogende handdoek', 'Powerbank']],
+      note: 'Wil je liever geen gewicht dragen? Er zijn persoonlijke dragers beschikbaar (tegen meerprijs).',
+    },
+    {
+      type: 'included',
+      title: 'Wat is inbegrepen / niet inbegrepen',
+      included: ['Tweetalige berggids met APH-certificaat', 'SPOT X-satelliettracker', 'Transfer Lençóis ↔ Guiné (160 km heen en terug)', 'Overnachting voor 2 nachten', 'Avonturenverzekering', 'Alle hoofdmaaltijden', 'EHBO-kit', 'Bagageopslag tijdens de activiteit', 'Douche voor/na', 'Wachtruimte'],
+      excluded: ['Alles wat hierboven niet staat', 'Transfer Salvador ↔ Lençóis (optioneel)', 'Ontbijt op dag 1', 'Extra drankjes', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Dragers/muilezels (optioneel)', 'Hotels/maaltijden voor of na (optioneel)', 'Fooien'],
+    },
+    {
+      type: 'safety',
+      title: 'Veiligheid in detail, en de risico’s',
+      riskLabel: 'Risico’s en beperkingen — lees dit even',
+      lead: 'De mammoet beschermt de kudde. Altijd.',
+      body: 'Alle gidsen zijn lokaal, gecertificeerd in APH (pre-hospitale zorg) en CMC (minimale competenties voor gidsen) volgens de Braziliaanse ABNT-norm; sommigen hebben WAFA. Iedereen heeft een EHBO-kit voor afgelegen gebieden bij zich. Onderweg: VHF/UHF-radio’s + een SPOT X-satellietcommunicator met S.O.S.',
+      warning: 'Activiteiten in de natuur brengen inherente risico’s met zich mee — oneffen terrein, giftige dieren, het weer. De Vale do Pati is een afgelegen gebied: het kan meer dan 5 uur duren voordat een redding begint. Medische evacuatie is NIET inbegrepen. Evacuatie per muilezel is beperkt mogelijk (maximaal 110 kg) — vraag het ons team.',
+      footer: 'De aanwijzingen van de gidsen opvolgen en de verplichte items van de checklist bij je hebben zijn voorwaarden om deel te nemen.',
+    },
+    {
+      type: 'payment',
+      title: 'Betaalmogelijkheden',
+      paragraphs: [
+        'Met een aanbetaling van 50% is je boeking bevestigd, via overboeking, storting of boleto. De overige 50% betaal je contant bij de check-in (of per storting tot 2 werkdagen van tevoren).',
+        'Stuur het betaalbewijs mee met: de bevestigde datum en de volledige naam en het identiteitsnummer van elke deelnemer.',
+        'Creditcard: +5%, tot 12 termijnen (PagSeguro). Internationaal: vraag het ons team.',
+      ],
+    },
+    {
+      type: 'cancellation',
+      title: 'Annuleringsvoorwaarden',
+      intro: 'Annulering door de reiziger volgt de Braziliaanse normatieve resolutie nr. 161/1985 van EMBRATUR:',
+      refunds: [['30+ dagen vooraf', '90% terug'], ['21–29 dagen', '80% terug'], ['7–20 dagen', '50% terug'], ['Minder dan 7 dagen', 'geen restitutie'], ['Tijdens het pakket', 'geen restitutie']],
+      paragraphs: [
+        'Voordat je annuleert: je kunt iemand anders in je plaats laten gaan of het bedrag als tegoed houden. Boekingskosten: 10% als boete bij annulering na de bevestiging.',
+        'No-show: kom je niet opdagen, dan verlies je het volledige bedrag. Mamut kan de route aanpassen als het weer de veiligheid in gevaar brengt; de activiteit gaat ook op een regenachtige dag door, behalve bij overmacht.',
+      ],
+    },
+    {
+      type: 'payment',
+      title: 'Beleid bij overdracht van tours',
+      paragraphs: [
+        'We werken met een netwerk van partners. Wordt een tour doorgegeven aan een andere organisatie, dan kunnen de prijzen variëren met het aantal deelnemers, het type tour en de benodigde logistiek — ze kunnen gelijk zijn aan onze balieprijs, of hoger of lager uitvallen.',
+        'Door bij ons te boeken ga je ermee akkoord dat bij een doorgegeven tour de uitvoering van de dienst de verantwoordelijkheid wordt van de aangewezen organisatie. Onze rol is het bemiddelen van de boeking en erop toezien dat wordt geleverd wat is afgesproken; we zijn niet aansprakelijk voor prijsverschillen die na de boeking aan het licht komen.',
+      ],
+    },
+    {
+      type: 'technical',
+      title: 'Volledige technische gegevens en documenten',
+      facts: [['Categorie', 'Trektocht met overnachtingen'], ['Vertrek', 'Lençóis'], ['Met de auto', '160 km'], ['Minimumleeftijd', '18 (minderjarigen met een wettelijke vertegenwoordiger)']],
+      requirements: ['Conditie voor klimmen en dalen op ruig terrein', 'Rivieren oversteken', 'Meerdere dagen achter elkaar lange afstanden lopen', 'Dieetwensen en de wens voor een eigen kamer doorgeven bij de boeking', 'Bevestigde boekingen worden niet in prijs aangepast'],
+      documents: [['Aansprakelijkheidsverklaring (pdf)', '/docs/termo-de-responsabilidade.pdf'], ['Classificatie van de moeilijkheidsgraad', '/nl/niveauclassificatie']],
     },
   ],
 };

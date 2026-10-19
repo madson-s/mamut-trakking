@@ -11,9 +11,10 @@ import {
   Text,
 } from '@/components/ui';
 import {
-  HOME_TESTIMONIALS,
   ScrollFeedbackStack,
+  homeTestimonials,
 } from '@/components/home/ScrollFeedbackStack';
+import { HOME_CONTENT } from '@/components/home/home-content';
 import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
 import { statValue } from './stat-values';
@@ -180,7 +181,7 @@ export function PatiExperience({
       <Itinerary c={c} a={a} />
       <Landmarks c={c} a={a} />
       <Pricing c={c} a={a} />
-      <TrustAndReviews c={c} />
+      <TrustAndReviews c={c} locale={locale} />
       <Faq c={c} faqs={faqs} />
       <FinalCta c={c} />
       <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} />
@@ -281,7 +282,7 @@ function BookingCard({ c, fromPrice }: { c: Pati3Content; fromPrice: number }) {
           <li>{c.hero.tripadvisor}</li>
           <li>{c.hero.sinal}</li>
         </ul>
-        <PatiBookingTrigger />
+        <PatiBookingTrigger label={c.hero.reservarAventura} />
         <div className="flex flex-col gap-3 border-t border-line-strong pt-6 text-center">
           <Text size="sm" weight="light" tone="muted">{c.hero.paraGrupos} <strong className="font-semibold">{c.hero.pessoas}</strong> {c.hero.ouMais}</Text>
           <Button href="#preco" variant="outline" block>{c.hero.verPrecos}</Button>
@@ -467,7 +468,7 @@ function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   );
 }
 
-function TrustAndReviews({ c }: { c: Pati3Content }) {
+function TrustAndReviews({ c, locale }: { c: Pati3Content; locale: Locale }) {
   return (
     <Section id="informacoes" padding="none" container={false} className="relative isolate overflow-x-clip border-y border-line max-lg:py-12 lg:pt-10">
       <Image
@@ -516,7 +517,7 @@ function TrustAndReviews({ c }: { c: Pati3Content }) {
           </div>
         </div>
 
-        <ScrollFeedbackStack testimonials={HOME_TESTIMONIALS} trailing={false} />
+        <ScrollFeedbackStack testimonials={homeTestimonials(HOME_CONTENT[locale].reviews.depoimentos)} trailing={false} />
       </Container>
     </Section>
   );

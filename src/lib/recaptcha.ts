@@ -14,6 +14,7 @@ const GOOGLE_HL: Record<Locale, string> = {
   en: 'en',
   es: 'es',
   fr: 'fr',
+  nl: 'nl',
 };
 
 export function recaptchaLinks(locale: Locale) {
@@ -55,5 +56,12 @@ export const RECAPTCHA_NOTA: Record<
     entre: ' et les ',
     termos: 'Conditions d’utilisation',
     depois: ' de Google s’appliquent.',
+  },
+  nl: {
+    antes: 'Deze site wordt beschermd door reCAPTCHA: het ',
+    privacidade: 'Privacybeleid',
+    entre: ' en de ',
+    termos: 'Servicevoorwaarden',
+    depois: ' van Google zijn van toepassing.',
   },
 };

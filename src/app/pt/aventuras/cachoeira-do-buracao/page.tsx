@@ -8,7 +8,7 @@ const CONTENT = BURACAO_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-buracao', en: '/en/adventures/buracao-waterfall', es: '/es/aventuras/cascada-do-buracao', fr: '/fr/aventures/cascade-du-buracao' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-buracao', en: '/en/adventures/buracao-waterfall', es: '/es/aventuras/cascada-do-buracao', fr: '/fr/aventures/cascade-du-buracao', nl: '/nl/avonturen/waterval-buracao' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

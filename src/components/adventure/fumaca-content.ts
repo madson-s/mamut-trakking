@@ -375,4 +375,88 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Fumaça',
+      description:
+        'De hoogste vrije val van Brazilië: 380 meter water dat in nevel verandert voordat het de grond raakt. Een pad van 12 km vanuit de Vale do Capão naar het uitkijkpunt.',
+      canonical: '/nl/avonturen/waterval-fumaca',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Zwaar',
+      origem: 'Vertrek: Vale do Capão',
+      duracao: '1 dag',
+      titulo: 'Waterval Fumaça.',
+      lead: 'Driehonderdtachtig meter vrije val — het water wordt rook voordat het landt.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Hoogte van de val', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Fumaça.',
+      paragrafos: [
+        'Met 380 meter is het de hoogste vrije val van Brazilië. De hoeveelheid water is klein vergeleken met die hoogte: halverwege grijpt de wind het watergordijn en maakt er nevel van — vandaar de naam, fumaça, rook. Een groot deel van het jaar bereikt het water de grond nooit.',
+        'Je bezoekt hem van bovenaf. Plat liggend op de rand van het uitkijkpunt opent de hele afgrond zich onder je, met de Vale do Capão erachter. Er zijn twee uitkijkpunten, allebei met zo’n 400 meter diepte onder je.',
+        'Het pad begint met het zwaarste stuk: zo’n uur klimmen over 2 km rots naar het plateau. Daarna wordt het terrein vlak en is de wandeling naar de rand makkelijk.',
+        'Tijdens onze tochten is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 8.00 uur uit Lençóis richting de Vale do Capão — zo’n 60 km met de auto, met stukken onverharde weg.',
+        'Het pad begint in de Capão. Het eerste uur is het zware deel: 2 km klimmen over rots, waarbij je snel hoogte wint tot je het plateau bereikt.',
+        'Bovenaan wordt het terrein open en vlak. De wandeling gaat verder over rotsig grasland, tussen strobloemen en zandsteenformaties, tot aan de rand van de canyon.',
+        'Aankomst bij de uitkijkpunten. Op de rand liggen en de diepte van 380 meter in kijken is de reden van de wandeling — er is tijd om even te blijven voor de picknick.',
+        'De terugweg gaat via dezelfde route, met aan het eind de afdaling over de rots. Laat in de middag terug in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 420', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 320', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      tabela: {
+        titulo: 'Volledige prijstabel',
+        colunaPessoas: 'Aantal personen',
+        pessoa: 'persoon',
+        pessoas: 'personen',
+        nota: 'Prijzen per persoon, in Braziliaanse real, bij betaling contant, per overboeking of met boleto.',
+      },
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (2 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Pet of hoed'],
+          ['Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen', 'Hoofdlamp'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Zwemkleding', 'Camera']],
+        note: 'Op het plateau is geen schaduw en de zon staat het grootste deel van de tocht vol op je. Hoed en zonnebrand zijn in de praktijk geen optie.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met EHBO-opleiding', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Vervoer (optioneel)', 'Picknick (optioneel)', 'Persoonlijke uitrusting', 'Toegangsprijs', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'Het uitkijkpunt is een onbeveiligde canyonrand met zo’n 400 meter diepte. Je nadert hem liggend, één voor één, altijd samen met de gids. Wie last heeft van hoogtevrees kan het pad toch lopen en van het dal genieten zonder naar de rand te gaan.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om water', 'in rook te zien veranderen?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

@@ -8,7 +8,7 @@ const CONTENT = SOSSEGO_CONTENT.fr;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-sossego', en: '/en/adventures/sossego-waterfall', es: '/es/aventuras/cascada-do-sossego', fr: '/fr/aventures/cascade-du-sossego' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-sossego', en: '/en/adventures/sossego-waterfall', es: '/es/aventuras/cascada-do-sossego', fr: '/fr/aventures/cascade-du-sossego', nl: '/nl/avonturen/waterval-sossego' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

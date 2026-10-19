@@ -5,7 +5,7 @@
  * PT vem de mamut.agency/pacote-personalizado/pacote-{3,4,6}-dias e EN de
  * mamut.agency/en/pacote-personalizado/{3-days-package-chapada-special,
  * 4-days-package-stunning-chapada, 6-days-package-extraordinary-chapada}.
- * ES e FR são traduções feitas aqui.
+ * ES, FR e NL são traduções feitas aqui.
  *
  * Os pacotes são combinações de passeios que o site já tem em página própria
  * (Muritiba, Mosquito + Pai Inácio, Grutas + Pratinha, Marimbus, Vale do Pati,
@@ -183,6 +183,26 @@ const DIAS_BASE: Record<Locale, [Omit<Dia, 'rotulo'>, Omit<Dia, 'rotulo'>, Omit<
       esforco: 'Facile',
     },
   ],
+  nl: [
+    {
+      titulo: 'Parque da Muritiba',
+      corpo: 'Je kunt op elk moment tussen 8.00 en 14.00 uur vertrekken — het circuit duurt 4 tot 5 uur en begint bij het toeristeninformatiecentrum (CAT), vanwaar je de hele route al ziet liggen. Na 5 minuten komen we bij de natuurlijke baden van de Serrano, met door het water gladgeslepen conglomeraat en kleine watervallen. Nog 15 minuten en we lopen het labyrint van de Salão das Areias Coloridas in, waar insijpelend water de rots poreus en zanderig heeft gemaakt. Daarna volgen de Poço Halley, met gekleurde klei om mee te spelen, de Waterval Primavera, de Poço Paraíso en het uitkijkpunt over Lençóis, vanwaar je het hele stadje ziet en een horizon die eindeloos lijkt. De afdaling eindigt bij de Cachoeirinha, met kristalhelder water.',
+      distancia: '4 km',
+      esforco: 'Licht / Gemiddeld',
+    },
+    {
+      titulo: 'Waterval Mosquito + Poço do Diabo + Morro do Pai Inácio',
+      corpo: 'Om 8.00 uur vertrekken we uit Lençóis naar de Fazenda Santo Antônio: 40 km met de auto, zo’n uur, en 700 meter lopen naar de voet van de Waterval Mosquito. Na het zwemmen nog 28 km naar de zwemplek van de Mucugêzinho en 15 minuten lopen naar de Poço do Diabo, een enorm natuurlijk bad met donker, koud water, waar we tot 16.00 uur blijven. Nog 5 km met de auto en een klim van 300 meter, zo’n 20 minuten, naar de top van de Morro do Pai Inácio — daarboven vertelt de gids de legende waar de berg zijn naam aan dankt. Terug naar Lençóis over de BR-242, met de bergrug naast je.',
+      distancia: '4 km',
+      esforco: 'Licht',
+    },
+    {
+      titulo: 'Gruta da Fumaça + Pratinha + Gruta Azul + Morro do Camelo',
+      corpo: 'Vertrek om 8.00 uur naar Iraquara, een uur van Lençóis. De eerste stop is de Gruta da Fumaça, een van de grotten met de meest complete formaties van Brazilië. Vandaar gaan we naar de Fazenda Pratinha, aan de rivier met dezelfde naam — snorkelen, onderwaterfoto’s, kajakken en de zipline zijn optioneel en betaal je ter plekke. Om 15.00 uur gaan we de Gruta Azul in, waar het middaglicht voor het schouwspel zorgt. Rond 16.30 uur rijden we nog 40 minuten naar het uitkijkpunt op de Morro do Camelo, voor de zonsondergang. Aankomst in Lençóis rond 18.30 uur.',
+      distancia: '2 km',
+      esforco: 'Licht',
+    },
+  ],
 };
 
 const DIA_MARIMBUS: Record<Locale, Omit<Dia, 'rotulo'>> = {
@@ -210,6 +230,12 @@ const DIA_MARIMBUS: Record<Locale, Omit<Dia, 'rotulo'>> = {
     distancia: '8 km',
     esforco: 'Facile',
   },
+  nl: {
+    titulo: 'Moeras van Marimbus + Poços do Roncador',
+    corpo: 'Vertrek om 8.00 uur naar de quilombola-gemeenschap Remanso, op 20 km. Vandaar peddelen we 9 km per kano — zo’n 2 uur — door het moeras van Marimbus, met kans op anaconda’s, kaaimannen en brulapen, plus veel vogels en waterplanten. We gaan aan land en lopen 30 minuten naar de natuurlijke baden van de Roncador. Halverwege de middag brengt een pad van 40 minuten ons terug naar de auto.',
+    distancia: '8 km',
+    esforco: 'Licht',
+  },
 };
 
 const ROTULO: Record<Locale, (n: number) => string> = {
@@ -217,6 +243,7 @@ const ROTULO: Record<Locale, (n: number) => string> = {
   en: (n) => `Day ${n}`,
   es: (n) => `${n}º día`,
   fr: (n) => `Jour ${n}`,
+  nl: (n) => `Dag ${n}`,
 };
 
 function numerar(locale: Locale, dias: Omit<Dia, 'rotulo'>[]): Dia[] {
@@ -376,6 +403,38 @@ const COMUM: Record<
       botao: 'Parler avec Mamut',
     },
   },
+  nl: {
+    hero: { origem: 'Vertrek: Lençóis', apartirDe: 'Vanaf', porPessoa: '/ persoon', reservar: 'Boek via WhatsApp' },
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Het pakket is ook aan te passen: wil je een dag ruilen of een andere combinatie samenstellen? Praat met ons.',
+    },
+    precosTitulo: 'Kies de vorm die bij je groep past.',
+    precosNota: 'Prijzen per persoon bij betaling contant, per overboeking of met boleto. Creditcard, internationale overboeking of een grotere groep: neem contact met ons op.',
+    privado: { titulo: 'Privépakket', nota: 'Minimaal 2 personen. Alleen jouw groep op de route.' },
+    grupo: { titulo: 'In een groep', nota: 'Van 2 tot 7 personen. Speciale voorwaarden voor groepen — vraag het ons.' },
+    faqTitulo: 'Alles wat je moet weten.',
+    relacionados: 'Andere avonturen.',
+    checklistTitulo: 'Checklist — wat neem je mee',
+    checklistIntro: 'De verplichte items worden voor de activiteiten gecontroleerd: ontbreekt er één, dan kun je niet deelnemen.',
+    incluidoTitulo: 'Wat is inbegrepen / niet inbegrepen',
+    tecnicaTitulo: 'Technische gegevens en vereisten',
+    labels: { requirements: 'Vereisten', documents: 'Documenten' },
+    documentos: [
+      ['Aansprakelijkheidsverklaring (pdf)', '/docs/termo-de-responsabilidade.pdf'],
+      ['Classificatie van de moeilijkheidsgraad', '/nl/niveauclassificatie'],
+    ],
+    requisitosFinais: [
+      'Je moet ouder zijn dan 18. Minderjarigen alleen samen met hun wettelijke vertegenwoordiger.',
+      'Geef dieetwensen door bij de boeking.',
+      'Prijzen kunnen veranderen — al bevestigde boekingen worden niet aangepast.',
+    ],
+    cta: {
+      titulo: ['Een paar dagen,', 'de hele Chapada.'],
+      corpo: 'Vertel ons met hoeveel mensen je komt, welke data je in gedachten hebt en wat je het liefst wilt zien — dan stellen we het pakket samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };
 
 /** Checklist dos pacotes sem pernoite em trilha (3 e 4 dias). */
@@ -412,6 +471,14 @@ const CHECKLIST_LEVE: Record<Locale, Pick<Extract<PatiFaqItem, { type: 'checklis
     recommendedColumns: [['Serviette fine', 'Imperméable (renseignez-vous auprès de l’agence)', 'Bâton de marche'], ['En-cas ou fruit', 'Espèces pour les boissons']],
     note: 'Chaque jour, il y a une baignade en cascade ou en bassin : gardez maillot et serviette dans votre petit sac à dos.',
   },
+  nl: {
+    requiredColumns: [
+      ['Water (1,5 L per persoon)', 'Wandelschoenen', 'Extra sokken', 'Twee sets lichte kleding', 'Zwemkleding', 'Pet of hoed'],
+      ['Zonnebrand', 'Insectenwerend middel', 'Persoonlijke medicijnen', 'Identiteitsbewijs', 'Rugzak voor je spullen', 'Zaklamp'],
+    ],
+    recommendedColumns: [['Dunne handdoek', 'Regenjas (vraag het ons)', 'Wandelstok'], ['Snack of fruit', 'Contant geld voor drankjes']],
+    note: 'Elke dag zwem je bij een waterval of in een poel: houd je zwemkleding en handdoek in je dagrugzak.',
+  },
 };
 
 const INCLUIDO_LEVE: Record<Locale, { included: string[]; excluded: string[] }> = {
@@ -431,6 +498,10 @@ const INCLUIDO_LEVE: Record<Locale, { included: string[]; excluded: string[] }> 
     included: ['Guide touristique de Mamut', 'Transferts entre Lençóis et les sites', 'Droits d’entrée sur tous les sites', 'Assurance aventure', 'Trousse de premiers secours'],
     excluded: ['Tout ce qui n’est pas listé', 'Hébergement — si besoin, nous l’ajoutons', 'Activités optionnelles de la Fazenda Pratinha (snorkeling, kayak, tyrolienne)', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Porteurs personnels', 'Hôtels et repas avant et après les activités', 'Pourboires pour services supplémentaires (photos et autres aides)'],
   },
+  nl: {
+    included: ['Gids van Mamut', 'Transfers tussen Lençóis en de bezienswaardigheden', 'Entreegelden op alle plekken', 'Avonturenverzekering', 'EHBO-kit'],
+    excluded: ['Alles wat niet in de lijst staat', 'Overnachting — die voegen we toe als je wilt', 'Optionele activiteiten op de Fazenda Pratinha (snorkelen, kajak, zipline)', 'Extra drankjes', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Persoonlijke dragers', 'Hotels en maaltijden voor en na de activiteiten', 'Fooien voor extra diensten (foto’s en andere hulp)'],
+  },
 };
 
 const RISCO_LEVE: Record<Locale, string> = {
@@ -438,6 +509,7 @@ const RISCO_LEVE: Record<Locale, string> = {
   en: 'These are days by car with short walks, but there are swims in deep, cold pools such as Poço do Diabo, and slippery rock around the waterfalls. Go into the water with the group and follow the guide’s lead.',
   es: 'Son días en auto con caminatas cortas, pero hay baños en pozos hondos y helados, como el Poço do Diabo, y piedra resbaladiza al borde de las cascadas. Entrá al agua con el grupo y seguí la indicación del conductor.',
   fr: 'Ce sont des journées en voiture avec de courtes marches, mais on se baigne dans des bassins profonds et glacés, comme le Poço do Diabo, et la roche est glissante au bord des cascades. Entrez dans l’eau avec le groupe et suivez les consignes du guide.',
+  nl: 'Het zijn dagen met de auto en korte wandelingen, maar je zwemt in diepe, koude poelen zoals de Poço do Diabo, en de rots aan de rand van de watervallen is glad. Ga samen met de groep het water in en volg de aanwijzingen van de gids.',
 };
 
 const FITNESS_LEVE: Record<Locale, string> = {
@@ -445,6 +517,7 @@ const FITNESS_LEVE: Record<Locale, string> = {
   en: 'Fitness for steep ascents and descents on rough ground and for crossing streams.',
   es: 'Estado físico para subidas y bajadas empinadas en terreno accidentado y cruce de arroyos.',
   fr: 'Une condition physique permettant d’enchaîner montées et descentes raides sur terrain accidenté et de traverser des ruisseaux.',
+  nl: 'Conditie voor steile klimmen en afdalingen op ruig terrein en voor het oversteken van beken.',
 };
 
 /** Monta a página de um pacote "leve" (3 ou 4 dias, base em Lençóis). */
@@ -466,12 +539,13 @@ function pacoteLeve(
   const c = COMUM[locale];
   return {
     meta: p.meta,
-    hero: { ...c.hero, nivel: { pt: 'Leve / Moderado', en: 'Light / Moderate', es: 'Leve / Moderado', fr: 'Facile / Modéré' }[locale], duracao: p.duracao, titulo: p.titulo, lead: p.lead },
+    hero: { ...c.hero, nivel: { pt: 'Leve / Moderado', en: 'Light / Moderate', es: 'Leve / Moderado', fr: 'Facile / Modéré', nl: 'Licht / Gemiddeld' }[locale], duracao: p.duracao, titulo: p.titulo, lead: p.lead },
     stats: {
       pt: ['Distância a pé', 'Percurso de carro', 'Atrativos', 'Saída (Lençóis)', 'Retorno'],
       en: ['Distance on foot', 'Drive', 'Sights', 'Departure (Lençóis)', 'Return'],
       es: ['Distancia a pie', 'Recorrido en auto', 'Atractivos', 'Salida (Lençóis)', 'Regreso'],
       fr: ['Distance à pied', 'Trajet en voiture', 'Sites', 'Départ (Lençóis)', 'Retour'],
+      nl: ['Afstand te voet', 'Met de auto', 'Bezienswaardigheden', 'Vertrek (Lençóis)', 'Terugkeer'],
     }[locale],
     sobre: p.sobre,
     itinerario: { ...c.itinerario, corpo: [], dias: numerar(locale, p.dias) },
@@ -512,6 +586,7 @@ const ATRATIVOS_3: Record<Locale, string> = {
   en: 'Muritiba Park, Salão das Areias Coloridas, Primavera Waterfall, Cachoeirinha, Mosquito Waterfall, Poço do Diabo, Mucugêzinho River, Pai Inácio Hill, Fazenda Pratinha, Blue Cave, Gruta da Fumaça and the Morro do Camelo lookout',
   es: 'Parque da Muritiba, Salão das Areias Coloridas, Cascada de la Primavera, Cachoeirinha, Cascada del Mosquito, Poço do Diabo, Río Mucugêzinho, Morro do Pai Inácio, Fazenda Pratinha, Gruta Azul, Gruta da Fumaça y Mirador del Morro do Camelo',
   fr: 'Parc de la Muritiba, Salão das Areias Coloridas, cascade da Primavera, Cachoeirinha, cascade du Mosquito, Poço do Diabo, rivière Mucugêzinho, Morro do Pai Inácio, Fazenda Pratinha, Gruta Azul, Gruta da Fumaça et le belvédère du Morro do Camelo',
+  nl: 'Parque da Muritiba, Salão das Areias Coloridas, Waterval Primavera, Cachoeirinha, Waterval Mosquito, Poço do Diabo, rivier de Mucugêzinho, Morro do Pai Inácio, Fazenda Pratinha, Gruta Azul, Gruta da Fumaça en het uitkijkpunt op de Morro do Camelo',
 };
 
 export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
@@ -636,6 +711,37 @@ export const PACOTE_3_CONTENT: Record<Locale, DayTourContent> = {
       ['Sites', ATRATIVOS_3.fr],
       ['Hébergement', 'Non inclus — si besoin, nous l’ajoutons'],
       ['Départ / retour', '8h00 / 18h00'],
+    ],
+    relacionados: ['chapada-deslumbrante-4-dias', 'chapada-extraordinaria-6-dias', 'vale-do-pati-3-dias'],
+  }),
+  nl: pacoteLeve('nl', {
+    meta: {
+      title: 'Pakket Chapada Especial — 3 dagen',
+      description: 'Drie dagen met Lençóis als uitvalsbasis: Parque da Muritiba, Waterval Mosquito, Morro do Pai Inácio, Gruta da Fumaça, Pratinha en de zonsondergang op de Morro do Camelo.',
+      canonical: '/nl/avonturen/pakket-3-dagen',
+    },
+    duracao: '3 dagen',
+    titulo: 'Chapada Especial in 3 dagen.',
+    lead: 'Watervallen, grotten, uitkijkpunten en korte paden — het beste van de Chapada als je weinig tijd hebt.',
+    sobre: {
+      titulo: 'Over het pakket.',
+      paragrafos: [
+        'Het is de juiste keuze als je maar kort in de Chapada Diamantina bent en de bijzonderste plekken van de regio wilt zien. In drie dagen combineert het pakket wandelen, watervallen, grotten en uitkijkpunten.',
+        'Elke dag begint in Lençóis. De eerste dag breng je door in het Parque da Muritiba, vlak naast het stadje: daar stelt de gids je voor aan de Chapada — de geschiedenis, de geologie, de tijd van de diamantzoekers en wetenswaardigheden over planten en dieren. Het is je introductie tot de regio.',
+        'De dagen erna gaan we wat verder weg, met de auto, met korte wandelingen: de Waterval Mosquito, de Poço do Diabo en de Pai Inácio op de ene dag; de Gruta da Fumaça, de Pratinha, de Gruta Azul en de zonsondergang op de Morro do Camelo op de andere.',
+      ],
+    },
+    dias: [...DIAS_BASE.nl],
+    privado: 'R$ 1.750',
+    grupo: 'R$ 1.500',
+    facts: [
+      ['Categorie', 'Dagtochten met Lençóis als uitvalsbasis'],
+      ['Afstand te voet', '7 km'],
+      ['Met de auto', '250 km'],
+      ['Inspanning', 'Licht / Gemiddeld'],
+      ['Bezienswaardigheden', ATRATIVOS_3.nl],
+      ['Overnachting', 'Niet inbegrepen — die voegen we toe als je wilt'],
+      ['Vertrek / terugkeer', '8.00 / 18.00 uur'],
     ],
     relacionados: ['chapada-deslumbrante-4-dias', 'chapada-extraordinaria-6-dias', 'vale-do-pati-3-dias'],
   }),
@@ -766,6 +872,36 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
     ],
     relacionados: ['chapada-especial-3-dias', 'chapada-extraordinaria-6-dias', 'pantanal-marimbus'],
   }),
+  nl: pacoteLeve('nl', {
+    meta: {
+      title: 'Pakket Chapada Deslumbrante — 4 dagen',
+      description: 'Vier dagen met Lençóis als uitvalsbasis: Muritiba, Mosquito, Pai Inácio, Gruta da Fumaça, Pratinha en een dag per kano door het moeras van Marimbus naar de Poços do Roncador.',
+      canonical: '/nl/avonturen/pakket-4-dagen',
+    },
+    duracao: '4 dagen',
+    titulo: 'Chapada Deslumbrante in 4 dagen.',
+    lead: 'De klassiekers van de Chapada, plus een dag per kano door het moeras van Marimbus.',
+    sobre: {
+      titulo: 'Over het pakket.',
+      paragrafos: [
+        'Voor wie maar een paar dagen in de Chapada Diamantina heeft en de bijzonderste plekken van de regio wil zien. In vier dagen combineert het pakket wandelen, watervallen, grotten, uitkijkpunten en een boottocht.',
+        'Elke dag begint in Lençóis. De eerste dag breng je door in het Parque da Muritiba, vlak naast het stadje: daar stelt de gids je voor aan de Chapada — de geschiedenis, de geologie, de tijd van de diamantzoekers en wetenswaardigheden over planten en dieren.',
+        'De dagen erna gaan we wat verder weg: de Waterval Mosquito en de Pai Inácio; grotten, de Pratinha en de zonsondergang op de Morro do Camelo; en als afsluiter de kanotocht door het moeras van Marimbus naar de Poços do Roncador.',
+      ],
+    },
+    dias: [...DIAS_BASE.nl, DIA_MARIMBUS.nl],
+    privado: 'R$ 3.100',
+    facts: [
+      ['Categorie', 'Dagtochten met Lençóis als uitvalsbasis'],
+      ['Afstand te voet', '15 km'],
+      ['Met de auto', '290 km'],
+      ['Inspanning', 'Licht / Gemiddeld'],
+      ['Bezienswaardigheden', `${ATRATIVOS_3.nl.replace(' en het uitkijkpunt', ', het uitkijkpunt')}, het moeras van Marimbus en de Poços do Roncador`],
+      ['Overnachting', 'Niet inbegrepen — die voegen we toe als je wilt'],
+      ['Vertrek / terugkeer', '8.00 / 18.00 uur'],
+    ],
+    relacionados: ['chapada-especial-3-dias', 'chapada-extraordinaria-6-dias', 'pantanal-marimbus'],
+  }),
 };
 
 /* ------------------------------------------------------------------------ */
@@ -777,6 +913,7 @@ const STATS_6: Record<Locale, string[]> = {
   en: ['Distance on foot', 'Drive', 'Nights included', 'Places to swim', 'Departure (Lençóis)'],
   es: ['Distancia a pie', 'Recorrido en auto', 'Noches de alojamiento', 'Lugares para bañarse', 'Salida (Lençóis)'],
   fr: ['Distance à pied', 'Trajet en voiture', 'Nuits d’hébergement', 'Lieux de baignade', 'Départ (Lençóis)'],
+  nl: ['Afstand te voet', 'Met de auto', 'Nachten inbegrepen', 'Zwemplekken', 'Vertrek (Lençóis)'],
 };
 
 const DIAS_6: Record<Locale, Omit<Dia, 'rotulo'>[]> = {
@@ -932,6 +1069,44 @@ const DIAS_6: Record<Locale, Omit<Dia, 'rotulo'>[]> = {
       esforco: 'Facile',
     },
   ],
+  nl: [
+    {
+      titulo: 'Uitkijkpunt Pati + Igrejinha',
+      corpo: 'Om 7.30 uur vertrekken we uit Lençóis naar het dorp Guiné, waar het pad begint. Het is zo’n 3 uur — 1 uur steil klimmen en 2 uur over vlak terrein — naar het klassieke uitkijkpunt over de Vale do Pati. Na een snack nog anderhalf uur naar Igrejinha, waar Sr. João en zijn familie de groep ontvangen in hun gastenverblijf.',
+      distancia: '12 km',
+      esforco: 'Gemiddeld',
+    },
+    {
+      titulo: 'Morro do Castelo + watervallen',
+      corpo: 'Na een stevig ontbijt vertrekken we om 8.00 uur naar de Morro do Castelo — de zwaarste dag, met een klim tot boven de 1.200 m. Op de top zijn drie uitkijkpunten en de Gruta da Lapinha, een van de zeldzaamste grotten ter wereld, op meer dan 1.000 m. We gaan via een andere weg terug, langs de watervallen Lajes en Funis, en komen rond 18.00 uur aan in Igrejinha.',
+      distancia: '18 km',
+      esforco: 'Zwaar',
+    },
+    {
+      titulo: 'Cachoeirão + Aleixos',
+      corpo: 'We nemen afscheid van onze gastheren en vertrekken om 8.00 uur. Zo’n 3 uur naar het uitkijkpunt Cachoeirão, met een val van ongeveer 280 m — in het regenseizoen kun je tot 16 watervallen rondom het dal tellen. Na een snack die de gids klaarmaakt, lopen we verder door de Gerais do Vieira naar de afdaling van de Aleixos, waar rond 17.00 uur de auto klaarstaat voor de transfer naar Baixão, in Ibicoara.',
+      distancia: '15 km',
+      esforco: 'Gemiddeld',
+    },
+    {
+      titulo: 'Waterval Buracão + Recanto Verde + Orquídeas',
+      corpo: 'Dertig minuten met de auto naar het begin van het pad en 3 km naar de top van de Waterval Buracão, onderweg met een duik bij de watervallen Recanto Verde en Orquídeas. Het pad is rustig, met een paar steile stukken en trappen. Aan de rand van de canyon leidt een houten trap naar de rivier, en vandaar zwem of klauter je naar de waterval, die een kristalhelder bad heeft om in te zwemmen. Op de terugweg een regionale lunch, gekookt door mensen uit de buurt bij de ingang van het park, en dan terug naar het gastenverblijf in Baixão. Abseilen is optioneel.',
+      distancia: '6 km',
+      esforco: 'Licht / Gemiddeld',
+    },
+    {
+      titulo: 'Waterval Fumacinha + Waterval Encontro',
+      corpo: 'De wandeling begint in de cerrado en volgt paden en onverharde wegen naar de rivierbedding, die vervolgens het pad wordt — met stops om te zwemmen in poelen en kleine watervallen. Het laatste stuk is het zwaarst: op en neer door canyons met wanden van meer dan 100 m hoog, en sommige passages vragen om veiligheidsuitrusting. Bij de Fumacinha is er tijd om uit te rusten en alles in je op te nemen; de terugweg gaat via dezelfde route. Laat in de middag transfer van Baixão naar Mucugê.',
+      distancia: '18 km',
+      esforco: 'Zwaar',
+    },
+    {
+      titulo: 'Poço Encantado + Poço Azul',
+      corpo: 'De lichtste dag, na een paar intensieve dagen. Na het ontbijt rijden we naar de Poço Encantado, een enorm ondergronds bad met kristalhelder water dat blauw oplicht — hier kijk je alleen: zwemmen is verboden om de formaties te beschermen. Na de lunch de Poço Azul, vergelijkbaar, maar hier kun je drijven boven zo’n 20 m helder water, waar fossielen van reuzenluiaards en sabeltandkatten zijn gevonden. Tot slot zo’n 2 uur met de auto naar Lençóis, waar het pakket eindigt.',
+      distancia: 'Korte stukken',
+      esforco: 'Licht',
+    },
+  ],
 };
 
 const CHECKLIST_6: Record<Locale, Pick<Extract<PatiFaqItem, { type: 'checklist' }>, 'requiredColumns' | 'recommendedColumns' | 'note'>> = {
@@ -967,6 +1142,14 @@ const CHECKLIST_6: Record<Locale, Pick<Extract<PatiFaqItem, { type: 'checklist' 
     recommendedColumns: [['Serviette fine', 'Bâton de marche'], ['En-cas ou fruit', 'Espèces pour les boissons']],
     note: 'Pendant les trois jours dans le Pati, vous portez votre propre sac : plus il est léger, mieux c’est. Si vous préférez ne pas porter de charge, renseignez-vous sur l’option porteur ou mule.',
   },
+  nl: {
+    requiredColumns: [
+      ['Water (1,5 L per persoon)', 'Wandelschoenen', 'Extra sokken', 'Twee sets lichte kleding', 'Zwemkleding', 'Nachtkleding (het kan 15 °C worden)', 'Pet of hoed'],
+      ['Zonnebrand', 'Insectenwerend middel', 'Persoonlijke medicijnen', 'Identiteitsbewijs', 'Trekkingrugzak (40 L of meer)', 'Dagrugzak (10 L of meer)', 'Regenjas', 'Zaklamp'],
+    ],
+    recommendedColumns: [['Dunne handdoek', 'Wandelstok'], ['Snack of fruit', 'Contant geld voor drankjes']],
+    note: 'Tijdens de drie dagen in de Pati draag je je eigen rugzak: hoe lichter, hoe beter. Wil je liever geen gewicht dragen, vraag dan naar een drager of een muilezel.',
+  },
 };
 
 const INCLUIDO_6: Record<Locale, { included: string[]; excluded: string[] }> = {
@@ -986,6 +1169,10 @@ const INCLUIDO_6: Record<Locale, { included: string[]; excluded: string[] }> = {
     included: ['Guide de montagne bilingue formé WAFA (selon disponibilité)', 'Balise satellite SPOT X (selon disponibilité)', 'Transferts Lençóis × Guiné × Ibicoara × Mucugê × Lençóis', 'Hébergement (5 nuits)', 'Repas pendant le forfait — signalez vos restrictions', 'Assurance aventure', 'Trousse de premiers secours'],
     excluded: ['Tout ce qui n’est pas listé', 'Petit-déjeuner du 1er jour', 'Dîner des 5e et 6e jours', 'Boissons supplémentaires', 'Équipement personnel', 'Évacuation médicale', 'Porteur personnel ou mules', 'Hôtels et repas avant et après le forfait', 'Pourboires pour services supplémentaires (photos et autres aides)'],
   },
+  nl: {
+    included: ['Tweetalige berggids met WAFA-opleiding (afhankelijk van beschikbaarheid)', 'SPOT X-satelliettracker (afhankelijk van beschikbaarheid)', 'Transfers Lençóis × Guiné × Ibicoara × Mucugê × Lençóis', 'Overnachting (5 nachten)', 'Maaltijden tijdens het pakket — geef dieetwensen door', 'Avonturenverzekering', 'EHBO-kit'],
+    excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Avondeten op dag 5 en 6', 'Extra drankjes', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Persoonlijke drager of muilezels', 'Hotels en maaltijden voor en na het pakket', 'Fooien voor extra diensten (foto’s en andere hulp)'],
+  },
 };
 
 const RISCO_6: Record<Locale, string> = {
@@ -993,6 +1180,7 @@ const RISCO_6: Record<Locale, string> = {
   en: 'The first three days are a trek inside the Pati Valley, far from any road. Morro do Castelo and Fumacinha are the most demanding stretches, with steep climbs, riverbed walking and passages that call for safety gear — and that is where a rescue takes longest.',
   es: 'Los tres primeros días son trekking dentro del Valle del Pati, lejos de cualquier ruta. El Morro do Castelo y la Fumacinha son los tramos más exigentes, con subidas fuertes, lecho de río y pasos que piden equipo de seguridad — y es ahí donde un rescate más tarda.',
   fr: 'Les trois premiers jours sont un trek au cœur de la vallée du Pati, loin de toute route. Le Morro do Castelo et la Fumacinha sont les portions les plus exigeantes, avec de fortes montées, de la marche dans le lit de la rivière et des passages qui demandent un équipement de sécurité — et c’est là qu’un secours met le plus de temps à arriver.',
+  nl: 'De eerste drie dagen zijn een trektocht door de Vale do Pati, ver van elke weg. De Morro do Castelo en de Fumacinha zijn de zwaarste stukken, met steile klimmen, lopen door de rivierbedding en passages die om veiligheidsuitrusting vragen — en juist daar duurt een redding het langst.',
 };
 
 function pacote6(
@@ -1043,7 +1231,7 @@ function pacote6(
     relacionados: { titulo: c.relacionados, ids: ['vale-do-pati-3-dias', 'cachoeira-da-fumacinha', 'cachoeira-do-buracao'] },
     cta: {
       ...c.cta,
-      titulo: { pt: ['Seis dias,', 'a Chapada de ponta a ponta.'], en: ['Six days,', 'the Chapada end to end.'], es: ['Seis días,', 'la Chapada de punta a punta.'], fr: ['Six jours,', 'la Chapada de bout en bout.'] }[locale] as [string, string],
+      titulo: { pt: ['Seis dias,', 'a Chapada de ponta a ponta.'], en: ['Six days,', 'the Chapada end to end.'], es: ['Seis días,', 'la Chapada de punta a punta.'], fr: ['Six jours,', 'la Chapada de bout en bout.'], nl: ['Zes dagen,', 'de Chapada van begin tot eind.'] }[locale] as [string, string],
     },
   };
 }
@@ -1176,5 +1364,37 @@ export const PACOTE_6_CONTENT: Record<Locale, DayTourContent> = {
       ['Départ / retour', '7h30 / 20h00'],
     ],
     fitness: 'Une condition physique permettant d’enchaîner montées et descentes raides sur terrain accidenté, traversées de rivières et de ruisseaux, passages d’escalade facile et longues distances.',
+  }),
+  nl: pacote6('nl', {
+    meta: {
+      title: 'Pakket Chapada Extraordinária — 6 dagen',
+      description: 'Zes dagen, waarvan drie trekken door de Vale do Pati, plus de Waterval Buracão, de Waterval Fumacinha, de Poço Encantado en de Poço Azul. Overnachting en maaltijden inbegrepen.',
+      canonical: '/nl/avonturen/pakket-6-dagen',
+    },
+    nivel: 'Gemiddeld / Zwaar',
+    duracao: '6 dagen',
+    titulo: 'Chapada Extraordinária in 6 dagen.',
+    lead: 'Drie dagen Vale do Pati, de canyons van de Buracão en de Fumacinha, en de blauwe poelen in het zuiden van de Chapada.',
+    sobre: {
+      titulo: 'Over het pakket.',
+      paragrafos: [
+        'Voor wie meer tijd in de Chapada Diamantina heeft en de meest iconische plekken van de regio wil leren kennen. In zes dagen combineert het pakket trekking, canyoning, kleinschalig toerisme met lokale gemeenschappen en de indrukwekkendste bezienswaardigheden van de streek.',
+        'Het begint in Lençóis, met de mogelijkheid van een transfer vanuit Palmeiras of het dorp Guiné (Mucugê). De eerste drie dagen volgen de klassieke route door de Vale do Pati: het uitkijkpunt Rampa, Igrejinha, de Morro do Castelo, de Gruta da Lapinha, de Waterval Funis en de Cachoeirão van bovenaf, met overnachtingen bij lokale families.',
+        'Daarna verhuist de uitvalsbasis naar het platteland rond Ibicoara, vanwaar we de Waterval Buracão bereiken (met optioneel abseilen) en, de dag erna, de Waterval Fumacinha. Op de laatste dag gaan we terug naar Lençóis via de Poço Encantado en de Poço Azul.',
+      ],
+    },
+    precos: ['R$ 4.950', 'R$ 4.650'],
+    grupoNota: 'Van 2 tot 7 personen. Speciale voorwaarden voor groepen — vraag het ons.',
+    facts: [
+      ['Categorie', 'Trektocht + dagtochten'],
+      ['Afstand te voet', '57 km'],
+      ['Met de auto', '510 km'],
+      ['Inspanning', 'Gemiddeld / Zwaar'],
+      ['Bezienswaardigheden', 'Vale do Pati (3 dagen), Waterval Buracão, Waterval Fumacinha, Poço Encantado en Poço Azul'],
+      ['Overnachting', 'Gedeelde kamer bij lokale families in de Pati (laat het weten als je een eigen kamer nodig hebt); eigen kamers met badkamer in Ibicoara en Mucugê'],
+      ['Zwemplekken', '8'],
+      ['Vertrek / terugkeer', '7.30 / 20.00 uur'],
+    ],
+    fitness: 'Conditie voor steile klimmen en afdalingen op ruig terrein, het oversteken van rivieren en beken, klauteren en lange afstanden.',
   }),
 };

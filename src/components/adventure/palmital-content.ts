@@ -446,4 +446,107 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Palmital — 2 dagen',
+      description:
+        'Twee dagen over de ruige paden van de oude diamantmijnen, met een nacht in de tent aan de rivier. Waterval Palmital en Waterval Capivara.',
+      canonical: '/nl/avonturen/waterval-palmital',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Zwaar',
+      origem: 'Vertrek: Lençóis',
+      duracao: '2 dagen',
+      titulo: 'Waterval Palmital.',
+      lead: 'Twee dagen over de oude routes van de goudzoekers, met een nacht in de tent aan de rivier.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Watervallen', 'Waar je slaapt', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Palmital.',
+      paragrafos: [
+        'Een van de meest traditionele mijnroutes van de Chapada Diamantina, langs twee watervallen: Palmital en Capivara. De paden zijn oud en ruig, binnen het Nationaal Park, met oneffen en gladde stukken.',
+        'De tocht vertelt over het dagelijks leven en de technieken van de vroegere diamantwinning in de regio — inclusief een nacht in de oude "tocas", de schuilplaatsen van de mijnwerkers. Het is een reis die in gelijke mate natuur en cultuur laat beleven.',
+        'Het is de juiste keuze voor wie maar een paar dagen in de Chapada heeft en toch een wilde trektocht wil, of voor wie drukte wil vermijden: deze route is echt rustig.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.nl,
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is flexibel en kent verschillende in- en uitstappunten — vraag ons naar de mogelijkheden.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Dag 1',
+          titulo: 'Serra do Veneno + Toca da Onça + Waterval Palmital',
+          corpo: 'Vertrek vanaf 6.00 uur uit het centrum van Lençóis, met alle bagage op de rug, richting het pad van de Ribeirão do Meio. Veertig minuten over overwegend vlak terrein naar de rivier de Ribeirão, die we oversteken om aan de klim van de Serra do Veneno te beginnen — een oude mijnplek, zo’n 2 uur flink stijgen. De eerste stop is de Toca da Onça, een uitkijkpunt over de Waterval Capivari en de samenvloeiing van de rivieren Capivara en Capivari. Nog een uur naar het basiskamp bij de Waterval Palmital, en de rest van de dag is voor de watervallen. Avondeten rond 19.00 uur.',
+          distancia: '9 km',
+          esforco: 'Gemiddeld / Zwaar',
+        },
+        {
+          rotulo: 'Dag 2',
+          titulo: 'Waterval Capivara + Ribeirão do Meio',
+          corpo: 'Na het ontbijt dat de gids klaarmaakt, lopen we 30 minuten de hoofdrivier op — alleen met een dagrugzak — naar de Waterval Capivara, waar we de rest van de ochtend blijven. Na de picknicklunch pakken we in en gaan we via dezelfde route terug, opnieuw langs de Toca da Onça en de Serra do Veneno. Onderweg naar beneden stoppen we bij de Ribeirão do Meio, met zijn natuurlijke glijbaan, gladgeslepen in de rots. Nog 40 minuten en we zijn rond 17.00 uur terug in het centrum van Lençóis.',
+          distancia: '13 km',
+          esforco: 'Licht / Gemiddeld',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 1.600', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 1.350', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      wildTrekChecklist('nl', WILD_TREK_PORTER.nl),
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Berggids met EHBO-opleiding', 'Kampeeruitrusting: tent, slaapzak en isolatiemat', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na het pad'],
+        excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Avondeten op dag 2', 'Transfer vanaf Salvador (optioneel)', 'Persoonlijke drager of muilezels (optioneel)', 'Extra drankjes', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting en maaltijden voor of na de trektocht', 'Fooien voor extra diensten'],
+      },
+      safetyFaq(
+        'nl',
+        'De paden zijn ruig, met oneffen en gladde stukken — deze route vraagt een redelijke conditie. Slapen in een tent binnen het Nationaal Park betekent dat er geen voorzieningen in de buurt zijn: daarom zijn hoofdlamp en regenkleding verplicht en niet alleen aanbevolen.',
+      ),
+      {
+        type: 'technical',
+        title: 'Technische gegevens en vereisten',
+        facts: [
+          ['Categorie', 'Trektocht met een nacht in de tent'],
+          ['Afstand te voet', '22 km'],
+          ['Met de auto', '1 km'],
+          ['Hoogtemeters', '460 m'],
+          ['Hoogste punt', '850 m'],
+          ['Bezienswaardigheden', 'Palmital, Capivara en Toca da Onça'],
+          ['Zwemplekken', '2'],
+          ['Vertrek / terugkeer', '6.00 / 19.00 uur'],
+        ],
+        requirements: [
+          'Je moet ouder zijn dan 18. Minderjarigen alleen samen met hun wettelijke vertegenwoordiger.',
+          'Conditie voor steile klimmen en afdalingen op ruig terrein, het oversteken van rivieren en beken, klauteren en lange afstanden.',
+          'Geef dieetwensen door bij de boeking.',
+          'Prijzen kunnen veranderen — al bevestigde boekingen worden niet aangepast.',
+        ],
+        documents: [
+          ['Aansprakelijkheidsverklaring (pdf)', '/docs/termo-de-responsabilidade.pdf'],
+          ['Classificatie van de moeilijkheidsgraad', '/nl/niveauclassificatie'],
+        ],
+        labels: { requirements: 'Vereisten', documents: 'Documenten' },
+      },
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    relacionados: { titulo: 'Andere avonturen.', ids: ['trilha-aguas-claras-2-dias', 'city-tour-em-lencois', 'fazenda-pratinha-gruta-azul'] },
+    cta: {
+      titulo: ['Klaar om te slapen', 'aan de rivier?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

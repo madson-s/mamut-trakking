@@ -340,4 +340,80 @@ export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Mixila — 2 dagen',
+      description:
+        'Een wilde trektocht van 24 km langs drie watervallen — Poção, Capivari en de legendarische Mixila — met kamperen binnen het Nationaal Park.',
+      canonical: '/nl/avonturen/waterval-mixila',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '2 dagen',
+      titulo: 'Waterval Mixila.',
+      lead: 'Drie watervallen in twee dagen — en de laatste bereik je alleen door twee poelen over te zwemmen.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Watervallen', 'Waar je slaapt', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Mixila.',
+      paragrafos: [
+        'Een van de indrukwekkendste trektochten van de Chapada Diamantina, met drie watervallen: Poção, Capivari en de legendarische Mixila. De paden zijn oud en ruig, binnen het Nationaal Park, met oneffen en gladde stukken.',
+        'De tocht vertelt over het dagelijks leven en de technieken van de vroegere diamantwinning in de regio — inclusief een nacht in de oude "tocas", de schuilplaatsen van de mijnwerkers. Het is een reis die in gelijke mate natuur en cultuur laat beleven, en een rustige: een alternatieve route voor wie drukke bezienswaardigheden wil vermijden.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.nl,
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is flexibel en kent verschillende in- en uitstappunten — vraag ons naar de mogelijkheden.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Dag 1',
+          titulo: 'Transfer per 4x4 + Waterval Poção + Waterval Mixila',
+          corpo: 'Vertrek om 7.00 uur uit Lençóis naar de gemeenschap Capivara, waar het pad begint. Na de briefing volgen zo’n 3 uur wandelen (1 uur steil klimmen en 2 uur over vlak terrein) naar de Waterval Poção, waar we het kamp opzetten. Na de picknick gaan we verder met alleen een dagrugzak, door de canyons van de rivier de Capivari naar de Waterval Mixila: zo’n uur, met oneffen en gladde stukken en twee grote poelen om over te zwemmen — zwemvest en een gedeelde waterdichte zak krijg je van ons. De terugweg gaat via dezelfde route en het avondeten staat rond 19.00 uur klaar.',
+          distancia: '13 km',
+          esforco: 'Gemiddeld / Zwaar',
+        },
+        {
+          rotulo: 'Dag 2',
+          titulo: 'Waterval Capivari + transfer naar Lençóis',
+          corpo: 'Na het ontbijt dat de gids klaarmaakt, genieten we nog van de kampplek bij de Waterval Poção. Rond 10.00 uur vertrekken we met alle bagage en lopen we 40 minuten naar de toegang tot de Waterval Capivari. Op een geschikte plek laten we een deel van de last achter en lopen we met alleen een dagrugzak door naar de voet van de waterval, waar we tot het begin van de middag blijven — met een picknick rond het middaguur. De terugweg gaat via dezelfde route: zo’n uur naar de Serra do Bode en nog een uur afdalen. Rond 15.00 uur zijn we bij de basis en rond 16.00 uur in het centrum van Lençóis.',
+          distancia: '11 km',
+          esforco: 'Zwaar',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 1.600', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 1.200', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      wildTrekChecklist('nl', `Bij het zwemmen naar de Mixila wordt alles nat wat niet in een waterdichte zak zit. ${WILD_TREK_PORTER.nl}`),
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Berggids met EHBO-opleiding', 'Vervoer heen en terug, inclusief een stuk per 4x4', 'Kampeeruitrusting: tent, slaapzak en isolatiemat', 'Zwemvest en gedeelde waterdichte zak', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na de activiteit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+      },
+      safetyFaq(
+        'nl',
+        'Om bij de Waterval Mixila te komen zwem je over twee grote poelen in een canyon, naast oneffen en gladde stukken. Een zwemvest en een gedeelde waterdichte zak krijg je van ons, en dit stuk gebeurt alleen met de gids op zijn plek. Wie zich niet op zijn gemak voelt in het water, kan wachten in het kamp bij de Poção.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om naar', 'de Mixila te zwemmen?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

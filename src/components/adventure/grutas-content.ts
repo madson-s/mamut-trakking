@@ -351,4 +351,82 @@ export const GRUTAS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Grotten + Morro do Camelo',
+      description:
+        'Gruta da Fumaça, Fazenda Pratinha, Gruta Azul en zonsondergang vanaf de Morro do Camelo: een dag door het kalksteen van de Chapada, met korte wandelingen.',
+      canonical: '/nl/avonturen/grotten',
+    },
+    hero: {
+      nivel: 'Licht',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Grotten + Morro do Camelo.',
+      lead: 'Een dag in het kalksteen — grotten, een rivier met blauw water, en als afsluiter de zonsondergang vanaf de Camelo.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Bezienswaardigheden', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de tour.',
+      paragrafos: [
+        'Een tocht met de auto en korte wandelingen, ideaal voor kinderen, oudere reizigers en iedereen die de Chapada Diamantina zonder veel inspanning wil zien. Elke plek is makkelijk bereikbaar, veilig en heeft goede voorzieningen.',
+        'Er zijn vier stops: de Gruta da Fumaça, de Fazenda Pratinha, de Gruta Azul en het uitkijkpunt op de Morro do Camelo — een van de bekendste herkenningspunten van de regio, en waar de dag bij zonsondergang eindigt.',
+        'In dit deel van de Chapada overheerst kalksteen, een gesteente dat water makkelijk afbreekt. Daardoor zijn er zoveel grotten en ondergrondse poelen: de Formação Salitre is zo’n 700 miljoen jaar oud, en er zijn fossielen van meer dan 10.000 jaar in gevonden, naast sporen van de zeeën die de regio ooit bedekten en van de ijstijd.',
+        'Op de Fazenda Pratinha zijn er extra activiteiten — snorkelen, onderwaterfotografie, kajakken, ziplinen en meer. Die zijn optioneel en niet bij de prijs inbegrepen; vraag ons wat er op dit moment beschikbaar is.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 8.00 uur uit Lençóis en zo’n uur met de auto naar de Gruta da Fumaça, een van de meest complete grotten in de regio Iraquara.',
+        'Een bezoek van zo’n 40 minuten in de grot, met allerlei druipsteenformaties: stalactieten, stalagmieten, helictieten en de zeer zeldzame aragonietbloem.',
+        'Met de auto verder naar de Fazenda Pratinha, waar de rivier de Pratinha stroomt. Daar zijn veel optionele activiteiten — snorkelen, onderwaterfotografie, kajakken, ziplinen en meer.',
+        'Om 15.00 uur de Gruta Azul, op dezelfde boerderij: een natuurlijk lichtspel dat alleen ’s middags te zien is, als de zon het water bereikt.',
+        'Rond 16.30 uur zo’n 40 minuten met de auto naar het uitkijkpunt op de Morro do Camelo, voor de zonsondergang.',
+        'Terug naar Lençóis, waar we rond 18.30 uur aankomen.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 580', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
+        { titulo: 'In een groep', preco: 'R$ 540', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Handdoek', 'Contant geld voor de activiteiten op de boerderij']],
+        note: 'De bodem van de grotten is het hele jaar vochtig en glad — dichte schoenen met goede grip zijn hier geen optie, ook al is het een makkelijke tocht.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Erkende lokale gids met EHBO-opleiding', 'Entreegelden', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Lunch (optioneel)', 'Zipline en andere activiteiten op de Pratinha (optioneel)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'In de grotten is de bodem vochtig, oneffen en glad, en er zijn stukken met een laag plafond — volg de gids en leun niet op de druipstenen: een stalactiet doet er duizenden jaren over om te groeien en breekt bij één aanraking. De Gruta Azul heeft de zon nodig voor haar lichteffect; daarom ligt het bezoek vast op 15.00 uur.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om 700 miljoen jaar', 'in te stappen?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

@@ -2,7 +2,7 @@
  * Travessia do Vale do Pati em 5 dias (entra por Guiné, sai por Andaraí).
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-05-dias e EN de
- * mamut.agency/en/aventuras/pati-valley-5-days. ES e FR são tradução feita aqui.
+ * mamut.agency/en/aventuras/pati-valley-5-days. ES, FR e NL são tradução feita aqui.
  *
  * É a única versão que atravessa o vale de ponta a ponta: entra pelo Guiné e
  * sai do outro lado, em Andaraí, pela Ladeira do Império. Não confundir com a
@@ -345,6 +345,77 @@ const VARIANTS: Record<Locale, PatiVariant> = {
     },
     safetyWarning: 'Cet itinéraire exige une excellente condition physique et la capacité de marcher plusieurs jours d’affilée dans des conditions difficiles — soleil, pluie, terrain glissant et accidenté. Le 3e jour comporte 250 m de dénivelé pour dépasser 1 200 m ; le 5e monte 2,5 km par la Ladeira do Império et redescend encore 9 km en terrain accidenté. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver.',
   },
+  nl: {
+    meta: {
+      title: 'Doorsteek Vale do Pati, 5 dagen',
+      description:
+        'Een begeleide doorsteek van 70 km, met de ingang in Guiné en de uitgang in Andaraí, langs de Cachoeirão, de Morro do Castelo, de Poço da Árvore en de Ladeira do Império.',
+      canonical: '/nl/avonturen/pati-vallei-5-dagen',
+      ogDescription: 'De doorsteek van begin tot eind: in bij Guiné, uit bij Andaraí.',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Zwaar',
+      origem: 'Vertrek: Lençóis',
+      titulo: { antes: 'Doorsteek Vale do Pati,', destaque: '5 dagen.' },
+      lead: { antes: 'In bij Guiné, uit bij Andaraí. De doorsteek', destaque: 'van begin tot eind.' },
+      apoio: 'Zeventig kilometer langs de meest iconische plekken van het dal, met de uitgang aan de andere kant van de bergketen.',
+      saida: 'Vertrek uit Lençóis om 7.30 uur',
+    },
+    story: {
+      titulo: ['De volledige doorsteek,', 'van de ene kant van het dal naar de andere.'],
+      paragrafos: [
+        'De Vale do Pati ligt rond de 1.000 meter hoogte, met een rijke afwisseling van restanten van Atlantisch regenwoud, rotsvelden en open grasland. De streek was zo’n 200 jaar geleden de thuis van keuterboeren en telt nu nog 14 huizen, die als onderkomen voor bezoekers dienen.',
+        'Deze route gaat langs de meest iconische plekken van de streek — de Morro do Castelo, de Cachoeirão en het uitkijkpunt Rampa — en verlaat het dal aan de andere kant, bij Andaraí, via de Poço da Árvore, de Pati de Baixo en de Ladeira do Império. Hij vraagt een uitstekende conditie en het vermogen om meerdere dagen te lopen in zware omstandigheden: zon, regen, glad en oneffen terrein.',
+      ],
+      outrasVersoes: 'Het dal bestaat ook in 3 en 4 dagen.',
+      relacionados: [
+        { titulo: 'Vale do Pati · 3 dagen', nivel: 'Gemiddeld', href: '/nl/avonturen/pati-vallei-3-dagen' },
+        { titulo: 'Vale do Pati · 4 dagen', nivel: 'Gemiddeld / Gevorderd', href: '/nl/avonturen/pati-vallei-4-dagen' },
+      ],
+    },
+    dias: [
+      {
+        day: 'Dag 1', level: 'Gemiddeld', lead: '7.30 uur vertrek',
+        body: ' uit Lençóis richting het dorp Guiné, waar het pad begint. Zo’n 3 uur lopen (1 uur steil klimmen + 2 uur over vlak terrein) naar het traditionele uitkijkpunt over de Vale do Pati. Na een snack nog 1,5 uur naar Igrejinha, waar Sr. João en zijn familie de groep ontvangen in het gastenverblijf.',
+        note: 'De steile klim is het eerste wat de Pati van je vraagt.',
+      },
+      {
+        day: 'Dag 2', level: 'Gemiddeld / Zwaar', lead: '8.00 uur vertrek',
+        body: ' en afscheid van het onderkomen. Zo’n 3 uur naar het uitkijkpunt Cachoeirão, 280 m hoog — in het regenseizoen zie je zo’n 16 watervallen rondom het dal. Na de snack die de gids klaarmaakt, via dezelfde weg terug naar Igrejinha om onze spullen op te halen en verder naar een huis lager in het dal.',
+        note: 'De langste dag: 22 km.',
+      },
+      {
+        day: 'Dag 3', level: 'Zwaar', lead: '8.00 uur vertrek',
+        body: ' na een heel stevig ontbijt, richting de Morro do Castelo. Dit is fysiek de zwaarste dag: 250 m klimmen in 40 tot 60 minuten tot boven de 1.200 m hoogte. Op de top twee uitkijkpunten en de ingang van de Gruta da Lapinha. De terugweg gaat via een andere route, langs de Waterval Bananeiras, met aankomst bij het onderkomen rond 18.00 uur.',
+        note: 'Een van de zeldzaamste grotten ter wereld boven 1.000 m.',
+      },
+      {
+        day: 'Dag 4', level: 'Licht', lead: '8.00 uur vertrek',
+        body: ' — de rustigste dag van de route. Na het ontbijt lopen we zo’n 2 uur verder het dal in, naar de Poço da Árvore. We blijven er een flinke tijd en lopen daarna nog 2 uur naar het huis van onze laatste gastheren in het dal.',
+        note: 'Na drie zware dagen bewust een makkelijke.',
+      },
+      {
+        day: 'Dag 5', level: 'Zwaar', lead: '6.00 uur ontbijt',
+        body: ' — we staan vroeger op om de brandende zon op het zwaarste stuk te vermijden. Het is 2,5 uur klimmen (2,5 km) over de Ladeira do Império, de oude route waarlangs koffie uit de Vale do Pati werd gehaald. Op het plateau volgt nog 9 km afdalen over ruig terrein langs de Serra do Ramalho naar het stadje Andaraí, waar het vervoer klaarstaat.',
+        alert: 'De Ladeira do Império is het zwaarste stuk van de route — vandaar het ontbijt om 6.00 uur.',
+      },
+    ],
+    landmarks: [
+      { titulo: 'Uitkijkpunt Rampa', apoio: 'Het meest traditionele van het dal' },
+      { titulo: 'Gastenverblijf Igrejinha', apoio: 'Het huis van Sr. João en zijn familie' },
+      { titulo: 'Uitkijkpunt Cachoeirão', apoio: '280 m — tot 16 watervallen bij regen' },
+      { titulo: 'Morro do Castelo en Gruta da Lapinha', apoio: 'Boven de 1.200 m hoogte' },
+      { titulo: 'Poço da Árvore', apoio: 'De makkelijke dag van de doorsteek' },
+      { titulo: 'Ladeira do Império', apoio: 'De oude koffieroute' },
+      { titulo: 'Serra do Ramalho naar Andaraí', apoio: '9 km afdalen op de weg naar buiten' },
+    ],
+    included: {
+      title: 'Wat is inbegrepen / niet inbegrepen',
+      included: ['Erkende berggids met EHBO-opleiding', 'Overnachting in de huizen van bewoners van de Pati (4 nachten)', 'Vervoer heen en terug, met de uitgang via Andaraí', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na het pad'],
+      excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+    },
+    safetyWarning: 'Deze route vraagt een uitstekende conditie en het vermogen om meerdere dagen achter elkaar te lopen in zware omstandigheden — zon, regen, glad en oneffen terrein. Dag 3 heeft 250 m klimmen tot boven de 1.200 m; dag 5 klimt 2,5 km over de Ladeira do Império en daalt nog eens 9 km af over ruig terrein. Twijfel je over je conditie, praat dan met ons voordat je boekt.',
+  },
 };
 
 export const PATI5_CONTENT = {
@@ -352,6 +423,7 @@ export const PATI5_CONTENT = {
   en: buildPatiContent('en', VARIANTS.en),
   es: buildPatiContent('es', VARIANTS.es),
   fr: buildPatiContent('fr', VARIANTS.fr),
+  nl: buildPatiContent('nl', VARIANTS.nl),
 };
 
 export const PATI5_FAQS = {
@@ -359,4 +431,5 @@ export const PATI5_FAQS = {
   en: buildPatiFaqs('en', VARIANTS.en),
   es: buildPatiFaqs('es', VARIANTS.es),
   fr: buildPatiFaqs('fr', VARIANTS.fr),
+  nl: buildPatiFaqs('nl', VARIANTS.nl),
 };

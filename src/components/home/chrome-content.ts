@@ -284,4 +284,63 @@ export const CHROME: Record<Locale, ChromeContent> = {
       whatsapp: 'Écrire sur WhatsApp',
     },
   },
+  nl: {
+    home: '/nl',
+    whatsapp: 'Praat via WhatsApp',
+    nav: [
+      { label: 'Avonturen', href: '/nl/avonturen' },
+      { label: 'Vertrekdata', mobileLabel: 'Kalender en groepen', href: '/nl/kalender-en-groepen' },
+      { label: 'Over ons', mobileLabel: 'Over ons', href: '/nl/over-ons' },
+      { label: 'Manifest', href: '/nl/manifest' },
+      { label: 'Tips', mobileLabel: 'Tips voor onderweg', href: '/nl/tips' },
+      { label: 'Contact', href: '/nl/contact' },
+    ],
+    menu: {
+      open: 'Menu',
+      close: 'Menu sluiten',
+      heading: 'Menu',
+      invite: 'Elk pad begint met een gesprek.',
+      whatsapp: 'Praat via WhatsApp',
+      language: 'Taal',
+    },
+    footer: {
+      tagline: ['Trektochten met gidsen die geboren en getogen', 'zijn in de Chapada Diamantina.'],
+      place: 'LENÇÓIS · BAHIA · BRAZILIË',
+      columns: [
+        {
+          title: 'AVONTUREN',
+          onMobile: true,
+          links: [
+            { label: 'Alle tochten', href: '/nl/avonturen' },
+            { label: 'Komende vertrekdata', href: '/nl/kalender-en-groepen' },
+            { label: 'Vale do Pati', href: '/nl/avonturen/pati-vallei-3-dagen' },
+            { label: 'Hoe bereid je je voor', href: '/nl/tips' },
+          ],
+        },
+        {
+          title: 'OVER ONS',
+          onMobile: true,
+          links: [
+            { label: 'Over ons', href: '/nl/over-ons' },
+            { label: 'Manifest', href: '/nl/manifest' },
+            { label: 'Lokale gidsen', href: '/nl/over-ons#guias' },
+            { label: 'Veelgestelde vragen', href: '/nl/veelgestelde-vragen' },
+          ],
+        },
+        {
+          title: 'CONTACT',
+          onMobile: false,
+          links: [
+            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'TripAdvisor', href: SITE.social.tripadvisor },
+            { label: 'Instagram', href: SITE.social.instagram },
+            { label: 'Facebook', href: SITE.social.facebook },
+          ],
+        },
+      ],
+      rights: 'Alle rechten voorbehouden',
+      privacy: { label: 'Privacybeleid', href: PRIVACIDADE_HREF.nl },
+      whatsapp: 'Praat via WhatsApp',
+    },
+  },
 };

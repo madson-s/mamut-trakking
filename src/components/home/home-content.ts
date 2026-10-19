@@ -1,7 +1,7 @@
 /**
  * Todo o texto da home, por idioma.
  *
- * PT é o copy do redesenho (Figma). EN, ES e FR são tradução feita neste
+ * PT é o copy do redesenho (Figma). EN, ES, FR e NL são tradução feita neste
  * repositório: a home publicada em mamut.agency/en é a do site antigo, com
  * outra estrutura de seções, então não há original a transcrever.
  *
@@ -100,6 +100,7 @@ const destinos = (locale: Locale) => {
     en: ['pati-valley-3-days', 'palmital-waterfall', 'mosquito-waterfall-pai-inacio-hill'],
     es: ['valle-del-pati-3-dias', 'cascada-del-palmital', 'cascada-del-mosquito-morro-do-pai-inacio'],
     fr: ['vallee-du-pati-3-jours', 'cascade-du-palmital', 'cascade-du-mosquito-morro-do-pai-inacio'],
+    nl: ['pati-vallei-3-dagen', 'waterval-palmital', 'waterval-mosquito-morro-do-pai-inacio'],
   }[locale];
   return slug.map((s) => `/${locale}/${seg}/${s}`);
 };
@@ -108,9 +109,10 @@ const PT_DESTINOS = destinos('pt');
 const EN_DESTINOS = destinos('en');
 const ES_DESTINOS = destinos('es');
 const FR_DESTINOS = destinos('fr');
+const NL_DESTINOS = destinos('nl');
 
-/** hreflang das quatro homes — a única página que existe também em francês. */
-export const HOME_HREFLANG: Record<Locale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr' };
+/** hreflang das cinco homes. */
+export const HOME_HREFLANG: Record<Locale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr', nl: '/nl' };
 
 export const HOME_CONTENT: Record<Locale, HomeContent> = {
   pt: {
@@ -609,6 +611,130 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
         'Écrivez-nous sur WhatsApp. Découvrez l’itinéraire idéal pour explorer la Chapada Diamantina et comment vous y préparer.',
       cta: 'Rejoindre la harde',
       ctaHref: '/fr/contact',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Mamut Trekking · Chapada Diamantina',
+      description:
+        'Gespecialiseerde organisatie voor trektochten en avonturen in de Chapada Diamantina, in Bahia (Brazilië).',
+    },
+    hero: {
+      eyebrow: 'Lokale gidsen · Chapada Diamantina',
+      titulo: { mamut: 'MAMUT', guia: 'GIDST.', linha2: 'JIJ HOEFT ALLEEN', linha3: 'TE GENIETEN.' },
+      lead: [
+        'Trektochten met gidsen die geboren en getogen zijn in de Chapada Diamantina.',
+        'Elk pad is een reis terug naar wie je bent.',
+      ],
+      ctaTrilhas: 'Kies je pad',
+      ctaTrilhasHref: '/nl/avonturen',
+      ctaGuia: 'Praat met een gids',
+      selo: { antes: 'Een', jornada: 'reis', meio: 'terug naar het', primitivas: 'oorspronkelijke' },
+      destinos: [
+        { titulo: 'Vale do Pati', subtitulo: '3 dagen · doorsteek', href: NL_DESTINOS[0] },
+        { titulo: 'Waterval Palmital', subtitulo: '2 dagen · trektocht', href: NL_DESTINOS[1] },
+        { titulo: 'Pai Inácio', subtitulo: '1 dag · trektocht', href: NL_DESTINOS[2] },
+      ],
+      verDestino: 'Bekijk',
+    },
+    stats: [
+      { value: '+500', label: 'avonturiers begeleid' },
+      { value: 'Gidsen', label: 'opgeleid als vrijwillige brandweer, hier geboren' },
+      { value: 'Cadastur', label: 'erkende organisatie' },
+      { value: 'TripAdvisor', label: 'Certificate of Excellence' },
+      { value: 'Boeking', label: 'gegarandeerd online' },
+    ],
+    manifesto: {
+      eyebrow: 'Geïnspireerd door onze nomadische voorouders',
+      titulo: { antes: 'Wij zijn de', meio: 'kudde', depois: 'die jouw stam gidst.' },
+      corpo:
+        'Door de uitgestrektheid van de megacontinenten trokken mammoeten in grote kuddes — en lieten ze voor altijd hun sporen na.',
+      memoria: 'Uit die herinnering komen wij voort.',
+      cta: 'Lees ons manifest',
+      ctaHref: '/nl/manifest',
+    },
+    paths: {
+      trilhas: {
+        'vale-do-pati-3': {
+          duration: '3 dagen', level: 'Gemiddeld', title: 'Vale do Pati (03 dagen)',
+          description: 'Drie dagen onderdompeling tussen canyons, rivieren en gemeenschappen in het hart van de Vale do Pati.',
+        },
+        palmital: {
+          duration: '2 dagen', level: 'Gemiddeld', title: 'Waterval Palmital (02 dagen)',
+          description: 'Een doorsteek over hoogvlaktes en langs rotswanden naar het water van de Waterval Palmital.',
+        },
+        'vale-do-pati-5': {
+          duration: '5 dagen', level: 'Gemiddeld', title: 'Vale do Pati (05 dagen)',
+          description: 'In het hart van het Nationaal Park Chapada Diamantina, omringd door bergen, watervallen en grotten.',
+        },
+        'aguas-claras': {
+          duration: '1 dag', level: 'Makkelijk', title: 'Wandelpad Águas Claras',
+          description: 'Een dag tussen rotsvelden, natuurlijke baden en de grote rotswanden van de Chapada Diamantina.',
+        },
+        'mosquito-pai-inacio': {
+          duration: '1 dag', level: 'Gemiddeld', title: 'Mosquito + Pai Inácio',
+          description: 'De Waterval Mosquito en de zonsondergang op de Morro do Pai Inácio, in één complete dagtocht.',
+        },
+        mixila: {
+          duration: '2 dagen', level: 'Gemiddeld', title: 'Waterval Mixila',
+          description: 'Een doorsteek naar een van de best bewaarde watervallen in de omgeving van Lençóis.',
+        },
+        'vale-do-pati-4': {
+          duration: '4 dagen', level: 'Uitdagend', title: 'Vale do Pati (04 dagen)',
+          description: 'Vier dagen langs uitkijkpunten, watervallen en de huizen van lokale families in de Vale do Pati.',
+        },
+      },
+      eyebrow: 'Kies je pad',
+      titulo: { antes: 'De tochten waar de', destaque: 'Chapada om vraagt.' },
+      todos: 'Alle tochten',
+      todosHref: '/nl/avonturen',
+      arraste: 'Sleep om de volgende tochten te bekijken →',
+      explorar: 'Ontdek het pad',
+      carrossel: {
+        rotulo: 'Carrousel met tochten',
+        anterior: 'Vorige tocht tonen',
+        proximo: 'Volgende tocht tonen',
+        pagina: 'Pagina van de carrousel met tochten',
+        progresso: 'Voortgang van de carrousel met tochten',
+      },
+    },
+    entrelinhas: {
+      rotulo: 'Een kudde die de hele wereld samenbrengt',
+      bando: 'Een kudde',
+      reune: 'die samenbrengt',
+      mundo: 'de hele wereld!',
+    },
+    guides: {
+      titulo: { linha1: 'Hier geboren.', linha2: 'Gevormd door de', linha3: 'Chapada.' },
+      cta: 'Maak kennis met wie onze kudde gidst',
+      ctaHref: '/nl/over-ons#guias',
+      pagina: 'Pagina van de gidsen',
+    },
+    reviews: {
+      badge: 'Geverifieerde reviews · TripAdvisor',
+      titulo: { antes: 'Wat onze kudde', destaque: 'over de tochten zegt.' },
+      avaliacoes: '145 reviews',
+      avaliacoesLabel: 'Reviews',
+      mediaChip: '5.0 gemiddeld',
+      mediaLabel: 'Gemiddelde beoordeling',
+      rankingChip: '#5 in Lençóis',
+      ranking: '#5 in de ranglijst',
+      rankingLabel: 'van outdooractiviteiten in Lençóis',
+      ctaTrilha: 'Kies je pad',
+      ctaTrilhaHref: '/nl/avonturen',
+      ctaTripadvisor: 'Bekijk ons op TripAdvisor',
+      depoimentos: [
+        '“Van het eerste contact tot het einde van de reis toonde het bureau professionaliteit en organisatie.”',
+        '“De uitzichten waren prachtig, de watervallen episch en het avontuur ongelooflijk.”',
+        '“Onze gids was heel vriendelijk, zorgzaam en speelde in op al onze wensen. Zijn kennis van het nationaal park is enorm.”',
+      ],
+    },
+    finalCta: {
+      titulo: ['Je pad begint', 'met een bericht.'],
+      corpo:
+        'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
+      cta: 'Sluit je aan bij de kudde',
+      ctaHref: '/nl/contact',
     },
   },
 };

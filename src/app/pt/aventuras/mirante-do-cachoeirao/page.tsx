@@ -8,7 +8,7 @@ const CONTENT = CACHOEIRAO_CONTENT.pt;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mirante-do-cachoeirao', en: '/en/adventures/cachoeirao-viewpoint', es: '/es/aventuras/mirador-do-cachoeirao', fr: '/fr/aventures/belvedere-du-cachoeirao' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mirante-do-cachoeirao', en: '/en/adventures/cachoeirao-viewpoint', es: '/es/aventuras/mirador-do-cachoeirao', fr: '/fr/aventures/belvedere-du-cachoeirao', nl: '/nl/avonturen/uitzichtpunt-cachoeirao' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

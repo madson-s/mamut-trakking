@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     languages: {
       pt: '/pt/aventuras/reveillon-na-chapada',
       en: '/en/adventures/new-years-eve-chapada',
-      es: '/es/aventuras/ano-nuevo-en-la-chapada', fr: '/fr/aventures/reveillon-dans-la-chapada',
+      es: '/es/aventuras/ano-nuevo-en-la-chapada', fr: '/fr/aventures/reveillon-dans-la-chapada', nl: '/nl/avonturen/oudejaarsavond-in-de-chapada',
     },
   },
   openGraph: {

@@ -35,6 +35,7 @@ export const FAQ_HREF: Record<Locale, string> = {
   en: '/en/faq',
   es: '/es/preguntas-frecuentes',
   fr: '/fr/questions-frequentes',
+  nl: '/nl/veelgestelde-vragen',
 };
 
 export const FAQ_CONTENT: Record<Locale, FaqContent> = {
@@ -144,6 +145,33 @@ export const FAQ_CONTENT: Record<Locale, FaqContent> = {
       whatsapp: 'Écrire sur WhatsApp',
       contato: 'Autres moyens de nous contacter',
       contatoHref: '/fr/contact',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Veelgestelde vragen',
+      description:
+        'Vragen over een reis naar de Chapada Diamantina met Mamut Trekking: hoeveel dagen je moet plannen, het beste seizoen, voorbereiding, betaling, annulering en veiligheid.',
+      canonical: FAQ_HREF.nl,
+      ogTitle: 'Veelgestelde vragen · Mamut Trekking',
+      ogDescription: 'Wat mensen vragen voordat ze naar de Chapada komen — en de boekingsregels.',
+    },
+    titulo: { antes: 'Veelgestelde', destaque: 'vragen.' },
+    lead: 'Voordat je komt, als je boekt en onderweg op het pad. Staat je vraag er niet bij, dan beantwoorden we hem via WhatsApp.',
+    secoes: { antes: 'Voordat je komt', reserva: 'Boeking en betaling', seguranca: 'Veiligheid' },
+    leads: {
+      antes: 'Het stadje, hoe lang je blijft, hoe je je voorbereidt en het beste seizoen voor elk soort tocht.',
+      reserva: 'Hoe je betaalt, wat er gebeurt als je moet annuleren en hoe de overdracht van tours werkt.',
+      seguranca: 'Wie de leiding heeft, welke uitrusting we meenemen en wat geen enkele organisatie kan uitsluiten.',
+    },
+    avisoSeguranca:
+      'Elk pad heeft zijn eigen risico’s — technische stukken, rivierovergangen, blootstelling aan de zon. Die staan beschreven op de pagina van elke route, in hetzelfde veiligheidsblok.',
+    fechamento: {
+      titulo: 'Niet gevonden wat je zocht?',
+      texto: 'Neem contact op met ons team. We antwoorden in het Portugees, Engels en Spaans.',
+      whatsapp: 'Chat via WhatsApp',
+      contato: 'Andere manieren om ons te bereiken',
+      contatoHref: '/nl/contact',
     },
   },
 };

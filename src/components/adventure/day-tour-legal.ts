@@ -5,7 +5,7 @@
  * roteiro: a política cita a deliberação normativa nº 161/1985 da EMBRATUR, e
  * uma mudança nela vale para todos de uma vez.
  *
- * ⚠️ As versões EN, ES e FR são tradução feita neste repositório e precisam
+ * ⚠️ As versões EN, ES, FR e NL são tradução feita neste repositório e precisam
  * de revisão antes de valerem como termo contratual.
  */
 
@@ -129,6 +129,35 @@ export const DAY_TOUR_LEGAL: Record<Locale, readonly PatiFaqItem[]> = {
       ],
     },
   ],
+  nl: [
+    {
+      type: 'payment',
+      title: 'Betaalmogelijkheden',
+      paragraphs: [
+        'Met een aanbetaling van 50% is je boeking bevestigd, via overboeking, storting of boleto. De overige 50% betaal je bij de check-in contant, of per storting tot 2 werkdagen van tevoren.',
+        'Bij betaling met een creditcard komt er 6% bij, te verdelen over maximaal 12 termijnen, volgens de tarieven van PagSeguro, Mercado Pago en vergelijkbare aanbieders.',
+        'Stuur het betaalbewijs mee met de bevestigde datum en de volledige naam en het identiteitsnummer van elke deelnemer.',
+      ],
+    },
+    {
+      type: 'cancellation',
+      title: 'Annuleringsvoorwaarden',
+      intro: 'Annulering door de reiziger volgt de Braziliaanse normatieve resolutie nr. 161/1985 van EMBRATUR:',
+      refunds: [['30+ dagen vooraf', '90% terug'], ['21–29 dagen', '80% terug'], ['7–20 dagen', '50% terug'], ['Minder dan 7 dagen', 'geen restitutie'], ['Tijdens het pakket', 'geen restitutie']],
+      paragraphs: [
+        'Voordat je annuleert: je kunt iemand anders in je plaats laten gaan of het bedrag als tegoed houden voor een andere datum. Boekingskosten: 10% als boete bij annulering na de bevestiging.',
+        'No-show: kom je niet opdagen, dan verlies je het volledige bedrag. Mamut kan de route aanpassen als het weer de veiligheid in gevaar brengt; de tour gaat ook bij regen door, behalve bij overmacht.',
+      ],
+    },
+    {
+      type: 'payment',
+      title: 'Beleid bij overdracht van tours',
+      paragraphs: [
+        'We werken met een netwerk van partners. Wordt een tour doorgegeven aan een andere organisatie, dan kunnen de prijzen variëren met het aantal deelnemers, het type tour en de benodigde logistiek — ze kunnen gelijk zijn aan onze balieprijs, of hoger of lager uitvallen.',
+        'Door bij ons te boeken ga je ermee akkoord dat bij een doorgegeven tour de uitvoering van de dienst de verantwoordelijkheid wordt van de aangewezen organisatie. Onze rol is het bemiddelen van de boeking en erop toezien dat wordt geleverd wat is afgesproken; we zijn niet aansprakelijk voor prijsverschillen die na de boeking aan het licht komen.',
+      ],
+    },
+  ],
 };
 
 /**
@@ -213,6 +242,22 @@ const SAFETY_COPY: Record<
     gear: [
       { img: '/img/adventures/comum/spot-x.jpg', alt: 'Communicateur satellite SPOT X', legenda: 'SPOT X par satellite, avec bouton S.O.S.' },
       { img: '/img/adventures/comum/radio.jpg', alt: 'Radio portative', legenda: 'Radio portative' },
+    ],
+  },
+  nl: {
+    title: 'Veiligheid',
+    lead: 'De mammoet beschermt de kudde. Altijd.',
+    body: 'Lokale trekkinggidsen, opgeleid in pre-hospitale eerste hulp (APH) en in de minimale competenties voor gidsen (CMC, volgens de Braziliaanse ABNT-normen), sommigen met een WAFA-certificaat — vraag ons naar de beschikbaarheid. Iedereen heeft een EHBO-kit voor afgelegen gebieden bij zich. De protocollen beginnen al vóór de tour, met het intakeformulier dat elke deelnemer invult.',
+    riskLabel: 'Risico’s en beperkingen — lees dit even',
+    disclaimer: [
+      'Dit is geen 100% veilige activiteit. Ook met alle voorzorgen kunnen er tegenslagen en ongelukken gebeuren — zoals bij vrijwel elke avonturenactiviteit in de natuur: giftige dieren, valpartijen met breuken en schaafwonden, onweer, overstromingen. Ook mechanische pech van het vervoer kan de route vertragen of veranderen.',
+      'De activiteit vindt plaats in de wildernis, waar hulp lang op zich kan laten wachten: het kan meer dan 5 uur duren voordat hulp er is, en de kosten van de redding zijn voor rekening van de deelnemer — die zitten niet in de boeking.',
+      'Volg tijdens de activiteit de aanwijzingen van het team strikt op. Alle verplichte items van de checklist bij je hebben is essentieel: ontbreekt er één, dan kun je niet deelnemen.',
+    ],
+    footer: 'Onderweg hebben we draagbare radio’s bij ons en de SPOT X, een satellietcommunicator voor tweerichtingsverkeer, met een S.O.S.-knop voor noodsituaties.',
+    gear: [
+      { img: '/img/adventures/comum/spot-x.jpg', alt: 'SPOT X-satellietcommunicator', legenda: 'SPOT X-satellietcommunicator, met S.O.S.-knop' },
+      { img: '/img/adventures/comum/radio.jpg', alt: 'Draagbare portofoon', legenda: 'Draagbare portofoon' },
     ],
   },
 };

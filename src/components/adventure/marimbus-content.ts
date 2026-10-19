@@ -338,4 +338,80 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Moeras van Marimbus',
+      description:
+        'Het wetland van de Chapada Diamantina: 9 km per kano over de rivieren Santo Antônio en Roncador, vanuit de quilombola-gemeenschap Remanso.',
+      canonical: '/nl/avonturen/moeras-van-marimbus',
+    },
+    hero: {
+      nivel: 'Licht / Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Moeras van Marimbus.',
+      lead: 'Negen kilometer per kano door het wetland van de Chapada, vanuit Remanso.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Afstand per kano', 'Met de auto', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over het moeras van Marimbus.',
+      paragrafos: [
+        'Ze noemen het de Pantanal van de Chapada Diamantina, en de vergelijking klopt: een permanent wetland vol waterplanten, waar je je per kano verplaatst en stilte de regel is.',
+        'De tocht begint in de quilombola-gemeenschap Remanso en volgt de rivier de Santo Antônio tot aan de Roncador. Dat is zo’n 2 uur peddelen, 9 kilometer in totaal, met een lokale gids aan het roer.',
+        'De dieren zijn het hoogtepunt: anaconda’s, kaaimannen en brulapen laten zich vaak zien aan wie stil blijft en weet waar hij moet kijken. Naast de 8 km te voet hoort ook de Poços do Roncador bij de dag.',
+        'Tijdens onze tochten is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 8.00 uur uit Lençóis naar de quilombola-gemeenschap Remanso — zo’n 20 km met de auto.',
+        'Instappen in de kano’s op de rivier de Santo Antônio. We peddelen tot aan de samenvloeiing met de Roncador, door het overstroomde gebied: zo’n 2 uur en 9 kilometer.',
+        'Uitstappen en zo’n 30 minuten lopen naar de Poços do Roncador, waar de groep stopt om te zwemmen en te picknicken.',
+        'Terug te voet, zo’n 40 minuten, met het wetland vanuit een andere hoek. Laat in de middag terug in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 510', nota: 'Minimaal 2 personen. Alleen jouw groep op de tocht.' },
+        { titulo: 'In een groep', preco: 'R$ 465', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Shirt met uv-bescherming', 'Zwemkleding', 'Pet of hoed'],
+          ['Zonnebrand', 'Insectenwerend middel', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Zonnebril'], ['Snack of fruit', 'Handdoek', 'Waterdichte zak voor de camera']],
+        note: 'In de kano is geen schaduw en de weerkaatsing op het water verdubbelt de zon. Een uv-shirt met lange mouwen en insectenwerend middel maken hier het grootste verschil.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met EHBO-opleiding', 'Kano met een lokale schipper uit Remanso', 'Zwemvest', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Vervoer (optioneel)', 'Picknick (optioneel)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'Het risico zit hier niet in het pad, maar in de zon en de insecten: zo’n 2 uur in de kano zonder schaduw, met het water dat nog meer zon op je terugkaatst. Zonnebrand, insectenwerend middel en een shirt met lange mouwen voorkomen wat de dag het vaakst verpest. Het zwemvest is verplicht tijdens het hele peddelstuk.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om door', 'het wetland te peddelen?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

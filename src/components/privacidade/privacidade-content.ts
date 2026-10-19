@@ -1,7 +1,7 @@
 import type { Locale } from '@/lib/site';
 
 /**
- * Política de privacidade, nos quatro idiomas.
+ * Política de privacidade, nos cinco idiomas.
  *
  * Substitui a página da iubenda que o WordPress linkava (2023), que só cobria
  * um formulário de contato com nome, e-mail e telefone. O site novo coleta bem
@@ -55,6 +55,7 @@ export const PRIVACIDADE_HREF: Record<Locale, string> = {
   en: '/en/privacy-policy',
   es: '/es/politica-de-privacidad',
   fr: '/fr/politique-de-confidentialite',
+  nl: '/nl/privacybeleid',
 };
 
 /** Data da última revisão do texto (ISO), exibida no idioma da página. */
@@ -785,6 +786,184 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
     ],
   },
+  nl: {
+    meta: {
+      title: 'Privacybeleid',
+      description:
+        'Welke persoonsgegevens Mamut Trekking verzamelt op de website en in het deelnemersformulier, waarom, met wie we ze delen en hoe je om inzage, correctie of verwijdering vraagt.',
+      canonical: PRIVACIDADE_HREF.nl,
+    },
+    titulo: { antes: 'Privacy', destaque: 'beleid.' },
+    lead: 'Wat we verzamelen, waarom, met wie we het delen en hoe je kunt vragen om je gegevens in te zien, te corrigeren of te verwijderen.',
+    atualizado: 'Laatst bijgewerkt',
+    indice: 'Op deze pagina',
+    controlador: {
+      titulo: 'Wie zorgt voor je gegevens',
+      nome: 'Mamut Trekking',
+      cnpj: `Braziliaans bedrijfsnummer (CNPJ) ${CNPJ}`,
+      endereco: ENDERECO,
+      contato: 'Voor alles over je gegevens, ook als onze functionaris voor gegevensbescherming:',
+    },
+    secoes: [
+      {
+        id: 'wat-we-verzamelen',
+        titulo: 'Wat we verzamelen en waarom',
+        blocos: [
+          {
+            tipo: 'itens',
+            itens: [
+              [
+                'Offerteaanvragen (contactpagina).',
+                'Naam, e-mail, telefoon, het avontuur waarin je geïnteresseerd bent, data, groepsgrootte, hoe je aankomt en je bericht. Het formulier stuurt niets naar onze server: het stelt het bericht samen en opent je WhatsApp of je e-mailprogramma, en jij beslist of je het verstuurt. We gebruiken dit om te antwoorden en je offerte op te stellen.',
+              ],
+              [
+                'Deelnemersformulier.',
+                'Naam, geboortedatum, paspoort- of identiteitsnummer, leeftijd, nationaliteit, beroep, telefoon, e-mail, adres, lengte, gewicht, datum van de tocht, betaalmethode, waar je in de Chapada verblijft en een contactpersoon voor noodgevallen. We gebruiken dit om te weten wie er op het pad is, de reis te organiseren (vervoer, overnachting, maaltijden) en snel te handelen als er iets gebeurt.',
+              ],
+              [
+                'Gezondheidsinformatie (in het formulier).',
+                'Conditie, allergieën, dieetwensen, medicijnen, gezondheidsproblemen en beperkingen in je mobiliteit. De Braziliaanse wet beschouwt dit als gevoelige gegevens: we gebruiken ze alleen voor je veiligheid — tempo en route aanpassen, je gids informeren en hulpdiensten inlichten in een noodgeval — en alleen met je toestemming, die je in het formulier zelf geeft.',
+              ],
+              [
+                'Foto’s en video’s van de reis.',
+                'De voorwaarden in het formulier staan ons toe je beeld en stem te gebruiken om Mamut te promoten. Wil je liever niet in beeld komen, laat het ons dan weten; dan gebruiken we ze niet meer in toekomstige berichten.',
+              ],
+              [
+                'Surfen op de site.',
+                'We gebruiken geen analyse- of advertentietools en plaatsen geen eigen trackingcookies. De server legt technische gegevens over elk bezoek vast (IP-adres, datum, tijd en pagina), zoals de Braziliaanse internetwet vereist. Je voorkeur voor het lichte of donkere thema wordt alleen in je browser opgeslagen.',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'rechtsgronden',
+        titulo: 'Rechtsgronden',
+        blocos: [
+          {
+            tipo: 'p',
+            texto: 'We verwerken persoonsgegevens op grond van de Braziliaanse Algemene Wet Gegevensbescherming (LGPD, wet 13.709/2018):',
+          },
+          {
+            tipo: 'lista',
+            itens: [
+              'offerteaanvragen en boekingen: handelingen voorafgaand aan en uitvoering van de reisovereenkomst (art. 7, V);',
+              'gezondheidsgegevens: je specifieke toestemming (art. 11, I) en, in een noodgeval, de bescherming van je leven en lichamelijke veiligheid (art. 11, II, "e");',
+              'toegangslogs en boekingsgegevens: het nakomen van wettelijke verplichtingen (art. 7, II) en het uitoefenen van rechten in gerechtelijke procedures (art. 7, VI);',
+              'bescherming tegen bots op de formulieren: ons gerechtvaardigd belang om de site veilig te houden (art. 7, IX).',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'delen',
+        titulo: 'Met wie we gegevens delen',
+        blocos: [
+          { tipo: 'p', texto: 'We verkopen of verhuren nooit persoonsgegevens. We delen alleen wat nodig is met:' },
+          {
+            tipo: 'itens',
+            itens: [
+              [
+                'De mensen die de reis samen met ons uitvoeren.',
+                'Gidsen, chauffeurs en de huizen en pensions op de route krijgen je naam en wat ze moeten weten om voor je te zorgen — bijvoorbeeld een dieetwens of een gezondheidsprobleem dat onderweg van belang is.',
+              ],
+              [
+                'Diensten die we voor ons werk gebruiken.',
+                'Resend (het versturen van het deelnemersformulier per e-mail), Google (reCAPTCHA, dat mensen van bots onderscheidt op onze formulieren), Meta (WhatsApp, als je ervoor kiest daar met ons te praten), Notion (onze interne boekingsadministratie), onze e-mailprovider en onze websitehost.',
+              ],
+              [
+                'Autoriteiten.',
+                'Wanneer de wet dat vereist of in een noodgeval — bijvoorbeeld hulpdiensten of een ziekenhuis.',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'internationale-doorgifte',
+        titulo: 'Internationale doorgifte',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Sommige van deze diensten (Resend, Google, Meta en Notion) slaan gegevens op op servers buiten Brazilië, vooral in de Verenigde Staten. We kiezen aanbieders die contractuele clausules voor gegevensbescherming bieden, zoals artikel 33 van de LGPD voorschrijft.',
+          },
+        ],
+      },
+      {
+        id: 'bewaartermijn',
+        titulo: 'Hoe lang we gegevens bewaren',
+        blocos: [
+          {
+            tipo: 'lista',
+            itens: [
+              'Offerteaanvragen die geen boeking werden: tot 12 maanden.',
+              'Deelnemersformulier en boekingsgegevens: tot 5 jaar na de reis — de termijn voor claims onder het Braziliaanse consumentenwetboek.',
+              'Toegangslogs van de website: 6 maanden, zoals de Braziliaanse internetwet vereist.',
+            ],
+          },
+          { tipo: 'p', texto: 'Daarna worden de gegevens verwijderd of geanonimiseerd.' },
+        ],
+      },
+      {
+        id: 'beveiliging',
+        titulo: 'Beveiliging',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'De site werkt alleen via een versleutelde verbinding (HTTPS), onze formulieren zijn beschermd tegen bots en de toegang tot deelnemersformulieren is beperkt tot het team dat je reis organiseert. Geen enkel systeem is onfeilbaar; als een incident gevolgen voor jou kan hebben, laten we het jou en de Braziliaanse Nationale Autoriteit Gegevensbescherming (ANPD) weten.',
+          },
+        ],
+      },
+      {
+        id: 'jouw-rechten',
+        titulo: 'Jouw rechten',
+        blocos: [
+          { tipo: 'p', texto: 'Je kunt op elk moment vragen om:' },
+          {
+            tipo: 'lista',
+            itens: [
+              'bevestiging dat we je gegevens verwerken, en inzage daarin;',
+              'correctie van onvolledige, onjuiste of verouderde gegevens;',
+              'anonimisering, blokkering of verwijdering van gegevens die overbodig zijn of onrechtmatig worden verwerkt;',
+              'overdracht van je gegevens naar een andere aanbieder;',
+              'informatie over met wie we ze delen;',
+              'intrekking van je toestemming, ook voor gezondheidsgegevens en het gebruik van je beeld;',
+              'bezwaar tegen elke verwerking die je onrechtmatig vindt.',
+            ],
+          },
+          {
+            tipo: 'p',
+            texto:
+              'Stuur je verzoek per e-mail of via WhatsApp (zie hierboven). We antwoorden binnen 15 dagen. Ben je niet tevreden, dan kun je ook een klacht indienen bij de ANPD (gov.br/anpd).',
+          },
+        ],
+      },
+      {
+        id: 'minderjarigen',
+        titulo: 'Kinderen en tieners',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Jongeren onder de 18 nemen alleen deel samen met, of met toestemming van, een ouder of wettelijke vertegenwoordiger, die het formulier invult of goedkeurt en namens hen toestemming geeft.',
+          },
+        ],
+      },
+      {
+        id: 'wijzigingen',
+        titulo: 'Wijzigingen in dit beleid',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Als we veranderen hoe we met je gegevens omgaan, werken we deze pagina en de datum bovenaan bij. Belangrijke wijzigingen laten we ook weten aan iedereen met een lopende boeking.',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 /**
@@ -796,4 +975,5 @@ export const PRIVACIDADE_NOTA: Record<Locale, { antes: string; link: string; dep
   en: { antes: 'How we use your data: ', link: 'Privacy policy', depois: '.' },
   es: { antes: 'Cómo usamos tus datos: ', link: 'Política de privacidad', depois: '.' },
   fr: { antes: 'Comment nous utilisons vos données : ', link: 'Politique de confidentialité', depois: '.' },
+  nl: { antes: 'Hoe we je gegevens gebruiken: ', link: 'Privacybeleid', depois: '.' },
 };

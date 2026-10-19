@@ -1,0 +1,22 @@
+import type { Metadata } from 'next';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { AGUAS_CLARAS_ASSETS, AGUAS_CLARAS_CONTENT } from '@/components/adventure/aguas-claras-content';
+
+const IMG = AGUAS_CLARAS_ASSETS.hero.src;
+const CONTENT = AGUAS_CLARAS_CONTENT.nl;
+
+export const metadata: Metadata = {
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/trilha-aguas-claras-2-dias', en: '/en/adventures/aguas-claras-trail', es: '/es/aventuras/sendero-aguas-claras', fr: '/fr/aventures/sentier-aguas-claras', nl: '/nl/avonturen/wandelpad-aguas-claras' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
+  },
+};
+
+export default function AguasClarasNlRoute() {
+  return <DayTourExperience locale="nl" content={AGUAS_CLARAS_CONTENT} assets={AGUAS_CLARAS_ASSETS} />;
+}

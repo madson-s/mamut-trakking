@@ -354,4 +354,82 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Uitkijkpunt Pati — 1 dag',
+      description:
+        'De Vale do Pati in één dag: 14 tot 18 km door de Gerais do Rio Preto naar het uitkijkpunt Rampa, tegenover de Morro Branco, de Castelo en de Sobradinho.',
+      canonical: '/nl/avonturen/uitzichtpunt-pati',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Guiné',
+      duracao: '1 dag',
+      titulo: 'Uitkijkpunt Pati.',
+      lead: 'De Vale do Pati op één dag — door de Gerais naar de rand van het bekendste uitkijkpunt van het dal.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Duur', 'Vertrek (Lençóis)', 'Verwachte terugkeer', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over het uitkijkpunt Pati.',
+      paragrafos: [
+        'Een flinke wandeling voor wie de Vale do Pati op één dag wil zien. Het pad duurt zo’n 3 uur tot het uitkijkpunt en is overwegend vlak — de inspanning zit in de afstand, niet in het terrein.',
+        'Een groot deel van de route loopt door de Gerais do Rio Preto, een open gebied dat meer dan 70% van het Nationaal Park beslaat. Het is een immense tuin onder de open hemel, met hooggebergteplanten en indrukwekkende bergruggen op de achtergrond.',
+        'Aan het eind van het pad ligt het uitkijkpunt Rampa, het bekendste van het dal, met uitzicht op de Morro Branco, de Castelo en de Sobradinho.',
+        'Wij vinden dat je de Pati het best in minstens 3 dagen bezoekt. Maar voor wie maar een paar dagen in de Chapada heeft, is dit de beste manier om het dal te zien zonder er te overnachten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 7.00 uur uit Lençóis, zuidwaarts richting het Nationaal Park Chapada Diamantina. Dat is 80 km en zo’n 2 uur met de auto naar het dorp Guiné, waar de wandeling begint en eindigt.',
+        'Aankomst, een algemene briefing over de route, de checklist doorlopen en het begin van de wandeling.',
+        'Eerste stuk: 30 minuten klimmen over ruig terrein naar het uitkijkpunt Aleixos. Een korte pauze en dan verder het dal in.',
+        'Zo’n 1,5 uur lopen over vlak terrein door de Gerais do Rio Preto. Halverwege steken we de Rio Preto over — afhankelijk van het weer kunnen we alternatieve routes nemen.',
+        'Aankomst bij het uitkijkpunt Rampa, met uitzicht over de Vale do Pati en de bergruggen eromheen: Morro Branco, Castelo en Sobradinho. Een lange pauze om te praten over de geologie, de geschiedenis en de tradities van de regio, en om je snack te eten (niet inbegrepen).',
+        'De terugweg volgt dezelfde route, met een optionele stop bij de Rio Preto om te zwemmen. Rond 16.00 uur terug bij de auto, een korte stop in Guiné — waar je goed kunt eten — en terug naar Lençóis, waar we rond 19.00 uur aankomen.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 550', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 475', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1 L per persoon)', 'Sportschoenen of wandelschoenen', 'Lichte kleding', 'Pet of hoed', 'Zonnebrand'],
+          ['Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen', 'Snack voor bij het uitkijkpunt', 'Extra sokken'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Zwemkleding voor de Rio Preto', 'Handdoek', 'Camera']],
+        note: 'De snack bij het uitkijkpunt is niet inbegrepen en is de enige maaltijd onderweg — neem je eigen mee. De Gerais zijn open terrein, zonder schaduw gedurende zo’n 1,5 uur lopen.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Erkende berggids met EHBO-opleiding', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Picknick (optioneel)', 'Snack of lunch', 'De maaltijd in Guiné', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'Het is een lange dag: vertrek om 7.00 uur, terug rond 19.00 uur, met zo’n 4 uur rijden bovenop de wandeling. De oversteek van de Rio Preto hangt af van de waterstand — in het regenseizoen neemt het team een alternatieve route. De Gerais bieden geen schaduw: hoed, zonnebrand en water zijn hier het belangrijkst.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om de Pati', 'van bovenaf te zien?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

@@ -335,4 +335,79 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Wandelpad Águas Claras — 1 dag',
+      description:
+        'Achttien kilometer door open grasland naar de Waterval Águas Claras, met de Morrão van dichtbij en onderweg de bronnen van de rivier de Ribeirão.',
+      canonical: '/nl/avonturen/wandelpad-aguas-claras-1-dag',
+    },
+    hero: {
+      nivel: 'Licht / Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Wandelpad Águas Claras.',
+      lead: 'Achttien kilometer open land, met bergruggen tot aan de horizon en de Morrão van dichtbij.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Tot de waterval', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over het wandelpad Águas Claras.',
+      paragrafos: [
+        'Een van de bijzonderste tochten door de Chapada Diamantina, en een van de weinige door open vegetatie — wat hier campos gerais heet, land dat vroeger voor vee werd gebruikt. De hele route lang staat de horizon vol bergruggen en heuvels.',
+        'Dit is bronnengebied, en een van de bronnen die hier ontspringen voedt de rivier de Ribeirão — dezelfde die door Lençóis stroomt. Je ziet ook de Morrão van dichtbij, een van de belangrijkste herkenningspunten van de Vale do Capão; om hem helemaal te zien moet je een alternatieve route lopen.',
+        'Het terrein is overwegend vlak, waardoor de 18 km minder zwaar zijn dan het getal doet vermoeden. De terugweg hangt af van de vorm die je kiest — heen en terug, of een volledige doorsteek — maar de afstand is in beide gevallen ongeveer gelijk.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 8.00 uur over de BR-242 naar de voet van de Morro do Pai Inácio, waar het pad begint.',
+        'De wandeling begint bij een oud huisje dat vroeger als rustpunt diende voor doortrekkende reizigers. Vandaar is het 9 km, zo’n 2 uur, over overwegend vlak terrein naar de Waterval Águas Claras — met de hele tijd bergruggen en heuvels in alle vormen en maten in zicht.',
+        'Bij de waterval maakt de gids de snack klaar, terwijl de groep van de bergen geniet en zwemt in het heldere water.',
+        'De terugweg hangt af van de gekozen vorm: via dezelfde weg terug, of een doorsteek die op een ander punt uitkomt. Beide opties zijn zo’n 9 km.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 450', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 390', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Handdoek', 'Camera']],
+        note: 'Open land betekent de volle 18 km directe zon, zonder schaduw om te schuilen. Hoed, zonnebrand en water zijn hier het belangrijkst.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Vervoer heen en terug', 'Tweetalige berggids met EHBO-opleiding', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Picknick (optioneel)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting'],
+      },
+      safetyFaq(
+        'nl',
+        'Het pad is vlak en heeft geen technische stukken, maar het is 18 km open land met bijna geen schaduw. Het echte risico van de dag is een zonnesteek en uitdroging, niet het terrein — neem de 1,5 L water mee en reken niet op beschutting onderweg.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om het open land', 'over te steken?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

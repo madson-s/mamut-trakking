@@ -7,7 +7,7 @@
  * camping são os mesmos nos três, e a operadora publica o texto palavra por
  * palavra igual. Fica aqui para não divergir por descuido.
  *
- * ES e FR são tradução feita neste repositório.
+ * ES, FR e NL são tradução feita neste repositório.
  */
 
 import type { Locale } from '@/lib/site';
@@ -112,6 +112,29 @@ export const WILD_TREK_ESTADIA: Record<Locale, { titulo: string; itens: { img: s
       },
     ],
   },
+  nl: {
+    titulo: 'Waar je slaapt en wat je eet.',
+    itens: [
+      {
+        img: '/img/adventures/comum/acampamento.jpg',
+        alt: 'Sterrenhemel boven het bos, gezien vanaf het kamp',
+        titulo: 'Waar we slapen',
+        corpo: 'In een tent of aan de rivieroever, op een isolatiemat en in een slaapzak die bij de temperatuur past — alles inbegrepen. Als het weer meezit, kun je buiten de tent slapen, met het geruis van de rivier en een hemel vol sterren.',
+      },
+      {
+        img: '/img/adventures/comum/refeicoes.jpeg',
+        alt: 'Pannen met rijst, bonen en pasta, ’s avonds geserveerd in het basiskamp',
+        titulo: 'Ontbijt en avondeten',
+        corpo: 'Bereid in het basiskamp door de lokale gids, met een gevarieerd menu. Geef dieetwensen door bij de boeking.',
+      },
+      {
+        img: '/img/adventures/comum/piquenique.jpeg',
+        alt: 'Picknick uitgestald op een doek, met fruit, brood en vleeswaren',
+        titulo: 'De picknick',
+        corpo: 'Tijdens de wandelingen is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      },
+    ],
+  },
 };
 
 /**
@@ -159,6 +182,15 @@ const CHECKLIST: Record<Locale, Omit<Extract<PatiFaqItem, { type: 'checklist' }>
     ],
     recommendedColumns: [['Chaussettes de rechange', 'Bâton de marche'], ['Anti-moustique', 'Batterie externe', 'En-cas ou fruit']],
   },
+  nl: {
+    title: 'Checklist — wat neem je mee',
+    intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan kun je niet deelnemen. Tent, slaapzak en isolatiemat krijg je van ons.',
+    requiredColumns: [
+      ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Twee lichte wandeloutfits', 'Nachtkleding', 'Zwemkleding', 'Trekkingrugzak van 50 L+'],
+      ['Pet of hoed', 'Regenkleding (voor jezelf en de rugzak)', 'Zonnebrand', 'Hoofdlamp', 'Waterdichte zak', 'Dunne handdoek en slippers'],
+    ],
+    recommendedColumns: [['Extra sokken', 'Wandelstok'], ['Insectenwerend middel', 'Powerbank', 'Snack of fruit']],
+  },
 };
 
 /** "Se não quiser carregar peso, há carregador pessoal" — igual nos três. */
@@ -167,4 +199,5 @@ export const WILD_TREK_PORTER: Record<Locale, string> = {
   en: 'If you would rather not carry the weight, a personal porter can be arranged. Items are checked at booking and at check-in.',
   es: 'Si no querés cargar peso, hay opción de porteador personal. Los ítems se revisan en la reserva y en el check-in.',
   fr: 'Si vous préférez ne pas porter de charge, un porteur personnel est possible. Les articles sont vérifiés à la réservation et au check-in.',
+  nl: 'Wil je liever geen gewicht dragen? Dan kan er een persoonlijke drager mee. De spullen worden gecontroleerd bij de boeking en bij de check-in.',
 };

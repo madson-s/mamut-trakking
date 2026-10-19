@@ -381,4 +381,88 @@ export const FUNDAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Watervallen Fundão + Vinte e Um',
+      description:
+        'Een van de zwaarste trektochten van de Chapada Diamantina: canyons van 80 meter op een afgelegen route door het Nationaal Park, alleen voor ervaren wandelaars.',
+      canonical: '/nl/avonturen/watervallen-fundao-vinte-e-um',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Zwaar',
+      origem: 'Vertrek: Lençóis',
+      duracao: '2 of 3 dagen',
+      titulo: 'Fundão + Vinte e Um.',
+      lead: 'De zwaarste route die we organiseren — gesloten canyons, afgelegen terrein, en alleen voor wie al veel heeft gewandeld.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Canyonwanden', 'Waar je slaapt', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over Fundão + Vinte e Um.',
+      paragrafos: [
+        'Dit geldt als een van de zwaarste trektochten van de Chapada Diamantina, en we raden hem alleen aan voor zeer ervaren wandelaars. Hij volgt een weinig belopen route door het Nationaal Park — echt onherbergzaam en afgelegen.',
+        'De route gaat door de bedding omhoog door de Fundão-canyon naar de Waterval Fundão, en neemt vandaar een heel moeilijk stuk naar de canyon van de Vinte e Um, waar het kamp tegenover wanden van zo’n 80 meter ligt.',
+        'Er zijn twee vormen van dezelfde route: 18 km in 2 dagen met één nacht kamperen, of tot 24 km in 3 dagen met twee nachten en onderweg de Waterval Fumaça recht van voren. Hij is te combineren met de Fumaça 360°, de Fumaça van onderen of de Mixila — vraag ons naar de beschikbaarheid.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.nl,
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is flexibel en kent verschillende in- en uitstappunten — vraag ons naar de mogelijkheden.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Dag 1',
+          titulo: 'Fundão-canyon + Waterval Vinte e Um',
+          corpo: 'Vertrek rond 6.00 uur over het pad dat Lençóis met de Vale do Capão verbindt. Waar de Ribeirão de rivier de Fundão ontmoet, trekken we stroomopwaarts door de Fundão-canyon — zo’n 3,5 uur lopen naar de Waterval Fundão. Na de snack die de gids klaarmaakt, klimmen we langs de waterval over een heel moeilijk stuk, 40 minuten, naar de canyon van de Vinte e Um, waar het basiskamp tegenover wanden van zo’n 80 meter ligt. De gids zet het kamp op en maakt het avondeten klaar.',
+          distancia: '8 km',
+          esforco: 'Extreem',
+        },
+        {
+          rotulo: 'Dag 2',
+          titulo: 'De canyon omhoog + Fumaça van bovenaf + Vale do Capão',
+          corpo: 'Om 8.00 uur, na het ontbijt, stroomopwaarts. We passeren moeilijke maar spectaculaire stukken, langs de wanden van de canyon. Het is 2 tot 3 uur naar de Waterval Fumaça van bovenaf en nog 1,5 uur naar de Vale do Capão, waar de auto klaarstaat om de groep terug te brengen naar Lençóis.',
+          distancia: '10 km',
+          esforco: 'Zwaar',
+        },
+        {
+          rotulo: 'In 3 dagen',
+          titulo: 'De variant, met een nacht bij de Palmital',
+          corpo: 'Kiest de groep voor de vorm van 3 dagen, dan gaat dag 2 niet omhoog naar de Fumaça van bovenaf: we lopen een uur door naar het uitkijkpunt recht tegenover de Waterval Fumaça en nog een uur naar het kamp bij de Waterval Palmital, waar je een tweede nacht doorbrengt. De terugweg valt op de dag erna — stem de precieze route met ons af wanneer je een datum vastlegt.',
+          distancia: 'tot 24 km in totaal',
+          esforco: 'Zwaar',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 2.000', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 1.750', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      wildTrekChecklist('nl', `Schoeisel en regenkleding zijn hier het belangrijkst: bijna de hele route loop je in de rivierbedding, tussen canyonwanden. ${WILD_TREK_PORTER.nl}`),
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met WAFA-opleiding', 'Wildkamperen, met tent, isolatiemat en slaapzak', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Persoonlijke drager', 'Extra drankjes', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+      },
+      safetyFaq(
+        'nl',
+        'Dit is de zwaarste route uit ons aanbod, en we raden hem zelf alleen aan voor zeer ervaren wandelaars. Dag 1 heeft de inspanning "extreem" — de enige met die beoordeling op al onze routes: 3,5 uur in de rivierbedding en daarna 40 minuten klimmen langs de waterval over een heel moeilijk stuk. De route wordt weinig belopen en is afgelegen, waardoor elke redding langer duurt dan de toch al lange norm in de regio. Twijfel je over je conditie, praat dan met ons voordat je boekt — dit is niet de route om daarachter te komen.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar voor de zwaarste', 'route van de Chapada?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt, wat je wandelervaring is en welke data je in gedachten hebt — dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

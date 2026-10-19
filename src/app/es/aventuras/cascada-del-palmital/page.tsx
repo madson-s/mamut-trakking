@@ -8,7 +8,7 @@ const CONTENT = PALMITAL_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-palmital', en: '/en/adventures/palmital-waterfall', es: '/es/aventuras/cascada-del-palmital', fr: '/fr/aventures/cascade-du-palmital' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-palmital', en: '/en/adventures/palmital-waterfall', es: '/es/aventuras/cascada-del-palmital', fr: '/fr/aventures/cascade-du-palmital', nl: '/nl/avonturen/waterval-palmital' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

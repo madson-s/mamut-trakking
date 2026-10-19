@@ -346,4 +346,81 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Herculano',
+      description:
+        'Zestig meter vallend water en een poel om in te zwemmen, in Itaetê, buiten de toeristenroute. Een pad van 6 km door dicht bos en beekjes.',
+      canonical: '/nl/avonturen/waterval-herculano',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Itaetê',
+      duracao: '1 dag',
+      titulo: 'Waterval Herculano.',
+      lead: 'Zestig meter vallend water in Itaetê, aan de andere kant van de Chapada — en meestal alleen met je eigen groep.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Hoogte van de val', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Herculano.',
+      paragrafos: [
+        'Een val van zo’n 60 meter in Itaetê, een buurgemeente van Lençóis, met een poel die breed en ondiep genoeg is om rustig in het water te blijven.',
+        'Dit is een tocht buiten het gebruikelijke circuit. Door de afstand tot Lençóis blijft het rustig, en vaker wel dan niet heeft de groep de waterval voor zichzelf.',
+        'Het pad is zo’n 6 km heen en terug en duurt ongeveer 2 uur, door dicht bos en beekjes, met oneffen stukken en klimmetjes die de beoordeling "gemiddeld" verklaren.',
+        'Tijdens onze tochten is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 6.00 uur uit het centrum van Lençóis, met 30 minuten speling, richting Itaetê. Dat is zo’n 140 km en 3 uur rijden.',
+        'Bij aankomst in Itaetê een korte stop voor het ontbijt — niet inbegrepen — en om je klaar te maken voor het pad.',
+        'De wandeling naar de waterval duurt ongeveer 2 uur, door stukken dicht bos en beekjes.',
+        'Aankomst bij de Waterval Herculano: zo’n 60 meter vallend water in een poel die goed is om te zwemmen, met tijd om te blijven.',
+        'Terug via hetzelfde pad naar het startpunt in Itaetê en laat in de middag terug naar Lençóis, waar we rond 18.00 uur aankomen.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 650', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 600', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Insectenwerend middel'], ['Snack of fruit', 'Handdoek', 'Contant geld voor het ontbijt']],
+        note: 'Je vertrekt om 6.00 uur en het ontbijt bij de stop in Itaetê is voor eigen rekening — neem wat contant geld mee.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige lokale gids met EHBO-opleiding', 'Toegangsprijs', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Ontbijt bij de stop', 'Picknick (optioneel)', 'Persoonlijke uitrusting', 'Extra drankjes', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'Het pad heeft oneffen stukken en klimmetjes, met beekovergangen die na regen glad worden. Schoenen met goede grip en insectenwerend middel maken hier het grootste verschil — een groot deel van de weg gaat door dicht bos.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om de andere kant', 'van de Chapada te zien?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

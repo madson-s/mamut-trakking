@@ -11,8 +11,6 @@ import type { HolidayId } from './calendar-data';
  */
 export type CalendarContent = {
   meta: { title: string; description: string; canonical: string };
-  /** Rótulo curto do roteiro nos cartões ("Vale do Pati 3 Dias"). */
-  tituloCurto: (dias: number) => string;
   /** `Intl` das datas por extenso (mensagem de reserva). */
   intl: string;
   semana: readonly string[];
@@ -29,6 +27,8 @@ export type CalendarContent = {
   saida: (n: number) => string;
   dias: (n: number) => string;
   aPartirDe: string;
+  /** Rótulo do preço de uma saída — o valor é o daquela data, não um "a partir de". */
+  porPessoa: string;
   saidaDe: (origem: string) => string;
   partida: {
     rotulo: (titulo: string, periodo: string, ano: number) => string;
@@ -42,9 +42,13 @@ export type CalendarContent = {
   };
   calendarioRotulo: string;
   grupo: {
-    resumo: (dias: number, distancia: string, origem: string, preco: string) => string;
+    /** `duracao` já vem formatada (`dias`); `distancia` falta nos roteiros sem página. */
+    resumo: (duracao: string, distancia: string | undefined, origem: string, preco: string) => string;
     verRoteiro: string;
     verRoteiroRotulo: (nome: string) => string;
+    /** Roteiro sem página própria: o botão do grupo abre o WhatsApp. */
+    falar: string;
+    mensagem: (nome: string) => string;
     fotoAlt: (nome: string) => string;
   };
   verao: { titulo: string; abrirCalendario: string; cta: string; mensagem: string };
@@ -64,6 +68,7 @@ export const CALENDAR_HREF: Record<Locale, string> = {
   en: '/en/calendar-and-groups',
   es: '/es/calendario-y-grupos',
   fr: '/fr/calendrier-et-groupes',
+  nl: '/nl/kalender-en-groepen',
 };
 
 export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
@@ -74,7 +79,6 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
         'Confira as próximas saídas em grupo para o Vale do Pati e reserve sua vaga com guias nativos da Chapada Diamantina.',
       canonical: CALENDAR_HREF.pt,
     },
-    tituloCurto: (dias) => `Vale do Pati ${dias} Dias`,
     intl: 'pt-BR',
     semana: ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sáb'],
     meses: ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez'],
@@ -88,8 +92,9 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       verSaidasDe: (titulo) => `Ver as próximas saídas de ${titulo}`,
     },
     saida: (n) => `${n} ${n === 1 ? 'saída' : 'saídas'}`,
-    dias: (n) => `${n} dias`,
+    dias: (n) => `${n} ${n === 1 ? 'dia' : 'dias'}`,
     aPartirDe: 'A partir de',
+    porPessoa: 'por pessoa',
     saidaDe: (origem) => `Saída de ${origem}`,
     partida: {
       rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} de ${ano}`,
@@ -103,9 +108,11 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
     },
     calendarioRotulo: 'Calendário de saídas',
     grupo: {
-      resumo: (dias, distancia, origem, preco) => `${dias} dias · ${distancia} · Saída de ${origem} · A partir de ${preco}`,
+      resumo: (duracao, distancia, origem, preco) => [duracao, distancia, `Saída de ${origem}`, `A partir de ${preco}`].filter(Boolean).join(' · '),
       verRoteiro: 'Ver roteiro completo',
       verRoteiroRotulo: (nome) => `Ver roteiro completo: ${nome}`,
+      falar: 'Falar no WhatsApp',
+      mensagem: (nome) => `Olá! Quero saber mais sobre o roteiro ${nome}.`,
       fotoAlt: (nome) => `Paisagem da travessia ${nome}`,
     },
     verao: {
@@ -138,7 +145,6 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
         'See the upcoming group departures to the Pati Valley and book your place with native guides from Chapada Diamantina.',
       canonical: CALENDAR_HREF.en,
     },
-    tituloCurto: (dias) => `Pati Valley ${dias} Days`,
     intl: 'en-US',
     semana: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     meses: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -152,8 +158,9 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       verSaidasDe: (titulo) => `See the upcoming departures for ${titulo}`,
     },
     saida: (n) => `${n} ${n === 1 ? 'departure' : 'departures'}`,
-    dias: (n) => `${n} days`,
+    dias: (n) => `${n} ${n === 1 ? 'day' : 'days'}`,
     aPartirDe: 'From',
+    porPessoa: 'per person',
     saidaDe: (origem) => `Departs from ${origem}`,
     partida: {
       rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} ${ano}`,
@@ -167,9 +174,11 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
     },
     calendarioRotulo: 'Departure calendar',
     grupo: {
-      resumo: (dias, distancia, origem, preco) => `${dias} days · ${distancia} · Departs from ${origem} · From ${preco}`,
+      resumo: (duracao, distancia, origem, preco) => [duracao, distancia, `Departs from ${origem}`, `From ${preco}`].filter(Boolean).join(' · '),
       verRoteiro: 'See full itinerary',
       verRoteiroRotulo: (nome) => `See full itinerary: ${nome}`,
+      falar: 'Talk on WhatsApp',
+      mensagem: (nome) => `Hi! I’d like to know more about the ${nome} itinerary.`,
       fotoAlt: (nome) => `Landscape on the ${nome} trek`,
     },
     // "Summer" sozinho seria o de quem lê do hemisfério norte: o mês evita a dúvida.
@@ -203,7 +212,6 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
         'Consulta las próximas salidas en grupo al Valle del Pati y reserva tu lugar con guías nativos de la Chapada Diamantina.',
       canonical: CALENDAR_HREF.es,
     },
-    tituloCurto: (dias) => `Valle del Pati ${dias} Días`,
     intl: 'es-ES',
     semana: ['dom', 'lun', 'mar', 'mié', 'jue', 'vie', 'sáb'],
     meses: ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'],
@@ -217,8 +225,9 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       verSaidasDe: (titulo) => `Ver las próximas salidas de ${titulo}`,
     },
     saida: (n) => `${n} ${n === 1 ? 'salida' : 'salidas'}`,
-    dias: (n) => `${n} días`,
+    dias: (n) => `${n} ${n === 1 ? 'día' : 'días'}`,
     aPartirDe: 'Desde',
+    porPessoa: 'por persona',
     saidaDe: (origem) => `Salida de ${origem}`,
     partida: {
       rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} de ${ano}`,
@@ -232,9 +241,11 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
     },
     calendarioRotulo: 'Calendario de salidas',
     grupo: {
-      resumo: (dias, distancia, origem, preco) => `${dias} días · ${distancia} · Salida de ${origem} · Desde ${preco}`,
+      resumo: (duracao, distancia, origem, preco) => [duracao, distancia, `Salida de ${origem}`, `Desde ${preco}`].filter(Boolean).join(' · '),
       verRoteiro: 'Ver itinerario completo',
       verRoteiroRotulo: (nome) => `Ver itinerario completo: ${nome}`,
+      falar: 'Hablar por WhatsApp',
+      mensagem: (nome) => `¡Hola! Quiero saber más sobre el recorrido ${nome}.`,
       fotoAlt: (nome) => `Paisaje de la travesía ${nome}`,
     },
     verao: {
@@ -267,7 +278,6 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
         'Consultez les prochains départs en groupe vers la vallée du Pati et réservez votre place avec des guides natifs de la Chapada Diamantina.',
       canonical: CALENDAR_HREF.fr,
     },
-    tituloCurto: (dias) => `Vallée du Pati ${dias} Jours`,
     intl: 'fr-FR',
     semana: ['dim', 'lun', 'mar', 'mer', 'jeu', 'ven', 'sam'],
     meses: ['janv.', 'févr.', 'mars', 'avr.', 'mai', 'juin', 'juil.', 'août', 'sept.', 'oct.', 'nov.', 'déc.'],
@@ -281,8 +291,9 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       verSaidasDe: (titulo) => `Voir les prochains départs pour ${titulo}`,
     },
     saida: (n) => `${n} ${n === 1 ? 'départ' : 'départs'}`,
-    dias: (n) => `${n} jours`,
+    dias: (n) => `${n} ${n === 1 ? 'jour' : 'jours'}`,
     aPartirDe: 'À partir de',
+    porPessoa: 'par personne',
     saidaDe: (origem) => `Départ de ${origem}`,
     partida: {
       rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} ${ano}`,
@@ -297,9 +308,11 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
     },
     calendarioRotulo: 'Calendrier des départs',
     grupo: {
-      resumo: (dias, distancia, origem, preco) => `${dias} jours · ${distancia} · Départ de ${origem} · À partir de ${preco}`,
+      resumo: (duracao, distancia, origem, preco) => [duracao, distancia, `Départ de ${origem}`, `À partir de ${preco}`].filter(Boolean).join(' · '),
       verRoteiro: 'Voir l’itinéraire complet',
       verRoteiroRotulo: (nome) => `Voir l’itinéraire complet : ${nome}`,
+      falar: 'Écrire sur WhatsApp',
+      mensagem: (nome) => `Bonjour ! J’aimerais en savoir plus sur l’itinéraire ${nome}.`,
       fotoAlt: (nome) => `Paysage de la traversée ${nome}`,
     },
     // Comme en EN/ES : « l’été » d’un lecteur de l’hémisphère nord n’est pas
@@ -325,6 +338,73 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       titulo: 'Votre date n’est pas ici ?',
       texto: 'Dites-nous quand vous arrivez dans la Chapada et quel itinéraire vous souhaitez faire. Nous ouvrons un nouveau départ pour vous.',
       cta: 'Parler à un guide',
+    },
+  },
+  nl: {
+    meta: {
+      title: 'Kalender en groepen voor trektochten',
+      description:
+        'Bekijk de komende groepsvertrekken naar de Vale do Pati en reserveer je plek bij lokale gidsen uit de Chapada Diamantina.',
+      canonical: CALENDAR_HREF.nl,
+    },
+    intl: 'nl-NL',
+    semana: ['zo', 'ma', 'di', 'wo', 'do', 'vr', 'za'],
+    meses: ['jan', 'feb', 'mrt', 'apr', 'mei', 'jun', 'jul', 'aug', 'sep', 'okt', 'nov', 'dec'],
+    feriados: { aparecida: 'Onze-Lieve-Vrouw van Aparecida', republica: 'Uitroeping van de Republiek' },
+    hero: {
+      titulo: { antes: 'Komende', meio: 'trektochten', depois: 'met Mamut' },
+      texto: 'Vind je jouw datum niet? Neem contact op, dan openen we een nieuwe vertrekdatum voor je.',
+      cta: 'Praat met een gids',
+      explorar: 'Bekijk alle vertrekdata',
+      pilhaRotulo: 'Bekijk de komende doorsteken',
+      verSaidasDe: (titulo) => `Bekijk de komende vertrekdata van ${titulo}`,
+    },
+    saida: (n) => `${n} ${n === 1 ? 'vertrek' : 'vertrekken'}`,
+    dias: (n) => `${n} ${n === 1 ? 'dag' : 'dagen'}`,
+    aPartirDe: 'Vanaf',
+    porPessoa: 'per persoon',
+    saidaDe: (origem) => `Vertrek vanuit ${origem}`,
+    partida: {
+      rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} ${ano}`,
+      feriado: 'Feestdag',
+      linhaDoTempo: 'Dagen van de doorsteek',
+      dia: (n) => `Dag ${n}`,
+      status: { feriado: 'Feestdag', saida: 'Vertrek', retorno: 'Terugkeer' },
+      reservar: 'Reserveer je plek',
+      reservarRotulo: (titulo, periodo) => `Reserveer ${titulo}, ${periodo}`,
+      mensagem: (roteiro, inicio, fim) => `Hallo! Ik wil graag een plek reserveren voor de ${roteiro}, van ${inicio} tot ${fim}.`,
+    },
+    calendarioRotulo: 'Kalender met vertrekdata',
+    grupo: {
+      resumo: (duracao, distancia, origem, preco) => [duracao, distancia, `Vertrek vanuit ${origem}`, `Vanaf ${preco}`].filter(Boolean).join(' · '),
+      verRoteiro: 'Bekijk de volledige route',
+      verRoteiroRotulo: (nome) => `Bekijk de volledige route: ${nome}`,
+      falar: 'Praat via WhatsApp',
+      mensagem: (nome) => `Hallo! Ik wil graag meer weten over de route ${nome}.`,
+      fotoAlt: (nome) => `Landschap van de doorsteek ${nome}`,
+    },
+    // Net als in EN: de Braziliaanse zomer valt in de Europese winter, dus de maanden staan erbij.
+    verao: {
+      titulo: 'Groepen voor de Braziliaanse zomer (december tot maart) zijn al te boeken — vraag het ons team.',
+      abrirCalendario: 'Open de volledige kalender',
+      cta: 'Vraag naar de zomerdata',
+      mensagem: 'Hallo! Ik wil graag meer weten over de zomergroepen.',
+    },
+    relacionados: {
+      titulo: 'Je datum niet gevonden? Dan openen we er een.',
+      verTodas: 'Bekijk alle avonturen',
+      fotoAlt: (nome) => `Landschap van ${nome}`,
+      verSaidas: 'Bekijk komende vertrekdata',
+      pedirData: 'Vraag een nieuwe datum aan',
+    },
+    novaData: {
+      geral: 'Hallo! Ik wil graag een nieuwe vertrekdatum openen.',
+      roteiro: (nome) => `Hallo! Ik wil graag een nieuwe datum openen voor de route ${nome}.`,
+    },
+    contato: {
+      titulo: 'Staat jouw datum er niet bij?',
+      texto: 'Vertel ons wanneer je in de Chapada aankomt en welke trektocht je wilt doen. Dan openen we een nieuw vertrek voor je.',
+      cta: 'Praat met een gids',
     },
   },
 };

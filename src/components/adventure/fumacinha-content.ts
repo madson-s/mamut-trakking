@@ -379,4 +379,89 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Fumacinha',
+      description:
+        'Achttien kilometer stroomopwaarts door de rivierbedding, tussen canyonwanden van 100 meter, in Ibicoara. De meest technische dagtocht van de Chapada Diamantina.',
+      canonical: '/nl/avonturen/waterval-fumacinha',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Zwaar',
+      origem: 'Vertrek: Ibicoara',
+      duracao: '1 dag',
+      titulo: 'Waterval Fumacinha.',
+      lead: 'Achttien kilometer in de rivier, tussen wanden van honderd meter die steeds dichter naar elkaar toe komen.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Canyonwanden', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Fumacinha.',
+      paragrafos: [
+        'De Fumacinha is de meest technische dagtocht die we organiseren. Een groot deel van de 18 kilometer loop je in de rivierbedding, springend tussen natte rotsen, met stukken waar je veiligheidsuitrusting nodig hebt om erdoor te komen.',
+        'De omgeving maakt het goed: de canyon wordt steeds smaller en de wanden worden aan beide kanten 100 meter hoog. Onderweg komt de groep langs de Waterval Encontro, waar twee waterlopen samenkomen.',
+        'De moeilijkheid zit niet alleen in de afstand — maar in het terrein. Dit pad is voor mensen die al eerder hebben gewandeld en zich urenlang op hun gemak voelen op oneffen, glad terrein.',
+        'Tijdens onze tochten is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 5.00 uur uit Lençóis, met 30 minuten speling. We vertrekken zo vroeg omdat zowel de dag als de rit lang zijn: zo’n 260 km en 3 uur met de auto naar Ibicoara.',
+        'Vanuit Ibicoara nog een uur naar het begin van het pad, nu over onverharde weg.',
+        'Al snel daalt de wandeling af in de rivierbedding. De groep trekt stroomopwaarts, springend over de rotsen, terwijl de canyon zich langzaam sluit en de wanden hoger worden.',
+        'Langs de Waterval Encontro, waar twee waterlopen samenkomen — een goede stop om op adem te komen voor het laatste stuk.',
+        'Op de meest blootgestelde punten gebruiken we veiligheidsuitrusting om over te steken, één voor één, met de gids op zijn plek.',
+        'Aankomst bij de Fumacinha, zwemmen en picknicken. De terugweg gaat via dezelfde route, en je bent na het donker terug in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 715', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 550', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      tabela: {
+        titulo: 'Volledige prijstabel',
+        colunaPessoas: 'Aantal personen',
+        pessoa: 'persoon',
+        pessoas: 'personen',
+        nota: 'Prijzen per persoon, in Braziliaanse real, bij betaling contant, per overboeking of met boleto.',
+      },
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (2 L per persoon)', 'Wandelschoenen met goede grip', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Hoofdlamp'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Handdoek', 'Droge set kleren voor de terugrit']],
+        note: 'Schoeisel is hier het belangrijkste item: bijna het hele pad loop je over natte rots. Een hoofdlamp is verplicht, want je vertrekt voor zonsopgang en komt misschien in het donker aan.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met EHBO-opleiding', 'Veiligheidsuitrusting voor de technische stukken', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Vervoer (optioneel)', 'Picknick (optioneel)', 'Persoonlijke uitrusting', 'Toegangsprijs', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'We raden af de Fumacinha op één dag heen en terug vanuit Lençóis te doen: dat is aan beide kanten 3 uur rijden, bovenop een volle dag technisch pad. Als het kan, slaap dan de nacht ervoor in Ibicoara. De blootgestelde stukken van de canyon passeer je met veiligheidsuitrusting, één deelnemer tegelijk.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om de canyon', 'in te lopen?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

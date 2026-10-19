@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     languages: {
       pt: '/pt/aventuras/vale-do-pati-03-dias',
       en: '/en/adventures/pati-valley-3-days',
-      es: '/es/aventuras/valle-del-pati-3-dias', fr: '/fr/aventures/vallee-du-pati-3-jours'
+      es: '/es/aventuras/valle-del-pati-3-dias', fr: '/fr/aventures/vallee-du-pati-3-jours', nl: '/nl/avonturen/pati-vallei-3-dagen'
     },
   },
   openGraph: {

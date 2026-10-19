@@ -8,7 +8,7 @@
  * inteiros de `pati-3-content`, então não há como divergirem por descuido.
  *
  * Fonte: mamut.agency/aventuras/vale-do-pati-{4-dias,05-dias} e as versões
- * inglesas. ES e FR são tradução feita aqui.
+ * inglesas. ES, FR e NL são tradução feita aqui.
  */
 
 import type { Locale } from '@/lib/site';

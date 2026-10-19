@@ -344,4 +344,80 @@ export const FERRADURA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Ferradura',
+      description:
+        'Een makkelijke wandeling van 3 km naar een seizoenswaterval in de rivier de Mandassaia, op 4,5 km van Lençóis — buiten de gebaande toeristenroute.',
+      canonical: '/nl/avonturen/waterval-ferradura',
+    },
+    hero: {
+      nivel: 'Licht / Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Waterval Ferradura.',
+      lead: 'Een seizoenswaterval in de rivier de Mandassaia, een halfuur van Lençóis — en ver weg van de gebruikelijke drukte.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Ferradura.',
+      paragrafos: [
+        'Een van de bijzonderste tochten buiten de gebaande toeristenroute in de Chapada. Hij ligt in de loop van de rivier de Mandassaia, een paar kilometer van Lençóis, en toch is het er bijna nooit druk.',
+        'Het is een seizoenswaterval: prachtig na flinke regen, en in het droge seizoen kan er weinig water zijn. Check de actuele situatie even bij ons voordat je een datum vastlegt.',
+        'De wandeling is kort en makkelijk — 3 km tot de waterval. Het pad heeft een paar stukken die aandacht vragen, maar met de gids die de weg wijst zijn die geen probleem.',
+        'Tijdens onze tochten is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek vanaf 8.00 uur uit het centrum van Lençóis, met de auto of de motor, en 4,5 km naar het begin van het pad in Vila do Barro Branco.',
+        'Een wandeling van 3 km naar de Waterval Ferradura, in de loop van de rivier de Mandassaia. Het pad heeft stukken die aandacht vragen, altijd met de gids die de weg wijst.',
+        'Bij de waterval zet de gids de picknick klaar met uitzicht op de val — tijd om uit te rusten, te zwemmen en van het uitzicht te genieten.',
+        'Terug via dezelfde route naar het begin van het pad, waar het vervoer klaarstaat om terug te gaan naar het centrum.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 320', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 280', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Sportschoenen of wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Insectenwerend middel'], ['Snack of fruit', 'Handdoek', 'Camera']],
+        note: 'Een korte tocht vlak bij het stadje: je kunt licht reizen. Dichte schoenen en water zijn het belangrijkst.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige lokale gids met EHBO-opleiding', 'Vervoer naar het begin van het pad', 'Picknick bij de waterval', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat niet in de lijst staat', 'Persoonlijke uitrusting', 'Extra drankjes', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq(
+        'nl',
+        'De Ferradura is een seizoenswaterval en hangt af van recente regen: buiten het regenseizoen kan er weinig water zijn. Check de actuele situatie bij ons voordat je een datum vastlegt — en houd er rekening mee dat het pad juist het gladst is wanneer de waterval op zijn mooist is.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om van de', 'gebaande route af te gaan?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

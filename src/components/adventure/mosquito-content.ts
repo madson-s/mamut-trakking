@@ -318,4 +318,75 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Rejoindre la harde',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Mosquito',
+      description:
+        'Een halve dag bij de waterval die de goudzoekers naar "muggetjes" vernoemden: 2 km wandelen naar beneden, naar de bedding van de rivier de Santo Antônio, op een particuliere boerderij.',
+      canonical: '/nl/avonturen/waterval-mosquito',
+    },
+    hero: {
+      nivel: 'Licht',
+      origem: 'Vertrek: Lençóis',
+      duracao: 'Halve dag',
+      titulo: 'Waterval Mosquito.',
+      lead: 'De naam komt van de piepkleine diamanten die de goudzoekers "muggetjes" noemden.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Met de auto', 'Duur', 'Vertrek (Lençóis)', 'Terugkeer', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Mosquito.',
+      paragrafos: [
+        'Een waterval bij Lençóis, in de Chapada Diamantina. De naam komt van de vele kleine diamanten in de omgeving, die de goudzoekers liefkozend "muggetjes" (mosquitos) noemden.',
+        'Het is een korte tour van een halve dag: vertrek vanaf 8.00 uur en terug rond 13.00 uur. Zo blijft er ruimte om op dezelfde dag nog een bezienswaardigheid mee te pakken.',
+        'We combineren hem meestal met het Parque da Muritiba, de Morro do Pai Inácio, de Ribeirão do Meio of de Serra das Paridas — en ook met de Poço Azul, die goed past in een transfer tussen Lençóis en Mucugê. Overleg met ons team welke combinatie bij je past.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek tussen 8.00 en 9.00 uur. Het is zo’n uur rijden (40 km): 20 km asfalt over de BR-242 en 20 km onverharde weg door het binnenland rond Lençóis.',
+        'We komen aan bij de boerderij Santo Antônio, het particuliere terrein waar de waterval ligt — en waar je op de terugweg goed kunt lunchen.',
+        'Na het afzetten volgt een wandeling van 20 tot 30 minuten naar beneden, deels over een pad en deels over trappen, naar de bedding van de rivier de Santo Antônio, waar je de Waterval Mosquito van onderen ziet.',
+        'De plek kent geen acuut of technisch risico, maar vraagt wel om voorzichtigheid op de gladde stukken en bij veel water — de gids loopt de hele route mee. Na het zwemmen gaan we via dezelfde weg terug naar de auto en rijden we naar de boerderij Santo Antônio of direct terug naar Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 410', nota: 'Minimaal 2 personen. Alleen jouw groep op de tour.' },
+        { titulo: 'In een groep', preco: 'R$ 375', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of betaling met creditcard: vraag het ons team.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Wandelschoenen', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Extra sokken', 'Regenkleding (voor jezelf en de rugzak)'], ['Snack of fruit', 'Wandelstok']],
+        note: 'De afdaling is deels pad en deels trap: dichte schoenen met grip kunnen beide aan.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Erkende en opgeleide lokale gids', 'Vervoer heen en terug', 'Entreegelden', 'Avonturenverzekering', 'EHBO-kit'],
+        excluded: ['Alles wat hierboven niet staat', 'Lunch (optioneel)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting'],
+      },
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Je pad begint', 'met een bericht.'],
+      corpo: 'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
+      botao: 'Sluit je aan bij de kudde',
+    },
+  },
 };

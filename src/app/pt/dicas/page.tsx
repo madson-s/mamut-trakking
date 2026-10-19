@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: '/pt/dicas',
-    languages: { pt: '/pt/dicas', en: '/en/tips', es: '/es/consejos', fr: '/fr/conseils' },
+    languages: { pt: '/pt/dicas', en: '/en/tips', es: '/es/consejos', fr: '/fr/conseils', nl: '/nl/tips' },
   },
 };
 

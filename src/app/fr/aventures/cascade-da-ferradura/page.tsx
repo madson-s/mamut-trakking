@@ -8,7 +8,7 @@ const CONTENT = FERRADURA_CONTENT.fr;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-ferradura', en: '/en/adventures/ferradura-waterfall', es: '/es/aventuras/cascada-da-ferradura', fr: '/fr/aventures/cascade-da-ferradura' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-ferradura', en: '/en/adventures/ferradura-waterfall', es: '/es/aventuras/cascada-da-ferradura', fr: '/fr/aventures/cascade-da-ferradura', nl: '/nl/avonturen/waterval-ferradura' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

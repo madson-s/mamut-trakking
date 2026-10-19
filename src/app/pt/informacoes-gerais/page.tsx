@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: '/pt/informacoes-gerais',
-    languages: { pt: '/pt/informacoes-gerais', en: '/en/general-information', es: '/es/informacion-general', fr: '/fr/informations-generales' },
+    languages: { pt: '/pt/informacoes-gerais', en: '/en/general-information', es: '/es/informacion-general', fr: '/fr/informations-generales', nl: '/nl/algemene-informatie' },
   },
 };
 

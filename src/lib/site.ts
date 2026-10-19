@@ -1,7 +1,7 @@
 // Configuração global do site (não é tradução de conteúdo — são constantes
 // de marca, contato e formatação usadas pelos componentes e pelo SEO).
 
-export const LOCALES = ['pt', 'en', 'es', 'fr'] as const;
+export const LOCALES = ['pt', 'en', 'es', 'fr', 'nl'] as const;
 export type Locale = (typeof LOCALES)[number];
 
 export const DEFAULT_LOCALE: Locale = 'pt';
@@ -36,6 +36,7 @@ export const ADVENTURE_SEGMENT: Record<Locale, string> = {
   en: 'adventures',
   es: 'aventuras',
   fr: 'aventures',
+  nl: 'avonturen',
 };
 
 // Locale BCP-47 para Intl.NumberFormat (formatação de preço em BRL).
@@ -44,12 +45,14 @@ export const ADVENTURE_SEGMENT: Record<Locale, string> = {
 // o es-AR/es-419 dão "BRL 1.350". O valor é cobrado em reais, e as páginas de
 // roteiro em espanhol já trazem "R$ 1.500" escrito à mão. O francês segue o
 // mesmo padrão (o fr-FR daria "1 350 R$"), para o preço ter uma forma só fora
-// do inglês — e é assim que ele aparece escrito nas páginas em francês.
+// do inglês — e é assim que ele aparece escrito nas páginas em francês. O
+// holandês usa o próprio nl-NL, que já escreve "R$ 1.350".
 const INTL_LOCALE: Record<Locale, string> = {
   pt: 'pt-BR',
   en: 'en-US',
   es: 'pt-BR',
   fr: 'pt-BR',
+  nl: 'nl-NL',
 };
 
 export function formatPrice(value: number, locale: Locale): string {

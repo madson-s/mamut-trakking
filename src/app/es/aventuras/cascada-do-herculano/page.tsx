@@ -8,7 +8,7 @@ const CONTENT = HERCULANO_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-herculano', en: '/en/adventures/herculano-waterfall', es: '/es/aventuras/cascada-do-herculano', fr: '/fr/aventures/cascade-du-herculano' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-herculano', en: '/en/adventures/herculano-waterfall', es: '/es/aventuras/cascada-do-herculano', fr: '/fr/aventures/cascade-du-herculano', nl: '/nl/avonturen/waterval-herculano' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

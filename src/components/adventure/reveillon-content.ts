@@ -1,9 +1,9 @@
 /**
  * Conteúdo da página do Réveillon na Chapada, por idioma.
  *
- * PT é o copy do redesenho. EN, ES e FR são tradução feita aqui — a operadora
+ * PT é o copy do redesenho. EN, ES, FR e NL são tradução feita aqui — a operadora
  * não publica esta página em outro idioma. O espanhol segue o voseo das demais
- * páginas em ES do site; o francês usa "vous".
+ * páginas em ES do site; o francês usa "vous" e o holandês, "je".
  *
  * Números, datas, fotos e preços ficam em `REVEILLON_PACKAGES`: não mudam com
  * o idioma. O texto de cada pacote fica em `REVEILLON_CONTENT[locale].pacotes`,
@@ -137,6 +137,7 @@ export type ReveillonContent = {
 };
 
 const MESES_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MESES_NL = ['jan.', 'feb.', 'mrt.', 'apr.', 'mei', 'jun.', 'jul.', 'aug.', 'sep.', 'okt.', 'nov.', 'dec.'];
 const ddmm = (day: number, month: number) => `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}`;
 
 export const REVEILLON_CONTENT: Record<Locale, ReveillonContent> = {
@@ -823,6 +824,177 @@ export const REVEILLON_CONTENT: Record<Locale, ReveillonContent> = {
         body: 'Les activités sont encadrées par des guides locaux formés aux premiers secours et aux compétences minimales d’encadrement selon les normes brésiliennes ABNT. Une partie de l’équipe est certifiée WAFA.',
         warning: 'Le trek implique un terrain irrégulier, des changements de météo, des chutes, des animaux et des zones isolées. À certains endroits, un secours peut prendre plus de cinq heures, et son coût n’est pas inclus dans le forfait.',
         footer: 'Suivez les consignes du guide, signalez à l’avance tout problème de santé et emportez tout l’équipement obligatoire. L’itinéraire peut changer chaque fois que la sécurité l’exige.',
+      },
+    ],
+  },
+  nl: {
+    meta: {
+      title: 'Oudejaarsavond in de Chapada Diamantina 2027',
+      description:
+        'Pakketten van 4, 5 en 6 dagen om 2027 in te luiden tussen de paden, watervallen en landschappen van de Chapada Diamantina.',
+      canonical: '/nl/avonturen/oudejaarsavond-in-de-chapada',
+    },
+    numberLocale: 'nl-NL',
+    dateLabel: (day, month) => `${day} ${MESES_NL[month - 1]}`,
+    walk: (km) => `${km} km te voet`,
+    drive: (km) => `${km} km met de auto`,
+    jsonLd: { touristType: 'Trekking en ecotoerisme', offerName: (days) => `Oudejaarsavond in de Chapada — ${days}` },
+    hero: {
+      dates: '28 dec. 2026 — 2 jan. 2027',
+      titulo: 'Luid het nieuwe jaar in, midden in de Chapada.',
+      lead: 'Ruil het aftellen in voor het pad: watervallen, dalen en weidse uitzichten om 2027 in beweging te beginnen.',
+      verPacotes: 'Bekijk de pakketten',
+      falar: 'Praat met het team',
+      fotoAlt: 'Bergen van de Chapada Diamantina laat in de middag',
+    },
+    story: {
+      badge: 'Nieuwjaar 2027',
+      titulo: 'Het nieuwe jaar begint buiten.',
+      paragrafos: [
+        'Dit is een oudejaarsavond voor wie liever stromend water hoort en de stilte van het dal, en weet hoe het voelt om helemaal naar een bijzondere plek te lopen.',
+        'De routes combineren paden, watervallen, uitzichten en overnachtingen in reizen van vier tot zes dagen. Jij kiest de intensiteit; Mamut regelt de route.',
+      ],
+      selo: 'Kleine groepen, lokale gidsen en de mogelijkheid om het pakket aan te passen.',
+      fotos: {
+        buracao: 'De Waterval Buracão tussen de canyonwanden',
+        lencois: 'Historische straat in Lençóis, Chapada Diamantina',
+      },
+      regioes: 'Lençóis · Pati · Ibicoara · Mucugê',
+    },
+    explorer: {
+      badge: 'Kies je tempo',
+      titulo: 'Drie routes naar hetzelfde nieuwe jaar.',
+      duracao: 'Duur van het pakket',
+      nome: 'Oudejaarsavond in de Chapada',
+      tituloPacote: (days) => `${days} avontuur.`,
+      minimo: 'Minimaal 2 reizigers',
+      regiao: 'Chapada Diamantina · Bahia',
+      apartirDe: 'Vanaf',
+      porPessoa: 'per persoon',
+      pagamento: { antes: 'Boek met een', destaque: 'aanbetaling van 50%.', depois: 'Creditcard in maximaal 12 termijnen, met toeslag.' },
+      quero: 'Ik wil dit pakket',
+      adaptar: 'Wil je de route aanpassen? Praat met het team.',
+      mensagem: (days) => `Hallo! Ik wil graag het pakket van ${days} voor oudejaarsavond 2027 in de Chapada checken voor`,
+      roteiro: 'Dag voor dag',
+      roteiroTitulo: (days) => `${days} in beweging`,
+      roteiroNota: 'Afstanden bij benadering. De volgorde kan veranderen om optimaal gebruik te maken van het weer en de groep veilig te houden.',
+    },
+    inclusos: {
+      titulo: 'Elk pakket dekt het belangrijkste al.',
+      ariaLabel: 'Wat er in de pakketten zit',
+      itens: [
+        { label: 'Entreegelden', detail: 'Toegang tot elke plek op de route' },
+        { label: 'Lokale gidsen', detail: 'Deskundige begeleiding bij elke activiteit' },
+        { label: 'Overnachting', detail: 'Nachten volgens het pakket dat je kiest' },
+        { label: 'Vervoer', detail: 'Vervoer naar elke plek op de route' },
+      ],
+    },
+    info: {
+      badge: 'Voordat je boekt',
+      titulo: 'Alles duidelijk voor de eerste stap.',
+      corpo: 'Bekijk de uitrusting, de betaalvoorwaarden, de annulering en de veiligheidsinformatie. Het staat hier allemaal, zodat je met een gerust hart kunt beslissen.',
+    },
+    finalCta: {
+      badge: 'Begin 2027 in beweging',
+      titulo: 'Je volgende jaar kan op een pad beginnen.',
+      corpo: 'Vertel Mamut hoeveel dagen je hebt en hoe je graag reist. Het team helpt je de juiste route te kiezen — of aan te passen.',
+      cta: 'Plan mijn oudejaarsavond',
+      fotoAlt: 'Pad richting de bergen van de Chapada Diamantina',
+    },
+    pacotes: {
+      '4-dias': {
+        days: '4 dagen',
+        dates: '29 dec. 2026 — 1 jan. 2027',
+        places: 'Lençóis · Iraquara',
+        imageAlt: 'Zonsondergang tussen de bergen van de Chapada Diamantina',
+        pitch: 'Een jaarwisseling met Lençóis als uitvalsbasis, met vier dagen zwemplekken, uitkijkpunten en klassieke paden.',
+        highlights: ['Parque da Muritiba', 'Fazenda Pratinha', 'Waterval Mosquito', 'Morro do Pai Inácio', 'Waterval Fumaça'],
+        itinerary: [
+          { title: 'Muritiba + Ribeirão do Meio', description: 'Aankomst in Lençóis en een eerste duik in de natuurlijke circuits het dichtst bij het stadje.' },
+          { title: 'Grotten, Pratinha + uitkijkpunt Camelo', description: 'Een dag met ondergrondse formaties, kristalhelder water en het meest iconische silhouet van de regio.' },
+          { title: 'Mosquito + Mucugezinho + Pai Inácio', description: 'Watervallen overdag, en de horizon van de Chapada als decor om het jaar af te sluiten.' },
+          { title: 'Waterval Fumaça', description: 'De eerste grote uitdaging van 2027 brengt je naar de top van een van de beroemdste watervallen van Brazilië.' },
+        ],
+      },
+      '5-dias': {
+        days: '5 dagen',
+        dates: '29 dec. 2026 — 2 jan. 2027',
+        places: 'Lençóis · Vale do Pati · Ibicoara',
+        imageAlt: 'Bergen en paden van de Vale do Pati',
+        pitch: 'De trektocht is het hart van de reis: drie dagen in de Pati, voor de wateren van het zuiden van de Chapada.',
+        highlights: ['Vale do Pati in 3 dagen', 'Morro do Castelo', 'Cachoeirão', 'Waterval Buracão', 'Poço Azul'],
+        itinerary: [
+          { title: 'Lençóis → Guiné + uitkijkpunt Rampa', description: 'Transfer naar Guiné, de klim naar de Rampa en het eerste panorama over de Vale do Pati.' },
+          { title: 'Morro do Castelo', description: 'Een wandeling dwars door de berg en een uitzicht van hoog boven de dalen rond de Pati.' },
+          { title: 'Cachoeirão + transfer naar Ibicoara', description: 'Een lange wandeling naar het uitkijkpunt Cachoeirão, voordat we verdergaan naar het zuiden van de Chapada.' },
+          { title: 'Waterval Buracão', description: 'Het jaar begint in de canyon, tussen loopbruggen, rivier en de kracht van de waterval.' },
+          { title: 'Poço Azul + Mosquito + Lençóis', description: 'Drijven, een duik bij een waterval en de terugkeer naar Lençóis om de expeditie af te sluiten.' },
+        ],
+      },
+      '6-dias': {
+        days: '6 dagen',
+        dates: '28 dec. 2026 — 2 jan. 2027',
+        places: 'Lençóis · Mucugê · Vale do Pati · Ibicoara',
+        imageAlt: 'De Waterval Fumacinha tussen rotswanden',
+        pitch: 'De meest complete ervaring: de Pati, grote watervallen en zes dagen door heel verschillende landschappen.',
+        highlights: ['Vale do Pati in 3 dagen', 'Cachoeirão', 'Waterval Buracão', 'Waterval Fumacinha', 'Poço Azul'],
+        itinerary: [
+          { title: 'Lençóis → Guiné + uitkijkpunt Rampa', description: 'De reis begint met de klassieke toegang tot de Vale do Pati en de aankomst bij het huis van een lokale familie.' },
+          { title: 'Morro do Castelo', description: 'Grotten, hoogte en een van de indrukwekkendste panorama’s van de Pati-trektocht.' },
+          { title: 'Cachoeirão + transfer naar Ibicoara', description: 'De langste etappe van de trektocht eindigt met de overstap naar het zuiden van de Chapada.' },
+          { title: 'Waterval Buracão', description: 'Je neemt afscheid van het jaar in de canyon van een van de krachtigste waterervaringen van de regio.' },
+          { title: 'Waterval Fumacinha', description: 'Achttien kilometer door rivierbedding en canyon om 2027 op monumentale schaal te beginnen.' },
+          { title: 'Poço Azul + Mosquito + Lençóis', description: 'Nog één laatste circuit met helder water en een waterval, voor de terugkeer naar Lençóis.' },
+        ],
+      },
+    },
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Wat neem je mee',
+        intro: 'Reis licht, maar sla niet over wat je lichaam op de paden beschermt en comfortabel houdt.',
+        requiredColumns: [
+          ['Water — minstens 1 liter', 'Trekking- of wandelschoenen', 'Lichte kleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak'],
+        ],
+        recommendedColumns: [
+          ['Regenhoes voor jezelf en je rugzak', 'Lichte snack of fruit'],
+          ['Wandelstok', 'Sandalen of slippers'],
+        ],
+        note: 'Het team kan de verplichte items voor de activiteiten controleren. De veiligheid van de groep hangt ervan af dat iedereen voorbereid is.',
+      },
+      {
+        type: 'payment',
+        title: 'Betaling en boeking',
+        paragraphs: [
+          'Met een aanbetaling van 50% is je boeking bevestigd. Je kunt vooraf betalen per overboeking of met boleto.',
+          'Bij betaling met een creditcard komt er 6% bij, te verdelen over maximaal 12 termijnen via PagSeguro of Mercado Pago. Voor buitenlandse creditcards: praat met het team.',
+          'Het restant betaal je bij de check-in of per overboeking tot twee werkdagen voor het begin van het pakket.',
+        ],
+      },
+      {
+        type: 'cancellation',
+        title: 'Annulering en wijzigingen',
+        intro: 'Kun je niet reizen, dan kun je iemand anders in je plaats sturen of het bedrag als tegoed houden. Voor restitutie gelden deze termijnen:',
+        refunds: [
+          ['30 dagen of meer vooraf', '90% van het bedrag'],
+          ['21 tot 29 dagen vooraf', '80% van het bedrag'],
+          ['7 tot 20 dagen vooraf', '50% van het bedrag'],
+          ['Minder dan 7 dagen vooraf', 'Geen restitutie'],
+        ],
+        paragraphs: [
+          'Als het pakket eenmaal begonnen is, is er geen restitutie. Niet op het afgesproken tijdstip verschijnen telt als annulering.',
+          'De route kan veranderen door het weer, de veiligheid van de groep of aanwijzingen van de autoriteiten. Wie ervoor kiest de groep tijdens de activiteit te verlaten, draagt de eventuele kosten van die beslissing.',
+        ],
+      },
+      {
+        type: 'safety',
+        title: 'Veiligheid tijdens de activiteiten',
+        riskLabel: 'Risico’s en beperkingen — lees dit even',
+        lead: 'De natuur bepaalt het tempo — het team neemt de technische beslissingen.',
+        body: 'De activiteiten worden geleid door lokale gidsen met een EHBO-opleiding en de minimale competenties voor gidsen volgens de Braziliaanse ABNT-normen. Een deel van het team heeft een WAFA-certificaat.',
+        warning: 'Trekking betekent oneffen terrein, wisselend weer, valpartijen, wilde dieren en afgelegen gebieden. Op sommige plekken kan een redding meer dan vijf uur duren, en de kosten daarvan zitten niet in het pakket.',
+        footer: 'Volg de aanwijzingen van de gids, meld gezondheidsproblemen vooraf en neem alle verplichte uitrusting mee. De route kan veranderen wanneer de veiligheid dat vraagt.',
       },
     ],
   },

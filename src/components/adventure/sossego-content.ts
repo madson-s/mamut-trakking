@@ -321,4 +321,76 @@ export const SOSSEGO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Rejoindre la harde',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Sossego',
+      description:
+        'Een van de zwaarste paden van de Chapada Diamantina: 15 km van rotsblok naar rotsblok door de bedding van de Ribeirão, tussen canyons van meer dan 100 meter hoog.',
+      canonical: '/nl/avonturen/waterval-sossego',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Moeilijk',
+      origem: 'Vertrek: Lençóis',
+      duracao: '1 dag',
+      titulo: 'Waterval Sossego.',
+      lead: 'Vijftien kilometer van rotsblok naar rotsblok door de rivierbedding, tussen wanden van meer dan 100 meter hoog.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Hoogtemeters', 'Duur', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Waterval Sossego.',
+      paragrafos: [
+        'Een van de indrukwekkendste en meest lonende paden van de Chapada Diamantina. Je klimt en daalt, en loopt en springt letterlijk over de stenen in de bedding van de Ribeirão, omringd door canyons van meer dan 100 meter hoog.',
+        'De weg naar de waterval is behoorlijk intensief, met veel klimmen en dalen. Aan het eind van de dag kunnen de opgetelde hoogtemeters boven de 750 m uitkomen.',
+        'Tijdens de wandelingen is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Zo verloopt de dag.',
+      aviso: 'De route kan veranderen door het weer of door overmacht die het team relevant vindt.',
+      corpo: [
+        'Vertrek om 8.00 uur — met 15 minuten speling — uit het centrum van Lençóis, over het traditionele pad richting de Ribeirão do Meio. Het is zo’n 30 minuten naar het uitkijkpunt over de Rio Ribeirão, vanwaar je al een deel van de route voor je ziet.',
+        'Vandaar volgt het pad de rivier stroomopwaarts, met een landschap dat bij elke stap verandert. Onderweg kom je langs oude bouwsels en de schuilplaatsen van de goudzoekers die hier naar diamanten zochten.',
+        'Na ongeveer een uur bereik je de bedding van de Ribeirão, waar je over veel stenen moet springen — die glad kunnen zijn — en, afhankelijk van het weer, door het water moet. Dit stuk vraagt het meest van de groep. Nog 30 minuten tot de waterval.',
+        'De terugweg volgt dezelfde route, met een stop bij de Caldeirões do Ribeirão de Cima om te zwemmen in ondieper water.',
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 250', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 200', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: vraag het ons team.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checklist — wat neem je mee',
+        intro: 'Items met een * zijn verplicht. Ontbreekt er één, dan brengt dat de veiligheid van de groep in gevaar en kun je niet deelnemen.',
+        requiredColumns: [
+          ['Water (1,5 L per persoon)', 'Wandelschoenen', 'Extra sokken', 'Lichte kleding', 'Zwemkleding'],
+          ['Pet of hoed', 'Zonnebrand', 'Persoonlijke medicijnen', 'Identiteitsbewijs met foto', 'Rugzak voor je spullen'],
+        ],
+        recommendedColumns: [['Regenkleding (voor jezelf en de rugzak)', 'Wandelstok'], ['Snack of fruit', 'Handdoek', 'Camera']],
+        note: 'De rivierbedding is glad: schoenen met echte grip maken op deze route het verschil.',
+      },
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Tweetalige berggids met APH-opleiding', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Zwemvest'],
+        excluded: ['Alles wat hierboven niet staat', 'Vervoer (optioneel)', 'Picknick (optioneel)', 'Persoonlijke uitrusting', 'Medische evacuatie', 'Overnachting voor of na de tour'],
+      },
+      safetyFaq('nl', 'In de bedding van de Ribeirão spring je van steen naar steen, en die kunnen glad zijn; afhankelijk van het weer moet je ook door het water. Daardoor is dit pad zwaarder dan de afstand doet vermoeden.'),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Je pad begint', 'met een bericht.'],
+      corpo: 'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
+      botao: 'Sluit je aan bij de kudde',
+    },
+  },
 };

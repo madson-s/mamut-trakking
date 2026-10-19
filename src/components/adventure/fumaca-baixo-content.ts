@@ -376,4 +376,88 @@ export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Parler à Mamut',
     },
   },
+  nl: {
+    meta: {
+      title: 'Waterval Fumaça van onderen — 3 dagen',
+      description:
+        'Drie dagen naar de voet van de 400 meter hoge rotswand van de Waterval Fumaça, via Palmital en Capivara, met de terugweg door de Vale do Capão.',
+      canonical: '/nl/avonturen/waterval-fumaca-van-onderen',
+    },
+    hero: {
+      nivel: 'Gemiddeld / Zwaar',
+      origem: 'Vertrek: Lençóis',
+      duracao: '3 dagen',
+      titulo: 'Fumaça van onderen.',
+      lead: 'Sta aan de voet van de 400 meter hoge wand — en kijk op de laatste dag van bovenaf neer op dezelfde plek.',
+      apartirDe: 'Vanaf',
+      porPessoa: '/ persoon',
+      reservar: 'Boek via WhatsApp',
+    },
+    stats: ['Afstand te voet', 'Duur', 'Hoogte van de wand', 'Waar je slaapt', 'Vertrek (Lençóis)', 'Zwaarte'],
+    sobre: {
+      titulo: 'Over de Fumaça van onderen.',
+      paragrafos: [
+        'Een van de meest traditionele en zwaarste paden van de Chapada Diamantina. De Waterval Fumaça, een van de grootste van Brazilië, is van onderen een schouwspel dat is voorbehouden aan wie de voet bereikt: een wand van 400 meter waar het water nooit gelijkmatig de grond raakt — het effect waar de waterval zijn naam ("rook") aan dankt.',
+        'Het pad loopt langs oude mijnplekken en verlaten schuilplaatsen van mijnwerkers, een route die net zoveel geschiedenis als landschap is. Onderweg bezoeken we ook de Waterval Palmital en de Waterval Capivara.',
+        'Op de derde dag beklimmen we de Serra do Macaco naar het uitkijkpunt boven de Fumaça — dezelfde plek, gezien vanaf de andere kant. Afhankelijk van het weer en het seizoen kan het pad een stuk gevaarlijker worden; volg altijd de aanwijzingen van de gids.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.nl,
+    itinerario: {
+      titulo: 'Dag voor dag.',
+      aviso: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is flexibel en kent verschillende in- en uitstappunten — vraag ons naar de mogelijkheden.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Dag 1',
+          titulo: 'Waterval Palmital + Waterval Capivara',
+          corpo: 'Vertrek uit Lençóis rond 7.00 uur, over het pad van de Ribeirão do Meio. We klimmen zo’n 2 uur de Serra do Veneno op naar de Toca da Onça, waar we iets eten, en lopen nog een uur door naar de Waterval Palmital — een paradijs midden in de bergen. Na nog een uur lopen bereiken we de Waterval Capivara, waar we de eerste nacht doorbrengen. Als het kamp staat, maakt de gids het avondeten klaar, afgestemd op de dieetwensen van de groep.',
+          distancia: '15 km',
+          esforco: 'Zwaar',
+        },
+        {
+          rotulo: 'Dag 2',
+          titulo: 'Fumaça van onderen',
+          corpo: 'Om 8.00 uur, na het ontbijt, vertrekken we met alle uitrusting naar de voet van de Serra do Macaco — de volgende kampplek. Het is 2 uur langs de rivier de Capivara. We laten de bagage achter op de plek die de gids aanwijst en lopen nog 2 uur door naar de voet van de Waterval Fumaça. De tocht langs de beek van de Fumaça is juist zo bijzonder omdat hij ongerept en beschermd is: in de takken, op de rotsen en overal om je heen zie je talloze planten- en diersoorten. Terug naar het kamp, waar het laatste avondeten van de reis wordt geserveerd.',
+          distancia: '12 km',
+          esforco: 'Gemiddeld',
+        },
+        {
+          rotulo: 'Dag 3',
+          titulo: 'Fumaça van bovenaf + Vale do Capão',
+          corpo: 'Vertrek op het gebruikelijke tijdstip, na het ontbijt. We beklimmen de Serra do Macaco richting het uitkijkpunt boven de Waterval Fumaça: zo’n 3 uur bergop. Na een snack en tijd om de waterval vanaf de andere kant te bewonderen, nemen we het traditionele pad naar het dorp Caeté-Açu, in de Vale do Capão, waar de auto klaarstaat voor de rit terug naar Lençóis.',
+          distancia: '—',
+          esforco: 'Zwaar',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Kies de vorm die bij je groep past.',
+      formatos: [
+        { titulo: 'Privépakket', preco: 'R$ 1.700', nota: 'Minimaal 2 personen. Alleen jouw groep op het pad.' },
+        { titulo: 'In een groep', preco: 'R$ 1.450', nota: 'Van 2 tot 7 personen. Je sluit aan bij een open groep.' },
+      ],
+      nota: 'Prijzen bij betaling contant, per overboeking of met boleto. Internationale overboeking of een grotere groep: neem contact met ons op.',
+    },
+    faqTitulo: 'Alles wat je moet weten.',
+    faqs: [
+      wildTrekChecklist('nl', `Drie dagen zonder voorzieningen in de buurt en twee keer van kampplek wisselen. ${WILD_TREK_PORTER.nl}`),
+      {
+        type: 'included',
+        title: 'Wat is inbegrepen / niet inbegrepen',
+        included: ['Berggids met EHBO-opleiding', 'Vervoer heen en terug, met de terugweg via de Vale do Capão', 'Kampeeruitrusting: tent, slaapzak en isolatiemat', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na het pad'],
+        excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+      },
+      safetyFaq(
+        'nl',
+        'Afhankelijk van het weer en het seizoen kan het pad een stuk gevaarlijker worden — de aanwijzingen van de gids tellen hier zwaarder dan op welke andere route van ons ook. Het zijn drie dagen op twee verschillende kampplekken zonder voorzieningen in de buurt: hoofdlamp en regenkleding zijn verplicht, geen aanbeveling.',
+      ),
+      ...DAY_TOUR_LEGAL.nl,
+    ],
+    cta: {
+      titulo: ['Klaar om de Fumaça', 'van twee kanten te zien?'],
+      corpo: 'Vertel ons met hoeveel mensen je komt en welke data je in gedachten hebt, dan stellen we de reis samen met je op.',
+      botao: 'Praat met Mamut',
+    },
+  },
 };

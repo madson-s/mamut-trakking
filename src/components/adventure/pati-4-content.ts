@@ -2,7 +2,7 @@
  * Travessia do Vale do Pati em 4 dias (entrada e saída por Guiné).
  *
  * PT vem de mamut.agency/aventuras/vale-do-pati-4-dias e EN de
- * mamut.agency/en/aventuras/pati-valley-4-days. ES e FR são tradução feita aqui.
+ * mamut.agency/en/aventuras/pati-valley-4-days. ES, FR e NL são tradução feita aqui.
  *
  * Não confundir com a de 4 dias **via Capão**, que sai de Palmeiras e termina
  * no Vale do Capão — é outro produto, em `pati-4-capao-content`.
@@ -318,6 +318,71 @@ const VARIANTS: Record<Locale, PatiVariant> = {
     },
     safetyWarning: 'Le 2e jour est le plus exigeant : 250 mètres de dénivelé en 60 à 80 minutes pour dépasser 1 200 m. Le 4e est le plus long, avec 23 km, mais de faible difficulté technique. Si vous avez un doute sur votre condition physique, parlez-en à notre équipe avant de réserver.',
   },
+  nl: {
+    meta: {
+      title: 'Vale do Pati in 4 dagen',
+      description:
+        'Een begeleide doorsteek van 62 km door de Vale do Pati, met een eigen dag voor de Morro do Castelo, de Waterval Calixto en het uitkijkpunt Cachoeirão.',
+      canonical: '/nl/avonturen/pati-vallei-4-dagen',
+      ogDescription: 'Vier dagen voor het hele dal, zonder één ervan te haasten.',
+    },
+    hero: {
+      nivel: 'Gemiddeld',
+      origem: 'Vertrek: Lençóis',
+      titulo: { antes: 'Vale do Pati in', destaque: '4 dagen.' },
+      lead: { antes: 'Vier dagen voor het hele dal, zonder', destaque: 'één ervan te haasten.' },
+      apoio: 'Castelo, Calixto en Cachoeirão elk op een eigen dag. Overnachten in de huizen van de bewoners van het dal.',
+      saida: 'Vertrek uit Lençóis om 6.00 uur',
+    },
+    story: {
+      titulo: ['Het hele dal,', 'met tijd voor elk stuk.'],
+      paragrafos: [
+        'De mooiste trektocht van Brazilië, in het hart van het Nationaal Park Chapada Diamantina, omringd door bergen, watervallen en grotten. In deze versie van vier dagen krijgt elke grote bezienswaardigheid een eigen dag, in plaats van er een te delen.',
+        'Je ziet verre bergketens, zwemt in koude watervallen, stapt grotten in, hoort de verhalen van de mensen die hier woonden, en eet het beste van de lokale keuken in de huizen van de bewoners van het dal. Het is een natuurlijk, historisch, geologisch en cultureel schouwspel tegelijk.',
+      ],
+      outrasVersoes: 'Het dal bestaat ook in 3 en 5 dagen.',
+      relacionados: [
+        { titulo: 'Vale do Pati · 3 dagen', nivel: 'Gemiddeld', href: '/nl/avonturen/pati-vallei-3-dagen' },
+        { titulo: 'Vale do Pati · 5 dagen', nivel: 'Gevorderd', href: '/nl/avonturen/pati-vallei-5-dagen' },
+      ],
+    },
+    dias: [
+      {
+        day: 'Dag 1', level: 'Gemiddeld', lead: '6.00 uur vertrek',
+        body: ' uit Lençóis → 8.00 uur Vila do Guiné → 3 uur pad (1 uur steil klimmen + 2 uur vlak) naar het uitkijkpunt Rampa → snack → +1,5 uur naar de watervallen Funis, Altina en Bananeiras → 17.00 uur onderkomen → 19.00 uur avondeten.',
+        note: 'We raden aan te ontbijten bij aankomst in plaats van voor vertrek.',
+      },
+      {
+        day: 'Dag 2', level: 'Gemiddeld / Zwaar', lead: '8.00 uur vertrek',
+        body: ' richting de Morro do Castelo, met alleen spullen voor de dag. Dit is de zwaarste dag: 250 m klimmen tot boven de 1.200 m hoogte, 60 tot 80 minuten bergop. Op de top twee uitkijkpunten en de ingang van de Gruta da Lapinha. Via dezelfde weg terug en, als er tijd is, een waterval bij het onderkomen.',
+        note: 'Heen en terug: we slapen in hetzelfde huis.',
+      },
+      {
+        day: 'Dag 3', level: 'Gemiddeld / Zwaar', lead: '8.00 uur vertrek',
+        body: ' na een stevig ontbijt, richting de Waterval Calixto. Het is zo’n 2,5 uur door dicht bos, van rots naar rots springend, om er te komen. De terugweg gaat via dezelfde route.',
+        note: 'Een van de minst bezochte delen van de Pati.',
+      },
+      {
+        day: 'Dag 4', level: 'Gemiddeld / Zwaar', lead: '8.00 uur vertrek',
+        body: ' en afscheid van het onderkomen. Zo’n 3 uur lopen (2 uur over ruig terrein + 1 uur vlak) naar het uitkijkpunt Cachoeirão, 280 m hoog. In het regenseizoen zie je zo’n 16 watervallen rondom het dal. Na de snack deels terug via dezelfde route, daarna een afslag naar het begin van het pad, waar de auto klaarstaat.',
+        note: 'Technisch makkelijk — de inspanning zit in de afstand.',
+      },
+    ],
+    landmarks: [
+      { titulo: 'Uitkijkpunt Rampa', apoio: 'Het meest traditionele van het dal' },
+      { titulo: 'Watervallen Funis, Altina en Bananeiras', apoio: 'Drie op de eerste dag' },
+      { titulo: 'Morro do Castelo', apoio: 'Boven de 1.200 m hoogte' },
+      { titulo: 'Gruta da Lapinha', apoio: 'Een van de zeldzaamste grotten boven 1.000 m' },
+      { titulo: 'Waterval Calixto', apoio: 'Dicht bos en een bedding van rots' },
+      { titulo: 'Uitkijkpunt Cachoeirão', apoio: '280 m — tot 16 watervallen bij regen' },
+    ],
+    included: {
+      title: 'Wat is inbegrepen / niet inbegrepen',
+      included: ['Erkende berggids met EHBO-opleiding', 'Overnachting in de huizen van bewoners van de Pati (3 nachten)', 'Transfer Lençóis › Guiné › Lençóis', 'Alle maaltijden tijdens de trektocht', 'SPOT X-satelliettracker', 'Avonturenverzekering', 'EHBO-kit', 'Wachtruimte, veilige bagageopslag en een douche voor/na het pad'],
+      excluded: ['Alles wat niet in de lijst staat', 'Ontbijt op dag 1', 'Overnachting voor of na de trektocht', 'Transfers vanaf Salvador', 'Persoonlijke uitrusting', 'Medische evacuatie'],
+    },
+    safetyWarning: 'Dag 2 is de zware: 250 meter klimmen in 60 tot 80 minuten tot boven de 1.200 m. Dag 4 is de langste, met 23 km, maar technisch makkelijk. Twijfel je over je conditie, praat dan met ons voordat je boekt.',
+  },
 };
 
 export const PATI4_CONTENT = {
@@ -325,6 +390,7 @@ export const PATI4_CONTENT = {
   en: buildPatiContent('en', VARIANTS.en),
   es: buildPatiContent('es', VARIANTS.es),
   fr: buildPatiContent('fr', VARIANTS.fr),
+  nl: buildPatiContent('nl', VARIANTS.nl),
 };
 
 export const PATI4_FAQS = {
@@ -332,4 +398,5 @@ export const PATI4_FAQS = {
   en: buildPatiFaqs('en', VARIANTS.en),
   es: buildPatiFaqs('es', VARIANTS.es),
   fr: buildPatiFaqs('fr', VARIANTS.fr),
+  nl: buildPatiFaqs('nl', VARIANTS.nl),
 };
