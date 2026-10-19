@@ -136,7 +136,7 @@ export function NavDropdown({ item }: { item: MobileNavItem }) {
             variants={reduce ? undefined : LIST_VARIANTS}
             initial={false}
             animate={open ? 'show' : 'hidden'}
-            className="flex flex-col gap-2 p-2"
+            className="flex flex-col"
           >
             {item.children?.map((child) => {
               const isCurrent = pathname === child.href || pathname.startsWith(`${child.href}/`);
