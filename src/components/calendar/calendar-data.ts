@@ -135,6 +135,24 @@ export const CALENDAR_TREKS: CalendarTrek[] = [
       image: '/img/adventures/mosquito/hero.jpeg',
     },
   },
+  {
+    id: 'mucugezinhoPratinhaPaiInacio',
+    days: 1,
+    custom: {
+      titulo: {
+        pt: 'Mucugêzinho + Pratinha + Pai Inácio (Personalizado)',
+        en: 'Mucugêzinho + Pratinha + Pai Inácio (Custom)',
+        es: 'Mucugêzinho + Pratinha + Pai Inácio (Personalizado)',
+        fr: 'Mucugêzinho + Pratinha + Pai Inácio (Sur mesure)',
+        nl: 'Mucugêzinho + Pratinha + Pai Inácio (Op maat)',
+        de: 'Mucugêzinho + Pratinha + Pai Inácio (Individuell)',
+      },
+      difficultyGroup: 'Fácil',
+      difficulty: { pt: 'Fácil', en: 'Easy', es: 'Fácil', fr: 'Facile', nl: 'Makkelijk', de: 'Leicht' },
+      location: 'Lençóis',
+      image: '/img/adventures/pratinha/hero.jpeg',
+    },
+  },
   { id: 'mixila', adventureId: 'cachoeira-do-mixila-2-dias', days: 2 },
 ];
 
@@ -150,6 +168,7 @@ export const CALENDAR_DEPARTURES: CalendarDeparture[] = [
   { id: 'pati3Buracao-2026-11-12', trekId: 'pati3Buracao', start: '2026-11-12', end: '2026-11-16', price: 2250, holiday: { id: 'republica', date: '2026-11-15' } },
   { id: 'pati3-2026-11-15', trekId: 'pati3', start: '2026-11-15', end: '2026-11-17', price: 2200, holiday: { id: 'republica', date: '2026-11-15' } },
   { id: 'pati5-2026-11-15', trekId: 'pati5', start: '2026-11-15', end: '2026-11-19', price: 3450, holiday: { id: 'republica', date: '2026-11-15' } },
+  { id: 'mucugezinhoPratinhaPaiInacio-2026-12-04', trekId: 'mucugezinhoPratinhaPaiInacio', start: '2026-12-04', end: '2026-12-04', price: 600 },
   { id: 'pati2-2026-12-07', trekId: 'pati2', start: '2026-12-07', end: '2026-12-08', price: 1650 },
   { id: 'pacote6-2026-12-11', trekId: 'pacote6', start: '2026-12-11', end: '2026-12-16', price: 4700 },
   { id: 'pati3-2026-12-17', trekId: 'pati3', start: '2026-12-17', end: '2026-12-19', price: 2200 },

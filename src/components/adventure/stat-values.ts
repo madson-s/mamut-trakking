@@ -10,7 +10,7 @@ import type { Locale } from '@/lib/site';
  * idioma de cada roteiro, o valor em português é a chave deste dicionário.
  *
  * O que não está aqui passa direto: distâncias, altitudes e horários
- * ("22 km", "6h00"), nomes próprios ("Andaraí") e "PT · EN · ES". Valor novo
+ * ("22 km", "6h00"), nomes próprios ("Andaraí") e "PT · EN · FR". Valor novo
  * com palavra (ou número com separador decimal/milhar) entra aqui.
  */
 const STAT_VALUES: Record<string, Record<Exclude<Locale, 'pt'>, string>> = {

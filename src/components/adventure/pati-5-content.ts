@@ -24,7 +24,7 @@ export const PATI5_ASSETS: PatiAssets = {
     ['+250m no Castelo', '/svg/_icons/icon_01_3-bars.svg'],
     ['7h30', '/svg/_icons/icon_11_calendar.svg'],
     ['Andaraí', '/svg/_icons/icon_08_send.svg'],
-    ['PT · EN · ES', '/svg/_icons/icon_16_internet.svg'],
+    ['PT · EN · FR', '/svg/_icons/icon_16_internet.svg'],
     ['Moderado / Alto', '/svg/_icons/icon_03_montain.svg'],
   ],
   itinerary: [

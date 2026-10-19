@@ -20,18 +20,17 @@ import { estimatePrice, type GuidePriceTiers, type PriceColumn } from './guide-p
 
 type SheetView = 'booking' | 'calendar';
 
-const LANGUAGES = ['PT BR', 'EN', 'ES'] as const;
+const LANGUAGES = ['PT BR', 'EN', 'FR'] as const;
 type Language = (typeof LANGUAGES)[number];
-// O idioma já vem marcado conforme a raiz em que a página está (/pt, /en, /es).
-// O site anuncia condução em PT · EN · ES; só um guia (Rodolfo) conduz em
-// francês, então FR não é oferecido como opção — em /fr o sheet abre em inglês.
-// Oferecer FR é decisão da operadora (depende da agenda dele). Ninguém conduz
-// em holandês nem em alemão: em /nl e /de o sheet também abre em inglês.
+// O idioma já vem marcado conforme a raiz em que a página está (/pt, /en, /fr).
+// Os passeios guiados são operados só em português, inglês e francês; outros
+// idiomas são exceção, tratada no atendimento. Em /es, /nl e /de o sheet abre
+// em inglês.
 const LANGUAGE_BY_LOCALE: Record<string, Language> = {
   pt: 'PT BR',
   en: 'EN',
-  es: 'ES',
-  fr: 'EN',
+  es: 'EN',
+  fr: 'FR',
   nl: 'EN',
   de: 'EN',
 };

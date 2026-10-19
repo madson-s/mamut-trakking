@@ -114,8 +114,11 @@
 > `dicas-rotas.ts` e nos `*_HREF`). Preço em francês e alemão segue o formato
 > brasileiro e em holandês o `nl-NL` — todos escrevem `R$ 1.500` (ver
 > `INTL_LOCALE`; o `de-DE` daria `1.500 R$`). O alemão trata o leitor por
-> "du". Ninguém da equipe conduz em holandês nem em alemão: em `/nl` e `/de` o
-> sheet de reserva do Pati abre em inglês (`PatiMobileBooking`), e a ficha do
+> "du". Os passeios guiados são operados só em PT · EN · FR (outros idiomas são
+> exceção, tratada no atendimento): o sheet de reserva do Pati oferece essas
+> três opções e em `/es`, `/nl` e `/de` abre em inglês (`PatiMobileBooking`).
+> Guia em português tem um preço; guia bilíngue (EN/FR) tem outro, ligado em
+> `pricing(pt, { bilingue })` (`price-table.ts`). A ficha do
 > participante usa o formulário próprio (só pt/en têm Tally). Exceções: o Torus só existe em pt, e
 > as ferramentas internas (`/voucher`, `/reservas`) não têm idioma de site.
 

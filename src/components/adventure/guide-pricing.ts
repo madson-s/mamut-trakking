@@ -3,7 +3,7 @@
  * sheet de reserva (client) importar sem levar o resto de `price-table.ts`.
  *
  * Guia em português tem um preço; guia bilíngue (qualquer outro idioma) custa
- * mais para a agência e tem outro — o mesmo para EN, ES etc. Enquanto a
+ * mais para a agência e tem outro — o mesmo para EN e FR. Enquanto a
  * operadora não publica o bilíngue de um roteiro, `bilingue` fica vazio e vale
  * o de português.
  */
@@ -17,7 +17,7 @@ export type GuidePriceTiers = {
 };
 
 /** Idioma escolhido no sheet de reserva (`PatiMobileBooking`). */
-export type GuideLanguage = 'PT BR' | 'EN' | 'ES';
+export type GuideLanguage = 'PT BR' | 'EN' | 'FR';
 
 /** 0 = privado, 1 = em grupo — a ordem das colunas da tabela. */
 export type PriceColumn = 0 | 1;
