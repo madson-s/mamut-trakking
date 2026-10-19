@@ -8,6 +8,7 @@ import { Badge, Button, Heading, SegmentedControl, Text } from '@/components/ui'
 import type { Locale } from '@/lib/site';
 import { PATI3_CONTENT } from './pati-3-content';
 import { PatiMobileBooking } from './PatiMobileBooking';
+import { bookingMessages } from './booking-messages';
 import { REVEILLON_BOOKING_OPEN_EVENT } from './reveillonBooking';
 import { REVEILLON_CONTENT, REVEILLON_PACKAGES, type ReveillonPackageKey } from './reveillon-content';
 import styles from './ReveillonPackageExplorer.module.css';
@@ -120,7 +121,7 @@ export function ReveillonPackageExplorer({ locale }: { locale: Locale }) {
         content={PATI3_CONTENT[locale].booking}
         fromPrice={activePackage.price}
         initialDate={activePackage.startDate}
-        messageIntro={t.mensagem(text.days)}
+        messages={bookingMessages((l) => REVEILLON_CONTENT[l].explorer.mensagem(REVEILLON_CONTENT[l].pacotes[activePackage.key].days))}
         openEvent={REVEILLON_BOOKING_OPEN_EVENT}
         sheetId="reveillon-booking-sheet"
         showDock={false}

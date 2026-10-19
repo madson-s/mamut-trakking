@@ -32,7 +32,10 @@ import { AgencyFacilities, TripLogistics } from './AgencySupport';
 import type { ReturnTime } from './agency-support';
 import type { GuidePriceTiers } from './guide-pricing';
 import { patiPricing } from './price-table';
+import { patiBookingMessages } from './booking-messages';
+import type { MessageLocale } from '@/lib/message-locale';
 import { AssetIcon } from './AssetIcon';
+import { whatsappSobre } from '@/lib/whatsapp';
 
 /**
  * Tudo que muda de uma travessia do Pati para outra e não depende do idioma.
@@ -73,6 +76,8 @@ export type PatiAssets = {
   galleryHref: string;
   /** Chegada de volta a Lençóis — liga o "antes / depois" abaixo do itinerário. */
   returnTime?: ReturnTime;
+  /** Nome do roteiro na mensagem de reserva: "Olá! Quero verificar {nome} para…". */
+  bookingName: Record<MessageLocale, string>;
 };
 
 const PATI3_ASSETS_STATS = [
@@ -117,6 +122,7 @@ export const PATI3_ASSETS: PatiAssets = {
   ogImage: '/img/vale-do-pati/vale-do-pati-04.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   returnTime: { time: '19:00' },
+  bookingName: { pt: 'o Vale do Pati em 3 dias', en: 'the Pati Valley in 3 days', fr: 'la vallée du Pati en 3 jours' },
 };
 
 const TRUST_ICONS = [
@@ -161,6 +167,8 @@ export function PatiExperience({
   assets: PatiAssets;
   faqs: readonly PatiFaqItem[];
 }) {
+  // A mensagem de WhatsApp cita o roteiro no idioma da equipe (pt/en/fr).
+  const whatsapp = whatsappSobre(locale, (l) => a.bookingName[l]);
   return (
     <article className="pati-three-day-page overflow-x-clip pb-[calc(104px+env(safe-area-inset-bottom))] lg:pb-0">
       <span hidden aria-hidden data-design-seed="b6829298" dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />
@@ -178,11 +186,11 @@ export function PatiExperience({
       <Story c={c} a={a} />
       <Itinerary c={c} a={a} locale={locale} />
       <Landmarks c={c} a={a} />
-      <Pricing c={c} a={a} />
-      <TrustAndReviews c={c} locale={locale} />
+      <Pricing c={c} a={a} whatsapp={whatsapp} />
+      <TrustAndReviews c={c} locale={locale} whatsapp={whatsapp} />
       <Faq c={c} faqs={faqs} />
-      <FinalCta c={c} />
-      <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} tiers={a.tiers} />
+      <FinalCta c={c} whatsapp={whatsapp} />
+      <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} tiers={a.tiers} messages={patiBookingMessages(a.bookingName)} />
     </article>
   );
 }
@@ -407,7 +415,7 @@ function Landmarks({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   );
 }
 
-function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
+function Pricing({ c, a, whatsapp }: { c: Pati3Content; a: PatiAssets; whatsapp: string }) {
   return (
     <Section id="preco" padding="tall" container="panel" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
       <Heading id="pricing-heading" as="h2" size="section" className="text-display-sm!">{c.pricing.titulo}</Heading>
@@ -463,12 +471,12 @@ function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
       )}
 
       <Text size="sm" weight="light" tone="secondary" pretty>{c.pricing.nota.antes}<strong className="font-semibold text-content">{c.pricing.nota.destaque}</strong>{c.pricing.nota.depois}</Text>
-      <Button href={SITE.whatsappUrl} arrow>{c.pricing.cta}</Button>
+      <Button href={whatsapp} arrow>{c.pricing.cta}</Button>
     </Section>
   );
 }
 
-function TrustAndReviews({ c, locale }: { c: Pati3Content; locale: Locale }) {
+function TrustAndReviews({ c, locale, whatsapp }: { c: Pati3Content; locale: Locale; whatsapp: string }) {
   return (
     <Section id="informacoes" padding="none" container={false} className="relative isolate overflow-x-clip border-y border-line max-lg:py-12 lg:pt-10">
       <Image
@@ -512,7 +520,7 @@ function TrustAndReviews({ c, locale }: { c: Pati3Content; locale: Locale }) {
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button href={SITE.whatsappUrl} arrow>{c.trust.cta}</Button>
+            <Button href={whatsapp} arrow>{c.trust.cta}</Button>
             <Button href={TRIPADVISOR_URL} variant="outline">{c.trust.ctaTripadvisor}</Button>
           </div>
         </div>
@@ -532,7 +540,7 @@ function Faq({ c, faqs }: { c: Pati3Content; faqs: readonly PatiFaqItem[] }) {
   );
 }
 
-function FinalCta({ c }: { c: Pati3Content }) {
+function FinalCta({ c, whatsapp }: { c: Pati3Content; whatsapp: string }) {
   return (
     <Section padding="none" className="pb-20 lg:pb-27">
       <MediaCard
@@ -565,7 +573,7 @@ function FinalCta({ c }: { c: Pati3Content }) {
               {c.finalCta.corpo}
             </Text>
           </div>
-          <Button href={SITE.whatsappUrl} arrow className="self-start max-sm:w-full">{c.finalCta.cta}</Button>
+          <Button href={whatsapp} arrow className="self-start max-sm:w-full">{c.finalCta.cta}</Button>
         </div>
 
         <Image

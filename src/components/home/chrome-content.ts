@@ -12,6 +12,7 @@ import type { Locale } from '@/lib/site';
 import { SITE } from '@/lib/site';
 import { PRIVACIDADE_HREF } from '@/components/privacidade/privacidade-content';
 import type { MobileNavItem } from './MobileMenu';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export type ChromeColumn = {
   title: string;
@@ -92,7 +93,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'CONTATO',
           onMobile: false,
           links: [
-            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'WhatsApp', href: whatsappLink('pt') },
             { label: 'TripAdvisor', href: SITE.social.tripadvisor },
             { label: 'Instagram', href: SITE.social.instagram },
             { label: 'Facebook', href: SITE.social.facebook },
@@ -152,7 +153,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'CONTACT',
           onMobile: false,
           links: [
-            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'WhatsApp', href: whatsappLink('en') },
             { label: 'TripAdvisor', href: SITE.social.tripadvisor },
             { label: 'Instagram', href: SITE.social.instagram },
             { label: 'Facebook', href: SITE.social.facebook },
@@ -212,7 +213,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'CONTACTO',
           onMobile: false,
           links: [
-            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'WhatsApp', href: whatsappLink('es') },
             { label: 'TripAdvisor', href: SITE.social.tripadvisor },
             { label: 'Instagram', href: SITE.social.instagram },
             { label: 'Facebook', href: SITE.social.facebook },
@@ -272,7 +273,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'CONTACT',
           onMobile: false,
           links: [
-            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'WhatsApp', href: whatsappLink('fr') },
             { label: 'TripAdvisor', href: SITE.social.tripadvisor },
             { label: 'Instagram', href: SITE.social.instagram },
             { label: 'Facebook', href: SITE.social.facebook },
@@ -331,7 +332,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'CONTACT',
           onMobile: false,
           links: [
-            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'WhatsApp', href: whatsappLink('nl') },
             { label: 'TripAdvisor', href: SITE.social.tripadvisor },
             { label: 'Instagram', href: SITE.social.instagram },
             { label: 'Facebook', href: SITE.social.facebook },
@@ -390,7 +391,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
           title: 'KONTAKT',
           onMobile: false,
           links: [
-            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'WhatsApp', href: whatsappLink('de') },
             { label: 'TripAdvisor', href: SITE.social.tripadvisor },
             { label: 'Instagram', href: SITE.social.instagram },
             { label: 'Facebook', href: SITE.social.facebook },

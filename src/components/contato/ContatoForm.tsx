@@ -16,6 +16,8 @@ import { PrivacidadeNota } from '@/components/privacidade/PrivacidadeNota';
 import { RecaptchaNota, RecaptchaScript, useRecaptcha } from '@/components/recaptcha/Recaptcha';
 import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
 import { SITE, type Locale } from '@/lib/site';
+import { MESSAGE_LOCALE } from '@/lib/message-locale';
+import { whatsappText } from '@/lib/whatsapp';
 import { CONTATO_CONTENT } from './contato-content';
 
 function formatDate(iso: string, vazio: string) {
@@ -50,18 +52,23 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
     );
   };
 
-  const montarMensagem = () => {
-    const l = c.linhas;
+  // O WhatsApp vai no idioma da equipe (pt/en/fr; os demais em inglês); o
+  // e-mail segue no idioma da página. As opções marcadas são traduzidas pela
+  // posição na lista.
+  const montarMensagem = (idioma: Locale = locale) => {
+    const m = CONTATO_CONTENT[idioma].form;
+    const l = m.linhas;
     const chegadaLabel =
-      c.opcoesChegada.find((opcao) => opcao.value === chegada)?.label ?? chegada;
+      m.opcoesChegada.find((opcao) => opcao.value === chegada)?.label ?? chegada;
+    const aventurasLabel = aventuras.map((item) => m.opcoesAventura[c.opcoesAventura.indexOf(item)] ?? item);
 
     return [
-      c.saudacao,
+      m.saudacao,
       '',
       `${l.nome}: ${nome}`,
       `${l.email}: ${email}`,
       `${l.telefone}: ${telefone}`,
-      `${l.aventura}: ${aventuras.length ? aventuras.join(', ') : l.naoSei}`,
+      `${l.aventura}: ${aventurasLabel.length ? aventurasLabel.join(', ') : l.naoSei}`,
       `${l.chegada}: ${chegadaLabel}`,
       `${l.datas}: ${formatDate(checkin, l.aDefinir)} · ${l.saida}: ${formatDate(checkout, l.aDefinir)}`,
       `${l.grupo}: ${grupo} ${grupo === '1' ? l.pessoa : l.pessoas}`,
@@ -88,7 +95,7 @@ export function ContatoForm({ locale = 'pt' }: { locale?: Locale }) {
     const texto = montarMensagem();
     const destino =
       canal === 'whatsapp'
-        ? `${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`
+        ? whatsappText(montarMensagem(MESSAGE_LOCALE[locale]))
         : `mailto:${SITE.email}?subject=${encodeURIComponent(`${c.assunto} — ${nome || c.semNome}`)}&body=${encodeURIComponent(texto)}`;
 
     if (aba) {

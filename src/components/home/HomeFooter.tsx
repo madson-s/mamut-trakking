@@ -12,6 +12,7 @@ import {
 } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import { CHROME } from './chrome-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 const linkClasses = cn('transition-colors hover:text-content', motion.fast);
 
@@ -80,7 +81,7 @@ export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
             </Link>
           </Text>
 
-          <Button href={SITE.whatsappUrl} size="sm" arrow className="lg:hidden">
+          <Button href={whatsappLink(locale)} size="sm" arrow className="lg:hidden">
             {whatsapp}
           </Button>
 
@@ -109,7 +110,7 @@ export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
                 <FacebookIcon className="size-6" />
               </a>
             </div>
-            <Button href={SITE.whatsappUrl} size="sm" arrow className="w-40.25">
+            <Button href={whatsappLink(locale)} size="sm" arrow className="w-40.25">
               {whatsapp}
             </Button>
           </div>

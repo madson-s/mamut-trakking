@@ -23,6 +23,7 @@ import { RelatedTrail } from '@/components/adventures/RelatedTrail';
 import { ADVENTURES_CONTENT } from '@/components/adventures/adventures-content';
 import { TrekJourney } from './TrekJourney';
 import { AgencyFacilities, TripLogistics } from './AgencySupport';
+import { ROTEIRO, whatsappSobre } from '@/lib/whatsapp';
 
 /**
  * Página de passeio de um dia — hero, faixa de números, sobre + galeria,
@@ -42,6 +43,7 @@ export function DayTourExperience({
   assets: DayTourAssets;
 }) {
   const c = content[locale];
+  const sobreRoteiro = whatsappSobre(locale, (l) => ROTEIRO[l](content[l].hero.titulo));
   const stats = assets.stats.map(([value, icon], i) => ({ value: statValue(value, locale), icon, label: c.stats[i] }));
 
   return (
@@ -92,7 +94,7 @@ export function DayTourExperience({
             {c.hero.lead}
           </Text>
           <div className="flex flex-wrap items-center gap-4">
-            <Button href={SITE.whatsappUrl} size="lg" arrow className="max-sm:w-full">
+            <Button href={sobreRoteiro} size="lg" arrow className="max-sm:w-full">
               {c.hero.reservar}
             </Button>
             <Text size="sm" weight="light" tone="onMediaSoft">
@@ -181,7 +183,7 @@ export function DayTourExperience({
       ) : null}
 
       {assets.detailLayout !== 'legacy' ? (
-        <TrekJourney content={c} assets={assets} locale={locale}>
+        <TrekJourney content={c} allContent={content} assets={assets} locale={locale}>
           {c.relacionados ? <Relacionados locale={locale} relacionados={c.relacionados} align="left" /> : null}
         </TrekJourney>
       ) : (
@@ -252,7 +254,7 @@ export function DayTourExperience({
               </div>
             )}
             <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
-            <Button href={SITE.whatsappUrl} arrow>{c.hero.reservar}</Button>
+            <Button href={sobreRoteiro} arrow>{c.hero.reservar}</Button>
           </Section>
 
           <Section padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
@@ -269,7 +271,7 @@ export function DayTourExperience({
               {c.cta.titulo[1]}
             </Heading>
             <Text size="sm" tone="muted" pretty className="max-w-131.5 sm:text-lg">{c.cta.corpo}</Text>
-            <Button href={SITE.whatsappUrl} arrow className="max-lg:w-full">{c.cta.botao}</Button>
+            <Button href={sobreRoteiro} arrow className="max-lg:w-full">{c.cta.botao}</Button>
           </Section>
         </>
       )}

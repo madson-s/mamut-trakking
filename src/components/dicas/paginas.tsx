@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import { Button, Card, Heading, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { TelefonesLista } from './TelefonesLista';
 import { DICAS_CONTENT } from './dicas-conteudo';
 import { GRUPOS_ORDEM } from './dicas-conteudo';
+import { whatsappLink } from '@/lib/whatsapp';
 
 /** Fecho comum a todas as páginas da seção. */
 function Fecho({ locale }: { locale: Locale }) {
@@ -25,7 +26,7 @@ function Fecho({ locale }: { locale: Locale }) {
         <Text size="lg" weight="light" tone="secondary" pretty>{c.texto}</Text>
       </div>
       <div className="flex flex-wrap justify-center gap-3">
-        <Button href={SITE.whatsappUrl} size="lg" arrow>{c.whatsapp}</Button>
+        <Button href={whatsappLink(locale)} size="lg" arrow>{c.whatsapp}</Button>
         <Button href={c.contatoHref} size="lg" variant="outline">{c.contato}</Button>
       </div>
     </Card>

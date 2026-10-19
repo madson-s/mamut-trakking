@@ -5,10 +5,10 @@ import Image from 'next/image';
 import { Badge, Button, Card, Heading, Section, SectionHeading, Text } from '@/components/ui';
 import { focus, motion } from '@/design/tokens';
 import { cn } from '@/lib/cn';
-import { SITE } from '@/lib/site';
 import { GUIDES, type Guide } from './about-data';
 import { ABOUT_CONTENT, type GuideText } from './about-content';
 import type { Locale } from '@/lib/site';
+import { whatsappLink } from '@/lib/whatsapp';
 
 type GuideCard = Guide & GuideText;
 
@@ -288,7 +288,7 @@ export function JoinTeamCard({ locale = 'pt' }: { locale?: Locale }) {
         <Text size="sm" weight="light" pretty>
           {cta.ctaTexto}
         </Text>
-          <Button href={SITE.whatsappUrl} block arrow>
+          <Button href={whatsappLink(locale)} block arrow>
             {cta.cta}
           </Button>
         </div>

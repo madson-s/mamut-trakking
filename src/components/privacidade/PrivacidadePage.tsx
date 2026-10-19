@@ -5,6 +5,7 @@ import {
   PRIVACIDADE_CONTENT,
   type PrivacidadeBloco,
 } from './privacidade-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 const DATA_LOCALE: Record<Locale, string> = { pt: 'pt-BR', en: 'en-GB', es: 'es', fr: 'fr-FR', nl: 'nl-NL', de: 'de-DE' };
 
@@ -113,7 +114,7 @@ export function PrivacidadePage({ locale }: { locale: Locale }) {
               {c.controlador.contato}{' '}
               <a href={`mailto:${SITE.email}`} className={linkClasses}>{SITE.email}</a>
               {' · '}
-              <a href={SITE.whatsappUrl} className={linkClasses}>WhatsApp {SITE.whatsapp}</a>
+              <a href={whatsappLink(locale)} className={linkClasses}>WhatsApp {SITE.whatsapp}</a>
             </Text>
           </Card>
 

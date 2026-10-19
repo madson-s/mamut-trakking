@@ -3,9 +3,10 @@ import { Button } from '@/components/ui/Button';
 import { Heading } from '@/components/ui/Heading';
 import { MediaCard } from '@/components/ui/MediaCard';
 import { Emphasis, Text } from '@/components/ui/Text';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { HeroDestinations } from './HeroDestinations';
 import { HOME_CONTENT } from './home-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 const HERO_BACKGROUND = '/img/home_backgroud/home_hero_background_1_5x.webp';
 
@@ -78,7 +79,7 @@ export function Hero({ locale = 'pt' }: { locale?: Locale }) {
                   <Button href={c.ctaTrilhasHref} arrow className="w-full sm:w-auto">
                     {c.ctaTrilhas}
                   </Button>
-                  <Button href={SITE.whatsappUrl} variant="outlineOnMedia" className="w-full sm:w-auto">
+                  <Button href={whatsappLink(locale)} variant="outlineOnMedia" className="w-full sm:w-auto">
                     {c.ctaGuia}
                   </Button>
                 </div>

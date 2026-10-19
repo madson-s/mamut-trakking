@@ -1,10 +1,11 @@
 import Image from 'next/image';
 import { Button, Emphasis, PageHero, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { HOME_CONTENT } from '@/components/home/home-content';
 import { ABOUT_CONTENT } from './about-content';
 import { GUIDES } from './about-data';
+import { whatsappLink } from '@/lib/whatsapp';
 
 const HERO_FACES = GUIDES.slice(0, 6);
 
@@ -71,7 +72,7 @@ export function AboutHero({ locale = 'pt' }: { locale?: Locale }) {
           <Button href="#guias" arrow className="max-lg:w-full">
             {c.ctaBando}
           </Button>
-          <Button href={SITE.whatsappUrl} variant="outlineOnMedia" className="max-lg:w-full">
+          <Button href={whatsappLink(locale)} variant="outlineOnMedia" className="max-lg:w-full">
             {c.ctaGuia}
           </Button>
         </>

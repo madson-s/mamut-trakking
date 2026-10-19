@@ -16,6 +16,9 @@ import { MorphingModal } from '@/components/motion/morphing-modal';
 import { SITE } from '@/lib/site';
 import type { Pati3Content } from './pati-3-content';
 import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
+import type { BookingMessages } from './booking-messages';
+import { whatsappLink } from '@/lib/whatsapp';
+import type { MessageLocale } from '@/lib/message-locale';
 import { estimatePrice, type GuidePriceTiers, type PriceColumn } from './guide-pricing';
 
 type SheetView = 'booking' | 'calendar';
@@ -34,6 +37,8 @@ const LANGUAGE_BY_LOCALE: Record<string, Language> = {
   nl: 'EN',
   de: 'EN',
 };
+
+const MESSAGE_BY_LANGUAGE: Record<Language, MessageLocale> = { 'PT BR': 'pt', EN: 'en', FR: 'fr' };
 
 function languageFromPath(pathname: string) {
   const locale = Object.keys(LANGUAGE_BY_LOCALE).find(
@@ -66,7 +71,7 @@ export function PatiMobileBooking({
   fromPrice: GROUP_PRICE,
   showDock = true,
   openEvent = PATI_BOOKING_OPEN_EVENT,
-  messageIntro,
+  messages,
   tiers,
   column = 1,
   sheetId = 'pati-booking-sheet',
@@ -80,7 +85,8 @@ export function PatiMobileBooking({
   column?: PriceColumn;
   showDock?: boolean;
   openEvent?: string;
-  messageIntro?: string;
+  /** Mensagem de WhatsApp em PT, EN e FR — vai a do idioma escolhido para o guia. */
+  messages: BookingMessages;
   sheetId?: string;
   initialDate?: `${number}-${number}-${number}`;
 }) {
@@ -151,10 +157,12 @@ export function PatiMobileBooking({
     [visibleMonth],
   );
   const monthLabel = `${new Intl.DateTimeFormat(c.intl, { month: 'long' }).format(visibleMonth)} ${visibleMonth.getFullYear()}`;
+  // A mensagem sai no idioma escolhido para o guia, não no da página.
+  const m = messages[MESSAGE_BY_LANGUAGE[language]];
   const bookingMessage = encodeURIComponent(
-    `${messageIntro ?? c.mensagem.antes} ${formatDate(selectedDate, c.diasSemana)}, ${travellers} ${
-      travellers > 1 ? c.mensagem.viajantes : c.mensagem.viajante
-    }, ${c.mensagem.idioma}: ${language}.`,
+    `${m.intro} ${formatDate(selectedDate, m.diasSemana)}, ${travellers} ${
+      travellers > 1 ? m.viajantes : m.viajante
+    }, ${m.idioma}: ${language}.`,
   );
   const availabilityUrl = `${SITE.whatsappUrl}?text=${bookingMessage}`;
 
@@ -181,7 +189,7 @@ export function PatiMobileBooking({
             </Text>
           </div>
           <div className="flex shrink-0 items-center gap-2">
-            <IconButton href={SITE.whatsappUrl} label={c.whatsapp} size="lg" className="!size-11">
+            <IconButton href={whatsappLink(MESSAGE_BY_LANGUAGE[language])} label={c.whatsapp} size="lg" className="!size-11">
               <Image src="/svg/figma/pati-3/whatsapp.svg" alt="" width={20} height={20} className="size-5" />
             </IconButton>
             <Button onClick={() => setSheetView('booking')} className="min-h-12 px-5.5">

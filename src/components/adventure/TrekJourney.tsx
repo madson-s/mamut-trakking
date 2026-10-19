@@ -2,24 +2,29 @@ import type { ReactNode } from 'react';
 import Image from 'next/image';
 import { Info, Route, Tent, Users, UserRound } from 'lucide-react';
 import { Badge, Button, Card, Heading, MediaCard, Section, Text } from '@/components/ui';
-import { SITE } from '@/lib/site';
 import type { Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { PATI3_CONTENT } from './pati-3-content';
 import { TrekBookingButton } from './TrekBookingButton';
+import { bookingMessages } from './booking-messages';
+import type { MessageLocale } from '@/lib/message-locale';
 import { PRICE_TABLE_LABELS, brl } from './price-table';
 import { PriceTable } from './PriceTable';
 import { TripLogistics } from './AgencySupport';
+import { ROTEIRO, semPonto, whatsappSobre } from '@/lib/whatsapp';
 
 /** Layout opt-in: mantém a fonte de conteúdo e a composição superior do roteiro. */
 export function TrekJourney({
   content: c,
+  allContent,
   assets,
   locale,
   children,
 }: {
   content: DayTourContent;
+  /** Todos os idiomas — a mensagem de reserva sai no idioma escolhido para o guia. */
+  allContent: Record<Locale, DayTourContent>;
   assets: DayTourAssets;
   locale: Locale;
   children?: ReactNode;
@@ -130,7 +135,7 @@ export function TrekJourney({
                   content={PATI3_CONTENT[locale].booking}
                   eventName={eventName}
                   label={c.hero.reservar}
-                  messageIntro={bookingMessageIntro(locale, c.hero.titulo, format.titulo)}
+                  messages={bookingMessages((l) => bookingMessageIntro(l, semPonto(allContent[l].hero.titulo), allContent[l].precos.formatos[index]?.titulo ?? format.titulo))}
                   price={price}
                   tiers={assets.tiers}
                   column={index === 0 ? 0 : 1}
@@ -171,21 +176,18 @@ export function TrekJourney({
             {c.cta.titulo[0]}<br />{c.cta.titulo[1]}
           </Heading>
           <Text tone="onMediaSoft" size="lg" leading="relaxed" pretty className="max-w-xl">{c.cta.corpo}</Text>
-          <Button href={SITE.whatsappUrl} size="lg" arrow className="mt-2 max-sm:w-full">{c.cta.botao}</Button>
+          <Button href={whatsappSobre(locale, (l) => ROTEIRO[l](allContent[l].hero.titulo))} size="lg" arrow className="mt-2 max-sm:w-full">{c.cta.botao}</Button>
         </MediaCard>
       </Section>
     </>
   );
 }
 
-function bookingMessageIntro(locale: Locale, adventure: string, format: string) {
-  const messages: Record<Locale, string> = {
+function bookingMessageIntro(locale: MessageLocale, adventure: string, format: string) {
+  const messages: Record<MessageLocale, string> = {
     pt: `Olá! Quero verificar disponibilidade para ${adventure} — ${format} em`,
     en: `Hi! I want to check availability for ${adventure} — ${format} on`,
-    es: `¡Hola! Quiero consultar disponibilidad para ${adventure} — ${format} el`,
     fr: `Bonjour ! Je voudrais vérifier les disponibilités pour ${adventure} — ${format} le`,
-    nl: `Hallo! Ik wil graag de beschikbaarheid checken voor ${adventure} — ${format} op`,
-    de: `Hallo! Ich möchte die Verfügbarkeit prüfen: ${adventure} — ${format}, am`,
   };
   return messages[locale];
 }

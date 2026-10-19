@@ -10,6 +10,7 @@ import { MobileMenu } from './MobileMenu';
 import { NavDropdown } from './NavDropdown';
 import { HeaderShell } from './HeaderShell';
 import { CHROME } from './chrome-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export function HomeHeader({ locale = 'pt' }: { locale?: Locale }) {
   const chrome = CHROME[locale];
@@ -81,7 +82,7 @@ export function HomeHeader({ locale = 'pt' }: { locale?: Locale }) {
             <MobileMenu nav={chrome.nav} content={chrome.menu} />
 
             <div className="hidden items-center gap-2.5 lg:flex">
-              <Button href={SITE.whatsappUrl} size="sm" arrow>
+              <Button href={whatsappLink(locale)} size="sm" arrow>
                 {chrome.whatsapp}
               </Button>
               <Theme variant="toggle" size="lg" />

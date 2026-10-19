@@ -11,7 +11,7 @@ import {
 import { ScrollFeedbackStack, homeTestimonials } from '@/components/home/ScrollFeedbackStack';
 import type { Locale } from '@/lib/site';
 import { ABOUT_CONTENT } from './about-content';
-import { SITE } from '@/lib/site';
+import { whatsappLink } from '@/lib/whatsapp';
 
 const TRIPADVISOR_URL =
   'https://www.tripadvisor.com.br/Attraction_Review-g635725-d23344029-Reviews-Mamut_Agency_Trekking_Chapada_Diamantina-Lencois_State_of_Bahia.html';
@@ -106,7 +106,7 @@ export function AboutReviews({ locale = 'pt' }: { locale?: Locale }) {
                 <Button href={c.ctaTrilhaHref} arrow className="w-full lg:hidden">
                   {c.ctaTrilha}
                 </Button>
-                <Button href={SITE.whatsappUrl} arrow className="max-lg:hidden">
+                <Button href={whatsappLink(locale)} arrow className="max-lg:hidden">
                   {c.ctaWhatsapp}
                 </Button>
                 <Button

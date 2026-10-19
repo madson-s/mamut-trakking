@@ -16,9 +16,11 @@ import {
 import { PrivacidadeNota } from '@/components/privacidade/PrivacidadeNota';
 import { RecaptchaNota, RecaptchaScript, useRecaptcha } from '@/components/recaptcha/Recaptcha';
 import { RECAPTCHA_ACOES } from '@/lib/recaptcha';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { montarDocumento, type ParticipantePayload } from '@/lib/participante-envio';
 import { PARTICIPANTE_CONTENT, type Campo } from './participante-conteudo';
+import { MESSAGE_LOCALE } from '@/lib/message-locale';
+import { whatsappText } from '@/lib/whatsapp';
 
 type CampoId = keyof (typeof PARTICIPANTE_CONTENT)['pt']['campos'];
 type Dados = Record<CampoId, string>;
@@ -82,8 +84,20 @@ export function ParticipanteForm({ locale }: { locale: Locale }) {
       return;
     }
 
-    const texto = montarDocumento(montarPayload());
-    const destino = `${SITE.whatsappUrl}?text=${encodeURIComponent(texto)}`;
+    // O WhatsApp vai no idioma da equipe (pt/en/fr; os demais em inglês). As
+    // respostas de lista (pagamento, sim/não) são traduzidas pela posição.
+    const idioma = MESSAGE_LOCALE[locale];
+    const m = PARTICIPANTE_CONTENT[idioma];
+    const simNao = (v: string) => (v === c.simNao.sim ? m.simNao.sim : v === c.simNao.nao ? m.simNao.nao : v);
+    const payload = montarPayload();
+    const texto = montarDocumento({
+      ...payload,
+      locale: idioma,
+      dados: { ...payload.dados, pagamento: m.pagamentos[c.pagamentos.indexOf(payload.dados.pagamento)] ?? payload.dados.pagamento },
+      sabeNadar: simNao(payload.sabeNadar),
+      gravidez: simNao(payload.gravidez),
+    });
+    const destino = whatsappText(texto);
 
     if (aba) {
       aba.opener = null;

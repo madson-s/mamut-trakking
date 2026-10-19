@@ -3,8 +3,9 @@ import { Button, Container, Heading, JsonLd, Section, Text } from '@/components/
 import { PatiFaqList, type PatiFaqItem } from '@/components/adventure/PatiFaqList';
 import { DAY_TOUR_LEGAL, safetyFaq } from '@/components/adventure/day-tour-legal';
 import { DICAS_CONTENT } from '@/components/dicas/dicas-conteudo';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { FAQ_CONTENT } from './faq-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 /** "Antes de vir": as perguntas de Informações gerais, no formato do acordeão. */
 function perguntasGerais(locale: Locale): PatiFaqItem[] {
@@ -121,7 +122,7 @@ export function FaqPage({ locale }: { locale: Locale }) {
         <Heading as="h2" id="faq-fechamento" size="section" balance>{c.fechamento.titulo}</Heading>
         <Text tone="secondary" pretty className="max-w-130">{c.fechamento.texto}</Text>
         <div className="flex flex-col items-center gap-4 sm:flex-row">
-          <Button href={SITE.whatsappUrl} arrow>{c.fechamento.whatsapp}</Button>
+          <Button href={whatsappLink(locale)} arrow>{c.fechamento.whatsapp}</Button>
           <Link
             href={c.fechamento.contatoHref}
             className="font-body text-base text-content underline underline-offset-4 transition-colors ease-brand hover:text-brand-strong"

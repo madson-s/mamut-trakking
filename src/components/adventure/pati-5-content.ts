@@ -55,6 +55,7 @@ export const PATI5_ASSETS: PatiAssets = {
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   // A caminhada termina em Andaraí por volta das 12h00; o transfer até Lençóis chega às 13h30.
   returnTime: { time: '13:30' },
+  bookingName: { pt: 'o Vale do Pati em 5 dias', en: 'the Pati Valley in 5 days', fr: 'la vallée du Pati en 5 jours' },
 };
 
 const VARIANTS: Record<Locale, PatiVariant> = {

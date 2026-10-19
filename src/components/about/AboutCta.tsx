@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import { Button, Heading, MediaCard, Section, Text } from '@/components/ui';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { ABOUT_CONTENT } from './about-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export function AboutCta({ locale = 'pt' }: { locale?: Locale }) {
   const c = ABOUT_CONTENT[locale].cta;
@@ -55,7 +56,7 @@ export function AboutCta({ locale = 'pt' }: { locale?: Locale }) {
               {c.corpo}
             </Text>
           </div>
-          <Button href={SITE.whatsappUrl} arrow className="max-lg:w-full lg:self-start">
+          <Button href={whatsappLink(locale)} arrow className="max-lg:w-full lg:self-start">
             {c.botao}
           </Button>
         </div>

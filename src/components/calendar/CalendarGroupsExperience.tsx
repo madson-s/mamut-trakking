@@ -9,6 +9,7 @@ import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import type { DifficultyGroup } from '@/components/adventures/filters';
 import { ADVENTURE_SEGMENT, SITE, formatPrice, type Locale } from '@/lib/site';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
+import { MESSAGE_LOCALE } from '@/lib/message-locale';
 import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture } from './calendar-data';
 import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
 import styles from './calendar.module.css';
@@ -36,6 +37,8 @@ type Trek = {
   days: number;
   image: string;
   title: string;
+  /** Nome no idioma da mensagem de WhatsApp (`MESSAGE_LOCALE`). */
+  messageTitle: string;
   difficultyGroup: DifficultyGroup;
   difficulty: string;
   distance?: string;
@@ -46,11 +49,15 @@ type Trek = {
   fromPrice: number;
 };
 
-/** Contexto que cada bloco precisa: textos e formatação do idioma. */
-type Ctx = { c: CalendarContent; locale: Locale };
+/**
+ * Contexto que cada bloco precisa: textos e formatação do idioma. `m` são os
+ * textos do idioma da mensagem de WhatsApp — pt, en ou fr; os demais idiomas
+ * do site mandam a mensagem em inglês (`MESSAGE_LOCALE`).
+ */
+type Ctx = { c: CalendarContent; m: CalendarContent; locale: Locale };
 
 const price = ({ locale }: Ctx, value: number) => formatPrice(value, locale);
-const askDate = ({ c }: Ctx, name?: string) => wa(name ? c.novaData.roteiro(name) : c.novaData.geral);
+const askDate = ({ m }: Ctx, name?: string) => wa(name ? m.novaData.roteiro(name) : m.novaData.geral);
 
 // A cor do selo segue o grupo de dificuldade do hub, não o texto do rótulo —
 // comparar com "Fácil" quebraria no inglês e no espanhol.
@@ -109,12 +116,12 @@ function Difficulty({ group, label }: { group: DifficultyGroup; label: string })
 }
 
 function DepartureCard({ ctx, trek, departure }: { ctx: Ctx; trek: Trek; departure: CalendarDeparture }) {
-  const { c } = ctx;
+  const { c, m } = ctx;
   const first = date(departure.start), last = date(departure.end);
-  const fullDate = new Intl.DateTimeFormat(c.intl, { dateStyle: 'long' });
+  const fullDate = new Intl.DateTimeFormat(m.intl, { dateStyle: 'long' });
   const titulo = trek.title;
   const periodo = dateRange(ctx, departure);
-  const bookingUrl = wa(c.partida.mensagem(trek.title, fullDate.format(first), fullDate.format(last)));
+  const bookingUrl = wa(m.partida.mensagem(trek.messageTitle, fullDate.format(first), fullDate.format(last)));
   return (
     <article className={styles.departure} aria-label={c.partida.rotulo(titulo, periodo, first.getFullYear())}>
       <header className={styles.departureHeader}>
@@ -152,10 +159,12 @@ export function CalendarGroupsExperience({
   departures: CalendarDeparture[];
 }) {
   const c = CALENDAR_CONTENT[locale];
-  const ctx: Ctx = { c, locale };
+  const messageLocale = MESSAGE_LOCALE[locale];
+  const ctx: Ctx = { c, m: CALENDAR_CONTENT[messageLocale], locale };
   const hub = aventurasDoIdioma(locale);
-  const doHub = (id: string) => {
-    const adventure = hub.find((item) => item.id === id);
+  const messageHub = aventurasDoIdioma(messageLocale);
+  const doHub = (id: string, from = hub) => {
+    const adventure = from.find((item) => item.id === id);
     // Falha no build, não em produção: um id errado aqui é erro de digitação.
     if (!adventure) throw new Error(`calendário: roteiro "${id}" não existe no hub`);
     return adventure;
@@ -174,6 +183,7 @@ export function CalendarGroupsExperience({
           ...base,
           image: trek.image ?? trek.custom.image,
           title: trek.custom.titulo[locale],
+          messageTitle: trek.custom.titulo[messageLocale],
           difficultyGroup: trek.custom.difficultyGroup,
           difficulty: trek.custom.difficulty[locale],
           distance: trek.custom.distance,
@@ -187,6 +197,7 @@ export function CalendarGroupsExperience({
         adventureId: trek.adventureId,
         image: trek.image ?? adventure.image,
         title: adventure.title,
+        messageTitle: doHub(trek.adventureId, messageHub).title,
         difficultyGroup: adventure.difficultyGroup,
         difficulty: adventure.difficulty,
         distance: adventure.distance,
@@ -216,10 +227,10 @@ export function CalendarGroupsExperience({
           {treks.map((trek) => <section id={`saidas-${trek.id}`} className={styles.trekGroup} key={trek.id} aria-labelledby={`heading-${trek.id}`}>
             <header className={styles.groupHeading}><div><Difficulty group={trek.difficultyGroup} label={trek.difficulty} /><h2 id={`heading-${trek.id}`}>{trek.title}</h2><p>{c.grupo.resumo(c.dias(trek.days), trek.distance, trek.location, price(ctx, trek.fromPrice))}</p></div>{trek.href
               ? <Button href={trek.href} variant="outline" size="lg" arrow aria-label={c.grupo.verRoteiroRotulo(trek.title)}>{c.grupo.verRoteiro}</Button>
-              : <Button href={wa(c.grupo.mensagem(trek.title))} variant="outline" size="lg" arrow>{c.grupo.falar}</Button>}</header>
+              : <Button href={wa(ctx.m.grupo.mensagem(trek.messageTitle))} variant="outline" size="lg" arrow>{c.grupo.falar}</Button>}</header>
             <div className={styles.groupBody}><div className={styles.trekPhoto}><div className={styles.trekPhotoMedia}><Image src={trek.image} alt={c.grupo.fotoAlt(trek.title)} fill sizes="(max-width: 640px) 100vw, 380px" className={styles.cover} /></div></div><div className={styles.departures}>{trek.departures.map((departure) => <DepartureCard key={departure.id} ctx={ctx} trek={trek} departure={departure} />)}</div></div>
           </section>)}
-          <aside className={styles.summer}><span className={styles.calendarIcon}><CalendarDays size={21} aria-hidden /></span><div><h2>{c.verao.titulo}</h2><a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">{c.verao.abrirCalendario}</a></div><Button href={wa(c.verao.mensagem)} variant="outline" size="lg" arrow>{c.verao.cta}</Button></aside>
+          <aside className={styles.summer}><span className={styles.calendarIcon}><CalendarDays size={21} aria-hidden /></span><div><h2>{c.verao.titulo}</h2><a href={CALENDAR_URL} target="_blank" rel="noopener noreferrer">{c.verao.abrirCalendario}</a></div><Button href={wa(ctx.m.verao.mensagem)} variant="outline" size="lg" arrow>{c.verao.cta}</Button></aside>
         </div></div>
       </section>
       <section className={`${styles.container} ${styles.related}`} aria-labelledby="more-treks-title" data-scroll-reveal="off">
@@ -228,7 +239,7 @@ export function CalendarGroupsExperience({
           const adventure = doHub(route.adventureId);
           const scheduled = treks.find((trek) => trek.adventureId === route.adventureId);
           const image = scheduled?.image ?? route.image ?? adventure.image;
-          return <article key={route.adventureId} className={styles.relatedCard}><div className={styles.relatedPhoto}><Image src={image} alt={c.relacionados.fotoAlt(adventure.title)} fill sizes="(max-width: 420px) 110px, 140px" className={styles.cover} /></div><div className={styles.relatedCopy}><Difficulty group={adventure.difficultyGroup} label={adventure.difficulty} /><h3>{adventure.title}</h3><Button href={scheduled ? `#saidas-${scheduled.id}` : askDate(ctx, adventure.title)} size="lg">{scheduled ? c.relacionados.verSaidas : c.relacionados.pedirData}</Button></div></article>;
+          return <article key={route.adventureId} className={styles.relatedCard}><div className={styles.relatedPhoto}><Image src={image} alt={c.relacionados.fotoAlt(adventure.title)} fill sizes="(max-width: 420px) 110px, 140px" className={styles.cover} /></div><div className={styles.relatedCopy}><Difficulty group={adventure.difficultyGroup} label={adventure.difficulty} /><h3>{adventure.title}</h3><Button href={scheduled ? `#saidas-${scheduled.id}` : askDate(ctx, doHub(route.adventureId, messageHub).title)} size="lg">{scheduled ? c.relacionados.verSaidas : c.relacionados.pedirData}</Button></div></article>;
         })}</div>
       </section>
       <section className={`${styles.container} ${styles.contact}`} aria-labelledby="contact-calendar-title" data-scroll-reveal="off"><div className={styles.contactPanel}>

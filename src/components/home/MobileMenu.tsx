@@ -9,6 +9,7 @@ import { focus, motion, press } from '@/design/tokens';
 import { Button, Divider, Text, XIcon } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import { localizePath } from '@/lib/routes';
+import { whatsappLink } from '@/lib/whatsapp';
 
 export type MobileNavItem = {
   label: string;
@@ -190,7 +191,7 @@ export function MobileMenu({
           <Text size="sm" tone="muted">
             {content.invite}
           </Text>
-          <Button href={SITE.whatsappUrl} arrow className="h-11 w-47">
+          <Button href={whatsappLink(currentCode)} arrow className="h-11 w-47">
             {content.whatsapp}
           </Button>
         </div>

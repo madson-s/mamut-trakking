@@ -3,6 +3,7 @@ import type { ReactNode } from 'react';
 import { Button, Card, FacebookIcon, Heading, InstagramIcon, Text } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import { CONTATO_CONTENT } from './contato-content';
+import { whatsappLink } from '@/lib/whatsapp';
 
 // Endereço e perfis são os mesmos publicados em mamut.agency/contato.
 const ADDRESS = 'Avenida 7 de Setembro, Centro, Lençóis, Bahia — 46960-000';
@@ -51,7 +52,7 @@ export function ContatoChannels({ locale = 'pt' }: { locale?: Locale }) {
         <Text size="sm" tone="secondary" pretty>
           {c.whatsapp.texto}
         </Text>
-        <Button href={SITE.whatsappUrl} size="sm" variant="outline" arrow className="mt-auto self-start">
+        <Button href={whatsappLink(locale)} size="sm" variant="outline" arrow className="mt-auto self-start">
           {c.whatsapp.cta}
         </Button>
       </ChannelCard>
