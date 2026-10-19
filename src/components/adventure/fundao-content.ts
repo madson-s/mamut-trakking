@@ -42,6 +42,8 @@ export const FUNDAO_ASSETS: DayTourAssets = {
     ['Moderado / Pesado', '/svg/_icons/icon_03_montain.svg'],
   ],
   fromPrice: 1750,
+  returnTime: { time: '18:00' },
+  campingGear: true,
 };
 
 export const FUNDAO_CONTENT: Record<Locale, DayTourContent> = {

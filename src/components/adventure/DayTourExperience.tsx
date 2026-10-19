@@ -21,6 +21,7 @@ import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
 import { ADVENTURES_CONTENT } from '@/components/adventures/adventures-content';
 import { TrekJourney } from './TrekJourney';
+import { AgencyFacilities, TripLogistics } from './AgencySupport';
 
 /**
  * Página de passeio de um dia — hero, faixa de números, sobre + galeria,
@@ -103,7 +104,7 @@ export function DayTourExperience({
       </MediaCard>
 
       <Section padding="default" container={false}>
-        <Container>
+        <Container className="flex flex-col gap-5">
           <dl
             className={cn(
               'grid w-full overflow-hidden rounded-panel-lg border border-line bg-surface-muted sm:grid-cols-3',
@@ -122,6 +123,7 @@ export function DayTourExperience({
               </div>
             ))}
           </dl>
+          <AgencyFacilities locale={locale} campingGear={assets.campingGear} />
         </Container>
       </Section>
 
@@ -203,6 +205,7 @@ export function DayTourExperience({
                 </div>
               </Card>
             ))}
+            {assets.returnTime ? <TripLogistics locale={locale} returnTime={assets.returnTime} /> : null}
             <div className="rounded-control border-l-4 border-brand bg-surface-sunken px-5 py-4">
               <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>{c.itinerario.aviso}</Text>
             </div>

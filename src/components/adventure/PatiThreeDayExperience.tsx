@@ -28,6 +28,8 @@ import { PatiBookingTrigger } from './PatiBookingTrigger';
 import { PatiHeroGallery } from './PatiHeroGallery';
 import { PatiMobileBooking } from './PatiMobileBooking';
 import { PatiItinerary } from './PatiItinerary';
+import { AgencyFacilities, TripLogistics } from './AgencySupport';
+import type { ReturnTime } from './agency-support';
 import { AssetIcon } from './AssetIcon';
 
 /**
@@ -65,6 +67,8 @@ export type PatiAssets = {
   ogImage: string;
   /** Destino do botão "ver todas as fotos" no itinerário. */
   galleryHref: string;
+  /** Chegada de volta a Lençóis — liga o "antes / depois" abaixo do itinerário. */
+  returnTime?: ReturnTime;
 };
 
 const PATI3_ASSETS_STATS = [
@@ -119,6 +123,7 @@ export const PATI3_ASSETS: PatiAssets = {
   fromPrice: PATI3_FROM_PRICE,
   ogImage: '/img/vale-do-pati/vale-do-pati-04.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
+  returnTime: { time: '19:00' },
 };
 
 const TRUST_ICONS = [
@@ -178,7 +183,7 @@ export function PatiExperience({
       }} />
       <Hero c={c} a={a} locale={locale} />
       <Story c={c} a={a} />
-      <Itinerary c={c} a={a} />
+      <Itinerary c={c} a={a} locale={locale} />
       <Landmarks c={c} a={a} />
       <Pricing c={c} a={a} />
       <TrustAndReviews c={c} locale={locale} />
@@ -221,6 +226,7 @@ function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale
         <Heading as="p" size="quote" balance className="text-center">
           {c.hero.apoio}
         </Heading>
+        <AgencyFacilities locale={locale} />
         <div className="flex w-full flex-col gap-5">
           <dl className="grid w-full overflow-hidden rounded-panel-lg border border-line bg-surface-muted sm:grid-cols-2 lg:grid-cols-4">
             {stats.slice(0, 4).map(({ value, label, icon }) => (
@@ -352,11 +358,12 @@ function EditorialCard({ title, body }: { title: string; body: string }) {
 }
 
 
-function Itinerary({ c, a }: { c: Pati3Content; a: PatiAssets }) {
+function Itinerary({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale }) {
   return (
     <Section id="itinerario" padding="tall" containerClassName="flex flex-col gap-8" labelledBy="itinerary-heading">
       <Heading id="itinerary-heading" as="h2" size="section">{c.itinerary.titulo}</Heading>
       <PatiItinerary items={c.itinerary.dias.map((dia, i) => ({ ...dia, ...a.itinerary[i] }))} galleryHref={a.galleryHref} />
+      {a.returnTime ? <TripLogistics locale={locale} returnTime={a.returnTime} /> : null}
     </Section>
   );
 }

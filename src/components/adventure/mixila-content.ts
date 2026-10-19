@@ -33,6 +33,8 @@ export const MIXILA_ASSETS: DayTourAssets = {
     ['Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
   fromPrice: 1200,
+  returnTime: { time: '16:00', byRoad: false },
+  campingGear: true,
 };
 
 export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {

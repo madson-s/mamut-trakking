@@ -9,6 +9,7 @@
 
 import type { PatiFaqItem } from './PatiFaqList';
 import type { PriceTableLabels, PriceTableRow } from './PriceTable';
+import type { ReturnTime } from './agency-support';
 
 export type DayTourContent = {
   meta: { title: string; description: string; canonical: string };
@@ -83,4 +84,11 @@ export type DayTourAssets = {
    * Monte com `pricing()` de `price-table.ts`, que também define `fromPrice`.
    */
   priceTable?: readonly PriceTableRow[];
+  /**
+   * Chegada de volta a Lençóis nas atividades de 2 dias ou mais — liga o
+   * "antes / depois" abaixo do itinerário (`agency-support.ts`).
+   */
+  returnTime?: ReturnTime;
+  /** Passeio com acampamento: soma o equipamento de camping incluso às comodidades. */
+  campingGear?: boolean;
 };

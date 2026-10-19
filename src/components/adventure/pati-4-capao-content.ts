@@ -42,6 +42,8 @@ export const PATI_4_CAPAO_ASSETS: DayTourAssets = {
     { people: '3', prices: ['R$ 2.750', 'R$ 2.550'] },
     { people: '4+', prices: ['R$ 2.550', 'R$ 2.450'] },
   ],
+  // A caminhada termina no Capão por volta das 16h00; o transfer até Lençóis (incluso) leva 1h30.
+  returnTime: { time: '17:30' },
 };
 
 export const PATI_4_CAPAO_CONTENT: Record<Locale, DayTourContent> = {

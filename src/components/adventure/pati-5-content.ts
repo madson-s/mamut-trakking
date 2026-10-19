@@ -58,6 +58,8 @@ export const PATI5_ASSETS: PatiAssets = {
   fromPrice: 2750,
   ogImage: '/img/vale-do-pati/vale-do-pati-20.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
+  // A caminhada termina em Andaraí por volta das 12h00; o transfer até Lençóis chega às 13h30.
+  returnTime: { time: '13:30' },
 };
 
 const VARIANTS: Record<Locale, PatiVariant> = {

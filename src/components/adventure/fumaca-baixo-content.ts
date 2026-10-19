@@ -37,6 +37,8 @@ export const FUMACA_BAIXO_ASSETS: DayTourAssets = {
     ['Moderado / Alto', '/svg/_icons/icon_03_montain.svg'],
   ],
   fromPrice: 1450,
+  returnTime: { time: '16:00' },
+  campingGear: true,
 };
 
 export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {

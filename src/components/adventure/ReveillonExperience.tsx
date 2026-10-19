@@ -3,6 +3,7 @@ import { BedDouble, CalendarDays, MapPin, ShieldCheck, TicketCheck, UsersRound }
 import { Badge, Button, Container, Heading, JsonLd, MediaCard, Section, Text } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
+import { AgencyFacilities } from './AgencySupport';
 import { ReveillonBookingTrigger } from './ReveillonBookingTrigger';
 import { ReveillonPackageExplorer } from './ReveillonPackageExplorer';
 import { REVEILLON_CONTENT, REVEILLON_IMAGE, REVEILLON_PACKAGES, type ReveillonContent } from './reveillon-content';
@@ -39,6 +40,9 @@ export function ReveillonExperience({ locale }: { locale: Locale }) {
         <ReveillonPackageExplorer locale={locale} />
       </Section>
       <IncludedBand c={c} />
+      <Section padding="default">
+        <AgencyFacilities locale={locale} />
+      </Section>
       <PracticalInformation c={c} />
       <FinalCta c={c} />
     </article>

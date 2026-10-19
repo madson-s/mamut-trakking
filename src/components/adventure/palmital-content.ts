@@ -31,6 +31,8 @@ export const PALMITAL_ASSETS: DayTourAssets = {
     ['Moderado / Alto', '/svg/_icons/icon_01_3-bars.svg'],
   ],
   fromPrice: 1350,
+  returnTime: { time: '16:00', until: '17:00', byRoad: false },
+  campingGear: true,
 };
 
 export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
@@ -114,7 +116,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           ['Altitude máxima', '850 m'],
           ['Atrativos', 'Palmital, Capivara e Toca da Onça'],
           ['Locais para banho', '2'],
-          ['Saída / retorno', '6h00 / 19h00'],
+          ['Saída / retorno', '6h00 / 16h00–17h00'],
         ],
         requirements: [
           'Ter mais de 18 anos. Menores de idade só com o responsável legal.',
@@ -217,7 +219,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           ['Highest point', '850 m'],
           ['Sights', 'Palmital, Capivara and Toca da Onça'],
           ['Places to swim', '2'],
-          ['Departure / return', '6:00 am / 7:00 pm'],
+          ['Departure / return', '6:00 am / 4:00–5:00 pm'],
         ],
         requirements: [
           'You must be over 18. Minors only with their legal guardian.',
@@ -320,7 +322,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           ['Altitud máxima', '850 m'],
           ['Atractivos', 'Palmital, Capivara y Toca da Onça'],
           ['Lugares para bañarse', '2'],
-          ['Salida / regreso', '6:00 / 19:00'],
+          ['Salida / regreso', '6:00 / 16:00–17:00'],
         ],
         requirements: [
           'Tener más de 18 años. Menores de edad solo con el responsable legal.',
@@ -423,7 +425,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           ['Altitude maximale', '850 m'],
           ['Points d’intérêt', 'Palmital, Capivara et Toca da Onça'],
           ['Lieux de baignade', '2'],
-          ['Départ / retour', '6 h / 19 h'],
+          ['Départ / retour', '6 h / 16 h–17 h'],
         ],
         requirements: [
           'Avoir plus de 18 ans. Les mineurs uniquement accompagnés de leur responsable légal.',
@@ -526,7 +528,7 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
           ['Hoogste punt', '850 m'],
           ['Bezienswaardigheden', 'Palmital, Capivara en Toca da Onça'],
           ['Zwemplekken', '2'],
-          ['Vertrek / terugkeer', '6.00 / 19.00 uur'],
+          ['Vertrek / terugkeer', '6.00 / 16.00–17.00 uur'],
         ],
         requirements: [
           'Je moet ouder zijn dan 18. Minderjarigen alleen samen met hun wettelijke vertegenwoordiger.',

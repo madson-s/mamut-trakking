@@ -41,6 +41,8 @@ export const FUMACA_360_ASSETS: DayTourAssets = {
     ['Moderado / Alto', '/svg/_icons/icon_03_montain.svg'],
   ],
   fromPrice: 1450,
+  returnTime: { time: '18:00', byRoad: false },
+  campingGear: true,
 };
 
 export const FUMACA_360_CONTENT: Record<Locale, DayTourContent> = {

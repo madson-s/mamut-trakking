@@ -39,6 +39,8 @@ export const AGUAS_CLARAS_ASSETS: DayTourAssets = {
     ['Leve / Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
   fromPrice: 1150,
+  returnTime: { time: '16:00', byRoad: false },
+  campingGear: true,
 };
 
 export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {

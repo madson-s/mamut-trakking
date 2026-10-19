@@ -55,6 +55,7 @@ export const PATI4_ASSETS: PatiAssets = {
   fromPrice: 2250,
   ogImage: '/img/vale-do-pati/vale-do-pati-14.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
+  returnTime: { time: '19:00' },
 };
 
 const VARIANTS: Record<Locale, PatiVariant> = {

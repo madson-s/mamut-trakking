@@ -9,6 +9,7 @@ import type { DayTourAssets, DayTourContent } from './day-tour';
 import { PATI3_CONTENT } from './pati-3-content';
 import { TrekBookingButton } from './TrekBookingButton';
 import { PriceTable } from './PriceTable';
+import { TripLogistics } from './AgencySupport';
 
 /** Layout opt-in: mantém a fonte de conteúdo e a composição superior do roteiro. */
 export function TrekJourney({
@@ -93,6 +94,8 @@ export function TrekJourney({
             );
           })}
         </ol>
+
+        {assets.returnTime ? <div className="lg:ml-28"><TripLogistics locale={locale} returnTime={assets.returnTime} /></div> : null}
 
         <aside className="flex items-start gap-4 rounded-card border border-line bg-surface-muted p-6 lg:ml-28 lg:p-8">
           <Info aria-hidden className="mt-1 size-5 shrink-0 text-brand-strong" strokeWidth={1.5} />
