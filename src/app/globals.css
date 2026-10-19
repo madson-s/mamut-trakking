@@ -58,7 +58,8 @@
    superfície inteira. Sem isso, o knob do seletor de tema e os ícones saíam
    quase brancos aqui e cinza no resto do site. */
 .site-header .site-header-controls,
-.site-header [role="dialog"] {
+.site-header [role="dialog"],
+.site-header-shell[data-mode="fixed"] > .site-header {
 
   /* superfícies */
   --surface: var(--gray-50);            /* fundo da página */
@@ -377,3 +378,58 @@ body:has(.adventures-hub-hero) .site-header {
     transition: none;
   }
 }
+
+/* ------------------------------------------------------------
+   Header que volta ao rolar para cima (páginas de aventura) —
+   o estado vem do HeaderShell.
+
+   Fixo, ele já não está sobre a foto do hero e sim sobre o conteúdo: ganha
+   fundo próprio e volta às cores do tema (o seletor da casca entra na lista
+   que recalcula os aliases, lá no topo do arquivo, e vence o remapeamento para
+   on-media das páginas com hero sob o header).
+
+   Nada de transform nem backdrop-filter no próprio header quando visível:
+   os dois criariam um containing block e prenderiam o painel `fixed` do
+   MobileMenu nos 80px do header. Por isso o desfoque mora num ::before e o
+   estado visível é `transform: none`.
+   ------------------------------------------------------------ */
+.site-header-shell[data-mode="fixed"] > .site-header {
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  transform: translateY(-100%);
+}
+
+.site-header-shell[data-mode="fixed"] > .site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: color-mix(in oklab, var(--surface) 90%, transparent);
+  border-bottom: 1px solid var(--line);
+  box-shadow: var(--shadow-card);
+  /* Só a forma padrão: com as duas escritas, o Lightning CSS ficava com a
+     -webkit- (que o Chrome ignora) e descartava esta. O prefixo ele põe. */
+  backdrop-filter: blur(14px);
+}
+
+.site-header-shell[data-mode="fixed"][data-visible="true"] > .site-header {
+  transform: none;
+}
+
+.site-header-shell[data-animate="true"] > .site-header {
+  transition: transform 450ms var(--ease-brand);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-header-shell[data-animate="true"] > .site-header {
+    transition: none;
+  }
+}
+
+/* Sobre a superfície do tema claro o logo volta a escurecer (nas páginas com
+   hero sob o header ele fica branco por cima da foto). */
+[data-theme="light"] body .site-header-shell[data-mode="fixed"] > .site-header .theme-logo:not([role="dialog"] *) {
+  filter: brightness(0) saturate(100%);
+}
+
