@@ -423,4 +423,81 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Herculano',
+      description:
+        'Sechzig Meter fallendes Wasser und ein Becken zum Schwimmen, in Itaetê, abseits der Touristenroute. Ein Weg von 6 km durch dichten Wald und Bäche.',
+      canonical: '/de/abenteuer/wasserfall-herculano',
+    },
+    hero: {
+      nivel: 'Mittel',
+      origem: 'Start: Itaetê',
+      duracao: '1 Tag',
+      titulo: 'Wasserfall Herculano.',
+      lead: 'Sechzig Meter fallendes Wasser in Itaetê, auf der anderen Seite der Chapada — und meist nur mit deiner eigenen Gruppe.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Fallhöhe', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Herculano-Wasserfall.',
+      paragrafos: [
+        'Ein Fall von rund 60 Metern in Itaetê, einer Nachbargemeinde von Lençóis, mit einem Becken, das breit und flach genug ist, um entspannt im Wasser zu bleiben.',
+        'Dies ist eine Tour abseits der üblichen Runde. Durch die Entfernung zu Lençóis bleibt es ruhig, und meistens hat die Gruppe den Wasserfall für sich allein.',
+        'Der Weg ist hin und zurück rund 6 km lang und dauert etwa 2 Stunden, durch dichten Wald und Bäche, mit unebenen Abschnitten und kleinen Anstiegen, die die Einstufung „mittel“ erklären.',
+        'Auf unseren Touren ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 6:00 Uhr im Zentrum von Lençóis, mit 30 Minuten Puffer, Richtung Itaetê. Das sind rund 140 km und 3 Stunden Fahrt.',
+        'Bei der Ankunft in Itaetê ein kurzer Halt zum Frühstücken — nicht inklusive — und um dich für den Weg fertigzumachen.',
+        'Die Wanderung zum Wasserfall dauert etwa 2 Stunden, durch Abschnitte mit dichtem Wald und Bächen.',
+        'Ankunft am Herculano-Wasserfall: rund 60 Meter fallendes Wasser in ein Becken, das gut zum Schwimmen ist, mit Zeit zum Bleiben.',
+        'Auf demselben Weg zurück zum Ausgangspunkt in Itaetê und am späten Nachmittag zurück nach Lençóis, wo wir gegen 18:00 Uhr ankommen.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 650', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 600', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Insektenschutz'], ['Snack oder Obst', 'Handtuch', 'Bargeld für das Frühstück']],
+        note: 'Du startest um 6:00 Uhr, und das Frühstück beim Halt in Itaetê geht auf eigene Rechnung — nimm etwas Bargeld mit.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger lokaler Guide mit Erste-Hilfe-Ausbildung', 'Eintrittspreis', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück beim Halt', 'Picknick (optional)', 'Persönliche Ausrüstung', 'Zusätzliche Getränke', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Der Weg hat unebene Abschnitte und kleine Anstiege, mit Bachüberquerungen, die nach Regen rutschig werden. Schuhe mit gutem Grip und Insektenschutz machen hier den größten Unterschied — ein großer Teil des Weges führt durch dichten Wald.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, die andere Seite', 'der Chapada zu sehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

@@ -467,4 +467,88 @@ export const FUNDAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfälle Fundão + Vinte e Um',
+      description:
+        'Eine der anspruchsvollsten Trekkingtouren der Chapada Diamantina: 80 Meter hohe Canyons auf einer abgelegenen Route durch den Nationalpark, nur für erfahrene Wanderer.',
+      canonical: '/de/abenteuer/wasserfaelle-fundao-vinte-e-um',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Lençóis',
+      duracao: '2 oder 3 Tage',
+      titulo: 'Fundão + Vinte e Um.',
+      lead: 'Die anspruchsvollste Route, die wir anbieten — enge Canyons, abgelegenes Gelände, und nur für alle, die schon viel gewandert sind.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Canyonwände', 'Übernachtung', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über Fundão + Vinte e Um.',
+      paragrafos: [
+        'Diese Tour gilt als eine der anspruchsvollsten der Chapada Diamantina, und wir empfehlen sie nur sehr erfahrenen Wanderern. Sie folgt einer wenig begangenen Route durch den Nationalpark — wirklich unwirtlich und abgelegen.',
+        'Die Route führt durch das Flussbett aufwärts durch den Fundão-Canyon zum Fundão-Wasserfall und von dort über einen sehr schwierigen Abschnitt in den Canyon des Vinte e Um, wo das Lager gegenüber rund 80 Meter hohen Wänden liegt.',
+        'Es gibt zwei Varianten derselben Route: 18 km in 2 Tagen mit einer Nacht im Zelt, oder bis zu 24 km in 3 Tagen mit zwei Nächten und unterwegs dem Fumaça-Wasserfall frontal. Sie lässt sich mit der Fumaça 360°, der Fumaça von unten oder dem Mixila kombinieren — frag uns nach der Verfügbarkeit.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.de,
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist flexibel und hat verschiedene Ein- und Ausstiegspunkte — frag uns nach den Möglichkeiten.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Fundão-Canyon + Vinte-e-Um-Wasserfall',
+          corpo: 'Start gegen 6:00 Uhr auf dem Weg, der Lençóis mit dem Vale do Capão verbindet. Wo der Ribeirão auf den Fluss Fundão trifft, ziehen wir flussaufwärts durch den Fundão-Canyon — rund 3,5 Stunden Gehzeit bis zum Fundão-Wasserfall. Nach dem Snack, den der Guide zubereitet, steigen wir am Wasserfall über einen sehr schwierigen Abschnitt, 40 Minuten, in den Canyon des Vinte e Um, wo das Basislager gegenüber rund 80 Meter hohen Wänden liegt. Der Guide schlägt das Lager auf und bereitet das Abendessen zu.',
+          distancia: '8 km',
+          esforco: 'Extrem',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Den Canyon hinauf + Fumaça von oben + Vale do Capão',
+          corpo: 'Um 8:00 Uhr, nach dem Frühstück, geht es flussaufwärts. Wir passieren schwierige, aber spektakuläre Abschnitte entlang der Canyonwände. Es sind 2 bis 3 Stunden bis zum Fumaça-Wasserfall von oben und noch 1,5 Stunden bis zum Vale do Capão, wo das Auto bereitsteht, um die Gruppe zurück nach Lençóis zu bringen.',
+          distancia: '10 km',
+          esforco: 'Schwer',
+        },
+        {
+          rotulo: 'In 3 Tagen',
+          titulo: 'Die Variante, mit einer Nacht am Palmital',
+          corpo: 'Entscheidet sich die Gruppe für die 3-Tage-Variante, geht es an Tag 2 nicht hinauf zur Fumaça von oben: Wir gehen eine Stunde weiter zum Aussichtspunkt direkt gegenüber dem Fumaça-Wasserfall und noch eine Stunde zum Lager am Palmital-Wasserfall, wo du eine zweite Nacht verbringst. Der Rückweg folgt am Tag darauf — stimm die genaue Route mit uns ab, wenn du ein Datum festlegst.',
+          distancia: 'bis zu 24 km insgesamt',
+          esforco: 'Schwer',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 2.000', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 1.750', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      wildTrekChecklist('de', `Schuhe und Regenschutz sind hier am wichtigsten: Fast die ganze Route gehst du im Flussbett, zwischen Canyonwänden. ${WILD_TREK_PORTER.de}`),
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit WAFA-Ausbildung', 'Wildcamping, mit Zelt, Isomatte und Schlafsack', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Persönlicher Träger', 'Zusätzliche Getränke', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+      },
+      safetyFaq(
+        'de',
+        'Dies ist die anspruchsvollste Route in unserem Angebot, und wir selbst empfehlen sie nur sehr erfahrenen Wanderern. Tag 1 hat die Anstrengungsstufe „extrem“ — die einzige mit dieser Einstufung auf all unseren Routen: 3,5 Stunden im Flussbett und danach 40 Minuten Aufstieg am Wasserfall über einen sehr schwierigen Abschnitt. Die Route wird wenig begangen und ist abgelegen, wodurch jede Rettung länger dauert als die in der Region ohnehin lange Norm. Wenn du an deiner Kondition zweifelst, sprich mit uns, bevor du buchst — dies ist nicht die Route, um es herauszufinden.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit für die anspruchsvollste', 'Route der Chapada?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst, welche Wandererfahrung du hast und welche Daten du im Blick hast — dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

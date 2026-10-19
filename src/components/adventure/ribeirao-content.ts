@@ -424,4 +424,81 @@ export const RIBEIRAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Naturbecken Ribeirão do Meio',
+      description:
+        'Eine leichte Wanderung von 7 km aus dem Zentrum von Lençóis zu einem großen Naturbecken mit einer glatt geschliffenen Felsrutsche. Ein halber Tag, ideal für Familien.',
+      canonical: '/de/abenteuer/ribeirao-do-meio',
+    },
+    hero: {
+      nivel: 'Leicht',
+      origem: 'Start: Lençóis',
+      duracao: 'Halber Tag',
+      titulo: 'Ribeirão do Meio.',
+      lead: 'Ein riesiges Naturbecken mit einer glatt geschliffenen Felsrutsche, 40 Minuten zu Fuß vom Zentrum.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Dauer', 'Start (Lençóis)', 'Geplante Rückkehr', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Ribeirão do Meio.',
+      paragrafos: [
+        'Sieben Kilometer insgesamt, über flaches Gelände, direkt aus dem Zentrum von Lençóis. Es ist der zugänglichste Weg, den wir anbieten, und der, der mit Kindern am besten funktioniert.',
+        'Vor Ort liegt ein sehr großes Naturbecken und an einem seiner Ränder ein Felsen, den das fließende Wasser langsam glatt geschliffen hat — die natürliche Rutsche, für die der Ort bekannt ist. Ganz in der Nähe gibt es flachere Becken.',
+        'Der Weg führt durch den Übergang zwischen Resten des Atlantischen Regenwalds und Felsfeldern, vorbei an Heilpflanzen, Bromelien und Kakteen. Es sind rund 40 Minuten zu Fuß bis zum Becken.',
+        'Der Ribeirão do Meio lässt sich am selben Tag mit dem Parque da Muritiba, dem Morro do Pai Inácio oder dem Mosquito-Wasserfall kombinieren. Sprich mit uns, um die Kombination zusammenzustellen.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start ab 8:00 Uhr im Zentrum von Lençóis. Es sind 3,5 km vom Zentrum bis zum Ribeirão do Meio, fast ganz über flaches Gelände und ohne große Hindernisse.',
+        'Die Landschaft verändert sich beim Gehen: Reste des Atlantischen Regenwalds weichen Felsfeldern, mit Blumen, Kakteen und Heilpflanzen am Weg.',
+        'Nach rund 40 Minuten erreichst du das Becken — ein großes Naturbecken mit dem glatt geschliffenen Felsen am Rand.',
+        'Eine Einweisung durch den Guide und Schwimmwesten, bevor es ins Wasser geht. Danach können alle das große Becken und die natürliche Rutsche nutzen; ganz in der Nähe gibt es flachere Becken.',
+        'Der Rückweg folgt demselben Weg; wir rechnen damit, gegen 13:00 Uhr zurück zu sein.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 175', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 145', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Leichte Kleidung', 'Badesachen', 'Kappe oder Hut'],
+          ['Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen', 'Handtuch'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Flip-Flops', 'Kamera']],
+        note: 'Eine kurze Tour zu Fuß aus dem Zentrum: Du kannst mit leichtem Gepäck reisen. Geschlossene Schuhe, Wasser und Badesachen sind am wichtigsten.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zertifizierter lokaler Guide mit Erste-Hilfe-Ausbildung', 'Schwimmweste', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Transport (optional)', 'Picknick (optional)', 'Snack oder Mittagessen', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Die Rutsche ist ein vom Wasser glatt geschliffener Felsen und damit per Definition rutschig — das macht sie lustig und die Einweisung notwendig. Eine Schwimmweste stellen wir, und sie ist im großen Becken Pflicht, auch für Erwachsene. Niemand rutscht hinunter, bevor der Guide es erklärt hat.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit für die', 'Felsrutsche?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

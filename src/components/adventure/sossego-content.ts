@@ -393,4 +393,76 @@ export const SOSSEGO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Sluit je aan bij de kudde',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Sossego',
+      description:
+        'Einer der anspruchsvollsten Wege der Chapada Diamantina: 15 km von Felsblock zu Felsblock durch das Flussbett des Ribeirão, zwischen über 100 Meter hohen Canyons.',
+      canonical: '/de/abenteuer/wasserfall-sossego',
+    },
+    hero: {
+      nivel: 'Mittel / Schwierig',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Wasserfall Sossego.',
+      lead: 'Fünfzehn Kilometer von Felsblock zu Felsblock durch das Flussbett, zwischen über 100 Meter hohen Wänden.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Höhenmeter', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Sossego-Wasserfall.',
+      paragrafos: [
+        'Einer der eindrucksvollsten und lohnendsten Wege der Chapada Diamantina. Du steigst auf und ab, gehst und springst buchstäblich über die Steine im Flussbett des Ribeirão, umgeben von über 100 Meter hohen Canyons.',
+        'Der Weg zum Wasserfall ist ziemlich intensiv, mit viel Auf und Ab. Am Ende des Tages können die summierten Höhenmeter über 750 m liegen.',
+        'Auf den Wanderungen ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 8:00 Uhr — mit 15 Minuten Puffer — im Zentrum von Lençóis, auf dem traditionellen Weg Richtung Ribeirão do Meio. Rund 30 Minuten sind es bis zum Aussichtspunkt über dem Rio Ribeirão, von wo du schon einen Teil der Route vor dir siehst.',
+        'Von dort folgt der Weg dem Fluss stromaufwärts, mit einer Landschaft, die sich bei jedem Schritt verändert. Unterwegs kommst du an alten Bauten und den Unterschlüpfen der Goldsucher vorbei, die hier nach Diamanten suchten.',
+        'Nach etwa einer Stunde erreichst du das Flussbett des Ribeirão, wo du über viele Steine springen musst — die rutschig sein können — und je nach Wetter durchs Wasser gehst. Dieser Abschnitt verlangt der Gruppe am meisten ab. Noch 30 Minuten bis zum Wasserfall.',
+        'Der Rückweg folgt derselben Route, mit einem Halt an den Caldeirões do Ribeirão de Cima, um in flacherem Wasser zu baden.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 250', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 200', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: frag unser Team.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Handtuch', 'Kamera']],
+        note: 'Das Flussbett ist rutschig: Schuhe mit echtem Grip machen auf dieser Route den Unterschied.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit APH-Ausbildung', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Schwimmweste'],
+        excluded: ['Alles, was oben nicht aufgeführt ist', 'Transport (optional)', 'Picknick (optional)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq('de', 'Im Flussbett des Ribeirão springst du von Stein zu Stein, und die können rutschig sein; je nach Wetter musst du auch durchs Wasser. Deshalb ist dieser Weg anspruchsvoller, als die Strecke vermuten lässt.'),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Dein Weg beginnt', 'mit einer Nachricht.'],
+      corpo: 'Schreib uns per WhatsApp. Finde heraus, welche Tour in der Chapada Diamantina am besten zu dir passt und wie du dich darauf vorbereitest.',
+      botao: 'Schließ dich der Herde an',
+    },
+  },
 };

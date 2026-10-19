@@ -603,4 +603,98 @@ export const ABOUT_CONTENT: Record<Locale, AboutContent> = {
       'jair-dalcin': { role: 'Hoofdchauffeur', bio: 'Het nieuwste lid en de "vader" van het team. Geboren in Paraná, woont al meer dan 15 jaar in Lençóis. Hij rijdt altijd met goede zin en hartelijkheid.' },
     },
   },
+  de: {
+    meta: {
+      title: 'Über uns',
+      description:
+        'Lerne die Geschichte und die lokalen Guides von Mamut Trekking kennen, geformt von der Chapada Diamantina.',
+      canonical: '/de/ueber-uns',
+      ogTitle: 'Über Mamut Trekking',
+      ogDescription:
+        'Sieben lokale Guides, geformt von der Chapada. Zusammen kennen sie den ganzen Nationalpark.',
+    },
+    hero: {
+      titulo: { antes: 'Hier', aqui: 'geboren.', mobile: 'hier, geformt von der Chapada.', desktop: 'Geformt von der Chapada.' },
+      leadDesktop:
+        'Trekkingtouren mit Guides, die in der Chapada Diamantina geboren und aufgewachsen sind. Jeder Weg ist eine Reise zurück zu dir selbst.',
+      leadMobile:
+        'Trekkingtouren mit Guides, die in der Chapada Diamantina geboren und aufgewachsen sind — jeder Weg ist eine Reise zurück zu dir selbst.',
+      ctaBando: 'Lerne die Herde kennen',
+      ctaGuia: 'Sprich mit einem Guide',
+      fotoAlt: 'Das historische Zentrum von Lençóis bei Sonnenuntergang',
+    },
+    story: {
+      titulo: { l1: 'Wir sind keine', l2: 'Reiseagentur.', l3: 'Wir sind die Herde,', l4: 'die deinen Stamm', l5: 'führt.' },
+      cards: [
+        {
+          titulo: 'Aus dieser Erinnerung sind wir entstanden.',
+          paragrafos: [
+            'Durch die Weite der Urkontinente zogen Mammuts in großen Herden — und hinterließen für immer ihre Spuren.',
+            'In der Chapada Diamantina stellen wir diese Verbindung wieder her. Jeder Weg ist eine Reise zurück zu deinen Wurzeln: den Boden spüren, den Wind hören, Teil von etwas Größerem sein.',
+          ],
+        },
+        {
+          titulo: 'Geformt von der Serra do Sincorá.',
+          paragrafos: [
+            'Alle unsere Guides kommen von hier — freiwillige Waldbrand-Feuerwehrleute, zertifizierte Bergführer (CMC, APH, WFA) und Kenner der Flora, Fauna und Geologie der Serra do Sincorá.',
+            'Deshalb erreichen wir die abgelegensten Durchquerungen des Nationalparks, ohne Abstriche bei der Sorgfalt zu machen, die wir den Wandernden und dem Gebiet selbst schulden.',
+          ],
+        },
+      ],
+      selos: [
+        { titulo: '100 % lokale Guides', texto: 'Geboren und aufgewachsen in Lençóis und rund um die Chapada.' },
+        { titulo: 'CMC, APH und WFA', texto: 'Zertifizierte Bergführer und freiwillige Waldbrand-Feuerwehrleute.' },
+        { titulo: 'Flora, Fauna und Geologie', texto: 'Lebendiges Wissen über die Serra do Sincorá.' },
+        { titulo: 'Zertifiziert von Cadastur', texto: 'CNPJ 43.500.583/0001-22 · Brasilianisches Tourismusministerium.' },
+      ],
+      fotoAlt: 'Die Chapada Diamantina bei Sonnenuntergang',
+      arte: { antes: 'Eine', jornada: 'Reise,', depois: 'um das', linha2: 'Ursprüngliche', primitivas: 'wiederzufinden' },
+    },
+    guides: {
+      badge: 'Lerne die kennen, die unsere Herde führen',
+      titulo: 'Die Menschen, die unsere Herde führen.',
+      lead: 'Sieben lokale Guides, geformt von der Chapada. Jeder mit einer eigenen Spezialität — zusammen kennen sie den ganzen Nationalpark.',
+      pagina: 'Seite der Guides',
+      ctaTitulo: { linha1: 'Lust, mit uns', linha2: 'zu gehen?' },
+      ctaTexto: 'Sprich per WhatsApp mit einem lokalen Guide. Gemeinsam wählen wir Tempo, Route und Datum.',
+      cta: 'Schließ dich der Herde an',
+    },
+    reviews: {
+      badge: 'Verifizierte Bewertungen · TripAdvisor',
+      titulo: { mobile: ['Was unsere Herde', 'über die Touren sagt.'], desktop: ['Jede Bewertung ist ein', 'Weg, den wir gemeinsam', 'gegangen sind.'] },
+      avaliacoes: '145 Bewertungen',
+      avaliacoesLabel: 'Bewertungen',
+      mediaChip: '5.0 im Schnitt',
+      mediaLabel: 'Durchschnittliche Bewertung',
+      rankingChip: '#5 in Lençóis',
+      ranking: '#5 im Ranking',
+      rankingLabel: 'der Outdoor-Aktivitäten in Lençóis',
+      ctaTrilha: 'Wähle deinen Weg',
+      ctaTrilhaHref: '/de/abenteuer',
+      ctaWhatsapp: 'Per WhatsApp buchen',
+      ctaTripadvisor: 'Sieh uns auf TripAdvisor',
+      depoimentos: [
+        '„Vom ersten Kontakt bis zum Ende der Reise hat die Agentur Professionalität und Organisation gezeigt.“',
+        '„Die Aussichten waren wunderschön, die Wasserfälle episch und das Abenteuer unglaublich.“',
+        '„Unser Guide war sehr freundlich, fürsorglich und ist auf alle unsere Wünsche eingegangen. Sein Wissen über den Nationalpark ist enorm.“',
+      ],
+    },
+    cta: {
+      titulo: ['Dein Weg beginnt', 'mit einer Nachricht.'],
+      corpo:
+        'Schreib uns per WhatsApp. Finde heraus, welche Tour in der Chapada Diamantina am besten zu dir passt und wie du dich darauf vorbereitest.',
+      botao: 'Schließ dich der Herde an',
+      botaoHref: '/de/kontakt',
+      fotoAlt: 'Ein Weg mit Blick auf den Morro do Pai Inácio',
+    },
+    guiaTexto: {
+      'marcelo-cabral': { role: 'Guide & Gründer', bio: 'Lebt seit 13 Jahren in Lençóis. Er kümmert sich um die gesamte Organisation — von der ersten Nachricht bis zum letzten Schritt auf dem Weg. Er zeigt Brasilianern und Gästen aus dem Ausland die Chapada, mit der Autorität von jemandem, der diesen Boden als Zuhause gewählt hat.' },
+      'felipe-ribeiro': { role: 'PT · EN', bio: 'Geboren in Salvador, aufgewachsen in Lençóis. Er kennt die allermeisten Wege rund um den Nationalpark. Bekannt für seine Herzlichkeit und seine Kochkünste. Er plant Routen und Logistik für jede Gruppe und führt auf Englisch.' },
+      'salomao-andrade': { role: 'Feuerwehr', bio: 'Geboren und aufgewachsen in der Chapada, Spezialist für die wilden Trekkingtouren des Nationalparks. Er begleitet internationale Gruppen.' },
+      'aman-duart': { role: 'Freiwillige Feuerwehr', bio: 'Enkel von Diamantensuchern und in Lençóis geboren. Er weiß viel über die Heilpflanzen der Chapada Diamantina, macht eine Ausbildung zum Feuerwehrmann und ist ein ausgezeichneter Reisebegleiter.' },
+      'luiz-henrique': { role: 'WFA-zertifiziert', bio: 'Geboren und aufgewachsen in der Chapada, mit unendlicher Lust, in die Berge zu gehen. Er kennt die traditionellsten Trekkingtouren rund um den Park in- und auswendig. Hobbykletterer und Student der Systemanalyse.' },
+      'rodolfo-anjos': { role: 'Feuerwehr', bio: 'Geboren in Lençóis, der Mentor des Teams. Ein Guide mit enormer Erfahrung und ein ausgezeichneter Fahrer, mit großem Wissen über die Chapada. Er führt auf Französisch.' },
+      'jair-dalcin': { role: 'Hauptfahrer', bio: 'Das neueste Mitglied und der „Vater“ des Teams. Geboren in Paraná, lebt seit über 15 Jahren in Lençóis. Er fährt immer gut gelaunt und herzlich.' },
+    },
+  },
 };

@@ -650,4 +650,127 @@ export const MURITIBA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Parque da Muritiba',
+      description:
+        'Sieben Sehenswürdigkeiten auf 4 km zu Fuß ab dem Zentrum von Lençóis: Serrano, der Salão de Areias Coloridas, Poço Halley, Primavera, Poço Paraíso, der Aussichtspunkt und die Cachoeirinha.',
+      canonical: '/de/abenteuer/park-muritiba',
+    },
+    hero: {
+      nivel: 'Leicht / Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '4 bis 5 Stunden',
+      titulo: 'Parque da Muritiba.',
+      lead: 'Sieben Sehenswürdigkeiten auf vier Kilometern — und der Weg beginnt im Zentrum des Städtchens.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Sehenswürdigkeiten', 'Dauer', 'Höhe', 'Startzeit', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Parque da Muritiba.',
+      paragrafos: [
+        'Eine der vollständigsten Touren der Chapada Diamantina. Der Park hat Wasserfälle, Aussichtspunkte und Höhlen, und die traditionelle Route nimmt sieben davon mit: die Naturbecken des Serrano, den Salão de Areias Coloridas (den Saal des farbigen Sandes), den Poço Halley, den Primavera-Wasserfall, den Poço Paraíso, den Aussichtspunkt über Lençóis und die Cachoeirinha.',
+        'Neben den Sehenswürdigkeiten ist der Park eine Lektion in Geologie, Geschichte und sozialem Leben der Region — die Felsen erzählen von Infiltration und Verwitterung, und der Weg führt an dem vorbei, was das Städtchen aus seinem Wasser gemacht hat.',
+        'Sie ist leicht genug, um an jeden Tag deiner Reise zu passen: Du kannst jederzeit zwischen 8:00 und 14:00 Uhr starten, und die ganze Wanderung dauert 4 bis 5 Stunden. Sie lässt sich mit dem Morro do Pai Inácio am späten Nachmittag kombinieren — frag uns einfach.',
+      ],
+    },
+    itinerario: {
+      titulo: 'Die sieben Stopps.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Der Weg beginnt am Touristeninformationszentrum (CAT), von wo du schon die ganze Route vor dir siehst. Da die Wanderung 4 bis 5 Stunden dauert, kannst du jederzeit zwischen 8:00 und 14:00 Uhr starten.',
+      ],
+      dias: [
+        {
+          rotulo: '5 Min.',
+          titulo: 'Naturbecken des Serrano',
+          corpo: 'Der erste Stopp, gleich nach dem CAT: Konglomeratgestein, das das Wasser im Lauf der Zeit glatt geschliffen hat, mit Becken und kleinen erfrischenden Wasserfällen.',
+          distancia: 'ab dem CAT',
+          esforco: 'Leicht',
+        },
+        {
+          rotulo: '+15 Min.',
+          titulo: 'Salão de Areias Coloridas',
+          corpo: 'Ein Labyrinth, in dem das Gestein einen Prozess der Infiltration — Verwitterung — durchlaufen hat, der es porös und sandig machte. Es ist der besonderste Ort des Parks und der, der die meisten Gespräche über Geologie auslöst.',
+          distancia: '15 Min.',
+          esforco: 'Leicht',
+        },
+        {
+          rotulo: '+15 Min.',
+          titulo: 'Poço Halley',
+          corpo: 'Ein Badestopp, mit den farbigen Tonen, die es hier dank des magmatischen Gesteins gibt, das am Rand des Beckens an die Oberfläche kam.',
+          distancia: '15 Min.',
+          esforco: 'Leicht',
+        },
+        {
+          rotulo: '+20 Min.',
+          titulo: 'Primavera-Wasserfall',
+          corpo: 'Einer der Nebenflüsse des Flusses Lençóis — desselben Flusses, den wir zu Beginn des Tages am Serrano überquert haben.',
+          distancia: '20 Min.',
+          esforco: 'Leicht',
+        },
+        {
+          rotulo: 'Weiter',
+          titulo: 'Poço Paraíso',
+          corpo: 'Noch ein Badestopp, in flachem Wasser, mit einem kleinen Wasserfall.',
+          distancia: '—',
+          esforco: 'Leicht',
+        },
+        {
+          rotulo: '+10 Min.',
+          titulo: 'Aussichtspunkt über Lençóis',
+          corpo: 'Von hier siehst du das ganze Städtchen und einen flachen Horizont, der kein Ende zu haben scheint.',
+          distancia: '10 Min.',
+          esforco: 'Mittel',
+        },
+        {
+          rotulo: '+15 Min.',
+          titulo: 'Cachoeirinha',
+          corpo: 'Fünfzehn Minuten bergab zum letzten Stopp: ein kleiner Wasserfall mit klarem Wasser, ebenfalls ein Nebenfluss des Flusses Lençóis.',
+          distancia: '15 Min.',
+          esforco: 'Leicht',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 220', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 160', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Handtuch'], ['Snack oder Obst', 'Flip-Flops', 'Kamera']],
+        note: 'Es gibt vier Badestopps auf 4 km: Ein Handtuch und trockene Kleidung sind hier wichtiger als bei jeder anderen kurzen Tour.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'Eintrittsgebühren', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Picknick (optional)', 'Persönlicher Träger', 'Zusätzliche Getränke', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft'],
+      },
+      safetyFaq(
+        'de',
+        'Der Park ist leicht zugänglich, aber das vom Wasser glatt geschliffene Konglomerat wird rutschig — und gerade dort wollen alle ins Wasser. Schuhe mit gutem Grip und Vorsicht an den Beckenrändern decken das wichtigste Risiko des Tages ab.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit für die sieben', 'Sehenswürdigkeiten der Muritiba?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

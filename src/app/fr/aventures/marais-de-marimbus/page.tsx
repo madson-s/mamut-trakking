@@ -8,7 +8,7 @@ const CONTENT = MARIMBUS_CONTENT.fr;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/pantanal-marimbus', en: '/en/adventures/marimbus-swamp', es: '/es/aventuras/pantanal-marimbus', fr: '/fr/aventures/marais-de-marimbus', nl: '/nl/avonturen/moeras-van-marimbus' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/pantanal-marimbus', en: '/en/adventures/marimbus-swamp', es: '/es/aventuras/pantanal-marimbus', fr: '/fr/aventures/marais-de-marimbus', nl: '/nl/avonturen/moeras-van-marimbus', de: '/de/abenteuer/sumpfgebiet-marimbus' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

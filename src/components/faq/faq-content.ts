@@ -36,6 +36,7 @@ export const FAQ_HREF: Record<Locale, string> = {
   es: '/es/preguntas-frecuentes',
   fr: '/fr/questions-frequentes',
   nl: '/nl/veelgestelde-vragen',
+  de: '/de/haeufige-fragen',
 };
 
 export const FAQ_CONTENT: Record<Locale, FaqContent> = {
@@ -172,6 +173,33 @@ export const FAQ_CONTENT: Record<Locale, FaqContent> = {
       whatsapp: 'Chat via WhatsApp',
       contato: 'Andere manieren om ons te bereiken',
       contatoHref: '/nl/contact',
+    },
+  },
+  de: {
+    meta: {
+      title: 'Häufige Fragen',
+      description:
+        'Fragen zu einer Reise in die Chapada Diamantina mit Mamut Trekking: wie viele Tage du einplanen solltest, die beste Jahreszeit, Vorbereitung, Zahlung, Stornierung und Sicherheit.',
+      canonical: FAQ_HREF.de,
+      ogTitle: 'Häufige Fragen · Mamut Trekking',
+      ogDescription: 'Was Menschen fragen, bevor sie in die Chapada kommen — und die Buchungsregeln.',
+    },
+    titulo: { antes: 'Häufige', destaque: 'Fragen.' },
+    lead: 'Bevor du kommst, wenn du buchst und unterwegs auf dem Weg. Steht deine Frage nicht dabei, beantworten wir sie per WhatsApp.',
+    secoes: { antes: 'Bevor du kommst', reserva: 'Buchung und Zahlung', seguranca: 'Sicherheit' },
+    leads: {
+      antes: 'Das Städtchen, wie lange du bleibst, wie du dich vorbereitest und die beste Jahreszeit für jede Art von Tour.',
+      reserva: 'Wie du bezahlst, was passiert, wenn du stornieren musst, und wie die Weitergabe von Touren funktioniert.',
+      seguranca: 'Wer die Leitung hat, welche Ausrüstung wir mitnehmen und was kein Veranstalter ausschließen kann.',
+    },
+    avisoSeguranca:
+      'Jeder Weg hat seine eigenen Risiken — technische Abschnitte, Flussüberquerungen, Sonneneinstrahlung. Sie sind auf der Seite jeder Route beschrieben, im selben Sicherheitsblock.',
+    fechamento: {
+      titulo: 'Nicht gefunden, was du gesucht hast?',
+      texto: 'Melde dich bei unserem Team. Wir antworten auf Portugiesisch, Englisch und Spanisch.',
+      whatsapp: 'Per WhatsApp chatten',
+      contato: 'Andere Wege, uns zu erreichen',
+      contatoHref: '/de/kontakt',
     },
   },
 };

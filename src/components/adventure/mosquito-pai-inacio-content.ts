@@ -432,4 +432,82 @@ export const MOSQUITO_PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Mosquito + Mucugêzinho + Morro do Pai Inácio',
+      description:
+        'Drei Sehenswürdigkeiten an einem Tag mit dem Auto und kurzen Wanderungen: der Mosquito-Wasserfall, der Poço do Diabo und der Sonnenuntergang auf dem Morro do Pai Inácio.',
+      canonical: '/de/abenteuer/wasserfall-mosquito-morro-do-pai-inacio',
+    },
+    hero: {
+      nivel: 'Leicht / Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Mosquito + Mucugêzinho + Pai Inácio.',
+      lead: 'Drei Postkartenmotive an einem Tag, mit kurzen Wanderungen — die Tour, die mit Kindern genauso funktioniert wie mit Oma.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Sehenswürdigkeiten', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über die Tour.',
+      paragrafos: [
+        'Eine Tour mit dem Auto und kurzen Wanderungen, gedacht für alle, die die Chapada Diamantina sehen möchten, ohne sich auf einen langen Weg einzulassen. Jeder Ort ist leicht erreichbar, sicher und für Besucher ausgestattet.',
+        'Es gibt drei Stopps: den Mosquito-Wasserfall, das Vale das Piscinas am Fluss Mucugêzinho — wo der Poço do Diabo liegt — und den Morro do Pai Inácio, das bekannteste Wahrzeichen der Region.',
+        'Die längste Wanderung des Tages misst 700 Meter, die kürzeste 300. Zusammen ergeben sie die 4 km, verteilt auf 120 km Straße. Deshalb funktioniert die Tour mit Kindern und mit Menschen, die nicht viel gehen.',
+        'Der Tag endet oben auf dem Pai Inácio, wo der Guide die Legende erzählt, der der Berg seinen Namen verdankt, und sich der Blick über das ganze Tal öffnet.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 8:30 Uhr in Lençóis zur Fazenda Santo Antônio, wo der Zugang zum Mosquito-Wasserfall liegt. Das sind 40 km mit dem Auto, rund eine Stunde, und dazu 700 Meter Fußweg bis zum Fuß des Wasserfalls.',
+        'Ein Bad am Wasserfall und auf demselben Weg zurück zum Auto.',
+        'Noch 28 km bis zur Badestelle Mucugêzinho und 2 Minuten Fußweg bis zum Vale das Piscinas, wo wir hervorragende Hausmannskost probieren und den Fluss Mucugêzinho genießen können, der direkt davor fließt. Je nach Tempo und Lust der Gruppe können wir noch 20 Minuten weitergehen bis zum Poço do Diabo — einem riesigen Naturbecken mit dunklem, eiskaltem Wasser. Die Gruppe bleibt dort bis 16:00 Uhr und geht auf demselben Weg zurück zum Auto.',
+        'Noch 5 km mit dem Auto und ein Fußweg von 300 Metern, rund 20 Minuten, bis zum Gipfel des Morro do Pai Inácio. Oben erzählt der Guide von den Blumen, der Geologie, ein paar Kuriositäten und manchmal auch von der Legende, der der Berg seinen Namen verdankt.',
+        'Rückfahrt nach Lençóis, unterwegs mit dem Blick von der BR-242.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 545', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 399', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      tabela: PRICE_TABLE_LABELS.de,
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Handtuch', 'Kamera']],
+        note: 'Es gibt zwei Badestopps an einem Tag: Nimm ein Handtuch mit und, wenn möglich, trockene Kleidung für das letzte Stück hinauf zum Pai Inácio.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Zertifizierter lokaler Guide mit Erste-Hilfe-Ausbildung', 'Eintrittsgebühren', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Mittagessen (optional)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Die Wanderungen sind kurz, aber der Poço do Diabo ist ein tiefes Naturbecken mit dunklem, eiskaltem Wasser — geh zusammen mit der Gruppe ins Wasser und folge dem Guide. Der letzte Aufstieg zum Pai Inácio besteht aus 300 Metern Stufen und Fels: kurz, aber steil.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, die Chapada', 'an einem Tag zu sehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

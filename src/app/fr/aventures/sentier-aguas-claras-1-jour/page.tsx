@@ -8,7 +8,7 @@ const CONTENT = AGUAS_CLARAS_1D_CONTENT.fr;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/aguas-claras', en: '/en/adventures/aguas-claras-trail-1-day', es: '/es/aventuras/sendero-aguas-claras-1-dia', fr: '/fr/aventures/sentier-aguas-claras-1-jour', nl: '/nl/avonturen/wandelpad-aguas-claras-1-dag' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/aguas-claras', en: '/en/adventures/aguas-claras-trail-1-day', es: '/es/aventuras/sendero-aguas-claras-1-dia', fr: '/fr/aventures/sentier-aguas-claras-1-jour', nl: '/nl/avonturen/wandelpad-aguas-claras-1-dag', de: '/de/abenteuer/wanderweg-aguas-claras-1-tag' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

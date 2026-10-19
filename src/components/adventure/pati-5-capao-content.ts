@@ -456,4 +456,88 @@ export const PATI_5_CAPAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Vale do Pati 5 Tage, über Capão',
+      description:
+        'Eine Durchquerung von 78 km durch das Vale do Pati, die im Vale do Capão endet, mit vollen Tagen am Cachoeirão von unten und am Calixto.',
+      canonical: '/de/abenteuer/pati-tal-5-tage-ueber-capao',
+    },
+    hero: {
+      nivel: 'Mittel / Schwierig',
+      origem: 'Start: Palmeiras',
+      duracao: '5 Tage',
+      titulo: 'Vale do Pati in 5 Tagen, über Capão.',
+      lead: 'Die vollständige Durchquerung: achtundsiebzig Kilometer, mit einem eigenen Tag für den Cachoeirão von unten und für den Calixto.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Höchster Punkt', 'Übernachtung', 'Start (Palmeiras)', 'Schwierigkeit'],
+    sobre: { titulo: 'Über das Vale do Pati.', paragrafos: PATI_CAPAO_SOBRE.de },
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: PATI_CAPAO_AVISO.de,
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Cachoeirão von oben + Pati de Baixo',
+          corpo: 'Start ab 7:00 Uhr in Palmeiras, eine Stunde mit dem Auto bis zum Dorf Guiné, wo wir ins Vale do Pati hineingehen. Wir nehmen den Weg der Aleixos und steigen eine Stunde auf, dann noch 1,5 Stunden über flaches Gelände bis zum Aussichtspunkt Cachoeirão. Von dort geht es zur Fenda da Prefeitura, einem steilen Abstieg von einer Stunde bis zum Fuß der Bergkette, und noch 40 Minuten bis zur Unterkunft.',
+          distancia: '15 km',
+          esforco: 'Schwer',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Cachoeirão von unten',
+          corpo: 'Aufbruch gegen 8:00 Uhr, nach dem Frühstück in der Unterkunft. Ein Tag hin und zurück über überwiegend raues Gelände, im Flussbett des Cachoeirão, springend über viele Felsen. Wir gehen nur mit Tagesrucksack bis zum Fuß der Wasserfälle. Nachdem wir die Aussicht und den Snack, den der Guide zubereitet, genossen haben, geht es auf demselben Weg zurück.',
+          distancia: '12 km',
+          esforco: 'Mittel / Schwer',
+        },
+        {
+          rotulo: 'Tag 3',
+          titulo: 'Calixto-Wasserfall + Poço da Árvore',
+          corpo: 'Ein Tag im Calixto, einem der am wenigsten besuchten Teile des Pati. Wir nehmen nur einen Tagesrucksack mit, springen von Fels zu Fels und gehen durch dichten Wald bis zum Calixto-Wasserfall. Unterwegs baden wir im Poço da Árvore.',
+          distancia: '18 km',
+          esforco: 'Mittel / Schwer',
+        },
+        {
+          rotulo: 'Tag 4',
+          titulo: 'Morro do Castelo + Wasserfälle',
+          corpo: 'Um 8:00 Uhr, nach einem sehr kräftigen Frühstück, brechen wir mit dem ganzen Gepäck auf, das wir an der Abzweigung zurücklassen. Dies ist der anstrengendste Tag: Wir besteigen einen Berg von über 1.200 m, mit rund 250 Metern Anstieg in 40 bis 60 Minuten. Auf dem Gipfel des Morro do Castelo gibt es zwei Aussichtspunkte und den Eingang zur Gruta da Lapinha, einer der seltensten Höhlen der Welt über 1.000 m. Wir steigen ab, holen unsere Sachen und gehen auf einer anderen Route weiter, vorbei an den Wasserfällen Altina (Lajes), Funis und Bananeiras, bis wir gegen 18:00 Uhr an der Unterkunft ankommen.',
+          distancia: '—',
+          esforco: 'Schwer',
+        },
+        {
+          rotulo: 'Tag 5',
+          titulo: 'Aussichtspunkt Rampa + Quebra Bunda + Gerais do Vieira',
+          corpo: 'Wir brechen gegen 8:00 Uhr in Igrejinha auf und steigen eine Stunde zum Aussichtspunkt Rampa hinauf. Dann 2 Stunden über flaches Gelände bis zum Aussichtspunkt Quebra Bunda, wo eine Stunde Abstieg beginnt. Am Fuß der Bergkette noch 3 Stunden über flaches Gelände durch die Gerais do Vieira bis Vila do Bomba, wo gegen 16:00 Uhr das Auto für die Rückfahrt bereitsteht. Übernachtung im Hostel, Frühstück nicht inklusive.',
+          distancia: '—',
+          esforco: 'Mittel',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 3.500', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Durchquerung.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 3.300', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      ...patiCapaoFaqs('de'),
+      safetyFaq(
+        'de',
+        'Es sind fünf Tage am Stück zu Fuß, mit einem technischen Niveau zwischen Mittel und Schwierig. An Tag 2 gehst du im Flussbett des Cachoeirão und springst über Felsen, die rutschig sein können; Tag 4 ist der anstrengendste, mit 250 Metern Anstieg auf über 1.200 m. Wenn du an deiner Kondition zweifelst, sprich mit uns, bevor du buchst.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit für fünf Tage', 'Durchquerung?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Durchquerung gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

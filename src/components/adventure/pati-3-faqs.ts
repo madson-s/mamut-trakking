@@ -330,4 +330,67 @@ export const PATI3_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       documents: [['Aansprakelijkheidsverklaring (pdf)', '/docs/termo-de-responsabilidade.pdf'], ['Classificatie van de moeilijkheidsgraad', '/nl/niveauclassificatie']],
     },
   ],
+  de: [
+    {
+      type: 'checklist',
+      title: 'Checkliste — was du mitnimmst',
+      intro:
+        'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, ist eine Teilnahme nicht möglich — wir prüfen bei der Buchung und beim Check-in.',
+      requiredColumns: [
+        ['Wasser (1,5 L/Person)', 'Leichte Kleidung', 'Kappe/Hut', 'Rucksack ab 35 L', 'Sonnencreme', 'Hygieneartikel', 'Tagesrucksack'],
+        ['Wanderschuhe', 'Badesachen', 'Extra Snack/Obst', 'Regenschutz (für dich + Rucksack)', 'Persönliche Medikamente', 'Dokumente', 'Stirnlampe'],
+      ],
+      recommendedColumns: [['Ersatzsocken', 'Wanderstock'], ['Schnelltrocknendes Handtuch', 'Powerbank']],
+      note: 'Möchtest du lieber kein Gewicht tragen? Persönliche Träger sind verfügbar (gegen Aufpreis).',
+    },
+    {
+      type: 'included',
+      title: 'Was inklusive ist / was nicht',
+      included: ['Zweisprachiger Bergführer mit APH-Zertifikat', 'SPOT-X-Satellitentracker', 'Transfer Lençóis ↔ Guiné (160 km hin und zurück)', 'Unterkunft für 2 Nächte', 'Abenteuerversicherung', 'Alle Hauptmahlzeiten', 'Erste-Hilfe-Set', 'Gepäckaufbewahrung während der Aktivität', 'Dusche vor/nach', 'Warteraum'],
+      excluded: ['Alles, was oben nicht aufgeführt ist', 'Transfer Salvador ↔ Lençóis (optional)', 'Frühstück am 1. Tag', 'Zusätzliche Getränke', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Träger/Maultiere (optional)', 'Hotels/Mahlzeiten vorher oder nachher (optional)', 'Trinkgelder'],
+    },
+    {
+      type: 'safety',
+      title: 'Sicherheit im Detail, und die Risiken',
+      riskLabel: 'Risiken und Grenzen — bitte aufmerksam lesen',
+      lead: 'Das Mammut schützt die Herde. Immer.',
+      body: 'Alle Guides sind Einheimische, zertifiziert in APH (präklinische Versorgung) und CMC (Mindestkompetenzen für Guides) nach der brasilianischen ABNT-Norm; einige haben WAFA. Alle haben ein Erste-Hilfe-Set für abgelegene Gebiete dabei. Unterwegs: VHF/UHF-Funkgeräte + ein SPOT-X-Satellitenkommunikator mit S.O.S.',
+      warning: 'Aktivitäten in der Natur bringen unvermeidliche Risiken mit sich — unebenes Gelände, giftige Tiere, das Wetter. Das Vale do Pati ist ein abgelegenes Gebiet: Es kann mehr als 5 Stunden dauern, bis eine Rettung beginnt. Medizinische Evakuierung ist NICHT inklusive. Eine Evakuierung per Maultier ist eingeschränkt möglich (maximal 110 kg) — frag unser Team.',
+      footer: 'Die Anweisungen der Guides zu befolgen und die Pflichtgegenstände der Checkliste dabeizuhaben, sind Voraussetzungen für die Teilnahme.',
+    },
+    {
+      type: 'payment',
+      title: 'Zahlungsmöglichkeiten',
+      paragraphs: [
+        'Mit einer Anzahlung von 50 % ist deine Buchung bestätigt, per Überweisung, Einzahlung oder Boleto. Die restlichen 50 % zahlst du beim Check-in in bar (oder per Einzahlung bis spätestens 2 Werktage vorher).',
+        'Schick den Zahlungsbeleg mit: dem bestätigten Datum sowie dem vollständigen Namen und der Ausweisnummer jeder teilnehmenden Person.',
+        'Kreditkarte: +5 %, bis zu 12 Raten (PagSeguro). International: frag unser Team.',
+      ],
+    },
+    {
+      type: 'cancellation',
+      title: 'Stornierungsbedingungen',
+      intro: 'Eine Stornierung durch Reisende richtet sich nach der brasilianischen Verordnung Nr. 161/1985 der EMBRATUR:',
+      refunds: [['30+ Tage vorher', '90 % zurück'], ['21–29 Tage', '80 % zurück'], ['7–20 Tage', '50 % zurück'], ['Weniger als 7 Tage', 'keine Erstattung'], ['Während des Pakets', 'keine Erstattung']],
+      paragraphs: [
+        'Bevor du stornierst: Du kannst eine andere Person an deiner Stelle schicken oder den Betrag als Guthaben behalten. Buchungsgebühr: 10 % als Strafe bei Stornierung nach der Bestätigung.',
+        'No-Show: Erscheinst du nicht, verfällt der gesamte Betrag. Mamut kann die Route anpassen, wenn das Wetter die Sicherheit gefährdet; die Aktivität findet auch an einem Regentag statt, außer bei höherer Gewalt.',
+      ],
+    },
+    {
+      type: 'payment',
+      title: 'Regelung zur Weitergabe von Touren',
+      paragraphs: [
+        'Wir arbeiten mit einem Netzwerk von Partnern. Wird eine Tour an einen anderen Veranstalter weitergegeben, können die Preise je nach Teilnehmerzahl, Art der Tour und nötiger Logistik variieren — sie können unserem Schalterpreis entsprechen oder höher bzw. niedriger ausfallen.',
+        'Mit deiner Buchung bei uns akzeptierst du, dass bei einer weitergegebenen Tour die Durchführung in der Verantwortung des benannten Veranstalters liegt. Unsere Rolle ist es, die Buchung zu vermitteln und darauf zu achten, dass das Vereinbarte geleistet wird; für Preisunterschiede, die sich nach der Buchung zeigen, haften wir nicht.',
+      ],
+    },
+    {
+      type: 'technical',
+      title: 'Vollständige technische Daten und Dokumente',
+      facts: [['Kategorie', 'Trekking mit Übernachtungen'], ['Start', 'Lençóis'], ['Mit dem Auto', '160 km'], ['Mindestalter', '18 (Minderjährige mit gesetzlicher Vertretung)']],
+      requirements: ['Kondition für Auf- und Abstiege auf rauem Gelände', 'Flüsse durchqueren', 'Mehrere Tage hintereinander lange Strecken gehen', 'Ernährungswünsche und den Wunsch nach einem eigenen Zimmer bei der Buchung mitteilen', 'Bestätigte Buchungen werden im Preis nicht angepasst'],
+      documents: [['Haftungserklärung (PDF)', '/docs/termo-de-responsabilidade.pdf'], ['Einstufung der Schwierigkeitsgrade', '/de/schwierigkeitsgrade']],
+    },
+  ],
 };

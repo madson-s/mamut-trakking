@@ -8,7 +8,7 @@ const CONTENT = PAI_INACIO_CONTENT.fr;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/morro-do-pai-inacio', en: '/en/adventures/pai-inacio-hill', es: '/es/aventuras/morro-do-pai-inacio', fr: '/fr/aventures/morro-do-pai-inacio', nl: '/nl/avonturen/morro-do-pai-inacio' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/morro-do-pai-inacio', en: '/en/adventures/pai-inacio-hill', es: '/es/aventuras/morro-do-pai-inacio', fr: '/fr/aventures/morro-do-pai-inacio', nl: '/nl/avonturen/morro-do-pai-inacio', de: '/de/abenteuer/morro-do-pai-inacio' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

@@ -419,4 +419,80 @@ export const PRATINHA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Fazenda Pratinha & Gruta Azul',
+      description:
+        'Ein ganzer Tag klares Wasser in Iraquara: der Fluss Pratinha, die Gruta da Pratinha und die Gruta Azul, mit optionalem Schnorcheln, Kajakfahren und Zipline.',
+      canonical: '/de/abenteuer/fazenda-pratinha',
+    },
+    hero: {
+      nivel: 'Leicht',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Fazenda Pratinha.',
+      lead: 'Hundert Meter zu Fuß und den ganzen Tag im Wasser — die Oase, die mitten im Hinterland auftaucht.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Dauer', 'Startzeit', 'Geplante Rückkehr', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über die Fazenda Pratinha.',
+      paragrafos: [
+        'In Iraquara zieht die Fazenda Pratinha Menschen aus der ganzen Welt an, die das klare Wasser aus der Nähe sehen wollen, das wie eine Oase im Hinterland Bahias hervorsprudelt. Es ist ein Privatgelände mit der Gruta Azul, der Gruta da Pratinha und dem Fluss, dem die Farm ihren Namen verdankt.',
+        'Es ist die leichteste Tour, die wir anbieten — insgesamt 100 Meter zu Fuß —, aber sie füllt den ganzen Tag: Wir starten ab 8:00 Uhr und sind gegen 18:00 Uhr zurück, sodass reichlich Zeit zum Baden und für die Aktivitäten vor Ort bleibt.',
+        'Die Zusatzaktivitäten füllen den Tag erst richtig: Schnorcheln mit Flossen, Taschenlampe und Schwimmweste; Kajakfahren; Reiten; Zipline; Unterwasserfotografie. Keine davon ist im Preis enthalten — du bezahlst sie auf der Farm, und es lohnt sich, bei uns nachzufragen, was an deinem Datum verfügbar ist.',
+        'Das Baden im Pratinha ist flach und angenehm, besonders an klaren Tagen. Mittagessen gibt es auf der Farm selbst, an verschiedenen Stellen, von der vollen Mahlzeit bis zu Snacks, Desserts, Kaffee und Eis.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start in Lençóis zwischen 8:00 und 9:00 Uhr. Es ist rund eine Stunde mit dem Auto, 65 km — davon 60 Asphalt über die BR-242 und 5 Schotterpiste durch das Hinterland von Iraquara.',
+        'Ankunft auf der Fazenda Pratinha, dem Privatgelände mit der Gruta Azul, der Gruta da Pratinha und dem Fluss. Die Zeit dort gehört dir, zwischen Baden, der Landschaft am Fluss und rund um die Höhlen und den optionalen Aktivitäten.',
+        'Das Mittagessen gibt es auf der Farm — verschiedene Stellen bieten von der vollen Mahlzeit bis zu Snacks, Desserts, Kaffee und Eis.',
+        'Der Rückweg führt über eine andere Straße: 30 Minuten durch das Hinterland von Iraquara bis zur BR-242, mit Blick auf ferne Berge und Täler. Gegen 18:00 Uhr zurück in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 550', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 500', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Dies ist eine leichte Tour, deshalb ist die Liste kurz. Mit * markierte Gegenstände sind Pflicht.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Badesachen', 'Kappe oder Hut', 'Sonnencreme'],
+          ['Persönliche Medikamente', 'Lichtbildausweis', 'Handtuch', 'Flip-Flops'],
+        ],
+        recommendedColumns: [['Kamera oder wasserdichter Beutel', 'Trockene Wechselkleidung'], ['Bargeld für das Mittagessen und die optionalen Aktivitäten']],
+        note: 'Die Aktivitäten auf der Farm bezahlst du vor Ort — nimm ein Zahlungsmittel mit, wenn du schnorcheln, Kajak fahren oder die Zipline nutzen möchtest.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Lokaler Guide', 'Eintrittsgebühren', 'Abenteuerversicherung'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Mittagessen (optional)', 'Schnorcheln, Kajak, Zipline, Reiten und Unterwasserfotos (auf der Farm zu bezahlen)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft'],
+      },
+      safetyFaq(
+        'de',
+        'Der Ort birgt kein akutes Risiko und verlangt keine Technik, aber achte auf zwei Dinge: Die nassen Bereiche rund um die Höhlen werden rutschig, und auf der Farm laufen Tiere frei herum — vermeide Kontakt. Das Baden im Pratinha ist flach; folge in den Höhlen den Anweisungen des lokalen Teams.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit für einen Tag', 'mit klarem Wasser?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

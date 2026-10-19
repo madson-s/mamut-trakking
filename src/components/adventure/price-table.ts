@@ -65,4 +65,11 @@ export const PRICE_TABLE_LABELS: Record<Locale, PriceTableLabels> = {
     pessoas: 'personen',
     nota: 'Prijzen per persoon, in Braziliaanse real, bij betaling contant, per overboeking of met boleto.',
   },
+  de: {
+    titulo: 'Vollständige Preistabelle',
+    colunaPessoas: 'Anzahl Personen',
+    pessoa: 'Person',
+    pessoas: 'Personen',
+    nota: 'Preise pro Person, in brasilianischen Real, bei Zahlung in bar, per Überweisung oder mit Boleto.',
+  },
 };

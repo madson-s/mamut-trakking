@@ -7,7 +7,7 @@ const CONTENT = MOSQUITO_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mosquito', en: '/en/adventures/mosquito-waterfall', es: '/es/aventuras/cascada-del-mosquito', fr: '/fr/aventures/cascade-du-mosquito', nl: '/nl/avonturen/waterval-mosquito' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mosquito', en: '/en/adventures/mosquito-waterfall', es: '/es/aventuras/cascada-del-mosquito', fr: '/fr/aventures/cascade-du-mosquito', nl: '/nl/avonturen/waterval-mosquito', de: '/de/abenteuer/wasserfall-mosquito' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

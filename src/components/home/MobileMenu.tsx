@@ -33,6 +33,7 @@ const LANGUAGES = [
   { code: 'es', shortLabel: 'ES' },
   { code: 'fr', shortLabel: 'FR' },
   { code: 'nl', shortLabel: 'NL' },
+  { code: 'de', shortLabel: 'DE' },
 ] as const;
 
 export function MobileMenu({

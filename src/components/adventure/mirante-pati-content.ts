@@ -432,4 +432,82 @@ export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Aussichtspunkt Pati — 1 Tag',
+      description:
+        'Das Vale do Pati an einem Tag: 14 bis 18 km durch die Gerais do Rio Preto bis zum Aussichtspunkt Rampa, gegenüber dem Morro Branco, dem Castelo und dem Sobradinho.',
+      canonical: '/de/abenteuer/aussichtspunkt-pati',
+    },
+    hero: {
+      nivel: 'Mittel',
+      origem: 'Start: Guiné',
+      duracao: '1 Tag',
+      titulo: 'Aussichtspunkt Pati.',
+      lead: 'Das Vale do Pati an einem Tag — durch die Gerais bis an den Rand des bekanntesten Aussichtspunkts des Tals.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Dauer', 'Start (Lençóis)', 'Geplante Rückkehr', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Aussichtspunkt Pati.',
+      paragrafos: [
+        'Eine ordentliche Wanderung für alle, die das Vale do Pati an einem Tag sehen möchten. Der Weg dauert rund 3 Stunden bis zum Aussichtspunkt und ist überwiegend flach — die Anstrengung liegt in der Strecke, nicht im Gelände.',
+        'Ein großer Teil der Route führt durch die Gerais do Rio Preto, ein offenes Gebiet, das über 70 % des Nationalparks bedeckt. Es ist ein riesiger Garten unter freiem Himmel, mit Hochgebirgspflanzen und eindrucksvollen Bergrücken im Hintergrund.',
+        'Am Ende des Weges liegt der Aussichtspunkt Rampa, der bekannteste des Tals, mit Blick auf den Morro Branco, den Castelo und den Sobradinho.',
+        'Wir finden, dass man das Pati am besten in mindestens 3 Tagen besucht. Aber für alle, die nur wenige Tage in der Chapada haben, ist dies die beste Art, das Tal zu sehen, ohne dort zu übernachten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 7:00 Uhr in Lençóis, nach Süden Richtung Nationalpark Chapada Diamantina. Das sind 80 km und rund 2 Stunden mit dem Auto bis zum Dorf Guiné, wo die Wanderung beginnt und endet.',
+        'Ankunft, eine allgemeine Einweisung zur Route, die Checkliste durchgehen und Beginn der Wanderung.',
+        'Erster Abschnitt: 30 Minuten Aufstieg über raues Gelände zum Aussichtspunkt Aleixos. Eine kurze Pause und dann weiter ins Tal.',
+        'Rund 1,5 Stunden über flaches Gelände durch die Gerais do Rio Preto. Auf halber Strecke durchqueren wir den Rio Preto — je nach Wetter können wir alternative Routen nehmen.',
+        'Ankunft am Aussichtspunkt Rampa, mit Blick über das Vale do Pati und die Bergrücken ringsum: Morro Branco, Castelo und Sobradinho. Eine lange Pause, um über Geologie, Geschichte und Traditionen der Region zu sprechen und deinen Snack zu essen (nicht inklusive).',
+        'Der Rückweg folgt derselben Route, mit einem optionalen Halt am Rio Preto zum Baden. Gegen 16:00 Uhr zurück am Auto, ein kurzer Halt in Guiné — wo du gut essen kannst — und zurück nach Lençóis, wo wir gegen 19:00 Uhr ankommen.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 550', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 475', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Leichte Kleidung', 'Kappe oder Hut', 'Sonnencreme'],
+          ['Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen', 'Snack für den Aussichtspunkt', 'Ersatzsocken'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Badesachen für den Rio Preto', 'Handtuch', 'Kamera']],
+        note: 'Der Snack am Aussichtspunkt ist nicht inklusive und die einzige Mahlzeit unterwegs — bring deinen eigenen mit. Die Gerais sind offenes Gelände, ohne Schatten auf rund 1,5 Stunden Gehzeit.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Zertifizierter Bergführer mit Erste-Hilfe-Ausbildung', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Picknick (optional)', 'Snack oder Mittagessen', 'Die Mahlzeit in Guiné', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Es ist ein langer Tag: Start um 7:00 Uhr, Rückkehr gegen 19:00 Uhr, mit rund 4 Stunden Fahrt zusätzlich zur Wanderung. Die Durchquerung des Rio Preto hängt vom Wasserstand ab — in der Regenzeit nimmt das Team eine alternative Route. Die Gerais bieten keinen Schatten: Hut, Sonnencreme und Wasser sind hier am wichtigsten.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, das Pati', 'von oben zu sehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

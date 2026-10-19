@@ -429,4 +429,82 @@ export const GRUTAS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Höhlen + Morro do Camelo',
+      description:
+        'Gruta da Fumaça, Fazenda Pratinha, Gruta Azul und Sonnenuntergang auf dem Morro do Camelo: ein Tag durch den Kalkstein der Chapada, mit kurzen Wanderungen.',
+      canonical: '/de/abenteuer/hoehlen',
+    },
+    hero: {
+      nivel: 'Leicht',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Höhlen + Morro do Camelo.',
+      lead: 'Ein Tag im Kalkstein — Höhlen, ein Fluss mit blauem Wasser und zum Abschluss der Sonnenuntergang auf dem Camelo.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Sehenswürdigkeiten', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über die Tour.',
+      paragrafos: [
+        'Eine Tour mit dem Auto und kurzen Wanderungen, ideal für Kinder, ältere Reisende und alle, die die Chapada Diamantina ohne große Anstrengung sehen möchten. Jeder Ort ist leicht erreichbar, sicher und gut ausgestattet.',
+        'Es gibt vier Stopps: die Gruta da Fumaça, die Fazenda Pratinha, die Gruta Azul und den Aussichtspunkt auf dem Morro do Camelo — eines der bekanntesten Wahrzeichen der Region, wo der Tag bei Sonnenuntergang endet.',
+        'In diesem Teil der Chapada überwiegt Kalkstein, ein Gestein, das Wasser leicht auflöst. Deshalb gibt es so viele Höhlen und unterirdische Becken: Die Formação Salitre ist rund 700 Millionen Jahre alt, und man hat darin Fossilien von über 10.000 Jahren gefunden, dazu Spuren der Meere, die die Region einst bedeckten, und der Eiszeit.',
+        'Auf der Fazenda Pratinha gibt es Zusatzaktivitäten — Schnorcheln, Unterwasserfotografie, Kajakfahren, Zipline und mehr. Sie sind optional und nicht im Preis enthalten; frag uns, was gerade verfügbar ist.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 8:00 Uhr in Lençóis und rund eine Stunde mit dem Auto zur Gruta da Fumaça, einer der vollständigsten Höhlen der Region Iraquara.',
+        'Ein Besuch von rund 40 Minuten in der Höhle, mit vielfältigen Tropfsteinformationen: Stalaktiten, Stalagmiten, Helictiten und die sehr seltene Aragonitblüte.',
+        'Mit dem Auto weiter zur Fazenda Pratinha, durch die der Fluss Pratinha fließt. Dort gibt es viele optionale Aktivitäten — Schnorcheln, Unterwasserfotografie, Kajakfahren, Zipline und mehr.',
+        'Um 15:00 Uhr die Gruta Azul, auf derselben Farm: ein natürliches Lichtspiel, das nur nachmittags zu sehen ist, wenn die Sonne das Wasser erreicht.',
+        'Gegen 16:30 Uhr rund 40 Minuten mit dem Auto zum Aussichtspunkt auf dem Morro do Camelo, für den Sonnenuntergang.',
+        'Zurück nach Lençóis, wo wir gegen 18:30 Uhr ankommen.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 580', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 540', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Handtuch', 'Bargeld für die Aktivitäten auf der Farm']],
+        note: 'Der Boden der Höhlen ist das ganze Jahr feucht und rutschig — geschlossene Schuhe mit gutem Grip sind hier keine Option, auch wenn es eine leichte Tour ist.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Zertifizierter lokaler Guide mit Erste-Hilfe-Ausbildung', 'Eintrittsgebühren', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Mittagessen (optional)', 'Zipline und andere Aktivitäten auf der Pratinha (optional)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'In den Höhlen ist der Boden feucht, uneben und rutschig, und es gibt Abschnitte mit niedriger Decke — folge dem Guide und lehn dich nicht an die Tropfsteine: Ein Stalaktit braucht Tausende von Jahren zum Wachsen und bricht bei einer einzigen Berührung. Die Gruta Azul braucht die Sonne für ihren Lichteffekt; deshalb ist der Besuch auf 15:00 Uhr festgelegt.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, 700 Millionen Jahre', 'zu betreten?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

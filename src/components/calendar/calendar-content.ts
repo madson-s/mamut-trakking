@@ -69,6 +69,7 @@ export const CALENDAR_HREF: Record<Locale, string> = {
   es: '/es/calendario-y-grupos',
   fr: '/fr/calendrier-et-groupes',
   nl: '/nl/kalender-en-groepen',
+  de: '/de/kalender-und-gruppen',
 };
 
 export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
@@ -405,6 +406,73 @@ export const CALENDAR_CONTENT: Record<Locale, CalendarContent> = {
       titulo: 'Staat jouw datum er niet bij?',
       texto: 'Vertel ons wanneer je in de Chapada aankomt en welke trektocht je wilt doen. Dan openen we een nieuw vertrek voor je.',
       cta: 'Praat met een gids',
+    },
+  },
+  de: {
+    meta: {
+      title: 'Kalender und Gruppen für Trekkingtouren',
+      description:
+        'Sieh dir die nächsten Gruppentermine ins Vale do Pati an und sichere dir deinen Platz bei lokalen Guides aus der Chapada Diamantina.',
+      canonical: CALENDAR_HREF.de,
+    },
+    intl: 'de-DE',
+    semana: ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'],
+    meses: ['Jan', 'Feb', 'Mär', 'Apr', 'Mai', 'Jun', 'Jul', 'Aug', 'Sep', 'Okt', 'Nov', 'Dez'],
+    feriados: { aparecida: 'Unsere Liebe Frau von Aparecida', republica: 'Ausrufung der Republik' },
+    hero: {
+      titulo: { antes: 'Nächste', meio: 'Trekkingtouren', depois: 'mit Mamut' },
+      texto: 'Findest du deinen Termin nicht? Melde dich, dann öffnen wir einen neuen Starttermin für dich.',
+      cta: 'Sprich mit einem Guide',
+      explorar: 'Alle Termine ansehen',
+      pilhaRotulo: 'Die nächsten Durchquerungen ansehen',
+      verSaidasDe: (titulo) => `Die nächsten Termine für ${titulo} ansehen`,
+    },
+    saida: (n) => `${n} ${n === 1 ? 'Termin' : 'Termine'}`,
+    dias: (n) => `${n} ${n === 1 ? 'Tag' : 'Tage'}`,
+    aPartirDe: 'Ab',
+    porPessoa: 'pro Person',
+    saidaDe: (origem) => `Start in ${origem}`,
+    partida: {
+      rotulo: (titulo, periodo, ano) => `${titulo}, ${periodo} ${ano}`,
+      feriado: 'Feiertag',
+      linhaDoTempo: 'Tage der Durchquerung',
+      dia: (n) => `Tag ${n}`,
+      status: { feriado: 'Feiertag', saida: 'Start', retorno: 'Rückkehr' },
+      reservar: 'Sichere dir deinen Platz',
+      reservarRotulo: (titulo, periodo) => `${titulo} buchen, ${periodo}`,
+      mensagem: (roteiro, inicio, fim) => `Hallo! Ich möchte einen Platz für ${roteiro} buchen, vom ${inicio} bis ${fim}.`,
+    },
+    calendarioRotulo: 'Kalender mit Terminen',
+    grupo: {
+      resumo: (duracao, distancia, origem, preco) => [duracao, distancia, `Start in ${origem}`, `Ab ${preco}`].filter(Boolean).join(' · '),
+      verRoteiro: 'Vollständige Route ansehen',
+      verRoteiroRotulo: (nome) => `Vollständige Route ansehen: ${nome}`,
+      falar: 'Per WhatsApp schreiben',
+      mensagem: (nome) => `Hallo! Ich möchte mehr über die Route ${nome} erfahren.`,
+      fotoAlt: (nome) => `Landschaft der Durchquerung ${nome}`,
+    },
+    // Wie in EN/NL: Der brasilianische Sommer fällt in den europäischen Winter, deshalb stehen die Monate dabei.
+    verao: {
+      titulo: 'Gruppen für den brasilianischen Sommer (Dezember bis März) sind schon buchbar — frag unser Team.',
+      abrirCalendario: 'Vollständigen Kalender öffnen',
+      cta: 'Nach den Sommerterminen fragen',
+      mensagem: 'Hallo! Ich möchte mehr über die Sommergruppen erfahren.',
+    },
+    relacionados: {
+      titulo: 'Deinen Termin nicht gefunden? Dann öffnen wir einen.',
+      verTodas: 'Alle Abenteuer ansehen',
+      fotoAlt: (nome) => `Landschaft von ${nome}`,
+      verSaidas: 'Nächste Termine ansehen',
+      pedirData: 'Neuen Termin anfragen',
+    },
+    novaData: {
+      geral: 'Hallo! Ich möchte einen neuen Starttermin anfragen.',
+      roteiro: (nome) => `Hallo! Ich möchte einen neuen Termin für die Route ${nome} anfragen.`,
+    },
+    contato: {
+      titulo: 'Ist dein Termin nicht dabei?',
+      texto: 'Sag uns, wann du in der Chapada ankommst und welche Tour du machen möchtest. Dann öffnen wir einen neuen Termin für dich.',
+      cta: 'Sprich mit einem Guide',
     },
   },
 };

@@ -8,7 +8,7 @@ const CONTENT = FUMACA_CONTENT.en;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-fumaca', en: '/en/adventures/fumaca-waterfall', es: '/es/aventuras/cascada-da-fumaca', fr: '/fr/aventures/cascade-da-fumaca', nl: '/nl/avonturen/waterval-fumaca' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-fumaca', en: '/en/adventures/fumaca-waterfall', es: '/es/aventuras/cascada-da-fumaca', fr: '/fr/aventures/cascade-da-fumaca', nl: '/nl/avonturen/waterval-fumaca', de: '/de/abenteuer/wasserfall-fumaca' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

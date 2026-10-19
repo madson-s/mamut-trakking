@@ -8,7 +8,7 @@ const CONTENT = MURITIBA_CONTENT.nl;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/parque-da-muritiba', en: '/en/adventures/muritiba-park', es: '/es/aventuras/parque-da-muritiba', fr: '/fr/aventures/parc-de-la-muritiba', nl: '/nl/avonturen/park-muritiba' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/parque-da-muritiba', en: '/en/adventures/muritiba-park', es: '/es/aventuras/parque-da-muritiba', fr: '/fr/aventures/parc-de-la-muritiba', nl: '/nl/avonturen/park-muritiba', de: '/de/abenteuer/park-muritiba' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

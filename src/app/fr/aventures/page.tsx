@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: CONTENT.meta.canonical,
-    languages: { pt: '/pt/aventuras', en: '/en/adventures', es: '/es/aventuras', fr: '/fr/aventures', nl: '/nl/avonturen' },
+    languages: { pt: '/pt/aventuras', en: '/en/adventures', es: '/es/aventuras', fr: '/fr/aventures', nl: '/nl/avonturen', de: '/de/abenteuer' },
   },
 };
 

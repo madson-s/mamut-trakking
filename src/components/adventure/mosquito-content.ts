@@ -389,4 +389,75 @@ export const MOSQUITO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Sluit je aan bij de kudde',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Mosquito',
+      description:
+        'Ein halber Tag am Wasserfall, den die Goldsucher nach „Mücken“ benannten: 2 km Abstieg bis ins Flussbett des Santo Antônio, auf einer privaten Farm.',
+      canonical: '/de/abenteuer/wasserfall-mosquito',
+    },
+    hero: {
+      nivel: 'Leicht',
+      origem: 'Start: Lençóis',
+      duracao: 'Halber Tag',
+      titulo: 'Wasserfall Mosquito.',
+      lead: 'Der Name kommt von den winzigen Diamanten, die die Goldsucher „Mücken“ nannten.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Dauer', 'Start (Lençóis)', 'Rückkehr', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Mosquito-Wasserfall.',
+      paragrafos: [
+        'Ein Wasserfall bei Lençóis, in der Chapada Diamantina. Der Name kommt von den vielen kleinen Diamanten in der Umgebung, die die Goldsucher liebevoll „Mücken“ (mosquitos) nannten.',
+        'Es ist eine kurze Tour von einem halben Tag: Start ab 8:00 Uhr und Rückkehr gegen 13:00 Uhr. So bleibt Zeit, am selben Tag noch eine weitere Sehenswürdigkeit mitzunehmen.',
+        'Meist kombinieren wir sie mit dem Parque da Muritiba, dem Morro do Pai Inácio, dem Ribeirão do Meio oder der Serra das Paridas — und auch mit dem Poço Azul, der gut in einen Transfer zwischen Lençóis und Mucugê passt. Sprich mit unserem Team, welche Kombination zu dir passt.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start zwischen 8:00 und 9:00 Uhr. Die Fahrt dauert rund eine Stunde (40 km): 20 km Asphalt über die BR-242 und 20 km Schotterpiste durch das Hinterland von Lençóis.',
+        'Wir kommen auf der Farm Santo Antônio an, dem Privatgelände, auf dem der Wasserfall liegt — und wo du auf dem Rückweg gut zu Mittag essen kannst.',
+        'Nach dem Parken folgt ein Abstieg von 20 bis 30 Minuten, teils über einen Pfad und teils über Treppen, bis ins Flussbett des Santo Antônio, wo du den Mosquito-Wasserfall von unten siehst.',
+        'Der Ort birgt kein akutes oder technisches Risiko, verlangt aber Vorsicht auf den rutschigen Abschnitten und bei viel Wasser — der Guide begleitet die ganze Strecke. Nach dem Baden gehen wir auf demselben Weg zurück zum Auto und fahren zur Farm Santo Antônio oder direkt zurück nach Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 410', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 375', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder Kreditkartenzahlung: frag unser Team.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Wanderschuhe', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Ersatzsocken', 'Regenschutz (für dich und den Rucksack)'], ['Snack oder Obst', 'Wanderstock']],
+        note: 'Der Abstieg ist teils Pfad, teils Treppe: Geschlossene Schuhe mit gutem Profil schaffen beides.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zertifizierter und ausgebildeter lokaler Guide', 'Hin- und Rücktransport', 'Eintrittsgebühren', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was oben nicht aufgeführt ist', 'Mittagessen (optional)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft'],
+      },
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Dein Weg beginnt', 'mit einer Nachricht.'],
+      corpo: 'Schreib uns per WhatsApp. Finde heraus, welche Tour in der Chapada Diamantina am besten zu dir passt und wie du dich darauf vorbereitest.',
+      botao: 'Schließ dich der Herde an',
+    },
+  },
 };

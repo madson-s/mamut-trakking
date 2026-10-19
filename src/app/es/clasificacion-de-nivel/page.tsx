@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   description: CONTENT.meta.description,
   alternates: {
     canonical: '/es/clasificacion-de-nivel',
-    languages: { pt: '/pt/classificacao-de-nivel', en: '/en/level-classification', es: '/es/clasificacion-de-nivel', fr: '/fr/classification-des-niveaux', nl: '/nl/niveauclassificatie' },
+    languages: { pt: '/pt/classificacao-de-nivel', en: '/en/level-classification', es: '/es/clasificacion-de-nivel', fr: '/fr/classification-des-niveaux', nl: '/nl/niveauclassificatie', de: '/de/schwierigkeitsgrade' },
   },
 };
 

@@ -8,7 +8,7 @@ const CONTENT = FUNDAO_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-fundao-vinte-e-um', en: '/en/adventures/fundao-vinte-e-um-waterfalls', es: '/es/aventuras/cascadas-do-fundao-vinte-e-um', fr: '/fr/aventures/cascades-du-fundao-vinte-e-um', nl: '/nl/avonturen/watervallen-fundao-vinte-e-um' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-fundao-vinte-e-um', en: '/en/adventures/fundao-vinte-e-um-waterfalls', es: '/es/aventuras/cascadas-do-fundao-vinte-e-um', fr: '/fr/aventures/cascades-du-fundao-vinte-e-um', nl: '/nl/avonturen/watervallen-fundao-vinte-e-um', de: '/de/abenteuer/wasserfaelle-fundao-vinte-e-um' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

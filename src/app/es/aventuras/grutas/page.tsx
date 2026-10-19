@@ -8,7 +8,7 @@ const CONTENT = GRUTAS_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/grutas', en: '/en/adventures/caves-tour', es: '/es/aventuras/grutas', fr: '/fr/aventures/grottes', nl: '/nl/avonturen/grotten' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/grutas', en: '/en/adventures/caves-tour', es: '/es/aventuras/grutas', fr: '/fr/aventures/grottes', nl: '/nl/avonturen/grotten', de: '/de/abenteuer/hoehlen' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

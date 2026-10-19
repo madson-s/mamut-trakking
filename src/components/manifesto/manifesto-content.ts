@@ -264,4 +264,52 @@ export const MANIFESTO_CONTENT: Record<Locale, ManifestoContent> = {
       ],
     ],
   },
+  de: {
+    meta: {
+      title: 'Manifest',
+      description:
+        'Wir sind mehr als eine Ökotourismus-Agentur. Wir sind Verteidiger der Serra do Sincorá, der lokalen Traditionen und unserer Vorfahren.',
+      canonical: '/de/manifest',
+      ogTitle: 'Das Manifest von Mamut Trekking',
+      ogDescription:
+        'Wir sind geboren, um zu gehen, und wir gehen, um zu leben — und so ehren wir das Netz des Lebens, das alle im Universum verbindet.',
+    },
+    titulo: { antes: 'Aus dieser Erinnerung', destaque: 'sind wir entstanden.' },
+    paragrafos: [
+      [
+        'In der Unermesslichkeit der Urkontinente zogen Mammuts in großen Gruppen über weite Strecken ',
+        { mark: 'und hinterließen für immer ihre Spuren' },
+        ' auf dem Planeten. Ganz selbstverständlich sind wir ',
+        { mark: 'eine Herde, die die ganze Welt zusammenbringt' },
+        ', in dem, was einst das „Herz“ der Erde war: die Chapada Diamantina.',
+      ],
+      [
+        'Wir sind mehr als eine Ökotourismus-Agentur. Wir sind Verteidiger der Serra do Sincorá, der lokalen Traditionen und unserer Vorfahren. Wir bauen ',
+        { mark: 'Brücken zwischen der Menschheit und der natürlichen Welt' },
+        ' (die dringend neu gebaut werden müssen). Wie die Mammuts von einst ',
+        { mark: 'gehen wir aus Liebe, Solidarität, Respekt, Widerstand…' },
+        ' ',
+        { mark: 'Wir sind geboren, um zu gehen, und wir gehen, um zu leben' },
+        ' — und so ehren wir das Netz des Lebens, das alle im Universum verbindet.',
+      ],
+      [
+        'Unsere Stärke liegt nicht nur in unserer Größe, sondern auch in unserem ',
+        { mark: 'Gedächtnis und unserer Intelligenz' },
+        '. Sie lassen uns nie vergessen, woher wir kommen, so wie wir sehr genau wissen, wohin wir wollen. Dazu kommt die Einsicht, das Geschenk zu bewundern, das wir jeden Tag bekommen: die Schönheit der Wege und des Weges dorthin.',
+      ],
+      [
+        'So wie Mammuts die Mitglieder ihrer Herde beschützten, sind wir hier, um für die Sicherheit und das Wohlbefinden unserer Reisenden zu sorgen. Neben den strengen Protokollen, die für sichere und unvergessliche Erlebnisse sorgen, ',
+        { mark: 'liegt uns das Erlebnis aller sehr am Herzen, die unseren Weg kreuzen.' },
+      ],
+      [
+        { mark: 'Schließ dich unserer Herde an.' },
+        ' Gemeinsam erkunden wir die Schönheit und Vielfalt der Welt, lernen von ihr und feiern sie, immer im Bewusstsein, dass ',
+        { mark: 'wir Teil von etwas Größerem sind' },
+        ', von etwas, das Schutz und Bewunderung verdient.',
+      ],
+      [
+        'Willkommen in der Chapada Diamantina und bei Mamut, wo die Natur unser Zuhause ist und die Gemeinschaft unsere Familie, wo wir an eine Welt glauben, die solidarischer und bewusster ist, für alle. Gemeinsam sind wir stärker. Gemeinsam sind wir beeindruckend. Gemeinsam hinterlassen wir unseren Respekt, unsere Hingabe und unsere Liebe für das Land, das wir unser Zuhause nennen.',
+      ],
+    ],
+  },
 };

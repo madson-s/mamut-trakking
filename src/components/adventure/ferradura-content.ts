@@ -420,4 +420,80 @@ export const FERRADURA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Ferradura',
+      description:
+        'Eine leichte Wanderung von 3 km zu einem saisonalen Wasserfall im Fluss Mandassaia, 4,5 km von Lençóis — abseits der ausgetretenen Touristenpfade.',
+      canonical: '/de/abenteuer/wasserfall-ferradura',
+    },
+    hero: {
+      nivel: 'Leicht / Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Wasserfall Ferradura.',
+      lead: 'Ein saisonaler Wasserfall im Fluss Mandassaia, eine halbe Stunde von Lençóis — und weit weg vom üblichen Trubel.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Ferradura-Wasserfall.',
+      paragrafos: [
+        'Eine der besonderen Touren abseits der ausgetretenen Touristenpfade der Chapada. Er liegt im Lauf des Flusses Mandassaia, ein paar Kilometer von Lençóis entfernt, und trotzdem ist es dort fast nie voll.',
+        'Es ist ein saisonaler Wasserfall: wunderschön nach kräftigem Regen, in der Trockenzeit kann wenig Wasser fließen. Frag uns kurz nach der aktuellen Lage, bevor du ein Datum festlegst.',
+        'Die Wanderung ist kurz und leicht — 3 km bis zum Wasserfall. Der Weg hat ein paar Abschnitte, die Aufmerksamkeit verlangen, aber mit dem Guide, der den Weg zeigt, sind sie kein Problem.',
+        'Auf unseren Touren ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start ab 8:00 Uhr im Zentrum von Lençóis, mit dem Auto oder dem Motorrad, und 4,5 km bis zum Beginn des Weges in Vila do Barro Branco.',
+        'Eine Wanderung von 3 km zum Ferradura-Wasserfall, im Lauf des Flusses Mandassaia. Der Weg hat Abschnitte, die Aufmerksamkeit verlangen, immer mit dem Guide, der den Weg zeigt.',
+        'Am Wasserfall richtet der Guide das Picknick mit Blick auf den Fall an — Zeit zum Ausruhen, Baden und Genießen der Aussicht.',
+        'Auf demselben Weg zurück zum Beginn des Weges, wo der Transport für die Rückfahrt ins Zentrum bereitsteht.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 320', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 280', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Insektenschutz'], ['Snack oder Obst', 'Handtuch', 'Kamera']],
+        note: 'Eine kurze Tour ganz in der Nähe des Städtchens: Du kannst mit leichtem Gepäck reisen. Geschlossene Schuhe und Wasser sind am wichtigsten.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger lokaler Guide mit Erste-Hilfe-Ausbildung', 'Transport zum Beginn des Weges', 'Picknick am Wasserfall', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Persönliche Ausrüstung', 'Zusätzliche Getränke', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Der Ferradura ist ein saisonaler Wasserfall und hängt vom Regen der letzten Zeit ab: Außerhalb der Regenzeit kann wenig Wasser fließen. Frag uns nach der aktuellen Lage, bevor du ein Datum festlegst — und denk daran, dass der Weg gerade dann am rutschigsten ist, wenn der Wasserfall am schönsten ist.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, die ausgetretenen', 'Pfade zu verlassen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

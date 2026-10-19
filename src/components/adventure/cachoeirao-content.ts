@@ -503,4 +503,96 @@ export const CACHOEIRAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Aussichtspunkt Cachoeirão',
+      description:
+        'Ein Aussichtspunkt 280 Meter über dem Vale do Pati, mit nach kräftigem Regen über 20 Wasserfällen im selben Tal. 18 km an einem Tag.',
+      canonical: '/de/abenteuer/aussichtspunkt-cachoeirao',
+    },
+    hero: {
+      nivel: 'Mittel',
+      origem: 'Start: Guiné',
+      duracao: '1 Tag',
+      titulo: 'Aussichtspunkt Cachoeirão.',
+      lead: 'Zweihundertachtzig Meter Felswand und, nach kräftigem Regen, über zwanzig Wasserfälle im selben Tal.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Höhe des Aussichtspunkts', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Aussichtspunkt Cachoeirão.',
+      paragrafos: [
+        'Achtzehn Kilometer an einem Tag zu einem Aussichtspunkt 280 Meter über dem Vale do Pati. Nach kräftigem Regen siehst du über 20 Wasserfälle im selben Tal, alle gleichzeitig.',
+        'Der Weg ist überwiegend flach und führt durch die Gerais do Rio Preto, ein offenes Gebiet, das über 70 % des Nationalparks bedeckt — ein riesiger Garten unter freiem Himmel, mit Hochgebirgspflanzen und den Bergrücken im Hintergrund.',
+        'Neben dem Aussichtspunkt liegt eine Badestelle mit Naturbecken. Dort isst die Gruppe, bevor wir den Rückweg antreten.',
+        'Wir finden, dass man das Pati am besten in mindestens 3 Tagen besucht. Aber für alle, die nur wenige Tage in der Chapada haben, ist dies eine hervorragende Wahl — und im selben Tagesformat bieten wir auch den Aussichtspunkt Rampa an, den bekanntesten des Tals.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 7:00 Uhr in Lençóis, nach Süden Richtung Nationalpark Chapada Diamantina. Das sind 80 km und rund 2 Stunden mit dem Auto bis zum Dorf Guiné, wo die Wanderung beginnt und endet.',
+        'Ankunft, eine allgemeine Einweisung zur Route, die Checkliste durchgehen und Beginn der Wanderung.',
+        'Erster Abschnitt: 30 Minuten Aufstieg über raues Gelände zum Aussichtspunkt Aleixos. Eine kurze Pause und dann weiter ins Tal.',
+        'Rund 1,5 Stunden über flaches Gelände durch die Gerais do Rio Preto. Auf halber Strecke durchqueren wir den Rio Preto — je nach Wetter können wir alternative Routen nehmen.',
+        'Ankunft am Aussichtspunkt Cachoeirão, 280 Meter über dem Tal. Gehst du die Route nach kräftigem Regen, siehst du über 20 Wasserfälle gleichzeitig.',
+        'Eine Mahlzeit an der Badestelle neben dem Aussichtspunkt, mit ihrem Naturbecken, und Zeit, dich für den Rückweg fertigzumachen.',
+        'Auf demselben Weg zurück, mit einem optionalen Halt am Rio Preto zum Baden. Gegen 16:00 Uhr am Auto, ein kurzer Halt in Guiné — wo du gut essen kannst — und zurück nach Lençóis, wo wir gegen 19:00 Uhr ankommen.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 540', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 500', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Leichte Kleidung', 'Kappe oder Hut', 'Sonnencreme'],
+          ['Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen', 'Snack für den Aussichtspunkt', 'Badesachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Flip-Flops', 'Handtuch', 'Kamera']],
+        note: 'Flip-Flops stehen wegen der Badestelle neben dem Aussichtspunkt auf der Liste — dort isst und ruht die Gruppe vor dem Rückweg.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Zertifizierter lokaler Guide mit Erste-Hilfe-Ausbildung', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Picknick (optional)', 'Snack oder Mittagessen', 'Die Mahlzeit in Guiné', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      {
+        type: 'seasons',
+        title: 'Wann du ins Vale do Pati fährst',
+        facts: [
+          ['Sommer und Herbst (Jan.–Mai)', 'Volle Wasserfälle, mehr Schlamm auf den Wegen'],
+          ['Winter und Frühling (Juni–Dez.)', 'Festerer Boden, weniger Wasser in den Wasserfällen'],
+          ['Die 20 Wasserfälle vom Aussichtspunkt', 'Erscheinen nur nach kräftigem Regen'],
+        ],
+        notes: [
+          'Die eine beste Jahreszeit gibt es nicht — es hängt davon ab, was du sehen möchtest.',
+          'Für den Cachoeirão ist die Regenzeit die Zeit mit dem vollständigen Blick.',
+        ],
+      },
+      safetyFaq(
+        'de',
+        'Es ist ein langer Tag: Start um 7:00 Uhr, Rückkehr gegen 19:00 Uhr, mit rund 4 Stunden Fahrt zusätzlich zu den 18 km Wanderung. Die Durchquerung des Rio Preto hängt vom Wasserstand ab — in der Regenzeit nimmt das Team eine alternative Route. Die Gerais bieten keinen Schatten: Hut, Sonnencreme und Wasser sind hier am wichtigsten.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, zwanzig Wasserfälle', 'gleichzeitig zu sehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

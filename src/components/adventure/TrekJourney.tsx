@@ -181,6 +181,7 @@ function bookingMessageIntro(locale: Locale, adventure: string, format: string) 
     es: `¡Hola! Quiero consultar disponibilidad para ${adventure} — ${format} el`,
     fr: `Bonjour ! Je voudrais vérifier les disponibilités pour ${adventure} — ${format} le`,
     nl: `Hallo! Ik wil graag de beschikbaarheid checken voor ${adventure} — ${format} op`,
+    de: `Hallo! Ich möchte die Verfügbarkeit prüfen: ${adventure} — ${format}, am`,
   };
   return messages[locale];
 }

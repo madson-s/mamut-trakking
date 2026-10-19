@@ -1,0 +1,22 @@
+import type { Metadata } from 'next';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { MIXILA_ASSETS, MIXILA_CONTENT } from '@/components/adventure/mixila-content';
+
+const IMG = MIXILA_ASSETS.hero.src;
+const CONTENT = MIXILA_CONTENT.de;
+
+export const metadata: Metadata = {
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-do-mixila', en: '/en/adventures/cachoeira-do-mixila-2-days', es: '/es/aventuras/cascada-del-mixila', fr: '/fr/aventures/cascade-du-mixila', nl: '/nl/avonturen/waterval-mixila', de: '/de/abenteuer/wasserfall-mixila' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
+  },
+};
+
+export default function MixilaDeRoute() {
+  return <DayTourExperience locale="de" content={MIXILA_CONTENT} assets={MIXILA_ASSETS} />;
+}

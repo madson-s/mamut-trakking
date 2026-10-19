@@ -25,13 +25,14 @@ type Language = (typeof LANGUAGES)[number];
 // O site anuncia condução em PT · EN · ES; só um guia (Rodolfo) conduz em
 // francês, então FR não é oferecido como opção — em /fr o sheet abre em inglês.
 // Oferecer FR é decisão da operadora (depende da agenda dele). Ninguém conduz
-// em holandês: em /nl o sheet também abre em inglês.
+// em holandês nem em alemão: em /nl e /de o sheet também abre em inglês.
 const LANGUAGE_BY_LOCALE: Record<string, Language> = {
   pt: 'PT BR',
   en: 'EN',
   es: 'ES',
   fr: 'EN',
   nl: 'EN',
+  de: 'EN',
 };
 
 function languageFromPath(pathname: string) {

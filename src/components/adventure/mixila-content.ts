@@ -418,4 +418,80 @@ export const MIXILA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Mixila — 2 Tage',
+      description:
+        'Eine wilde Trekkingtour über 24 km an drei Wasserfällen vorbei — Poção, Capivari und der legendäre Mixila — mit Zelten im Nationalpark.',
+      canonical: '/de/abenteuer/wasserfall-mixila',
+    },
+    hero: {
+      nivel: 'Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '2 Tage',
+      titulo: 'Wasserfall Mixila.',
+      lead: 'Drei Wasserfälle in zwei Tagen — und den letzten erreichst du nur, indem du durch zwei Becken schwimmst.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Wasserfälle', 'Übernachtung', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Mixila-Wasserfall.',
+      paragrafos: [
+        'Eine der eindrucksvollsten Trekkingtouren der Chapada Diamantina, mit drei Wasserfällen: Poção, Capivari und dem legendären Mixila. Die Wege sind alt und rau, mitten im Nationalpark, mit unebenen und rutschigen Abschnitten.',
+        'Die Tour erzählt vom Alltag und den Techniken des früheren Diamantenabbaus in der Region — einschließlich einer Nacht in den alten „Tocas“, den Unterschlüpfen der Minenarbeiter. Es ist eine Reise, die Natur und Kultur zu gleichen Teilen erleben lässt, und eine ruhige: eine alternative Route für alle, die überlaufene Sehenswürdigkeiten meiden möchten.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.de,
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist flexibel und hat verschiedene Ein- und Ausstiegspunkte — frag uns nach den Möglichkeiten.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Transfer per 4x4 + Poção-Wasserfall + Mixila-Wasserfall',
+          corpo: 'Start um 7:00 Uhr in Lençóis zur Gemeinde Capivara, wo der Weg beginnt. Nach der Einweisung folgen rund 3 Stunden Wanderung (1 Stunde steiler Aufstieg und 2 Stunden über flaches Gelände) bis zum Poção-Wasserfall, wo wir das Lager aufschlagen. Nach dem Picknick geht es nur mit Tagesrucksack weiter, durch die Canyons des Flusses Capivari zum Mixila-Wasserfall: rund eine Stunde, mit unebenen und rutschigen Abschnitten und zwei großen Becken, die wir durchschwimmen — Schwimmweste und einen gemeinsamen wasserdichten Packsack stellen wir. Zurück geht es auf derselben Route, und das Abendessen steht gegen 19:00 Uhr bereit.',
+          distancia: '13 km',
+          esforco: 'Mittel / Schwer',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Capivari-Wasserfall + Transfer nach Lençóis',
+          corpo: 'Nach dem Frühstück, das der Guide zubereitet, genießen wir noch den Lagerplatz am Poção-Wasserfall. Gegen 10:00 Uhr brechen wir mit dem ganzen Gepäck auf und gehen 40 Minuten bis zum Zugang zum Capivari-Wasserfall. An einer geeigneten Stelle lassen wir einen Teil der Last zurück und gehen nur mit Tagesrucksack weiter bis zum Fuß des Wasserfalls, wo wir bis in den frühen Nachmittag bleiben — mit einem Picknick gegen Mittag. Zurück geht es auf derselben Route: rund eine Stunde bis zur Serra do Bode und noch eine Stunde Abstieg. Gegen 15:00 Uhr sind wir an der Basis und gegen 16:00 Uhr im Zentrum von Lençóis.',
+          distancia: '11 km',
+          esforco: 'Schwer',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 1.600', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 1.200', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      wildTrekChecklist('de', `Beim Schwimmen zum Mixila wird alles nass, was nicht in einem wasserdichten Packsack steckt. ${WILD_TREK_PORTER.de}`),
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Bergführer mit Erste-Hilfe-Ausbildung', 'Hin- und Rücktransport, einschließlich einer Strecke per 4x4', 'Campingausrüstung: Zelt, Schlafsack und Isomatte', 'Schwimmweste und gemeinsamer wasserdichter Packsack', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Aktivität'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+      },
+      safetyFaq(
+        'de',
+        'Um zum Mixila-Wasserfall zu gelangen, schwimmst du durch zwei große Becken in einem Canyon, dazu kommen unebene und rutschige Abschnitte. Schwimmweste und einen gemeinsamen wasserdichten Packsack stellen wir, und dieser Abschnitt findet nur mit dem Guide an Ort und Stelle statt. Wer sich im Wasser nicht wohlfühlt, kann im Lager am Poção warten.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, zum Mixila', 'zu schwimmen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

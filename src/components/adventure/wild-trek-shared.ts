@@ -135,6 +135,29 @@ export const WILD_TREK_ESTADIA: Record<Locale, { titulo: string; itens: { img: s
       },
     ],
   },
+  de: {
+    titulo: 'Wo du schläfst und was du isst.',
+    itens: [
+      {
+        img: '/img/adventures/comum/acampamento.jpg',
+        alt: 'Sternenhimmel über dem Wald, vom Lager aus gesehen',
+        titulo: 'Wo wir schlafen',
+        corpo: 'Im Zelt oder am Fluss, auf Isomatten und in Schlafsäcken, die zur Temperatur passen — alles wird gestellt. Wenn das Wetter mitspielt, kannst du auch draußen schlafen, mit dem Rauschen des Flusses und einem Himmel voller Sterne.',
+      },
+      {
+        img: '/img/adventures/comum/refeicoes.jpeg',
+        alt: 'Töpfe mit Reis, Bohnen und Nudeln, nach Einbruch der Dunkelheit im Basislager serviert',
+        titulo: 'Frühstück und Abendessen',
+        corpo: 'Vom lokalen Guide im Basislager zubereitet, mit wechselndem Menü. Sag uns bei der Buchung Bescheid, wenn du Ernährungseinschränkungen hast.',
+      },
+      {
+        img: '/img/adventures/comum/piquenique.jpeg',
+        alt: 'Ein auf einem Tuch angerichtetes Picknick mit Obst, Brot und Aufschnitt',
+        titulo: 'Das Picknick',
+        corpo: 'Auf den Wanderungen ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      },
+    ],
+  },
 };
 
 /**
@@ -191,13 +214,23 @@ const CHECKLIST: Record<Locale, Omit<Extract<PatiFaqItem, { type: 'checklist' }>
     ],
     recommendedColumns: [['Extra sokken', 'Wandelstok'], ['Insectenwerend middel', 'Powerbank', 'Snack of fruit']],
   },
+  de: {
+    title: 'Checkliste — was du mitnimmst',
+    intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, ist eine Teilnahme nicht möglich. Zelt, Schlafsack und Isomatte stellen wir.',
+    requiredColumns: [
+      ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Zwei leichte Garnituren zum Wandern', 'Schlafkleidung', 'Badesachen', 'Trekkingrucksack ab 50 L'],
+      ['Kappe oder Hut', 'Regenschutz (für dich und den Rucksack)', 'Sonnencreme', 'Stirnlampe', 'Packsack (wasserdicht)', 'Dünnes Handtuch und Flip-Flops'],
+    ],
+    recommendedColumns: [['Ersatzsocken', 'Wanderstock'], ['Insektenschutz', 'Powerbank', 'Snack oder Obst']],
+  },
 };
 
-/** "Se não quiser carregar peso, há carregador pessoal" — igual nos três. */
+/** "Se não quiser carregar peso, há carregador pessoal" — igual em todos. */
 export const WILD_TREK_PORTER: Record<Locale, string> = {
   pt: 'Se não quiser carregar peso, há opção de carregador pessoal. Os itens são conferidos na reserva e no check-in.',
   en: 'If you would rather not carry the weight, a personal porter can be arranged. Items are checked at booking and at check-in.',
   es: 'Si no querés cargar peso, hay opción de porteador personal. Los ítems se revisan en la reserva y en el check-in.',
   fr: 'Si vous préférez ne pas porter de charge, un porteur personnel est possible. Les articles sont vérifiés à la réservation et au check-in.',
   nl: 'Wil je liever geen gewicht dragen? Dan kan er een persoonlijke drager mee. De spullen worden gecontroleerd bij de boeking en bij de check-in.',
+  de: 'Wenn du lieber kein Gewicht tragen möchtest, kann ein persönlicher Träger mitkommen. Die Gegenstände werden bei der Buchung und beim Check-in geprüft.',
 };

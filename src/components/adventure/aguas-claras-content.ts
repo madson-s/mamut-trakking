@@ -429,4 +429,81 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wanderweg Águas Claras — 2 Tage',
+      description:
+        'Die ideale erste Nacht im Zelt: 23 km über überwiegend flaches Gelände zu den klaren Becken des Vale dos 3 Irmãos.',
+      canonical: '/de/abenteuer/wanderweg-aguas-claras',
+    },
+    hero: {
+      nivel: 'Leicht / Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '2 Tage',
+      titulo: 'Wanderweg Águas Claras.',
+      lead: 'Der ideale Weg für die erste Nacht im Zelt — flach, kurz, und nachts der ganze Sternenhimmel.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Übernachtung', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Wanderweg Águas Claras.',
+      paragrafos: [
+        'Die richtige Tour für alle, die noch nie gezeltet haben und mit einem leichten Weg anfangen möchten — und genauso für alle, die mit Kindern oder älteren Mitreisenden unterwegs sind. Das Gelände ist überwiegend flach.',
+        'Die Wanderung beginnt am Morro do Pai Inácio und führt Richtung Vale dos 3 Irmãos — zwei Wahrzeichen der Chapada Diamantina an einem Tag. Es sind 9 km, rund 3 Stunden, bis zu den klaren Becken, an denen wir zelten.',
+        'Das Quellgebiet von Águas Claras ist empfindlich: Hier achten wir doppelt auf unseren Müll, und deshalb liegt das Lager rund 60 Meter vom Fluss entfernt.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.de,
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist flexibel und hat verschiedene Ein- und Ausstiegspunkte — frag uns nach den Möglichkeiten.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Transfer zum Pai Inácio + Wanderweg Águas Claras + Lager',
+          corpo: 'Start ab 7:00 Uhr im Zentrum von Lençóis, mit dem ganzen Gepäck, per Auto in die Umgebung des Morro do Pai Inácio an der BR-242. Nach den letzten Vorbereitungen beginnt die Wanderung Richtung Vale dos 3 Irmãos: 9 km, rund 3 Stunden, bis zu den klaren Becken. Wir schlagen das Lager rund 60 Meter vom Fluss entfernt auf — das Quellgebiet ist empfindlich, und wir achten doppelt auf den Müll. Gegen 13:00 Uhr kommen wir an; der Guide bereitet das Picknick vor, während die Gruppe den Fluss genießt. Am Nachmittag ist Zeit, die Umgebung des Lagers zu erkunden, die Pflanzen kennenzulernen und auf die Berge zu schauen, bis es ab 18:00 Uhr Abendessen gibt. Ist der Himmel klar, bricht die Nacht ganz ohne künstliches Licht herein — und je nach Datum bei Vollmond.',
+          distancia: '9 km',
+          esforco: 'Leicht / Mittel',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Águas Claras + Wanderweg Grisante',
+          corpo: 'Nach dem Frühstück, das der Guide zubereitet, bauen wir das Lager ab und brechen gegen 9:00 Uhr auf. Wir gehen eine Stunde, bis der Morrão vor uns auftaucht, eine der bekanntesten Sehenswürdigkeiten des Vale do Capão, und noch 30 Minuten bis zum Poço das Piabas, wo wir gegen Mittag baden und etwas essen. Nach weiteren 2 Stunden kommt Lençóis in Sicht, und ein Abstieg von 40 Minuten bringt uns ins historische Zentrum, wo der Weg endet.',
+          distancia: '15 km',
+          esforco: 'Mittel',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 1.350', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 1.150', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      wildTrekChecklist('de', `Es ist die leichteste unserer Campingtouren, aber nachts wird es dort oben kalt. ${WILD_TREK_PORTER.de}`),
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'Wildcamping (1 Nacht), mit Zelt, Isomatte und Schlafsack', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Wanderung'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+      },
+      safetyFaq(
+        'de',
+        'Der Weg ist leicht, aber die Nacht verbringst du im Zelt unter freiem Himmel, und es wird kalt — Schlafkleidung ist hier keine Option, sondern Pflicht. Das Lager liegt in einem Quellgebiet: Alles, was hineingeht, nimmt die Gruppe ohne Ausnahme wieder mit hinaus.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit für deine', 'erste Nacht im Zelt?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

@@ -384,6 +384,71 @@ const VARIANTS: Record<Locale, PatiVariant> = {
     },
     safetyWarning: 'Dag 2 is de zware: 250 meter klimmen in 60 tot 80 minuten tot boven de 1.200 m. Dag 4 is de langste, met 23 km, maar technisch makkelijk. Twijfel je over je conditie, praat dan met ons voordat je boekt.',
   },
+  de: {
+    meta: {
+      title: 'Vale do Pati in 4 Tagen',
+      description:
+        'Eine geführte Durchquerung von 62 km durch das Vale do Pati, mit einem eigenen Tag für den Morro do Castelo, den Calixto-Wasserfall und den Aussichtspunkt Cachoeirão.',
+      canonical: '/de/abenteuer/pati-tal-4-tage',
+      ogDescription: 'Vier Tage für das ganze Tal, ohne einen davon zu hetzen.',
+    },
+    hero: {
+      nivel: 'Mittel',
+      origem: 'Start: Lençóis',
+      titulo: { antes: 'Vale do Pati in', destaque: '4 Tagen.' },
+      lead: { antes: 'Vier Tage für das ganze Tal, ohne', destaque: 'einen davon zu hetzen.' },
+      apoio: 'Castelo, Calixto und Cachoeirão jeweils an einem eigenen Tag. Übernachtung in den Häusern der Bewohner des Tals.',
+      saida: 'Start in Lençóis um 6:00 Uhr',
+    },
+    story: {
+      titulo: ['Das ganze Tal,', 'mit Zeit für jeden Abschnitt.'],
+      paragrafos: [
+        'Die schönste Trekkingtour Brasiliens, im Herzen des Nationalparks Chapada Diamantina, umgeben von Bergen, Wasserfällen und Höhlen. In dieser Vier-Tage-Version bekommt jede große Sehenswürdigkeit einen eigenen Tag, statt sich einen zu teilen.',
+        'Du siehst ferne Bergketten, badest in kalten Wasserfällen, steigst in Höhlen, hörst die Geschichten der Menschen, die hier lebten, und isst das Beste der lokalen Küche in den Häusern der Bewohner des Tals. Es ist ein natürliches, historisches, geologisches und kulturelles Schauspiel zugleich.',
+      ],
+      outrasVersoes: 'Das Tal gibt es auch in 3 und 5 Tagen.',
+      relacionados: [
+        { titulo: 'Vale do Pati · 3 Tage', nivel: 'Mittel', href: '/de/abenteuer/pati-tal-3-tage' },
+        { titulo: 'Vale do Pati · 5 Tage', nivel: 'Fortgeschritten', href: '/de/abenteuer/pati-tal-5-tage' },
+      ],
+    },
+    dias: [
+      {
+        day: 'Tag 1', level: 'Mittel', lead: '6:00 Uhr Start',
+        body: ' in Lençóis → 8:00 Uhr Vila do Guiné → 3 Stunden Weg (1 Stunde steiler Anstieg + 2 Stunden flach) zum Aussichtspunkt Rampa → Snack → +1,5 Stunden zu den Wasserfällen Funis, Altina und Bananeiras → 17:00 Uhr Unterkunft → 19:00 Uhr Abendessen.',
+        note: 'Wir empfehlen, bei der Ankunft zu frühstücken statt vor dem Start.',
+      },
+      {
+        day: 'Tag 2', level: 'Mittel / Schwer', lead: '8:00 Uhr Start',
+        body: ' Richtung Morro do Castelo, nur mit Sachen für den Tag. Dies ist der anstrengendste Tag: 250 m Anstieg auf über 1.200 m Höhe, 60 bis 80 Minuten bergauf. Auf dem Gipfel zwei Aussichtspunkte und der Eingang zur Gruta da Lapinha. Auf demselben Weg zurück und, wenn Zeit bleibt, ein Wasserfall nahe der Unterkunft.',
+        note: 'Hin und zurück: Wir schlafen im selben Haus.',
+      },
+      {
+        day: 'Tag 3', level: 'Mittel / Schwer', lead: '8:00 Uhr Start',
+        body: ' nach einem kräftigen Frühstück, Richtung Calixto-Wasserfall. Es sind rund 2,5 Stunden durch dichten Wald, von Fels zu Fels springend, bis dorthin. Der Rückweg folgt derselben Route.',
+        note: 'Einer der am wenigsten besuchten Teile des Pati.',
+      },
+      {
+        day: 'Tag 4', level: 'Mittel / Schwer', lead: '8:00 Uhr Start',
+        body: ' und Abschied von der Unterkunft. Rund 3 Stunden zu Fuß (2 Stunden über raues Gelände + 1 Stunde flach) zum Aussichtspunkt Cachoeirão, 280 m hoch. In der Regenzeit siehst du rund 16 Wasserfälle rund ums Tal. Nach dem Snack teils auf derselben Route zurück, dann eine Abzweigung zum Beginn des Weges, wo das Auto bereitsteht.',
+        note: 'Technisch leicht — die Anstrengung liegt in der Strecke.',
+      },
+    ],
+    landmarks: [
+      { titulo: 'Aussichtspunkt Rampa', apoio: 'Der traditionellste des Tals' },
+      { titulo: 'Wasserfälle Funis, Altina und Bananeiras', apoio: 'Drei am ersten Tag' },
+      { titulo: 'Morro do Castelo', apoio: 'Über 1.200 m Höhe' },
+      { titulo: 'Gruta da Lapinha', apoio: 'Eine der seltensten Höhlen über 1.000 m' },
+      { titulo: 'Calixto-Wasserfall', apoio: 'Dichter Wald und ein Flussbett aus Fels' },
+      { titulo: 'Aussichtspunkt Cachoeirão', apoio: '280 m — bis zu 16 Wasserfälle bei Regen' },
+    ],
+    included: {
+      title: 'Was inklusive ist / was nicht',
+      included: ['Zertifizierter Bergführer mit Erste-Hilfe-Ausbildung', 'Übernachtung in den Häusern der Bewohner des Pati (3 Nächte)', 'Transfer Lençóis › Guiné › Lençóis', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Wanderung'],
+      excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Transfers ab Salvador', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+    },
+    safetyWarning: 'Tag 2 ist der anstrengende: 250 Meter Anstieg in 60 bis 80 Minuten auf über 1.200 m. Tag 4 ist mit 23 km der längste, aber technisch leicht. Wenn du an deiner Kondition zweifelst, sprich mit uns, bevor du buchst.',
+  },
 };
 
 export const PATI4_CONTENT = {
@@ -392,6 +457,7 @@ export const PATI4_CONTENT = {
   es: buildPatiContent('es', VARIANTS.es),
   fr: buildPatiContent('fr', VARIANTS.fr),
   nl: buildPatiContent('nl', VARIANTS.nl),
+  de: buildPatiContent('de', VARIANTS.de),
 };
 
 export const PATI4_FAQS = {
@@ -400,4 +466,5 @@ export const PATI4_FAQS = {
   es: buildPatiFaqs('es', VARIANTS.es),
   fr: buildPatiFaqs('fr', VARIANTS.fr),
   nl: buildPatiFaqs('nl', VARIANTS.nl),
+  de: buildPatiFaqs('de', VARIANTS.de),
 };

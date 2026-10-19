@@ -414,4 +414,80 @@ export const MARIMBUS_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Sumpfgebiet Marimbus',
+      description:
+        'Das Feuchtgebiet der Chapada Diamantina: 9 km im Kanu über die Flüsse Santo Antônio und Roncador, ab der Quilombola-Gemeinde Remanso.',
+      canonical: '/de/abenteuer/sumpfgebiet-marimbus',
+    },
+    hero: {
+      nivel: 'Leicht / Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Sumpfgebiet Marimbus.',
+      lead: 'Neun Kilometer im Kanu durch das Feuchtgebiet der Chapada, ab Remanso.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Strecke im Kanu', 'Mit dem Auto', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über das Sumpfgebiet Marimbus.',
+      paragrafos: [
+        'Man nennt es das Pantanal der Chapada Diamantina, und der Vergleich passt: ein dauerhaftes Feuchtgebiet voller Wasserpflanzen, in dem man sich im Kanu fortbewegt und Stille die Regel ist.',
+        'Die Tour beginnt in der Quilombola-Gemeinde Remanso und folgt dem Fluss Santo Antônio bis zum Roncador. Das sind rund 2 Stunden Paddeln, 9 Kilometer insgesamt, mit einem lokalen Guide am Ruder.',
+        'Die Tiere sind der Höhepunkt: Anakondas, Kaimane und Brüllaffen zeigen sich oft denen, die still bleiben und wissen, wohin sie schauen müssen. Neben den 8 km zu Fuß gehören auch die Poços do Roncador zum Tag.',
+        'Auf unseren Touren ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 8:00 Uhr in Lençóis zur Quilombola-Gemeinde Remanso — rund 20 km mit dem Auto.',
+        'Einstieg in die Kanus auf dem Fluss Santo Antônio. Wir paddeln bis zum Zusammenfluss mit dem Roncador, durch das überflutete Gebiet: rund 2 Stunden und 9 Kilometer.',
+        'Ausstieg und rund 30 Minuten Fußweg bis zu den Poços do Roncador, wo die Gruppe zum Baden und Picknicken hält.',
+        'Zurück zu Fuß, rund 40 Minuten, mit dem Feuchtgebiet aus einem anderen Blickwinkel. Am späten Nachmittag zurück in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 510', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 465', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Shirt mit UV-Schutz', 'Badesachen', 'Kappe oder Hut'],
+          ['Sonnencreme', 'Insektenschutz', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Sonnenbrille'], ['Snack oder Obst', 'Handtuch', 'Wasserdichter Beutel für die Kamera']],
+        note: 'Im Kanu gibt es keinen Schatten, und die Spiegelung auf dem Wasser verdoppelt die Sonne. Ein langärmeliges UV-Shirt und Insektenschutz machen hier den größten Unterschied.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'Kanu mit einem lokalen Bootsführer aus Remanso', 'Schwimmweste', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Transport (optional)', 'Picknick (optional)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Das Risiko liegt hier nicht im Weg, sondern in der Sonne und den Insekten: rund 2 Stunden im Kanu ohne Schatten, und das Wasser wirft noch mehr Sonne auf dich zurück. Sonnencreme, Insektenschutz und ein langärmeliges Shirt verhindern das, was den Tag am häufigsten verdirbt. Die Schwimmweste ist während der gesamten Paddelstrecke Pflicht.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, durch das', 'Feuchtgebiet zu paddeln?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

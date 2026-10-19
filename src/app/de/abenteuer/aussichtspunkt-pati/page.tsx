@@ -1,0 +1,22 @@
+import type { Metadata } from 'next';
+import { DayTourExperience } from '@/components/adventure/DayTourExperience';
+import { MIRANTE_PATI_ASSETS, MIRANTE_PATI_CONTENT } from '@/components/adventure/mirante-pati-content';
+
+const IMG = MIRANTE_PATI_ASSETS.hero.src;
+const CONTENT = MIRANTE_PATI_CONTENT.de;
+
+export const metadata: Metadata = {
+  title: CONTENT.meta.title,
+  description: CONTENT.meta.description,
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/mirante-do-pati', en: '/en/adventures/pati-viewpoint-1-day', es: '/es/aventuras/mirador-del-pati', fr: '/fr/aventures/belvedere-du-pati', nl: '/nl/avonturen/uitzichtpunt-pati', de: '/de/abenteuer/aussichtspunkt-pati' } },
+  openGraph: {
+    title: CONTENT.meta.title,
+    description: CONTENT.meta.description,
+    images: [IMG],
+    type: 'article',
+  },
+};
+
+export default function MirantePatiDeRoute() {
+  return <DayTourExperience locale="de" content={MIRANTE_PATI_CONTENT} assets={MIRANTE_PATI_ASSETS} />;
+}

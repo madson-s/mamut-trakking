@@ -346,12 +346,10 @@ export function PathsSection({ locale = 'pt' }: { locale?: Locale }) {
         pretty
         className="mt-6 text-center sm:text-xl lg:mt-0"
       >
-        Do <Emphasis size="xs" tone="default" className="sm:text-lg">caminhante</Emphasis> de fim de
-        semana ao{' '}
-        <Emphasis size="xs" tone="default" className="sm:text-lg">
-          aventureiro de longa data
-        </Emphasis>{' '}
-        — aqui tem o ritmo certo para você.
+        {c.ritmo.antes} <Emphasis size="xs" tone="default" className="sm:text-lg">{c.ritmo.caminhante}</Emphasis>{' '}
+        {c.ritmo.meio}{' '}
+        <Emphasis size="xs" tone="default" className="sm:text-lg">{c.ritmo.aventureiro}</Emphasis>{' '}
+        {c.ritmo.depois}
       </Text>
     </Section>
   );

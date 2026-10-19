@@ -429,4 +429,82 @@ export const BURACAO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Buracão',
+      description:
+        'Über 80 Meter fallendes Wasser in einem Canyon, in ein dunkles Becken. Ein Weg von 6 km im Parque Natural Municipal do Espalhado, in Ibicoara.',
+      canonical: '/de/abenteuer/wasserfall-buracao',
+    },
+    hero: {
+      nivel: 'Mittel',
+      origem: 'Start: Ibicoara',
+      duracao: '1 Tag',
+      titulo: 'Wasserfall Buracão.',
+      lead: 'Achtzig Meter fallendes Wasser in einem Canyon — das letzte Stück schwimmst du hin.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Fallhöhe', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Buracão-Wasserfall.',
+      paragrafos: [
+        'Einer der eindrucksvollsten Wasserfälle der Chapada Diamantina: über 80 Meter Wasser, das in einem geschlossenen Canyon in ein dunkles Becken stürzt, das perfekt zum Schwimmen ist.',
+        'Besonders macht ihn die Ankunft. Am Rand des Canyons steigt die Gruppe über eine Holztreppe zum Fluss hinab, und von dort schwimmst du weiter oder kletterst über die Felsen, bis sich der Wasserfall vor dir öffnet.',
+        'Vor Ort kannst du dich bis zum Fuß des Wasserfalls abseilen — eine Zusatzaktivität, nicht inklusive. Sie findet mit unserer eigenen Ausrüstung statt, und es gab nie Zwischenfälle.',
+        'Auf unseren Touren ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 6:00 Uhr im Zentrum von Lençóis, mit 10 Minuten Puffer, Richtung Ibicoara — wo der Eingang zum Parque Natural Municipal do Espalhado liegt. Das sind rund 250 km und 3 Stunden Fahrt.',
+        'Ankunft in Ibicoara und Vorbereitung auf den Weg. Es sind 3 km zu Fuß bis zur Oberkante des Wasserfalls, mit ein paar steilen Abschnitten und Treppen, aber über recht leichtes Gelände.',
+        'Unterwegs halten wir zum Abkühlen am Recanto-Verde-Wasserfall und am Orquídeas-Wasserfall.',
+        'Oben öffnet sich der Blick über den Canyon. Wer möchte, kann sich bis zum Fuß abseilen — optional, R$ 220.',
+        'Am Rand des Canyons steigt die Gruppe über eine Holztreppe zum Fluss hinab. Von dort schwimmst du oder kletterst über die Felsen zum Buracão-Wasserfall, wo du im Becken baden kannst.',
+        'Auf demselben Weg zurück zum Parkeingang, mit einem typisch regionalen Mittagessen, zubereitet von Menschen aus der Umgebung. Gegen 20:00 Uhr zurück in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 820', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 750', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Leichte Kleidung', 'Badesachen', 'Kappe oder Hut'],
+          ['Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen', 'Ersatzsocken'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Handtuch'], ['Snack oder Obst', 'Wasserdichter Beutel für die Kamera', 'Trockene Wechselkleidung']],
+        note: 'Das letzte Stück führt durchs Wasser: Steck die Kamera in einen wasserdichten Beutel und rechne damit, dass du nass vom Wasserfall zurückkommst.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Zweisprachiger lokaler Guide', 'Eintritt in den Park', 'Abenteuerversicherung', 'Schwimmweste', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Mittagessen (optional)', 'Abseilen (optional, R$ 220)', 'Persönliche Ausrüstung', 'Zusätzliche Getränke', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Das letzte Stück zum Wasserfall schwimmst du oder kletterst über die Felsen im Fluss, und ins Flussbett gelangst du über eine Holztreppe. Eine Schwimmweste stellen wir, und sie ist beim Durchqueren Pflicht. Wer sich im Wasser nicht wohlfühlt, kann oben am Canyon warten, wo allein die Aussicht die Wanderung wert ist.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, zum Wasserfall', 'zu schwimmen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

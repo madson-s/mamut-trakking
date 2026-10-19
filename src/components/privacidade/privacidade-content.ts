@@ -56,6 +56,7 @@ export const PRIVACIDADE_HREF: Record<Locale, string> = {
   es: '/es/politica-de-privacidad',
   fr: '/fr/politique-de-confidentialite',
   nl: '/nl/privacybeleid',
+  de: '/de/datenschutz',
 };
 
 /** Data da última revisão do texto (ISO), exibida no idioma da página. */
@@ -964,6 +965,184 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
     ],
   },
+  de: {
+    meta: {
+      title: 'Datenschutzerklärung',
+      description:
+        'Welche personenbezogenen Daten Mamut Trekking auf der Website und im Teilnehmerformular erhebt, warum, mit wem wir sie teilen und wie du Auskunft, Berichtigung oder Löschung beantragst.',
+      canonical: PRIVACIDADE_HREF.de,
+    },
+    titulo: { antes: 'Datenschutz', destaque: 'erklärung.' },
+    lead: 'Was wir erheben, warum, mit wem wir es teilen und wie du Auskunft, Berichtigung oder Löschung deiner Daten beantragen kannst.',
+    atualizado: 'Zuletzt aktualisiert',
+    indice: 'Auf dieser Seite',
+    controlador: {
+      titulo: 'Wer sich um deine Daten kümmert',
+      nome: 'Mamut Trekking',
+      cnpj: `Brasilianische Unternehmensnummer (CNPJ) ${CNPJ}`,
+      endereco: ENDERECO,
+      contato: 'Für alles rund um deine Daten, auch als unsere Datenschutzbeauftragte Stelle:',
+    },
+    secoes: [
+      {
+        id: 'was-wir-erheben',
+        titulo: 'Was wir erheben und warum',
+        blocos: [
+          {
+            tipo: 'itens',
+            itens: [
+              [
+                'Angebotsanfragen (Kontaktseite).',
+                'Name, E-Mail, Telefon, das Abenteuer, für das du dich interessierst, Daten, Gruppengröße, wie du anreist, und deine Nachricht. Das Formular schickt nichts an unseren Server: Es stellt die Nachricht zusammen und öffnet dein WhatsApp oder dein E-Mail-Programm, und du entscheidest, ob du sie sendest. Wir nutzen das, um zu antworten und dein Angebot zu erstellen.',
+              ],
+              [
+                'Teilnehmerformular.',
+                'Name, Geburtsdatum, Reisepass- oder Ausweisnummer, Alter, Staatsangehörigkeit, Beruf, Telefon, E-Mail, Adresse, Größe, Gewicht, Datum der Tour, Zahlungsart, wo du in der Chapada wohnst, und ein Notfallkontakt. Wir nutzen das, um zu wissen, wer auf dem Weg ist, die Reise zu organisieren (Transport, Unterkunft, Mahlzeiten) und schnell zu handeln, wenn etwas passiert.',
+              ],
+              [
+                'Gesundheitsangaben (im Formular).',
+                'Kondition, Allergien, Ernährungswünsche, Medikamente, Gesundheitsprobleme und Einschränkungen deiner Mobilität. Das brasilianische Recht stuft diese als sensible Daten ein: Wir nutzen sie nur für deine Sicherheit — Tempo und Route anpassen, deinen Guide informieren und im Notfall die Rettungsdienste verständigen — und nur mit deiner Einwilligung, die du im Formular selbst gibst.',
+              ],
+              [
+                'Fotos und Videos von der Reise.',
+                'Die Bedingungen im Formular erlauben uns, dein Bild und deine Stimme zu nutzen, um Mamut zu bewerben. Wenn du lieber nicht zu sehen sein möchtest, sag uns Bescheid; dann verwenden wir sie in künftigen Beiträgen nicht mehr.',
+              ],
+              [
+                'Surfen auf der Website.',
+                'Wir nutzen keine Analyse- oder Werbetools und setzen keine eigenen Tracking-Cookies. Der Server erfasst technische Daten zu jedem Besuch (IP-Adresse, Datum, Uhrzeit und Seite), wie es das brasilianische Internetgesetz verlangt. Deine Vorliebe für das helle oder dunkle Design wird nur in deinem Browser gespeichert.',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'rechtsgrundlagen',
+        titulo: 'Rechtsgrundlagen',
+        blocos: [
+          {
+            tipo: 'p',
+            texto: 'Wir verarbeiten personenbezogene Daten auf Grundlage des brasilianischen Allgemeinen Datenschutzgesetzes (LGPD, Gesetz 13.709/2018):',
+          },
+          {
+            tipo: 'lista',
+            itens: [
+              'Angebotsanfragen und Buchungen: vorvertragliche Maßnahmen und Erfüllung des Reisevertrags (Art. 7, V);',
+              'Gesundheitsdaten: deine ausdrückliche Einwilligung (Art. 11, I) und im Notfall der Schutz deines Lebens und deiner körperlichen Unversehrtheit (Art. 11, II, "e");',
+              'Zugriffsprotokolle und Buchungsdaten: Erfüllung gesetzlicher Pflichten (Art. 7, II) und Ausübung von Rechten in Gerichtsverfahren (Art. 7, VI);',
+              'Schutz vor Bots in den Formularen: unser berechtigtes Interesse, die Website sicher zu halten (Art. 7, IX).',
+            ],
+          },
+        ],
+      },
+      {
+        id: 'weitergabe',
+        titulo: 'Mit wem wir Daten teilen',
+        blocos: [
+          { tipo: 'p', texto: 'Wir verkaufen oder vermieten niemals personenbezogene Daten. Wir teilen nur, was nötig ist, mit:' },
+          {
+            tipo: 'itens',
+            itens: [
+              [
+                'Den Menschen, die die Reise mit uns durchführen.',
+                'Guides, Fahrer und die Häuser und Pousadas auf der Route erhalten deinen Namen und das, was sie wissen müssen, um für dich zu sorgen — zum Beispiel einen Ernährungswunsch oder ein Gesundheitsproblem, das unterwegs wichtig ist.',
+              ],
+              [
+                'Diensten, die wir für unsere Arbeit nutzen.',
+                'Resend (Versand des Teilnehmerformulars per E-Mail), Google (reCAPTCHA, das in unseren Formularen Menschen von Bots unterscheidet), Meta (WhatsApp, wenn du dich entscheidest, dort mit uns zu sprechen), Notion (unsere interne Buchungsverwaltung), unser E-Mail-Anbieter und unser Website-Host.',
+              ],
+              [
+                'Behörden.',
+                'Wenn das Gesetz es verlangt oder im Notfall — zum Beispiel Rettungsdienste oder ein Krankenhaus.',
+              ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'internationale-uebermittlung',
+        titulo: 'Internationale Übermittlung',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Einige dieser Dienste (Resend, Google, Meta und Notion) speichern Daten auf Servern außerhalb Brasiliens, vor allem in den Vereinigten Staaten. Wir wählen Anbieter, die vertragliche Datenschutzklauseln bieten, wie es Artikel 33 der LGPD vorsieht.',
+          },
+        ],
+      },
+      {
+        id: 'speicherdauer',
+        titulo: 'Wie lange wir Daten speichern',
+        blocos: [
+          {
+            tipo: 'lista',
+            itens: [
+              'Angebotsanfragen, aus denen keine Buchung wurde: bis zu 12 Monate.',
+              'Teilnehmerformular und Buchungsdaten: bis zu 5 Jahre nach der Reise — die Frist für Ansprüche nach dem brasilianischen Verbraucherschutzgesetz.',
+              'Zugriffsprotokolle der Website: 6 Monate, wie es das brasilianische Internetgesetz verlangt.',
+            ],
+          },
+          { tipo: 'p', texto: 'Danach werden die Daten gelöscht oder anonymisiert.' },
+        ],
+      },
+      {
+        id: 'sicherheit',
+        titulo: 'Sicherheit',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Die Website funktioniert nur über eine verschlüsselte Verbindung (HTTPS), unsere Formulare sind vor Bots geschützt, und der Zugriff auf Teilnehmerformulare ist auf das Team beschränkt, das deine Reise organisiert. Kein System ist unfehlbar; wenn ein Vorfall Folgen für dich haben kann, informieren wir dich und die brasilianische Nationale Datenschutzbehörde (ANPD).',
+          },
+        ],
+      },
+      {
+        id: 'deine-rechte',
+        titulo: 'Deine Rechte',
+        blocos: [
+          { tipo: 'p', texto: 'Du kannst jederzeit Folgendes beantragen:' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Bestätigung, dass wir deine Daten verarbeiten, und Auskunft darüber;',
+              'Berichtigung unvollständiger, unrichtiger oder veralteter Daten;',
+              'Anonymisierung, Sperrung oder Löschung von Daten, die unnötig sind oder unrechtmäßig verarbeitet werden;',
+              'Übertragung deiner Daten an einen anderen Anbieter;',
+              'Auskunft darüber, mit wem wir sie teilen;',
+              'Widerruf deiner Einwilligung, auch für Gesundheitsdaten und die Nutzung deines Bildes;',
+              'Widerspruch gegen jede Verarbeitung, die du für unrechtmäßig hältst.',
+            ],
+          },
+          {
+            tipo: 'p',
+            texto:
+              'Schick deinen Antrag per E-Mail oder WhatsApp (siehe oben). Wir antworten innerhalb von 15 Tagen. Bist du nicht zufrieden, kannst du auch eine Beschwerde bei der ANPD einreichen (gov.br/anpd).',
+          },
+        ],
+      },
+      {
+        id: 'minderjaehrige',
+        titulo: 'Kinder und Jugendliche',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Jugendliche unter 18 nehmen nur in Begleitung oder mit Erlaubnis eines Elternteils oder einer gesetzlichen Vertretung teil, die das Formular ausfüllt oder genehmigt und in ihrem Namen einwilligt.',
+          },
+        ],
+      },
+      {
+        id: 'aenderungen',
+        titulo: 'Änderungen dieser Erklärung',
+        blocos: [
+          {
+            tipo: 'p',
+            texto:
+              'Wenn wir ändern, wie wir mit deinen Daten umgehen, aktualisieren wir diese Seite und das Datum oben. Wichtige Änderungen teilen wir auch allen mit, die eine laufende Buchung haben.',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 /**
@@ -976,4 +1155,5 @@ export const PRIVACIDADE_NOTA: Record<Locale, { antes: string; link: string; dep
   es: { antes: 'Cómo usamos tus datos: ', link: 'Política de privacidad', depois: '.' },
   fr: { antes: 'Comment nous utilisons vos données : ', link: 'Politique de confidentialité', depois: '.' },
   nl: { antes: 'Hoe we je gegevens gebruiken: ', link: 'Privacybeleid', depois: '.' },
+  de: { antes: 'Wie wir deine Daten nutzen: ', link: 'Datenschutzerklärung', depois: '.' },
 };

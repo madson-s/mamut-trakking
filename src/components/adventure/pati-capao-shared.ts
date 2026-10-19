@@ -45,6 +45,12 @@ export const PATI_CAPAO_SOBRE: Record<Locale, string[]> = {
     'Het is een veelzijdige trektocht die mensen van elke leeftijd kunnen doen, afhankelijk van de gekozen route. We organiseren tochten van 1 tot 7 dagen in de Pati — past geen ervan bij je verblijf, praat dan met ons.',
     'Ontbijt en avondeten worden bereid in de onderkomens en het menu verandert elke dag. Tijdens de wandelingen is de picknick de lunch: uitgebalanceerde maaltijden met vitamines, eiwitten, vezels en koolhydraten.',
   ],
+  de: [
+    'Eine der schönsten Trekkingtouren der Welt, in der Mitte Bahias. Das Vale do Pati liegt auf rund 1.000 Metern Höhe und bietet eine reiche Abfolge von Übergängen zwischen Resten des Atlantischen Regenwalds, Felsfeldern — dem Cerrado der Höhenlagen — und offenem Grasland.',
+    'Vor rund 200 Jahren lebten hier Kleinbauern; heute stehen noch 14 Häuser, die als Unterkunft für Besucher dienen. Dort schläfst du: in den Häusern von Einheimischen des Tals, in Gemeinschafts- oder Einzelzimmern (sag uns rechtzeitig Bescheid, wenn du ein Einzelzimmer brauchst).',
+    'Es ist eine vielseitige Tour, die je nach Route Menschen jeden Alters machen können. Wir bieten Touren von 1 bis 7 Tagen im Pati an — wenn keine davon zu deinem Aufenthalt passt, sprich mit uns.',
+    'Frühstück und Abendessen werden in den Unterkünften zubereitet, und das Menü wechselt täglich. Auf den Wanderungen ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+  ],
 };
 
 /** Aviso do itinerário — as duas páginas trazem a mesma ressalva. */
@@ -54,6 +60,7 @@ export const PATI_CAPAO_AVISO: Record<Locale, string> = {
   es: 'El itinerario puede cambiar por condiciones climáticas o por cualquier factor de fuerza mayor que el equipo considere relevante. Este trekking es muy dinámico y se puede hacer de varias maneras, con diversas entradas y salidas — consultá todas las opciones con atención.',
   fr: 'L’itinéraire peut changer en raison des conditions météorologiques ou de tout autre cas de force majeure que l’équipe juge pertinent. Ce trek est très modulable et peut se faire de plusieurs façons, avec différents points d’entrée et de sortie — renseignez-vous auprès de notre équipe sur toutes les options.',
   nl: 'De route kan veranderen door het weer of door andere overmacht die het team relevant vindt. Deze trektocht is heel flexibel en kan op verschillende manieren worden gelopen, met verschillende in- en uitstappunten — vraag ons naar alle mogelijkheden.',
+  de: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist sehr flexibel und lässt sich auf verschiedene Arten gehen, mit unterschiedlichen Ein- und Ausstiegspunkten — frag uns nach allen Möglichkeiten.',
 };
 
 /** Checklist, o que entra no valor e quando ir — idênticos nas duas rotas. */
@@ -219,6 +226,38 @@ const PATI_CAPAO_FAQS: Record<Locale, readonly PatiFaqItem[]> = {
       notes: [
         'Er is niet één beste seizoen — het hangt af van wat je wilt zien.',
         'Het hele jaar door wordt het ’s nachts koud: nachtkleding staat ook in de zomer op de checklist.',
+      ],
+    },
+  ],
+  de: [
+    {
+      type: 'checklist',
+      title: 'Checkliste — was du mitnimmst',
+      intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, ist eine Teilnahme nicht möglich. Die Gegenstände werden bei der Buchung und beim Check-in geprüft.',
+      requiredColumns: [
+        ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Leichte Wanderkleidung', 'Schlafkleidung', 'Badesachen', 'Trekkingrucksack ab 50 L'],
+        ['Regenschutz (für dich und den Rucksack)', 'Sonnencreme', 'Persönliche Medikamente', 'Hygieneartikel', 'Lichtbildausweis', 'Stirnlampe und Tagesrucksack'],
+      ],
+      recommendedColumns: [['Ersatzsocken', 'Schnelltrocknendes Handtuch'], ['Wanderstock', 'Powerbank', 'Snack oder Obst']],
+      note: 'Wenn du lieber kein Gewicht tragen möchtest, kann ein persönlicher Träger mitkommen — der Trekkingrucksack bleibt Pflicht für die Tage, an denen die Gruppe die Unterkunft wechselt.',
+    },
+    {
+      type: 'included',
+      title: 'Was inklusive ist / was nicht',
+      included: ['Zertifizierter Bergführer mit Erste-Hilfe-Ausbildung', 'Übernachtung in den Häusern des Vale do Pati', 'Transfers Palmeiras › Pati › Capão › Lençóis (teils mit alternativem oder Überlandverkehr)', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Wanderung'],
+      excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Zusätzliche Getränke im Laden der Unterkunft', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+    },
+    {
+      type: 'seasons',
+      title: 'Wann du ins Vale do Pati fährst',
+      facts: [
+        ['Sommer und Herbst (Jan.–Mai)', 'Volle Wasserfälle, mehr Schlamm auf den Wegen'],
+        ['Winter und Frühling (Juni–Dez.)', 'Festerer Boden, weniger Wasser'],
+        ['Höhe des Tals', 'Rund 1.000 m'],
+      ],
+      notes: [
+        'Die eine beste Jahreszeit gibt es nicht — es hängt davon ab, was du sehen möchtest.',
+        'Nachts wird es das ganze Jahr über kalt: Schlafkleidung steht auch im Sommer auf der Checkliste.',
       ],
     },
   ],

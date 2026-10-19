@@ -53,6 +53,11 @@ export const AGENCY_FACILITIES: Record<Locale, AgencyFacility[]> = {
     { titulo: 'Bagageopslag', apoio: 'Voor je extra bagage' },
     { titulo: 'Douche', apoio: 'Voor en na de activiteiten' },
   ],
+  de: [
+    { titulo: 'Warteraum', apoio: 'Vor und nach den Aktivitäten' },
+    { titulo: 'Gepäckaufbewahrung', apoio: 'Für dein zusätzliches Gepäck' },
+    { titulo: 'Dusche', apoio: 'Vor und nach den Aktivitäten' },
+  ],
 };
 
 /**
@@ -65,6 +70,7 @@ export const CAMPING_GEAR: Record<Locale, AgencyFacility> = {
   es: { titulo: 'Equipo de camping', apoio: 'Incluido: bolsa de dormir, aislante térmico simple y carpa para 2 personas' },
   fr: { titulo: 'Matériel de camping', apoio: 'Inclus : sac de couchage, matelas isolant simple et tente 2 places' },
   nl: { titulo: 'Kampeeruitrusting', apoio: 'Inbegrepen: slaapzak, eenvoudig isolatiematje en tent voor 2 personen' },
+  de: { titulo: 'Campingausrüstung', apoio: 'Inklusive: Schlafsack, einfache Isomatte und Zelt für 2 Personen' },
 };
 
 /** "19:00" no formato de hora de cada idioma — o mesmo usado no resto do copy. */
@@ -77,6 +83,7 @@ function formatTime(time: string, locale: Locale): string {
     case 'es': return `${h}:${mm}`;
     case 'fr': return m ? `${h} h ${mm}` : `${h} h`;
     case 'nl': return `${h}.${mm} uur`;
+    case 'de': return `${h}:${mm} Uhr`;
   }
 }
 
@@ -166,6 +173,21 @@ const COPY: Record<Locale, {
       `Je komt ${quando} aan in Lençóis. Vertraging kan ontstaan door ${byRoad ? 'verkeer op de snelweg en door het tempo van de groep' : 'het tempo van de groep'}.`,
     banho: 'Bij het kantoor kun je douchen en je bagage laten staan terwijl je eet, voordat je bus vertrekt, als dat nodig is.',
     banhoCedo: 'Bij het kantoor kun je douchen en je bagage laten staan tot je bus vertrekt, als dat nodig is.',
+  },
+  de: {
+    antes: 'Vor der Aktivität',
+    depois: 'Nach der Aktivität',
+    itensAntes: [
+      'Sieh dir die Checkliste auf dieser Seite an. Am wichtigsten sind ein langärmeliges Shirt (es gibt viel Sonne), Wanderschuhe oder Ähnliches, eine Regenjacke und ein guter Rucksack.',
+      'Du kannst am Tag vor der Tour anreisen. Wir empfehlen eine Unterkunft ohne Frühstück, weil die Pousadas es erst spät servieren. In Lençóis, nahe unserem Büro, gibt es gute Lokale, in denen du ab 6:00 Uhr frühstücken kannst.',
+      'Du kannst auch am Tag der Aktivität anreisen: Nimm den Nachtbus von Salvador nach Lençóis, der gegen 6:00 Uhr ankommt. Die Sitze im unteren Deck sind etwas teurer und sehr bequem — aber es bleibt ein Bus.',
+      'Während der Aktivität kannst du dein zusätzliches Gepäck kostenlos in unserem Büro lassen.',
+    ],
+    quando: (hora, ate) => (ate ? `zwischen ${hora} und ${ate}` : `gegen ${hora}`),
+    chegada: (quando, byRoad) =>
+      `Die Ankunft in Lençóis ist ${quando}. Verzögerungen sind möglich ${byRoad ? 'durch Verkehr auf der Straße und das Tempo der Gruppe' : 'je nach Tempo der Gruppe'}.`,
+    banho: 'In der Agentur kannst du duschen und dein Gepäck lassen, während du vor deinem Bus zu Abend isst, falls nötig.',
+    banhoCedo: 'In der Agentur kannst du duschen und dein Gepäck lassen, bis dein Bus fährt, falls nötig.',
   },
 };
 

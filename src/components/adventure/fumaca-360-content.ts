@@ -466,4 +466,88 @@ export const FUMACA_360_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Fumaça 360° — 3 Tage',
+      description:
+        'Derselbe Wasserfall aus vier Blickwinkeln: von oben am Aussichtspunkt, von der Seite in der Schlucht, von unten an seinem Fuß und frontal von der Serra da Folha Larga.',
+      canonical: '/de/abenteuer/wasserfall-fumaca-360',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Vale do Capão',
+      duracao: '3 Tage',
+      titulo: 'Fumaça 360°.',
+      lead: 'Derselbe Wasserfall aus vier Blickwinkeln — von oben, von der Seite, von unten und frontal.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Höhe der Wand', 'Blickwinkel auf den Wasserfall', 'Übernachtung', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über die Fumaça 360°.',
+      paragrafos: [
+        'Der Fumaça-Wasserfall, einer der höchsten Brasiliens, stürzt eine 400 Meter hohe Wand hinab, an der das Wasser nie gleichmäßig den Boden erreicht — der Effekt, dem er seinen Namen („Rauch“) verdankt. Fast alle sehen ihn aus nur einem Blickwinkel. Diese Route nimmt alle vier mit.',
+        'Von oben, am klassischen Aussichtspunkt im Vale do Capão. Von der Seite, mit einer Nacht in der Schlucht, in der Tropfsteingrotte. Von unten, am Fuß der Wand, wohin nur wenige kommen. Und frontal, vom Gipfel der Serra da Folha Larga am letzten Tag.',
+        'Die Route führt an alten Minenstätten und verlassenen Unterschlüpfen der Minenarbeiter vorbei und nimmt unterwegs den Palmital- und den Capivara-Wasserfall mit. Je nach Wetter und Jahreszeit kann der Weg deutlich gefährlicher werden; folge immer den Anweisungen des Guides.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.de,
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist flexibel und hat verschiedene Ein- und Ausstiegspunkte — frag uns nach den Möglichkeiten.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Fumaça von oben + die Schlucht',
+          corpo: 'Wir starten auf dem traditionellen Weg vom Vale do Capão zum Fumaça-Wasserfall von oben — dem Aussichtspunkt über 400 Metern, den du nach 1,5 Stunden Gehzeit erreichst. Nach einem Snack und etwas Ruhe geht es weiter zur Schlucht der Fumaça, wo das Lager für die erste Nacht steht und von wo du den Wasserfall von der Seite siehst, in der Tropfsteingrotte.',
+          distancia: '13 km',
+          esforco: 'Schwer',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Die Schlucht + Fumaça von unten',
+          corpo: 'Nach dem Frühstück, das der Guide zubereitet, steigen wir gegen 8:00 Uhr durch dieselbe Schlucht, in der wir geschlafen haben, hinab zum Fuß des Fumaça-Wasserfalls — von unten gesehen, der eindrucksvollste Blickwinkel der Route. Wir folgen dem Bach bis zum Capivara-Wasserfall, wo das zweite Lager steht. Bei der Ankunft bereitet der Guide das Abendessen zu.',
+          distancia: '12 km',
+          esforco: 'Mittel',
+        },
+        {
+          rotulo: 'Tag 3',
+          titulo: 'Fumaça frontal + Palmital-Wasserfall',
+          corpo: 'Aufbruch zur gewohnten Zeit, Richtung Palmital-Wasserfall — rund 40 Minuten Gehzeit. Wir lassen das schwere Gepäck dort, wo der Guide es zeigt, und steigen nur mit Tagesrucksack die Serra da Folha Larga hinauf, zum Aussichtspunkt direkt gegenüber dem Fumaça-Wasserfall: dem vierten und letzten Blickwinkel. Auf demselben Weg geht es zurück zum Palmital, wo wir unsere Rucksäcke holen und über die Serra do Veneno weiter nach Lençóis gehen, wo wir gegen 18:00 Uhr ankommen und die Reise mit einem Bad im Ribeirão do Meio abschließen.',
+          distancia: '18 km',
+          esforco: 'Schwer',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 1.750', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 1.450', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      wildTrekChecklist('de', `Drei Tage, zwei Lagerwechsel und eine Nacht in der Schlucht. ${WILD_TREK_PORTER.de}`),
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'Transfer Vale do Capão × Lençóis (80 km)', 'Wildcamping (2 Nächte), mit Zelt, Isomatte und Schlafsack', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+      },
+      safetyFaq(
+        'de',
+        'Je nach Wetter und Jahreszeit kann der Weg deutlich gefährlicher werden. Der Abstieg von der Schlucht zum Fuß der Wand an Tag 2 ist der Abschnitt, der die meiste Aufmerksamkeit verlangt. Je nach Tempo der Gruppe kann sich der Rückweg auf einen vierten Tag ausdehnen — kläre diese Möglichkeit mit uns, bevor du Flüge oder Unterkünfte buchst.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, die Fumaça', 'von allen vier Seiten zu sehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

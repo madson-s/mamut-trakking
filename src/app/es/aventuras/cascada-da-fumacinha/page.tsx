@@ -8,7 +8,7 @@ const CONTENT = FUMACINHA_CONTENT.es;
 export const metadata: Metadata = {
   title: CONTENT.meta.title,
   description: CONTENT.meta.description,
-  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-fumacinha', en: '/en/adventures/fumacinha-waterfall', es: '/es/aventuras/cascada-da-fumacinha', fr: '/fr/aventures/cascade-da-fumacinha', nl: '/nl/avonturen/waterval-fumacinha' } },
+  alternates: { canonical: CONTENT.meta.canonical, languages: { pt: '/pt/aventuras/cachoeira-da-fumacinha', en: '/en/adventures/fumacinha-waterfall', es: '/es/aventuras/cascada-da-fumacinha', fr: '/fr/aventures/cascade-da-fumacinha', nl: '/nl/avonturen/waterval-fumacinha', de: '/de/abenteuer/wasserfall-fumacinha' } },
   openGraph: {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,

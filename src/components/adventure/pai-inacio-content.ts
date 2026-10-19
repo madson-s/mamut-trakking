@@ -391,4 +391,75 @@ export const PAI_INACIO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Sluit je aan bij de kudde',
     },
   },
+  de: {
+    meta: {
+      title: 'Morro do Pai Inácio',
+      description:
+        'Sonnenuntergang am Wahrzeichen der Chapada Diamantina: ein kurzer Aufstieg von 2 km zum Plateau, mit 360°-Blick über das Vale do Capão.',
+      canonical: '/de/abenteuer/morro-do-pai-inacio',
+    },
+    hero: {
+      nivel: 'Leicht',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Morro do Pai Inácio.',
+      lead: 'Der berühmteste Sonnenuntergang der Chapada, oben auf einem Plateau mit 360°-Blick.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Dauer', 'Start (Lençóis)', 'Rückkehr', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Morro do Pai Inácio.',
+      paragrafos: [
+        'Die Tour beginnt am späten Nachmittag, damit wir den Sonnenuntergang vom Gipfel des Berges sehen. Der Aufstieg zum Plateau ist kurz und sicher: 15 bis 30 Minuten.',
+        'Von oben siehst du den Morro do Camelo, das Vale dos Três Irmãos und vieles mehr. Wir starten um 16:00 Uhr im Zentrum von Lençóis und sind ab 18:30 Uhr zurück.',
+        'Diese Tour lässt sich mit dem Parque da Muritiba, dem Sossego-Wasserfall oder dem Sumpfgebiet Marimbus kombinieren — sprich mit unserem Team, um den Tag zusammenzustellen.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start ab 16:00 Uhr im Zentrum von Lençóis. Es sind 26 km — rund 40 Minuten — Richtung Brasília über die BR-242, mit schönen Ausblicken auf der ganzen Strecke bis zum Parkplatz.',
+        'Am Eingang gibt der Guide eine kurze Einführung zum Ort, dann beginnt die Wanderung. Es sind 20 Minuten Aufstieg zum Plateau, mit Treppen, Geländern und viel Fels auf dem Weg.',
+        'Auf dem Gipfel ein 360°-Blick: Vale do Cercado, Morro do Camelo, Vale dos Três Irmãos, Serra da Bacia und Serra do Brejão.',
+        'Nach Sonnenuntergang beginnt der Abstieg auf demselben Weg, besonders vorsichtig und immer hinter dem Guide — es ist dann schon etwas dunkel. Ankunft in Lençóis gegen 18:30 Uhr.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 300', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf der Tour.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 265', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Kreditkarte: +5 %, bis zu 12 Raten. Internationale Überweisung oder größere Gruppe: frag unser Team.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (500 ml pro Person)', 'Wanderschuhe', 'Leichte Kleidung', 'Kappe oder Hut'],
+          ['Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)'], ['Snack oder Obst', 'Wanderstock']],
+        note: 'Brauchst du für einen Gegenstand eine Alternative? Sprich vor der Buchung mit unserem Team.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zertifizierter lokaler Guide mit APH-Ausbildung', 'Hin- und Rücktransport', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Eintrittsgebühren'],
+        excluded: ['Alles, was oben nicht aufgeführt ist', 'Snack oder Mittagessen', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Hotels und Mahlzeiten vor oder nach der Aktivität', 'Trinkgelder'],
+      },
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Dein Weg beginnt', 'mit einer Nachricht.'],
+      corpo: 'Schreib uns per WhatsApp. Finde heraus, welche Tour in der Chapada Diamantina am besten zu dir passt und wie du dich darauf vorbereitest.',
+      botao: 'Schließ dich der Herde an',
+    },
+  },
 };

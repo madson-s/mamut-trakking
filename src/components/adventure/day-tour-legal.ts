@@ -5,7 +5,7 @@
  * roteiro: a política cita a deliberação normativa nº 161/1985 da EMBRATUR, e
  * uma mudança nela vale para todos de uma vez.
  *
- * ⚠️ As versões EN, ES, FR e NL são tradução feita neste repositório e precisam
+ * ⚠️ As versões EN, ES, FR, NL e DE são tradução feita neste repositório e precisam
  * de revisão antes de valerem como termo contratual.
  */
 
@@ -158,6 +158,35 @@ export const DAY_TOUR_LEGAL: Record<Locale, readonly PatiFaqItem[]> = {
       ],
     },
   ],
+  de: [
+    {
+      type: 'payment',
+      title: 'Zahlungsmöglichkeiten',
+      paragraphs: [
+        'Mit einer Anzahlung von 50 % ist deine Buchung bestätigt, per Überweisung, Einzahlung oder Boleto. Die restlichen 50 % zahlst du beim Check-in in bar oder per Einzahlung bis spätestens 2 Werktage vorher.',
+        'Bei Zahlung mit Kreditkarte kommen 6 % hinzu, aufteilbar auf bis zu 12 Raten, nach den Gebühren von PagSeguro, Mercado Pago und ähnlichen Anbietern.',
+        'Schick den Zahlungsbeleg zusammen mit dem bestätigten Datum sowie dem vollständigen Namen und der Ausweisnummer jeder teilnehmenden Person.',
+      ],
+    },
+    {
+      type: 'cancellation',
+      title: 'Stornierungsbedingungen',
+      intro: 'Eine Stornierung durch Reisende richtet sich nach der brasilianischen Verordnung Nr. 161/1985 der EMBRATUR:',
+      refunds: [['30+ Tage vorher', '90 % zurück'], ['21–29 Tage', '80 % zurück'], ['7–20 Tage', '50 % zurück'], ['Weniger als 7 Tage', 'keine Erstattung'], ['Während des Pakets', 'keine Erstattung']],
+      paragraphs: [
+        'Bevor du stornierst: Du kannst eine andere Person an deiner Stelle schicken oder den Betrag als Guthaben für ein anderes Datum behalten. Buchungsgebühr: 10 % als Strafe bei Stornierung nach der Bestätigung.',
+        'No-Show: Erscheinst du nicht, verfällt der gesamte Betrag. Mamut kann die Route anpassen, wenn das Wetter die Sicherheit gefährdet; die Tour findet auch bei Regen statt, außer bei höherer Gewalt.',
+      ],
+    },
+    {
+      type: 'payment',
+      title: 'Regelung zur Weitergabe von Touren',
+      paragraphs: [
+        'Wir arbeiten mit einem Netzwerk von Partnern. Wird eine Tour an einen anderen Veranstalter weitergegeben, können die Preise je nach Teilnehmerzahl, Art der Tour und nötiger Logistik variieren — sie können unserem Schalterpreis entsprechen oder höher bzw. niedriger ausfallen.',
+        'Mit deiner Buchung bei uns akzeptierst du, dass bei einer weitergegebenen Tour die Durchführung in der Verantwortung des benannten Veranstalters liegt. Unsere Rolle ist es, die Buchung zu vermitteln und darauf zu achten, dass das Vereinbarte geleistet wird; für Preisunterschiede, die sich nach der Buchung zeigen, haften wir nicht.',
+      ],
+    },
+  ],
 };
 
 /**
@@ -258,6 +287,22 @@ const SAFETY_COPY: Record<
     gear: [
       { img: '/img/adventures/comum/spot-x.jpg', alt: 'SPOT X-satellietcommunicator', legenda: 'SPOT X-satellietcommunicator, met S.O.S.-knop' },
       { img: '/img/adventures/comum/radio.jpg', alt: 'Draagbare portofoon', legenda: 'Draagbare portofoon' },
+    ],
+  },
+  de: {
+    title: 'Sicherheit',
+    lead: 'Das Mammut schützt die Herde. Immer.',
+    body: 'Lokale Trekking-Guides, ausgebildet in präklinischer Erster Hilfe (APH) und in den Mindestkompetenzen für Guides (CMC, nach der brasilianischen ABNT-Norm), einige mit WAFA-Zertifikat — frag uns nach der Verfügbarkeit. Alle haben ein Erste-Hilfe-Set für abgelegene Gebiete dabei. Die Protokolle beginnen schon vor der Tour, mit dem Aufnahmeformular, das jede teilnehmende Person ausfüllt.',
+    riskLabel: 'Risiken und Grenzen — bitte aufmerksam lesen',
+    disclaimer: [
+      'Dies ist keine 100 % sichere Aktivität. Trotz aller Vorsicht können Zwischenfälle und Unfälle passieren — wie bei praktisch jeder Abenteueraktivität in der Natur: giftige Tiere, Stürze mit Brüchen und Schürfwunden, Gewitter, Überschwemmungen. Auch technische Pannen beim Transport können die Route verzögern oder verändern.',
+      'Die Aktivität findet in der Wildnis statt, wo eine Rettung lange dauern kann: Bis Hilfe eintrifft, können mehr als 5 Stunden vergehen, und die Kosten der Rettung trägt die teilnehmende Person — sie sind nicht in der Buchung enthalten.',
+      'Befolge während der Aktivität die Anweisungen des Teams genau. Alle Pflichtgegenstände der Checkliste dabeizuhaben ist unerlässlich: Fehlt auch nur einer, ist eine Teilnahme nicht möglich.',
+    ],
+    footer: 'Unterwegs nutzen wir tragbare Funkgeräte und den bidirektionalen Satellitenkommunikator SPOT X, mit S.O.S.-Taste für Notfälle.',
+    gear: [
+      { img: '/img/adventures/comum/spot-x.jpg', alt: 'Satellitenkommunikator SPOT X', legenda: 'SPOT X per Satellit, mit S.O.S.-Taste' },
+      { img: '/img/adventures/comum/radio.jpg', alt: 'Tragbares Funkgerät', legenda: 'Tragbares Funkgerät' },
     ],
   },
 };

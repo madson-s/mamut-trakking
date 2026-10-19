@@ -410,4 +410,79 @@ export const AGUAS_CLARAS_1D_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wanderweg Águas Claras — 1 Tag',
+      description:
+        'Achtzehn Kilometer durch offenes Grasland zum Águas-Claras-Wasserfall, mit dem Morrão aus der Nähe und unterwegs den Quellen des Flusses Ribeirão.',
+      canonical: '/de/abenteuer/wanderweg-aguas-claras-1-tag',
+    },
+    hero: {
+      nivel: 'Leicht / Mittel',
+      origem: 'Start: Lençóis',
+      duracao: '1 Tag',
+      titulo: 'Wanderweg Águas Claras.',
+      lead: 'Achtzehn Kilometer offenes Land, mit Bergrücken bis zum Horizont und dem Morrão aus der Nähe.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Bis zum Wasserfall', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Wanderweg Águas Claras.',
+      paragrafos: [
+        'Eine der besonderen Touren durch die Chapada Diamantina und eine der wenigen durch offene Vegetation — hier campos gerais genannt, Land, das früher als Weide genutzt wurde. Auf der ganzen Route ist der Horizont voller Bergrücken und Hügel.',
+        'Dies ist ein Quellgebiet, und eine der Quellen, die hier entspringen, speist den Fluss Ribeirão — denselben, der durch Lençóis fließt. Du siehst auch den Morrão aus der Nähe, eines der wichtigsten Wahrzeichen des Vale do Capão; um ihn ganz zu sehen, musst du eine alternative Route gehen.',
+        'Das Gelände ist überwiegend flach, wodurch die 18 km weniger anstrengend sind, als die Zahl vermuten lässt. Der Rückweg hängt vom gewählten Format ab — hin und zurück oder eine vollständige Durchquerung —, aber die Strecke ist in beiden Fällen etwa gleich.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 8:00 Uhr über die BR-242 zum Fuß des Morro do Pai Inácio, wo der Weg beginnt.',
+        'Die Wanderung beginnt an einem alten Häuschen, das früher als Rastplatz für durchziehende Reisende diente. Von dort sind es 9 km, rund 2 Stunden, über überwiegend flaches Gelände bis zum Águas-Claras-Wasserfall — die ganze Zeit mit Bergrücken und Hügeln in allen Formen und Größen im Blick.',
+        'Am Wasserfall bereitet der Guide den Snack zu, während die Gruppe die Berge genießt und im klaren Wasser badet.',
+        'Der Rückweg hängt vom gewählten Format ab: auf demselben Weg zurück oder eine Durchquerung, die an einem anderen Punkt herauskommt. Beide Optionen sind rund 9 km lang.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 450', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 390', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (1,5 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Handtuch', 'Kamera']],
+        note: 'Offenes Land heißt 18 km direkte Sonne, ohne Schatten zum Unterstellen. Hut, Sonnencreme und Wasser sind hier am wichtigsten.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Hin- und Rücktransport', 'Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Picknick (optional)', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft'],
+      },
+      safetyFaq(
+        'de',
+        'Der Weg ist flach und hat keine technischen Abschnitte, aber es sind 18 km offenes Land fast ohne Schatten. Das eigentliche Risiko des Tages sind Sonnenstich und Austrocknung, nicht das Gelände — nimm die 1,5 L Wasser mit und rechne nicht mit Schutz unterwegs.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, das offene Land', 'zu durchqueren?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

@@ -106,15 +106,17 @@
 >   ou arquivo vem mais do WordPress (o termo de responsabilidade está em
 >   `public/docs/`).
 
-> **Francês (`/fr`) e holandês (`/nl`) são o quarto e o quinto idioma**
-> (`LOCALES` = pt, en, es, fr, nl): todo `Record<Locale, …>` exige os dois, e
-> cada página de pt/en/es tem as irmãs em `src/app/fr/` e `src/app/nl/` com slug
-> traduzido (segmentos `aventures` e `avonturen`; slugs em `routes.ts`,
-> `dicas-rotas.ts` e nos `*_HREF`). Preço em francês segue o formato brasileiro
-> e em holandês o `nl-NL` — os dois escrevem `R$ 1.500` (ver `INTL_LOCALE`).
-> Ninguém da equipe conduz em holandês: em `/nl` o sheet de reserva do Pati
-> abre em inglês (`PatiMobileBooking`), e a ficha do participante usa o
-> formulário próprio (só pt/en têm Tally). Exceções: o Torus só existe em pt, e
+> **Francês (`/fr`), holandês (`/nl`) e alemão (`/de`) são o quarto, o quinto
+> e o sexto idioma** (`LOCALES` = pt, en, es, fr, nl, de): todo
+> `Record<Locale, …>` exige os três, e cada página de pt/en/es tem as irmãs em
+> `src/app/fr/`, `src/app/nl/` e `src/app/de/` com slug traduzido (segmentos
+> `aventures`, `avonturen` e `abenteuer`; slugs em `routes.ts`,
+> `dicas-rotas.ts` e nos `*_HREF`). Preço em francês e alemão segue o formato
+> brasileiro e em holandês o `nl-NL` — todos escrevem `R$ 1.500` (ver
+> `INTL_LOCALE`; o `de-DE` daria `1.500 R$`). O alemão trata o leitor por
+> "du". Ninguém da equipe conduz em holandês nem em alemão: em `/nl` e `/de` o
+> sheet de reserva do Pati abre em inglês (`PatiMobileBooking`), e a ficha do
+> participante usa o formulário próprio (só pt/en têm Tally). Exceções: o Torus só existe em pt, e
 > as ferramentas internas (`/voucher`, `/reservas`) não têm idioma de site.
 
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e

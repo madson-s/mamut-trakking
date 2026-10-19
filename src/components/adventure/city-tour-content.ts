@@ -482,4 +482,92 @@ export const CITY_TOUR_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Stadtführung durch das historische Zentrum von Lençóis',
+      description:
+        'Eine Stunde zu Fuß durch das historische Zentrum von Lençóis: die Praça Horácio de Matos, der Mercado Cultural, die Kirche Senhor dos Passos und die Zeit der Diamanten.',
+      canonical: '/de/abenteuer/stadtfuehrung-lencois',
+    },
+    hero: {
+      nivel: 'Leicht',
+      origem: 'Start: Lençóis',
+      duracao: '1 Stunde',
+      titulo: 'Stadtführung Lençóis.',
+      lead: 'Eine Stunde zu Fuß, um zu verstehen, warum es dieses Städtchen gibt — und was die Diamanten hinterlassen haben.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Stopps auf der Route', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über die Stadtführung.',
+      paragrafos: [
+        'Lençóis ist nicht nur der Ausgangspunkt für die Wege: Es ist ein Städtchen, das aus dem Diamantenabbau entstand und im 19. Jahrhundert Teil des weltweiten Diamantenhandels wurde. Eine Stunde zu Fuß durch das historische Zentrum erklärt den Rest deiner Woche in der Chapada.',
+        'Die Route führt an der Praça Horácio de Matos vorbei, am ehemaligen französischen Konsulat, am Mercado Cultural, an der Kirche Senhor dos Passos, an der Rua das Pedras und am Hotel de Lençóis, wo du noch Werkzeuge siehst, die Minenarbeiter vor zwei Jahrhunderten benutzten.',
+        'Es ist nicht nur eine Architekturtour. Sie erzählt von der Zeit der Kolonels, vom Glauben der Minenarbeiter, vom Alltag der Menschen, die heute hier leben, und vom unbequemen Teil der Geschichte — der Mercado Cultural diente auch dem Verkauf versklavter Menschen.',
+        'Da sie am Büro von Mamut beginnt und kein Fahrzeug nötig ist, ist dies die am leichtesten einzuplanende Tour: Sie passt auf den Nachmittag deiner Ankunft oder den Vormittag vor deinem Transfer.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft die Tour ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Wir beginnen zu Fuß am Büro von Mamut und gehen ein paar Meter zur Praça Horácio de Matos: historische Gebäude wie das ehemalige französische Konsulat und das Geschäft Magnólia, die Zeit der Kolonels und die Rolle, die Lençóis im weltweiten Diamantenhandel spielte.',
+        'Der Mercado Cultural, ein historisches Gebäude, in dem früher Diamanten, Werkzeuge und versklavte Menschen verkauft wurden.',
+        'Über die historische Brücke mit ihrer charakteristischen Architektur zur Kirche Senhor dos Passos — dem Heiligen der alten Minenarbeiter geweiht.',
+        'Zurück zum Mercado Cultural und hinauf durch die Rua das Pedras, eine alte, mit Flusssteinen gepflasterte Straße, mit Geschichten über die Minenarbeiter und den Alltag von damals und heute. Weiter über die Rua da Baderna.',
+        'Die Kirche Rosário, die „offizielle“ Kirche des Städtchens, und am selben Platz das Memorial Afrânio Peixoto — eine Persönlichkeit aus Lençóis, ebenso bedeutend wie umstritten.',
+        'Die Rua da Boa Vista, mit der kolonialen Architektur der Häuser und dem Straßenplan des Städtchens, bis zum Hotel de Lençóis: einem alten Gebäude, in dem früher Diamanten geschliffen wurden, mit Werkzeugen von vor zwei Jahrhunderten.',
+        'Zurück ins Zentrum, vorbei an alten Gebäuden und der Associação Mineira, einem Verein, der die Erinnerung an die Minenarbeiter lebendig hält.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 75', nota: 'Mindestens 2 Personen. Nur deine Gruppe mit dem Guide.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 50', nota: 'Von 4 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Dies ist ein einstündiger Spaziergang durch das Städtchen, deshalb ist die Liste kurz. Mit * markierte Gegenstände sind Pflicht.',
+        requiredColumns: [
+          ['Bequeme Schuhe', 'Wasser', 'Lichtbildausweis'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente'],
+        ],
+        recommendedColumns: [['Regenschutz', 'Kamera'], ['Bargeld für den Mercado Cultural']],
+        note: 'Die Rua das Pedras ist mit Flusssteinen gepflastert und daher von Natur aus uneben — geschlossene, feste Schuhe helfen mehr, als du denkst.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zertifizierter lokaler Guide mit Erste-Hilfe-Ausbildung', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Snack oder Mahlzeit', 'Einkäufe auf dem Mercado Cultural', 'Eintritt in Museum oder Memorial', 'Medizinische Evakuierung', 'Unterkunft'],
+      },
+      {
+        type: 'seasons',
+        title: 'Wann du nach Lençóis fährst',
+        facts: [
+          ['Sommer und Herbst (Jan.–Mai)', 'Volle Wasserfälle; Jan.–März ist Hochsaison'],
+          ['Winter und Frühling (Juni–Dez.)', 'Festerer Boden, weniger Wasser in den Wasserfällen'],
+          ['Ende Juni bis Juli', 'Eine zweite Hochsaison'],
+        ],
+        notes: [
+          'Die eine beste Jahreszeit gibt es nicht — es hängt davon ab, was du sehen möchtest.',
+          'Die Stadtführung geht das ganze Jahr: Sie ist die einzige Aktivität, die nicht vom Wasserstand der Flüsse abhängt.',
+        ],
+      },
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, das Städtchen kennenzulernen,', 'das die Diamanten gebaut haben?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

@@ -6,7 +6,7 @@ import {
   type PrivacidadeBloco,
 } from './privacidade-content';
 
-const DATA_LOCALE: Record<Locale, string> = { pt: 'pt-BR', en: 'en-GB', es: 'es', fr: 'fr-FR', nl: 'nl-NL' };
+const DATA_LOCALE: Record<Locale, string> = { pt: 'pt-BR', en: 'en-GB', es: 'es', fr: 'fr-FR', nl: 'nl-NL', de: 'de-DE' };
 
 const linkClasses =
   'text-brand-strong underline underline-offset-2 transition-colors ease-brand hover:text-content';

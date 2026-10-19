@@ -343,4 +343,63 @@ export const CHROME: Record<Locale, ChromeContent> = {
       whatsapp: 'Praat via WhatsApp',
     },
   },
+  de: {
+    home: '/de',
+    whatsapp: 'Per WhatsApp schreiben',
+    nav: [
+      { label: 'Abenteuer', href: '/de/abenteuer', children: [{ label: 'Vale do Pati', href: '/de/abenteuer/pati-tal-3-tage' }] },
+      { label: 'Termine', mobileLabel: 'Kalender und Gruppen', href: '/de/kalender-und-gruppen' },
+      { label: 'Über uns', mobileLabel: 'Über uns', href: '/de/ueber-uns' },
+      { label: 'Manifest', href: '/de/manifest' },
+      { label: 'Tipps', mobileLabel: 'Reisetipps', href: '/de/tipps' },
+      { label: 'Kontakt', href: '/de/kontakt' },
+    ],
+    menu: {
+      open: 'Menü',
+      close: 'Menü schließen',
+      heading: 'Menü',
+      invite: 'Jeder Weg beginnt mit einem Gespräch.',
+      whatsapp: 'Per WhatsApp schreiben',
+      language: 'Sprache',
+    },
+    footer: {
+      tagline: ['Trekkingtouren mit Guides, die in der', 'Chapada Diamantina geboren und aufgewachsen sind.'],
+      place: 'LENÇÓIS · BAHIA · BRASILIEN',
+      columns: [
+        {
+          title: 'ABENTEUER',
+          onMobile: true,
+          links: [
+            { label: 'Alle Touren', href: '/de/abenteuer' },
+            { label: 'Nächste Termine', href: '/de/kalender-und-gruppen' },
+            { label: 'Vale do Pati', href: '/de/abenteuer/pati-tal-3-tage' },
+            { label: 'So bereitest du dich vor', href: '/de/tipps' },
+          ],
+        },
+        {
+          title: 'ÜBER UNS',
+          onMobile: true,
+          links: [
+            { label: 'Über uns', href: '/de/ueber-uns' },
+            { label: 'Manifest', href: '/de/manifest' },
+            { label: 'Lokale Guides', href: '/de/ueber-uns#guias' },
+            { label: 'Häufige Fragen', href: '/de/haeufige-fragen' },
+          ],
+        },
+        {
+          title: 'KONTAKT',
+          onMobile: false,
+          links: [
+            { label: 'WhatsApp', href: SITE.whatsappUrl },
+            { label: 'TripAdvisor', href: SITE.social.tripadvisor },
+            { label: 'Instagram', href: SITE.social.instagram },
+            { label: 'Facebook', href: SITE.social.facebook },
+          ],
+        },
+      ],
+      rights: 'Alle Rechte vorbehalten',
+      privacy: { label: 'Datenschutzerklärung', href: PRIVACIDADE_HREF.de },
+      whatsapp: 'Per WhatsApp schreiben',
+    },
+  },
 };

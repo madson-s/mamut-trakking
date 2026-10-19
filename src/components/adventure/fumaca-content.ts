@@ -429,4 +429,82 @@ export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Fumaça',
+      description:
+        'Der höchste freie Fall Brasiliens: 380 Meter Wasser, das zu Nebel wird, bevor es den Boden erreicht. Ein Weg von 12 km vom Vale do Capão bis zum Aussichtspunkt.',
+      canonical: '/de/abenteuer/wasserfall-fumaca',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Vale do Capão',
+      duracao: '1 Tag',
+      titulo: 'Wasserfall Fumaça.',
+      lead: 'Dreihundertachtzig Meter freier Fall — das Wasser wird zu Rauch, bevor es landet.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Fallhöhe', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Fumaça-Wasserfall.',
+      paragrafos: [
+        'Mit 380 Metern ist er der höchste freie Fall Brasiliens. Die Wassermenge ist im Verhältnis zu dieser Höhe klein: Auf halber Strecke packt der Wind den Wasservorhang und macht Nebel daraus — daher der Name, fumaça, Rauch. Einen großen Teil des Jahres erreicht das Wasser den Boden nie.',
+        'Du besuchst ihn von oben. Flach auf dem Rand des Aussichtspunkts liegend, öffnet sich der ganze Abgrund unter dir, mit dem Vale do Capão dahinter. Es gibt zwei Aussichtspunkte, beide mit rund 400 Metern Tiefe unter dir.',
+        'Der Weg beginnt mit dem anstrengendsten Abschnitt: rund eine Stunde Aufstieg über 2 km Fels bis zum Plateau. Danach wird das Gelände flach, und der Weg zum Rand ist leicht.',
+        'Auf unseren Touren ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 8:00 Uhr in Lençóis Richtung Vale do Capão — rund 60 km mit dem Auto, mit Abschnitten auf Schotterpiste.',
+        'Der Weg beginnt im Capão. Die erste Stunde ist der anstrengende Teil: 2 km Aufstieg über Fels, bei dem du schnell an Höhe gewinnst, bis du das Plateau erreichst.',
+        'Oben wird das Gelände offen und flach. Die Wanderung geht weiter über felsiges Grasland, zwischen Strohblumen und Sandsteinformationen, bis zum Rand des Canyons.',
+        'Ankunft an den Aussichtspunkten. Am Rand zu liegen und in die 380 Meter Tiefe zu schauen ist der Grund für die Wanderung — es bleibt Zeit, für das Picknick eine Weile zu bleiben.',
+        'Der Rückweg folgt derselben Route, am Ende mit dem Abstieg über den Fels. Am späten Nachmittag zurück in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 420', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 320', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      tabela: PRICE_TABLE_LABELS.de,
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (2 L pro Person)', 'Turnschuhe oder Wanderschuhe', 'Ersatzsocken', 'Leichte Kleidung', 'Kappe oder Hut'],
+          ['Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack für deine Sachen', 'Stirnlampe'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Badesachen', 'Kamera']],
+        note: 'Auf dem Plateau gibt es keinen Schatten, und die Sonne brennt den größten Teil der Tour direkt auf dich. Hut und Sonnencreme sind in der Praxis keine Option.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Transport (optional)', 'Picknick (optional)', 'Persönliche Ausrüstung', 'Eintrittspreis', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Der Aussichtspunkt ist ein ungesicherter Canyonrand mit rund 400 Metern Tiefe. Du näherst dich ihm liegend, einer nach dem anderen, immer zusammen mit dem Guide. Wer unter Höhenangst leidet, kann den Weg trotzdem gehen und das Tal genießen, ohne an den Rand zu gehen.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit zu sehen, wie', 'Wasser zu Rauch wird?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

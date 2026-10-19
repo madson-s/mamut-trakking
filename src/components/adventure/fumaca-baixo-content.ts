@@ -462,4 +462,88 @@ export const FUMACA_BAIXO_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Fumaça von unten — 3 Tage',
+      description:
+        'Drei Tage bis zum Fuß der 400 Meter hohen Felswand des Fumaça-Wasserfalls, über Palmital und Capivara, mit dem Rückweg durch das Vale do Capão.',
+      canonical: '/de/abenteuer/wasserfall-fumaca-von-unten',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Lençóis',
+      duracao: '3 Tage',
+      titulo: 'Fumaça von unten.',
+      lead: 'Steh am Fuß der 400 Meter hohen Wand — und schau am letzten Tag von oben auf genau dieselbe Stelle.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Höhe der Wand', 'Übernachtung', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über die Fumaça von unten.',
+      paragrafos: [
+        'Einer der traditionsreichsten und anspruchsvollsten Wege der Chapada Diamantina. Der Fumaça-Wasserfall, einer der höchsten Brasiliens, ist von unten ein Schauspiel, das nur denen vorbehalten ist, die seinen Fuß erreichen: eine 400 Meter hohe Wand, an der das Wasser nie gleichmäßig den Boden erreicht — der Effekt, dem der Wasserfall seinen Namen („Rauch“) verdankt.',
+        'Der Weg führt an alten Minenstätten und verlassenen Unterschlüpfen der Minenarbeiter vorbei, eine Route, die genauso viel Geschichte wie Landschaft ist. Unterwegs besuchen wir auch den Palmital- und den Capivara-Wasserfall.',
+        'Am dritten Tag steigen wir die Serra do Macaco hinauf zum Aussichtspunkt oberhalb der Fumaça — dieselbe Stelle, von der anderen Seite gesehen. Je nach Wetter und Jahreszeit kann der Weg deutlich gefährlicher werden; folge immer den Anweisungen des Guides.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.de,
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist flexibel und hat verschiedene Ein- und Ausstiegspunkte — frag uns nach den Möglichkeiten.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Palmital-Wasserfall + Capivara-Wasserfall',
+          corpo: 'Start in Lençóis gegen 7:00 Uhr, über den Weg des Ribeirão do Meio. Wir steigen rund 2 Stunden die Serra do Veneno hinauf zur Toca da Onça, wo wir eine Kleinigkeit essen, und gehen noch eine Stunde weiter bis zum Palmital-Wasserfall — einem Paradies mitten in den Bergen. Nach einer weiteren Stunde erreichen wir den Capivara-Wasserfall, wo wir die erste Nacht verbringen. Steht das Lager, bereitet der Guide das Abendessen zu, abgestimmt auf die Ernährungswünsche der Gruppe.',
+          distancia: '15 km',
+          esforco: 'Schwer',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Fumaça von unten',
+          corpo: 'Um 8:00 Uhr, nach dem Frühstück, brechen wir mit der ganzen Ausrüstung zum Fuß der Serra do Macaco auf — dem nächsten Lagerplatz. Es sind 2 Stunden am Fluss Capivara entlang. Wir lassen das Gepäck an der Stelle, die der Guide zeigt, und gehen noch 2 Stunden weiter bis zum Fuß des Fumaça-Wasserfalls. Der Weg am Bach der Fumaça ist gerade deshalb so besonders, weil er unberührt und geschützt ist: In den Ästen, auf den Felsen und überall um dich herum siehst du unzählige Pflanzen- und Tierarten. Zurück im Lager gibt es das letzte Abendessen der Reise.',
+          distancia: '12 km',
+          esforco: 'Mittel',
+        },
+        {
+          rotulo: 'Tag 3',
+          titulo: 'Fumaça von oben + Vale do Capão',
+          corpo: 'Aufbruch zur gewohnten Zeit, nach dem Frühstück. Wir steigen die Serra do Macaco hinauf Richtung Aussichtspunkt oberhalb des Fumaça-Wasserfalls: rund 3 Stunden bergauf. Nach einem Snack und Zeit, den Wasserfall von der anderen Seite zu bestaunen, nehmen wir den traditionellen Weg zum Dorf Caeté-Açu im Vale do Capão, wo das Auto für die Rückfahrt nach Lençóis bereitsteht.',
+          distancia: '—',
+          esforco: 'Schwer',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 1.700', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 1.450', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      wildTrekChecklist('de', `Drei Tage ohne Infrastruktur in der Nähe und zwei Wechsel des Lagerplatzes. ${WILD_TREK_PORTER.de}`),
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Bergführer mit Erste-Hilfe-Ausbildung', 'Hin- und Rücktransport, mit Rückweg über das Vale do Capão', 'Campingausrüstung: Zelt, Schlafsack und Isomatte', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Wanderung'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+      },
+      safetyFaq(
+        'de',
+        'Je nach Wetter und Jahreszeit kann der Weg deutlich gefährlicher werden — die Anweisungen des Guides zählen hier mehr als auf jeder anderen unserer Routen. Es sind drei Tage an zwei verschiedenen Lagerplätzen ohne Infrastruktur in der Nähe: Stirnlampe und Regenschutz sind Pflicht, keine Empfehlung.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, die Fumaça', 'von zwei Seiten zu sehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

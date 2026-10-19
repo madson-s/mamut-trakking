@@ -551,4 +551,107 @@ export const PALMITAL_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Palmital — 2 Tage',
+      description:
+        'Zwei Tage auf den rauen Wegen der alten Diamantminen, mit einer Nacht im Zelt am Fluss. Palmital-Wasserfall und Capivara-Wasserfall.',
+      canonical: '/de/abenteuer/wasserfall-palmital',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Lençóis',
+      duracao: '2 Tage',
+      titulo: 'Wasserfall Palmital.',
+      lead: 'Zwei Tage auf den alten Routen der Goldsucher, mit einer Nacht im Zelt am Fluss.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Dauer', 'Wasserfälle', 'Übernachtung', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Palmital-Wasserfall.',
+      paragrafos: [
+        'Eine der traditionsreichsten Minenrouten der Chapada Diamantina, vorbei an zwei Wasserfällen: Palmital und Capivara. Die Wege sind alt und rau, mitten im Nationalpark, mit unebenen und rutschigen Abschnitten.',
+        'Die Tour erzählt vom Alltag und den Techniken des früheren Diamantenabbaus in der Region — einschließlich einer Nacht in den alten „Tocas“, den Unterschlüpfen der Minenarbeiter. Es ist eine Reise, die Natur und Kultur zu gleichen Teilen erleben lässt.',
+        'Die richtige Wahl für alle, die nur wenige Tage in der Chapada haben und trotzdem eine wilde Trekkingtour wollen, oder die Trubel meiden möchten: Diese Route ist wirklich ruhig.',
+      ],
+    },
+    estadia: WILD_TREK_ESTADIA.de,
+    itinerario: {
+      titulo: 'Tag für Tag.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält. Diese Tour ist flexibel und hat verschiedene Ein- und Ausstiegspunkte — frag uns nach den Möglichkeiten.',
+      corpo: [],
+      dias: [
+        {
+          rotulo: 'Tag 1',
+          titulo: 'Serra do Veneno + Toca da Onça + Palmital-Wasserfall',
+          corpo: 'Start ab 6:00 Uhr im Zentrum von Lençóis, mit dem ganzen Gepäck auf dem Rücken, Richtung Weg zum Ribeirão do Meio. Vierzig Minuten über überwiegend flaches Gelände bis zum Fluss Ribeirão, den wir durchqueren, um mit dem Aufstieg der Serra do Veneno zu beginnen — einer alten Minenstätte, rund 2 Stunden kräftiger Anstieg. Erster Halt ist die Toca da Onça, ein Aussichtspunkt über den Capivari-Wasserfall und den Zusammenfluss der Flüsse Capivara und Capivari. Noch eine Stunde bis zum Basislager am Palmital-Wasserfall, und der Rest des Tages gehört den Wasserfällen. Abendessen gegen 19:00 Uhr.',
+          distancia: '9 km',
+          esforco: 'Mittel / Schwer',
+        },
+        {
+          rotulo: 'Tag 2',
+          titulo: 'Capivara-Wasserfall + Ribeirão do Meio',
+          corpo: 'Nach dem Frühstück, das der Guide zubereitet, gehen wir 30 Minuten den Hauptfluss hinauf — nur mit Tagesrucksack — zum Capivara-Wasserfall, wo wir den Rest des Vormittags bleiben. Nach dem Picknick-Mittagessen packen wir zusammen und gehen auf derselben Route zurück, wieder vorbei an der Toca da Onça und der Serra do Veneno. Beim Abstieg halten wir am Ribeirão do Meio mit seiner natürlichen, glatt geschliffenen Felsrutsche. Noch 40 Minuten, und gegen 17:00 Uhr sind wir zurück im Zentrum von Lençóis.',
+          distancia: '13 km',
+          esforco: 'Leicht / Mittel',
+        },
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 1.600', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 1.350', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      wildTrekChecklist('de', WILD_TREK_PORTER.de),
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Bergführer mit Erste-Hilfe-Ausbildung', 'Campingausrüstung: Zelt, Schlafsack und Isomatte', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Wanderung'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Abendessen am 2. Tag', 'Transfer ab Salvador (optional)', 'Persönlicher Träger oder Maultiere (optional)', 'Zusätzliche Getränke', 'Persönliche Ausrüstung', 'Medizinische Evakuierung', 'Unterkunft und Mahlzeiten vor oder nach der Tour', 'Trinkgelder für zusätzliche Leistungen'],
+      },
+      safetyFaq(
+        'de',
+        'Die Wege sind rau, mit unebenen und rutschigen Abschnitten — diese Route verlangt eine ordentliche Kondition. Im Zelt im Nationalpark zu schlafen heißt, dass es keine Infrastruktur in der Nähe gibt: Deshalb sind Stirnlampe und Regenschutz Pflicht und nicht nur empfohlen.',
+      ),
+      {
+        type: 'technical',
+        title: 'Technische Daten und Voraussetzungen',
+        facts: [
+          ['Kategorie', 'Trekking mit einer Nacht im Zelt'],
+          ['Strecke zu Fuß', '22 km'],
+          ['Mit dem Auto', '1 km'],
+          ['Höhenmeter', '460 m'],
+          ['Höchster Punkt', '850 m'],
+          ['Sehenswürdigkeiten', 'Palmital, Capivara und Toca da Onça'],
+          ['Badestellen', '2'],
+          ['Start / Rückkehr', '6:00 / 16:00–17:00 Uhr'],
+        ],
+        requirements: [
+          'Du musst über 18 sein. Minderjährige nur in Begleitung ihrer gesetzlichen Vertretung.',
+          'Kondition für steile Auf- und Abstiege auf rauem Gelände, das Durchqueren von Flüssen und Bächen, Kletterpassagen und lange Strecken.',
+          'Teile uns Ernährungswünsche bei der Buchung mit.',
+          'Preise können sich ändern — bereits bestätigte Buchungen werden nicht angepasst.',
+        ],
+        documents: [
+          ['Haftungserklärung (PDF)', '/docs/termo-de-responsabilidade.pdf'],
+          ['Einstufung der Schwierigkeitsgrade', '/de/schwierigkeitsgrade'],
+        ],
+        labels: { requirements: 'Voraussetzungen', documents: 'Dokumente' },
+      },
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    relacionados: { titulo: 'Weitere Abenteuer.', ids: ['trilha-aguas-claras-2-dias', 'city-tour-em-lencois', 'fazenda-pratinha-gruta-azul'] },
+    cta: {
+      titulo: ['Bereit, am Fluss', 'zu schlafen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

@@ -434,4 +434,83 @@ export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {
       botao: 'Praat met Mamut',
     },
   },
+  de: {
+    meta: {
+      title: 'Wasserfall Fumacinha',
+      description:
+        'Achtzehn Kilometer flussaufwärts durch das Flussbett, zwischen 100 Meter hohen Canyonwänden, in Ibicoara. Die technischste Tagestour der Chapada Diamantina.',
+      canonical: '/de/abenteuer/wasserfall-fumacinha',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Ibicoara',
+      duracao: '1 Tag',
+      titulo: 'Wasserfall Fumacinha.',
+      lead: 'Achtzehn Kilometer im Fluss, zwischen hundert Meter hohen Wänden, die immer näher zusammenrücken.',
+      apartirDe: 'Ab',
+      porPessoa: '/ Person',
+      reservar: 'Per WhatsApp buchen',
+    },
+    stats: ['Strecke zu Fuß', 'Mit dem Auto', 'Canyonwände', 'Dauer', 'Start (Lençóis)', 'Schwierigkeit'],
+    sobre: {
+      titulo: 'Über den Fumacinha-Wasserfall.',
+      paragrafos: [
+        'Die Fumacinha ist die technischste Tagestour, die wir anbieten. Einen großen Teil der 18 Kilometer gehst du im Flussbett, springst zwischen nassen Felsen, mit Abschnitten, für die du Sicherheitsausrüstung brauchst.',
+        'Die Umgebung macht es wett: Der Canyon wird immer enger, und die Wände ragen auf beiden Seiten 100 Meter hoch. Unterwegs kommt die Gruppe am Encontro-Wasserfall vorbei, wo zwei Wasserläufe zusammenfließen.',
+        'Die Schwierigkeit liegt nicht nur in der Strecke — sondern im Gelände. Dieser Weg ist für Menschen, die schon gewandert sind und sich stundenlang auf unebenem, rutschigem Gelände wohlfühlen.',
+        'Auf unseren Touren ist das Picknick das Mittagessen: ausgewogene Mahlzeiten mit Vitaminen, Eiweiß, Ballaststoffen und Kohlenhydraten.',
+      ],
+    },
+    itinerario: {
+      titulo: 'So läuft der Tag ab.',
+      aviso: 'Die Route kann sich wegen des Wetters oder aus anderen Gründen höherer Gewalt ändern, die das Team für relevant hält.',
+      corpo: [
+        'Start um 5:00 Uhr in Lençóis, mit 30 Minuten Puffer. Wir starten so früh, weil sowohl der Tag als auch die Fahrt lang sind: rund 260 km und 3 Stunden mit dem Auto bis Ibicoara.',
+        'Von Ibicoara noch eine Stunde bis zum Beginn des Weges, jetzt über Schotterpiste.',
+        'Schon bald steigt die Wanderung ins Flussbett hinab. Die Gruppe zieht flussaufwärts und springt über die Felsen, während sich der Canyon langsam schließt und die Wände höher werden.',
+        'Vorbei am Encontro-Wasserfall, wo zwei Wasserläufe zusammenfließen — ein guter Halt, um vor dem letzten Abschnitt durchzuatmen.',
+        'An den exponiertesten Stellen nutzen wir Sicherheitsausrüstung, um sie zu überqueren, einer nach dem anderen, mit dem Guide vor Ort.',
+        'Ankunft an der Fumacinha, baden und picknicken. Der Rückweg folgt derselben Route, und du bist nach Einbruch der Dunkelheit zurück in Lençóis.',
+      ],
+    },
+    precos: {
+      titulo: 'Wähle das Format, das zu deiner Gruppe passt.',
+      formatos: [
+        { titulo: 'Privatpaket', preco: 'R$ 715', nota: 'Mindestens 2 Personen. Nur deine Gruppe auf dem Weg.' },
+        { titulo: 'In der Gruppe', preco: 'R$ 550', nota: 'Von 2 bis 7 Personen. Du schließt dich einer offenen Gruppe an.' },
+      ],
+      tabela: PRICE_TABLE_LABELS.de,
+      nota: 'Preise bei Zahlung in bar, per Überweisung oder mit Boleto. Internationale Überweisung oder größere Gruppe: sprich uns an.',
+    },
+    faqTitulo: 'Alles, was du wissen musst.',
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Checkliste — was du mitnimmst',
+        intro: 'Mit * markierte Gegenstände sind Pflicht. Fehlt einer davon, gefährdet das die Sicherheit der Gruppe und eine Teilnahme ist nicht möglich.',
+        requiredColumns: [
+          ['Wasser (2 L pro Person)', 'Wanderschuhe mit gutem Grip', 'Ersatzsocken', 'Leichte Kleidung', 'Badesachen'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Stirnlampe'],
+        ],
+        recommendedColumns: [['Regenschutz (für dich und den Rucksack)', 'Wanderstock'], ['Snack oder Obst', 'Handtuch', 'Trockene Kleidung für die Rückfahrt']],
+        note: 'Die Schuhe sind hier das Wichtigste: Fast den ganzen Weg gehst du über nassen Fels. Eine Stirnlampe ist Pflicht, weil du vor Sonnenaufgang startest und vielleicht im Dunkeln ankommst.',
+      },
+      {
+        type: 'included',
+        title: 'Was inklusive ist / was nicht',
+        included: ['Zweisprachiger Bergführer mit Erste-Hilfe-Ausbildung', 'Sicherheitsausrüstung für die technischen Abschnitte', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set'],
+        excluded: ['Alles, was nicht aufgeführt ist', 'Transport (optional)', 'Picknick (optional)', 'Persönliche Ausrüstung', 'Eintrittspreis', 'Medizinische Evakuierung', 'Unterkunft vor oder nach der Tour'],
+      },
+      safetyFaq(
+        'de',
+        'Wir raten davon ab, die Fumacinha an einem Tag hin und zurück von Lençóis aus zu machen: Das sind auf beiden Seiten 3 Stunden Fahrt, zusätzlich zu einem vollen Tag auf technischem Weg. Wenn möglich, übernachte in der Nacht davor in Ibicoara. Die exponierten Abschnitte des Canyons passierst du mit Sicherheitsausrüstung, eine Person nach der anderen.',
+      ),
+      ...DAY_TOUR_LEGAL.de,
+    ],
+    cta: {
+      titulo: ['Bereit, in den Canyon', 'hineinzugehen?'],
+      corpo: 'Sag uns, mit wie vielen Personen du kommst und welche Daten du im Blick hast, dann stellen wir die Tour gemeinsam mit dir zusammen.',
+      botao: 'Sprich mit Mamut',
+    },
+  },
 };

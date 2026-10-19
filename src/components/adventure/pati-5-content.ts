@@ -418,6 +418,77 @@ const VARIANTS: Record<Locale, PatiVariant> = {
     },
     safetyWarning: 'Deze route vraagt een uitstekende conditie en het vermogen om meerdere dagen achter elkaar te lopen in zware omstandigheden — zon, regen, glad en oneffen terrein. Dag 3 heeft 250 m klimmen tot boven de 1.200 m; dag 5 klimt 2,5 km over de Ladeira do Império en daalt nog eens 9 km af over ruig terrein. Twijfel je over je conditie, praat dan met ons voordat je boekt.',
   },
+  de: {
+    meta: {
+      title: 'Durchquerung Vale do Pati, 5 Tage',
+      description:
+        'Eine geführte Durchquerung von 70 km, mit Einstieg in Guiné und Ausstieg in Andaraí, vorbei am Cachoeirão, dem Morro do Castelo, dem Poço da Árvore und der Ladeira do Império.',
+      canonical: '/de/abenteuer/pati-tal-5-tage',
+      ogDescription: 'Die Durchquerung von Anfang bis Ende: rein bei Guiné, raus bei Andaraí.',
+    },
+    hero: {
+      nivel: 'Mittel / Schwer',
+      origem: 'Start: Lençóis',
+      titulo: { antes: 'Durchquerung Vale do Pati,', destaque: '5 Tage.' },
+      lead: { antes: 'Rein bei Guiné, raus bei Andaraí. Die Durchquerung', destaque: 'von Anfang bis Ende.' },
+      apoio: 'Siebzig Kilometer zu den bekanntesten Orten des Tals, mit dem Ausstieg auf der anderen Seite der Bergkette.',
+      saida: 'Start in Lençóis um 7:30 Uhr',
+    },
+    story: {
+      titulo: ['Die vollständige Durchquerung,', 'von einer Seite des Tals zur anderen.'],
+      paragrafos: [
+        'Das Vale do Pati liegt auf rund 1.000 Metern Höhe, mit einer reichen Abfolge von Resten des Atlantischen Regenwalds, Felsfeldern und offenem Grasland. Vor rund 200 Jahren lebten hier Kleinbauern; heute stehen noch 14 Häuser, die als Unterkunft für Besucher dienen.',
+        'Diese Route führt zu den bekanntesten Orten der Region — dem Morro do Castelo, dem Cachoeirão und dem Aussichtspunkt Rampa — und verlässt das Tal auf der anderen Seite, bei Andaraí, über den Poço da Árvore, das Pati de Baixo und die Ladeira do Império. Sie verlangt eine ausgezeichnete Kondition und die Fähigkeit, mehrere Tage unter harten Bedingungen zu gehen: Sonne, Regen, rutschiges und unebenes Gelände.',
+      ],
+      outrasVersoes: 'Das Tal gibt es auch in 3 und 4 Tagen.',
+      relacionados: [
+        { titulo: 'Vale do Pati · 3 Tage', nivel: 'Mittel', href: '/de/abenteuer/pati-tal-3-tage' },
+        { titulo: 'Vale do Pati · 4 Tage', nivel: 'Mittel / Fortgeschritten', href: '/de/abenteuer/pati-tal-4-tage' },
+      ],
+    },
+    dias: [
+      {
+        day: 'Tag 1', level: 'Mittel', lead: '7:30 Uhr Start',
+        body: ' in Lençóis Richtung Dorf Guiné, wo der Weg beginnt. Rund 3 Stunden zu Fuß (1 Stunde steiler Anstieg + 2 Stunden über flaches Gelände) zum traditionellen Aussichtspunkt über das Vale do Pati. Nach einem Snack noch 1,5 Stunden bis Igrejinha, wo Sr. João und seine Familie die Gruppe in der Herberge empfangen.',
+        note: 'Der steile Anstieg ist das Erste, was das Pati von dir verlangt.',
+      },
+      {
+        day: 'Tag 2', level: 'Mittel / Schwer', lead: '8:00 Uhr Start',
+        body: ' und Abschied von der Unterkunft. Rund 3 Stunden zum Aussichtspunkt Cachoeirão, 280 m hoch — in der Regenzeit siehst du rund 16 Wasserfälle rund ums Tal. Nach dem Snack, den der Guide zubereitet, auf demselben Weg zurück nach Igrejinha, um unsere Sachen zu holen, und weiter zu einem Haus weiter unten im Tal.',
+        note: 'Der längste Tag: 22 km.',
+      },
+      {
+        day: 'Tag 3', level: 'Schwer', lead: '8:00 Uhr Start',
+        body: ' nach einem sehr kräftigen Frühstück, Richtung Morro do Castelo. Dies ist körperlich der anstrengendste Tag: 250 m Anstieg in 40 bis 60 Minuten auf über 1.200 m Höhe. Auf dem Gipfel zwei Aussichtspunkte und der Eingang zur Gruta da Lapinha. Der Rückweg führt über eine andere Route, vorbei am Bananeiras-Wasserfall, mit Ankunft an der Unterkunft gegen 18:00 Uhr.',
+        note: 'Eine der seltensten Höhlen der Welt über 1.000 m.',
+      },
+      {
+        day: 'Tag 4', level: 'Leicht', lead: '8:00 Uhr Start',
+        body: ' — der ruhigste Tag der Route. Nach dem Frühstück gehen wir rund 2 Stunden weiter ins Tal hinein, zum Poço da Árvore. Wir bleiben dort eine ganze Weile und gehen dann noch 2 Stunden zum Haus unserer letzten Gastgeber im Tal.',
+        note: 'Nach drei harten Tagen bewusst ein leichter.',
+      },
+      {
+        day: 'Tag 5', level: 'Schwer', lead: '6:00 Uhr Frühstück',
+        body: ' — wir stehen früher auf, um die brennende Sonne auf dem schwierigsten Abschnitt zu vermeiden. Es sind 2,5 Stunden Aufstieg (2,5 km) über die Ladeira do Império, den alten Weg, über den der Kaffee aus dem Vale do Pati gebracht wurde. Auf dem Plateau folgen noch 9 km Abstieg über raues Gelände entlang der Serra do Ramalho bis zum Städtchen Andaraí, wo der Transport bereitsteht.',
+        alert: 'Die Ladeira do Império ist der anstrengendste Abschnitt der Route — deshalb das Frühstück um 6:00 Uhr.',
+      },
+    ],
+    landmarks: [
+      { titulo: 'Aussichtspunkt Rampa', apoio: 'Der traditionellste des Tals' },
+      { titulo: 'Herberge Igrejinha', apoio: 'Das Haus von Sr. João und seiner Familie' },
+      { titulo: 'Aussichtspunkt Cachoeirão', apoio: '280 m — bis zu 16 Wasserfälle bei Regen' },
+      { titulo: 'Morro do Castelo und Gruta da Lapinha', apoio: 'Über 1.200 m Höhe' },
+      { titulo: 'Poço da Árvore', apoio: 'Der leichte Tag der Durchquerung' },
+      { titulo: 'Ladeira do Império', apoio: 'Der alte Kaffeeweg' },
+      { titulo: 'Serra do Ramalho nach Andaraí', apoio: '9 km Abstieg auf dem Weg hinaus' },
+    ],
+    included: {
+      title: 'Was inklusive ist / was nicht',
+      included: ['Zertifizierter Bergführer mit Erste-Hilfe-Ausbildung', 'Übernachtung in den Häusern der Bewohner des Pati (4 Nächte)', 'Hin- und Rücktransport, mit Ausstieg über Andaraí', 'Alle Mahlzeiten während der Tour', 'SPOT-X-Satellitentracker', 'Abenteuerversicherung', 'Erste-Hilfe-Set', 'Warteraum, sichere Gepäckaufbewahrung und Dusche vor/nach der Wanderung'],
+      excluded: ['Alles, was nicht aufgeführt ist', 'Frühstück am 1. Tag', 'Unterkunft vor oder nach der Tour', 'Persönliche Ausrüstung', 'Medizinische Evakuierung'],
+    },
+    safetyWarning: 'Diese Route verlangt eine ausgezeichnete Kondition und die Fähigkeit, mehrere Tage hintereinander unter harten Bedingungen zu gehen — Sonne, Regen, rutschiges und unebenes Gelände. Tag 3 hat 250 m Anstieg auf über 1.200 m; Tag 5 steigt 2,5 km über die Ladeira do Império hinauf und dann noch 9 km über raues Gelände hinab. Wenn du an deiner Kondition zweifelst, sprich mit uns, bevor du buchst.',
+  },
 };
 
 export const PATI5_CONTENT = {
@@ -426,6 +497,7 @@ export const PATI5_CONTENT = {
   es: buildPatiContent('es', VARIANTS.es),
   fr: buildPatiContent('fr', VARIANTS.fr),
   nl: buildPatiContent('nl', VARIANTS.nl),
+  de: buildPatiContent('de', VARIANTS.de),
 };
 
 export const PATI5_FAQS = {
@@ -434,4 +506,5 @@ export const PATI5_FAQS = {
   es: buildPatiFaqs('es', VARIANTS.es),
   fr: buildPatiFaqs('fr', VARIANTS.fr),
   nl: buildPatiFaqs('nl', VARIANTS.nl),
+  de: buildPatiFaqs('de', VARIANTS.de),
 };

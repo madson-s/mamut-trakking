@@ -63,6 +63,8 @@ export type HomeContent = {
     titulo: { antes: string; destaque: string };
     todos: string;
     todosHref: string;
+    /** Fecho da seção: "Do [caminhante] de fim de semana ao [aventureiro de longa data] — …". */
+    ritmo: { antes: string; caminhante: string; meio: string; aventureiro: string; depois: string };
     arraste: string;
     explorar: string;
     carrossel: { rotulo: string; anterior: string; proximo: string; pagina: string; progresso: string };
@@ -101,6 +103,7 @@ const destinos = (locale: Locale) => {
     es: ['valle-del-pati-3-dias', 'cascada-del-palmital', 'cascada-del-mosquito-morro-do-pai-inacio'],
     fr: ['vallee-du-pati-3-jours', 'cascade-du-palmital', 'cascade-du-mosquito-morro-do-pai-inacio'],
     nl: ['pati-vallei-3-dagen', 'waterval-palmital', 'waterval-mosquito-morro-do-pai-inacio'],
+    de: ['pati-tal-3-tage', 'wasserfall-palmital', 'wasserfall-mosquito-morro-do-pai-inacio'],
   }[locale];
   return slug.map((s) => `/${locale}/${seg}/${s}`);
 };
@@ -110,9 +113,10 @@ const EN_DESTINOS = destinos('en');
 const ES_DESTINOS = destinos('es');
 const FR_DESTINOS = destinos('fr');
 const NL_DESTINOS = destinos('nl');
+const DE_DESTINOS = destinos('de');
 
-/** hreflang das cinco homes. */
-export const HOME_HREFLANG: Record<Locale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr', nl: '/nl' };
+/** hreflang das seis homes. */
+export const HOME_HREFLANG: Record<Locale, string> = { pt: '/pt', en: '/en', es: '/es', fr: '/fr', nl: '/nl', de: '/de' };
 
 export const HOME_CONTENT: Record<Locale, HomeContent> = {
   pt: {
@@ -190,6 +194,7 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
       titulo: { antes: 'Roteiros que a', destaque: 'Chapada pede.' },
       todos: 'Todos os roteiros',
       todosHref: '/pt/aventuras',
+      ritmo: { antes: 'Do', caminhante: 'caminhante', meio: 'de fim de semana ao', aventureiro: 'aventureiro de longa data', depois: '— aqui tem o ritmo certo para você.' },
       arraste: 'Arraste para explorar os próximos roteiros →',
       explorar: 'Explorar a trilha',
       carrossel: {
@@ -314,6 +319,7 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
       titulo: { antes: 'The trips the', destaque: 'Chapada calls for.' },
       todos: 'All trips',
       todosHref: '/en/adventures',
+      ritmo: { antes: 'From the weekend', caminhante: 'hiker', meio: 'to the', aventureiro: 'seasoned adventurer', depois: '— there’s the right pace here for you.' },
       arraste: 'Drag to explore the next trips →',
       explorar: 'Explore the trail',
       carrossel: {
@@ -439,6 +445,7 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
       titulo: { antes: 'Recorridos que la', destaque: 'Chapada pide.' },
       todos: 'Todos los recorridos',
       todosHref: '/es/aventuras',
+      ritmo: { antes: 'Del', caminhante: 'caminante', meio: 'de fin de semana al', aventureiro: 'aventurero de toda la vida', depois: '— acá está el ritmo justo para vos.' },
       arraste: 'Arrastrá para explorar los próximos recorridos →',
       explorar: 'Explorar el sendero',
       carrossel: {
@@ -564,6 +571,7 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
       titulo: { antes: 'Les itinéraires que la', destaque: 'Chapada appelle.' },
       todos: 'Tous les itinéraires',
       todosHref: '/fr/aventures',
+      ritmo: { antes: 'Du', caminhante: 'randonneur', meio: 'du dimanche au', aventureiro: 'baroudeur de longue date', depois: '— il y a ici le bon rythme pour vous.' },
       arraste: 'Faites glisser pour voir les itinéraires suivants →',
       explorar: 'Découvrir le sentier',
       carrossel: {
@@ -688,6 +696,7 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
       titulo: { antes: 'De tochten waar de', destaque: 'Chapada om vraagt.' },
       todos: 'Alle tochten',
       todosHref: '/nl/avonturen',
+      ritmo: { antes: 'Van de', caminhante: 'weekendwandelaar', meio: 'tot de', aventureiro: 'doorgewinterde avonturier', depois: '— hier vind je het juiste tempo.' },
       arraste: 'Sleep om de volgende tochten te bekijken →',
       explorar: 'Ontdek het pad',
       carrossel: {
@@ -735,6 +744,131 @@ export const HOME_CONTENT: Record<Locale, HomeContent> = {
         'Praat met ons via WhatsApp. Ontdek welke tocht in de Chapada Diamantina het best bij je past, en hoe je je erop voorbereidt.',
       cta: 'Sluit je aan bij de kudde',
       ctaHref: '/nl/contact',
+    },
+  },
+  de: {
+    meta: {
+      title: 'Mamut Trekking · Chapada Diamantina',
+      description:
+        'Spezialisierter Veranstalter für Trekkingtouren und Abenteuer in der Chapada Diamantina, in Bahia (Brasilien).',
+    },
+    hero: {
+      eyebrow: 'Lokale Guides · Chapada Diamantina',
+      titulo: { mamut: 'MAMUT', guia: 'FÜHRT.', linha2: 'DU MUSST NUR', linha3: 'GENIESSEN.' },
+      lead: [
+        'Trekkingtouren mit Guides, die in der Chapada Diamantina geboren und aufgewachsen sind.',
+        'Jeder Weg ist eine Reise zurück zu dir selbst.',
+      ],
+      ctaTrilhas: 'Wähle deinen Weg',
+      ctaTrilhasHref: '/de/abenteuer',
+      ctaGuia: 'Sprich mit einem Guide',
+      selo: { antes: 'Eine', jornada: 'Reise', meio: 'zurück zum', primitivas: 'Ursprünglichen' },
+      destinos: [
+        { titulo: 'Vale do Pati', subtitulo: '3 Tage · Durchquerung', href: DE_DESTINOS[0] },
+        { titulo: 'Wasserfall Palmital', subtitulo: '2 Tage · Trekking', href: DE_DESTINOS[1] },
+        { titulo: 'Pai Inácio', subtitulo: '1 Tag · Trekking', href: DE_DESTINOS[2] },
+      ],
+      verDestino: 'Ansehen',
+    },
+    stats: [
+      { value: '+500', label: 'begleitete Abenteurer' },
+      { value: 'Guides', label: 'als freiwillige Feuerwehrleute ausgebildet, hier geboren' },
+      { value: 'Cadastur', label: 'zertifizierter Veranstalter' },
+      { value: 'TripAdvisor', label: 'Certificate of Excellence' },
+      { value: 'Buchung', label: 'online garantiert' },
+    ],
+    manifesto: {
+      eyebrow: 'Inspiriert von unseren nomadischen Vorfahren',
+      titulo: { antes: 'Wir sind die', meio: 'Herde,', depois: 'die deinen Stamm führt.' },
+      corpo:
+        'Durch die Weite der Urkontinente zogen Mammuts in großen Herden — und hinterließen für immer ihre Spuren.',
+      memoria: 'Aus dieser Erinnerung sind wir entstanden.',
+      cta: 'Lies unser Manifest',
+      ctaHref: '/de/manifest',
+    },
+    paths: {
+      trilhas: {
+        'vale-do-pati-3': {
+          duration: '3 Tage', level: 'Mittel', title: 'Vale do Pati (03 Tage)',
+          description: 'Drei Tage mittendrin zwischen Canyons, Flüssen und Gemeinschaften im Herzen des Vale do Pati.',
+        },
+        palmital: {
+          duration: '2 Tage', level: 'Mittel', title: 'Wasserfall Palmital (02 Tage)',
+          description: 'Eine Durchquerung über Hochebenen und entlang von Felswänden bis zum Wasser des Palmital-Wasserfalls.',
+        },
+        'vale-do-pati-5': {
+          duration: '5 Tage', level: 'Mittel', title: 'Vale do Pati (05 Tage)',
+          description: 'Im Herzen des Nationalparks Chapada Diamantina, umgeben von Bergen, Wasserfällen und Höhlen.',
+        },
+        'aguas-claras': {
+          duration: '1 Tag', level: 'Leicht', title: 'Wanderweg Águas Claras',
+          description: 'Ein Tag zwischen Felsfeldern, Naturbecken und den großen Felswänden der Chapada Diamantina.',
+        },
+        'mosquito-pai-inacio': {
+          duration: '1 Tag', level: 'Mittel', title: 'Mosquito + Pai Inácio',
+          description: 'Der Mosquito-Wasserfall und der Sonnenuntergang auf dem Morro do Pai Inácio, an einem vollen Tag.',
+        },
+        mixila: {
+          duration: '2 Tage', level: 'Mittel', title: 'Wasserfall Mixila',
+          description: 'Eine Durchquerung zu einem der am besten erhaltenen Wasserfälle rund um Lençóis.',
+        },
+        'vale-do-pati-4': {
+          duration: '4 Tage', level: 'Anspruchsvoll', title: 'Vale do Pati (04 Tage)',
+          description: 'Vier Tage zwischen Aussichtspunkten, Wasserfällen und den Häusern einheimischer Familien im Vale do Pati.',
+        },
+      },
+      eyebrow: 'Wähle deinen Weg',
+      titulo: { antes: 'Die Touren, nach denen die', destaque: 'Chapada ruft.' },
+      todos: 'Alle Touren',
+      todosHref: '/de/abenteuer',
+      ritmo: { antes: 'Vom', caminhante: 'Wochenendwanderer', meio: 'bis zum', aventureiro: 'erfahrenen Abenteurer', depois: '— hier findest du das richtige Tempo.' },
+      arraste: 'Ziehen, um weitere Touren zu sehen →',
+      explorar: 'Weg entdecken',
+      carrossel: {
+        rotulo: 'Karussell mit Touren',
+        anterior: 'Vorherige Tour anzeigen',
+        proximo: 'Nächste Tour anzeigen',
+        pagina: 'Seite des Touren-Karussells',
+        progresso: 'Fortschritt des Touren-Karussells',
+      },
+    },
+    entrelinhas: {
+      rotulo: 'Eine Herde, die die ganze Welt zusammenbringt',
+      bando: 'Eine Herde,',
+      reune: 'die zusammenbringt',
+      mundo: 'die ganze Welt!',
+    },
+    guides: {
+      titulo: { linha1: 'Hier geboren.', linha2: 'Geformt von der', linha3: 'Chapada.' },
+      cta: 'Lerne die kennen, die unsere Herde führen',
+      ctaHref: '/de/ueber-uns#guias',
+      pagina: 'Seite der Guides',
+    },
+    reviews: {
+      badge: 'Verifizierte Bewertungen · TripAdvisor',
+      titulo: { antes: 'Was unsere Herde', destaque: 'über die Touren sagt.' },
+      avaliacoes: '145 Bewertungen',
+      avaliacoesLabel: 'Bewertungen',
+      mediaChip: '5.0 im Schnitt',
+      mediaLabel: 'Durchschnittliche Bewertung',
+      rankingChip: '#5 in Lençóis',
+      ranking: '#5 im Ranking',
+      rankingLabel: 'der Outdoor-Aktivitäten in Lençóis',
+      ctaTrilha: 'Wähle deinen Weg',
+      ctaTrilhaHref: '/de/abenteuer',
+      ctaTripadvisor: 'Sieh uns auf TripAdvisor',
+      depoimentos: [
+        '„Vom ersten Kontakt bis zum Ende der Reise hat die Agentur Professionalität und Organisation gezeigt.“',
+        '„Die Aussichten waren wunderschön, die Wasserfälle episch und das Abenteuer unglaublich.“',
+        '„Unser Guide war sehr freundlich, fürsorglich und ist auf alle unsere Wünsche eingegangen. Sein Wissen über den Nationalpark ist enorm.“',
+      ],
+    },
+    finalCta: {
+      titulo: ['Dein Weg beginnt', 'mit einer Nachricht.'],
+      corpo:
+        'Schreib uns per WhatsApp. Finde heraus, welche Tour in der Chapada Diamantina am besten zu dir passt und wie du dich darauf vorbereitest.',
+      cta: 'Schließ dich der Herde an',
+      ctaHref: '/de/kontakt',
     },
   },
 };

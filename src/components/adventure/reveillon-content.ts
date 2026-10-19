@@ -138,6 +138,7 @@ export type ReveillonContent = {
 
 const MESES_EN = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 const MESES_NL = ['jan.', 'feb.', 'mrt.', 'apr.', 'mei', 'jun.', 'jul.', 'aug.', 'sep.', 'okt.', 'nov.', 'dec.'];
+const MESES_DE = ['Jan.', 'Feb.', 'März', 'Apr.', 'Mai', 'Juni', 'Juli', 'Aug.', 'Sept.', 'Okt.', 'Nov.', 'Dez.'];
 const ddmm = (day: number, month: number) => `${String(day).padStart(2, '0')}/${String(month).padStart(2, '0')}`;
 
 export const REVEILLON_CONTENT: Record<Locale, ReveillonContent> = {
@@ -995,6 +996,177 @@ export const REVEILLON_CONTENT: Record<Locale, ReveillonContent> = {
         body: 'De activiteiten worden geleid door lokale gidsen met een EHBO-opleiding en de minimale competenties voor gidsen volgens de Braziliaanse ABNT-normen. Een deel van het team heeft een WAFA-certificaat.',
         warning: 'Trekking betekent oneffen terrein, wisselend weer, valpartijen, wilde dieren en afgelegen gebieden. Op sommige plekken kan een redding meer dan vijf uur duren, en de kosten daarvan zitten niet in het pakket.',
         footer: 'Volg de aanwijzingen van de gids, meld gezondheidsproblemen vooraf en neem alle verplichte uitrusting mee. De route kan veranderen wanneer de veiligheid dat vraagt.',
+      },
+    ],
+  },
+  de: {
+    meta: {
+      title: 'Silvester in der Chapada Diamantina 2027',
+      description:
+        'Pakete mit 4, 5 und 6 Tagen, um 2027 zwischen Wanderwegen, Wasserfällen und Landschaften der Chapada Diamantina zu beginnen.',
+      canonical: '/de/abenteuer/silvester-in-der-chapada',
+    },
+    numberLocale: 'de-DE',
+    dateLabel: (day, month) => `${day}. ${MESES_DE[month - 1]}`,
+    walk: (km) => `${km} km zu Fuß`,
+    drive: (km) => `${km} km mit dem Auto`,
+    jsonLd: { touristType: 'Trekking und Ökotourismus', offerName: (days) => `Silvester in der Chapada — ${days}` },
+    hero: {
+      dates: '28. Dez. 2026 — 2. Jan. 2027',
+      titulo: 'Feiere den Jahreswechsel im Herzen der Chapada.',
+      lead: 'Tausch den Countdown gegen den Wanderweg: Wasserfälle, Täler und weite Ausblicke, um 2027 in Bewegung zu beginnen.',
+      verPacotes: 'Pakete ansehen',
+      falar: 'Mit dem Team sprechen',
+      fotoAlt: 'Berge der Chapada Diamantina am späten Nachmittag',
+    },
+    story: {
+      badge: 'Neujahr 2027',
+      titulo: 'Das neue Jahr beginnt draußen.',
+      paragrafos: [
+        'Dies ist ein Silvester für alle, die lieber fließendes Wasser und die Stille des Tals hören und wissen, wie es sich anfühlt, zu Fuß an einen außergewöhnlichen Ort zu gelangen.',
+        'Die Routen kombinieren Wanderwege, Wasserfälle, Ausblicke und Übernachtungen auf Reisen von vier bis sechs Tagen. Du wählst die Intensität; Mamut organisiert den Weg.',
+      ],
+      selo: 'Kleine Gruppen, lokale Guides und die Möglichkeit, das Paket anzupassen.',
+      fotos: {
+        buracao: 'Der Buracão-Wasserfall zwischen den Canyonwänden',
+        lencois: 'Historische Straße in Lençóis, Chapada Diamantina',
+      },
+      regioes: 'Lençóis · Pati · Ibicoara · Mucugê',
+    },
+    explorer: {
+      badge: 'Wähle dein Tempo',
+      titulo: 'Drei Routen zum selben neuen Jahr.',
+      duracao: 'Dauer des Pakets',
+      nome: 'Silvester in der Chapada',
+      tituloPacote: (days) => `${days} Abenteuer.`,
+      minimo: 'Mindestens 2 Reisende',
+      regiao: 'Chapada Diamantina · Bahia',
+      apartirDe: 'Ab',
+      porPessoa: 'pro Person',
+      pagamento: { antes: 'Buche mit einer', destaque: 'Anzahlung von 50 %.', depois: 'Kreditkarte in bis zu 12 Raten, mit Aufpreis.' },
+      quero: 'Ich möchte dieses Paket',
+      adaptar: 'Möchtest du die Route anpassen? Sprich mit dem Team.',
+      mensagem: (days) => `Hallo! Ich möchte das Paket mit ${days} für Silvester 2027 in der Chapada anfragen:`,
+      roteiro: 'Tag für Tag',
+      roteiroTitulo: (days) => `${days} in Bewegung`,
+      roteiroNota: 'Strecken ungefähr. Die Reihenfolge kann sich ändern, um das Wetter optimal zu nutzen und die Gruppe sicher zu halten.',
+    },
+    inclusos: {
+      titulo: 'Jedes Paket deckt das Wichtigste schon ab.',
+      ariaLabel: 'Was in den Paketen enthalten ist',
+      itens: [
+        { label: 'Eintrittsgebühren', detail: 'Zugang zu jedem Ort auf der Route' },
+        { label: 'Lokale Guides', detail: 'Fachkundige Begleitung bei jeder Aktivität' },
+        { label: 'Unterkunft', detail: 'Übernachtungen je nach gewähltem Paket' },
+        { label: 'Transport', detail: 'Transport zu jedem Ort auf der Route' },
+      ],
+    },
+    info: {
+      badge: 'Bevor du buchst',
+      titulo: 'Alles klar für den ersten Schritt.',
+      corpo: 'Sieh dir die Ausrüstung, die Zahlungsbedingungen, die Stornierung und die Sicherheitsinformationen an. Hier steht alles, damit du in Ruhe entscheiden kannst.',
+    },
+    finalCta: {
+      badge: 'Starte 2027 in Bewegung',
+      titulo: 'Dein nächstes Jahr kann auf einem Wanderweg beginnen.',
+      corpo: 'Erzähl Mamut, wie viele Tage du hast und wie du gern reist. Das Team hilft dir, die richtige Route zu wählen — oder anzupassen.',
+      cta: 'Mein Silvester planen',
+      fotoAlt: 'Weg in Richtung der Berge der Chapada Diamantina',
+    },
+    pacotes: {
+      '4-dias': {
+        days: '4 Tage',
+        dates: '29. Dez. 2026 — 1. Jan. 2027',
+        places: 'Lençóis · Iraquara',
+        imageAlt: 'Sonnenuntergang zwischen den Bergen der Chapada Diamantina',
+        pitch: 'Ein Jahreswechsel mit Lençóis als Ausgangspunkt, mit vier Tagen Badestellen, Aussichtspunkten und klassischen Wegen.',
+        highlights: ['Parque da Muritiba', 'Fazenda Pratinha', 'Mosquito-Wasserfall', 'Morro do Pai Inácio', 'Fumaça-Wasserfall'],
+        itinerary: [
+          { title: 'Muritiba + Ribeirão do Meio', description: 'Ankunft in Lençóis und ein erstes Bad in den Naturrundwegen nahe dem Städtchen.' },
+          { title: 'Höhlen, Pratinha + Aussichtspunkt Camelo', description: 'Ein Tag mit unterirdischen Formationen, kristallklarem Wasser und der bekanntesten Silhouette der Region.' },
+          { title: 'Mosquito + Mucugêzinho + Pai Inácio', description: 'Wasserfälle am Tag und der Horizont der Chapada als Kulisse, um das Jahr ausklingen zu lassen.' },
+          { title: 'Fumaça-Wasserfall', description: 'Die erste große Herausforderung von 2027 führt dich auf einen der berühmtesten Wasserfälle Brasiliens.' },
+        ],
+      },
+      '5-dias': {
+        days: '5 Tage',
+        dates: '29. Dez. 2026 — 2. Jan. 2027',
+        places: 'Lençóis · Vale do Pati · Ibicoara',
+        imageAlt: 'Berge und Wege im Vale do Pati',
+        pitch: 'Das Trekking ist das Herz der Reise: drei Tage im Pati, vor dem Wasser im Süden der Chapada.',
+        highlights: ['Vale do Pati in 3 Tagen', 'Morro do Castelo', 'Cachoeirão', 'Buracão-Wasserfall', 'Poço Azul'],
+        itinerary: [
+          { title: 'Lençóis → Guiné + Aussichtspunkt Rampa', description: 'Transfer nach Guiné, der Aufstieg zur Rampa und das erste Panorama über das Vale do Pati.' },
+          { title: 'Morro do Castelo', description: 'Eine Wanderung quer durch den Berg und ein Blick hoch über die Täler rund um das Pati.' },
+          { title: 'Cachoeirão + Transfer nach Ibicoara', description: 'Eine lange Wanderung zum Aussichtspunkt Cachoeirão, bevor es weiter in den Süden der Chapada geht.' },
+          { title: 'Buracão-Wasserfall', description: 'Das Jahr beginnt im Canyon, zwischen Stegen, Fluss und der Kraft des Wasserfalls.' },
+          { title: 'Poço Azul + Mosquito + Lençóis', description: 'Treiben im Wasser, ein Bad am Wasserfall und die Rückkehr nach Lençóis zum Abschluss der Expedition.' },
+        ],
+      },
+      '6-dias': {
+        days: '6 Tage',
+        dates: '28. Dez. 2026 — 2. Jan. 2027',
+        places: 'Lençóis · Mucugê · Vale do Pati · Ibicoara',
+        imageAlt: 'Der Fumacinha-Wasserfall zwischen Felswänden',
+        pitch: 'Das vollständigste Erlebnis: das Pati, große Wasserfälle und sechs Tage durch ganz unterschiedliche Landschaften.',
+        highlights: ['Vale do Pati in 3 Tagen', 'Cachoeirão', 'Buracão-Wasserfall', 'Fumacinha-Wasserfall', 'Poço Azul'],
+        itinerary: [
+          { title: 'Lençóis → Guiné + Aussichtspunkt Rampa', description: 'Die Reise beginnt mit dem klassischen Zugang zum Vale do Pati und der Ankunft im Haus einer einheimischen Familie.' },
+          { title: 'Morro do Castelo', description: 'Höhlen, Höhe und eines der eindrucksvollsten Panoramen der Pati-Durchquerung.' },
+          { title: 'Cachoeirão + Transfer nach Ibicoara', description: 'Die längste Etappe der Durchquerung endet mit dem Wechsel in den Süden der Chapada.' },
+          { title: 'Buracão-Wasserfall', description: 'Du verabschiedest das Jahr im Canyon eines der kraftvollsten Wassererlebnisse der Region.' },
+          { title: 'Fumacinha-Wasserfall', description: 'Achtzehn Kilometer durch Flussbett und Canyon, um 2027 in monumentalem Maßstab zu beginnen.' },
+          { title: 'Poço Azul + Mosquito + Lençóis', description: 'Ein letzter Rundweg mit klarem Wasser und einem Wasserfall vor der Rückkehr nach Lençóis.' },
+        ],
+      },
+    },
+    faqs: [
+      {
+        type: 'checklist',
+        title: 'Was du mitnimmst',
+        intro: 'Reise leicht, aber verzichte nicht auf das, was deinen Körper auf den Wegen schützt und bequem hält.',
+        requiredColumns: [
+          ['Wasser — mindestens 1 Liter', 'Trekking- oder Wanderschuhe', 'Leichte Kleidung'],
+          ['Kappe oder Hut', 'Sonnencreme', 'Persönliche Medikamente', 'Lichtbildausweis', 'Rucksack'],
+        ],
+        recommendedColumns: [
+          ['Regenschutz für dich und deinen Rucksack', 'Leichter Snack oder Obst'],
+          ['Wanderstock', 'Sandalen oder Flip-Flops'],
+        ],
+        note: 'Das Team kann die Pflichtgegenstände vor den Aktivitäten prüfen. Die Sicherheit der Gruppe hängt davon ab, dass alle vorbereitet sind.',
+      },
+      {
+        type: 'payment',
+        title: 'Zahlung und Buchung',
+        paragraphs: [
+          'Mit einer Anzahlung von 50 % ist deine Buchung bestätigt. Du kannst vorab per Überweisung oder mit Boleto zahlen.',
+          'Bei Zahlung mit Kreditkarte kommen 6 % hinzu, aufteilbar auf bis zu 12 Raten über PagSeguro oder Mercado Pago. Für ausländische Kreditkarten: sprich mit dem Team.',
+          'Den Rest zahlst du beim Check-in oder per Überweisung bis zwei Werktage vor Beginn des Pakets.',
+        ],
+      },
+      {
+        type: 'cancellation',
+        title: 'Stornierung und Änderungen',
+        intro: 'Wenn du nicht reisen kannst, kannst du eine andere Person an deiner Stelle schicken oder den Betrag als Guthaben behalten. Für Erstattungen gelten diese Fristen:',
+        refunds: [
+          ['30 Tage oder mehr vorher', '90 % des Betrags'],
+          ['21 bis 29 Tage vorher', '80 % des Betrags'],
+          ['7 bis 20 Tage vorher', '50 % des Betrags'],
+          ['Weniger als 7 Tage vorher', 'Keine Erstattung'],
+        ],
+        paragraphs: [
+          'Hat das Paket einmal begonnen, gibt es keine Erstattung. Nicht zur vereinbarten Zeit zu erscheinen gilt als Stornierung.',
+          'Die Route kann sich wegen des Wetters, der Sicherheit der Gruppe oder auf Anweisung der Behörden ändern. Wer sich entscheidet, die Gruppe während der Aktivität zu verlassen, trägt die eventuellen Kosten dieser Entscheidung.',
+        ],
+      },
+      {
+        type: 'safety',
+        title: 'Sicherheit während der Aktivitäten',
+        riskLabel: 'Risiken und Grenzen — bitte aufmerksam lesen',
+        lead: 'Die Natur bestimmt das Tempo — das Team trifft die technischen Entscheidungen.',
+        body: 'Die Aktivitäten werden von lokalen Guides geleitet, mit Erste-Hilfe-Ausbildung und den Mindestkompetenzen für Guides nach der brasilianischen ABNT-Norm. Ein Teil des Teams hat ein WAFA-Zertifikat.',
+        warning: 'Trekking heißt unebenes Gelände, wechselndes Wetter, Stürze, Wildtiere und abgelegene Gebiete. An manchen Orten kann eine Rettung mehr als fünf Stunden dauern, und ihre Kosten sind nicht im Paket enthalten.',
+        footer: 'Folge den Anweisungen des Guides, melde gesundheitliche Probleme vorab und nimm die gesamte Pflichtausrüstung mit. Die Route kann sich ändern, wenn die Sicherheit es verlangt.',
       },
     ],
   },
