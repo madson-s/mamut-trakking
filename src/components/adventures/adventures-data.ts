@@ -56,7 +56,7 @@ export const ADVENTURES: AdventureBase[] = [
   { id: 'mirante-do-cachoeirao', category: 'day-tour', route: 'cachoeirao', image: '/img/adventures/cachoeirao/hero.jpeg', duration: 1, difficultyGroup: 'Moderado', distance: '18 km', location: 'Guiné', price: 500 },
   { id: 'city-tour-em-lencois', category: 'day-tour', route: 'city-tour-lencois', image: '/img/adventures/city-tour/hero.jpeg', duration: 1, difficultyGroup: 'Fácil', distance: '1 km', location: 'Lençóis', price: 50 },
   { id: 'mosquito-pai-inacio', category: 'day-tour', route: 'mosquito-pai-inacio', image: '/img/adventures/mosquito-pai-inacio/hero.jpeg', duration: 1, difficultyGroup: 'Fácil', distance: '4 km', location: 'Lençóis', price: 450 },
-  { id: 'grutas-morro-do-camelo', category: 'day-tour', route: 'grutas', image: '/img/adventures/grutas/hero.jpeg', duration: 1, difficultyGroup: 'Fácil', distance: '2 km', location: 'Iraquara', price: 540 },
+  { id: 'grutas-morro-do-camelo', category: 'day-tour', route: 'grutas', image: '/img/adventures/grutas/hero.jpeg', duration: 1, difficultyGroup: 'Fácil', distance: '2 km', location: 'Lençóis', price: 540 },
 
   { id: 'chapada-especial-3-dias', category: 'package', route: 'pacote-3', image: '/img/home_backgroud/home_backgroud_03_no_crop_1x.webp', duration: 3, difficultyGroup: 'Desafiador', distance: '7 km', location: 'Lençóis', price: 1500 },
   { id: 'chapada-deslumbrante-4-dias', category: 'package', route: 'pacote-4', image: '/img/home_backgroud/home_backgroud_01_no_crop_1x.webp', duration: 4, difficultyGroup: 'Desafiador', distance: '15 km', location: 'Lençóis', price: 3100 },
