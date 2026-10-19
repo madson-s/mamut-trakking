@@ -119,7 +119,7 @@ export function NavDropdown({ item }: { item: MobileNavItem }) {
 
       {/* O pt-2 é a ponte do hover: área do painel entre o item e a caixa. */}
       <div
-        className="site-header-dropdown absolute top-full left-1/2 z-30 -translate-x-1/2 pt-2"
+        className="site-header-dropdown absolute top-full left-0 z-30 pt-2"
         style={{ pointerEvents: open ? 'auto' : 'none' }}
       >
         <m.div
