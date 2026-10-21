@@ -23,6 +23,7 @@ import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-t
 import { pricing } from './price-table';
 
 export const FUMACA_BAIXO_ASSETS: DayTourAssets = {
+  calendarTrekId: 'fumacaBaixo',
   hero: { src: '/img/adventures/fumaca-baixo/hero.jpeg', position: '50% 50%' },
   galeria: [
     { src: '/img/adventures/fumaca-baixo/1.jpeg', width: 2048, height: 1536 },

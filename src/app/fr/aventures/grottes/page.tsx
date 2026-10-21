@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { DayTourExperience } from '@/components/adventure/DayTourExperience';
 import { GRUTAS_ASSETS, GRUTAS_CONTENT } from '@/components/adventure/grutas-content';
 
+// O bloco de próximas saídas vem do calendário; como ele, regera a cada hora
+// para uma saída que já começou não seguir anunciada.
+export const revalidate = 3600;
+
 const IMG = GRUTAS_ASSETS.hero.src;
 const CONTENT = GRUTAS_CONTENT.fr;
 

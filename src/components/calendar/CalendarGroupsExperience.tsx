@@ -4,14 +4,14 @@ import { useState, type CSSProperties } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, CalendarDays, ChevronDown, Flag, MapPin, Mountain } from 'lucide-react';
-import { Button } from '@/components/ui';
+import { Button, JsonLd } from '@/components/ui';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import type { DifficultyGroup } from '@/components/adventures/filters';
 import { ADVENTURE_SEGMENT, SITE, formatPrice, type Locale } from '@/lib/site';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
 import { MESSAGE_LOCALE } from '@/lib/message-locale';
 import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture } from './calendar-data';
-import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
+import { CALENDAR_CONTENT, CALENDAR_HREF, type CalendarContent } from './calendar-content';
 import styles from './calendar.module.css';
 
 // THESIS: Reproduce the supplied ZIP and screenshots, not the previous interpretation.
@@ -62,6 +62,48 @@ const askDate = ({ m }: Ctx, name?: string) => wa(name ? m.novaData.roteiro(name
 // A cor do selo segue o grupo de dificuldade do hub, não o texto do rótulo —
 // comparar com "Fácil" quebraria no inglês e no espanhol.
 const TONE = { 'Fácil': '🟢', 'Moderado': '🟡', 'Desafiador': '🔴' } as const;
+
+/**
+ * Dados estruturados das saídas confirmadas: um `Event` do schema.org por
+ * saída, com datas, local, preço e o link de reserva. É o que deixa buscadores
+ * (e o Google, nos resultados de eventos) lerem a agenda como datas reais, sem
+ * depender do layout da página. Vai no HTML inicial, como o resto do site.
+ */
+function departuresJsonLd(ctx: Ctx, treks: Trek[]) {
+  const { c, locale } = ctx;
+  const absolute = (path: string) => (path.startsWith('http') ? path : `${SITE.url}${path}`);
+  return {
+    '@context': 'https://schema.org',
+    '@graph': treks.flatMap((trek) =>
+      trek.departures.map((departure) => ({
+        '@type': 'Event',
+        '@id': `${SITE.url}${CALENDAR_HREF[locale]}#${departure.id}`,
+        name: `${trek.title} · ${dateRange(ctx, departure)}`,
+        description: [c.dias(trek.days), trek.distance, c.saidaDe(trek.location)].filter(Boolean).join(' · '),
+        startDate: departure.start,
+        endDate: departure.end,
+        eventStatus: 'https://schema.org/EventScheduled',
+        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+        inLanguage: locale,
+        image: [absolute(trek.image)],
+        location: {
+          '@type': 'Place',
+          name: `${trek.location}, Chapada Diamantina`,
+          address: { '@type': 'PostalAddress', addressLocality: trek.location, addressRegion: 'BA', addressCountry: 'BR' },
+        },
+        organizer: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
+        offers: {
+          '@type': 'Offer',
+          price: departure.price,
+          priceCurrency: 'BRL',
+          availability: 'https://schema.org/InStock',
+          url: `${SITE.url}${CALENDAR_HREF[locale]}#saidas-${trek.id}`,
+        },
+        ...(trek.href ? { subjectOf: absolute(trek.href) } : {}),
+      })),
+    ),
+  };
+}
 
 function dateRange({ c }: Ctx, departure: CalendarDeparture) {
   const start = date(departure.start), end = date(departure.end);
@@ -210,6 +252,7 @@ export function CalendarGroupsExperience({
 
   return (
     <article className={styles.page}>
+      {treks.length > 0 && <JsonLd data={departuresJsonLd(ctx, treks)} />}
       <section className={styles.hero} aria-labelledby="calendar-title" data-scroll-reveal="off">
         <div className={styles.heroArt} aria-hidden />
         <div className={styles.heroInner}>

@@ -92,6 +92,7 @@ export const PACOTE_4_ASSETS: DayTourAssets = {
 };
 
 export const PACOTE_6_ASSETS: DayTourAssets = {
+  calendarTrekId: 'pacote6',
   detailLayout: 'journey',
   hero: { src: '/img/adventures/buracao/hero.jpeg', position: '50% 50%' },
   galeria: [FOTO.patiMirante, FOTO.castelo, FOTO.cachoeirao, FOTO.buracao, FOTO.fumacinha, FOTO.pocoAzul],

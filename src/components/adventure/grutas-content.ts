@@ -22,6 +22,7 @@ import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 import { pricing } from './price-table';
 
 export const GRUTAS_ASSETS: DayTourAssets = {
+  calendarTrekId: 'grutas',
   hero: { src: '/img/adventures/grutas/hero.jpeg', position: '50% 50%' },
   galeria: [
     { src: '/img/adventures/grutas/1.jpeg', width: 2048, height: 1536 },

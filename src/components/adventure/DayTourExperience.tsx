@@ -16,7 +16,8 @@ import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
-import { PRICE_TABLE_LABELS } from './price-table';
+import { PRICE_TABLE_LABELS, VER_TABELA } from './price-table';
+import { NextDepartures } from '@/components/calendar/NextDepartures';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { RelatedTrail } from '@/components/adventures/RelatedTrail';
@@ -97,6 +98,11 @@ export function DayTourExperience({
             <Button href={sobreRoteiro} size="lg" arrow className="max-sm:w-full">
               {c.hero.reservar}
             </Button>
+            {assets.priceTable ? (
+              <Button href="#tabela-pagamento" variant="outlineOnMedia" size="lg" className="max-sm:w-full">
+                {VER_TABELA[locale]}
+              </Button>
+            ) : null}
             <Text size="sm" weight="light" tone="onMediaSoft">
               {c.hero.apartirDe}{' '}
               <strong className="font-display text-xl">{formatPrice(assets.fromPrice, locale)}</strong>{' '}
@@ -226,6 +232,7 @@ export function DayTourExperience({
                   rows={assets.priceTable}
                   origin={assets.priceOrigin}
                 />
+                {assets.calendarTrekId ? <NextDepartures locale={locale} trekId={assets.calendarTrekId} className="w-full text-left" /> : null}
                 <div className="flex flex-col gap-1.5">
                   {c.precos.formatos.map((formato) => (
                     <Text key={formato.titulo} size="sm" weight="light" tone="muted" pretty>

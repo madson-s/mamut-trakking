@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { DayTourExperience } from '@/components/adventure/DayTourExperience';
 import { FUMACA_BAIXO_ASSETS, FUMACA_BAIXO_CONTENT } from '@/components/adventure/fumaca-baixo-content';
 
+// O bloco de próximas saídas vem do calendário; como ele, regera a cada hora
+// para uma saída que já começou não seguir anunciada.
+export const revalidate = 3600;
+
 const IMG = FUMACA_BAIXO_ASSETS.hero.src;
 const CONTENT = FUMACA_BAIXO_CONTENT.de;
 

@@ -59,6 +59,16 @@ export function patiPricing(tiers: readonly PriceTier[], extra: { bilingue?: rea
   };
 }
 
+/** Botão do topo da página que desce até a tabela (`#tabela-pagamento`). */
+export const VER_TABELA: Record<Locale, string> = {
+  pt: 'Ver tabela de preços',
+  en: 'See price table',
+  es: 'Ver tabla de precios',
+  fr: 'Voir la grille tarifaire',
+  nl: 'Bekijk de prijstabel',
+  de: 'Preistabelle ansehen',
+};
+
 export const PRICE_TABLE_LABELS: Record<Locale, PriceTableLabels> = {
   pt: {
     titulo: 'Tabela completa de preços',

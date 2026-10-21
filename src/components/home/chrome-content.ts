@@ -51,7 +51,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Falar no WhatsApp',
     nav: [
       { label: 'Aventuras', href: '/pt/aventuras', children: [{ label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' }] },
-      { label: 'Saídas', mobileLabel: 'Calendário e grupos', href: '/pt/calendario-e-grupos' },
+      { label: 'Grupos', mobileLabel: 'Calendário e grupos', href: '/pt/calendario-e-grupos' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
       { label: 'Dicas', mobileLabel: 'Dicas de trilha', href: '/pt/dicas' },
@@ -111,7 +111,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Talk on WhatsApp',
     nav: [
       { label: 'Adventures', href: '/en/adventures', children: [{ label: 'Pati Valley', href: '/en/adventures/pati-valley-3-days' }] },
-      { label: 'Departures', mobileLabel: 'Calendar and groups', href: '/en/calendar-and-groups' },
+      { label: 'Group trips', mobileLabel: 'Calendar and groups', href: '/en/calendar-and-groups' },
       { label: 'About us', mobileLabel: 'About us', href: '/en/about' },
       { label: 'Manifesto', href: '/en/manifesto' },
       { label: 'Tips', mobileLabel: 'Trail tips', href: '/en/tips' },
@@ -171,7 +171,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Hablar por WhatsApp',
     nav: [
       { label: 'Aventuras', href: '/es/aventuras', children: [{ label: 'Valle del Pati', href: '/es/aventuras/valle-del-pati-3-dias' }] },
-      { label: 'Salidas', mobileLabel: 'Calendario y grupos', href: '/es/calendario-y-grupos' },
+      { label: 'Grupos', mobileLabel: 'Calendario y grupos', href: '/es/calendario-y-grupos' },
       { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/es/quienes-somos' },
       { label: 'Manifiesto', href: '/es/manifiesto' },
       { label: 'Consejos', mobileLabel: 'Consejos de sendero', href: '/es/consejos' },
@@ -231,7 +231,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Écrire sur WhatsApp',
     nav: [
       { label: 'Aventures', href: '/fr/aventures', children: [{ label: 'Vallée du Pati', href: '/fr/aventures/vallee-du-pati-3-jours' }] },
-      { label: 'Départs', mobileLabel: 'Calendrier et groupes', href: '/fr/calendrier-et-groupes' },
+      { label: 'Groupes', mobileLabel: 'Calendrier et groupes', href: '/fr/calendrier-et-groupes' },
       { label: 'Qui sommes-nous', mobileLabel: 'Qui sommes-nous', href: '/fr/a-propos' },
       { label: 'Manifeste', href: '/fr/manifeste' },
       { label: 'Conseils', mobileLabel: 'Conseils de trek', href: '/fr/conseils' },
@@ -290,7 +290,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Praat via WhatsApp',
     nav: [
       { label: 'Avonturen', href: '/nl/avonturen', children: [{ label: 'Vale do Pati', href: '/nl/avonturen/pati-vallei-3-dagen' }] },
-      { label: 'Vertrekdata', mobileLabel: 'Kalender en groepen', href: '/nl/kalender-en-groepen' },
+      { label: 'Groepsreizen', mobileLabel: 'Kalender en groepen', href: '/nl/kalender-en-groepen' },
       { label: 'Over ons', mobileLabel: 'Over ons', href: '/nl/over-ons' },
       { label: 'Manifest', href: '/nl/manifest' },
       { label: 'Tips', mobileLabel: 'Tips voor onderweg', href: '/nl/tips' },
@@ -349,7 +349,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
     whatsapp: 'Per WhatsApp schreiben',
     nav: [
       { label: 'Abenteuer', href: '/de/abenteuer', children: [{ label: 'Vale do Pati', href: '/de/abenteuer/pati-tal-3-tage' }] },
-      { label: 'Termine', mobileLabel: 'Kalender und Gruppen', href: '/de/kalender-und-gruppen' },
+      { label: 'Gruppenreisen', mobileLabel: 'Kalender und Gruppen', href: '/de/kalender-und-gruppen' },
       { label: 'Über uns', mobileLabel: 'Über uns', href: '/de/ueber-uns' },
       { label: 'Manifest', href: '/de/manifest' },
       { label: 'Tipps', mobileLabel: 'Reisetipps', href: '/de/tipps' },

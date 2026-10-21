@@ -99,8 +99,10 @@ export function GuidesSection({ locale = 'pt' }: { locale?: Locale }) {
         <Heading size="hero" className="text-center max-sm:text-[clamp(28px,8.4vw,36px)]">
           {c.titulo.linha1}
           <br />
-          <span className="inline-flex flex-wrap items-center justify-center gap-x-2 lg:gap-x-4">
-            {c.titulo.linha2}
+          {/* No mobile é texto corrido (o espaço vem do {' '}); flex só no desktop,
+              onde a foto entra entre as palavras e o gap faz o espaçamento. */}
+          <span className="lg:inline-flex lg:flex-wrap lg:items-center lg:justify-center lg:gap-x-4">
+            {c.titulo.linha2}{' '}
             <span className="hidden lg:inline">
               <Image
                 src="/img/home_square_right_morro_1_1_5x.webp"
@@ -110,7 +112,7 @@ export function GuidesSection({ locale = 'pt' }: { locale?: Locale }) {
                 sizes="128px"
                 className="inline-block h-[1.333em] w-[2.033em] rounded-pill object-cover align-middle"
               />
-            </span>
+            </span>{' '}
             {c.titulo.linha3}
           </span>
         </Heading>

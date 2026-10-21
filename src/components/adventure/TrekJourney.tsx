@@ -10,6 +10,7 @@ import { TrekBookingButton } from './TrekBookingButton';
 import { bookingMessages } from './booking-messages';
 import type { MessageLocale } from '@/lib/message-locale';
 import { PRICE_TABLE_LABELS, brl } from './price-table';
+import { NextDepartures } from '@/components/calendar/NextDepartures';
 import { PriceTable } from './PriceTable';
 import { TripLogistics } from './AgencySupport';
 import { ROTEIRO, semPonto, whatsappSobre } from '@/lib/whatsapp';
@@ -113,6 +114,7 @@ export function TrekJourney({
         <div className="flex flex-col gap-6 lg:py-6">
           <Heading id="precos-heading" as="h2" size="section" balance>{c.precos.titulo}</Heading>
           <Text size="sm" tone="secondary" leading="relaxed" pretty>{c.precos.nota}</Text>
+          {assets.calendarTrekId ? <NextDepartures locale={locale} trekId={assets.calendarTrekId} className="border-t border-line-strong pt-6" /> : null}
         </div>
         <div className="grid gap-5 sm:grid-cols-2">
           {c.precos.formatos.map((format, index) => {

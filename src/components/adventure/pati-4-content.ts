@@ -51,6 +51,7 @@ export const PATI4_ASSETS: PatiAssets = {
   ogImage: '/img/vale-do-pati/vale-do-pati-14.webp',
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   returnTime: { time: '19:00' },
+  calendarTrekId: 'pati4',
   bookingName: { pt: 'o Vale do Pati em 4 dias', en: 'the Pati Valley in 4 days', fr: 'la vallée du Pati en 4 jours' },
 };
 

@@ -2,10 +2,9 @@
 
 import { useEffect, useRef, useState, type ReactNode } from 'react';
 import { usePathname } from 'next/navigation';
-import { ADVENTURE_SEGMENT, LOCALES } from '@/lib/site';
 
 /**
- * Casca do header: nas páginas de aventura, ele volta ao rolar para cima.
+ * Casca do header, em todas as páginas do site: ele volta ao rolar para cima.
  *
  * - Até sair da primeira dobra, o header fica no lugar de sempre (no fluxo, sobre
  *   a foto do hero) e some com a rolagem, como em qualquer página.
@@ -21,19 +20,11 @@ import { ADVENTURE_SEGMENT, LOCALES } from '@/lib/site';
 
 type Mode = 'static' | 'fixed';
 
-/** Só os roteiros — `/{idioma}/{segmento de aventuras}/{slug}`, não o hub. */
-function isAdventurePage(pathname: string) {
-  const [, locale, segment, slug] = pathname.split('/');
-  const match = LOCALES.find((l) => l === locale);
-  return Boolean(match && segment === ADVENTURE_SEGMENT[match] && slug);
-}
-
 /** Rolagem mínima para contar como mudança de direção (evita tremer no trackpad). */
 const DELTA = 6;
 
 export function HeaderShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const enabled = isAdventurePage(pathname);
   const [mode, setMode] = useState<Mode>('static');
   const [visible, setVisible] = useState(false);
   // A transição só liga um quadro depois de virar `fixed`: senão o header
@@ -42,8 +33,6 @@ export function HeaderShell({ children }: { children: ReactNode }) {
   const state = useRef({ mode: 'static' as Mode, visible: false, lastY: 0 });
 
   useEffect(() => {
-    if (!enabled) return;
-
     let frame = 0;
     const s = state.current;
     s.lastY = window.scrollY;
@@ -89,21 +78,21 @@ export function HeaderShell({ children }: { children: ReactNode }) {
     return () => {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(frame);
-      // Saindo de uma aventura (ou trocando de rota), volta ao estado inicial.
+      // Trocando de rota, volta ao estado inicial.
       s.mode = 'static';
       s.visible = false;
       setMode('static');
       setVisible(false);
       setAnimate(false);
     };
-  }, [enabled]);
+  }, [pathname]);
 
   return (
     <div
       className="site-header-shell relative z-20 h-20"
-      data-mode={enabled ? mode : 'static'}
-      data-visible={enabled && visible ? 'true' : 'false'}
-      data-animate={enabled && animate ? 'true' : 'false'}
+      data-mode={mode}
+      data-visible={visible ? 'true' : 'false'}
+      data-animate={animate ? 'true' : 'false'}
     >
       {children}
     </div>

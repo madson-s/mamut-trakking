@@ -17,6 +17,7 @@ import {
 import { HOME_CONTENT } from '@/components/home/home-content';
 import { cn } from '@/lib/cn';
 import { SITE, type Locale } from '@/lib/site';
+import { NextDepartures } from '@/components/calendar/NextDepartures';
 import { statValue } from './stat-values';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
@@ -78,6 +79,8 @@ export type PatiAssets = {
   returnTime?: ReturnTime;
   /** Nome do roteiro na mensagem de reserva: "Olá! Quero verificar {nome} para…". */
   bookingName: Record<MessageLocale, string>;
+  /** Roteiro no calendário (`CALENDAR_TREKS`) — liga as "próximas saídas" no card de reserva. */
+  calendarTrekId?: string;
 };
 
 const PATI3_ASSETS_STATS = [
@@ -123,6 +126,7 @@ export const PATI3_ASSETS: PatiAssets = {
   galleryHref: '/pt/aventuras/vale-do-pati-03-dias/galeria',
   returnTime: { time: '19:00' },
   bookingName: { pt: 'o Vale do Pati em 3 dias', en: 'the Pati Valley in 3 days', fr: 'la vallée du Pati en 3 jours' },
+  calendarTrekId: 'pati3',
 };
 
 const TRUST_ICONS = [
@@ -220,7 +224,7 @@ function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale
           </header>
           <PatiHeroGallery />
         </div>
-        <BookingCard c={c} fromPrice={a.fromPrice} />
+        <BookingCard c={c} fromPrice={a.fromPrice} locale={locale} calendarTrekId={a.calendarTrekId} />
         </div>
 
         <div className="mt-12 flex flex-col items-center gap-8">
@@ -271,7 +275,7 @@ function InfoChip({ children, className }: { children: React.ReactNode; classNam
 
 // O preço vem dos assets de cada variante: com um preço fixo do roteiro de 3, as
 // páginas de 4 e 5 dias anunciavam o preço do roteiro de 3.
-function BookingCard({ c, fromPrice }: { c: Pati3Content; fromPrice: number }) {
+function BookingCard({ c, fromPrice, locale, calendarTrekId }: { c: Pati3Content; fromPrice: number; locale: Locale; calendarTrekId?: string }) {
   return (
     <div className="relative">
       <Image src="/svg/about/story-walkers.svg" alt="" width={290} height={114} unoptimized className="pointer-events-none absolute left-1/2 -top-23 hidden h-26 w-65.75 -translate-x-1/2 object-contain lg:block" />
@@ -290,6 +294,7 @@ function BookingCard({ c, fromPrice }: { c: Pati3Content; fromPrice: number }) {
           <li>{c.hero.sinal}</li>
         </ul>
         <PatiBookingTrigger label={c.hero.reservarAventura} />
+        {calendarTrekId ? <NextDepartures locale={locale} trekId={calendarTrekId} className="border-t border-line-strong pt-6" /> : null}
         <div className="flex flex-col gap-3 border-t border-line-strong pt-6 text-center">
           <Text size="sm" weight="light" tone="muted">{c.hero.paraGrupos} <strong className="font-semibold">{c.hero.pessoas}</strong> {c.hero.ouMais}</Text>
           <Button href="#preco" variant="outline" block>{c.hero.verPrecos}</Button>

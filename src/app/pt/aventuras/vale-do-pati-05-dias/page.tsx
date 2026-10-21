@@ -3,6 +3,10 @@ import { PatiExperience } from '@/components/adventure/PatiThreeDayExperience';
 import { PATI5_ASSETS, PATI5_CONTENT } from '@/components/adventure/pati-5-content';
 import { PATI5_FAQS } from '@/components/adventure/pati-5-content';
 
+// O bloco de próximas saídas vem do calendário; como ele, regera a cada hora
+// para uma saída que já começou não seguir anunciada.
+export const revalidate = 3600;
+
 const CONTENT = PATI5_CONTENT.pt;
 
 export const metadata: Metadata = {

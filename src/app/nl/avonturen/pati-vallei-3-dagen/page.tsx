@@ -2,6 +2,10 @@ import type { Metadata, Viewport } from 'next';
 import { PatiThreeDayExperience } from '@/components/adventure/PatiThreeDayExperience';
 import { PATI3_CONTENT } from '@/components/adventure/pati-3-content';
 
+// As próximas saídas do card de reserva vêm do calendário; como ele, regera
+// a cada hora para uma saída que já começou não seguir anunciada.
+export const revalidate = 3600;
+
 const IMG = '/img/vale-do-pati/vale-do-pati-04.webp';
 const CONTENT = PATI3_CONTENT.nl;
 

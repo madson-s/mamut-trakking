@@ -19,6 +19,7 @@ import { WILD_TREK_ESTADIA, WILD_TREK_PORTER, wildTrekChecklist } from './wild-t
 import { pricing } from './price-table';
 
 export const MIXILA_ASSETS: DayTourAssets = {
+  calendarTrekId: 'mixila',
   hero: { src: '/img/adventures/mixila/hero.jpeg', position: '50% 50%' },
   galeria: [
     { src: '/img/adventures/mixila/1.jpeg', width: 2048, height: 1536 },

@@ -163,6 +163,7 @@ export const CALENDAR_DEPARTURES: CalendarDeparture[] = [
   { id: 'fumacaBaixo-2026-10-31', trekId: 'fumacaBaixo', start: '2026-10-31', end: '2026-11-02', price: 1275 },
   { id: 'pati4-2026-11-04', trekId: 'pati4', start: '2026-11-04', end: '2026-11-07', price: 2650 },
   { id: 'pati3-2026-11-06', trekId: 'pati3', start: '2026-11-06', end: '2026-11-08', price: 2200 },
+  { id: 'pati3-2026-11-08', trekId: 'pati3', start: '2026-11-08', end: '2026-11-10', price: 2200 },
   { id: 'grutas-2026-11-09', trekId: 'grutas', start: '2026-11-09', end: '2026-11-09', price: 570 },
   { id: 'pati5-2026-11-09', trekId: 'pati5', start: '2026-11-09', end: '2026-11-13', price: 3450 },
   { id: 'pati3Buracao-2026-11-12', trekId: 'pati3Buracao', start: '2026-11-12', end: '2026-11-16', price: 2250, holiday: { id: 'republica', date: '2026-11-15' } },

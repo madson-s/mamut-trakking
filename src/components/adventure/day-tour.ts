@@ -90,6 +90,8 @@ export type DayTourAssets = {
   /** Faixas por idioma do guia, para a estimativa do sheet de reserva — vem de `pricing()`. */
   tiers?: GuidePriceTiers;
   /** Outra cidade de saída, com valores sob consulta (ex.: 'Ibicoara'). */
+  /** Roteiro no calendário (`CALENDAR_TREKS`) — liga o bloco de próximas saídas na seção de preços. */
+  calendarTrekId?: string;
   priceOrigin?: string;
   /**
    * Chegada de volta a Lençóis nas atividades de 2 dias ou mais — liga o
