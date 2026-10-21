@@ -1,6 +1,7 @@
 'use client';
 
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, Check, CircleDollarSign, MapPin, Mountain, SlidersHorizontal } from 'lucide-react';
 import { ArrowRightIcon, Button, CaretDownIcon, Container, Heading, Text } from '@/components/ui';
@@ -20,6 +21,8 @@ import {
   MIN_BUDGET,
   activeFilterList,
   availableOptions,
+  filtersFromSearchParams,
+  filtersToSearchParams,
   difficultyLabel,
   durationLabel,
   locationLabel,
@@ -56,6 +59,19 @@ export function AdventuresHub({ locale = 'pt' }: { locale?: Locale }) {
   const setDuration = (value: string) => updateFilters({ duration: value });
   const setDifficulty = (value: DifficultyFilter) => updateFilters({ difficulty: value });
   const setBudget = (value: number) => updateFilters({ budget: value });
+  // Filtros na URL (ver `filtersToSearchParams`). A escrita só começa depois
+  // que `FiltersFromUrl` leu a URL — senão o primeiro render, ainda com os
+  // filtros padrão, apagaria os parâmetros do link recebido.
+  const [urlRead, setUrlRead] = useState(false);
+  useEffect(() => {
+    if (!urlRead) return;
+    const query = filtersToSearchParams(filters).toString();
+    if (query === window.location.search.replace(/^\?/, '')) return;
+    const url = `${window.location.pathname}${query ? `?${query}` : ''}${window.location.hash}`;
+    // replaceState: o link acompanha os filtros sem empilhar uma entrada no
+    // histórico a cada passo do slider de preço.
+    window.history.replaceState(window.history.state, '', url);
+  }, [filters, urlRead]);
   const [openFilter, setOpenFilter] = useState<OpenFilter>(null);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const filtersRef = useRef<HTMLDivElement>(null);
@@ -120,6 +136,14 @@ export function AdventuresHub({ locale = 'pt' }: { locale?: Locale }) {
 
   return (
     <div className="bg-surface text-content">
+      <Suspense fallback={null}>
+        <FiltersFromUrl
+          onRead={(fromUrl) => {
+            setFilters(fromUrl);
+            setUrlRead(true);
+          }}
+        />
+      </Suspense>
       <section className="adventures-hub-hero relative z-10 -mt-20 overflow-hidden pt-20 pb-18 text-on-media lg:overflow-visible lg:pb-34">
         <Image
           src={HERO_BACKGROUND}
@@ -481,5 +505,25 @@ function AdventureSection({ id, title, description, adventures, content, locale,
       </div>
     </Container>
   );
+}
+
+/**
+ * Lê os filtros da URL uma vez, ao abrir a página. Fica isolado e dentro de
+ * Suspense porque `useSearchParams` numa página estática faria o Next pular a
+ * pré-renderização de tudo acima até o boundary mais próximo — assim o hub
+ * inteiro continua no HTML inicial (com os filtros padrão) e só este pedaço,
+ * que não desenha nada, espera o navegador.
+ */
+function FiltersFromUrl({ onRead }: { onRead: (filters: AdventureFilters) => void }) {
+  const params = useSearchParams();
+  const read = useRef(false);
+
+  useEffect(() => {
+    if (read.current) return;
+    read.current = true;
+    onRead(filtersFromSearchParams(params));
+  }, [params, onRead]);
+
+  return null;
 }
 

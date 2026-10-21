@@ -130,3 +130,49 @@ export function activeFilterList(
       : null,
   ].filter((filter): filter is NonNullable<typeof filter> => filter !== null);
 }
+
+/* ------------------------------------------------------------------ */
+/* Filtros na URL                                                     */
+/* ------------------------------------------------------------------ */
+
+/**
+ * Os filtros do hub vivem também na query string, para o link poder ser
+ * enviado já filtrado: `?local=lencois&dias=2&nivel=moderado&ate=1500`.
+ * Nomes e valores são os mesmos em todos os idiomas (o valor é chave de dado,
+ * não texto de interface) e sem acento, para o link não virar `%C3%A7`.
+ * Filtro no valor padrão não vai para a URL. Valor desconhecido é ignorado.
+ */
+export const FILTER_PARAMS = { location: 'local', duration: 'dias', difficulty: 'nivel', budget: 'ate' } as const;
+
+const toSlug = (value: string) =>
+  value
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .replace(/\s+/g, '-');
+
+const fromSlug = <T extends string>(options: readonly T[], slug: string | null): T | undefined =>
+  slug ? options.find((option) => option !== 'all' && toSlug(option) === slug) : undefined;
+
+export function filtersToSearchParams(filters: AdventureFilters): URLSearchParams {
+  const params = new URLSearchParams();
+  if (filters.location !== 'all') params.set(FILTER_PARAMS.location, toSlug(filters.location));
+  if (filters.duration !== 'all') params.set(FILTER_PARAMS.duration, filters.duration);
+  if (filters.difficulty !== 'all') params.set(FILTER_PARAMS.difficulty, toSlug(filters.difficulty));
+  if (filters.budget < MAX_BUDGET) params.set(FILTER_PARAMS.budget, String(filters.budget));
+  return params;
+}
+
+export function filtersFromSearchParams(params: Pick<URLSearchParams, 'get'>): AdventureFilters {
+  const budget = Number(params.get(FILTER_PARAMS.budget));
+  return {
+    location: fromSlug(LOCATION_OPTIONS, params.get(FILTER_PARAMS.location)) ?? DEFAULT_FILTERS.location,
+    duration: fromSlug(DURATION_OPTIONS, params.get(FILTER_PARAMS.duration)) ?? DEFAULT_FILTERS.duration,
+    difficulty: fromSlug(DIFFICULTY_OPTIONS, params.get(FILTER_PARAMS.difficulty)) ?? DEFAULT_FILTERS.difficulty,
+    // Mesmos limites e passo do slider (50 em 50).
+    budget:
+      Number.isFinite(budget) && budget > 0
+        ? Math.min(MAX_BUDGET, Math.max(MIN_BUDGET, Math.round(budget / 50) * 50))
+        : DEFAULT_FILTERS.budget,
+  };
+}
