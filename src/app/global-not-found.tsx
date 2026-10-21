@@ -34,7 +34,7 @@ export default function GlobalNotFound() {
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col bg-surface antialiased">
-        <GoogleAnalytics />
+        <GoogleAnalytics locale="en" />
         <ThemeProvider>
           <header className="w-full border-b border-line">
             <Container className="flex h-20 items-center">

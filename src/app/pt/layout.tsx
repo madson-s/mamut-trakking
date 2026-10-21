@@ -33,7 +33,7 @@ export default function PtLayout({ children }: { children: React.ReactNode }) {
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col antialiased">
-        <GoogleAnalytics />
+        <GoogleAnalytics locale="pt" />
         <ThemeProvider>
           <ScrollExperience />
           <HomeHeader />

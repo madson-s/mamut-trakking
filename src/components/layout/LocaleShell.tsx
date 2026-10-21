@@ -30,7 +30,7 @@ export function LocaleShell({
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col antialiased">
-        <GoogleAnalytics />
+        <GoogleAnalytics locale={locale} />
         <ThemeProvider>
           <ScrollExperience />
           <HomeHeader locale={locale} />

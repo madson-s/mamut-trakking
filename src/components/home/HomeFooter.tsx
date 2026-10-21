@@ -13,11 +13,13 @@ import {
 import { SITE, type Locale } from '@/lib/site';
 import { CHROME } from './chrome-content';
 import { whatsappLink } from '@/lib/whatsapp';
+import { CookieSettingsButton } from '@/components/analytics/ConsentAnalytics';
+import { SITE_INDEXABLE } from '@/lib/indexing';
 
 const linkClasses = cn('transition-colors hover:text-content', motion.fast);
 
 export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
-  const { tagline, place, columns, rights, privacy, whatsapp } = CHROME[locale].footer;
+  const { tagline, place, columns, rights, privacy, cookies, whatsapp } = CHROME[locale].footer;
 
   return (
     <footer className="w-full border-t border-line bg-surface-muted">
@@ -79,6 +81,15 @@ export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
             <Link href={privacy.href} className={cn('underline underline-offset-2', linkClasses)}>
               {privacy.label}
             </Link>
+            {SITE_INDEXABLE ? (
+              <>
+                {' · '}
+                <CookieSettingsButton
+                  label={cookies}
+                  className={cn('cursor-pointer underline underline-offset-2', linkClasses)}
+                />
+              </>
+            ) : null}
           </Text>
 
           <Button href={whatsappLink(locale)} size="sm" arrow className="lg:hidden">

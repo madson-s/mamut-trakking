@@ -41,6 +41,8 @@ export type ChromeContent = {
     rights: string;
     /** Link legal na linha de baixo, ao lado dos direitos. */
     privacy: { label: string; href: string };
+    /** Reabre o aviso de cookies (mudar a escolha do Analytics). */
+    cookies: string;
     whatsapp: string;
   };
 };
@@ -102,6 +104,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       ],
       rights: 'Todos os direitos reservados',
       privacy: { label: 'Política de privacidade', href: PRIVACIDADE_HREF.pt },
+      cookies: 'Cookies',
       whatsapp: 'Falar no WhatsApp',
     },
   },
@@ -162,6 +165,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       ],
       rights: 'All rights reserved',
       privacy: { label: 'Privacy policy', href: PRIVACIDADE_HREF.en },
+      cookies: 'Cookies',
       whatsapp: 'Talk on WhatsApp',
     },
   },
@@ -222,6 +226,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       ],
       rights: 'Todos los derechos reservados',
       privacy: { label: 'Política de privacidad', href: PRIVACIDADE_HREF.es },
+      cookies: 'Cookies',
       whatsapp: 'Hablar por WhatsApp',
     },
   },
@@ -282,6 +287,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       ],
       rights: 'Tous droits réservés',
       privacy: { label: 'Politique de confidentialité', href: PRIVACIDADE_HREF.fr },
+      cookies: 'Cookies',
       whatsapp: 'Écrire sur WhatsApp',
     },
   },
@@ -341,6 +347,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       ],
       rights: 'Alle rechten voorbehouden',
       privacy: { label: 'Privacybeleid', href: PRIVACIDADE_HREF.nl },
+      cookies: 'Cookies',
       whatsapp: 'Praat via WhatsApp',
     },
   },
@@ -400,6 +407,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       ],
       rights: 'Alle Rechte vorbehalten',
       privacy: { label: 'Datenschutzerklärung', href: PRIVACIDADE_HREF.de },
+      cookies: 'Cookies',
       whatsapp: 'Per WhatsApp schreiben',
     },
   },

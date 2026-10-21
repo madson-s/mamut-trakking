@@ -126,10 +126,10 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
           {
             tipo: 'lista',
             itens: [
-              'Base legal: nosso interesse legítimo em medir e melhorar o site (LGPD, art. 7º, IX).',
+              'Base legal: no Brasil e fora da Europa, nosso interesse legítimo em medir e melhorar o site (LGPD, art. 7º, IX). Para quem acessa do Espaço Econômico Europeu, do Reino Unido ou da Suíça, o seu consentimento (GDPR, art. 6(1)(a)): o Analytics só é ativado depois que você aceita no aviso de cookies.',
               'Guarda: os dados ficam no Google Analytics por até 14 meses e depois são apagados.',
               'Transferência: os dados vão para servidores do Google, inclusive nos Estados Unidos (ver \'Transferência internacional\').',
-              'Como recusar: bloqueie cookies de terceiros no navegador ou instale a extensão oficial de desativação do Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Como recusar: o link "Cookies", no rodapé, muda a sua escolha a qualquer momento — recusar desliga o Analytics e apaga os cookies dele. Também dá para bloquear cookies no navegador ou instalar a extensão oficial de desativação do Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -325,10 +325,10 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
           {
             tipo: 'lista',
             itens: [
-              'Legal basis: our legitimate interest in measuring and improving the site (LGPD, art. 7, IX).',
+              'Legal basis: in Brazil and outside Europe, our legitimate interest in measuring and improving the site (LGPD, art. 7, IX). For visitors from the European Economic Area, the United Kingdom or Switzerland, your consent (GDPR, art. 6(1)(a)): Analytics is only switched on after you accept in the cookie notice.',
               'Retention: the data stays in Google Analytics for up to 14 months and is then deleted.',
               'Transfer: the data goes to Google servers, including in the United States (see \'International transfers\').',
-              'How to opt out: block third-party cookies in your browser or install the official Google Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout).',
+              'How to opt out: the "Cookies" link in the footer changes your choice at any time — declining switches Analytics off and deletes its cookies. You can also block cookies in your browser or install the official Google Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -521,10 +521,10 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
           {
             tipo: 'lista',
             itens: [
-              'Base legal: nuestro interés legítimo en medir y mejorar el sitio (LGPD, art. 7, IX).',
+              'Base legal: en Brasil y fuera de Europa, nuestro interés legítimo en medir y mejorar el sitio (LGPD, art. 7, IX). Para quien accede desde el Espacio Económico Europeo, el Reino Unido o Suiza, tu consentimiento (RGPD, art. 6(1)(a)): Analytics solo se activa después de que aceptás en el aviso de cookies.',
               'Conservación: los datos quedan en Google Analytics hasta 14 meses y luego se borran.',
               'Transferencia: los datos van a servidores de Google, incluso en Estados Unidos (ver \'Transferencia internacional\').',
-              'Cómo rechazarlo: bloquea las cookies de terceros en tu navegador o instala el complemento oficial de inhabilitación de Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Cómo rechazarlo: el enlace "Cookies", al pie de la página, cambia tu elección cuando quieras — rechazar desactiva Analytics y borra sus cookies. También podés bloquear las cookies en tu navegador o instalar el complemento oficial de inhabilitación de Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -717,10 +717,10 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
           {
             tipo: 'lista',
             itens: [
-              'Base légale : notre intérêt légitime à mesurer et améliorer le site (LGPD, art. 7, IX).',
+              'Base légale : au Brésil et hors d’Europe, notre intérêt légitime à mesurer et améliorer le site (LGPD, art. 7, IX). Pour les visiteurs de l’Espace économique européen, du Royaume-Uni ou de Suisse, votre consentement (RGPD, art. 6(1)(a)) : Analytics n’est activé qu’après votre acceptation dans le bandeau cookies.',
               'Conservation : les données restent dans Google Analytics jusqu’à 14 mois, puis sont supprimées.',
               'Transfert : les données sont envoyées vers des serveurs de Google, y compris aux États-Unis (voir « Transfert international »).',
-              'Comment refuser : bloquez les cookies tiers dans votre navigateur ou installez le module officiel de désactivation de Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Comment refuser : le lien « Cookies », en bas de page, permet de modifier votre choix à tout moment — refuser désactive Analytics et supprime ses cookies. Vous pouvez aussi bloquer les cookies dans votre navigateur ou installer le module officiel de désactivation de Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -915,10 +915,10 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
           {
             tipo: 'lista',
             itens: [
-              'Rechtsgrond: ons gerechtvaardigd belang om de site te meten en te verbeteren (LGPD, art. 7, IX).',
+              'Rechtsgrond: in Brazilië en buiten Europa ons gerechtvaardigd belang om de site te meten en te verbeteren (LGPD, art. 7, IX). Voor bezoekers uit de Europese Economische Ruimte, het Verenigd Koninkrijk of Zwitserland je toestemming (AVG, art. 6, lid 1, onder a): Google Analytics wordt pas ingeschakeld nadat je in de cookiemelding akkoord gaat.',
               'Bewaartermijn: de gegevens blijven maximaal 14 maanden in Google Analytics en worden daarna verwijderd.',
               'Doorgifte: de gegevens gaan naar servers van Google, ook in de Verenigde Staten (zie \'Internationale doorgifte\').',
-              'Bezwaar maken: blokkeer cookies van derden in je browser of installeer de officiële browser-add-on voor het uitschakelen van Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Bezwaar maken: via de link "Cookies" onderaan de pagina wijzig je je keuze op elk moment — weigeren schakelt Analytics uit en verwijdert de cookies ervan. Je kunt ook cookies in je browser blokkeren of de officiële browser-add-on voor het uitschakelen van Google Analytics installeren (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -1110,10 +1110,10 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
           {
             tipo: 'lista',
             itens: [
-              'Rechtsgrundlage: unser berechtigtes Interesse, die Website zu messen und zu verbessern (LGPD, Art. 7, IX).',
+              'Rechtsgrundlage: in Brasilien und außerhalb Europas unser berechtigtes Interesse, die Website zu messen und zu verbessern (LGPD, Art. 7, IX). Für Besucher aus dem Europäischen Wirtschaftsraum, dem Vereinigten Königreich oder der Schweiz deine Einwilligung (DSGVO, Art. 6 Abs. 1 lit. a): Google Analytics wird erst aktiviert, nachdem du im Cookie-Hinweis zustimmst.',
               'Speicherdauer: Die Daten bleiben bis zu 14 Monate in Google Analytics und werden danach gelöscht.',
               'Übermittlung: Die Daten gehen an Server von Google, auch in den USA (siehe „Internationale Übermittlung“).',
-              'Widerspruch: Blockiere Drittanbieter-Cookies in deinem Browser oder installiere das offizielle Browser-Add-on zur Deaktivierung von Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Widerspruch: Über den Link „Cookies“ in der Fußzeile änderst du deine Wahl jederzeit — Ablehnen schaltet Analytics ab und löscht seine Cookies. Du kannst Cookies auch in deinem Browser blockieren oder das offizielle Browser-Add-on zur Deaktivierung von Google Analytics installieren (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],

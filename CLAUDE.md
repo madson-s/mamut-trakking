@@ -122,6 +122,17 @@
 > participante usa o formulário próprio (só pt/en têm Tally). Exceções: o Torus só existe em pt, e
 > as ferramentas internas (`/voucher`, `/reservas`) não têm idioma de site.
 
+> **Google Analytics 4 + aviso de cookies** (`src/components/analytics/`): mesma
+> propriedade do site antigo (`G-8B6ZE20HW1`), só com `SITE_INDEXABLE=true`.
+> Consent Mode v2 no modo **básico**: `ConsentAnalytics` pergunta o país em
+> `/api/geo` (cabeçalho `x-vercel-ip-country`, guardado na sessão). Fora da
+> Europa a tag carrega direto; no EEE + Reino Unido + Suíça (ou país
+> desconhecido) aparece o aviso e a tag só carrega depois do "Aceitar". O link
+> "Cookies" do rodapé reabre o aviso; recusar desliga a tag e apaga os `_ga`.
+> `?cookies=eu` em qualquer página força o aviso para testar. Mudou a
+> ferramenta ou o fluxo? Atualize a seção "estatísticas" da política de
+> privacidade nos seis idiomas.
+
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e
 > `Disallow` no `robots.ts`): gerador de voucher em PDF. `src/lib/voucher.ts`
 > guarda o modelo de dados (clientes com nome/idade/e-mail, serviços,
