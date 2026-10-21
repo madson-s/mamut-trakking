@@ -11,7 +11,8 @@ import { ADVENTURE_SEGMENT, SITE, formatPrice, type Locale } from '@/lib/site';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
 import { MESSAGE_LOCALE } from '@/lib/message-locale';
 import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture } from './calendar-data';
-import { CALENDAR_CONTENT, CALENDAR_HREF, type CalendarContent } from './calendar-content';
+import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
+import { ORGANIZATION, departureEvent, periodoSaida } from '@/components/adventure/structured-data';
 import styles from './calendar.module.css';
 
 // THESIS: Reproduce the supplied ZIP and screenshots, not the previous interpretation.
@@ -63,52 +64,16 @@ const askDate = ({ m }: Ctx, name?: string) => wa(name ? m.novaData.roteiro(name
 // comparar com "Fácil" quebraria no inglês e no espanhol.
 const TONE = { 'Fácil': '🟢', 'Moderado': '🟡', 'Desafiador': '🔴' } as const;
 
-/**
- * Dados estruturados das saídas confirmadas: um `Event` do schema.org por
- * saída, com datas, local, preço e o link de reserva. É o que deixa buscadores
- * (e o Google, nos resultados de eventos) lerem a agenda como datas reais, sem
- * depender do layout da página. Vai no HTML inicial, como o resto do site.
- */
-function departuresJsonLd(ctx: Ctx, treks: Trek[]) {
-  const { c, locale } = ctx;
-  const absolute = (path: string) => (path.startsWith('http') ? path : `${SITE.url}${path}`);
+/** Um `Event` do schema.org por saída confirmada — o mesmo gerador das páginas de roteiro. */
+function departuresJsonLd({ locale }: Ctx, treks: Trek[]) {
   return {
     '@context': 'https://schema.org',
-    '@graph': treks.flatMap((trek) =>
-      trek.departures.map((departure) => ({
-        '@type': 'Event',
-        '@id': `${SITE.url}${CALENDAR_HREF[locale]}#${departure.id}`,
-        name: `${trek.title} · ${dateRange(ctx, departure)}`,
-        description: [c.dias(trek.days), trek.distance, c.saidaDe(trek.location)].filter(Boolean).join(' · '),
-        startDate: departure.start,
-        endDate: departure.end,
-        eventStatus: 'https://schema.org/EventScheduled',
-        eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
-        inLanguage: locale,
-        image: [absolute(trek.image)],
-        location: {
-          '@type': 'Place',
-          name: `${trek.location}, Chapada Diamantina`,
-          address: { '@type': 'PostalAddress', addressLocality: trek.location, addressRegion: 'BA', addressCountry: 'BR' },
-        },
-        organizer: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
-        offers: {
-          '@type': 'Offer',
-          price: departure.price,
-          priceCurrency: 'BRL',
-          availability: 'https://schema.org/InStock',
-          url: `${SITE.url}${CALENDAR_HREF[locale]}#saidas-${trek.id}`,
-        },
-        ...(trek.href ? { subjectOf: absolute(trek.href) } : {}),
-      })),
-    ),
+    '@graph': [ORGANIZATION, ...treks.flatMap((trek) => trek.departures.map((departure) => departureEvent(locale, trek, departure)))],
   };
 }
 
 function dateRange({ c }: Ctx, departure: CalendarDeparture) {
-  const start = date(departure.start), end = date(departure.end);
-  if (departure.start === departure.end) return `${start.getDate()} ${c.meses[start.getMonth()]}`;
-  return `${start.getDate()}${start.getMonth() !== end.getMonth() ? ` ${c.meses[start.getMonth()]}` : ''} – ${end.getDate()} ${c.meses[end.getMonth()]}`;
+  return periodoSaida(c, departure);
 }
 
 function PhotoStack({ ctx, treks }: { ctx: Ctx; treks: Trek[] }) {

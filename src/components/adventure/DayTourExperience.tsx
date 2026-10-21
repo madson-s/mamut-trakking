@@ -11,12 +11,13 @@ import {
   Text,
 } from '@/components/ui';
 import { cn } from '@/lib/cn';
-import { SITE, formatPrice, type Locale } from '@/lib/site';
+import { formatPrice, type Locale } from '@/lib/site';
 import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
 import { PRICE_TABLE_LABELS, VER_TABELA } from './price-table';
+import { tourJsonLd } from './structured-data';
 import { NextDepartures } from '@/components/calendar/NextDepartures';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
@@ -50,20 +51,18 @@ export function DayTourExperience({
   return (
     <article>
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'TouristTrip',
+        data={tourJsonLd({
+          locale,
           name: c.meta.title,
           description: c.meta.description,
-          image: `${SITE.url}${assets.hero.src}`,
-          provider: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
-          offers: {
-            '@type': 'Offer',
-            price: assets.fromPrice,
-            priceCurrency: 'BRL',
-            availability: 'https://schema.org/InStock',
-          },
-        }}
+          path: c.meta.canonical,
+          images: [assets.hero.src, ...assets.galeria.map((foto) => foto.src)],
+          days: c.itinerario.dias?.map((d) => ({ name: `${d.rotulo} · ${d.titulo}`, description: d.corpo })),
+          fromPrice: assets.fromPrice,
+          tiers: assets.tiers,
+          faqs: c.faqs,
+          calendarTrekId: assets.calendarTrekId,
+        })}
       />
 
       <MediaCard

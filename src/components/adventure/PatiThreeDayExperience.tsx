@@ -16,7 +16,7 @@ import {
 } from '@/components/home/ScrollFeedbackStack';
 import { HOME_CONTENT } from '@/components/home/home-content';
 import { cn } from '@/lib/cn';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { NextDepartures } from '@/components/calendar/NextDepartures';
 import { statValue } from './stat-values';
 import { PatiFaqList } from './PatiFaqList';
@@ -33,6 +33,7 @@ import { AgencyFacilities, TripLogistics } from './AgencySupport';
 import type { ReturnTime } from './agency-support';
 import type { GuidePriceTiers } from './guide-pricing';
 import { patiPricing } from './price-table';
+import { tourJsonLd } from './structured-data';
 import { patiBookingMessages } from './booking-messages';
 import type { MessageLocale } from '@/lib/message-locale';
 import { AssetIcon } from './AssetIcon';
@@ -176,16 +177,19 @@ export function PatiExperience({
   return (
     <article className="pati-three-day-page overflow-x-clip pb-[calc(104px+env(safe-area-inset-bottom))] lg:pb-0">
       <span hidden aria-hidden data-design-seed="b6829298" dangerouslySetInnerHTML={{ __html: DIRECTION_CONTRACT }} />
-      <JsonLd data={{
-        '@context': 'https://schema.org',
-        '@type': 'TouristTrip',
-        name: `${c.hero.titulo.antes} ${c.hero.titulo.destaque}`,
-        description: c.meta.ogDescription,
-        image: `${SITE.url}${a.ogImage}`,
-        touristType: 'Trekking / ecoturismo',
-        provider: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
-        offers: { '@type': 'Offer', price: a.fromPrice, priceCurrency: 'BRL', availability: 'https://schema.org/InStock' },
-      }} />
+      <JsonLd data={tourJsonLd({
+        locale,
+        name: c.meta.title,
+        description: c.meta.description,
+        path: c.meta.canonical,
+        images: [a.ogImage],
+        // `lead` + `body` formam a frase do dia ("6h saída" + " de Lençóis → …").
+        days: c.itinerary.dias.map((d) => ({ name: d.day, description: `${d.lead}${d.body}`.trim() })),
+        fromPrice: a.fromPrice,
+        tiers: a.tiers,
+        faqs,
+        calendarTrekId: a.calendarTrekId,
+      })} />
       <Hero c={c} a={a} locale={locale} />
       <Story c={c} a={a} />
       <Itinerary c={c} a={a} locale={locale} />

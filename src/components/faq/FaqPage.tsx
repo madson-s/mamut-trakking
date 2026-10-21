@@ -6,6 +6,7 @@ import { DICAS_CONTENT } from '@/components/dicas/dicas-conteudo';
 import type { Locale } from '@/lib/site';
 import { FAQ_CONTENT } from './faq-content';
 import { whatsappLink } from '@/lib/whatsapp';
+import { faqAnswerText } from '@/components/adventure/structured-data';
 
 /** "Antes de vir": as perguntas de Informações gerais, no formato do acordeão. */
 function perguntasGerais(locale: Locale): PatiFaqItem[] {
@@ -14,20 +15,6 @@ function perguntasGerais(locale: Locale): PatiFaqItem[] {
     title: item.pergunta,
     paragraphs: [item.resposta],
   }));
-}
-
-/** Texto corrido de um item, para o JSON-LD (que só aceita texto). */
-function respostaEmTexto(item: PatiFaqItem): string | null {
-  switch (item.type) {
-    case 'payment':
-      return item.paragraphs.join(' ');
-    case 'cancellation':
-      return [item.intro, item.refunds.map(([quando, regra]) => `${quando}: ${regra}`).join('; '), ...item.paragraphs].join(' ');
-    case 'safety':
-      return [item.lead, item.body, ...(item.disclaimer ?? [])].join(' ');
-    default:
-      return null;
-  }
 }
 
 function FaqSection({
@@ -68,7 +55,7 @@ export function FaqPage({ locale }: { locale: Locale }) {
     '@type': 'FAQPage',
     inLanguage: locale,
     mainEntity: [...antes, ...reserva, ...seguranca].flatMap((item) => {
-      const texto = respostaEmTexto(item);
+      const texto = faqAnswerText(item);
       return texto
         ? [{ '@type': 'Question', name: item.title, acceptedAnswer: { '@type': 'Answer', text: texto } }]
         : [];
