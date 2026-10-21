@@ -11,7 +11,8 @@ import type { Locale } from '@/lib/site';
  *     WhatsApp ou o app de e-mail da pessoa (`ContatoForm`).
  *   • Ficha do participante: vai por e-mail via Resend (`/api/formulario-participante`)
  *     ou pelo WhatsApp; não é gravada em banco do site.
- *   • reCAPTCHA v3 só nas páginas com formulário; nenhum analytics nem pixel.
+ *   • reCAPTCHA v3 só nas páginas com formulário; Google Analytics 4 em todas
+ *     as páginas públicas (seção "estatísticas"); nenhum pixel de publicidade.
  *   • O tema claro/escuro fica no localStorage do próprio navegador.
  * Mudou alguma dessas peças (entrou analytics, a ficha passou a ser gravada…)?
  * Atualize este texto e a data de `atualizadoEm`.
@@ -60,7 +61,7 @@ export const PRIVACIDADE_HREF: Record<Locale, string> = {
 };
 
 /** Data da última revisão do texto (ISO), exibida no idioma da página. */
-export const PRIVACIDADE_ATUALIZADA_EM = '2026-10-14';
+export const PRIVACIDADE_ATUALIZADA_EM = '2026-10-21';
 
 const CNPJ = '43.500.583/0001-22';
 const ENDERECO = 'Rua Miguel Calmon, 108, Centro — Lençóis, Bahia, Brasil — CEP 46960-000';
@@ -110,8 +111,25 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Navegação.',
-                'Não usamos ferramentas de estatística nem de publicidade, e não há cookies nossos de rastreamento. O servidor registra dados técnicos de cada acesso (endereço IP, data, hora e página), como exige o Marco Civil da Internet. A preferência de tema claro ou escuro fica guardada só no seu navegador.',
+                'Não usamos ferramentas de publicidade. Para estatísticas de visita usamos o Google Analytics, descrito na seção seguinte. O servidor registra dados técnicos de cada acesso (endereço IP, data, hora e página), como exige o Marco Civil da Internet. A preferência de tema claro ou escuro fica guardada só no seu navegador.',
               ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'estatisticas',
+        titulo: 'Estatísticas de visita (Google Analytics)',
+        blocos: [
+          { tipo: 'p', texto: 'Usamos o Google Analytics 4 para entender como o site é usado: quantas pessoas visitam, de onde chegam (busca, redes sociais, links), quais páginas e roteiros são mais vistos e em quais botões clicam — por exemplo, o do WhatsApp. É assim que decidimos o que melhorar.' },
+          { tipo: 'p', texto: 'O Google Analytics grava cookies no seu navegador (como o _ga) e recebe dados técnicos da visita: páginas vistas, tempo na página, tipo de aparelho e navegador, idioma e localização aproximada (cidade e país). Ele não nos entrega seu nome, e-mail ou telefone, e não cruzamos esses dados com os das reservas.' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Base legal: nosso interesse legítimo em medir e melhorar o site (LGPD, art. 7º, IX).',
+              'Guarda: os dados ficam no Google Analytics por até 14 meses e depois são apagados.',
+              'Transferência: os dados vão para servidores do Google, inclusive nos Estados Unidos (ver \'Transferência internacional\').',
+              'Como recusar: bloqueie cookies de terceiros no navegador ou instale a extensão oficial de desativação do Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -292,8 +310,25 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Browsing.',
-                'We use no analytics or advertising tools and set no tracking cookies of our own. The server logs technical data about each visit (IP address, date, time and page), as Brazilian internet law requires. Your light or dark theme preference is stored only in your browser.',
+                'We use no advertising tools. For visit statistics we use Google Analytics, described in the next section. The server logs technical data about each visit (IP address, date, time and page), as Brazilian internet law requires. Your light or dark theme preference is stored only in your browser.',
               ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'analytics',
+        titulo: 'Visit statistics (Google Analytics)',
+        blocos: [
+          { tipo: 'p', texto: 'We use Google Analytics 4 to understand how the site is used: how many people visit, where they come from (search, social media, links), which pages and trips are viewed most and which buttons they click — the WhatsApp one, for example. That is how we decide what to improve.' },
+          { tipo: 'p', texto: 'Google Analytics sets cookies in your browser (such as _ga) and receives technical data about the visit: pages viewed, time on page, device and browser type, language and approximate location (city and country). It does not give us your name, email or phone number, and we do not combine this data with booking data.' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Legal basis: our legitimate interest in measuring and improving the site (LGPD, art. 7, IX).',
+              'Retention: the data stays in Google Analytics for up to 14 months and is then deleted.',
+              'Transfer: the data goes to Google servers, including in the United States (see \'International transfers\').',
+              'How to opt out: block third-party cookies in your browser or install the official Google Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -471,8 +506,25 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Navegación.',
-                'No usamos herramientas de estadística ni de publicidad, ni cookies propias de rastreo. El servidor registra datos técnicos de cada acceso (dirección IP, fecha, hora y página), como exige la ley brasileña de internet. Tu preferencia de tema claro u oscuro queda guardada solo en tu navegador.',
+                'No usamos herramientas de publicidad. Para las estadísticas de visitas usamos Google Analytics, descrito en la sección siguiente. El servidor registra datos técnicos de cada acceso (dirección IP, fecha, hora y página), como exige la ley brasileña de internet. Tu preferencia de tema claro u oscuro queda guardada solo en tu navegador.',
               ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'estadisticas',
+        titulo: 'Estadísticas de visitas (Google Analytics)',
+        blocos: [
+          { tipo: 'p', texto: 'Usamos Google Analytics 4 para entender cómo se usa el sitio: cuántas personas lo visitan, de dónde llegan (buscadores, redes sociales, enlaces), qué páginas y recorridos se ven más y en qué botones hacen clic —por ejemplo, el de WhatsApp—. Así decidimos qué mejorar.' },
+          { tipo: 'p', texto: 'Google Analytics guarda cookies en tu navegador (como _ga) y recibe datos técnicos de la visita: páginas vistas, tiempo en la página, tipo de dispositivo y navegador, idioma y ubicación aproximada (ciudad y país). No nos entrega tu nombre, correo ni teléfono, y no cruzamos estos datos con los de las reservas.' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Base legal: nuestro interés legítimo en medir y mejorar el sitio (LGPD, art. 7, IX).',
+              'Conservación: los datos quedan en Google Analytics hasta 14 meses y luego se borran.',
+              'Transferencia: los datos van a servidores de Google, incluso en Estados Unidos (ver \'Transferencia internacional\').',
+              'Cómo rechazarlo: bloquea las cookies de terceros en tu navegador o instala el complemento oficial de inhabilitación de Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -650,8 +702,25 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Navigation.',
-                'Nous n’utilisons aucun outil de statistiques ni de publicité, et nous ne déposons aucun cookie de suivi qui nous soit propre. Le serveur enregistre des données techniques de chaque visite (adresse IP, date, heure et page), comme l’exige le Marco Civil da Internet (loi brésilienne encadrant l’internet). Votre préférence de thème clair ou sombre est conservée uniquement dans votre navigateur.',
+                'Nous n’utilisons aucun outil de publicité. Pour les statistiques de visite, nous utilisons Google Analytics, décrit dans la section suivante. Le serveur enregistre des données techniques de chaque visite (adresse IP, date, heure et page), comme l’exige le Marco Civil da Internet (loi brésilienne encadrant l’internet). Votre préférence de thème clair ou sombre est conservée uniquement dans votre navigateur.',
               ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'statistiques',
+        titulo: 'Statistiques de visite (Google Analytics)',
+        blocos: [
+          { tipo: 'p', texto: 'Nous utilisons Google Analytics 4 pour comprendre comment le site est utilisé : combien de personnes le visitent, d’où elles arrivent (recherche, réseaux sociaux, liens), quelles pages et quels itinéraires sont les plus consultés et sur quels boutons elles cliquent — celui de WhatsApp, par exemple. C’est ainsi que nous décidons quoi améliorer.' },
+          { tipo: 'p', texto: 'Google Analytics dépose des cookies dans votre navigateur (comme _ga) et reçoit des données techniques sur la visite : pages vues, temps passé, type d’appareil et de navigateur, langue et localisation approximative (ville et pays). Il ne nous transmet ni votre nom, ni votre e-mail, ni votre téléphone, et nous ne croisons pas ces données avec celles des réservations.' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Base légale : notre intérêt légitime à mesurer et améliorer le site (LGPD, art. 7, IX).',
+              'Conservation : les données restent dans Google Analytics jusqu’à 14 mois, puis sont supprimées.',
+              'Transfert : les données sont envoyées vers des serveurs de Google, y compris aux États-Unis (voir « Transfert international »).',
+              'Comment refuser : bloquez les cookies tiers dans votre navigateur ou installez le module officiel de désactivation de Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -831,8 +900,25 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Surfen op de site.',
-                'We gebruiken geen analyse- of advertentietools en plaatsen geen eigen trackingcookies. De server legt technische gegevens over elk bezoek vast (IP-adres, datum, tijd en pagina), zoals de Braziliaanse internetwet vereist. Je voorkeur voor het lichte of donkere thema wordt alleen in je browser opgeslagen.',
+                'We gebruiken geen advertentietools. Voor bezoekstatistieken gebruiken we Google Analytics, zoals beschreven in het volgende onderdeel. De server legt technische gegevens over elk bezoek vast (IP-adres, datum, tijd en pagina), zoals de Braziliaanse internetwet vereist. Je voorkeur voor het lichte of donkere thema wordt alleen in je browser opgeslagen.',
               ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'statistieken',
+        titulo: 'Bezoekstatistieken (Google Analytics)',
+        blocos: [
+          { tipo: 'p', texto: 'We gebruiken Google Analytics 4 om te begrijpen hoe de site wordt gebruikt: hoeveel mensen hem bezoeken, waar ze vandaan komen (zoekmachines, sociale media, links), welke pagina’s en tochten het meest worden bekeken en op welke knoppen ze klikken — bijvoorbeeld die van WhatsApp. Zo bepalen we wat we verbeteren.' },
+          { tipo: 'p', texto: 'Google Analytics plaatst cookies in je browser (zoals _ga) en ontvangt technische gegevens over het bezoek: bekeken pagina’s, tijd op de pagina, type apparaat en browser, taal en globale locatie (stad en land). Het geeft ons niet je naam, e-mailadres of telefoonnummer, en we koppelen deze gegevens niet aan die van boekingen.' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Rechtsgrond: ons gerechtvaardigd belang om de site te meten en te verbeteren (LGPD, art. 7, IX).',
+              'Bewaartermijn: de gegevens blijven maximaal 14 maanden in Google Analytics en worden daarna verwijderd.',
+              'Doorgifte: de gegevens gaan naar servers van Google, ook in de Verenigde Staten (zie \'Internationale doorgifte\').',
+              'Bezwaar maken: blokkeer cookies van derden in je browser of installeer de officiële browser-add-on voor het uitschakelen van Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -1009,8 +1095,25 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Surfen auf der Website.',
-                'Wir nutzen keine Analyse- oder Werbetools und setzen keine eigenen Tracking-Cookies. Der Server erfasst technische Daten zu jedem Besuch (IP-Adresse, Datum, Uhrzeit und Seite), wie es das brasilianische Internetgesetz verlangt. Deine Vorliebe für das helle oder dunkle Design wird nur in deinem Browser gespeichert.',
+                'Wir nutzen keine Werbetools. Für Besuchsstatistiken nutzen wir Google Analytics, wie im nächsten Abschnitt beschrieben. Der Server erfasst technische Daten zu jedem Besuch (IP-Adresse, Datum, Uhrzeit und Seite), wie es das brasilianische Internetgesetz verlangt. Deine Vorliebe für das helle oder dunkle Design wird nur in deinem Browser gespeichert.',
               ],
+            ],
+          },
+        ],
+      },
+      {
+        id: 'statistiken',
+        titulo: 'Besuchsstatistiken (Google Analytics)',
+        blocos: [
+          { tipo: 'p', texto: 'Wir nutzen Google Analytics 4, um zu verstehen, wie die Website genutzt wird: wie viele Menschen sie besuchen, woher sie kommen (Suche, soziale Netzwerke, Links), welche Seiten und Touren am meisten angesehen werden und welche Buttons sie anklicken — zum Beispiel den für WhatsApp. So entscheiden wir, was wir verbessern.' },
+          { tipo: 'p', texto: 'Google Analytics setzt Cookies in deinem Browser (etwa _ga) und erhält technische Daten zum Besuch: aufgerufene Seiten, Verweildauer, Geräte- und Browsertyp, Sprache und ungefährer Standort (Stadt und Land). Es übermittelt uns weder deinen Namen noch deine E-Mail-Adresse oder Telefonnummer, und wir verknüpfen diese Daten nicht mit Buchungsdaten.' },
+          {
+            tipo: 'lista',
+            itens: [
+              'Rechtsgrundlage: unser berechtigtes Interesse, die Website zu messen und zu verbessern (LGPD, Art. 7, IX).',
+              'Speicherdauer: Die Daten bleiben bis zu 14 Monate in Google Analytics und werden danach gelöscht.',
+              'Übermittlung: Die Daten gehen an Server von Google, auch in den USA (siehe „Internationale Übermittlung“).',
+              'Widerspruch: Blockiere Drittanbieter-Cookies in deinem Browser oder installiere das offizielle Browser-Add-on zur Deaktivierung von Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],

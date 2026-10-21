@@ -5,6 +5,7 @@ import './globals.css';
 import { Container } from '@/components/ui';
 import { NotFoundMessage } from '@/components/not-found/NotFoundMessage';
 import { ThemeProvider } from '@/components/ui/theme-provider';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 import { fontBody, fontDisplay } from '@/lib/fonts';
 import { SITE } from '@/lib/site';
 
@@ -33,6 +34,7 @@ export default function GlobalNotFound() {
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col bg-surface antialiased">
+        <GoogleAnalytics />
         <ThemeProvider>
           <header className="w-full border-b border-line">
             <Container className="flex h-20 items-center">

@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/ui/theme-provider';
 import { ScrollExperience } from '@/components/layout/ScrollExperience';
 import { fontBody, fontDisplay } from '@/lib/fonts';
 import type { Locale } from '@/lib/site';
+import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
 
 /**
  * Casca da identidade nova (header, footer, tema) para páginas EN e ES.
@@ -29,6 +30,7 @@ export function LocaleShell({
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col antialiased">
+        <GoogleAnalytics />
         <ThemeProvider>
           <ScrollExperience />
           <HomeHeader locale={locale} />
