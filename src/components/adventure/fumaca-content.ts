@@ -34,7 +34,18 @@ export const FUMACA_ASSETS: DayTourAssets = {
     ['2', 490, 420],
     ['3', 390, 350],
     ['4+', 390, 320],
-  ]),
+  ], {
+    // Saindo de Caeté-Açu (Vale do Capão), sem o transporte de ida e volta a Lençóis.
+    local: {
+      origin: 'Caeté-Açu (Vale do Capão)',
+      pt: [
+        ['1', 399, 220],
+        ['2', 299, 220],
+        ['3', 250, 189],
+        ['4+', 200, 149],
+      ],
+    },
+  }),
 };
 
 export const FUMACA_CONTENT: Record<Locale, DayTourContent> = {

@@ -7,6 +7,7 @@ import { ADVENTURE_SEGMENT, formatPrice, type Locale } from '@/lib/site';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
 import { ADVENTURES } from './adventures-data';
 import { ADVENTURES_CONTENT, type AdventuresContent } from './adventures-content';
+import { guidePrice } from '@/components/adventure/guide-pricing';
 
 // O card e o resolvedor moram fora do `AdventuresHub` porque ele é
 // `'use client'` — os filtros precisam de estado, o card não. Assim a seção
@@ -23,6 +24,8 @@ export function aventurasDoIdioma(locale: Locale) {
     const rota = base.route && ADVENTURE_ROUTES.find((r) => r.id === base.route);
     return {
       ...base,
+      // O hub guarda o "a partir de" de guia em português; fora de /pt, o bilíngue.
+      price: guidePrice(base.price, locale),
       ...c.roteiros[base.id],
       href: rota ? `/${locale}/${seg}/${rota[locale]}` : contato,
     };

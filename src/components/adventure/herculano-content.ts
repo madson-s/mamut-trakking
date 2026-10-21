@@ -54,7 +54,7 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
     },
     hero: {
       nivel: 'Moderado',
-      origem: 'Origem: Itaetê',
+      origem: 'Origem: Lençóis',
       duracao: '1 dia',
       titulo: 'Cachoeira do Herculano.',
       lead: 'Sessenta metros de queda em Itaetê, do outro lado da Chapada — e quase sempre só o seu grupo.',
@@ -131,7 +131,7 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
     },
     hero: {
       nivel: 'Moderate',
-      origem: 'From: Itaetê',
+      origem: 'From: Lençóis',
       duracao: '1 day',
       titulo: 'Herculano Waterfall.',
       lead: 'Sixty metres of falling water in Itaetê, on the far side of the Chapada — and usually just your group.',
@@ -208,7 +208,7 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
     },
     hero: {
       nivel: 'Moderado',
-      origem: 'Origen: Itaetê',
+      origem: 'Origen: Lençóis',
       duracao: '1 día',
       titulo: 'Cascada do Herculano.',
       lead: 'Sesenta metros de caída en Itaetê, del otro lado de la Chapada — y casi siempre solo tu grupo.',
@@ -285,7 +285,7 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
     },
     hero: {
       nivel: 'Modéré',
-      origem: 'Départ : Itaetê',
+      origem: 'Départ : Lençóis',
       duracao: '1 jour',
       titulo: 'Cascade du Herculano.',
       lead: 'Soixante mètres de chute à Itaetê, de l’autre côté de la Chapada — et presque toujours rien que pour votre groupe.',
@@ -362,7 +362,7 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
     },
     hero: {
       nivel: 'Gemiddeld',
-      origem: 'Vertrek: Itaetê',
+      origem: 'Vertrek: Lençóis',
       duracao: '1 dag',
       titulo: 'Waterval Herculano.',
       lead: 'Zestig meter vallend water in Itaetê, aan de andere kant van de Chapada — en meestal alleen met je eigen groep.',
@@ -439,7 +439,7 @@ export const HERCULANO_CONTENT: Record<Locale, DayTourContent> = {
     },
     hero: {
       nivel: 'Mittel',
-      origem: 'Start: Itaetê',
+      origem: 'Start: Lençóis',
       duracao: '1 Tag',
       titulo: 'Wasserfall Herculano.',
       lead: 'Sechzig Meter fallendes Wasser in Itaetê, auf der anderen Seite der Chapada — und meist nur mit deiner eigenen Gruppe.',

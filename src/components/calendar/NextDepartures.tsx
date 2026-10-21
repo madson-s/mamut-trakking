@@ -1,6 +1,7 @@
 import { Button, Text } from '@/components/ui';
 import { cn } from '@/lib/cn';
 import { formatPrice, type Locale } from '@/lib/site';
+import { guidePrice } from '@/components/adventure/guide-pricing';
 import { CALENDAR_CONTENT } from './calendar-content';
 import { NEXT_DEPARTURES_LABELS, calendarTrekHref, nextDepartures } from './next-departures';
 
@@ -35,7 +36,7 @@ export function NextDepartures({ locale, trekId, className }: { locale: Locale; 
                 {saida.start === saida.end ? periodo.format(dia(saida.start)) : periodo.formatRange(dia(saida.start), dia(saida.end))}
               </time>
               <span className="tabular-nums">
-                {formatPrice(saida.price, locale)} <span className="font-light text-content-muted">{t.porPessoa}</span>
+                {formatPrice(guidePrice(saida.price, locale), locale)} <span className="font-light text-content-muted">{t.porPessoa}</span>
               </span>
             </a>
           </li>

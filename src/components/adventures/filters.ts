@@ -23,7 +23,7 @@ export const MIN_BUDGET = 50;
 // que passasse dele sumia do hub já no filtro padrão ("qualquer valor").
 export const MAX_BUDGET = Math.max(...ADVENTURES.map((a) => a.price));
 
-export const LOCATION_OPTIONS = ['all', 'Lençóis', 'Vale do Capão', 'Palmeiras', 'Ibicoara', 'Guiné'];
+export const LOCATION_OPTIONS = ['all', 'Lençóis', 'Vale do Capão', 'Ibicoara', 'Guiné'];
 export const DURATION_OPTIONS = ['all', '1', '2', '3', '4', '5', '6'];
 export const DIFFICULTY_OPTIONS: DifficultyFilter[] = ['all', 'Fácil', 'Moderado', 'Desafiador'];
 
@@ -63,7 +63,9 @@ export function matchesFilters(adventure: FilterableAdventure, filters: Adventur
     (filters.location === 'all' || adventure.location === filters.location) &&
     (filters.duration === 'all' || adventure.duration === Number(filters.duration)) &&
     (filters.difficulty === 'all' || adventure.difficultyGroup === filters.difficulty) &&
-    adventure.price <= filters.budget
+    // No teto, o orçamento não limita: fora de /pt o preço tem o acréscimo do
+    // guia bilíngue e passaria do teto, calculado em cima do de português.
+    (filters.budget >= MAX_BUDGET || adventure.price <= filters.budget)
   );
 }
 

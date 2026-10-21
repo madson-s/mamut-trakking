@@ -37,7 +37,7 @@ export const AGUAS_CLARAS_ASSETS: DayTourAssets = {
     ['2 dias / 1 noite', '/svg/_icons/icon_11_calendar.svg'],
     ['Barraca', '/svg/_icons/icon_10_home.svg'],
     ['7h00', '/svg/_icons/icon_11_calendar.svg'],
-    ['Leve / Moderado', '/svg/_icons/icon_01_3-bars.svg'],
+    ['Moderado', '/svg/_icons/icon_01_3-bars.svg'],
   ],
   // Guia em português, saída e retorno em Lençóis. Ordem: [pessoas, privado, em grupo].
   ...pricing([
@@ -59,7 +59,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       canonical: '/pt/aventuras/trilha-aguas-claras-2-dias',
     },
     hero: {
-      nivel: 'Leve / Moderado',
+      nivel: 'Moderado',
       origem: 'Origem: Lençóis',
       duracao: '2 dias',
       titulo: 'Trilha Águas Claras.',
@@ -136,7 +136,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       canonical: '/en/adventures/aguas-claras-trail',
     },
     hero: {
-      nivel: 'Light / Moderate',
+      nivel: 'Moderate',
       origem: 'From: Lençóis',
       duracao: '2 days',
       titulo: 'Águas Claras Trail.',
@@ -213,7 +213,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       canonical: '/es/aventuras/sendero-aguas-claras',
     },
     hero: {
-      nivel: 'Suave / Moderado',
+      nivel: 'Moderado',
       origem: 'Origen: Lençóis',
       duracao: '2 días',
       titulo: 'Sendero Águas Claras.',
@@ -290,7 +290,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       canonical: '/fr/aventures/sentier-aguas-claras',
     },
     hero: {
-      nivel: 'Facile / Modéré',
+      nivel: 'Modéré',
       origem: 'Départ : Lençóis',
       duracao: '2 jours',
       titulo: 'Sentier d’Águas Claras.',
@@ -367,7 +367,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       canonical: '/nl/avonturen/wandelpad-aguas-claras',
     },
     hero: {
-      nivel: 'Licht / Gemiddeld',
+      nivel: 'Gemiddeld',
       origem: 'Vertrek: Lençóis',
       duracao: '2 dagen',
       titulo: 'Wandelpad Águas Claras.',
@@ -444,7 +444,7 @@ export const AGUAS_CLARAS_CONTENT: Record<Locale, DayTourContent> = {
       canonical: '/de/abenteuer/wanderweg-aguas-claras',
     },
     hero: {
-      nivel: 'Leicht / Mittel',
+      nivel: 'Mittel',
       origem: 'Start: Lençóis',
       duracao: '2 Tage',
       titulo: 'Wanderweg Águas Claras.',

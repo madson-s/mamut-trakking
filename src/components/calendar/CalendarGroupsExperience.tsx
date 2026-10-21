@@ -13,6 +13,7 @@ import { MESSAGE_LOCALE } from '@/lib/message-locale';
 import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture } from './calendar-data';
 import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
 import { ORGANIZATION, departureEvent, periodoSaida } from '@/components/adventure/structured-data';
+import { guidePrice } from '@/components/adventure/guide-pricing';
 import styles from './calendar.module.css';
 
 // THESIS: Reproduce the supplied ZIP and screenshots, not the previous interpretation.
@@ -181,7 +182,10 @@ export function CalendarGroupsExperience({
   // a ordem da próxima saída de cada um.
   const treks: Trek[] = CALENDAR_TREKS
     .map((trek): Trek => {
-      const own = departures.filter((departure) => departure.trekId === trek.id);
+      // Preço da saída no idioma: guia em português em /pt, bilíngue nos demais.
+      const own = departures
+        .filter((departure) => departure.trekId === trek.id)
+        .map((departure) => ({ ...departure, price: guidePrice(departure.price, locale) }));
       const base = { id: trek.id, days: trek.days, departures: own, fromPrice: Math.min(...own.map((d) => d.price)) };
       if (trek.custom) {
         const route = trek.custom.route && ADVENTURE_ROUTES.find((r) => r.id === trek.custom.route);

@@ -3,6 +3,7 @@ import { BedDouble, CalendarDays, MapPin, ShieldCheck, TicketCheck, UsersRound }
 import { Badge, Button, Container, Heading, JsonLd, MediaCard, Section, Text } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
+import { guidePrice } from './guide-pricing';
 import { AgencyFacilities } from './AgencySupport';
 import { ReveillonBookingTrigger } from './ReveillonBookingTrigger';
 import { ReveillonPackageExplorer } from './ReveillonPackageExplorer';
@@ -27,7 +28,7 @@ export function ReveillonExperience({ locale }: { locale: Locale }) {
           offers: REVEILLON_PACKAGES.map((item) => ({
             '@type': 'Offer',
             name: c.jsonLd.offerName(c.pacotes[item.key].days),
-            price: item.price,
+            price: guidePrice(item.price, locale),
             priceCurrency: 'BRL',
             availability: 'https://schema.org/InStock',
           })),

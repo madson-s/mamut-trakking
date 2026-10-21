@@ -17,7 +17,7 @@ import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { CALENDAR_CONTENT, CALENDAR_HREF, type CalendarContent } from '@/components/calendar/calendar-content';
 import { CALENDAR_TREKS, type CalendarDeparture } from '@/components/calendar/calendar-data';
 import { nextDepartures } from '@/components/calendar/next-departures';
-import type { GuidePriceTiers } from './guide-pricing';
+import { guidePrice, isPortugueseGuide, withBilingualSurcharge, type GuidePriceTiers, type OriginTiers } from './guide-pricing';
 import type { PatiFaqItem } from './PatiFaqList';
 
 export const absoluteUrl = (path: string) => (path.startsWith('http') ? path : `${SITE.url}${path}`);
@@ -124,7 +124,7 @@ function departureEventsFor(locale: Locale, trekId: string) {
     image: trek.image ?? hub.image,
     href: hub.href,
   };
-  return nextDepartures(trekId, Infinity).map((d) => departureEvent(locale, info, d));
+  return nextDepartures(trekId, Infinity).map((d) => departureEvent(locale, info, { ...d, price: guidePrice(d.price, locale) }));
 }
 
 // ---------------------------------------------------------------- roteiro
@@ -148,7 +148,9 @@ export function tourJsonLd(p: {
   calendarTrekId?: string;
 }) {
   const url = absoluteUrl(p.path);
-  const prices = p.tiers?.pt.flatMap(([, privado, grupo]) => [privado, grupo]) ?? [];
+  // Os valores do idioma da página: guia em português em /pt, bilíngue nos demais.
+  const pick = (t?: OriginTiers) => (t ? (isPortugueseGuide(p.locale) ? t.pt : (t.bilingue ?? withBilingualSurcharge(t.pt))) : []);
+  const prices = [...pick(p.tiers), ...pick(p.tiers?.local)].flatMap(([, privado, grupo]) => [privado, grupo]);
   const offers = prices.length
     ? {
         '@type': 'AggregateOffer',

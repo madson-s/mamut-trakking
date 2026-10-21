@@ -19,7 +19,7 @@ import { PATI_BOOKING_OPEN_EVENT } from './patiBooking';
 import type { BookingMessages } from './booking-messages';
 import { whatsappLink } from '@/lib/whatsapp';
 import type { MessageLocale } from '@/lib/message-locale';
-import { estimatePrice, type GuidePriceTiers, type PriceColumn } from './guide-pricing';
+import { estimatePrice, type DepartureOrigin, type GuidePriceTiers, type PriceColumn } from './guide-pricing';
 
 type SheetView = 'booking' | 'calendar';
 
@@ -96,6 +96,9 @@ export function PatiMobileBooking({
   const [sheetView, setSheetView] = useState<SheetView | null>(null);
   const [travellers, setTravellers] = useState(2);
   const [language, setLanguage] = useState(() => languageFromPath(pathname));
+  // Só os roteiros com tabela de saída local perguntam; o padrão é Lençóis, como na página.
+  const [origin, setOrigin] = useState<DepartureOrigin>('lencois');
+  const localOrigin = tiers?.local?.origin;
   const [selectedDate, setSelectedDate] = useState(() => new Date(initialYear, initialMonth - 1, initialDay));
   const [visibleMonth, setVisibleMonth] = useState(() => new Date(initialYear, initialMonth - 1, 1));
   const sheetRef = useRef<HTMLDivElement>(null);
@@ -151,7 +154,7 @@ export function PatiMobileBooking({
     return () => window.removeEventListener('keydown', onKeyDown);
   }, [sheetView]);
 
-  const estimatedPrice = tiers ? estimatePrice(tiers, travellers, column, language) : GROUP_PRICE;
+  const estimatedPrice = tiers ? estimatePrice(tiers, travellers, column, language, origin) : GROUP_PRICE;
   const monthDays = useMemo(
     () => getMonthDays(visibleMonth.getFullYear(), visibleMonth.getMonth()),
     [visibleMonth],
@@ -162,7 +165,7 @@ export function PatiMobileBooking({
   const bookingMessage = encodeURIComponent(
     `${m.intro} ${formatDate(selectedDate, m.diasSemana)}, ${travellers} ${
       travellers > 1 ? m.viajantes : m.viajante
-    }, ${m.idioma}: ${language}.`,
+    }, ${m.idioma}: ${language}${localOrigin ? `, ${m.saida}: ${origin === 'local' ? localOrigin : 'Lençóis'}` : ''}.`,
   );
   const availabilityUrl = `${SITE.whatsappUrl}?text=${bookingMessage}`;
 
@@ -230,6 +233,9 @@ export function PatiMobileBooking({
               selectedDate={selectedDate}
               travellers={travellers}
               language={language}
+              origin={origin}
+              localOrigin={localOrigin}
+              onOriginChange={setOrigin}
               estimatedPrice={estimatedPrice}
               availabilityUrl={availabilityUrl}
               onClose={closeSheet}
@@ -274,6 +280,9 @@ function BookingView({
   selectedDate,
   travellers,
   language,
+  origin,
+  localOrigin,
+  onOriginChange,
   estimatedPrice,
   availabilityUrl,
   onClose,
@@ -286,6 +295,10 @@ function BookingView({
   selectedDate: Date;
   travellers: number;
   language: Language;
+  origin: DepartureOrigin;
+  /** Cidade da saída local; sem ela, o sheet não pergunta o ponto de saída. */
+  localOrigin?: string;
+  onOriginChange: (value: DepartureOrigin) => void;
   estimatedPrice: number;
   availabilityUrl: string;
   onOpenCalendar: () => void;
@@ -340,6 +353,32 @@ function BookingView({
             ))}
           </div>
         </div>
+
+        {localOrigin ? (
+          <div className="border-t border-line-strong px-4 py-3.5">
+            <Text size="xs" tone="muted">{c.saida}</Text>
+            <div className="mt-2.5 flex flex-wrap gap-2">
+              {([['lencois', 'Lençóis'], ['local', localOrigin]] as const).map(([value, label]) => (
+                <button
+                  key={value}
+                  type="button"
+                  aria-pressed={origin === value}
+                  onClick={() => onOriginChange(value)}
+                  className={`min-h-10 rounded-pill border px-3 text-xs transition-[background-color,border-color,color,transform] duration-200 ease-out active:scale-[0.96] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand ${
+                    origin === value
+                      ? 'border-brand bg-brand text-brand-contrast'
+                      : 'border-line-contrast text-content-secondary hover:border-brand hover:text-content'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+            {origin === 'local' ? (
+              <Text size="xs" tone="muted" className="mt-2.5">{c.semTransporte.replace('{cidade}', localOrigin)}</Text>
+            ) : null}
+          </div>
+        ) : null}
       </div>
 
       <div className="mt-5 flex h-13 items-center justify-between rounded-card border border-line px-4.5">

@@ -45,8 +45,18 @@ export const MIRANTE_PATI_ASSETS: DayTourAssets = {
     ['2', 740, 650],
     ['3', 650, 599],
     ['4+', 599, 550],
-  ]),
-  priceOrigin: 'Guiné',
+  ], {
+    // Saindo de Guiné, sem o transporte de ida e volta a Lençóis.
+    local: {
+      origin: 'Guiné',
+      pt: [
+        ['1', 400, 350],
+        ['2', 300, 265],
+        ['3', 279, 225],
+        ['4+', 239, 199],
+      ],
+    },
+  }),
 };
 
 export const MIRANTE_PATI_CONTENT: Record<Locale, DayTourContent> = {

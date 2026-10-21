@@ -16,8 +16,14 @@ import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
-import { PRICE_TABLE_LABELS, VER_TABELA } from './price-table';
+import { PRICE_TABLE_LABELS, VER_TABELA, pricingFor } from './price-table';
+import { guidePrice } from './guide-pricing';
 import { tourJsonLd } from './structured-data';
+import { PatiBookingTrigger } from './PatiBookingTrigger';
+import { PatiMobileBooking } from './PatiMobileBooking';
+import { PATI3_CONTENT } from './pati-3-content';
+import { tourBookingMessages } from './booking-messages';
+import { trekBookingEvent } from './patiBooking';
 import { NextDepartures } from '@/components/calendar/NextDepartures';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
@@ -38,14 +44,23 @@ import { ROTEIRO, whatsappSobre } from '@/lib/whatsapp';
 export function DayTourExperience({
   locale,
   content,
-  assets,
+  assets: assetsPt,
 }: {
   locale: Locale;
   content: Record<Locale, DayTourContent>;
   assets: DayTourAssets;
 }) {
   const c = content[locale];
+  // Os assets guardam o preço de guia em português; fora de /pt a página
+  // mostra o de guia bilíngue. Daqui para baixo, `assets` já é o do idioma.
+  const assets = assetsPt.tiers
+    ? { ...assetsPt, ...pricingFor(assetsPt.tiers, locale) }
+    : { ...assetsPt, fromPrice: guidePrice(assetsPt.fromPrice, locale) };
   const sobreRoteiro = whatsappSobre(locale, (l) => ROTEIRO[l](content[l].hero.titulo));
+  // O botão do topo abre o sheet do formato em grupo (o mais procurado); com
+  // um formato só (ex.: pacote só privado), o dele.
+  const formatoReserva = Math.min(1, c.precos.formatos.length - 1);
+  const abrirReserva = trekBookingEvent(formatoReserva);
   const stats = assets.stats.map(([value, icon], i) => ({ value: statValue(value, locale), icon, label: c.stats[i] }));
 
   return (
@@ -94,9 +109,7 @@ export function DayTourExperience({
             {c.hero.lead}
           </Text>
           <div className="flex flex-wrap items-center gap-4">
-            <Button href={sobreRoteiro} size="lg" arrow className="max-sm:w-full">
-              {c.hero.reservar}
-            </Button>
+            <PatiBookingTrigger label={c.hero.reservar} eventName={abrirReserva} size="lg" block={false} className="max-sm:w-full" />
             {assets.priceTable ? (
               <Button href="#tabela-pagamento" variant="outlineOnMedia" size="lg" className="max-sm:w-full">
                 {VER_TABELA[locale]}
@@ -230,6 +243,7 @@ export function DayTourExperience({
                   formatos={c.precos.formatos.map((f) => f.titulo)}
                   rows={assets.priceTable}
                   origin={assets.priceOrigin}
+                  localTable={assets.localTable}
                 />
                 {assets.calendarTrekId ? <NextDepartures locale={locale} trekId={assets.calendarTrekId} className="w-full text-left" /> : null}
                 <div className="flex flex-col gap-1.5">
@@ -260,7 +274,7 @@ export function DayTourExperience({
               </div>
             )}
             <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
-            <Button href={sobreRoteiro} arrow>{c.hero.reservar}</Button>
+            <PatiBookingTrigger label={c.hero.reservar} eventName={abrirReserva} block={false} />
           </Section>
 
           <Section padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
@@ -281,6 +295,20 @@ export function DayTourExperience({
           </Section>
         </>
       )}
+      {/* No layout legado não há cards com sheet próprio: o sheet mora aqui e
+          os botões "Reservar" da página o abrem pelo mesmo evento. */}
+      {assets.detailLayout === 'legacy' ? (
+        <PatiMobileBooking
+          content={PATI3_CONTENT[locale].booking}
+          fromPrice={assets.fromPrice}
+          tiers={assets.tiers}
+          column={formatoReserva === 0 ? 0 : 1}
+          messages={tourBookingMessages(content, formatoReserva)}
+          openEvent={abrirReserva}
+          sheetId="trek-booking-sheet-hero"
+          showDock={false}
+        />
+      ) : null}
     </article>
   );
 }
