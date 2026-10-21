@@ -6,6 +6,8 @@ import { ScrollExperience } from '@/components/layout/ScrollExperience';
 import { fontBody, fontDisplay } from '@/lib/fonts';
 import type { Locale } from '@/lib/site';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { JsonLd } from '@/components/ui';
+import { siteJsonLd } from '@/lib/structured-data';
 
 /**
  * Casca da identidade nova (header, footer, tema) para páginas EN e ES.
@@ -30,6 +32,7 @@ export function LocaleShell({
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col antialiased">
+        <JsonLd data={siteJsonLd(locale)} />
         <GoogleAnalytics locale={locale} />
         <ThemeProvider>
           <ScrollExperience />

@@ -7,6 +7,7 @@ import type { Locale } from '@/lib/site';
 import { FAQ_CONTENT } from './faq-content';
 import { whatsappLink } from '@/lib/whatsapp';
 import { faqAnswerText } from '@/components/adventure/structured-data';
+import { pageJsonLd } from '@/lib/structured-data';
 
 /** "Antes de vir": as perguntas de Informações gerais, no formato do acordeão. */
 function perguntasGerais(locale: Locale): PatiFaqItem[] {
@@ -50,17 +51,21 @@ export function FaqPage({ locale }: { locale: Locale }) {
   const reserva = DAY_TOUR_LEGAL[locale];
   const seguranca = [safetyFaq(locale, c.avisoSeguranca)];
 
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    inLanguage: locale,
-    mainEntity: [...antes, ...reserva, ...seguranca].flatMap((item) => {
-      const texto = faqAnswerText(item);
-      return texto
-        ? [{ '@type': 'Question', name: item.title, acceptedAnswer: { '@type': 'Answer', text: texto } }]
-        : [];
-    }),
-  };
+  const jsonLd = pageJsonLd({
+    locale,
+    type: 'FAQPage',
+    name: c.meta.title,
+    description: c.meta.description,
+    path: c.meta.canonical,
+    extra: {
+      mainEntity: [...antes, ...reserva, ...seguranca].flatMap((item) => {
+        const texto = faqAnswerText(item);
+        return texto
+          ? [{ '@type': 'Question', name: item.title, acceptedAnswer: { '@type': 'Answer', text: texto } }]
+          : [];
+      }),
+    },
+  });
 
   return (
     <>

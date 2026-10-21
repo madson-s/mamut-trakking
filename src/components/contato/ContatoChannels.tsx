@@ -7,9 +7,8 @@ import { whatsappLink } from '@/lib/whatsapp';
 
 // Endereço e perfis são os mesmos publicados em mamut.agency/contato.
 const ADDRESS = 'Avenida 7 de Setembro, Centro, Lençóis, Bahia — 46960-000';
-// Ficha da agência no Google Maps (sem os parâmetros de rastreio do link copiado).
-const MAPS_URL =
-  'https://www.google.com/maps/place/Mamut+Trekking+-+Chapada+Diamantina+Agency/@-12.56228,-41.3900628,19.25z/data=!4m6!3m5!1s0x2abb67af2875fe9d:0x63d6c232de10e60a!8m2!3d-12.5623349!4d-41.3903231!16s%2Fg%2F11p77f4kts';
+// Ficha da agência no Google Maps (a mesma dos dados estruturados).
+const MAPS_URL = SITE.mapsUrl;
 
 const SOCIAL = [
   { label: 'Instagram', href: 'https://instagram.com/mamut.agency', icon: <InstagramIcon className="size-4" /> },
