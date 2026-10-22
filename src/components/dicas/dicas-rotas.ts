@@ -1,8 +1,8 @@
 /**
- * As quatro páginas da seção de dicas e o caminho de cada uma por idioma.
+ * As cinco páginas da seção de dicas e o caminho de cada uma por idioma.
  *
  * "Como chegar" É a página da seção (`/dicas`, `/tips`, `/consejos`, `/conseils`, `/nl/tips`, `/de/tipps`); as outras
- * três ficam na raiz do idioma, com os mesmos slugs do site atual. Como a regra
+ * quatro ficam na raiz do idioma, com os mesmos slugs do site atual. Como a regra
  * não é uniforme, o caminho vem declarado inteiro em vez de montado a partir de
  * um segmento.
  *
@@ -16,6 +16,7 @@ export const DICAS_PAGES = [
   'informacoes-gerais',
   'classificacao-de-nivel',
   'geologia',
+  'transfer',
 ] as const;
 
 export type DicasPageId = (typeof DICAS_PAGES)[number];
@@ -36,36 +37,42 @@ export const DICAS_PATHS: Record<Locale, Record<DicasPageId, string>> = {
     'informacoes-gerais': '/pt/informacoes-gerais',
     'classificacao-de-nivel': '/pt/classificacao-de-nivel',
     geologia: '/pt/geologia-da-chapada-diamantina',
+    transfer: '/pt/transfer-salvador-para-lencois-chapada-diamantina',
   },
   en: {
     'como-chegar': '/en/tips',
     'informacoes-gerais': '/en/general-information',
     'classificacao-de-nivel': '/en/level-classification',
     geologia: '/en/geology-of-chapada-diamantina',
+    transfer: '/en/transfer-salvador-to-lencois-chapada-diamantina',
   },
   es: {
     'como-chegar': '/es/consejos',
     'informacoes-gerais': '/es/informacion-general',
     'classificacao-de-nivel': '/es/clasificacion-de-nivel',
     geologia: '/es/geologia-de-la-chapada-diamantina',
+    transfer: '/es/traslado-salvador-lencois-chapada-diamantina',
   },
   fr: {
     'como-chegar': '/fr/conseils',
     'informacoes-gerais': '/fr/informations-generales',
     'classificacao-de-nivel': '/fr/classification-des-niveaux',
     geologia: '/fr/geologie-de-la-chapada-diamantina',
+    transfer: '/fr/transfert-salvador-lencois-chapada-diamantina',
   },
   nl: {
     'como-chegar': '/nl/tips',
     'informacoes-gerais': '/nl/algemene-informatie',
     'classificacao-de-nivel': '/nl/niveauclassificatie',
     geologia: '/nl/geologie-van-de-chapada-diamantina',
+    transfer: '/nl/transfer-salvador-lencois-chapada-diamantina',
   },
   de: {
     'como-chegar': '/de/tipps',
     'informacoes-gerais': '/de/allgemeine-informationen',
     'classificacao-de-nivel': '/de/schwierigkeitsgrade',
     geologia: '/de/geologie-der-chapada-diamantina',
+    transfer: '/de/transfer-salvador-lencois-chapada-diamantina',
   },
 };
 
