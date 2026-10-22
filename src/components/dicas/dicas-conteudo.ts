@@ -240,7 +240,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'De ônibus',
           texto:
-            'Salvador × Lençóis pela Rápido Federal (Guanabara). As poltronas são em boa parte confortáveis e há serviço de leito. São cerca de 6 horas de viagem.',
+            'Salvador × Lençóis pela Guanabara (antiga Rápido Federal). As poltronas são em boa parte confortáveis e há serviço de leito. São cerca de 6 horas de viagem.',
         },
         {
           titulo: 'De carro',
@@ -442,7 +442,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'By bus',
           texto:
-            'Salvador × Lençóis with Rápido Federal (Guanabara). The seats are mostly comfortable and there is a sleeper service. It is about a 6-hour journey.',
+            'Salvador × Lençóis with Guanabara (formerly Rápido Federal). The seats are mostly comfortable and there is a sleeper service. It is about a 6-hour journey.',
         },
         {
           titulo: 'By car',
@@ -644,7 +644,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'En ómnibus',
           texto:
-            'Salvador × Lençóis con Rápido Federal (Guanabara). Los asientos son en su mayoría cómodos y hay servicio cama. Son unas 6 horas de viaje.',
+            'Salvador × Lençóis con Guanabara (ex Rápido Federal). Los asientos son en su mayoría cómodos y hay servicio cama. Son unas 6 horas de viaje.',
         },
         {
           titulo: 'En auto',
@@ -846,7 +846,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'En bus',
           texto:
-            'Salvador × Lençóis avec Rápido Federal (Guanabara). Les sièges sont pour la plupart confortables et il existe un service couchette. Comptez environ 6 heures de trajet.',
+            'Salvador × Lençóis avec Guanabara (ex-Rápido Federal). Les sièges sont pour la plupart confortables et il existe un service couchette. Comptez environ 6 heures de trajet.',
         },
         {
           titulo: 'En voiture',
@@ -1047,7 +1047,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'Met de bus',
           texto:
-            'Salvador × Lençóis met Rápido Federal (Guanabara). De stoelen zijn meestal comfortabel en er is een slaapbus. De reis duurt ongeveer 6 uur.',
+            'Salvador × Lençóis met Guanabara (voorheen Rápido Federal). De stoelen zijn meestal comfortabel en er is een slaapbus. De reis duurt ongeveer 6 uur.',
         },
         {
           titulo: 'Met de auto',
@@ -1248,7 +1248,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'Mit dem Bus',
           texto:
-            'Salvador × Lençóis mit Rápido Federal (Guanabara). Die Sitze sind meist bequem, und es gibt einen Schlafbus. Die Fahrt dauert etwa 6 Stunden.',
+            'Salvador × Lençóis mit Guanabara (früher Rápido Federal). Die Sitze sind meist bequem, und es gibt einen Schlafbus. Die Fahrt dauert etwa 6 Stunden.',
         },
         {
           titulo: 'Mit dem Auto',

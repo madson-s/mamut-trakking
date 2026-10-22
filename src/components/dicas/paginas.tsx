@@ -7,12 +7,12 @@ import type { Locale } from '@/lib/site';
 import { TelefonesLista } from './TelefonesLista';
 import { DICAS_CONTENT } from './dicas-conteudo';
 import { GRUPOS_ORDEM } from './dicas-conteudo';
-import { whatsappLink, whatsappText } from '@/lib/whatsapp';
-import { MESSAGE_LOCALE } from '@/lib/message-locale';
+import { whatsappLink } from '@/lib/whatsapp';
 import { ADVENTURE_ROUTES } from '@/lib/routes';
 import { ADVENTURE_SEGMENT, formatPrice } from '@/lib/site';
 import { dicasHref } from './dicas-rotas';
-import { TRANSFER_CONTENT, TRANSFER_DADOS, TRANSFER_WHATSAPP } from './transfer-conteudo';
+import { TRANSFER_CONTENT, TRANSFER_DADOS } from './transfer-conteudo';
+import { TransferBooking } from './TransferBooking';
 
 /** Fecho comum a todas as páginas da seção. */
 function Fecho({ locale }: { locale: Locale }) {
@@ -262,7 +262,6 @@ function roteiroHref(locale: Locale, id: string) {
 export function Transfer({ locale }: { locale: Locale }) {
   const c = TRANSFER_CONTENT[locale];
   const d = TRANSFER_DADOS;
-  const reservarHref = whatsappText(TRANSFER_WHATSAPP[MESSAGE_LOCALE[locale]]);
   const preco = (valor: number) => formatPrice(valor, locale);
   const rotulo = 'tracking-[0.14em] uppercase';
 
@@ -299,7 +298,7 @@ export function Transfer({ locale }: { locale: Locale }) {
               </div>
             ))}
           </dl>
-          <Button href={reservarHref} arrow block>{c.reservar}</Button>
+          <TransferBooking locale={locale} label={c.reservar} block />
         </Card>
       </div>
 
@@ -396,6 +395,10 @@ export function Transfer({ locale }: { locale: Locale }) {
           <Heading as="h2" id="transfer-fora" size="card">{c.fora.titulo}</Heading>
           <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>{c.fora.texto}</Text>
         </div>
+        <Card as="section" surface="muted" padding="none" className="gap-2 border border-brand p-6 sm:p-8">
+          <Heading as="h3" size="quote">{c.fora.valenca.titulo}</Heading>
+          <Text size="sm" weight="light" tone="secondary" leading="relaxed" pretty>{c.fora.valenca.texto}</Text>
+        </Card>
         {/* No mobile a tabela rola na horizontal dentro do próprio quadro. */}
         <div className="overflow-x-auto rounded-card border border-line-strong">
           <table className="w-full min-w-[520px] border-collapse text-left font-body text-sm">
@@ -418,7 +421,7 @@ export function Transfer({ locale }: { locale: Locale }) {
             </tbody>
           </table>
         </div>
-        <Button href={reservarHref} arrow className="self-start max-sm:w-full">{c.reservar}</Button>
+        <TransferBooking locale={locale} label={c.reservar} className="self-start max-sm:w-full" />
       </section>
 
       {/* Como chegar */}

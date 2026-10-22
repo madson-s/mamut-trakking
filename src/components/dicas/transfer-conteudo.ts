@@ -49,6 +49,8 @@ export type TransferContent = {
   fora: {
     titulo: string;
     texto: string;
+    /** Destaque da rota Lençóis × Valença, a mais procurada (transfer × ônibus). */
+    valenca: { titulo: string; texto: string };
     colunas: { destino: string; hatch: string; suv: string; tempo: string };
     horas: string;
   };
@@ -58,21 +60,25 @@ export type TransferContent = {
 /** Valores comuns a todos os idiomas (preços de PT — ver nota no topo). */
 export const TRANSFER_DADOS = {
   distanciaKm: 420,
-  duracaoHoras: 6,
-  economico: 1799,
-  suv: 1999,
+  /** Salvador × Lençóis, em horas (texto: é uma faixa). */
+  duracaoHoras: '6–7',
+  economico: 2069,
+  suv: 2299,
   /** "A partir de", para até 4 pessoas — na ordem de `chapada.cidades`. */
-  cidades: [2000, 1800, 2450, 2550] as const,
+  cidades: [2300, 2070, 2818, 2933] as const,
   /** Destinos fora da Chapada, saindo de Lençóis, para até 4 pessoas. */
   fora: [
-    { destino: 'Valença (Morro de São Paulo)', hatch: 1800, suv: 2000, horas: 5, km: 350 },
-    { destino: 'Itacaré', hatch: 2050, suv: 2250, horas: 6, km: 480 },
-    { destino: 'Ilhéus', hatch: 2400, suv: 2600, horas: 8, km: 539 },
-    { destino: 'Porto Seguro', hatch: 3300, suv: 3550, horas: 12, km: 795 },
-    { destino: 'Vitória da Conquista', hatch: 1900, suv: 2100, horas: 5, km: 410 },
-    { destino: 'Feira de Santana', hatch: 1700, suv: 1900, horas: 4, km: 303 },
+    { destino: 'Valença (Morro de São Paulo)', hatch: 2070, suv: 2300, horas: '5–6', km: 350 },
+    { destino: 'Itacaré', hatch: 2358, suv: 2588, horas: 6, km: 480 },
+    { destino: 'Ilhéus', hatch: 2760, suv: 2990, horas: 8, km: 539 },
+    { destino: 'Porto Seguro', hatch: 3795, suv: 4082, horas: 12, km: 795 },
+    { destino: 'Vitória da Conquista', hatch: 2185, suv: 2415, horas: 5, km: 410 },
+    { destino: 'Feira de Santana', hatch: 1955, suv: 2185, horas: 4, km: 303 },
   ],
-  imagem: '/img/dicas/transfer-salvador-lencois.jpg',
+  /** Foto do topo e do compartilhamento (Open Graph / WhatsApp), 1440 × 1080. */
+  imagem: '/img/dicas/transfer-frota-chapada.jpg',
+  imagemLargura: 1440,
+  imagemAltura: 1080,
 } as const;
 
 /** Mensagem do botão "Reservar" — nos idiomas da equipe (`MESSAGE_LOCALE`). */
@@ -89,16 +95,17 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       meta: {
         title: 'Transfer Salvador para Lençóis – Chapada Diamantina',
         description:
-          'Transfer privado de Salvador a Lençóis (420 km, cerca de 6 horas) com motorista experiente, ar-condicionado e bagageiro. Também para Ibicoara, Mucugê, Vale do Capão e o litoral.',
+          'Transfer privado de Salvador a Lençóis (420 km, 6 a 7 horas) com motorista experiente, ar-condicionado e bagageiro. Também para Ibicoara, Mucugê, Vale do Capão e o litoral.',
       },
       titulo: { antes: 'Transfer Salvador para', destaque: 'Lençóis.' },
       lead: 'A forma mais rápida e direta de chegar à Chapada Diamantina: um carro só para o seu grupo, com flexibilidade, conforto e segurança.',
     },
     intro: [
       'A Chapada é um destino imperdível para quem busca aventura, contato com a natureza e experiências autênticas no interior da Bahia — trilhas desafiadoras, visuais de tirar o fôlego e uma história marcante. Ao chegar, espere serras, vales, cavernas, cachoeiras e rios cristalinos, além de vilarejos acolhedores com rica cultura local.',
-      'Saindo de Salvador, dá para chegar de ônibus (6 a 8 horas até Lençóis, principal base turística, com saídas diárias pela Rápido Federal), de carro pela BR-324 e BR-242 (cerca de 420 km) ou de avião até o pequeno aeroporto de Lençóis, com voos raros. E a forma mais rápida: um transfer privado com a Mamut.',
+      'Saindo de Salvador, dá para chegar de ônibus (6 a 8 horas até Lençóis, principal base turística, com saídas diárias pela Guanabara, antiga Rápido Federal), de carro pela BR-324 e BR-242 (cerca de 420 km) ou de avião até o pequeno aeroporto de Lençóis, com voos raros. E a forma mais rápida: um transfer privado com a Mamut.',
+      'A vantagem do transfer em relação ao ônibus está na exclusividade e no horário: o carro é só do seu grupo, sai na hora que for melhor para você — direto do aeroporto, da rodoviária ou do hotel em Salvador — e para quando vocês quiserem no caminho.',
     ],
-    imagemAlt: 'Carro do transfer numa estrada de terra, com os morros da Chapada Diamantina ao fundo',
+    imagemAlt: 'A frota da Mamut — dois SUVs e uma van — com os morros da Chapada Diamantina ao pôr do sol',
     rota: { titulo: 'Salvador × Lençóis', distancia: 'Distância de carro', duracao: 'Duração', servico: 'Serviço', privado: 'Privado' },
     precos: {
       titulo: 'Preços',
@@ -111,7 +118,7 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
     },
     incluso: {
       titulo: 'Incluso',
-      itens: ['Ar-condicionado', 'Motorista experiente', 'Bagageiro para até 5 malas', 'Check-in fácil', 'Serviço privado'],
+      itens: ['Ar-condicionado', 'Motorista experiente', 'Bagageiro para até 5 malas', 'Check-in fácil', 'Serviço privado', 'Starlink (opcional)'],
     },
     naoIncluso: {
       titulo: 'Não incluso',
@@ -166,6 +173,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Destinos fora da Chapada Diamantina',
       texto:
         'Também fazemos transfers privados para o litoral e outras cidades da Bahia — rotas mais curtas que as dos ônibus, para quem quer aproveitar mais a Costa do Cacau, a Costa do Dendê ou a Costa do Descobrimento. Valores e tempos aproximados, saindo de Lençóis, para grupos de até 4 pessoas (podem variar com o trânsito e o preço dos combustíveis).',
+      valenca: {
+        titulo: 'Lençóis × Valença (Morro de São Paulo): 5 a 6 horas',
+        texto: 'De ônibus, a viagem entre Lençóis e Valença — porta de entrada para Morro de São Paulo e Boipeba — leva pelo menos 6 horas a mais. Com o transfer direto você chega em 5 a 6 horas, e o tempo que sobra vira um dia a mais de praia.',
+      },
       colunas: { destino: 'Destino', hatch: 'Hatch', suv: 'SUV', tempo: 'Tempo e distância' },
       horas: 'h',
     },
@@ -184,16 +195,17 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       meta: {
         title: 'Transfer from Salvador to Lençóis – Chapada Diamantina',
         description:
-          'Private transfer from Salvador to Lençóis (420 km, about 6 hours) with an experienced driver, air conditioning and room for luggage. Also to Ibicoara, Mucugê, Vale do Capão and the coast.',
+          'Private transfer from Salvador to Lençóis (420 km, 6 to 7 hours) with an experienced driver, air conditioning and room for luggage. Also to Ibicoara, Mucugê, Vale do Capão and the coast.',
       },
       titulo: { antes: 'Transfer from Salvador to', destaque: 'Lençóis.' },
       lead: 'The fastest and most direct way into the Chapada Diamantina: a car just for your group, with flexibility, comfort and safety.',
     },
     intro: [
       'The Chapada is a must for anyone after adventure, nature and authentic experiences in the interior of Bahia — challenging trails, breathtaking views and a remarkable history. Expect mountain ranges, valleys, caves, waterfalls and crystal-clear rivers, as well as welcoming villages with a rich local culture.',
-      'From Salvador you can come by bus (6 to 8 hours to Lençóis, the main tourist base, with daily departures by Rápido Federal), drive along the BR-324 and BR-242 (about 420 km) or fly to the small Lençóis airport, which has few flights. And the fastest way: a private transfer with Mamut.',
+      'From Salvador you can come by bus (6 to 8 hours to Lençóis, the main tourist base, with daily departures by Guanabara, formerly Rápido Federal), drive along the BR-324 and BR-242 (about 420 km) or fly to the small Lençóis airport, which has few flights. And the fastest way: a private transfer with Mamut.',
+      'What a transfer gives you over the bus is exclusivity and a flexible schedule: the car is just for your group, it leaves whenever suits you — straight from the airport, the bus station or your hotel in Salvador — and it stops whenever you want along the way.',
     ],
-    imagemAlt: 'Transfer car on a dirt road, with the hills of the Chapada Diamantina behind it',
+    imagemAlt: 'The Mamut fleet — two SUVs and a van — with the Chapada Diamantina mountains at sunset',
     rota: { titulo: 'Salvador × Lençóis', distancia: 'Distance by car', duracao: 'Duration', servico: 'Service', privado: 'Private' },
     precos: {
       titulo: 'Prices',
@@ -206,7 +218,7 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
     },
     incluso: {
       titulo: 'Included',
-      itens: ['Air conditioning', 'Experienced driver', 'Room for up to 5 bags', 'Easy check-in', 'Private service'],
+      itens: ['Air conditioning', 'Experienced driver', 'Room for up to 5 bags', 'Easy check-in', 'Private service', 'Starlink (optional)'],
     },
     naoIncluso: {
       titulo: 'Not included',
@@ -261,6 +273,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Destinations outside the Chapada Diamantina',
       texto:
         'We also run private transfers to the coast and other towns in Bahia — shorter routes than the buses take, for anyone who wants more time on the Cocoa Coast, the Dendê Coast or the Discovery Coast. Approximate prices and times from Lençóis, for groups of up to 4 people (they may vary with traffic and fuel prices).',
+      valenca: {
+        titulo: 'Lençóis × Valença (Morro de São Paulo): 5 to 6 hours',
+        texto: 'By bus, the trip between Lençóis and Valença — the gateway to Morro de São Paulo and Boipeba — takes at least 6 hours longer. With a direct transfer you get there in 5 to 6 hours, and the time you save becomes an extra day at the beach.',
+      },
       colunas: { destino: 'Destination', hatch: 'Hatchback', suv: 'SUV', tempo: 'Time and distance' },
       horas: 'h',
     },
@@ -279,16 +295,17 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       meta: {
         title: 'Traslado de Salvador a Lençóis – Chapada Diamantina',
         description:
-          'Traslado privado de Salvador a Lençóis (420 km, unas 6 horas) con conductor experimentado, aire acondicionado y lugar para el equipaje. También a Ibicoara, Mucugê, Vale do Capão y la costa.',
+          'Traslado privado de Salvador a Lençóis (420 km, de 6 a 7 horas) con conductor experimentado, aire acondicionado y lugar para el equipaje. También a Ibicoara, Mucugê, Vale do Capão y la costa.',
       },
       titulo: { antes: 'Traslado de Salvador a', destaque: 'Lençóis.' },
       lead: 'La forma más rápida y directa de llegar a la Chapada Diamantina: un auto solo para tu grupo, con flexibilidad, comodidad y seguridad.',
     },
     intro: [
       'La Chapada es un destino imperdible para quien busca aventura, naturaleza y experiencias auténticas en el interior de Bahía: senderos desafiantes, paisajes que quitan el aliento y una historia marcante. Al llegar, esperá sierras, valles, cuevas, cascadas y ríos cristalinos, además de pueblos acogedores con una rica cultura local.',
-      'Desde Salvador se puede llegar en ómnibus (6 a 8 horas hasta Lençóis, la principal base turística, con salidas diarias de Rápido Federal), en auto por la BR-324 y la BR-242 (unos 420 km) o en avión hasta el pequeño aeropuerto de Lençóis, con pocos vuelos. Y la forma más rápida: un traslado privado con Mamut.',
+      'Desde Salvador se puede llegar en ómnibus (6 a 8 horas hasta Lençóis, la principal base turística, con salidas diarias de Guanabara, ex Rápido Federal), en auto por la BR-324 y la BR-242 (unos 420 km) o en avión hasta el pequeño aeropuerto de Lençóis, con pocos vuelos. Y la forma más rápida: un traslado privado con Mamut.',
+      'La ventaja del transfer frente al bus es la exclusividad y el horario flexible: el auto es solo para tu grupo, sale a la hora que te quede mejor — directo del aeropuerto, de la terminal o del hotel en Salvador — y para cuando quieran en el camino.',
     ],
-    imagemAlt: 'Auto del traslado en un camino de tierra, con los morros de la Chapada Diamantina al fondo',
+    imagemAlt: 'La flota de Mamut — dos SUV y una van — con los morros de la Chapada Diamantina al atardecer',
     rota: { titulo: 'Salvador × Lençóis', distancia: 'Distancia en auto', duracao: 'Duración', servico: 'Servicio', privado: 'Privado' },
     precos: {
       titulo: 'Precios',
@@ -301,7 +318,7 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
     },
     incluso: {
       titulo: 'Incluye',
-      itens: ['Aire acondicionado', 'Conductor experimentado', 'Lugar para hasta 5 valijas', 'Check-in fácil', 'Servicio privado'],
+      itens: ['Aire acondicionado', 'Conductor experimentado', 'Lugar para hasta 5 valijas', 'Check-in fácil', 'Servicio privado', 'Starlink (opcional)'],
     },
     naoIncluso: {
       titulo: 'No incluye',
@@ -356,6 +373,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Destinos fuera de la Chapada Diamantina',
       texto:
         'También hacemos traslados privados a la costa y a otras ciudades de Bahía: rutas más cortas que las de los ómnibus, para quien quiere aprovechar más la Costa del Cacao, la Costa del Dendê o la Costa del Descubrimiento. Valores y tiempos aproximados, saliendo de Lençóis, para grupos de hasta 4 personas (pueden variar con el tránsito y el precio del combustible).',
+      valenca: {
+        titulo: 'Lençóis × Valença (Morro de São Paulo): de 5 a 6 horas',
+        texto: 'En bus, el viaje entre Lençóis y Valença — la puerta de entrada a Morro de São Paulo y Boipeba — lleva por lo menos 6 horas más. Con el transfer directo llegás en 5 a 6 horas, y el tiempo que ahorrás se convierte en un día más de playa.',
+      },
       colunas: { destino: 'Destino', hatch: 'Hatchback', suv: 'SUV', tempo: 'Tiempo y distancia' },
       horas: 'h',
     },
@@ -374,16 +395,17 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       meta: {
         title: 'Transfert de Salvador à Lençóis – Chapada Diamantina',
         description:
-          'Transfert privé de Salvador à Lençóis (420 km, environ 6 heures) avec chauffeur expérimenté, climatisation et place pour les bagages. Aussi vers Ibicoara, Mucugê, le Vale do Capão et la côte.',
+          'Transfert privé de Salvador à Lençóis (420 km, 6 à 7 heures) avec chauffeur expérimenté, climatisation et place pour les bagages. Aussi vers Ibicoara, Mucugê, le Vale do Capão et la côte.',
       },
       titulo: { antes: 'Transfert de Salvador à', destaque: 'Lençóis.' },
       lead: 'Le moyen le plus rapide et le plus direct de rejoindre la Chapada Diamantina : une voiture rien que pour votre groupe, avec souplesse, confort et sécurité.',
     },
     intro: [
       'La Chapada est un incontournable pour qui cherche l’aventure, la nature et des expériences authentiques dans l’intérieur de Bahia : sentiers exigeants, panoramas à couper le souffle et une histoire marquante. Attendez-vous à des sierras, des vallées, des grottes, des cascades et des rivières cristallines, ainsi qu’à des villages accueillants à la culture riche.',
-      'Depuis Salvador, on peut venir en bus (6 à 8 heures jusqu’à Lençóis, la principale base touristique, avec des départs quotidiens de la compagnie Rápido Federal), en voiture par la BR-324 et la BR-242 (environ 420 km) ou en avion jusqu’au petit aéroport de Lençóis, peu desservi. Et le plus rapide : un transfert privé avec Mamut.',
+      'Depuis Salvador, on peut venir en bus (6 à 8 heures jusqu’à Lençóis, la principale base touristique, avec des départs quotidiens de la compagnie Guanabara, ex-Rápido Federal), en voiture par la BR-324 et la BR-242 (environ 420 km) ou en avion jusqu’au petit aéroport de Lençóis, peu desservi. Et le plus rapide : un transfert privé avec Mamut.',
+      'Par rapport au bus, le transfert offre l’exclusivité et un horaire flexible : la voiture est réservée à votre groupe, elle part à l’heure qui vous convient — directement de l’aéroport, de la gare routière ou de votre hôtel à Salvador — et s’arrête quand vous le souhaitez en route.',
     ],
-    imagemAlt: 'Voiture du transfert sur une piste, avec les reliefs de la Chapada Diamantina en arrière-plan',
+    imagemAlt: 'La flotte de Mamut — deux SUV et un van — devant les montagnes de la Chapada Diamantina au coucher du soleil',
     rota: { titulo: 'Salvador × Lençóis', distancia: 'Distance en voiture', duracao: 'Durée', servico: 'Service', privado: 'Privé' },
     precos: {
       titulo: 'Tarifs',
@@ -396,7 +418,7 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
     },
     incluso: {
       titulo: 'Inclus',
-      itens: ['Climatisation', 'Chauffeur expérimenté', 'Place pour 5 valises', 'Prise en charge simple', 'Service privé'],
+      itens: ['Climatisation', 'Chauffeur expérimenté', 'Place pour 5 valises', 'Prise en charge simple', 'Service privé', 'Starlink (en option)'],
     },
     naoIncluso: {
       titulo: 'Non inclus',
@@ -451,6 +473,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Destinations hors de la Chapada Diamantina',
       texto:
         'Nous assurons aussi des transferts privés vers la côte et d’autres villes de Bahia — des trajets plus courts que ceux des bus, pour profiter davantage de la Costa do Cacau, de la Costa do Dendê ou de la Costa do Descobrimento. Tarifs et durées approximatifs au départ de Lençóis, pour des groupes jusqu’à 4 personnes (ils peuvent varier selon la circulation et le prix du carburant).',
+      valenca: {
+        titulo: 'Lençóis × Valença (Morro de São Paulo) : 5 à 6 heures',
+        texto: 'En bus, le trajet entre Lençóis et Valença — porte d’entrée de Morro de São Paulo et de Boipeba — prend au moins 6 heures de plus. Avec un transfert direct, vous y êtes en 5 à 6 heures, et le temps gagné devient une journée de plage en plus.',
+      },
       colunas: { destino: 'Destination', hatch: 'Citadine', suv: 'SUV', tempo: 'Durée et distance' },
       horas: 'h',
     },
@@ -469,16 +495,17 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       meta: {
         title: 'Transfer van Salvador naar Lençóis – Chapada Diamantina',
         description:
-          'Privétransfer van Salvador naar Lençóis (420 km, ongeveer 6 uur) met een ervaren chauffeur, airco en ruimte voor bagage. Ook naar Ibicoara, Mucugê, Vale do Capão en de kust.',
+          'Privétransfer van Salvador naar Lençóis (420 km, 6 tot 7 uur) met een ervaren chauffeur, airco en ruimte voor bagage. Ook naar Ibicoara, Mucugê, Vale do Capão en de kust.',
       },
       titulo: { antes: 'Transfer van Salvador naar', destaque: 'Lençóis.' },
       lead: 'De snelste en meest directe manier naar de Chapada Diamantina: een auto alleen voor jouw groep, flexibel, comfortabel en veilig.',
     },
     intro: [
       'De Chapada is een must voor wie avontuur, natuur en authentieke ervaringen zoekt in het binnenland van Bahia: uitdagende wandelpaden, adembenemende uitzichten en een bijzondere geschiedenis. Verwacht bergketens, dalen, grotten, watervallen en kristalheldere rivieren, en gastvrije dorpen met een rijke lokale cultuur.',
-      'Vanuit Salvador kun je met de bus komen (6 tot 8 uur naar Lençóis, de belangrijkste toeristische uitvalsbasis, met dagelijkse ritten van Rápido Federal), met de auto over de BR-324 en BR-242 (ongeveer 420 km) of met het vliegtuig naar het kleine vliegveld van Lençóis, met weinig vluchten. En het snelst: een privétransfer met Mamut.',
+      'Vanuit Salvador kun je met de bus komen (6 tot 8 uur naar Lençóis, de belangrijkste toeristische uitvalsbasis, met dagelijkse ritten van Guanabara, voorheen Rápido Federal), met de auto over de BR-324 en BR-242 (ongeveer 420 km) of met het vliegtuig naar het kleine vliegveld van Lençóis, met weinig vluchten. En het snelst: een privétransfer met Mamut.',
+      'Het voordeel van een transfer boven de bus is exclusiviteit en een flexibel vertrektijdstip: de auto is alleen voor jouw groep, vertrekt wanneer het jou uitkomt — direct vanaf het vliegveld, het busstation of je hotel in Salvador — en stopt onderweg wanneer jullie willen.',
     ],
-    imagemAlt: 'Transferauto op een onverharde weg, met de heuvels van de Chapada Diamantina op de achtergrond',
+    imagemAlt: 'De vloot van Mamut — twee SUV’s en een busje — met de bergen van de Chapada Diamantina bij zonsondergang',
     rota: { titulo: 'Salvador × Lençóis', distancia: 'Afstand met de auto', duracao: 'Duur', servico: 'Service', privado: 'Privé' },
     precos: {
       titulo: 'Prijzen',
@@ -491,7 +518,7 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
     },
     incluso: {
       titulo: 'Inbegrepen',
-      itens: ['Airco', 'Ervaren chauffeur', 'Ruimte voor maximaal 5 koffers', 'Eenvoudig ophalen', 'Privéservice'],
+      itens: ['Airco', 'Ervaren chauffeur', 'Ruimte voor maximaal 5 koffers', 'Eenvoudig ophalen', 'Privéservice', 'Starlink (optioneel)'],
     },
     naoIncluso: {
       titulo: 'Niet inbegrepen',
@@ -546,6 +573,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Bestemmingen buiten de Chapada Diamantina',
       texto:
         'We rijden ook privétransfers naar de kust en andere steden in Bahia — kortere routes dan de bus, voor wie meer tijd wil aan de Costa do Cacau, de Costa do Dendê of de Costa do Descobrimento. Prijzen en reistijden zijn indicatief, vanuit Lençóis, voor groepen tot 4 personen (ze kunnen variëren met verkeer en brandstofprijzen).',
+      valenca: {
+        titulo: 'Lençóis × Valença (Morro de São Paulo): 5 tot 6 uur',
+        texto: 'Met de bus duurt de reis tussen Lençóis en Valença — de toegangspoort tot Morro de São Paulo en Boipeba — minstens 6 uur langer. Met een directe transfer ben je er in 5 tot 6 uur, en de tijd die je wint wordt een extra stranddag.',
+      },
       colunas: { destino: 'Bestemming', hatch: 'Hatchback', suv: 'SUV', tempo: 'Tijd en afstand' },
       horas: 'u',
     },
@@ -564,16 +595,17 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       meta: {
         title: 'Transfer von Salvador nach Lençóis – Chapada Diamantina',
         description:
-          'Privattransfer von Salvador nach Lençóis (420 km, etwa 6 Stunden) mit erfahrenem Fahrer, Klimaanlage und Platz für Gepäck. Auch nach Ibicoara, Mucugê, ins Vale do Capão und an die Küste.',
+          'Privattransfer von Salvador nach Lençóis (420 km, 6 bis 7 Stunden) mit erfahrenem Fahrer, Klimaanlage und Platz für Gepäck. Auch nach Ibicoara, Mucugê, ins Vale do Capão und an die Küste.',
       },
       titulo: { antes: 'Transfer von Salvador nach', destaque: 'Lençóis.' },
       lead: 'Der schnellste und direkteste Weg in die Chapada Diamantina: ein Auto nur für deine Gruppe, flexibel, bequem und sicher.',
     },
     intro: [
       'Die Chapada ist ein Muss für alle, die im Landesinneren Bahias Abenteuer, Natur und echte Erlebnisse suchen: anspruchsvolle Wanderwege, atemberaubende Ausblicke und eine bewegte Geschichte. Dich erwarten Bergketten, Täler, Höhlen, Wasserfälle und kristallklare Flüsse – und gastfreundliche Dörfer mit reicher lokaler Kultur.',
-      'Von Salvador aus kommst du mit dem Bus (6 bis 8 Stunden bis Lençóis, dem wichtigsten touristischen Ausgangspunkt, mit täglichen Fahrten von Rápido Federal), mit dem Auto über die BR-324 und BR-242 (rund 420 km) oder mit dem Flugzeug zum kleinen Flughafen von Lençóis, der selten angeflogen wird. Am schnellsten geht es mit einem Privattransfer von Mamut.',
+      'Von Salvador aus kommst du mit dem Bus (6 bis 8 Stunden bis Lençóis, dem wichtigsten touristischen Ausgangspunkt, mit täglichen Fahrten von Guanabara, früher Rápido Federal), mit dem Auto über die BR-324 und BR-242 (rund 420 km) oder mit dem Flugzeug zum kleinen Flughafen von Lençóis, der selten angeflogen wird. Am schnellsten geht es mit einem Privattransfer von Mamut.',
+      'Der Vorteil eines Transfers gegenüber dem Bus: Exklusivität und eine flexible Abfahrtszeit. Das Auto gehört nur deiner Gruppe, fährt los, wann es dir passt — direkt vom Flughafen, vom Busbahnhof oder von deinem Hotel in Salvador — und hält unterwegs, wann immer ihr wollt.',
     ],
-    imagemAlt: 'Transferauto auf einer Schotterstraße, im Hintergrund die Berge der Chapada Diamantina',
+    imagemAlt: 'Die Mamut-Flotte — zwei SUVs und ein Kleinbus — vor den Bergen der Chapada Diamantina bei Sonnenuntergang',
     rota: { titulo: 'Salvador × Lençóis', distancia: 'Strecke mit dem Auto', duracao: 'Dauer', servico: 'Service', privado: 'Privat' },
     precos: {
       titulo: 'Preise',
@@ -586,7 +618,7 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
     },
     incluso: {
       titulo: 'Inklusive',
-      itens: ['Klimaanlage', 'Erfahrener Fahrer', 'Platz für bis zu 5 Koffer', 'Einfache Abholung', 'Privater Service'],
+      itens: ['Klimaanlage', 'Erfahrener Fahrer', 'Platz für bis zu 5 Koffer', 'Einfache Abholung', 'Privater Service', 'Starlink (optional)'],
     },
     naoIncluso: {
       titulo: 'Nicht inklusive',
@@ -641,6 +673,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Ziele außerhalb der Chapada Diamantina',
       texto:
         'Wir fahren auch Privattransfers an die Küste und in andere Städte Bahias – kürzere Strecken als mit dem Bus, für alle, die mehr Zeit an der Costa do Cacau, der Costa do Dendê oder der Costa do Descobrimento haben wollen. Preise und Fahrzeiten sind ungefähre Angaben ab Lençóis, für Gruppen bis 4 Personen (je nach Verkehr und Kraftstoffpreisen).',
+      valenca: {
+        titulo: 'Lençóis × Valença (Morro de São Paulo): 5 bis 6 Stunden',
+        texto: 'Mit dem Bus dauert die Fahrt zwischen Lençóis und Valença — dem Tor nach Morro de São Paulo und Boipeba — mindestens 6 Stunden länger. Mit dem direkten Transfer bist du in 5 bis 6 Stunden dort, und die gewonnene Zeit wird zu einem zusätzlichen Strandtag.',
+      },
       colunas: { destino: 'Ziel', hatch: 'Kompaktwagen', suv: 'SUV', tempo: 'Dauer und Strecke' },
       horas: 'Std.',
     },

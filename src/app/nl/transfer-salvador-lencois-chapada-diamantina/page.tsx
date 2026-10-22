@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     title: CONTENT.meta.title,
     description: CONTENT.meta.description,
     url: DICAS_PATHS.nl.transfer,
-    images: [TRANSFER_DADOS.imagem],
+    images: [{ url: TRANSFER_DADOS.imagem, width: TRANSFER_DADOS.imagemLargura, height: TRANSFER_DADOS.imagemAltura, alt: TRANSFER_CONTENT.nl.imagemAlt }],
   },
 };
 

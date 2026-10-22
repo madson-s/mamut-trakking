@@ -32,7 +32,7 @@ export const ORGANIZATION = {
   description: 'Operadora de trekkings e passeios na Chapada Diamantina, com base em Lençóis, Bahia.',
   email: SITE.email,
   telephone: SITE.whatsapp.replace(/[^\d+]/g, ''),
-  address: { '@type': 'PostalAddress', addressLocality: 'Lençóis', addressRegion: 'BA', postalCode: '46960-000', addressCountry: 'BR' },
+  address: { '@type': 'PostalAddress', streetAddress: 'Avenida 7 de Setembro, Centro', addressLocality: 'Lençóis', addressRegion: 'BA', postalCode: '46960-000', addressCountry: 'BR' },
   geo: { '@type': 'GeoCoordinates', latitude: SITE.geo.latitude, longitude: SITE.geo.longitude },
   hasMap: SITE.mapsUrl,
   areaServed: { '@type': 'Place', name: 'Chapada Diamantina, Bahia, Brasil' },
