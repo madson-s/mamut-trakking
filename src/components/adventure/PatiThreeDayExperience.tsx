@@ -213,7 +213,7 @@ function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale
     <Section padding="none" container={false} className="relative isolate overflow-hidden pt-20 pb-20 lg:pb-24">
       <Image src="/svg/screen_destinos_vale-do-pati-session-01_backgroud.svg" alt="" width={1920} height={880} unoptimized priority className="pati-hero-background pointer-events-none absolute top-55.5 left-1/2 z-0 h-auto w-[1920px] max-w-none -translate-x-1/2 opacity-30" />
       <Container className="relative z-10">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_316px] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_316px] lg:items-start">
         <div className="flex min-w-0 flex-col gap-8">
           <header className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2.5">
