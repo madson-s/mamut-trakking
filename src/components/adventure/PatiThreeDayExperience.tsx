@@ -284,7 +284,7 @@ function InfoChip({ children, className }: { children: React.ReactNode; classNam
 // páginas de 4 e 5 dias anunciavam o preço do roteiro de 3.
 function BookingCard({ c, fromPrice, locale, calendarTrekId }: { c: Pati3Content; fromPrice: number; locale: Locale; calendarTrekId?: string }) {
   return (
-    <div className="relative">
+    <div className="relative lg:mt-23">
       <Image src="/svg/about/story-walkers.svg" alt="" width={290} height={114} unoptimized className="pointer-events-none absolute left-1/2 -top-23 hidden h-26 w-65.75 -translate-x-1/2 object-contain lg:block" />
       <aside id="pati-booking-card" className="relative rounded-panel-lg border border-line-strong bg-surface-muted p-6">
       <div className="relative flex flex-col gap-6">
