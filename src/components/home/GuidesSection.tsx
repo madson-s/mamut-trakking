@@ -145,6 +145,7 @@ export function GuidesSection({ locale = 'pt' }: { locale?: Locale }) {
                   alt={guide.name}
                   fill
                   sizes={GUIDE_CARD_SIZES}
+                  quality={60}
                   className={cn(
                     CROSSFADE,
                     'group-hover/guide:opacity-0 group-focus-visible/guide:opacity-0',
@@ -156,6 +157,7 @@ export function GuidesSection({ locale = 'pt' }: { locale?: Locale }) {
                   alt=""
                   fill
                   sizes={GUIDE_CARD_SIZES}
+                  quality={60}
                   className={cn(
                     CROSSFADE,
                     'scale-[1.01] opacity-0 group-hover/guide:opacity-100 group-focus-visible/guide:opacity-100',

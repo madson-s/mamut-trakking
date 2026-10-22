@@ -19,6 +19,8 @@ export type MediaCardProps = {
     src: string;
     alt?: string;
     sizes?: string;
+    /** Qualidade do otimizador (precisa estar em `images.qualities`). Padrão 75. */
+    quality?: number;
     /** Só para a imagem que é o LCP da página (Next 16 trocou `priority` por isto). */
     preload?: boolean;
     /** `object-position` — enquadra a foto sem recortar o arquivo. */
@@ -93,6 +95,7 @@ export function MediaCard({
           alt={image.alt ?? ''}
           fill
           preload={image.preload}
+          quality={image.quality}
           sizes={image.sizes ?? '100vw'}
           style={image.position ? { objectPosition: image.position } : undefined}
           className={cn(

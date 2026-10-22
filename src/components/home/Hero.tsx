@@ -31,7 +31,8 @@ export function Hero({ locale = 'pt' }: { locale?: Locale }) {
                 src={HERO_BACKGROUND}
                 alt=""
                 fill
-                priority
+                preload
+                fetchPriority="high"
                 sizes="100vw"
                 className="object-cover object-center"
               />
