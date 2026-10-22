@@ -3,7 +3,7 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   // 404 global (app/global-not-found.tsx): sem app/layout.tsx não há layout
   // comum de onde compor um not-found.js — cada idioma é uma raiz própria.
-  experimental: { globalNotFound: true, inlineCss: true },
+  experimental: { globalNotFound: true },
 
   // Nenhuma imagem vem mais do WordPress (as duas últimas foram para public/),
   // então não há origem remota liberada.
