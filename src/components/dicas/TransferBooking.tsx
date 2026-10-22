@@ -36,7 +36,9 @@ function estimativa(locale: Locale, origem: string, destino: string, carro: Carr
   const par = (a: string, b: string) => (casa(o, a) && casa(de, b)) || (casa(o, b) && casa(de, a));
   const d = TRANSFER_DADOS;
   const porCarro = (economico: number, suv: number) => (carro === 'suv' ? suv : economico);
-  if (par('Salvador', 'Lençóis')) return porCarro(d.economico, d.suv);
+  // A van só tem valor publicado para Salvador × Lençóis.
+  if (par('Salvador', 'Lençóis')) return carro === 'van' ? d.van : porCarro(d.economico, d.suv);
+  if (carro === 'van') return null;
   const cidades = TRANSFER_CONTENT[locale].chapada.cidades;
   const i = cidades.findIndex((cidade) => par('Salvador', cidade.nome));
   if (i >= 0) return d.cidades[i];
@@ -172,7 +174,7 @@ export function TransferBooking({
           ) : null}
 
           <div className="grid grid-cols-2 gap-3">
-            <Field label={t.viajantes} hint={viajantes > 4 ? t.grupoGrande : undefined}>
+            <Field label={t.viajantes} hint={viajantes > 3 && carro !== 'van' ? t.grupoGrande : undefined}>
               <Input
                 type="number"
                 size="md"
@@ -197,7 +199,7 @@ export function TransferBooking({
               size="md"
               value={carro}
               onChange={setCarro}
-              options={(['economico', 'suv', 'indiferente'] as const).map((id) => ({ value: id, label: t.carros[id] }))}
+              options={(['economico', 'suv', 'van', 'indiferente'] as const).map((id) => ({ value: id, label: t.carros[id] }))}
             />
           </div>
 
@@ -211,7 +213,7 @@ export function TransferBooking({
             {valor ? (
               <div className="text-right">
                 <Heading as="p" size="quote" className="tabular-nums">{formatPrice(valor, locale)}</Heading>
-                <Text size="xs" tone="muted">{t.paraAte}</Text>
+                <Text size="xs" tone="muted">{carro === 'van' ? t.paraAteVan : t.paraAte}</Text>
                 {starlink ? <Text size="xs" tone="muted">{t.comStarlink}</Text> : null}
               </div>
             ) : (

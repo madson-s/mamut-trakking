@@ -267,6 +267,19 @@ export function Transfer({ locale }: { locale: Locale }) {
 
   return (
     <>
+      {/* No celular a foto abre a página, antes do texto; do md em diante ela
+          volta para o lado do card da rota, mais abaixo. */}
+      <div className="relative aspect-[3/2] overflow-hidden rounded-panel bg-surface-sunken md:hidden">
+        <Image
+          src={d.imagem}
+          alt={c.imagemAlt}
+          fill
+          loading="eager"
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
+
       <div className="flex max-w-[720px] flex-col gap-4">
         {c.intro.map((paragrafo) => (
           <Text key={paragrafo} weight="light" tone="secondary" leading="relaxed" pretty>{paragrafo}</Text>
@@ -275,12 +288,12 @@ export function Transfer({ locale }: { locale: Locale }) {
 
       {/* Rota + foto */}
       <div className="grid items-stretch gap-5 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-        <div className="relative aspect-[3/2] overflow-hidden rounded-panel bg-surface-sunken">
+        <div className="relative aspect-[3/2] overflow-hidden rounded-panel bg-surface-sunken max-md:hidden">
           <Image
             src={d.imagem}
             alt={c.imagemAlt}
             fill
-            sizes="(min-width: 1024px) 520px, 100vw"
+            sizes="(min-width: 1024px) 520px, 50vw"
             className="object-cover"
           />
         </div>
@@ -293,7 +306,7 @@ export function Transfer({ locale }: { locale: Locale }) {
               [c.rota.servico, c.rota.privado],
             ].map(([rotuloStat, valor]) => (
               <div key={rotuloStat} className="flex flex-col gap-1">
-                <Text as="span" size="xs" tone="muted">{rotuloStat}</Text>
+                <Text as="span" size="xs" tone="muted" className="max-sm:min-h-[2lh]">{rotuloStat}</Text>
                 <dd><Heading as="span" size="quote">{valor}</Heading></dd>
               </div>
             ))}
@@ -308,17 +321,18 @@ export function Transfer({ locale }: { locale: Locale }) {
           <Heading as="h2" id="transfer-precos" size="card">{c.precos.titulo}</Heading>
           <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
         </div>
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {[
-            { nome: c.precos.economico.nome, detalhe: c.precos.economico.carros, valor: d.economico },
-            { nome: c.precos.suv.nome, detalhe: null, valor: d.suv },
+            { nome: c.precos.economico.nome, detalhe: c.precos.economico.carros, valor: d.economico, paraAte: c.precos.paraAte },
+            { nome: c.precos.suv.nome, detalhe: c.precos.suv.carros, valor: d.suv, paraAte: c.precos.paraAte },
+            { nome: c.precos.van.nome, detalhe: null, valor: d.van, paraAte: c.precos.van.paraAte },
           ].map((opcao) => (
             <Card key={opcao.nome} as="article" surface="muted" padding="none" className="gap-2 border border-line-strong p-6 sm:p-8">
               <Heading as="h3" size="quote">{opcao.nome}</Heading>
               {opcao.detalhe ? <Text size="sm" tone="muted">{opcao.detalhe}</Text> : null}
               <Text size="sm" tone="secondary" className="mt-3">{c.precos.aPartirDe}</Text>
               <Heading as="p" size="section" className="text-brand-strong">{preco(opcao.valor)}</Heading>
-              <Text size="sm" tone="secondary">{c.precos.paraAte}</Text>
+              <Text size="sm" tone="secondary">{opcao.paraAte}</Text>
             </Card>
           ))}
         </div>

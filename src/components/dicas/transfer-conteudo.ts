@@ -32,7 +32,8 @@ export type TransferContent = {
     aPartirDe: string;
     paraAte: string;
     economico: { nome: string; carros: string };
-    suv: { nome: string };
+    suv: { nome: string; carros: string };
+    van: { nome: string; paraAte: string };
     descontos: [aVista: string, idaEVolta: string];
   };
   incluso: { titulo: string; itens: string[] };
@@ -63,6 +64,8 @@ export const TRANSFER_DADOS = {
   /** Salvador × Lençóis, em horas (texto: é uma faixa). */
   duracaoHoras: '6–7',
   economico: 2069,
+  /** Van executiva, Salvador × Lençóis, para até 12 pessoas (valor da operadora). */
+  van: 3799,
   suv: 2299,
   /** "A partir de", para até 4 pessoas — na ordem de `chapada.cidades`. */
   cidades: [2300, 2070, 2818, 2933] as const,
@@ -111,9 +114,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Preços',
       nota: 'Sujeitos a confirmação: podem mudar conforme o preço dos combustíveis no Brasil.',
       aPartirDe: 'a partir de',
-      paraAte: 'para até 4 pessoas',
-      economico: { nome: 'Econômico', carros: 'Mobi, Sandero ou Voyage' },
-      suv: { nome: 'SUV' },
+      paraAte: 'para até 3 pessoas',
+      economico: { nome: 'Econômico', carros: 'Sandero, Polo ou similar' },
+      suv: { nome: 'SUV', carros: 'Renegade, Duster ou similar' },
+      van: { nome: 'Van executiva', paraAte: 'para até 12 pessoas' },
       descontos: ['5% de desconto à vista', '10% de desconto em ida e volta'],
     },
     incluso: {
@@ -211,9 +215,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Prices',
       nota: 'Subject to confirmation: they may change with fuel prices in Brazil.',
       aPartirDe: 'from',
-      paraAte: 'for up to 4 people',
-      economico: { nome: 'Economy', carros: 'Mobi, Sandero or Voyage' },
-      suv: { nome: 'SUV' },
+      paraAte: 'for up to 3 people',
+      economico: { nome: 'Economy', carros: 'Sandero, Polo or similar' },
+      suv: { nome: 'SUV', carros: 'Renegade, Duster or similar' },
+      van: { nome: 'Executive van', paraAte: 'for up to 12 people' },
       descontos: ['5% off when paid in full', '10% off for a round trip'],
     },
     incluso: {
@@ -311,9 +316,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Precios',
       nota: 'Sujetos a confirmación: pueden cambiar según el precio del combustible en Brasil.',
       aPartirDe: 'desde',
-      paraAte: 'hasta 4 personas',
-      economico: { nome: 'Económico', carros: 'Mobi, Sandero o Voyage' },
-      suv: { nome: 'SUV' },
+      paraAte: 'hasta 3 personas',
+      economico: { nome: 'Económico', carros: 'Sandero, Polo o similar' },
+      suv: { nome: 'SUV', carros: 'Renegade, Duster o similar' },
+      van: { nome: 'Van ejecutiva', paraAte: 'hasta 12 personas' },
       descontos: ['5% de descuento pagando al contado', '10% de descuento en ida y vuelta'],
     },
     incluso: {
@@ -411,9 +417,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Tarifs',
       nota: 'Sous réserve de confirmation : ils peuvent varier selon le prix du carburant au Brésil.',
       aPartirDe: 'à partir de',
-      paraAte: 'jusqu’à 4 personnes',
-      economico: { nome: 'Économique', carros: 'Mobi, Sandero ou Voyage' },
-      suv: { nome: 'SUV' },
+      paraAte: 'jusqu’à 3 personnes',
+      economico: { nome: 'Économique', carros: 'Sandero, Polo ou similaire' },
+      suv: { nome: 'SUV', carros: 'Renegade, Duster ou similaire' },
+      van: { nome: 'Van exécutif', paraAte: 'jusqu’à 12 personnes' },
       descontos: ['5 % de remise pour un paiement comptant', '10 % de remise pour un aller-retour'],
     },
     incluso: {
@@ -511,9 +518,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Prijzen',
       nota: 'Onder voorbehoud: ze kunnen veranderen met de brandstofprijzen in Brazilië.',
       aPartirDe: 'vanaf',
-      paraAte: 'voor maximaal 4 personen',
-      economico: { nome: 'Voordelig', carros: 'Mobi, Sandero of Voyage' },
-      suv: { nome: 'SUV' },
+      paraAte: 'voor maximaal 3 personen',
+      economico: { nome: 'Voordelig', carros: 'Sandero, Polo of vergelijkbaar' },
+      suv: { nome: 'SUV', carros: 'Renegade, Duster of vergelijkbaar' },
+      van: { nome: 'Luxe busje', paraAte: 'voor maximaal 12 personen' },
       descontos: ['5% korting bij vooruitbetaling', '10% korting op een retour'],
     },
     incluso: {
@@ -611,9 +619,10 @@ export const TRANSFER_CONTENT: Record<Locale, TransferContent> = {
       titulo: 'Preise',
       nota: 'Ohne Gewähr: Sie können sich mit den Kraftstoffpreisen in Brasilien ändern.',
       aPartirDe: 'ab',
-      paraAte: 'für bis zu 4 Personen',
-      economico: { nome: 'Kompakt', carros: 'Mobi, Sandero oder Voyage' },
-      suv: { nome: 'SUV' },
+      paraAte: 'für bis zu 3 Personen',
+      economico: { nome: 'Kompakt', carros: 'Sandero, Polo oder ähnlich' },
+      suv: { nome: 'SUV', carros: 'Renegade, Duster oder ähnlich' },
+      van: { nome: 'Executive-Van', paraAte: 'für bis zu 12 Personen' },
       descontos: ['5 % Rabatt bei Vorauszahlung', '10 % Rabatt auf Hin- und Rückfahrt'],
     },
     incluso: {
