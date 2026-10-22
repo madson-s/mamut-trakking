@@ -23,5 +23,8 @@ export const fontBody = localFont({
     { path: '../../public/fonts/brutal-milk-no-2/BrutalMilkNo2-Semibold.woff2', weight: '600', style: 'normal' },
   ],
   display: 'swap',
+  // Sem preload: os 4 arquivos (~100 KB) disputavam banda com a imagem do hero
+  // (LCP). O texto aparece no fallback ajustado (Arial, sem CLS) e troca ao chegar.
+  preload: false,
   variable: '--font-brutal',
 });
