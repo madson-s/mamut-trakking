@@ -3,22 +3,25 @@ import type { Locale } from '@/lib/site';
 import { ConsentAnalytics } from './ConsentAnalytics';
 
 /**
- * Google Analytics 4 — a mesma propriedade/fluxo do site antigo (mamut.agency),
- * para o histórico seguir contínuo depois da migração.
+ * Rastreamento do site — o MESMO do site antigo (mamut.agency): o contêiner
+ * do Google Tag Manager GTM-WTJ39TDZ, que dispara o GA4 G-C5F2EQWV32, o
+ * remarketing do Google Ads (AW-10818756615) e o Pixel da Meta. Assim o
+ * histórico e os públicos de anúncio seguem contínuos depois da migração.
+ * O que o contêiner faz está em migracao/rastreamento-site-antigo.md.
  *
  * Só existe com a porta aberta (`SITE_INDEXABLE=true`, o deploy de produção):
- * dev local e prévias da Vercel não entram nos números. Quem decide se a tag
- * carrega — e mostra o aviso de cookies para a Europa — é `ConsentAnalytics`.
- * Navegação entre páginas (pushState do Next) é contada pela medição otimizada
- * do GA4, e os cliques para o WhatsApp entram como "cliques de saída".
+ * dev local e prévias da Vercel não entram nos números. Quem decide se o
+ * contêiner carrega — e mostra o aviso de cookies para a Europa — é
+ * `ConsentAnalytics`.
  *
  * Vai em todos os layouts públicos (pt/en/es/fr/nl/de e a 404), não nas
  * ferramentas internas (/voucher, /reservas). Está descrito na política de
- * privacidade, seção "estatísticas" — mudar a ferramenta exige atualizar lá.
+ * privacidade, seção "estatísticas" — mudar as tags exige atualizar lá.
  */
-export const GA_MEASUREMENT_ID = 'G-8B6ZE20HW1';
+export const GTM_ID = 'GTM-WTJ39TDZ';
+export const GA4_ID = 'G-C5F2EQWV32';
 
 export function GoogleAnalytics({ locale }: { locale: Locale }) {
   if (!SITE_INDEXABLE) return null;
-  return <ConsentAnalytics locale={locale} measurementId={GA_MEASUREMENT_ID} />;
+  return <ConsentAnalytics locale={locale} gtmId={GTM_ID} ga4Id={GA4_ID} />;
 }

@@ -17,19 +17,22 @@ import {
 } from './consent-content';
 
 /**
- * Google Analytics 4 com Consent Mode v2 no modo BÁSICO: a tag só é carregada
- * depois que se sabe que pode — nada vai ao Google antes disso.
+ * Google Tag Manager do site antigo (GA4, Google Ads e Pixel da Meta) com
+ * Consent Mode v2 no modo BÁSICO: o contêiner só é carregado depois que se
+ * sabe que pode — nada vai ao Google nem à Meta antes disso.
  *
  *   1. Já escolheu (localStorage)? "aceito" carrega; "recusado" não carrega.
  *   2. Ainda não: pergunta o país em `/api/geo` (guardado na sessão).
  *      Fora da Europa → carrega, como antes (LGPD, interesse legítimo).
  *      Europa, ou país desconhecido → mostra o aviso; só carrega no "Aceitar".
  *   3. O link "Cookies" do rodapé reabre o aviso em qualquer país. Recusar
- *      depois de aceitar desliga a tag (`ga-disable-*` + consent update) e
- *      apaga os cookies _ga.
+ *      depois de aceitar desliga as tags (consent update negado, `ga-disable-*`
+ *      e `fbq('consent', 'revoke')`) e apaga os cookies do Google e da Meta.
  *
- * Os sinais de anúncio (ad_storage, ad_user_data, ad_personalization) ficam
- * sempre negados: o site não usa publicidade.
+ * Carregado, o contêiner recebe todos os sinais de consentimento como
+ * concedidos (analytics e anúncios): ele só chega a carregar com permissão.
+ * O que ele dispara (GA4, remarketing do Google Ads, Pixel) se edita no
+ * painel do GTM — ver migracao/rastreamento-site-antigo.md.
  */
 
 type Choice = 'granted' | 'denied';
@@ -37,6 +40,7 @@ type Choice = 'granted' | 'denied';
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    fbq?: (...args: unknown[]) => void;
     [key: `ga-disable-${string}`]: boolean | undefined;
   }
 }
@@ -57,13 +61,16 @@ function writeStorage(storage: 'localStorage' | 'sessionStorage', key: string, v
   }
 }
 
-/** Apaga os cookies do GA (_ga, _ga_XXXX) no domínio atual e no pai. */
-function clearAnalyticsCookies() {
+/** Cookies do GA (_ga*), do Google Ads (_gcl*) e da Meta (_fbp, _fbc). */
+const TRACKING_COOKIE = /^(_ga|_gcl|_fbp|_fbc)/;
+
+/** Apaga os cookies de rastreamento no domínio atual e no pai. */
+function clearTrackingCookies() {
   const host = window.location.hostname;
   const domains = ['', host, `.${host}`, `.${host.split('.').slice(-2).join('.')}`];
   document.cookie.split(';').forEach((cookie) => {
     const name = cookie.split('=')[0].trim();
-    if (!name.startsWith('_ga')) return;
+    if (!TRACKING_COOKIE.test(name)) return;
     domains.forEach((domain) => {
       document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/${domain ? `; domain=${domain}` : ''}`;
     });
@@ -91,7 +98,16 @@ async function needsConsent(): Promise<boolean> {
   return country === '' || CONSENT_COUNTRIES.has(country);
 }
 
-export function ConsentAnalytics({ locale, measurementId }: { locale: Locale; measurementId: string }) {
+export function ConsentAnalytics({
+  locale,
+  gtmId,
+  ga4Id,
+}: {
+  locale: Locale;
+  gtmId: string;
+  /** GA4 configurado dentro do contêiner — usado só para desligá-lo na recusa. */
+  ga4Id: string;
+}) {
   const c = CONSENT_CONTENT[locale];
   const reduce = useReducedMotion();
   const [load, setLoad] = useState(false);
@@ -123,40 +139,48 @@ export function ConsentAnalytics({ locale, measurementId }: { locale: Locale; me
     writeStorage('localStorage', CONSENT_STORAGE_KEY, choice);
     setShowBanner(false);
 
-    const disableKey = `ga-disable-${measurementId}` as const;
+    const disableKey = `ga-disable-${ga4Id}` as const;
+    const signals = (value: Choice) => ({
+      analytics_storage: value,
+      ad_storage: value,
+      ad_user_data: value,
+      ad_personalization: value,
+    });
     if (choice === 'granted') {
       window[disableKey] = false;
-      window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
+      window.gtag?.('consent', 'update', signals('granted'));
+      window.fbq?.('consent', 'grant');
       setLoad(true);
     } else {
       window[disableKey] = true;
-      window.gtag?.('consent', 'update', { analytics_storage: 'denied' });
-      clearAnalyticsCookies();
+      window.gtag?.('consent', 'update', signals('denied'));
+      window.fbq?.('consent', 'revoke');
+      clearTrackingCookies();
     }
   };
 
   return (
     <>
       {load ? (
-        <>
-          <Script
-            src={`https://www.googletagmanager.com/gtag/js?id=${measurementId}`}
-            strategy="afterInteractive"
-          />
-          <Script id="google-analytics" strategy="afterInteractive">
-            {`window.dataLayer = window.dataLayer || [];
+        // Consentimento antes do contêiner, e depois o snippet oficial do GTM
+        // (o mesmo que o site antigo tinha no Elementor). O <noscript> do GTM
+        // fica de fora: sem JavaScript não há como perguntar o consentimento.
+        <Script id="google-tag-manager" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 window.gtag = gtag;
 gtag('consent', 'default', {
   analytics_storage: 'granted',
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied'
+  ad_storage: 'granted',
+  ad_user_data: 'granted',
+  ad_personalization: 'granted'
 });
-gtag('js', new Date());
-gtag('config', '${measurementId}');`}
-          </Script>
-        </>
+(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','${gtmId}');`}
+        </Script>
       ) : null}
 
       <AnimatePresence>

@@ -43,8 +43,16 @@ plugin de analytics; o SEOPress não tinha rastreamento configurado):
 | Vinculador de conversões (Conversion Linker) | — | todas as páginas (cookies `_gcl`) |
 | Pixel da Meta (Facebook) — `PageView` | **663960068295209** | todas as páginas |
 
-## ⚠️ Diferença em relação ao site novo
+## No site novo
 
-O site novo foi instalado com o GA4 **G-8B6ZE20HW1**, que **não é** o ID que o
-site antigo usava (**G-C5F2EQWV32**, via GTM). E o site novo não tem o
-remarketing do Google Ads nem o Pixel da Meta.
+Desde 22/10/2026 o site novo usa o **mesmo contêiner GTM-WTJ39TDZ** (a tag
+direta G-8B6ZE20HW1, instalada antes, foi retirada). Ele passa pelo aviso de
+cookies: fora da Europa carrega direto; na Europa só depois do "Aceitar"
+(`src/components/analytics/`). O `<noscript>` do GTM não foi levado: sem
+JavaScript não há como colher o consentimento.
+
+O gatilho do evento `click_Reservar` procura o texto "Reservar" no elemento
+clicado — no site novo isso pega os botões em português ("Reservar pelo
+WhatsApp", "Reservar transfer"…), não os dos outros idiomas ("Book…",
+"Réserver…"). Para medir reservas em todos os idiomas, ajustar o gatilho no
+GTM (por exemplo, cliques em links para `wa.me`).

@@ -11,8 +11,9 @@ import type { Locale } from '@/lib/site';
  *     WhatsApp ou o app de e-mail da pessoa (`ContatoForm`).
  *   • Ficha do participante: vai por e-mail via Resend (`/api/formulario-participante`)
  *     ou pelo WhatsApp; não é gravada em banco do site.
- *   • reCAPTCHA v3 só nas páginas com formulário; Google Analytics 4 em todas
- *     as páginas públicas (seção "estatísticas"); nenhum pixel de publicidade.
+ *   • reCAPTCHA v3 só nas páginas com formulário; Google Tag Manager (GA4,
+ *     remarketing do Google Ads e Pixel da Meta) nas páginas públicas, com o
+ *     aviso de cookies para a Europa (seção "estatísticas").
  *   • O tema claro/escuro fica no localStorage do próprio navegador.
  * Mudou alguma dessas peças (entrou analytics, a ficha passou a ser gravada…)?
  * Atualize este texto e a data de `atualizadoEm`.
@@ -61,7 +62,7 @@ export const PRIVACIDADE_HREF: Record<Locale, string> = {
 };
 
 /** Data da última revisão do texto (ISO), exibida no idioma da página. */
-export const PRIVACIDADE_ATUALIZADA_EM = '2026-10-21';
+export const PRIVACIDADE_ATUALIZADA_EM = '2026-10-22';
 
 const CNPJ = '43.500.583/0001-22';
 const ENDERECO = 'Rua Miguel Calmon, 108, Centro — Lençóis, Bahia, Brasil — CEP 46960-000';
@@ -111,7 +112,7 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Navegação.',
-                'Não usamos ferramentas de publicidade. Para estatísticas de visita usamos o Google Analytics, descrito na seção seguinte. O servidor registra dados técnicos de cada acesso (endereço IP, data, hora e página), como exige o Marco Civil da Internet. A preferência de tema claro ou escuro fica guardada só no seu navegador.',
+                'Para estatísticas de visita e anúncios usamos ferramentas do Google e da Meta, descritas na seção seguinte. O servidor registra dados técnicos de cada acesso (endereço IP, data, hora e página), como exige o Marco Civil da Internet. A preferência de tema claro ou escuro fica guardada só no seu navegador.',
               ],
             ],
           },
@@ -119,17 +120,17 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
       {
         id: 'estatisticas',
-        titulo: 'Estatísticas de visita (Google Analytics)',
+        titulo: 'Estatísticas e anúncios (Google e Meta)',
         blocos: [
-          { tipo: 'p', texto: 'Usamos o Google Analytics 4 para entender como o site é usado: quantas pessoas visitam, de onde chegam (busca, redes sociais, links), quais páginas e roteiros são mais vistos e em quais botões clicam — por exemplo, o do WhatsApp. É assim que decidimos o que melhorar.' },
-          { tipo: 'p', texto: 'O Google Analytics grava cookies no seu navegador (como o _ga) e recebe dados técnicos da visita: páginas vistas, tempo na página, tipo de aparelho e navegador, idioma e localização aproximada (cidade e país). Ele não nos entrega seu nome, e-mail ou telefone, e não cruzamos esses dados com os das reservas.' },
+          { tipo: 'p', texto: 'Usamos o Google Tag Manager para carregar três ferramentas: o Google Analytics 4, para entender como o site é usado (quantas pessoas visitam, de onde chegam, quais páginas e roteiros são mais vistos e em quais botões clicam — por exemplo, o de reservar); o Google Ads, para mostrar anúncios da Mamut a quem já visitou o site (remarketing) e medir se os anúncios funcionam; e o Pixel da Meta, com o mesmo fim no Facebook e no Instagram.' },
+          { tipo: 'p', texto: 'Essas ferramentas gravam cookies no seu navegador (como _ga, _gcl_au e _fbp) e recebem dados técnicos da visita: páginas vistas, tempo na página, tipo de aparelho e navegador, idioma, localização aproximada e identificadores do navegador. O Google e a Meta podem associá-los à sua conta neles, se você estiver conectado, conforme as políticas de privacidade deles. Não enviamos a eles seu nome, e-mail ou telefone, e não cruzamos esses dados com os das reservas.' },
           {
             tipo: 'lista',
             itens: [
-              'Base legal: no Brasil e fora da Europa, nosso interesse legítimo em medir e melhorar o site (LGPD, art. 7º, IX). Para quem acessa do Espaço Econômico Europeu, do Reino Unido ou da Suíça, o seu consentimento (GDPR, art. 6(1)(a)): o Analytics só é ativado depois que você aceita no aviso de cookies.',
-              'Guarda: os dados ficam no Google Analytics por até 14 meses e depois são apagados.',
-              'Transferência: os dados vão para servidores do Google, inclusive nos Estados Unidos (ver \'Transferência internacional\').',
-              'Como recusar: o link "Cookies", no rodapé, muda a sua escolha a qualquer momento — recusar desliga o Analytics e apaga os cookies dele. Também dá para bloquear cookies no navegador ou instalar a extensão oficial de desativação do Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Base legal: no Brasil e fora da Europa, nosso interesse legítimo em medir e divulgar o site (LGPD, art. 7º, IX). Para quem acessa do Espaço Econômico Europeu, do Reino Unido ou da Suíça, o seu consentimento (GDPR, art. 6(1)(a)): as três ferramentas só são ativadas depois que você aceita no aviso de cookies.',
+              'Guarda: os dados ficam no Google Analytics por até 14 meses; os cookies de anúncio do Google e da Meta duram até 90 dias, renovados a cada visita.',
+              'Transferência: os dados vão para servidores do Google e da Meta, inclusive nos Estados Unidos (ver "Transferência internacional").',
+              'Como recusar: o link "Cookies", no rodapé, muda a sua escolha a qualquer momento — recusar desliga as três ferramentas e apaga os cookies delas. Também dá para ajustar os anúncios nas configurações do Google (adssettings.google.com) e da Meta (facebook.com/adpreferences), bloquear cookies no navegador ou instalar a extensão oficial de desativação do Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -310,7 +311,7 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Browsing.',
-                'We use no advertising tools. For visit statistics we use Google Analytics, described in the next section. The server logs technical data about each visit (IP address, date, time and page), as Brazilian internet law requires. Your light or dark theme preference is stored only in your browser.',
+                'For visit statistics and advertising we use Google and Meta tools, described in the next section. The server logs technical data about each visit (IP address, date, time and page), as Brazilian internet law requires. Your light or dark theme preference is stored only in your browser.',
               ],
             ],
           },
@@ -318,17 +319,17 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
       {
         id: 'analytics',
-        titulo: 'Visit statistics (Google Analytics)',
+        titulo: 'Statistics and advertising (Google and Meta)',
         blocos: [
-          { tipo: 'p', texto: 'We use Google Analytics 4 to understand how the site is used: how many people visit, where they come from (search, social media, links), which pages and trips are viewed most and which buttons they click — the WhatsApp one, for example. That is how we decide what to improve.' },
-          { tipo: 'p', texto: 'Google Analytics sets cookies in your browser (such as _ga) and receives technical data about the visit: pages viewed, time on page, device and browser type, language and approximate location (city and country). It does not give us your name, email or phone number, and we do not combine this data with booking data.' },
+          { tipo: 'p', texto: 'We use Google Tag Manager to load three tools: Google Analytics 4, to understand how the site is used (how many people visit, where they come from, which pages and trips are viewed most and which buttons they click — the booking one, for example); Google Ads, to show Mamut ads to people who have already visited the site (remarketing) and measure whether the ads work; and the Meta Pixel, for the same purpose on Facebook and Instagram.' },
+          { tipo: 'p', texto: 'These tools set cookies in your browser (such as _ga, _gcl_au and _fbp) and receive technical data about the visit: pages viewed, time on page, device and browser type, language, approximate location and browser identifiers. Google and Meta may link this data to your account with them if you are signed in, under their own privacy policies. We do not send them your name, email or phone number, and we do not combine this data with booking data.' },
           {
             tipo: 'lista',
             itens: [
-              'Legal basis: in Brazil and outside Europe, our legitimate interest in measuring and improving the site (LGPD, art. 7, IX). For visitors from the European Economic Area, the United Kingdom or Switzerland, your consent (GDPR, art. 6(1)(a)): Analytics is only switched on after you accept in the cookie notice.',
-              'Retention: the data stays in Google Analytics for up to 14 months and is then deleted.',
-              'Transfer: the data goes to Google servers, including in the United States (see \'International transfers\').',
-              'How to opt out: the "Cookies" link in the footer changes your choice at any time — declining switches Analytics off and deletes its cookies. You can also block cookies in your browser or install the official Google Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout).',
+              'Legal basis: in Brazil and outside Europe, our legitimate interest in measuring and promoting the site (LGPD, art. 7, IX). For visitors from the European Economic Area, the United Kingdom or Switzerland, your consent (GDPR, art. 6(1)(a)): the three tools are only switched on after you accept in the cookie notice.',
+              'Retention: data stays in Google Analytics for up to 14 months; Google and Meta advertising cookies last up to 90 days, renewed on each visit.',
+              'Transfer: the data goes to Google and Meta servers, including in the United States (see "International transfers").',
+              'How to opt out: the "Cookies" link in the footer changes your choice at any time — declining switches the three tools off and deletes their cookies. You can also adjust ads in your Google (adssettings.google.com) and Meta (facebook.com/adpreferences) settings, block cookies in your browser or install the official Google Analytics opt-out browser add-on (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -506,7 +507,7 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Navegación.',
-                'No usamos herramientas de publicidad. Para las estadísticas de visitas usamos Google Analytics, descrito en la sección siguiente. El servidor registra datos técnicos de cada acceso (dirección IP, fecha, hora y página), como exige la ley brasileña de internet. Tu preferencia de tema claro u oscuro queda guardada solo en tu navegador.',
+                'Para las estadísticas de visitas y los anuncios usamos herramientas de Google y de Meta, descritas en la sección siguiente. El servidor registra datos técnicos de cada acceso (dirección IP, fecha, hora y página), como exige la ley brasileña de internet. Tu preferencia de tema claro u oscuro queda guardada solo en tu navegador.',
               ],
             ],
           },
@@ -514,17 +515,17 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
       {
         id: 'estadisticas',
-        titulo: 'Estadísticas de visitas (Google Analytics)',
+        titulo: 'Estadísticas y anuncios (Google y Meta)',
         blocos: [
-          { tipo: 'p', texto: 'Usamos Google Analytics 4 para entender cómo se usa el sitio: cuántas personas lo visitan, de dónde llegan (buscadores, redes sociales, enlaces), qué páginas y recorridos se ven más y en qué botones hacen clic —por ejemplo, el de WhatsApp—. Así decidimos qué mejorar.' },
-          { tipo: 'p', texto: 'Google Analytics guarda cookies en tu navegador (como _ga) y recibe datos técnicos de la visita: páginas vistas, tiempo en la página, tipo de dispositivo y navegador, idioma y ubicación aproximada (ciudad y país). No nos entrega tu nombre, correo ni teléfono, y no cruzamos estos datos con los de las reservas.' },
+          { tipo: 'p', texto: 'Usamos Google Tag Manager para cargar tres herramientas: Google Analytics 4, para entender cómo se usa el sitio (cuántas personas lo visitan, de dónde llegan, qué páginas y recorridos se ven más y en qué botones hacen clic —por ejemplo, el de reservar—); Google Ads, para mostrar anuncios de Mamut a quien ya visitó el sitio (remarketing) y medir si los anuncios funcionan; y el Píxel de Meta, con el mismo fin en Facebook e Instagram.' },
+          { tipo: 'p', texto: 'Estas herramientas guardan cookies en tu navegador (como _ga, _gcl_au y _fbp) y reciben datos técnicos de la visita: páginas vistas, tiempo en la página, tipo de dispositivo y navegador, idioma, ubicación aproximada e identificadores del navegador. Google y Meta pueden asociarlos a tu cuenta en sus servicios, si tenés la sesión iniciada, según sus propias políticas de privacidad. No les enviamos tu nombre, correo ni teléfono, y no cruzamos estos datos con los de las reservas.' },
           {
             tipo: 'lista',
             itens: [
-              'Base legal: en Brasil y fuera de Europa, nuestro interés legítimo en medir y mejorar el sitio (LGPD, art. 7, IX). Para quien accede desde el Espacio Económico Europeo, el Reino Unido o Suiza, tu consentimiento (RGPD, art. 6(1)(a)): Analytics solo se activa después de que aceptás en el aviso de cookies.',
-              'Conservación: los datos quedan en Google Analytics hasta 14 meses y luego se borran.',
-              'Transferencia: los datos van a servidores de Google, incluso en Estados Unidos (ver \'Transferencia internacional\').',
-              'Cómo rechazarlo: el enlace "Cookies", al pie de la página, cambia tu elección cuando quieras — rechazar desactiva Analytics y borra sus cookies. También podés bloquear las cookies en tu navegador o instalar el complemento oficial de inhabilitación de Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Base legal: en Brasil y fuera de Europa, nuestro interés legítimo en medir y difundir el sitio (LGPD, art. 7, IX). Para quien accede desde el Espacio Económico Europeo, el Reino Unido o Suiza, tu consentimiento (RGPD, art. 6(1)(a)): las tres herramientas solo se activan después de que aceptás en el aviso de cookies.',
+              'Conservación: los datos quedan en Google Analytics hasta 14 meses; las cookies publicitarias de Google y de Meta duran hasta 90 días y se renuevan en cada visita.',
+              'Transferencia: los datos van a servidores de Google y de Meta, incluso en Estados Unidos (ver "Transferencia internacional").',
+              'Cómo rechazarlo: el enlace "Cookies", al pie de la página, cambia tu elección cuando quieras —rechazar desactiva las tres herramientas y borra sus cookies—. También podés ajustar los anuncios en la configuración de Google (adssettings.google.com) y de Meta (facebook.com/adpreferences), bloquear las cookies en tu navegador o instalar el complemento oficial de inhabilitación de Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -702,7 +703,7 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Navigation.',
-                'Nous n’utilisons aucun outil de publicité. Pour les statistiques de visite, nous utilisons Google Analytics, décrit dans la section suivante. Le serveur enregistre des données techniques de chaque visite (adresse IP, date, heure et page), comme l’exige le Marco Civil da Internet (loi brésilienne encadrant l’internet). Votre préférence de thème clair ou sombre est conservée uniquement dans votre navigateur.',
+                'Pour les statistiques de visite et la publicité, nous utilisons des outils de Google et de Meta, décrits dans la section suivante. Le serveur enregistre des données techniques de chaque visite (adresse IP, date, heure et page), comme l’exige le Marco Civil da Internet (loi brésilienne encadrant l’internet). Votre préférence de thème clair ou sombre est conservée uniquement dans votre navigateur.',
               ],
             ],
           },
@@ -710,17 +711,17 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
       {
         id: 'statistiques',
-        titulo: 'Statistiques de visite (Google Analytics)',
+        titulo: 'Statistiques et publicité (Google et Meta)',
         blocos: [
-          { tipo: 'p', texto: 'Nous utilisons Google Analytics 4 pour comprendre comment le site est utilisé : combien de personnes le visitent, d’où elles arrivent (recherche, réseaux sociaux, liens), quelles pages et quels itinéraires sont les plus consultés et sur quels boutons elles cliquent — celui de WhatsApp, par exemple. C’est ainsi que nous décidons quoi améliorer.' },
-          { tipo: 'p', texto: 'Google Analytics dépose des cookies dans votre navigateur (comme _ga) et reçoit des données techniques sur la visite : pages vues, temps passé, type d’appareil et de navigateur, langue et localisation approximative (ville et pays). Il ne nous transmet ni votre nom, ni votre e-mail, ni votre téléphone, et nous ne croisons pas ces données avec celles des réservations.' },
+          { tipo: 'p', texto: 'Nous utilisons Google Tag Manager pour charger trois outils : Google Analytics 4, pour comprendre comment le site est utilisé (combien de personnes le visitent, d’où elles arrivent, quelles pages et quels itinéraires sont les plus consultés et sur quels boutons elles cliquent — celui de réservation, par exemple) ; Google Ads, pour montrer des annonces de Mamut aux personnes qui ont déjà visité le site (remarketing) et mesurer l’efficacité des annonces ; et le Pixel Meta, dans le même but sur Facebook et Instagram.' },
+          { tipo: 'p', texto: 'Ces outils déposent des cookies dans votre navigateur (comme _ga, _gcl_au et _fbp) et reçoivent des données techniques sur la visite : pages vues, temps passé, type d’appareil et de navigateur, langue, localisation approximative et identifiants du navigateur. Google et Meta peuvent les associer à votre compte chez eux si vous êtes connecté, selon leurs propres politiques de confidentialité. Nous ne leur transmettons ni votre nom, ni votre e-mail, ni votre téléphone, et nous ne croisons pas ces données avec celles des réservations.' },
           {
             tipo: 'lista',
             itens: [
-              'Base légale : au Brésil et hors d’Europe, notre intérêt légitime à mesurer et améliorer le site (LGPD, art. 7, IX). Pour les visiteurs de l’Espace économique européen, du Royaume-Uni ou de Suisse, votre consentement (RGPD, art. 6(1)(a)) : Analytics n’est activé qu’après votre acceptation dans le bandeau cookies.',
-              'Conservation : les données restent dans Google Analytics jusqu’à 14 mois, puis sont supprimées.',
-              'Transfert : les données sont envoyées vers des serveurs de Google, y compris aux États-Unis (voir « Transfert international »).',
-              'Comment refuser : le lien « Cookies », en bas de page, permet de modifier votre choix à tout moment — refuser désactive Analytics et supprime ses cookies. Vous pouvez aussi bloquer les cookies dans votre navigateur ou installer le module officiel de désactivation de Google Analytics (tools.google.com/dlpage/gaoptout).',
+              'Base légale : au Brésil et hors d’Europe, notre intérêt légitime à mesurer et promouvoir le site (LGPD, art. 7, IX). Pour les visiteurs de l’Espace économique européen, du Royaume-Uni ou de Suisse, votre consentement (RGPD, art. 6(1)(a)) : les trois outils ne sont activés qu’après votre acceptation dans le bandeau cookies.',
+              'Conservation : les données restent dans Google Analytics jusqu’à 14 mois ; les cookies publicitaires de Google et de Meta durent jusqu’à 90 jours, renouvelés à chaque visite.',
+              'Transfert : les données sont envoyées vers des serveurs de Google et de Meta, y compris aux États-Unis (voir « Transfert international »).',
+              'Comment refuser : le lien « Cookies », en bas de page, permet de modifier votre choix à tout moment — refuser désactive les trois outils et supprime leurs cookies. Vous pouvez aussi régler les annonces dans les paramètres de Google (adssettings.google.com) et de Meta (facebook.com/adpreferences), bloquer les cookies dans votre navigateur ou installer le module officiel de désactivation de Google Analytics (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -900,7 +901,7 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Surfen op de site.',
-                'We gebruiken geen advertentietools. Voor bezoekstatistieken gebruiken we Google Analytics, zoals beschreven in het volgende onderdeel. De server legt technische gegevens over elk bezoek vast (IP-adres, datum, tijd en pagina), zoals de Braziliaanse internetwet vereist. Je voorkeur voor het lichte of donkere thema wordt alleen in je browser opgeslagen.',
+                'Voor bezoekstatistieken en advertenties gebruiken we tools van Google en Meta, zoals beschreven in het volgende onderdeel. De server legt technische gegevens over elk bezoek vast (IP-adres, datum, tijd en pagina), zoals de Braziliaanse internetwet vereist. Je voorkeur voor het lichte of donkere thema wordt alleen in je browser opgeslagen.',
               ],
             ],
           },
@@ -908,17 +909,17 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
       {
         id: 'statistieken',
-        titulo: 'Bezoekstatistieken (Google Analytics)',
+        titulo: 'Statistieken en advertenties (Google en Meta)',
         blocos: [
-          { tipo: 'p', texto: 'We gebruiken Google Analytics 4 om te begrijpen hoe de site wordt gebruikt: hoeveel mensen hem bezoeken, waar ze vandaan komen (zoekmachines, sociale media, links), welke pagina’s en tochten het meest worden bekeken en op welke knoppen ze klikken — bijvoorbeeld die van WhatsApp. Zo bepalen we wat we verbeteren.' },
-          { tipo: 'p', texto: 'Google Analytics plaatst cookies in je browser (zoals _ga) en ontvangt technische gegevens over het bezoek: bekeken pagina’s, tijd op de pagina, type apparaat en browser, taal en globale locatie (stad en land). Het geeft ons niet je naam, e-mailadres of telefoonnummer, en we koppelen deze gegevens niet aan die van boekingen.' },
+          { tipo: 'p', texto: 'We gebruiken Google Tag Manager om drie tools te laden: Google Analytics 4, om te begrijpen hoe de site wordt gebruikt (hoeveel mensen hem bezoeken, waar ze vandaan komen, welke pagina’s en tochten het meest worden bekeken en op welke knoppen ze klikken — bijvoorbeeld die om te boeken); Google Ads, om advertenties van Mamut te tonen aan mensen die de site al hebben bezocht (remarketing) en te meten of de advertenties werken; en de Meta-pixel, met hetzelfde doel op Facebook en Instagram.' },
+          { tipo: 'p', texto: 'Deze tools plaatsen cookies in je browser (zoals _ga, _gcl_au en _fbp) en ontvangen technische gegevens over het bezoek: bekeken pagina’s, tijd op de pagina, type apparaat en browser, taal, globale locatie en browser-ID’s. Google en Meta kunnen die koppelen aan je account bij hen als je bent ingelogd, volgens hun eigen privacybeleid. We sturen hun niet je naam, e-mailadres of telefoonnummer, en we koppelen deze gegevens niet aan die van boekingen.' },
           {
             tipo: 'lista',
             itens: [
-              'Rechtsgrond: in Brazilië en buiten Europa ons gerechtvaardigd belang om de site te meten en te verbeteren (LGPD, art. 7, IX). Voor bezoekers uit de Europese Economische Ruimte, het Verenigd Koninkrijk of Zwitserland je toestemming (AVG, art. 6, lid 1, onder a): Google Analytics wordt pas ingeschakeld nadat je in de cookiemelding akkoord gaat.',
-              'Bewaartermijn: de gegevens blijven maximaal 14 maanden in Google Analytics en worden daarna verwijderd.',
-              'Doorgifte: de gegevens gaan naar servers van Google, ook in de Verenigde Staten (zie \'Internationale doorgifte\').',
-              'Bezwaar maken: via de link "Cookies" onderaan de pagina wijzig je je keuze op elk moment — weigeren schakelt Analytics uit en verwijdert de cookies ervan. Je kunt ook cookies in je browser blokkeren of de officiële browser-add-on voor het uitschakelen van Google Analytics installeren (tools.google.com/dlpage/gaoptout).',
+              'Rechtsgrond: in Brazilië en buiten Europa ons gerechtvaardigd belang om de site te meten en te promoten (LGPD, art. 7, IX). Voor bezoekers uit de Europese Economische Ruimte, het Verenigd Koninkrijk of Zwitserland je toestemming (AVG, art. 6, lid 1, onder a): de drie tools worden pas ingeschakeld nadat je in de cookiemelding akkoord gaat.',
+              'Bewaartermijn: de gegevens blijven maximaal 14 maanden in Google Analytics; de advertentiecookies van Google en Meta gelden tot 90 dagen en worden bij elk bezoek verlengd.',
+              'Doorgifte: de gegevens gaan naar servers van Google en Meta, ook in de Verenigde Staten (zie "Internationale doorgifte").',
+              'Bezwaar maken: via de link "Cookies" onderaan de pagina wijzig je je keuze op elk moment — weigeren schakelt de drie tools uit en verwijdert hun cookies. Je kunt advertenties ook aanpassen in de instellingen van Google (adssettings.google.com) en Meta (facebook.com/adpreferences), cookies in je browser blokkeren of de officiële browser-add-on voor het uitschakelen van Google Analytics installeren (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
@@ -1095,7 +1096,7 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
               ],
               [
                 'Surfen auf der Website.',
-                'Wir nutzen keine Werbetools. Für Besuchsstatistiken nutzen wir Google Analytics, wie im nächsten Abschnitt beschrieben. Der Server erfasst technische Daten zu jedem Besuch (IP-Adresse, Datum, Uhrzeit und Seite), wie es das brasilianische Internetgesetz verlangt. Deine Vorliebe für das helle oder dunkle Design wird nur in deinem Browser gespeichert.',
+                'Für Besuchsstatistiken und Werbung nutzen wir Tools von Google und Meta, wie im nächsten Abschnitt beschrieben. Der Server erfasst technische Daten zu jedem Besuch (IP-Adresse, Datum, Uhrzeit und Seite), wie es das brasilianische Internetgesetz verlangt. Deine Vorliebe für das helle oder dunkle Design wird nur in deinem Browser gespeichert.',
               ],
             ],
           },
@@ -1103,17 +1104,17 @@ export const PRIVACIDADE_CONTENT: Record<Locale, PrivacidadeContent> = {
       },
       {
         id: 'statistiken',
-        titulo: 'Besuchsstatistiken (Google Analytics)',
+        titulo: 'Statistiken und Werbung (Google und Meta)',
         blocos: [
-          { tipo: 'p', texto: 'Wir nutzen Google Analytics 4, um zu verstehen, wie die Website genutzt wird: wie viele Menschen sie besuchen, woher sie kommen (Suche, soziale Netzwerke, Links), welche Seiten und Touren am meisten angesehen werden und welche Buttons sie anklicken — zum Beispiel den für WhatsApp. So entscheiden wir, was wir verbessern.' },
-          { tipo: 'p', texto: 'Google Analytics setzt Cookies in deinem Browser (etwa _ga) und erhält technische Daten zum Besuch: aufgerufene Seiten, Verweildauer, Geräte- und Browsertyp, Sprache und ungefährer Standort (Stadt und Land). Es übermittelt uns weder deinen Namen noch deine E-Mail-Adresse oder Telefonnummer, und wir verknüpfen diese Daten nicht mit Buchungsdaten.' },
+          { tipo: 'p', texto: 'Wir nutzen den Google Tag Manager, um drei Tools zu laden: Google Analytics 4, um zu verstehen, wie die Website genutzt wird (wie viele Menschen sie besuchen, woher sie kommen, welche Seiten und Touren am meisten angesehen werden und welche Buttons sie anklicken – etwa den zum Buchen); Google Ads, um Menschen, die die Website schon besucht haben, Anzeigen von Mamut zu zeigen (Remarketing) und zu messen, ob die Anzeigen wirken; und das Meta-Pixel, mit demselben Zweck auf Facebook und Instagram.' },
+          { tipo: 'p', texto: 'Diese Tools setzen Cookies in deinem Browser (etwa _ga, _gcl_au und _fbp) und erhalten technische Daten zum Besuch: aufgerufene Seiten, Verweildauer, Geräte- und Browsertyp, Sprache, ungefährer Standort und Browser-Kennungen. Google und Meta können sie mit deinem Konto bei ihnen verknüpfen, wenn du angemeldet bist – nach ihren eigenen Datenschutzrichtlinien. Wir übermitteln ihnen weder deinen Namen noch deine E-Mail-Adresse oder Telefonnummer, und wir verknüpfen diese Daten nicht mit Buchungsdaten.' },
           {
             tipo: 'lista',
             itens: [
-              'Rechtsgrundlage: in Brasilien und außerhalb Europas unser berechtigtes Interesse, die Website zu messen und zu verbessern (LGPD, Art. 7, IX). Für Besucher aus dem Europäischen Wirtschaftsraum, dem Vereinigten Königreich oder der Schweiz deine Einwilligung (DSGVO, Art. 6 Abs. 1 lit. a): Google Analytics wird erst aktiviert, nachdem du im Cookie-Hinweis zustimmst.',
-              'Speicherdauer: Die Daten bleiben bis zu 14 Monate in Google Analytics und werden danach gelöscht.',
-              'Übermittlung: Die Daten gehen an Server von Google, auch in den USA (siehe „Internationale Übermittlung“).',
-              'Widerspruch: Über den Link „Cookies“ in der Fußzeile änderst du deine Wahl jederzeit — Ablehnen schaltet Analytics ab und löscht seine Cookies. Du kannst Cookies auch in deinem Browser blockieren oder das offizielle Browser-Add-on zur Deaktivierung von Google Analytics installieren (tools.google.com/dlpage/gaoptout).',
+              'Rechtsgrundlage: in Brasilien und außerhalb Europas unser berechtigtes Interesse, die Website zu messen und zu bewerben (LGPD, Art. 7, IX). Für Besucher aus dem Europäischen Wirtschaftsraum, dem Vereinigten Königreich oder der Schweiz deine Einwilligung (DSGVO, Art. 6 Abs. 1 lit. a): Die drei Tools werden erst aktiviert, nachdem du im Cookie-Hinweis zustimmst.',
+              'Speicherdauer: Die Daten bleiben bis zu 14 Monate in Google Analytics; die Werbe-Cookies von Google und Meta gelten bis zu 90 Tage und werden bei jedem Besuch erneuert.',
+              'Übermittlung: Die Daten gehen an Server von Google und Meta, auch in den USA (siehe „Internationale Übermittlung“).',
+              'Widerspruch: Über den Link „Cookies“ in der Fußzeile änderst du deine Wahl jederzeit – Ablehnen schaltet die drei Tools ab und löscht ihre Cookies. Du kannst Anzeigen auch in den Einstellungen von Google (adssettings.google.com) und Meta (facebook.com/adpreferences) anpassen, Cookies in deinem Browser blockieren oder das offizielle Browser-Add-on zur Deaktivierung von Google Analytics installieren (tools.google.com/dlpage/gaoptout).',
             ],
           },
         ],
