@@ -4,7 +4,13 @@ import { ScrollFeedbackStack, homeTestimonials } from '@/components/home/ScrollF
 import { SITE, type Locale } from '@/lib/site';
 import { HOME_CONTENT } from './home-content';
 
-export function ReviewsSection({ locale = 'pt' }: { locale?: Locale }) {
+export function ReviewsSection({
+  locale = 'pt',
+  showTripadvisorCta = true,
+}: {
+  locale?: Locale;
+  showTripadvisorCta?: boolean;
+}) {
   const c = HOME_CONTENT[locale].reviews;
 
   return (
@@ -71,9 +77,11 @@ export function ReviewsSection({ locale = 'pt' }: { locale?: Locale }) {
             <Button href={c.ctaTrilhaHref} arrow className="max-lg:w-full">
               {c.ctaTrilha}
             </Button>
-            <Button href={SITE.social.tripadvisor} variant="outline" className="max-lg:w-full">
-              {c.ctaTripadvisor}
-            </Button>
+            {showTripadvisorCta ? (
+              <Button href={SITE.social.tripadvisor} variant="outline" className="max-lg:w-full">
+                {c.ctaTripadvisor}
+              </Button>
+            ) : null}
           </div>
 
           <div className="pointer-events-none absolute bottom-0 left-70 flex w-full justify-start">

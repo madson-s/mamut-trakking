@@ -142,7 +142,7 @@ const TRIPADVISOR_URL =
 
 const DIRECTION_CONTRACT = `<!--
 THESIS: Uma travessia documental conduzida por quem pertence ao Vale; recusa o catálogo turístico genérico.
-OWN-WORLD: Pedra noturna, verde-mata funcional, amarelo ancestral, Mergo editorial, Brutal Milk operacional, fotografia ampla e line art do bando.
+OWN-WORLD: Pedra noturna, verde-mata funcional, âmbar canônico, Mergo editorial, Brutal Milk operacional, fotografia ampla e line art do bando.
 STORY: O visitante reconhece o Pati, entende esforço, roteiro, segurança e preço, e conversa com a equipe pelo WhatsApp.
 FIRST VIEWPORT: Wordmark, chips, título monumental, galeria assimétrica e card de reserva com caminhantes sobrepostos; CTA permanece visível sem competir com a paisagem.
 FORM: Frame Figma aprovado pelo usuário, decisão fixada acima do roll; seed b6829298.

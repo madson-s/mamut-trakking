@@ -36,6 +36,13 @@
   --error-50: #fef2f2;   --error-100: #fee2e2;   --error-500: #ef4444;   --error-600: #dc2626;   --error-700: #b91c1c;
   --info-50: #eff6ff;    --info-100: #dbeafe;    --info-500: #3b82f6;    --info-600: #2563eb;    --info-700: #1d4ed8;
 
+  /* destaque editorial canônico — o mesmo amarelo-âmbar do wordmark
+     "3 Dias.". Variações existem apenas para estado e contraste. */
+  --highlight: #f59e0b;
+  --highlight-hover: #d97706;
+  --highlight-strong: #b45309;
+  --highlight-soft: #fef3c7;
+
   /* contorno óptico de 1px sobre fotografia (espelha no escuro) */
   --image-outline: 0 0 0 1px rgb(0 0 0 / 0.1);
 }
@@ -87,10 +94,9 @@
   --brand-strong: var(--primary-700);
   --brand-ink: var(--primary-950);
   --brand-contrast: #ffffff;            /* texto sobre --brand */
-  --accent: var(--secondary-500);       /* laranja-terra: apoio, nunca CTA */
-  /* amarelo ancestral — só line art e detalhes pequenos. Não espelha:
-     é a cor da própria arte, igual nos dois temas. */
-  --accent-line-art: #f7cd45;
+  --brand-black: #0a0a0a;              /* preto institucional; não espelha no tema */
+  --accent: var(--highlight);           /* destaque editorial canônico */
+  --accent-line-art: var(--highlight);  /* ilustração e detalhes pequenos */
 
   /* verde da marca sobre foto — NÃO espelha, por isso não sai de
      --primary-700: é a cor do destaque sobre mídia, igual nos dois temas. */
@@ -151,6 +157,11 @@
   --color-error-50: var(--error-50);     --color-error-100: var(--error-100);     --color-error-500: var(--error-500);     --color-error-600: var(--error-600);     --color-error-700: var(--error-700);
   --color-info-50: var(--info-50);       --color-info-100: var(--info-100);       --color-info-500: var(--info-500);       --color-info-600: var(--info-600);       --color-info-700: var(--info-700);
 
+  --color-highlight: var(--highlight);
+  --color-highlight-hover: var(--highlight-hover);
+  --color-highlight-strong: var(--highlight-strong);
+  --color-highlight-soft: var(--highlight-soft);
+
   /* Escala de spacing = default do Tailwind (bate 1:1 com o foundations). */
 
   /* --- Utilitários semânticos (bg-surface, text-content, border-line…) --- */
@@ -175,6 +186,7 @@
   --color-brand-strong: var(--brand-strong);
   --color-brand-ink: var(--brand-ink);
   --color-brand-contrast: var(--brand-contrast);
+  --color-brand-black: var(--brand-black);
   --color-accent: var(--accent);
   --color-accent-line-art: var(--accent-line-art);
 
@@ -361,6 +373,93 @@ body:has(.adventures-hub-hero) .site-header {
 /* As marcas do card de recrutamento são brancas no arquivo original. */
 [data-theme="light"] .about-theme-art {
   filter: brightness(0) saturate(100%);
+}
+
+/* A página de transfer usa a geometria de rota do Figma como paisagem
+   editorial. Os arquivos são os mesmos nos dois temas; no escuro a inversão
+   mantém os traços legíveis sem duplicar assets ou introduzir cores locais. */
+.transfer-page {
+  /* Transfer usa a mesma família canônica para ação, seleção e destaque.
+     Preto sobre o âmbar-base preserva contraste AA; tons derivados ficam
+     restritos a hover, superfícies suaves e texto sobre fundo claro. */
+  --brand: var(--highlight);
+  --brand-hover: var(--highlight-hover);
+  --brand-soft: color-mix(in oklab, var(--highlight) 18%, var(--surface));
+  --brand-strong: var(--highlight-strong);
+  --brand-ink: var(--brand-black);
+  --brand-contrast: var(--brand-black);
+  --accent: var(--highlight);
+  --brand-on-media: var(--highlight);
+  --headline-accent: var(--highlight-strong);
+}
+
+[data-theme="dark"] .transfer-page {
+  --brand-strong: var(--highlight);
+  --brand-ink: var(--content);
+  --headline-accent: var(--highlight);
+}
+
+/* Header e footer pertencem ao layout compartilhado e ficam fora de
+   `.transfer-page`. Nesta rota, eles assumem o mesmo preto institucional e o
+   mesmo âmbar canônico da experiência de transfer, incluindo menus e o header
+   fixo. Os aliases locais preservam contraste nos dois temas sem contaminar as
+   demais páginas. */
+body:has(.transfer-page) .site-header,
+body:has(.transfer-page) .site-header .site-header-controls,
+body:has(.transfer-page) .site-header .site-header-dropdown,
+body:has(.transfer-page) .site-header [role="dialog"],
+body:has(.transfer-page) .site-header-shell[data-mode="fixed"] > .site-header,
+body:has(.transfer-page) .site-footer {
+  --surface: var(--brand-black);
+  --surface-muted: color-mix(in oklab, var(--brand-black) 88%, white);
+  --surface-raised: color-mix(in oklab, var(--brand-black) 80%, white);
+  --surface-sunken: color-mix(in oklab, var(--brand-black) 72%, white);
+  --surface-inverse: var(--on-media);
+  --content: var(--on-media);
+  --content-secondary: var(--on-media-soft);
+  --content-muted: var(--on-media-muted);
+  --content-subtle: color-mix(in oklab, var(--on-media) 58%, transparent);
+  --line: color-mix(in oklab, var(--on-media) 18%, transparent);
+  --line-strong: color-mix(in oklab, var(--on-media) 36%, transparent);
+  --line-contrast: var(--on-media);
+  --brand: var(--highlight);
+  --brand-hover: var(--highlight-hover);
+  --brand-soft: color-mix(in oklab, var(--highlight) 20%, var(--brand-black));
+  --brand-strong: var(--highlight);
+  --brand-ink: var(--on-media);
+  --brand-contrast: var(--brand-black);
+  --accent: var(--highlight);
+  --accent-line-art: var(--highlight);
+}
+
+body:has(.transfer-page) .site-header,
+body:has(.transfer-page) .site-footer {
+  background-color: var(--brand-black);
+  border-color: var(--line);
+  color: var(--on-media);
+}
+
+body:has(.transfer-page) .site-header .theme-logo,
+body:has(.transfer-page) .site-footer .theme-logo,
+[data-theme="light"] body:has(.transfer-page) .site-header-shell[data-mode="fixed"] > .site-header .theme-logo:not([role="dialog"] *) {
+  filter: none;
+}
+
+body:has(.transfer-page) .site-footer .site-footer-link:hover {
+  color: var(--highlight);
+}
+
+[data-theme="dark"] .transfer-route-art,
+[data-theme="dark"] .transfer-route-map {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.transfer-page input[type="date"] {
+  color-scheme: inherit;
+}
+
+.transfer-page summary::-webkit-details-marker {
+  display: none;
 }
 
 .grecaptcha-badge {
