@@ -182,11 +182,13 @@ export function DayTourExperience({
           {/* Mesma galeria do Vale do Pati: foto grande + duas ao lado, lightbox com
               todas. No desktop a coluna estica até a altura do texto ao lado. */}
           <SobreGallery
-            images={assets.galeria.map((foto, i) => ({
+            images={[...assets.galeria, ...(assets.fotos ?? [])].map((foto, i) => ({
               src: foto.src,
               // Com uma foto por parada, o nome da parada descreve a foto.
-              alt: c.itinerario.dias?.length === assets.galeria.length ? c.itinerario.dias[i].titulo : `${c.meta.title} — ${i + 1}`,
+              alt: (assets.galeria.length === c.itinerario.dias?.length && c.itinerario.dias[i]?.titulo) || `${c.meta.title} — ${i + 1}`,
             }))}
+            locale={locale}
+            title={c.meta.title}
             maisLabel={MAIS_FOTOS[locale]}
             ampliarLabel={AMPLIAR[locale]}
           />

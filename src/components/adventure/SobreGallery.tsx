@@ -2,6 +2,7 @@
 
 import { useCallback, useState } from 'react';
 import Image from 'next/image';
+import type { Locale } from '@/lib/site';
 import { PatiLightbox } from './PatiLightbox';
 import type { PatiGalleryImage } from './patiGallery';
 
@@ -16,10 +17,15 @@ import type { PatiGalleryImage } from './patiGallery';
  */
 export function SobreGallery({
   images,
+  locale,
+  title,
   maisLabel,
   ampliarLabel,
 }: {
   images: readonly PatiGalleryImage[];
+  locale: Locale;
+  /** Nome do roteiro, no cabeçalho do lightbox. */
+  title: string;
   /** Selo da última miniatura quando há mais fotos; `{n}` vira a quantidade ("+{n} fotos"). */
   maisLabel: string;
   /** Prefixo do rótulo acessível de cada botão ("Ampliar"). */
@@ -60,7 +66,7 @@ export function SobreGallery({
           </div>
         ) : null}
       </div>
-      <PatiLightbox images={images} activeIndex={activeIndex} onChange={change} onClose={close} />
+      <PatiLightbox images={images} locale={locale} title={title} activeIndex={activeIndex} onChange={change} onClose={close} />
     </>
   );
 }

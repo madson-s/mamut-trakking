@@ -73,6 +73,11 @@ export type DayTourAssets = {
   detailLayout?: 'journey' | 'legacy';
   hero: { src: string; position?: string };
   galeria: { src: string; width: number; height: number }[];
+  /**
+   * Fotos a mais, só para a galeria do "Sobre" (lightbox). Não entram no
+   * itinerário, que casa `galeria[i]` com cada parada/dia.
+   */
+  fotos?: readonly { src: string; width: number; height: number }[];
   /** `[valor, ícone]` — o rótulo vem de `DayTourContent.stats`, na mesma ordem. */
   stats: readonly (readonly [string, string])[];
   fromPrice: number;

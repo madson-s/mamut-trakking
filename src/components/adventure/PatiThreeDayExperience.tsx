@@ -229,7 +229,7 @@ function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale
               {c.hero.lead.antes} <span className="text-brand-strong">{c.hero.lead.destaque}</span>
             </Heading>
           </header>
-          <PatiHeroGallery />
+          <PatiHeroGallery locale={locale} title={c.meta.title} />
         </div>
         <BookingCard c={c} fromPrice={a.fromPrice} locale={locale} calendarTrekId={a.calendarTrekId} />
         </div>
