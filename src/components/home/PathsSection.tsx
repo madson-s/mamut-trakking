@@ -382,6 +382,7 @@ function TrailCard({
           src: trail.image,
           alt: '',
           sizes: '(min-width: 1280px) 406px, (min-width: 640px) 406px, 86vw',
+          quality: 60,
           position: trail.imagePosition,
         }}
         overlay="bottom"

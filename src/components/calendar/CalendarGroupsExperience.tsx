@@ -12,7 +12,9 @@ import { ADVENTURE_ROUTES } from '@/lib/routes';
 import { MESSAGE_LOCALE } from '@/lib/message-locale';
 import { CALENDAR_TREKS, RELATED_ROUTES, type CalendarDeparture } from './calendar-data';
 import { CALENDAR_CONTENT, type CalendarContent } from './calendar-content';
-import { ORGANIZATION, departureEvent, periodoSaida } from '@/components/adventure/structured-data';
+import { departureEvent, periodoSaida } from '@/components/adventure/structured-data';
+import { pageJsonLd } from '@/lib/structured-data';
+import { guidePrice } from '@/components/adventure/guide-pricing';
 import styles from './calendar.module.css';
 
 // THESIS: Reproduce the supplied ZIP and screenshots, not the previous interpretation.
@@ -65,11 +67,17 @@ const askDate = ({ m }: Ctx, name?: string) => wa(name ? m.novaData.roteiro(name
 const TONE = { 'Fácil': '🟢', 'Moderado': '🟡', 'Desafiador': '🔴' } as const;
 
 /** Um `Event` do schema.org por saída confirmada — o mesmo gerador das páginas de roteiro. */
-function departuresJsonLd({ locale }: Ctx, treks: Trek[]) {
-  return {
-    '@context': 'https://schema.org',
-    '@graph': [ORGANIZATION, ...treks.flatMap((trek) => trek.departures.map((departure) => departureEvent(locale, trek, departure)))],
-  };
+function departuresJsonLd({ c, locale }: Ctx, treks: Trek[]) {
+  const events = treks.flatMap((trek) => trek.departures.map((departure) => departureEvent(locale, trek, departure)));
+  return pageJsonLd({
+    locale,
+    type: 'CollectionPage',
+    name: c.meta.title,
+    description: c.meta.description,
+    path: c.meta.canonical,
+    extra: { mainEntity: events.map((event) => ({ '@id': event['@id'] })) },
+    nodes: events,
+  });
 }
 
 function dateRange({ c }: Ctx, departure: CalendarDeparture) {
@@ -181,7 +189,10 @@ export function CalendarGroupsExperience({
   // a ordem da próxima saída de cada um.
   const treks: Trek[] = CALENDAR_TREKS
     .map((trek): Trek => {
-      const own = departures.filter((departure) => departure.trekId === trek.id);
+      // Preço da saída no idioma: guia em português em /pt, bilíngue nos demais.
+      const own = departures
+        .filter((departure) => departure.trekId === trek.id)
+        .map((departure) => ({ ...departure, price: guidePrice(departure.price, locale) }));
       const base = { id: trek.id, days: trek.days, departures: own, fromPrice: Math.min(...own.map((d) => d.price)) };
       if (trek.custom) {
         const route = trek.custom.route && ADVENTURE_ROUTES.find((r) => r.id === trek.custom.route);
@@ -217,7 +228,7 @@ export function CalendarGroupsExperience({
 
   return (
     <article className={styles.page}>
-      {treks.length > 0 && <JsonLd data={departuresJsonLd(ctx, treks)} />}
+      <JsonLd data={departuresJsonLd(ctx, treks)} />
       <section className={styles.hero} aria-labelledby="calendar-title" data-scroll-reveal="off">
         <div className={styles.heroArt} aria-hidden />
         <div className={styles.heroInner}>

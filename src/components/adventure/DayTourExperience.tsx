@@ -16,8 +16,15 @@ import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
-import { PRICE_TABLE_LABELS, VER_TABELA } from './price-table';
+import { SobreGallery } from './SobreGallery';
+import { PRICE_TABLE_LABELS, VER_TABELA, pricingFor } from './price-table';
+import { guidePrice } from './guide-pricing';
 import { tourJsonLd } from './structured-data';
+import { PatiBookingTrigger } from './PatiBookingTrigger';
+import { PatiMobileBooking } from './PatiMobileBooking';
+import { PATI3_CONTENT } from './pati-3-content';
+import { tourBookingMessages } from './booking-messages';
+import { trekBookingEvent } from './patiBooking';
 import { NextDepartures } from '@/components/calendar/NextDepartures';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
@@ -35,17 +42,45 @@ import { ROTEIRO, whatsappSobre } from '@/lib/whatsapp';
  * fotos e números por `assets`. Hoje: Morro do Pai Inácio e Cachoeira do
  * Sossego.
  */
+/** Selo da última miniatura da galeria do "Sobre" quando há mais fotos. */
+const MAIS_FOTOS: Record<Locale, string> = {
+  pt: '+{n} fotos',
+  en: '+{n} photos',
+  es: '+{n} fotos',
+  fr: '+{n} photos',
+  nl: '+{n} foto’s',
+  de: '+{n} Fotos',
+};
+
+const AMPLIAR: Record<Locale, string> = {
+  pt: 'Ampliar foto',
+  en: 'Enlarge photo',
+  es: 'Ampliar foto',
+  fr: 'Agrandir la photo',
+  nl: 'Foto vergroten',
+  de: 'Foto vergrößern',
+};
+
 export function DayTourExperience({
   locale,
   content,
-  assets,
+  assets: assetsPt,
 }: {
   locale: Locale;
   content: Record<Locale, DayTourContent>;
   assets: DayTourAssets;
 }) {
   const c = content[locale];
+  // Os assets guardam o preço de guia em português; fora de /pt a página
+  // mostra o de guia bilíngue. Daqui para baixo, `assets` já é o do idioma.
+  const assets = assetsPt.tiers
+    ? { ...assetsPt, ...pricingFor(assetsPt.tiers, locale) }
+    : { ...assetsPt, fromPrice: guidePrice(assetsPt.fromPrice, locale) };
   const sobreRoteiro = whatsappSobre(locale, (l) => ROTEIRO[l](content[l].hero.titulo));
+  // O botão do topo abre o sheet do formato em grupo (o mais procurado); com
+  // um formato só (ex.: pacote só privado), o dele.
+  const formatoReserva = Math.min(1, c.precos.formatos.length - 1);
+  const abrirReserva = trekBookingEvent(formatoReserva);
   const stats = assets.stats.map(([value, icon], i) => ({ value: statValue(value, locale), icon, label: c.stats[i] }));
 
   return (
@@ -94,9 +129,7 @@ export function DayTourExperience({
             {c.hero.lead}
           </Text>
           <div className="flex flex-wrap items-center gap-4">
-            <Button href={sobreRoteiro} size="lg" arrow className="max-sm:w-full">
-              {c.hero.reservar}
-            </Button>
+            <PatiBookingTrigger label={c.hero.reservar} eventName={abrirReserva} size="lg" block={false} className="max-sm:w-full" />
             {assets.priceTable ? (
               <Button href="#tabela-pagamento" variant="outlineOnMedia" size="lg" className="max-sm:w-full">
                 {VER_TABELA[locale]}
@@ -146,19 +179,19 @@ export function DayTourExperience({
             ))}
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            {assets.galeria.map((foto) => (
-              <Image
-                key={foto.src}
-                src={foto.src}
-                alt=""
-                width={foto.width}
-                height={foto.height}
-                sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 100vw"
-                className="h-56 w-full rounded-card object-cover"
-              />
-            ))}
-          </div>
+          {/* Mesma galeria do Vale do Pati: foto grande + duas ao lado, lightbox com
+              todas. No desktop a coluna estica até a altura do texto ao lado. */}
+          <SobreGallery
+            images={[...assets.galeria, ...(assets.fotos ?? [])].map((foto, i) => ({
+              src: foto.src,
+              // Com uma foto por parada, o nome da parada descreve a foto.
+              alt: (assets.galeria.length === c.itinerario.dias?.length && c.itinerario.dias[i]?.titulo) || `${c.meta.title} — ${i + 1}`,
+            }))}
+            locale={locale}
+            title={c.meta.title}
+            maisLabel={MAIS_FOTOS[locale]}
+            ampliarLabel={AMPLIAR[locale]}
+          />
         </Container>
       </Section>
 
@@ -193,7 +226,7 @@ export function DayTourExperience({
         </TrekJourney>
       ) : (
         <>
-          <Section padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
+          <Section id="itinerario" padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
             <Heading id="itinerario-heading" as="h2" size="section">{c.itinerario.titulo}</Heading>
             {c.itinerario.corpo.map((paragrafo) => (
               <Text key={paragrafo} size="base" weight="light" tone="secondary" leading="relaxed" pretty>
@@ -230,6 +263,7 @@ export function DayTourExperience({
                   formatos={c.precos.formatos.map((f) => f.titulo)}
                   rows={assets.priceTable}
                   origin={assets.priceOrigin}
+                  localTable={assets.localTable}
                 />
                 {assets.calendarTrekId ? <NextDepartures locale={locale} trekId={assets.calendarTrekId} className="w-full text-left" /> : null}
                 <div className="flex flex-col gap-1.5">
@@ -260,7 +294,7 @@ export function DayTourExperience({
               </div>
             )}
             <Text size="sm" weight="light" tone="secondary" pretty>{c.precos.nota}</Text>
-            <Button href={sobreRoteiro} arrow>{c.hero.reservar}</Button>
+            <PatiBookingTrigger label={c.hero.reservar} eventName={abrirReserva} block={false} />
           </Section>
 
           <Section padding="default" container="grid" containerClassName="flex flex-col gap-8" labelledBy="faq-heading">
@@ -281,6 +315,20 @@ export function DayTourExperience({
           </Section>
         </>
       )}
+      {/* No layout legado não há cards com sheet próprio: o sheet mora aqui e
+          os botões "Reservar" da página o abrem pelo mesmo evento. */}
+      {assets.detailLayout === 'legacy' ? (
+        <PatiMobileBooking
+          content={PATI3_CONTENT[locale].booking}
+          fromPrice={assets.fromPrice}
+          tiers={assets.tiers}
+          column={formatoReserva === 0 ? 0 : 1}
+          messages={tourBookingMessages(content, formatoReserva)}
+          openEvent={abrirReserva}
+          sheetId="trek-booking-sheet-hero"
+          showDock={false}
+        />
+      ) : null}
     </article>
   );
 }

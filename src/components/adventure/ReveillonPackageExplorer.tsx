@@ -8,6 +8,7 @@ import { Badge, Button, Heading, SegmentedControl, Text } from '@/components/ui'
 import type { Locale } from '@/lib/site';
 import { PATI3_CONTENT } from './pati-3-content';
 import { PatiMobileBooking } from './PatiMobileBooking';
+import { guidePrice } from './guide-pricing';
 import { bookingMessages } from './booking-messages';
 import { REVEILLON_BOOKING_OPEN_EVENT } from './reveillonBooking';
 import { REVEILLON_CONTENT, REVEILLON_PACKAGES, type ReveillonPackageKey } from './reveillon-content';
@@ -96,7 +97,7 @@ export function ReveillonPackageExplorer({ locale }: { locale: Locale }) {
             <p className="self-start rounded-full border border-current/30 px-3 py-1 text-xs">{t.regiao}</p>
             <div className="my-8">
               <p className="text-lg">{t.apartirDe}</p>
-              <p className={styles.amount}><span>R$</span>{activePackage.price.toLocaleString(c.numberLocale)}</p>
+              <p className={styles.amount}><span>R$</span>{guidePrice(activePackage.price, locale).toLocaleString(c.numberLocale)}</p>
               <p className="mt-2 text-sm">{t.porPessoa}</p>
             </div>
             <div className={styles.payment}>
@@ -119,7 +120,9 @@ export function ReveillonPackageExplorer({ locale }: { locale: Locale }) {
 
       <PatiMobileBooking
         content={PATI3_CONTENT[locale].booking}
-        fromPrice={activePackage.price}
+        fromPrice={guidePrice(activePackage.price, locale)}
+        // Um valor por pessoa; o sheet troca para o bilíngue conforme o idioma do guia.
+        tiers={{ pt: [['1', activePackage.price, activePackage.price]] }}
         initialDate={activePackage.startDate}
         messages={bookingMessages((l) => REVEILLON_CONTENT[l].explorer.mensagem(REVEILLON_CONTENT[l].pacotes[activePackage.key].days))}
         openEvent={REVEILLON_BOOKING_OPEN_EVENT}

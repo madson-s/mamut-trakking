@@ -1,4 +1,4 @@
-import { Card, Container, Heading, Section, Text } from '@/components/ui';
+import { Card, Container, Heading, Section, Text, JsonLd } from '@/components/ui';
 import { SITE, type Locale } from '@/lib/site';
 import {
   PRIVACIDADE_ATUALIZADA_EM,
@@ -6,6 +6,7 @@ import {
   type PrivacidadeBloco,
 } from './privacidade-content';
 import { whatsappLink } from '@/lib/whatsapp';
+import { pageJsonLd } from '@/lib/structured-data';
 
 const DATA_LOCALE: Record<Locale, string> = { pt: 'pt-BR', en: 'en-GB', es: 'es', fr: 'fr-FR', nl: 'nl-NL', de: 'de-DE' };
 
@@ -55,6 +56,7 @@ export function PrivacidadePage({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <JsonLd data={pageJsonLd({ locale, type: 'WebPage', name: c.meta.title, description: c.meta.description, path: c.meta.canonical })} />
       <Section padding="none" container={false} labelledBy="privacidade-titulo" className="relative isolate overflow-x-clip">
         <div
           aria-hidden="true"

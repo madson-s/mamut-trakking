@@ -4,7 +4,7 @@ import { Suspense, useEffect, useMemo, useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { CalendarDays, Check, CircleDollarSign, MapPin, Mountain, SlidersHorizontal } from 'lucide-react';
-import { ArrowRightIcon, Button, CaretDownIcon, Container, Heading, Text } from '@/components/ui';
+import { ArrowRightIcon, Button, CaretDownIcon, Container, Heading, Text, JsonLd } from '@/components/ui';
 import { focus, motion, press } from '@/design/tokens';
 import { cn } from '@/lib/cn';
 import { scrollToBrand } from '@/lib/scroll';
@@ -30,6 +30,7 @@ import {
   type AdventureFilters,
   type DifficultyFilter,
 } from './filters';
+import { absoluteUrl, pageJsonLd } from '@/lib/structured-data';
 
 type OpenFilter = 'location' | 'duration' | 'difficulty' | 'budget' | null;
 
@@ -134,265 +135,286 @@ export function AdventuresHub({ locale = 'pt' }: { locale?: Locale }) {
     scrollToBrand(section.getBoundingClientRect().top + window.scrollY);
   };
 
+  // Dados estruturados: a coleção de roteiros, na ordem do hub, com o link de cada um.
+  const hubJsonLd = pageJsonLd({
+    locale,
+    type: 'CollectionPage',
+    name: c.meta.title,
+    description: c.meta.description,
+    path: c.meta.canonical,
+    extra: { mainEntity: { '@id': `${absoluteUrl(c.meta.canonical)}#roteiros` } },
+    nodes: [
+      {
+        '@type': 'ItemList',
+        '@id': `${absoluteUrl(c.meta.canonical)}#roteiros`,
+        numberOfItems: aventuras.length,
+        itemListElement: aventuras.map((a, i) => ({ '@type': 'ListItem', position: i + 1, name: a.title, url: absoluteUrl(a.href) })),
+      },
+    ],
+  });
+
   return (
-    <div className="bg-surface text-content">
-      <Suspense fallback={null}>
-        <FiltersFromUrl
-          onRead={(fromUrl) => {
-            setFilters(fromUrl);
-            setUrlRead(true);
-          }}
-        />
-      </Suspense>
-      <section className="adventures-hub-hero relative z-10 -mt-20 overflow-hidden pt-20 pb-18 text-on-media lg:overflow-visible lg:pb-34">
-        <Image
-          src={HERO_BACKGROUND}
-          alt="Morro do Pai Inácio na Chapada Diamantina"
-          fill
-          preload
-          unoptimized
-          sizes="100vw"
-          className="-z-10 object-cover object-bottom"
-        />
-
-        <Container className="mt-14.5 text-center lg:mt-10">
-          <h1 className="mx-auto max-w-190 text-balance font-display text-[38px] leading-[1.08] tracking-tight text-[#f4f4f4] sm:text-[44px] lg:text-[48px] lg:leading-[1.1]">
-            <span className="block">{c.hero.linha1}</span>
-            <span className="flex items-center justify-center gap-3">
-              {c.hero.linha2}
-              <span className="relative inline-block h-[38px] w-[76px] shrink-0 overflow-hidden rounded-pill sm:h-[44px] sm:w-[88px] lg:h-[48px] lg:w-[96px]">
-                <Image src={HERO_INLINE_IMAGE} alt="Morro do Pai Inácio" fill sizes="96px" className="object-cover" />
+    <>
+      <JsonLd data={hubJsonLd} />
+      <div className="bg-surface text-content">
+        <Suspense fallback={null}>
+          <FiltersFromUrl
+            onRead={(fromUrl) => {
+              setFilters(fromUrl);
+              setUrlRead(true);
+            }}
+          />
+        </Suspense>
+        <section className="adventures-hub-hero relative z-10 -mt-20 overflow-hidden pt-20 pb-18 text-on-media lg:overflow-visible lg:pb-34">
+          <Image
+            src={HERO_BACKGROUND}
+            alt="Morro do Pai Inácio na Chapada Diamantina"
+            fill
+            preload
+            unoptimized
+            sizes="100vw"
+            className="-z-10 object-cover object-bottom"
+          />
+  
+          <Container className="mt-14.5 text-center lg:mt-10">
+            <h1 className="mx-auto max-w-190 text-balance font-display text-[38px] leading-[1.08] tracking-tight text-[#f4f4f4] sm:text-[44px] lg:text-[48px] lg:leading-[1.1]">
+              <span className="block">{c.hero.linha1}</span>
+              <span className="flex items-center justify-center gap-3">
+                {c.hero.linha2}
+                <span className="relative inline-block h-[38px] w-[76px] shrink-0 overflow-hidden rounded-pill sm:h-[44px] sm:w-[88px] lg:h-[48px] lg:w-[96px]">
+                  <Image src={HERO_INLINE_IMAGE} alt="Morro do Pai Inácio" fill sizes="96px" className="object-cover" />
+                </span>
               </span>
-            </span>
-            <span className="block text-brand-on-media">{c.hero.linha3}</span>
-          </h1>
-
-          <Button
-            onClick={() => setDrawerOpen(true)}
-            icon={<SlidersHorizontal aria-hidden className="size-5" />}
-            arrow
-            block
-            size="lg"
-            justify="between"
-            aria-haspopup="dialog"
-            aria-expanded={drawerOpen}
-            className="mt-24 lg:hidden"
-          >
-            {c.hero.filtrar}
-          </Button>
-        </Container>
-
-        <Container className="mt-6 hidden lg:block">
-          <div
-            ref={filtersRef}
-            className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-panel-lg border border-line bg-surface-muted px-6 text-content shadow-popover"
-          >
-            <FilterPopover
-              id="location"
-              label={c.filtros.local}
-              icon={<MapPin aria-hidden className="size-4" />}
-              value={locationLabel(location, labels)}
-              active={location !== 'all'}
-              isOpen={openFilter === 'location'}
-              onToggle={() => setOpenFilter(openFilter === 'location' ? null : 'location')}
+              <span className="block text-brand-on-media">{c.hero.linha3}</span>
+            </h1>
+  
+            <Button
+              onClick={() => setDrawerOpen(true)}
+              icon={<SlidersHorizontal aria-hidden className="size-5" />}
+              arrow
+              block
+              size="lg"
+              justify="between"
+              aria-haspopup="dialog"
+              aria-expanded={drawerOpen}
+              className="mt-24 lg:hidden"
             >
-              <FilterChipGrid>
-                {LOCATION_OPTIONS.map((option) => (
-                  <FilterChip key={option} active={location === option} disabled={!available.location.has(option)} onClick={() => { setLocation(option); setOpenFilter(null); }}>
-                    {option === 'all' ? c.filtros.todas : option}
-                  </FilterChip>
-                ))}
-              </FilterChipGrid>
-            </FilterPopover>
-
-            <FilterPopover
-              id="duration"
-              label={c.filtros.duracao}
-              icon={<CalendarDays aria-hidden className="size-4" />}
-              value={durationLabel(duration, labels)}
-              active={duration !== 'all'}
-              isOpen={openFilter === 'duration'}
-              onToggle={() => setOpenFilter(openFilter === 'duration' ? null : 'duration')}
+              {c.hero.filtrar}
+            </Button>
+          </Container>
+  
+          <Container className="mt-6 hidden lg:block">
+            <div
+              ref={filtersRef}
+              className="grid h-21 grid-cols-[repeat(4,minmax(0,1fr))_219px] items-center rounded-panel-lg border border-line bg-surface-muted px-6 text-content shadow-popover"
             >
-              <FilterChipGrid>
-                {DURATION_OPTIONS.map((option) => (
-                  <FilterChip key={option} active={duration === option} disabled={!available.duration.has(option)} onClick={() => { setDuration(option); setOpenFilter(null); }}>
-                    {option === 'all' ? c.filtros.qualquer : durationLabel(option, labels)}
-                  </FilterChip>
-                ))}
-              </FilterChipGrid>
-            </FilterPopover>
-
-            <FilterPopover
-              id="difficulty"
-              label={c.filtros.dificuldade}
-              icon={<Mountain aria-hidden className="size-4" />}
-              value={difficultyLabel(difficulty, labels)}
-              active={difficulty !== 'all'}
-              isOpen={openFilter === 'difficulty'}
-              onToggle={() => setOpenFilter(openFilter === 'difficulty' ? null : 'difficulty')}
-            >
-              <FilterChipGrid>
-                {DIFFICULTY_OPTIONS.map((option) => (
-                  <FilterChip key={option} active={difficulty === option} disabled={!available.difficulty.has(option)} onClick={() => { setDifficulty(option); setOpenFilter(null); }}>
-                    {option === 'all' ? c.filtros.todos : c.niveis[option]}
-                  </FilterChip>
-                ))}
-              </FilterChipGrid>
-            </FilterPopover>
-
-            <FilterPopover
-              id="budget"
-              label={c.filtros.investimento}
-              icon={<CircleDollarSign aria-hidden className="size-4" />}
-              value={budget === MAX_BUDGET ? c.filtros.qualquerValor : `${c.filtros.ate} ${formatPrice(budget, locale)}`}
-              active={budget !== MAX_BUDGET}
-              isOpen={openFilter === 'budget'}
-              align="right"
-              onToggle={() => setOpenFilter(openFilter === 'budget' ? null : 'budget')}
-            >
-              <div className="flex flex-col gap-5">
-                <div className="flex items-end justify-between gap-4">
-                  <Text size="xs" tone="secondary" className="uppercase tracking-[0.14em]">{c.filtros.ate}</Text>
-                  <Text size="xl" weight="semibold" tone="onMedia" className="tabular-nums">{formatPrice(budget, locale)}</Text>
+              <FilterPopover
+                id="location"
+                label={c.filtros.local}
+                icon={<MapPin aria-hidden className="size-4" />}
+                value={locationLabel(location, labels)}
+                active={location !== 'all'}
+                isOpen={openFilter === 'location'}
+                onToggle={() => setOpenFilter(openFilter === 'location' ? null : 'location')}
+              >
+                <FilterChipGrid>
+                  {LOCATION_OPTIONS.map((option) => (
+                    <FilterChip key={option} active={location === option} disabled={!available.location.has(option)} onClick={() => { setLocation(option); setOpenFilter(null); }}>
+                      {option === 'all' ? c.filtros.todas : option}
+                    </FilterChip>
+                  ))}
+                </FilterChipGrid>
+              </FilterPopover>
+  
+              <FilterPopover
+                id="duration"
+                label={c.filtros.duracao}
+                icon={<CalendarDays aria-hidden className="size-4" />}
+                value={durationLabel(duration, labels)}
+                active={duration !== 'all'}
+                isOpen={openFilter === 'duration'}
+                onToggle={() => setOpenFilter(openFilter === 'duration' ? null : 'duration')}
+              >
+                <FilterChipGrid>
+                  {DURATION_OPTIONS.map((option) => (
+                    <FilterChip key={option} active={duration === option} disabled={!available.duration.has(option)} onClick={() => { setDuration(option); setOpenFilter(null); }}>
+                      {option === 'all' ? c.filtros.qualquer : durationLabel(option, labels)}
+                    </FilterChip>
+                  ))}
+                </FilterChipGrid>
+              </FilterPopover>
+  
+              <FilterPopover
+                id="difficulty"
+                label={c.filtros.dificuldade}
+                icon={<Mountain aria-hidden className="size-4" />}
+                value={difficultyLabel(difficulty, labels)}
+                active={difficulty !== 'all'}
+                isOpen={openFilter === 'difficulty'}
+                onToggle={() => setOpenFilter(openFilter === 'difficulty' ? null : 'difficulty')}
+              >
+                <FilterChipGrid>
+                  {DIFFICULTY_OPTIONS.map((option) => (
+                    <FilterChip key={option} active={difficulty === option} disabled={!available.difficulty.has(option)} onClick={() => { setDifficulty(option); setOpenFilter(null); }}>
+                      {option === 'all' ? c.filtros.todos : c.niveis[option]}
+                    </FilterChip>
+                  ))}
+                </FilterChipGrid>
+              </FilterPopover>
+  
+              <FilterPopover
+                id="budget"
+                label={c.filtros.investimento}
+                icon={<CircleDollarSign aria-hidden className="size-4" />}
+                value={budget === MAX_BUDGET ? c.filtros.qualquerValor : `${c.filtros.ate} ${formatPrice(budget, locale)}`}
+                active={budget !== MAX_BUDGET}
+                isOpen={openFilter === 'budget'}
+                align="right"
+                onToggle={() => setOpenFilter(openFilter === 'budget' ? null : 'budget')}
+              >
+                <div className="flex flex-col gap-5">
+                  <div className="flex items-end justify-between gap-4">
+                    <Text size="xs" tone="secondary" className="uppercase tracking-[0.14em]">{c.filtros.ate}</Text>
+                    <Text size="xl" weight="semibold" tone="onMedia" className="tabular-nums">{formatPrice(budget, locale)}</Text>
+                  </div>
+                  <input
+                    className="adventures-range w-full cursor-pointer accent-brand"
+                    type="range"
+                    min={MIN_BUDGET}
+                    max={MAX_BUDGET}
+                    step={50}
+                    value={budget}
+                    onChange={(event) => setBudget(Number(event.target.value))}
+                    aria-label={c.filtros.investimentoMax}
+                  />
+                  <div className="flex justify-between font-body text-xs font-light text-content-muted tabular-nums">
+                    <span>{formatPrice(MIN_BUDGET, locale)}</span><span>{formatPrice(MAX_BUDGET, locale)}</span>
+                  </div>
                 </div>
-                <input
-                  className="adventures-range w-full cursor-pointer accent-brand"
-                  type="range"
-                  min={MIN_BUDGET}
-                  max={MAX_BUDGET}
-                  step={50}
-                  value={budget}
-                  onChange={(event) => setBudget(Number(event.target.value))}
-                  aria-label={c.filtros.investimentoMax}
-                />
-                <div className="flex justify-between font-body text-xs font-light text-content-muted tabular-nums">
-                  <span>{formatPrice(MIN_BUDGET, locale)}</span><span>{formatPrice(MAX_BUDGET, locale)}</span>
-                </div>
-              </div>
-            </FilterPopover>
-
-            <Button onClick={scrollToResults} arrow size="lg" className="ml-3 min-w-51.75">{c.filtros.escolher}</Button>
-          </div>
-        </Container>
-
-        {activeFilters.length > 0 ? (
-          <Container className="mt-4 hidden lg:block">
-            <div className="flex min-h-10 items-center justify-start gap-2">
-              {activeFilters.map((filter) => (
+              </FilterPopover>
+  
+              <Button onClick={scrollToResults} arrow size="lg" className="ml-3 min-w-51.75">{c.filtros.escolher}</Button>
+            </div>
+          </Container>
+  
+          {activeFilters.length > 0 ? (
+            <Container className="mt-4 hidden lg:block">
+              <div className="flex min-h-10 items-center justify-start gap-2">
+                {activeFilters.map((filter) => (
+                  <button
+                    key={filter.id}
+                    type="button"
+                    onClick={() => updateFilters(filter.reset)}
+                    className={cn(
+                      'inline-flex min-h-10 items-center gap-2 rounded-pill border border-white/70 px-4 font-body text-sm font-semibold text-white',
+                      'transition-[background-color,border-color,transform] duration-200 ease-out hover:border-white hover:bg-white/8',
+                      press,
+                      focus.onMedia,
+                    )}
+                    aria-label={`${c.hero.removerFiltro} ${filter.label}`}
+                  >
+                    {filter.label}
+                    <span aria-hidden className="text-white/65">×</span>
+                  </button>
+                ))}
                 <button
-                  key={filter.id}
                   type="button"
-                  onClick={() => updateFilters(filter.reset)}
+                  onClick={clearFilters}
                   className={cn(
-                    'inline-flex min-h-10 items-center gap-2 rounded-pill border border-white/70 px-4 font-body text-sm font-semibold text-white',
-                    'transition-[background-color,border-color,transform] duration-200 ease-out hover:border-white hover:bg-white/8',
+                    'min-h-10 px-2 font-body text-sm font-semibold text-white underline decoration-white/55 underline-offset-4',
+                    'transition-colors hover:text-brand-strong',
                     press,
                     focus.onMedia,
                   )}
-                  aria-label={`${c.hero.removerFiltro} ${filter.label}`}
                 >
-                  {filter.label}
-                  <span aria-hidden className="text-white/65">×</span>
+                  {c.hero.limpar}
                 </button>
-              ))}
-              <button
-                type="button"
-                onClick={clearFilters}
-                className={cn(
-                  'min-h-10 px-2 font-body text-sm font-semibold text-white underline decoration-white/55 underline-offset-4',
-                  'transition-colors hover:text-brand-strong',
-                  press,
-                  focus.onMedia,
-                )}
-              >
-                {c.hero.limpar}
-              </button>
-            </div>
-          </Container>
-        ) : (
-          <button
-            type="button"
-            onClick={scrollToResults}
-            className={cn(
-              'mx-auto mt-10 flex w-fit items-center gap-2 font-body text-base font-light text-white/65',
-              'transition-colors hover:text-white',
-              focus.onMedia,
-            )}
-          >
-            {c.hero.explorar}
-            <span className="grid size-5.5 place-items-center rounded-full border border-current">
-              <ArrowRightIcon aria-hidden className="size-3 rotate-90" />
-            </span>
-          </button>
-        )}
-      </section>
-
-      <AdventuresFiltersDrawer
-        open={drawerOpen}
-        onClose={() => setDrawerOpen(false)}
-        filters={filters}
-        available={available}
-        content={c}
-        locale={locale}
-        onChange={updateFilters}
-        onClear={clearFilters}
-        resultCount={filteredAdventures.length}
-        onApply={scrollToResults}
-      />
-
-      <section id="todas-as-aventuras" className={cn('bg-surface-muted pt-15', lastGroup === 'trekking' && PAGE_TAIL)} aria-labelledby="trekking-heading">
-        <AdventureSection
-          id="trekking-heading"
-          title={c.secoes.trekking.titulo}
-          description={c.secoes.trekking.descricao}
-          adventures={groups.trekking}
+              </div>
+            </Container>
+          ) : (
+            <button
+              type="button"
+              onClick={scrollToResults}
+              className={cn(
+                'mx-auto mt-10 flex w-fit items-center gap-2 font-body text-base font-light text-white/65',
+                'transition-colors hover:text-white',
+                focus.onMedia,
+              )}
+            >
+              {c.hero.explorar}
+              <span className="grid size-5.5 place-items-center rounded-full border border-current">
+                <ArrowRightIcon aria-hidden className="size-3 rotate-90" />
+              </span>
+            </button>
+          )}
+        </section>
+  
+        <AdventuresFiltersDrawer
+          open={drawerOpen}
+          onClose={() => setDrawerOpen(false)}
+          filters={filters}
+          available={available}
           content={c}
           locale={locale}
-          walkers
+          onChange={updateFilters}
+          onClear={clearFilters}
+          resultCount={filteredAdventures.length}
+          onApply={scrollToResults}
         />
-      </section>
-
-      {groups.dayTours.length > 0 && (
-        <section className={cn('bg-surface-muted pt-16', lastGroup === 'dayTours' && PAGE_TAIL)} aria-labelledby="day-tours-heading">
+  
+        <section id="todas-as-aventuras" className={cn('bg-surface-muted pt-15', lastGroup === 'trekking' && PAGE_TAIL)} aria-labelledby="trekking-heading">
           <AdventureSection
-            id="day-tours-heading"
-            title={c.secoes.dayTours.titulo}
-            description={c.secoes.dayTours.descricao}
-            adventures={groups.dayTours}
+            id="trekking-heading"
+            title={c.secoes.trekking.titulo}
+            description={c.secoes.trekking.descricao}
+            adventures={groups.trekking}
             content={c}
             locale={locale}
+            walkers
           />
         </section>
-      )}
-
-      {groups.packages.length > 0 && (
-        <section className={cn('bg-surface-muted pt-16', lastGroup === 'packages' && PAGE_TAIL)} aria-labelledby="packages-heading">
-          <AdventureSection
-            id="packages-heading"
-            title={c.secoes.pacotes.titulo}
-            description={c.secoes.pacotes.descricao}
-            adventures={groups.packages}
-            content={c}
-            locale={locale}
-            featured
-          />
-        </section>
-      )}
-
-      {filteredAdventures.length === 0 && (
-        <section className="bg-surface-muted pb-24">
-          <Container>
-            <div className="rounded-panel bg-surface-raised px-6 py-16 text-center shadow-card">
-              <Heading as="h2" size="card" balance>{c.vazio.titulo}</Heading>
-              <Text tone="secondary" pretty className="mx-auto mt-3 max-w-lg">
-                {c.vazio.texto}
-              </Text>
-            </div>
-          </Container>
-        </section>
-      )}
-    </div>
+  
+        {groups.dayTours.length > 0 && (
+          <section className={cn('bg-surface-muted pt-16', lastGroup === 'dayTours' && PAGE_TAIL)} aria-labelledby="day-tours-heading">
+            <AdventureSection
+              id="day-tours-heading"
+              title={c.secoes.dayTours.titulo}
+              description={c.secoes.dayTours.descricao}
+              adventures={groups.dayTours}
+              content={c}
+              locale={locale}
+            />
+          </section>
+        )}
+  
+        {groups.packages.length > 0 && (
+          <section className={cn('bg-surface-muted pt-16', lastGroup === 'packages' && PAGE_TAIL)} aria-labelledby="packages-heading">
+            <AdventureSection
+              id="packages-heading"
+              title={c.secoes.pacotes.titulo}
+              description={c.secoes.pacotes.descricao}
+              adventures={groups.packages}
+              content={c}
+              locale={locale}
+              featured
+            />
+          </section>
+        )}
+  
+        {filteredAdventures.length === 0 && (
+          <section className="bg-surface-muted pb-24">
+            <Container>
+              <div className="rounded-panel bg-surface-raised px-6 py-16 text-center shadow-card">
+                <Heading as="h2" size="card" balance>{c.vazio.titulo}</Heading>
+                <Text tone="secondary" pretty className="mx-auto mt-3 max-w-lg">
+                  {c.vazio.texto}
+                </Text>
+              </div>
+            </Container>
+          </section>
+        )}
+      </div>
+    </>
   );
 }
 

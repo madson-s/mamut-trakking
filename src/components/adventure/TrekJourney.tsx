@@ -7,13 +7,13 @@ import { PatiFaqList } from './PatiFaqList';
 import type { DayTourAssets, DayTourContent } from './day-tour';
 import { PATI3_CONTENT } from './pati-3-content';
 import { TrekBookingButton } from './TrekBookingButton';
-import { bookingMessages } from './booking-messages';
-import type { MessageLocale } from '@/lib/message-locale';
+import { tourBookingMessages } from './booking-messages';
+import { trekBookingEvent } from './patiBooking';
 import { PRICE_TABLE_LABELS, brl } from './price-table';
 import { NextDepartures } from '@/components/calendar/NextDepartures';
 import { PriceTable } from './PriceTable';
 import { TripLogistics } from './AgencySupport';
-import { ROTEIRO, semPonto, whatsappSobre } from '@/lib/whatsapp';
+import { ROTEIRO, whatsappSobre } from '@/lib/whatsapp';
 
 /** Layout opt-in: mantém a fonte de conteúdo e a composição superior do roteiro. */
 export function TrekJourney({
@@ -120,7 +120,7 @@ export function TrekJourney({
           {c.precos.formatos.map((format, index) => {
             const Icon = index === 0 ? UserRound : Users;
             const price = assets.cardPrices?.[index] ?? Number(format.preco.replace(/\D/g, ''));
-            const eventName = `trek:open-booking:${index}`;
+            const eventName = trekBookingEvent(index);
             const sheetId = `trek-booking-sheet-${index}`;
             return (
               <Card key={format.titulo} as="article" surface="raised" padding="none" className="gap-6 p-6 lg:p-8">
@@ -137,7 +137,7 @@ export function TrekJourney({
                   content={PATI3_CONTENT[locale].booking}
                   eventName={eventName}
                   label={c.hero.reservar}
-                  messages={bookingMessages((l) => bookingMessageIntro(l, semPonto(allContent[l].hero.titulo), allContent[l].precos.formatos[index]?.titulo ?? format.titulo))}
+                  messages={tourBookingMessages(allContent, index)}
                   price={price}
                   tiers={assets.tiers}
                   column={index === 0 ? 0 : 1}
@@ -156,6 +156,7 @@ export function TrekJourney({
                 formatos={c.precos.formatos.map((f) => f.titulo)}
                 rows={assets.priceTable}
                 origin={assets.priceOrigin}
+                localTable={assets.localTable}
               />
             </div>
           ) : null}
@@ -183,15 +184,6 @@ export function TrekJourney({
       </Section>
     </>
   );
-}
-
-function bookingMessageIntro(locale: MessageLocale, adventure: string, format: string) {
-  const messages: Record<MessageLocale, string> = {
-    pt: `Olá! Quero verificar disponibilidade para ${adventure} — ${format} em`,
-    en: `Hi! I want to check availability for ${adventure} — ${format} on`,
-    fr: `Bonjour ! Je voudrais vérifier les disponibilités pour ${adventure} — ${format} le`,
-  };
-  return messages[locale];
 }
 
 /** Só introduz respiro entre frases completas; não reescreve a narrativa. */

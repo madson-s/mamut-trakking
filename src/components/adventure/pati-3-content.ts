@@ -97,6 +97,10 @@ export type Pati3Content = {
     remover: string;
     adicionar: string;
     idioma: string;
+    /** Escolha do ponto de saída — só nos roteiros com tabela de saída local. */
+    saida: string;
+    /** Explica a saída local; `{cidade}` vira a cidade do atrativo. */
+    semTransporte: string;
     valor: string;
     porPessoa: string;
     verificar: string;
@@ -258,6 +262,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       remover: 'Remover viajante',
       adicionar: 'Adicionar viajante',
       idioma: 'Idioma',
+      saida: 'Ponto de saída',
+      semTransporte: 'Encontro em {cidade}, sem o transporte de ida e volta a Lençóis.',
       valor: 'Valor estimado',
       porPessoa: '/ pessoa',
       verificar: 'Verificar disponibilidade',
@@ -415,6 +421,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       remover: 'Remove traveller',
       adicionar: 'Add traveller',
       idioma: 'Language',
+      saida: 'Departure point',
+      semTransporte: 'Meet in {cidade}, without the round trip to and from Lençóis.',
       valor: 'Estimated price',
       porPessoa: '/ person',
       verificar: 'Check availability',
@@ -572,6 +580,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       remover: 'Quitar viajero',
       adicionar: 'Agregar viajero',
       idioma: 'Idioma',
+      saida: 'Punto de salida',
+      semTransporte: 'Encuentro en {cidade}, sin el traslado de ida y vuelta a Lençóis.',
       valor: 'Valor estimado',
       porPessoa: '/ persona',
       verificar: 'Verificar disponibilidad',
@@ -728,6 +738,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       remover: 'Retirer un voyageur',
       adicionar: 'Ajouter un voyageur',
       idioma: 'Langue',
+      saida: 'Point de départ',
+      semTransporte: 'Rendez-vous à {cidade}, sans le trajet aller-retour depuis Lençóis.',
       valor: 'Prix estimé',
       porPessoa: '/ personne',
       verificar: 'Vérifier la disponibilité',
@@ -884,6 +896,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       remover: 'Reiziger verwijderen',
       adicionar: 'Reiziger toevoegen',
       idioma: 'Taal',
+      saida: 'Vertrekpunt',
+      semTransporte: 'Verzamelen in {cidade}, zonder de rit heen en terug naar Lençóis.',
       valor: 'Geschatte prijs',
       porPessoa: '/ persoon',
       verificar: 'Beschikbaarheid checken',
@@ -1040,6 +1054,8 @@ export const PATI3_CONTENT: Record<Locale, Pati3Content> = {
       remover: 'Reisende Person entfernen',
       adicionar: 'Reisende Person hinzufügen',
       idioma: 'Sprache',
+      saida: 'Startpunkt',
+      semTransporte: 'Treffpunkt in {cidade}, ohne Hin- und Rückfahrt nach Lençóis.',
       valor: 'Geschätzter Preis',
       porPessoa: '/ Person',
       verificar: 'Verfügbarkeit prüfen',

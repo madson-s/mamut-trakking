@@ -73,6 +73,11 @@ export type DayTourAssets = {
   detailLayout?: 'journey' | 'legacy';
   hero: { src: string; position?: string };
   galeria: { src: string; width: number; height: number }[];
+  /**
+   * Fotos a mais, só para a galeria do "Sobre" (lightbox). Não entram no
+   * itinerário, que casa `galeria[i]` com cada parada/dia.
+   */
+  fotos?: readonly { src: string; width: number; height: number }[];
   /** `[valor, ícone]` — o rótulo vem de `DayTourContent.stats`, na mesma ordem. */
   stats: readonly (readonly [string, string])[];
   fromPrice: number;
@@ -85,6 +90,8 @@ export type DayTourAssets = {
    * Monte com `pricing()` de `price-table.ts`, que também define `fromPrice`.
    */
   priceTable?: readonly PriceTableRow[];
+  /** Segunda tabela, saindo da cidade do atrativo (sem transporte) — vem de `pricing()`. */
+  localTable?: { origin: string; rows: readonly PriceTableRow[] };
   /** Os dois cards (privado para 2 pessoas, menor em grupo) — vem de `pricing()`. */
   cardPrices?: readonly [number, number];
   /** Faixas por idioma do guia, para a estimativa do sheet de reserva — vem de `pricing()`. */

@@ -56,6 +56,7 @@ const PAGE_ROUTES: Partial<Record<Locale, string>>[] = [
   { pt: 'informacoes-gerais', en: 'general-information', es: 'informacion-general', fr: 'informations-generales', nl: 'algemene-informatie', de: 'allgemeine-informationen' },
   { pt: 'classificacao-de-nivel', en: 'level-classification', es: 'clasificacion-de-nivel', fr: 'classification-des-niveaux', nl: 'niveauclassificatie', de: 'schwierigkeitsgrade' },
   { pt: 'geologia-da-chapada-diamantina', en: 'geology-of-chapada-diamantina', es: 'geologia-de-la-chapada-diamantina', fr: 'geologie-de-la-chapada-diamantina', nl: 'geologie-van-de-chapada-diamantina', de: 'geologie-der-chapada-diamantina' },
+  { pt: 'transfer-salvador-para-lencois-chapada-diamantina', en: 'transfer-salvador-to-lencois-chapada-diamantina', es: 'traslado-salvador-lencois-chapada-diamantina', fr: 'transfert-salvador-lencois-chapada-diamantina', nl: 'transfer-salvador-lencois-chapada-diamantina', de: 'transfer-salvador-lencois-chapada-diamantina' },
   { pt: 'sobre', en: 'about', es: 'quienes-somos', fr: 'a-propos', nl: 'over-ons', de: 'ueber-uns' },
   { pt: 'manifesto', en: 'manifesto', es: 'manifiesto', fr: 'manifeste', nl: 'manifest', de: 'manifest' },
   { pt: 'contato', en: 'contact', es: 'contacto', fr: 'contact', nl: 'contact', de: 'kontakt' },

@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   // Nenhuma imagem vem mais do WordPress (as duas últimas foram para public/),
   // então não há origem remota liberada.
   images: {
-    qualities: [75, 92],
+    qualities: [60, 75, 92],
   },
 
   // Porta fechada (ver src/lib/indexing.ts): enquanto SITE_INDEXABLE não for

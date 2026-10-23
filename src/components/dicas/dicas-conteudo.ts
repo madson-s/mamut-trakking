@@ -12,6 +12,8 @@
  */
 
 import type { Locale } from '@/lib/site';
+import { TRANSFER_CONTENT } from './transfer-conteudo';
+import { DICAS_PATHS } from './dicas-rotas';
 
 /* ------------------------------------------------------------------ */
 /* Telefones — dado compartilhado                                     */
@@ -163,7 +165,7 @@ export const GRUPOS_ORDEM: GrupoId[] = ['brigadas', 'emergencia', 'atrativos', '
 /* ------------------------------------------------------------------ */
 
 export type Titulo = { antes: string; destaque: string };
-export type Bloco = { titulo: string; texto: string; destaque?: boolean };
+export type Bloco = { titulo: string; texto: string; destaque?: boolean; link?: { href: string; label: string } };
 export type Assunto = { titulo: string; paragrafos: string[] };
 export type Lista = { titulo: string; nota?: string; itens: string[] };
 
@@ -212,6 +214,8 @@ export type DicasContent = {
       complementaresTitulo: string;
       complementares: Referencia[];
     };
+    /** O conteúdo da página mora em `transfer-conteudo.ts`; aqui só o que o menu e a moldura leem. */
+    transfer: DicasSecao;
   };
 };
 
@@ -236,7 +240,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'De ônibus',
           texto:
-            'Salvador × Lençóis pela Rápido Federal (Guanabara). As poltronas são em boa parte confortáveis e há serviço de leito. São cerca de 6 horas de viagem.',
+            'Salvador × Lençóis pela Guanabara (antiga Rápido Federal). As poltronas são em boa parte confortáveis e há serviço de leito. São cerca de 6 horas de viagem.',
         },
         {
           titulo: 'De carro',
@@ -247,6 +251,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
           titulo: 'Transfer com a Mamut',
           texto:
             'A maneira mais rápida e direta: um transfer privado com a gente, com flexibilidade, conforto e segurança durante a viagem para o interior da Bahia.',
+          link: { href: DICAS_PATHS.pt.transfer, label: 'Ver preços e destinos' },
           destaque: true,
         },
       ],
@@ -294,6 +299,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
     },
     secao: { titulo: 'Dicas', selectLabel: 'Escolha o assunto' },
     paginas: {
+      transfer: TRANSFER_CONTENT.pt.secao,
       'como-chegar': {
         nav: 'Como chegar',
         meta: {
@@ -436,7 +442,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'By bus',
           texto:
-            'Salvador × Lençóis with Rápido Federal (Guanabara). The seats are mostly comfortable and there is a sleeper service. It is about a 6-hour journey.',
+            'Salvador × Lençóis with Guanabara (formerly Rápido Federal). The seats are mostly comfortable and there is a sleeper service. It is about a 6-hour journey.',
         },
         {
           titulo: 'By car',
@@ -447,6 +453,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
           titulo: 'Transfer with Mamut',
           texto:
             'The fastest and most direct way: a private transfer with us, offering flexibility, comfort and safety throughout your trip into the interior of Bahia.',
+          link: { href: DICAS_PATHS.en.transfer, label: 'See prices and destinations' },
           destaque: true,
         },
       ],
@@ -494,6 +501,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
     },
     secao: { titulo: 'Tips', selectLabel: 'Choose a topic' },
     paginas: {
+      transfer: TRANSFER_CONTENT.en.secao,
       'como-chegar': {
         nav: 'How to get there',
         meta: {
@@ -636,7 +644,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'En ómnibus',
           texto:
-            'Salvador × Lençóis con Rápido Federal (Guanabara). Los asientos son en su mayoría cómodos y hay servicio cama. Son unas 6 horas de viaje.',
+            'Salvador × Lençóis con Guanabara (ex Rápido Federal). Los asientos son en su mayoría cómodos y hay servicio cama. Son unas 6 horas de viaje.',
         },
         {
           titulo: 'En auto',
@@ -647,6 +655,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
           titulo: 'Transfer con Mamut',
           texto:
             'La manera más rápida y directa: un transfer privado con nosotros, con flexibilidad, comodidad y seguridad durante el viaje al interior de Bahía.',
+          link: { href: DICAS_PATHS.es.transfer, label: 'Ver precios y destinos' },
           destaque: true,
         },
       ],
@@ -694,6 +703,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
     },
     secao: { titulo: 'Consejos', selectLabel: 'Elegí el tema' },
     paginas: {
+      transfer: TRANSFER_CONTENT.es.secao,
       'como-chegar': {
         nav: 'Cómo llegar',
         meta: {
@@ -836,7 +846,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'En bus',
           texto:
-            'Salvador × Lençóis avec Rápido Federal (Guanabara). Les sièges sont pour la plupart confortables et il existe un service couchette. Comptez environ 6 heures de trajet.',
+            'Salvador × Lençóis avec Guanabara (ex-Rápido Federal). Les sièges sont pour la plupart confortables et il existe un service couchette. Comptez environ 6 heures de trajet.',
         },
         {
           titulo: 'En voiture',
@@ -847,6 +857,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
           titulo: 'Transfert avec Mamut',
           texto:
             'Le moyen le plus rapide et le plus direct : un transfert privé avec nous, avec flexibilité, confort et sécurité tout au long du voyage vers l’intérieur de Bahia.',
+          link: { href: DICAS_PATHS.fr.transfer, label: 'Voir les tarifs et les destinations' },
           destaque: true,
         },
       ],
@@ -894,6 +905,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
     },
     secao: { titulo: 'Conseils', selectLabel: 'Choisissez un sujet' },
     paginas: {
+      transfer: TRANSFER_CONTENT.fr.secao,
       'como-chegar': {
         nav: 'Comment venir',
         meta: {
@@ -1035,7 +1047,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'Met de bus',
           texto:
-            'Salvador × Lençóis met Rápido Federal (Guanabara). De stoelen zijn meestal comfortabel en er is een slaapbus. De reis duurt ongeveer 6 uur.',
+            'Salvador × Lençóis met Guanabara (voorheen Rápido Federal). De stoelen zijn meestal comfortabel en er is een slaapbus. De reis duurt ongeveer 6 uur.',
         },
         {
           titulo: 'Met de auto',
@@ -1046,6 +1058,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
           titulo: 'Transfer met Mamut',
           texto:
             'De snelste en meest directe manier: een privétransfer met ons, met flexibiliteit, comfort en veiligheid tijdens je hele reis naar het binnenland van Bahia.',
+          link: { href: DICAS_PATHS.nl.transfer, label: 'Bekijk prijzen en bestemmingen' },
           destaque: true,
         },
       ],
@@ -1093,6 +1106,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
     },
     secao: { titulo: 'Tips', selectLabel: 'Kies een onderwerp' },
     paginas: {
+      transfer: TRANSFER_CONTENT.nl.secao,
       'como-chegar': {
         nav: 'Hoe kom je er',
         meta: {
@@ -1234,7 +1248,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
         {
           titulo: 'Mit dem Bus',
           texto:
-            'Salvador × Lençóis mit Rápido Federal (Guanabara). Die Sitze sind meist bequem, und es gibt einen Schlafbus. Die Fahrt dauert etwa 6 Stunden.',
+            'Salvador × Lençóis mit Guanabara (früher Rápido Federal). Die Sitze sind meist bequem, und es gibt einen Schlafbus. Die Fahrt dauert etwa 6 Stunden.',
         },
         {
           titulo: 'Mit dem Auto',
@@ -1245,6 +1259,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
           titulo: 'Transfer mit Mamut',
           texto:
             'Der schnellste und direkteste Weg: ein privater Transfer mit uns, mit Flexibilität, Komfort und Sicherheit auf deiner ganzen Reise ins Hinterland Bahias.',
+          link: { href: DICAS_PATHS.de.transfer, label: 'Preise und Ziele ansehen' },
           destaque: true,
         },
       ],
@@ -1292,6 +1307,7 @@ export const DICAS_CONTENT: Record<Locale, DicasContent> = {
     },
     secao: { titulo: 'Tipps', selectLabel: 'Wähle ein Thema' },
     paginas: {
+      transfer: TRANSFER_CONTENT.de.secao,
       'como-chegar': {
         nav: 'Anreise',
         meta: {

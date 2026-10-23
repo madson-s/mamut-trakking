@@ -122,16 +122,19 @@
 > participante usa o formulário próprio (só pt/en têm Tally). Exceções: o Torus só existe em pt, e
 > as ferramentas internas (`/voucher`, `/reservas`) não têm idioma de site.
 
-> **Google Analytics 4 + aviso de cookies** (`src/components/analytics/`): mesma
-> propriedade do site antigo (`G-8B6ZE20HW1`), só com `SITE_INDEXABLE=true`.
+> **Rastreamento + aviso de cookies** (`src/components/analytics/`): o MESMO
+> do site antigo — o contêiner do Google Tag Manager `GTM-WTJ39TDZ` (GA4
+> `G-C5F2EQWV32`, remarketing do Google Ads `AW-10818756615` e Pixel da Meta;
+> detalhes em `migracao/rastreamento-site-antigo.md`), só com
+> `SITE_INDEXABLE=true`. O que o contêiner dispara se edita no painel do GTM.
 > Consent Mode v2 no modo **básico**: `ConsentAnalytics` pergunta o país em
 > `/api/geo` (cabeçalho `x-vercel-ip-country`, guardado na sessão). Fora da
-> Europa a tag carrega direto; no EEE + Reino Unido + Suíça (ou país
-> desconhecido) aparece o aviso e a tag só carrega depois do "Aceitar". O link
-> "Cookies" do rodapé reabre o aviso; recusar desliga a tag e apaga os `_ga`.
-> `?cookies=eu` em qualquer página força o aviso para testar. Mudou a
-> ferramenta ou o fluxo? Atualize a seção "estatísticas" da política de
-> privacidade nos seis idiomas.
+> Europa o contêiner carrega direto; no EEE + Reino Unido + Suíça (ou país
+> desconhecido) aparece o aviso e ele só carrega depois do "Aceitar". O link
+> "Cookies" do rodapé reabre o aviso; recusar desliga as tags e apaga os
+> cookies `_ga`, `_gcl`, `_fbp`. `?cookies=eu` em qualquer página força o
+> aviso para testar. Mudou as tags ou o fluxo? Atualize a seção
+> "estatísticas" da política de privacidade nos seis idiomas.
 
 > **Ferramenta interna `/voucher`** (fora do site público, `noindex` no layout e
 > `Disallow` no `robots.ts`): gerador de voucher em PDF. `src/lib/voucher.ts`

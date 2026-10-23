@@ -920,7 +920,7 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.en, DIA_MARIMBUS.en],
-    privado: 'R$ 3,100',
+    privado: 'R$ 3,165',
     facts: [
       ['Category', 'Day tours based in Lençóis'],
       ['Distance on foot', '15 km'],
@@ -950,7 +950,7 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.es, DIA_MARIMBUS.es],
-    privado: 'R$ 3.100',
+    privado: 'R$ 3.165',
     facts: [
       ['Categoría', 'Paseos de un día con base en Lençóis'],
       ['Distancia a pie', '15 km'],
@@ -980,7 +980,7 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.fr, DIA_MARIMBUS.fr],
-    privado: 'R$ 3.100',
+    privado: 'R$ 3.165',
     facts: [
       ['Catégorie', 'Excursions à la journée au départ de Lençóis'],
       ['Distance à pied', '15 km'],
@@ -1010,7 +1010,7 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.nl, DIA_MARIMBUS.nl],
-    privado: 'R$ 3.100',
+    privado: 'R$ 3.165',
     facts: [
       ['Categorie', 'Dagtochten met Lençóis als uitvalsbasis'],
       ['Afstand te voet', '15 km'],
@@ -1040,7 +1040,7 @@ export const PACOTE_4_CONTENT: Record<Locale, DayTourContent> = {
       ],
     },
     dias: [...DIAS_BASE.de, DIA_MARIMBUS.de],
-    privado: 'R$ 3.100',
+    privado: 'R$ 3.165',
     facts: [
       ['Kategorie', 'Tagestouren mit Lençóis als Ausgangspunkt'],
       ['Strecke zu Fuß', '15 km'],

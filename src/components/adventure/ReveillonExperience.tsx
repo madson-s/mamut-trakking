@@ -1,8 +1,10 @@
 import Image from 'next/image';
 import { BedDouble, CalendarDays, MapPin, ShieldCheck, TicketCheck, UsersRound } from 'lucide-react';
 import { Badge, Button, Container, Heading, JsonLd, MediaCard, Section, Text } from '@/components/ui';
-import { SITE, type Locale } from '@/lib/site';
+import type { Locale } from '@/lib/site';
 import { PatiFaqList } from './PatiFaqList';
+import { guidePrice } from './guide-pricing';
+import { tourJsonLd } from './structured-data';
 import { AgencyFacilities } from './AgencySupport';
 import { ReveillonBookingTrigger } from './ReveillonBookingTrigger';
 import { ReveillonPackageExplorer } from './ReveillonPackageExplorer';
@@ -15,23 +17,21 @@ export function ReveillonExperience({ locale }: { locale: Locale }) {
   const c = REVEILLON_CONTENT[locale];
   return (
     <article className="overflow-x-clip">
+      {/* Mesmo gerador dos outros roteiros: um preço por pacote (4, 5 e 6 dias),
+          que vira a faixa de preço; fora de /pt, com o acréscimo do guia bilíngue. */}
       <JsonLd
-        data={{
-          '@context': 'https://schema.org',
-          '@type': 'TouristTrip',
+        data={tourJsonLd({
+          locale,
           name: c.meta.title,
           description: c.meta.description,
-          image: `${SITE.url}${REVEILLON_IMAGE}`,
-          touristType: c.jsonLd.touristType,
-          provider: { '@type': 'TravelAgency', name: SITE.name, url: SITE.url },
-          offers: REVEILLON_PACKAGES.map((item) => ({
-            '@type': 'Offer',
-            name: c.jsonLd.offerName(c.pacotes[item.key].days),
-            price: item.price,
-            priceCurrency: 'BRL',
-            availability: 'https://schema.org/InStock',
-          })),
-        }}
+          path: c.meta.canonical,
+          images: [REVEILLON_IMAGE, ...REVEILLON_PACKAGES.map((item) => item.image)],
+          fromPrice: guidePrice(Math.min(...REVEILLON_PACKAGES.map((item) => item.price)), locale),
+          tiers: { pt: REVEILLON_PACKAGES.map((item) => [item.key, item.price, item.price] as const) },
+          faqs: c.faqs,
+          offersAnchor: '#pacotes',
+          touristType: [c.jsonLd.touristType],
+        })}
       />
 
       <Hero c={c} />

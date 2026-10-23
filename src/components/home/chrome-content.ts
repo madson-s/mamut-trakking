@@ -57,7 +57,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Transfer', href: '/pt/transfer' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
-      { label: 'Dicas', mobileLabel: 'Dicas de trilha', href: '/pt/dicas' },
+      { label: 'Dicas', mobileLabel: 'Dicas', href: '/pt/dicas', children: [{ label: 'Transfer Salvador × Lençóis', href: '/pt/transfer-salvador-para-lencois-chapada-diamantina' }] },
       { label: 'Contato', href: '/pt/contato' },
     ],
     menu: {
@@ -81,6 +81,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Transfer', href: '/pt/transfer' },
             { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' },
             { label: 'Como se preparar', href: '/pt/dicas' },
+            { label: 'Transfer Salvador × Lençóis', href: '/pt/transfer-salvador-para-lencois-chapada-diamantina' },
           ],
         },
         {
@@ -119,7 +120,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Group trips', mobileLabel: 'Calendar and groups', href: '/en/calendar-and-groups' },
       { label: 'About us', mobileLabel: 'About us', href: '/en/about' },
       { label: 'Manifesto', href: '/en/manifesto' },
-      { label: 'Tips', mobileLabel: 'Trail tips', href: '/en/tips' },
+      { label: 'Tips', mobileLabel: 'Tips', href: '/en/tips', children: [{ label: 'Salvador × Lençóis transfer', href: '/en/transfer-salvador-to-lencois-chapada-diamantina' }] },
       { label: 'Contact', href: '/en/contact' },
     ],
     menu: {
@@ -142,6 +143,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Upcoming departures', href: '/en/calendar-and-groups' },
             { label: 'Pati Valley', href: '/en/adventures/pati-valley-3-days' },
             { label: 'How to prepare', href: '/en/tips' },
+            { label: 'Salvador × Lençóis transfer', href: '/en/transfer-salvador-to-lencois-chapada-diamantina' },
           ],
         },
         {
@@ -180,7 +182,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Grupos', mobileLabel: 'Calendario y grupos', href: '/es/calendario-y-grupos' },
       { label: 'Quiénes Somos', mobileLabel: 'Quiénes somos', href: '/es/quienes-somos' },
       { label: 'Manifiesto', href: '/es/manifiesto' },
-      { label: 'Consejos', mobileLabel: 'Consejos de sendero', href: '/es/consejos' },
+      { label: 'Consejos', mobileLabel: 'Consejos', href: '/es/consejos', children: [{ label: 'Traslado Salvador × Lençóis', href: '/es/traslado-salvador-lencois-chapada-diamantina' }] },
       { label: 'Contacto', href: '/es/contacto' },
     ],
     menu: {
@@ -203,6 +205,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Próximas salidas', href: '/es/calendario-y-grupos' },
             { label: 'Valle del Pati', href: '/es/aventuras/valle-del-pati-3-dias' },
             { label: 'Cómo prepararse', href: '/es/consejos' },
+            { label: 'Traslado Salvador × Lençóis', href: '/es/traslado-salvador-lencois-chapada-diamantina' },
           ],
         },
         {
@@ -241,7 +244,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Groupes', mobileLabel: 'Calendrier et groupes', href: '/fr/calendrier-et-groupes' },
       { label: 'Qui sommes-nous', mobileLabel: 'Qui sommes-nous', href: '/fr/a-propos' },
       { label: 'Manifeste', href: '/fr/manifeste' },
-      { label: 'Conseils', mobileLabel: 'Conseils de trek', href: '/fr/conseils' },
+      { label: 'Conseils', mobileLabel: 'Conseils', href: '/fr/conseils', children: [{ label: 'Transfert Salvador × Lençóis', href: '/fr/transfert-salvador-lencois-chapada-diamantina' }] },
       { label: 'Contact', href: '/fr/contact' },
     ],
     menu: {
@@ -264,6 +267,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Prochains départs', href: '/fr/calendrier-et-groupes' },
             { label: 'Vallée du Pati', href: '/fr/aventures/vallee-du-pati-3-jours' },
             { label: 'Se préparer', href: '/fr/conseils' },
+            { label: 'Transfert Salvador × Lençóis', href: '/fr/transfert-salvador-lencois-chapada-diamantina' },
           ],
         },
         {
@@ -301,7 +305,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Groepsreizen', mobileLabel: 'Kalender en groepen', href: '/nl/kalender-en-groepen' },
       { label: 'Over ons', mobileLabel: 'Over ons', href: '/nl/over-ons' },
       { label: 'Manifest', href: '/nl/manifest' },
-      { label: 'Tips', mobileLabel: 'Tips voor onderweg', href: '/nl/tips' },
+      { label: 'Tips', mobileLabel: 'Tips', href: '/nl/tips', children: [{ label: 'Transfer Salvador × Lençóis', href: '/nl/transfer-salvador-lencois-chapada-diamantina' }] },
       { label: 'Contact', href: '/nl/contact' },
     ],
     menu: {
@@ -324,6 +328,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Komende vertrekdata', href: '/nl/kalender-en-groepen' },
             { label: 'Vale do Pati', href: '/nl/avonturen/pati-vallei-3-dagen' },
             { label: 'Hoe bereid je je voor', href: '/nl/tips' },
+            { label: 'Transfer Salvador × Lençóis', href: '/nl/transfer-salvador-lencois-chapada-diamantina' },
           ],
         },
         {
@@ -361,7 +366,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
       { label: 'Gruppenreisen', mobileLabel: 'Kalender und Gruppen', href: '/de/kalender-und-gruppen' },
       { label: 'Über uns', mobileLabel: 'Über uns', href: '/de/ueber-uns' },
       { label: 'Manifest', href: '/de/manifest' },
-      { label: 'Tipps', mobileLabel: 'Reisetipps', href: '/de/tipps' },
+      { label: 'Tipps', mobileLabel: 'Tipps', href: '/de/tipps', children: [{ label: 'Transfer Salvador × Lençóis', href: '/de/transfer-salvador-lencois-chapada-diamantina' }] },
       { label: 'Kontakt', href: '/de/kontakt' },
     ],
     menu: {
@@ -384,6 +389,7 @@ export const CHROME: Record<Locale, ChromeContent> = {
             { label: 'Nächste Termine', href: '/de/kalender-und-gruppen' },
             { label: 'Vale do Pati', href: '/de/abenteuer/pati-tal-3-tage' },
             { label: 'So bereitest du dich vor', href: '/de/tipps' },
+            { label: 'Transfer Salvador × Lençóis', href: '/de/transfer-salvador-lencois-chapada-diamantina' },
           ],
         },
         {

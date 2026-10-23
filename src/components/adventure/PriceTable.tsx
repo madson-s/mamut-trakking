@@ -14,6 +14,10 @@ export type PriceTableLabels = {
   aviso?: string;
   /** Aviso para quem sai de outra cidade; `{cidade}` vira a `origin` da tabela. */
   consulta?: string;
+  /** Legenda das duas tabelas quando o roteiro tem saída local; `{cidade}` vira a cidade. */
+  lencois?: string;
+  local?: string;
+  notaLocal?: string;
 };
 
 /**
@@ -36,6 +40,7 @@ export function PriceTable({
   rows,
   highlightIndex = 1,
   origin,
+  localTable,
 }: {
   labels: PriceTableLabels;
   /** Nome de cada formato, na ordem das colunas (privado, em grupo). */
@@ -45,67 +50,102 @@ export function PriceTable({
   highlightIndex?: number;
   /** Outra cidade de saída possível, com valores sob consulta (ex.: Ibicoara). */
   origin?: string;
+  /** Segunda tabela, saindo da cidade do atrativo (sem transporte) — substitui o "consulte". */
+  localTable?: { origin: string; rows: readonly PriceTableRow[] };
 }) {
   return (
     <div id="tabela-pagamento" className="flex w-full scroll-mt-24 flex-col gap-4">
       <Heading as="h3" size="quote">{labels.titulo}</Heading>
 
-      <div className="rounded-card border border-line-strong">
-        <table className="w-full border-collapse text-left max-sm:block">
-          {/* cabeçalho some no empilhado: cada preço carrega o próprio rótulo */}
-          <thead className="max-sm:hidden">
-            <tr className="border-b border-line-strong bg-surface-muted">
-              <th scope="col" className="px-5 py-3.5 font-body text-sm font-normal text-content-muted">
-                {labels.colunaPessoas}
-              </th>
-              {formatos.map((formato, i) => (
-                <th
-                  key={formato}
-                  scope="col"
-                  className={cn(
-                    'px-5 py-3.5 text-right font-body text-sm font-normal',
-                    i === highlightIndex ? 'text-brand-strong' : 'text-content-muted',
-                  )}
-                >
-                  {formato}
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-line max-sm:block">
-            {rows.map((row) => (
-              <tr key={row.people} className="max-sm:block max-sm:px-5 max-sm:py-4">
-                <th
-                  scope="row"
-                  className="px-5 py-3.5 font-body text-base font-light text-content-secondary max-sm:block max-sm:px-0 max-sm:py-0 max-sm:font-normal max-sm:text-content"
-                >
-                  {row.people === '1' ? `1 ${labels.pessoa}` : `${row.people} ${labels.pessoas}`}
-                </th>
-                {row.prices.map((price, i) => (
-                  <td
-                    key={price + i}
-                    data-formato={formatos[i]}
-                    className={cn(
-                      'px-5 py-3.5 text-right font-display text-lg tabular-nums',
-                      'max-sm:flex max-sm:items-baseline max-sm:justify-between max-sm:px-0 max-sm:pt-2 max-sm:pb-0 max-sm:text-left',
-                      'max-sm:before:font-body max-sm:before:text-sm max-sm:before:font-light max-sm:before:text-content-muted max-sm:before:content-[attr(data-formato)]',
-                      i === highlightIndex ? 'text-brand-strong' : 'text-content',
-                    )}
-                  >
-                    {price}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      {localTable && labels.lencois ? <Caption>{labels.lencois}</Caption> : null}
+      <Table labels={labels} formatos={formatos} rows={rows} highlightIndex={highlightIndex} />
 
       <Text size="sm" weight="light" tone="muted" pretty>
         {labels.nota}
-        {origin && labels.consulta ? ` ${labels.consulta.replace('{cidade}', origin)}` : null}
+        {origin && labels.consulta && !localTable ? ` ${labels.consulta.replace('{cidade}', origin)}` : null}
       </Text>
       {labels.aviso ? <Text size="sm" weight="light" tone="muted" pretty className="-mt-2">{labels.aviso}</Text> : null}
+
+      {localTable && labels.local ? (
+        <div id="tabela-saida-local" className="mt-4 flex scroll-mt-24 flex-col gap-4">
+          <Caption>{labels.local.replace('{cidade}', localTable.origin)}</Caption>
+          <Table labels={labels} formatos={formatos} rows={localTable.rows} highlightIndex={highlightIndex} />
+          <Text size="sm" weight="light" tone="muted" pretty>
+            {(labels.notaLocal ?? labels.nota).replace('{cidade}', localTable.origin)}
+          </Text>
+          {labels.aviso ? <Text size="sm" weight="light" tone="muted" pretty className="-mt-2">{labels.aviso}</Text> : null}
+        </div>
+      ) : null}
+    </div>
+  );
+}
+
+/** Legenda de cada tabela quando há duas (de Lençóis e da cidade do atrativo). */
+function Caption({ children }: { children: string }) {
+  return <Text size="sm" weight="semibold" className="-mb-1">{children}</Text>;
+}
+
+function Table({
+  labels,
+  formatos,
+  rows,
+  highlightIndex,
+}: {
+  labels: PriceTableLabels;
+  formatos: readonly string[];
+  rows: readonly PriceTableRow[];
+  highlightIndex: number;
+}) {
+  return (
+    <div className="rounded-card border border-line-strong">
+      <table className="w-full border-collapse text-left max-sm:block">
+        {/* cabeçalho some no empilhado: cada preço carrega o próprio rótulo */}
+        <thead className="max-sm:hidden">
+          <tr className="border-b border-line-strong bg-surface-muted">
+            <th scope="col" className="px-5 py-3.5 font-body text-sm font-normal text-content-muted">
+              {labels.colunaPessoas}
+            </th>
+            {formatos.map((formato, i) => (
+              <th
+                key={formato}
+                scope="col"
+                className={cn(
+                  'px-5 py-3.5 text-right font-body text-sm font-normal',
+                  i === highlightIndex ? 'text-brand-strong' : 'text-content-muted',
+                )}
+              >
+                {formato}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-line max-sm:block">
+          {rows.map((row) => (
+            <tr key={row.people} className="max-sm:block max-sm:px-5 max-sm:py-4">
+              <th
+                scope="row"
+                className="px-5 py-3.5 font-body text-base font-light text-content-secondary max-sm:block max-sm:px-0 max-sm:py-0 max-sm:font-normal max-sm:text-content"
+              >
+                {row.people === '1' ? `1 ${labels.pessoa}` : `${row.people} ${labels.pessoas}`}
+              </th>
+              {row.prices.map((price, i) => (
+                <td
+                  key={price + i}
+                  data-formato={formatos[i]}
+                  className={cn(
+                    'px-5 py-3.5 text-right font-display text-lg tabular-nums',
+                    'max-sm:flex max-sm:items-baseline max-sm:justify-between max-sm:px-0 max-sm:pt-2 max-sm:pb-0 max-sm:text-left',
+                    'max-sm:before:font-body max-sm:before:text-sm max-sm:before:font-light max-sm:before:text-content-muted max-sm:before:content-[attr(data-formato)]',
+                    i === highlightIndex ? 'text-brand-strong' : 'text-content',
+                  )}
+                >
+                  {price}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

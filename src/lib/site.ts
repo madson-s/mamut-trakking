@@ -22,6 +22,10 @@ export const SITE = {
   whatsapp: '+55 75 99935-9150',
   whatsappUrl: 'https://wa.me/5575999359150',
   cadastur: '43500583000122',
+  /** Ficha da agência no Google Maps e as coordenadas dela (mesmo ponto). */
+  mapsUrl:
+    'https://www.google.com/maps/place/Mamut+Trekking+-+Chapada+Diamantina+Agency/@-12.56228,-41.3900628,19.25z/data=!4m6!3m5!1s0x2abb67af2875fe9d:0x63d6c232de10e60a!8m2!3d-12.5623349!4d-41.3903231!16s%2Fg%2F11p77f4kts',
+  geo: { latitude: -12.5623349, longitude: -41.3903231 },
   social: {
     instagram: 'https://www.instagram.com/mamut.trekking/',
     facebook: 'https://www.facebook.com/mamut.trekking/',

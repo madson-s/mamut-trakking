@@ -42,8 +42,18 @@ export const BURACAO_ASSETS: DayTourAssets = {
     ['2', 999, 849],
     ['3', 849, 625],
     ['4+', 625, 549],
-  ]),
-  priceOrigin: 'Ibicoara',
+  ], {
+    // Saindo de Ibicoara, sem o transporte de ida e volta a Lençóis.
+    local: {
+      origin: 'Ibicoara',
+      pt: [
+        ['1', 365, 260],
+        ['2', 300, 235],
+        ['3', 279, 210],
+        ['4+', 250, 199],
+      ],
+    },
+  }),
 };
 
 export const BURACAO_CONTENT: Record<Locale, DayTourContent> = {

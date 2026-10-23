@@ -34,8 +34,18 @@ export const FUMACINHA_ASSETS: DayTourAssets = {
     ['2', 850, 775],
     ['3', 775, 625],
     ['4+', 625, 550],
-  ]),
-  priceOrigin: 'Ibicoara',
+  ], {
+    // Saindo de Ibicoara, sem o transporte de ida e volta a Lençóis.
+    local: {
+      origin: 'Ibicoara',
+      pt: [
+        ['1', 449, 300],
+        ['2', 350, 255],
+        ['3', 320, 225],
+        ['4+', 299, 199],
+      ],
+    },
+  }),
 };
 
 export const FUMACINHA_CONTENT: Record<Locale, DayTourContent> = {

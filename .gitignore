@@ -55,3 +55,8 @@ debug-storybook.log
 # export do design system (Figma): ~71MB de binários e fontes licenciadas.
 # Fonte de verdade do design, não do app — fica fora do repositório público.
 /Mamut Trekking Design System-vs02/
+
+# Backups do WordPress antigo (mamut.agency): têm dados de clientes e o site invadido.
+# Nunca versionar — ficam fora do repo (ver ../mamut-agency-backup/).
+u237470629*
+*.sql.gz

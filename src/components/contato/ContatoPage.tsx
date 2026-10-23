@@ -1,12 +1,13 @@
 import Image from 'next/image';
 import { MapPin } from 'lucide-react';
-import { Button, Card, Container, Heading, Section, Text } from '@/components/ui';
+import { Button, Card, Container, Heading, Section, Text, JsonLd } from '@/components/ui';
 import { ADVENTURE_SEGMENT, SITE, type Locale } from '@/lib/site';
 import { ContatoChannels } from './ContatoChannels';
 import { ContatoForm } from './ContatoForm';
 import { CONTATO_CONTENT, CONTATO_EDITORIAL } from './contato-content';
 import { AdventureCard, aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { ADVENTURES_CONTENT } from '@/components/adventures/adventures-content';
+import { ORGANIZATION_ID, pageJsonLd } from '@/lib/structured-data';
 
 export function ContatoPage({ locale }: { locale: Locale }) {
   const c = CONTATO_CONTENT[locale];
@@ -15,6 +16,7 @@ export function ContatoPage({ locale }: { locale: Locale }) {
 
   return (
     <>
+      <JsonLd data={pageJsonLd({ locale, type: 'ContactPage', name: c.meta.title, description: c.meta.description, path: c.meta.canonical, extra: { mainEntity: { '@id': ORGANIZATION_ID } } })} />
       <Section padding="none" container={false} labelledBy="contato-title" className="relative isolate overflow-x-clip">
         <div aria-hidden="true" className="pointer-events-none absolute -left-28 top-20 h-150 w-240 max-w-none bg-content opacity-[0.045] [mask-image:url('/svg/session-05_backgroud-people-01.svg')] [mask-repeat:no-repeat] [mask-size:contain]" />
         <Container className="relative pb-16 pt-12 sm:pb-20 sm:pt-20">

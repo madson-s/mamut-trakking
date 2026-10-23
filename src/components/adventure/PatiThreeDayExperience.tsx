@@ -32,7 +32,7 @@ import { PatiItinerary } from './PatiItinerary';
 import { AgencyFacilities, TripLogistics } from './AgencySupport';
 import type { ReturnTime } from './agency-support';
 import type { GuidePriceTiers } from './guide-pricing';
-import { patiPricing } from './price-table';
+import { patiPricing, patiPricingFor } from './price-table';
 import { tourJsonLd } from './structured-data';
 import { patiBookingMessages } from './booking-messages';
 import type { MessageLocale } from '@/lib/message-locale';
@@ -164,7 +164,7 @@ export function PatiThreeDayExperience({ locale = 'pt' }: { locale?: Locale }) {
 export function PatiExperience({
   locale,
   content: c,
-  assets: a,
+  assets: aPt,
   faqs,
 }: {
   locale: Locale;
@@ -172,6 +172,9 @@ export function PatiExperience({
   assets: PatiAssets;
   faqs: readonly PatiFaqItem[];
 }) {
+  // Os assets guardam o preço de guia em português; fora de /pt a página
+  // mostra o de guia bilíngue. Daqui para baixo, `a` já é o do idioma.
+  const a = aPt.tiers ? { ...aPt, ...patiPricingFor(aPt.tiers, locale) } : aPt;
   // A mensagem de WhatsApp cita o roteiro no idioma da equipe (pt/en/fr).
   const whatsapp = whatsappSobre(locale, (l) => a.bookingName[l]);
   return (
@@ -194,8 +197,8 @@ export function PatiExperience({
       <Story c={c} a={a} />
       <Itinerary c={c} a={a} locale={locale} />
       <Landmarks c={c} a={a} />
-      <Pricing c={c} a={a} whatsapp={whatsapp} />
-      <TrustAndReviews c={c} locale={locale} whatsapp={whatsapp} />
+      <Pricing c={c} a={a} />
+      <TrustAndReviews c={c} locale={locale} />
       <Faq c={c} faqs={faqs} />
       <FinalCta c={c} whatsapp={whatsapp} />
       <PatiMobileBooking content={c.booking} fromPrice={a.fromPrice} tiers={a.tiers} messages={patiBookingMessages(a.bookingName)} />
@@ -210,7 +213,7 @@ function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale
     <Section padding="none" container={false} className="relative isolate overflow-hidden pt-20 pb-20 lg:pb-24">
       <Image src="/svg/screen_destinos_vale-do-pati-session-01_backgroud.svg" alt="" width={1920} height={880} unoptimized priority className="pati-hero-background pointer-events-none absolute top-55.5 left-1/2 z-0 h-auto w-[1920px] max-w-none -translate-x-1/2 opacity-30" />
       <Container className="relative z-10">
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_316px] lg:items-end">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_316px] lg:items-start">
         <div className="flex min-w-0 flex-col gap-8">
           <header className="flex flex-col gap-4">
             <div className="flex flex-wrap items-center gap-2.5">
@@ -226,7 +229,7 @@ function Hero({ c, a, locale }: { c: Pati3Content; a: PatiAssets; locale: Locale
               {c.hero.lead.antes} <span className="text-brand-strong">{c.hero.lead.destaque}</span>
             </Heading>
           </header>
-          <PatiHeroGallery />
+          <PatiHeroGallery locale={locale} title={c.meta.title} />
         </div>
         <BookingCard c={c} fromPrice={a.fromPrice} locale={locale} calendarTrekId={a.calendarTrekId} />
         </div>
@@ -281,7 +284,7 @@ function InfoChip({ children, className }: { children: React.ReactNode; classNam
 // páginas de 4 e 5 dias anunciavam o preço do roteiro de 3.
 function BookingCard({ c, fromPrice, locale, calendarTrekId }: { c: Pati3Content; fromPrice: number; locale: Locale; calendarTrekId?: string }) {
   return (
-    <div className="relative">
+    <div className="relative lg:mt-23">
       <Image src="/svg/about/story-walkers.svg" alt="" width={290} height={114} unoptimized className="pointer-events-none absolute left-1/2 -top-23 hidden h-26 w-65.75 -translate-x-1/2 object-contain lg:block" />
       <aside id="pati-booking-card" className="relative rounded-panel-lg border border-line-strong bg-surface-muted p-6">
       <div className="relative flex flex-col gap-6">
@@ -424,7 +427,7 @@ function Landmarks({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   );
 }
 
-function Pricing({ c, a, whatsapp }: { c: Pati3Content; a: PatiAssets; whatsapp: string }) {
+function Pricing({ c, a }: { c: Pati3Content; a: PatiAssets }) {
   return (
     <Section id="preco" padding="tall" container="panel" containerClassName="flex flex-col items-center gap-8 text-center" labelledBy="pricing-heading">
       <Heading id="pricing-heading" as="h2" size="section" className="text-display-sm!">{c.pricing.titulo}</Heading>
@@ -480,12 +483,12 @@ function Pricing({ c, a, whatsapp }: { c: Pati3Content; a: PatiAssets; whatsapp:
       )}
 
       <Text size="sm" weight="light" tone="secondary" pretty>{c.pricing.nota.antes}<strong className="font-semibold text-content">{c.pricing.nota.destaque}</strong>{c.pricing.nota.depois}</Text>
-      <Button href={whatsapp} arrow>{c.pricing.cta}</Button>
+      <PatiBookingTrigger label={c.pricing.cta} block={false} />
     </Section>
   );
 }
 
-function TrustAndReviews({ c, locale, whatsapp }: { c: Pati3Content; locale: Locale; whatsapp: string }) {
+function TrustAndReviews({ c, locale }: { c: Pati3Content; locale: Locale }) {
   return (
     <Section id="informacoes" padding="none" container={false} className="relative isolate overflow-x-clip border-y border-line max-lg:py-12 lg:pt-10">
       <Image
@@ -529,7 +532,7 @@ function TrustAndReviews({ c, locale, whatsapp }: { c: Pati3Content; locale: Loc
           </div>
 
           <div className="flex flex-wrap gap-3">
-            <Button href={whatsapp} arrow>{c.trust.cta}</Button>
+            <PatiBookingTrigger label={c.trust.cta} block={false} />
             <Button href={TRIPADVISOR_URL} variant="outline">{c.trust.ctaTripadvisor}</Button>
           </div>
         </div>

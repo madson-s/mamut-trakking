@@ -8,32 +8,19 @@
  *  - `FAQPage`: as perguntas que têm resposta em texto corrido;
  *  - um `Event` por saída confirmada no calendário, o mesmo `@id` que a página
  *    do calendário publica — os buscadores entendem que é a mesma saída.
- * A agência (`TravelAgency`) entra uma vez, com `@id`, e o resto aponta para ela.
+ * A agência (`TravelAgency`) e o site vêm do layout (`lib/structured-data.ts`);
+ * aqui tudo só aponta para eles pelo `@id`.
  */
 
 import type { Locale } from '@/lib/site';
-import { ADVENTURE_SEGMENT, SITE } from '@/lib/site';
+import { SITE } from '@/lib/site';
+import { ORGANIZATION_ID, absoluteUrl, adventureBreadcrumb } from '@/lib/structured-data';
 import { aventurasDoIdioma } from '@/components/adventures/AdventureCard';
 import { CALENDAR_CONTENT, CALENDAR_HREF, type CalendarContent } from '@/components/calendar/calendar-content';
 import { CALENDAR_TREKS, type CalendarDeparture } from '@/components/calendar/calendar-data';
 import { nextDepartures } from '@/components/calendar/next-departures';
-import type { GuidePriceTiers } from './guide-pricing';
+import { guidePrice, isPortugueseGuide, withBilingualSurcharge, type GuidePriceTiers, type OriginTiers } from './guide-pricing';
 import type { PatiFaqItem } from './PatiFaqList';
-
-export const absoluteUrl = (path: string) => (path.startsWith('http') ? path : `${SITE.url}${path}`);
-
-const ORGANIZATION_ID = `${SITE.url}/#organization`;
-
-export const ORGANIZATION = {
-  '@type': 'TravelAgency',
-  '@id': ORGANIZATION_ID,
-  name: SITE.name,
-  url: SITE.url,
-  email: SITE.email,
-  telephone: SITE.whatsapp.replace(/[^\d+]/g, ''),
-  address: { '@type': 'PostalAddress', addressLocality: 'Lençóis', addressRegion: 'BA', addressCountry: 'BR' },
-  sameAs: Object.values(SITE.social),
-};
 
 /** Texto corrido de um item de FAQ, para o JSON-LD (que só aceita texto). */
 export function faqAnswerText(item: PatiFaqItem): string | null {
@@ -49,12 +36,13 @@ export function faqAnswerText(item: PatiFaqItem): string | null {
   }
 }
 
-export function faqPage(locale: Locale, faqs: readonly PatiFaqItem[]) {
+export function faqPage(locale: Locale, faqs: readonly PatiFaqItem[], path?: string) {
   const mainEntity = faqs.flatMap((item) => {
     const texto = faqAnswerText(item);
     return texto ? [{ '@type': 'Question', name: item.title, acceptedAnswer: { '@type': 'Answer', text: texto } }] : [];
   });
-  return mainEntity.length ? { '@type': 'FAQPage', inLanguage: locale, mainEntity } : null;
+  if (!mainEntity.length) return null;
+  return { '@type': 'FAQPage', ...(path ? { '@id': `${absoluteUrl(path)}#faq`, url: absoluteUrl(path) } : {}), inLanguage: locale, mainEntity };
 }
 
 // ---------------------------------------------------------------- saídas
@@ -97,13 +85,16 @@ export function departureEvent(locale: Locale, trek: DepartureTrek, departure: C
       name: `${trek.location}, Chapada Diamantina`,
       address: { '@type': 'PostalAddress', addressLocality: trek.location, addressRegion: 'BA', addressCountry: 'BR' },
     },
+    // Quem conduz a saída é a própria agência: organizadora e "performer".
     organizer: { '@id': ORGANIZATION_ID },
+    performer: { '@id': ORGANIZATION_ID },
     offers: {
       '@type': 'Offer',
       price: departure.price,
       priceCurrency: 'BRL',
       availability: 'https://schema.org/InStock',
       url: `${SITE.url}${CALENDAR_HREF[locale]}#saidas-${trek.id}`,
+      seller: { '@id': ORGANIZATION_ID },
     },
     ...(trek.href ? { subjectOf: absoluteUrl(trek.href) } : {}),
   };
@@ -124,14 +115,10 @@ function departureEventsFor(locale: Locale, trekId: string) {
     image: trek.image ?? hub.image,
     href: hub.href,
   };
-  return nextDepartures(trekId, Infinity).map((d) => departureEvent(locale, info, d));
+  return nextDepartures(trekId, Infinity).map((d) => departureEvent(locale, info, { ...d, price: guidePrice(d.price, locale) }));
 }
 
 // ---------------------------------------------------------------- roteiro
-
-const AVENTURAS: Record<Locale, string> = {
-  pt: 'Aventuras', en: 'Adventures', es: 'Aventuras', fr: 'Aventures', nl: 'Avonturen', de: 'Abenteuer',
-};
 
 export function tourJsonLd(p: {
   locale: Locale;
@@ -146,9 +133,14 @@ export function tourJsonLd(p: {
   tiers?: GuidePriceTiers;
   faqs?: readonly PatiFaqItem[];
   calendarTrekId?: string;
+  /** Âncora da oferta na página (padrão: a tabela de preços). */
+  offersAnchor?: string;
+  touristType?: readonly string[];
 }) {
   const url = absoluteUrl(p.path);
-  const prices = p.tiers?.pt.flatMap(([, privado, grupo]) => [privado, grupo]) ?? [];
+  // Os valores do idioma da página: guia em português em /pt, bilíngue nos demais.
+  const pick = (t?: OriginTiers) => (t ? (isPortugueseGuide(p.locale) ? t.pt : (t.bilingue ?? withBilingualSurcharge(t.pt))) : []);
+  const prices = [...pick(p.tiers), ...pick(p.tiers?.local)].flatMap(([, privado, grupo]) => [privado, grupo]);
   const offers = prices.length
     ? {
         '@type': 'AggregateOffer',
@@ -157,9 +149,10 @@ export function tourJsonLd(p: {
         highPrice: Math.max(...prices),
         offerCount: prices.length,
         availability: 'https://schema.org/InStock',
-        url: `${url}#tabela-pagamento`,
+        url: `${url}${p.offersAnchor ?? '#tabela-pagamento'}`,
+        seller: { '@id': ORGANIZATION_ID },
       }
-    : { '@type': 'Offer', price: p.fromPrice, priceCurrency: 'BRL', availability: 'https://schema.org/InStock', url };
+    : { '@type': 'Offer', price: p.fromPrice, priceCurrency: 'BRL', availability: 'https://schema.org/InStock', url, seller: { '@id': ORGANIZATION_ID } };
 
   const trip = {
     '@type': 'TouristTrip',
@@ -169,7 +162,8 @@ export function tourJsonLd(p: {
     url,
     inLanguage: p.locale,
     image: p.images.map(absoluteUrl),
-    touristType: ['Trekking', 'Ecoturismo'],
+    touristType: p.touristType ?? ['Trekking', 'Ecoturismo'],
+    mainEntityOfPage: url,
     provider: { '@id': ORGANIZATION_ID },
     offers,
     ...(p.days?.length
@@ -183,20 +177,12 @@ export function tourJsonLd(p: {
       : {}),
   };
 
-  const breadcrumb = {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: SITE.name, item: absoluteUrl(`/${p.locale}`) },
-      { '@type': 'ListItem', position: 2, name: AVENTURAS[p.locale], item: absoluteUrl(`/${p.locale}/${ADVENTURE_SEGMENT[p.locale]}`) },
-      { '@type': 'ListItem', position: 3, name: p.name, item: url },
-    ],
-  };
-
-  const faq = p.faqs ? faqPage(p.locale, p.faqs) : null;
+  const breadcrumb = adventureBreadcrumb(p.locale, p.name, p.path);
+  const faq = p.faqs ? faqPage(p.locale, p.faqs, p.path) : null;
   const events = p.calendarTrekId ? departureEventsFor(p.locale, p.calendarTrekId) : [];
 
   return {
     '@context': 'https://schema.org',
-    '@graph': [ORGANIZATION, trip, breadcrumb, ...(faq ? [faq] : []), ...events],
+    '@graph': [trip, breadcrumb, ...(faq ? [faq] : []), ...events],
   };
 }

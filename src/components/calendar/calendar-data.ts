@@ -97,6 +97,48 @@ export const CALENDAR_TREKS: CalendarTrek[] = [
   },
   { id: 'pacote6', adventureId: 'chapada-extraordinaria-6-dias', days: 6 },
   {
+    id: 'reveillon4',
+    days: 4,
+    custom: {
+      titulo: {
+        pt: 'Réveillon na Chapada — Pacote 4 Dias',
+        en: 'New Year’s Eve in the Chapada — 4-Day Package',
+        es: 'Año Nuevo en la Chapada — Paquete 4 Días',
+        fr: 'Réveillon dans la Chapada — Forfait 4 Jours',
+        nl: 'Oudejaarsavond in de Chapada — Pakket 4 dagen',
+        de: 'Silvester in der Chapada — Paket 4 Tage',
+      },
+      difficultyGroup: 'Moderado',
+      difficulty: { pt: 'Moderado', en: 'Moderate', es: 'Moderado', fr: 'Modéré', nl: 'Gemiddeld', de: 'Mittel' },
+      location: 'Lençóis',
+      distance: '20 km',
+      // Mesma foto do pacote de 4 dias na página do Réveillon; 20 km a pé (soma do itinerário).
+      image: '/img/home_backgroud/home_backgroud_04_no_crop_1x.webp',
+      route: 'reveillon',
+    },
+  },
+  {
+    id: 'reveillon5',
+    days: 5,
+    custom: {
+      titulo: {
+        pt: 'Réveillon na Chapada — Pacote 5 Dias',
+        en: 'New Year’s Eve in the Chapada — 5-Day Package',
+        es: 'Año Nuevo en la Chapada — Paquete 5 Días',
+        fr: 'Réveillon dans la Chapada — Forfait 5 Jours',
+        nl: 'Oudejaarsavond in de Chapada — Pakket 5 dagen',
+        de: 'Silvester in der Chapada — Paket 5 Tage',
+      },
+      difficultyGroup: 'Desafiador',
+      difficulty: { pt: 'Moderado / Difícil', en: 'Moderate / Hard', es: 'Moderado / Difícil', fr: 'Modéré / Difficile', nl: 'Gemiddeld / Zwaar', de: 'Mittel / Schwierig' },
+      location: 'Lençóis',
+      distance: '48 km',
+      // Mesma foto do pacote de 5 dias na página do Réveillon; 48 km a pé (soma do itinerário).
+      image: '/img/figma/destinations/vale-do-pati-3/cta-morro-do-castelo.png',
+      route: 'reveillon',
+    },
+  },
+  {
     id: 'reveillon6',
     days: 6,
     custom: {
@@ -175,6 +217,8 @@ export const CALENDAR_DEPARTURES: CalendarDeparture[] = [
   { id: 'pati3-2026-12-17', trekId: 'pati3', start: '2026-12-17', end: '2026-12-19', price: 2200 },
   { id: 'pati3-2026-12-26', trekId: 'pati3', start: '2026-12-26', end: '2026-12-28', price: 2200 },
   { id: 'reveillon6-2026-12-28', trekId: 'reveillon6', start: '2026-12-28', end: '2027-01-02', price: 5199 },
+  { id: 'reveillon4-2026-12-29', trekId: 'reveillon4', start: '2026-12-29', end: '2027-01-01', price: 2699 },
+  { id: 'reveillon5-2026-12-29', trekId: 'reveillon5', start: '2026-12-29', end: '2027-01-02', price: 3799 },
   { id: 'pati3-2027-01-12', trekId: 'pati3', start: '2027-01-12', end: '2027-01-14', price: 2200 },
   { id: 'mosquitoPocoAzul-2027-01-15', trekId: 'mosquitoPocoAzul', start: '2027-01-15', end: '2027-01-15', price: 570 },
   { id: 'mixila-2027-01-16', trekId: 'mixila', start: '2027-01-16', end: '2027-01-17', price: 1500 },

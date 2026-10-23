@@ -8,6 +8,8 @@ import { fontBody, fontDisplay } from '@/lib/fonts';
 import { ThemeProvider } from '@/components/ui/theme-provider';
 import { ScrollExperience } from '@/components/layout/ScrollExperience';
 import { GoogleAnalytics } from '@/components/analytics/GoogleAnalytics';
+import { JsonLd } from '@/components/ui';
+import { siteJsonLd } from '@/lib/structured-data';
 
 // Root layout do idioma PT (não há app/layout.tsx — cada idioma é uma raiz).
 // PT já roda na identidade nova (tema dark do Figma). EN/ES seguem no tema
@@ -33,6 +35,7 @@ export default function PtLayout({ children }: { children: React.ReactNode }) {
       className={`${fontBody.variable} ${fontDisplay.variable}`}
     >
       <body className="flex min-h-screen flex-col antialiased">
+        <JsonLd data={siteJsonLd('pt')} />
         <GoogleAnalytics locale="pt" />
         <ThemeProvider>
           <ScrollExperience />
