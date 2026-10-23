@@ -16,13 +16,13 @@ import { whatsappLink } from '@/lib/whatsapp';
 import { CookieSettingsButton } from '@/components/analytics/ConsentAnalytics';
 import { SITE_INDEXABLE } from '@/lib/indexing';
 
-const linkClasses = cn('transition-colors hover:text-content', motion.fast);
+const linkClasses = cn('site-footer-link transition-colors hover:text-content', motion.fast);
 
 export function HomeFooter({ locale = 'pt' }: { locale?: Locale }) {
   const { tagline, place, columns, rights, privacy, cookies, whatsapp } = CHROME[locale].footer;
 
   return (
-    <footer className="w-full border-t border-line bg-surface-muted">
+    <footer className="site-footer w-full border-t border-line bg-surface-muted">
       <Container className="flex flex-col gap-8 py-12 lg:gap-12 lg:py-16">
         <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:justify-between lg:gap-10">
           <div className="flex max-w-xs flex-col gap-4">

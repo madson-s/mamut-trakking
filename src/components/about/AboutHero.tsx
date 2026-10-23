@@ -92,7 +92,7 @@ export function AboutHero({ locale = 'pt' }: { locale?: Locale }) {
             />
             <span
               aria-hidden
-              className="aspect-[273/157] w-[43%] bg-[#FBBF24]"
+              className="aspect-[273/157] w-[43%] bg-highlight"
               style={{
                 WebkitMask: "url('/svg/mamut-logo-branco.svg') center bottom / contain no-repeat",
                 mask: "url('/svg/mamut-logo-branco.svg') center bottom / contain no-repeat",

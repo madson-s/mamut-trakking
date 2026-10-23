@@ -58,11 +58,11 @@ const BRAND = [
   { name: 'bg-brand-soft', className: 'bg-brand-soft', note: 'soft background · --primary-100' },
   { name: 'bg-brand-strong', className: 'bg-brand-strong', note: 'icon and link · --primary-700' },
   { name: 'bg-brand-ink', className: 'bg-brand-ink', note: 'text over soft green · --primary-950' },
-  { name: 'bg-accent', className: 'bg-accent', note: 'earth orange, support · --secondary-500' },
+  { name: 'bg-accent', className: 'bg-accent', note: 'canonical highlight · #f59e0b' },
   {
     name: 'bg-accent-line-art',
     className: 'bg-accent-line-art',
-    note: 'ancestral yellow · #f7cd45 · illustration only',
+    note: 'canonical highlight · #f59e0b · illustration details',
   },
 ];
 

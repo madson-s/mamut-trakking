@@ -42,14 +42,17 @@ export function PatiItinerary({ items, galleryHref }: { items: readonly Itinerar
   }, []);
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.1fr_546px]">
-      <ol className="relative flex flex-col gap-6">
+    <div className="grid min-w-0 gap-8 lg:grid-cols-[1.1fr_546px]">
+      <ol className="relative flex min-w-0 flex-col gap-6">
         <span
           aria-hidden
           className="absolute top-0 bottom-0 left-7 w-px bg-[linear-gradient(180deg,var(--surface)_0%,var(--line)_50%,var(--surface)_100%)]"
         />
         {items.map((item, index) => (
-          <li key={item.day} className="relative grid grid-cols-[56px_1fr] items-center gap-5 sm:gap-7">
+          <li
+            key={item.day}
+            className="relative grid min-w-0 grid-cols-[56px_minmax(0,1fr)] items-center gap-5 sm:gap-7"
+          >
             <span
               className={cn(
                 'z-10 flex size-14 items-center justify-center rounded-full border-[1.5px] border-brand-strong',
@@ -64,14 +67,14 @@ export function PatiItinerary({ items, galleryHref }: { items: readonly Itinerar
 
             <article
               className={cn(
-                'flex flex-col gap-3 rounded-card border bg-surface-muted p-5 sm:p-8',
+                'flex min-w-0 max-w-full flex-col gap-3 rounded-card border bg-surface-muted p-5 sm:p-8',
                 'transition-[border-color,transform,box-shadow] duration-500 ease-brand',
                 index === activeDay
-                  ? 'scale-[1.022] border-brand shadow-[0_18px_44px_rgb(0_0_0/0.12)]'
+                  ? 'border-brand shadow-[0_18px_44px_rgb(0_0_0/0.12)] lg:scale-[1.022]'
                   : 'border-line-strong',
               )}
             >
-              <div className="flex flex-wrap items-center gap-2">
+              <div className="flex min-w-0 flex-wrap items-center gap-2">
                 <Heading as="h3" size="quote">{item.day}</Heading>
                 <Badge variant="outline" size="sm" className="!border-brand-strong">{item.distance}</Badge>
                 <Badge variant="outline" size="sm" className="gap-1.5 !border-brand-strong">
@@ -79,12 +82,16 @@ export function PatiItinerary({ items, galleryHref }: { items: readonly Itinerar
                   <AssetIcon src="/svg/_icons/icon_01_3-bars.svg" className="size-3.5" />
                 </Badge>
                 {item.alert ? (
-                  <Badge variant="brand" size="sm" className="!border-brand-strong !text-brand-strong">
+                  <Badge
+                    variant="brand"
+                    size="sm"
+                    className="max-w-full !border-brand-strong !text-left !leading-snug !whitespace-normal !text-brand-strong"
+                  >
                     {item.alert}
                   </Badge>
                 ) : null}
               </div>
-              <Text size="sm" weight="light" tone="secondary" pretty>
+              <Text size="sm" weight="light" tone="secondary" pretty className="break-words">
                 <strong className="font-semibold text-content">{item.lead}</strong>
                 {item.body}
               </Text>

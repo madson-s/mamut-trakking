@@ -231,7 +231,7 @@ export const LineArt: Story = {
           <Swatch
             name="bg-accent-line-art"
             className="bg-accent-line-art"
-            note="#f7cd45 · same value in both themes"
+            note="#f59e0b · canonical highlight in both themes"
           />
         </SwatchGrid>
         <div className="flex flex-col gap-6 rounded-panel bg-surface-inverse p-8">
