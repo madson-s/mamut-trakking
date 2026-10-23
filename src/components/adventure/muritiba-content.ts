@@ -18,11 +18,16 @@ import { DAY_TOUR_LEGAL, safetyFaq } from './day-tour-legal';
 import { pricing } from './price-table';
 
 export const MURITIBA_ASSETS: DayTourAssets = {
-  hero: { src: '/img/adventures/muritiba/hero.jpeg', position: '50% 55%' },
+  hero: { src: '/img/adventures/muritiba/cachoeirinha.jpg', position: '50% 50%' },
+  // Uma foto por parada, na ordem do itinerário (o TrekJourney casa galeria[i] com dias[i]).
   galeria: [
-    { src: '/img/adventures/muritiba/1.jpeg', width: 2048, height: 1536 },
-    { src: '/img/adventures/muritiba/2.jpeg', width: 2048, height: 1536 },
-    { src: '/img/adventures/muritiba/3.jpeg', width: 2048, height: 1536 },
+    { src: '/img/adventures/muritiba/serrano.jpg', width: 1600, height: 1200 },
+    { src: '/img/adventures/muritiba/salao-areias-coloridas.jpg', width: 1600, height: 1200 },
+    { src: '/img/adventures/muritiba/poco-halley.jpg', width: 1600, height: 1200 },
+    { src: '/img/adventures/muritiba/primavera.jpg', width: 1600, height: 1200 },
+    { src: '/img/adventures/muritiba/poco-paraiso.jpg', width: 1600, height: 1200 },
+    { src: '/img/adventures/muritiba/mirante-lencois-grupo.jpg', width: 1600, height: 1200 },
+    { src: '/img/adventures/muritiba/cachoeirinha.jpg', width: 1600, height: 1200 },
   ],
   stats: [
     ['4 km', '/svg/_icons/icon_03_montain.svg'],

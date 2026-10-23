@@ -16,6 +16,7 @@ import { statValue } from './stat-values';
 import { AssetIcon } from './AssetIcon';
 import { PatiFaqList } from './PatiFaqList';
 import { PriceTable } from './PriceTable';
+import { SobreGallery } from './SobreGallery';
 import { PRICE_TABLE_LABELS, VER_TABELA, pricingFor } from './price-table';
 import { guidePrice } from './guide-pricing';
 import { tourJsonLd } from './structured-data';
@@ -41,6 +42,25 @@ import { ROTEIRO, whatsappSobre } from '@/lib/whatsapp';
  * fotos e números por `assets`. Hoje: Morro do Pai Inácio e Cachoeira do
  * Sossego.
  */
+/** Selo da última miniatura da galeria do "Sobre" quando há mais fotos. */
+const MAIS_FOTOS: Record<Locale, string> = {
+  pt: '+{n} fotos',
+  en: '+{n} photos',
+  es: '+{n} fotos',
+  fr: '+{n} photos',
+  nl: '+{n} foto’s',
+  de: '+{n} Fotos',
+};
+
+const AMPLIAR: Record<Locale, string> = {
+  pt: 'Ampliar foto',
+  en: 'Enlarge photo',
+  es: 'Ampliar foto',
+  fr: 'Agrandir la photo',
+  nl: 'Foto vergroten',
+  de: 'Foto vergrößern',
+};
+
 export function DayTourExperience({
   locale,
   content,
@@ -159,19 +179,17 @@ export function DayTourExperience({
             ))}
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-            {assets.galeria.map((foto) => (
-              <Image
-                key={foto.src}
-                src={foto.src}
-                alt=""
-                width={foto.width}
-                height={foto.height}
-                sizes="(min-width: 1280px) 300px, (min-width: 640px) 45vw, 100vw"
-                className="h-56 w-full rounded-card object-cover"
-              />
-            ))}
-          </div>
+          {/* Mesma galeria do Vale do Pati: foto grande + duas ao lado, lightbox com
+              todas. No desktop a coluna estica até a altura do texto ao lado. */}
+          <SobreGallery
+            images={assets.galeria.map((foto, i) => ({
+              src: foto.src,
+              // Com uma foto por parada, o nome da parada descreve a foto.
+              alt: c.itinerario.dias?.length === assets.galeria.length ? c.itinerario.dias[i].titulo : `${c.meta.title} — ${i + 1}`,
+            }))}
+            maisLabel={MAIS_FOTOS[locale]}
+            ampliarLabel={AMPLIAR[locale]}
+          />
         </Container>
       </Section>
 
@@ -206,7 +224,7 @@ export function DayTourExperience({
         </TrekJourney>
       ) : (
         <>
-          <Section padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
+          <Section id="itinerario" padding="default" container="prose" containerClassName="flex flex-col gap-6" labelledBy="itinerario-heading">
             <Heading id="itinerario-heading" as="h2" size="section">{c.itinerario.titulo}</Heading>
             {c.itinerario.corpo.map((paragrafo) => (
               <Text key={paragrafo} size="base" weight="light" tone="secondary" leading="relaxed" pretty>
