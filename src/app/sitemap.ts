@@ -59,7 +59,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
   entries.push({ url: `${BASE}/nl/privacybeleid` });
   entries.push({ url: `${BASE}/de/datenschutz` });
   entries.push({ url: `${BASE}/pt/torus-festival-chapada-diamantina-2026` });
-  entries.push({ url: `${BASE}/pt/transfer` });
   // As quatro páginas da seção de dicas, em cada idioma. `/dicas` em si só
   // redireciona, então fica de fora.
   for (const locale of LOCALES) {

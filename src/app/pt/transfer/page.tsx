@@ -9,6 +9,8 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: '/pt/transfer' },
+  // Fora do menu e do sitemap por enquanto: página acessível só por link direto.
+  robots: { index: false, follow: true },
   openGraph: {
     title: `${TITLE} · Mamut Trekking`,
     description: DESCRIPTION,

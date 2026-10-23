@@ -54,7 +54,6 @@ export const CHROME: Record<Locale, ChromeContent> = {
     nav: [
       { label: 'Aventuras', href: '/pt/aventuras', children: [{ label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' }] },
       { label: 'Grupos', mobileLabel: 'Calendário e grupos', href: '/pt/calendario-e-grupos' },
-      { label: 'Transfer', href: '/pt/transfer' },
       { label: 'Quem Somos', mobileLabel: 'Quem somos', href: '/pt/sobre' },
       { label: 'Manifesto', href: '/pt/manifesto' },
       { label: 'Dicas', mobileLabel: 'Dicas', href: '/pt/dicas', children: [{ label: 'Transfer Salvador × Lençóis', href: '/pt/transfer-salvador-para-lencois-chapada-diamantina' }] },
@@ -78,7 +77,6 @@ export const CHROME: Record<Locale, ChromeContent> = {
           links: [
             { label: 'Roteiros', href: '/pt/aventuras' },
             { label: 'Próximas saídas', href: '/pt/calendario-e-grupos' },
-            { label: 'Transfer', href: '/pt/transfer' },
             { label: 'Vale do Pati', href: '/pt/aventuras/vale-do-pati-03-dias' },
             { label: 'Como se preparar', href: '/pt/dicas' },
             { label: 'Transfer Salvador × Lençóis', href: '/pt/transfer-salvador-para-lencois-chapada-diamantina' },

@@ -162,7 +162,7 @@ function TransferHero() {
           <Heading as="h1" size="hero" balance className="max-w-220">
             A estrada também é
             <br />
-            parte da jornada <span className="text-[var(--headline-accent)]">3 Dias.</span>
+            parte da <span className="text-[var(--headline-accent)]">jornada.</span>
           </Heading>
           <Text
             size="lg"
